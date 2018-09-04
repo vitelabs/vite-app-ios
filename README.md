@@ -1,2 +1,2 @@
-# vite-wallet-ios
-Vite Waller for iOS
+# vite-app-ios
+Vite App for iOS
