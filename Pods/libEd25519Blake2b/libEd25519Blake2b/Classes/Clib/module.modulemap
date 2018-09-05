@@ -1,4 +1,0 @@
-module ClibEd25519Blake2b {
-    header "test.h"
-    export *
-}
