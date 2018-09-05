@@ -145,6 +145,7 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/APIKit/APIKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JSONRPCKit/JSONRPCKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework"
@@ -153,12 +154,19 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/QRCodeReaderViewController/QRCodeReaderViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Result/Result.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Vite-keystore/Vite_keystore.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/libEd25519Blake2b/libEd25519Blake2b.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/APIKit/APIKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JSONRPCKit/JSONRPCKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework"
@@ -167,8 +175,14 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/QRCodeReaderViewController/QRCodeReaderViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Result/Result.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Vite-keystore/Vite_keystore.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/libEd25519Blake2b/libEd25519Blake2b.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

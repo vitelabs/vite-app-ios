@@ -11,7 +11,16 @@
 		1FCD87D2C89D50D6F05BCA86 /* Pods_ViteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9ECCAAC94107661B825DB36 /* Pods_ViteTests.framework */; };
 		4C0024E421258005001DF390 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0024E321258005001DF390 /* R.generated.swift */; };
 		4C0024E821259DD6001DF390 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0024E721259DD6001DF390 /* HomeViewController.swift */; };
+		4C105EBC213FCA7400D483C6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EBB213FCA7400D483C6 /* Colors.swift */; };
+		4C105EBF213FCAD500D483C6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EBE213FCAD500D483C6 /* UIColor.swift */; };
+		4C105EC1213FCB3700D483C6 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EC0213FCB3700D483C6 /* AppStyle.swift */; };
+		4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EC2213FE73A00D483C6 /* LocalizationService.swift */; };
+		4C105EC5213FEFF800D483C6 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EC4213FEFF800D483C6 /* NotificationName.swift */; };
+		4C105EC7213FF3DC00D483C6 /* SettingDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EC6213FF3DC00D483C6 /* SettingDataService.swift */; };
+		4C105EC9213FF45A00D483C6 /*  Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EC8213FF45A00D483C6 /*  Language.swift */; };
 		4C1FF4F0212A74730055067D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
+		4C4C9D6E213EA540005542F8 /* BackupMnemonicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4C9D6D213EA540005542F8 /* BackupMnemonicViewController.swift */; };
+		4C4C9D71213F6F5D005542F8 /* BackupMnemonicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4C9D70213F6F5D005542F8 /* BackupMnemonicVM.swift */; };
 		4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
 		4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE42452124553B0080E92B /* AppDelegate.swift */; };
 		4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCE424C2124553C0080E92B /* Assets.xcassets */; };
@@ -41,8 +50,17 @@
 		4C0024E221257CD9001DF390 /* Vite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vite.entitlements; sourceTree = "<group>"; };
 		4C0024E321258005001DF390 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		4C0024E721259DD6001DF390 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4C105EBB213FCA7400D483C6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		4C105EBE213FCAD500D483C6 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		4C105EC0213FCB3700D483C6 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
+		4C105EC2213FE73A00D483C6 /* LocalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationService.swift; sourceTree = "<group>"; };
+		4C105EC4213FEFF800D483C6 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		4C105EC6213FF3DC00D483C6 /* SettingDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDataService.swift; sourceTree = "<group>"; };
+		4C105EC8213FF45A00D483C6 /*  Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " Language.swift"; sourceTree = "<group>"; };
 		4C1FF4F1212A74730055067D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4C1FF4F4212A76410055067D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4C4C9D6D213EA540005542F8 /* BackupMnemonicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupMnemonicViewController.swift; sourceTree = "<group>"; };
+		4C4C9D70213F6F5D005542F8 /* BackupMnemonicVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupMnemonicVM.swift; sourceTree = "<group>"; };
 		4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CCE42422124553B0080E92B /* Vite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCE42452124553B0080E92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,61 +124,12 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		4C0024D921257692001DF390 /* Business */ = {
+		4C105EBD213FCABB00D483C6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4C0024DA212576AE001DF390 /* Welcome */,
+				4C105EBE213FCAD500D483C6 /* UIColor.swift */,
 			);
-			path = Business;
-			sourceTree = "<group>";
-		};
-		4C0024DA212576AE001DF390 /* Welcome */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Welcome;
-			sourceTree = "<group>";
-		};
-		4C0024DC21257BBA001DF390 /* Style */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Style;
-			sourceTree = "<group>";
-		};
-		4C0024DD21257BBF001DF390 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
-		4C0024DE21257BC4001DF390 /* UGCKit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UGCKit;
-			sourceTree = "<group>";
-		};
-		4C0024DF21257BC9001DF390 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		4C0024E021257BD0001DF390 /* Vendors */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vendors;
-			sourceTree = "<group>";
-		};
-		4C0024E121257BD5001DF390 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Domain;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4C1FF4EC212A73FB0055067D /* Resource */ = {
@@ -177,6 +146,80 @@
 				4C1FF4F2212A74730055067D /* Localizable.strings */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		4C4C9D65213E9629005542F8 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				4C4C9D66213E9662005542F8 /* Mnemonic */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		4C4C9D66213E9662005542F8 /* Mnemonic */ = {
+			isa = PBXGroup;
+			children = (
+				4C4C9D6F213F6F44005542F8 /* VM */,
+				4C4C9D6D213EA540005542F8 /* BackupMnemonicViewController.swift */,
+			);
+			path = Mnemonic;
+			sourceTree = "<group>";
+		};
+		4C4C9D67213E96EC005542F8 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				4C105EC8213FF45A00D483C6 /*  Language.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		4C4C9D68213E96EC005542F8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4C105EC2213FE73A00D483C6 /* LocalizationService.swift */,
+				4C105EC4213FEFF800D483C6 /* NotificationName.swift */,
+				4C105EC6213FF3DC00D483C6 /* SettingDataService.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4C4C9D69213E96EC005542F8 /* UGCKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UGCKit;
+			sourceTree = "<group>";
+		};
+		4C4C9D6A213E96EC005542F8 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				4C105EBD213FCABB00D483C6 /* Extensions */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		4C4C9D6B213E96EC005542F8 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				4C105EBB213FCA7400D483C6 /* Colors.swift */,
+				4C105EC0213FCB3700D483C6 /* AppStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		4C4C9D6C213E96EC005542F8 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		4C4C9D6F213F6F44005542F8 /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				4C4C9D70213F6F5D005542F8 /* BackupMnemonicVM.swift */,
+			);
+			path = VM;
 			sourceTree = "<group>";
 		};
 		4CCE42392124553B0080E92B = {
@@ -205,13 +248,13 @@
 			isa = PBXGroup;
 			children = (
 				4C0024E221257CD9001DF390 /* Vite.entitlements */,
-				4C0024E121257BD5001DF390 /* Domain */,
-				4C0024E021257BD0001DF390 /* Vendors */,
-				4C0024DF21257BC9001DF390 /* Components */,
-				4C0024DE21257BC4001DF390 /* UGCKit */,
-				4C0024DD21257BBF001DF390 /* Foundation */,
-				4C0024DC21257BBA001DF390 /* Style */,
-				4C0024D921257692001DF390 /* Business */,
+				4C4C9D68213E96EC005542F8 /* Components */,
+				4C4C9D67213E96EC005542F8 /* Domain */,
+				4C4C9D6A213E96EC005542F8 /* Foundation */,
+				4C4C9D6B213E96EC005542F8 /* Style */,
+				4C4C9D69213E96EC005542F8 /* UGCKit */,
+				4C4C9D6C213E96EC005542F8 /* Vendors */,
+				4C4C9D65213E9629005542F8 /* Business */,
 				4CCE42452124553B0080E92B /* AppDelegate.swift */,
 				4C0024E721259DD6001DF390 /* HomeViewController.swift */,
 				4C0024E321258005001DF390 /* R.generated.swift */,
@@ -327,6 +370,9 @@
 					4CCE42412124553B0080E92B = {
 						CreatedOnToolsVersion = 9.4.1;
 						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -428,6 +474,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vite/Pods-Vite-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/APIKit/APIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONRPCKit/JSONRPCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
@@ -436,13 +483,20 @@
 				"${BUILT_PRODUCTS_DIR}/QRCodeReaderViewController/QRCodeReaderViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Vite-keystore/Vite_keystore.framework",
+				"${BUILT_PRODUCTS_DIR}/libEd25519Blake2b/libEd25519Blake2b.framework",
+				"${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework",
+				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONRPCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
@@ -451,8 +505,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReaderViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vite_keystore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libEd25519Blake2b.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/scrypt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -520,9 +580,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C4C9D6E213EA540005542F8 /* BackupMnemonicViewController.swift in Sources */,
+				4C105EBF213FCAD500D483C6 /* UIColor.swift in Sources */,
+				4C105EC9213FF45A00D483C6 /*  Language.swift in Sources */,
+				4C105EBC213FCA7400D483C6 /* Colors.swift in Sources */,
+				4C105EC5213FEFF800D483C6 /* NotificationName.swift in Sources */,
+				4C105EC1213FCB3700D483C6 /* AppStyle.swift in Sources */,
+				4C105EC7213FF3DC00D483C6 /* SettingDataService.swift in Sources */,
 				4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */,
 				4C0024E421258005001DF390 /* R.generated.swift in Sources */,
 				4C0024E821259DD6001DF390 /* HomeViewController.swift in Sources */,
+				4C4C9D71213F6F5D005542F8 /* BackupMnemonicVM.swift in Sources */,
+				4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

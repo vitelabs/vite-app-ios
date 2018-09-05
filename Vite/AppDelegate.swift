@@ -14,8 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        _ = SettingDataService.sharedInstance.getCurrentLanguage()
+
+
         let rootVC = HomeViewController()
-        window = UIWindow.init(frame:UIScreen.main.bounds)
+        window = UIWindow.init(frame: UIScreen.main.bounds)
         let nav = UINavigationController.init(rootViewController: rootVC)
 
         window?.rootViewController = nav

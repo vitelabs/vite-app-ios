@@ -1,0 +1,6 @@
+framework module libEd25519Blake2b {
+  umbrella header "libEd25519Blake2b-umbrella.h"
+
+  export *
+  module * { export * }
+}

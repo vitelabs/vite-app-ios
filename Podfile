@@ -5,6 +5,9 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'Vite' do
   use_frameworks!
 
+  #vite kit
+  pod 'Vite-keystore', :path => '../vite-keystore-ios'
+
   pod 'SnapKit', '~> 4.0.0'
   pod 'BigInt', '~> 3.0'
   pod 'R.swift'
@@ -16,6 +19,9 @@ target 'Vite' do
   pod 'QRCodeReaderViewController', :git=>'https://github.com/yannickl/QRCodeReaderViewController.git', :branch=>'master'
   pod 'KeychainSwift'
   pod 'SwiftLint'
+
+pod 'RxSwift',    '~> 4.0'
+pod 'RxCocoa',    '~> 4.0'
 
 
   target 'ViteTests' do
