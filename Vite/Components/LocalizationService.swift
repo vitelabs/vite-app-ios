@@ -8,7 +8,7 @@
 
 import UIKit
 
-func LocalizedString(_ key: String, comment: String) -> String {
+func LocalizationStr(_ key: String) -> String {
     return LocalizationService.sharedInstance.localizedStringForKey(key)
 }
 

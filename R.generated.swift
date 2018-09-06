@@ -88,8 +88,42 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 0 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 3 localization keys.
     struct localizable {
+      /// en translation: Cancel
+      /// 
+      /// Locales: en, zh-Hans
+      static let cancel = Rswift.StringResource(key: "Cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: create account
+      /// 
+      /// Locales: en, zh-Hans
+      static let createAccount = Rswift.StringResource(key: "create account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: import account
+      /// 
+      /// Locales: en, zh-Hans
+      static let importAccount = Rswift.StringResource(key: "import account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      
+      /// en translation: Cancel
+      /// 
+      /// Locales: en, zh-Hans
+      static func cancel(_: Void = ()) -> String {
+        return NSLocalizedString("Cancel", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: create account
+      /// 
+      /// Locales: en, zh-Hans
+      static func createAccount(_: Void = ()) -> String {
+        return NSLocalizedString("create account", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: import account
+      /// 
+      /// Locales: en, zh-Hans
+      static func importAccount(_: Void = ()) -> String {
+        return NSLocalizedString("import account", bundle: R.hostingBundle, comment: "")
+      }
+      
       fileprivate init() {}
     }
     

@@ -12,4 +12,3 @@ extension Notification.Name {
     // Need to update UI
     static let languageChanged = NSNotification.Name(rawValue: "ViteAPPLanguageChanged")
 }
-
