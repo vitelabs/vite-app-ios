@@ -16,13 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         _ = SettingDataService.sharedInstance.getCurrentLanguage()
 
+        #if true
         let rootVC = LoginViewController()
-        window = UIWindow.init(frame: UIScreen.main.bounds)
-        let nav = UINavigationController.init(rootViewController: rootVC)
+        rootVC.automaticallyShowDismissButton = false
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let nav = BaseNavigationController(rootViewController: rootVC)
 
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
-
+        #else
+        let rootVC = HomeViewController()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = rootVC
+        window?.makeKeyAndVisible()
+        #endif
         return true
     }
 

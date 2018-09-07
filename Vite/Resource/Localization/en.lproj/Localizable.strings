@@ -12,3 +12,7 @@
 /* Login */
 "create account" = "create account";
 "import account" = "import account";
+
+/* Home */
+"tabbar.item.title.wallet" = "Wallet";
+"tabbar.item.title.my" = "My";

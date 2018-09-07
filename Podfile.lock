@@ -50,6 +50,7 @@ PODS:
   - SipHash (1.2.2)
   - SnapKit (4.0.0)
   - SwiftLint (0.27.0)
+  - Then (2.3.0)
   - Vite-keystore (0.0.1):
     - BigInt (~> 3.0)
     - CryptoSwift (~> 0.11)
@@ -76,6 +77,7 @@ DEPENDENCIES:
   - RxSwift (~> 4.0)
   - SnapKit (~> 4.0.0)
   - SwiftLint
+  - Then
   - Vite-keystore (from `../vite-keystore-ios`)
 
 SPEC REPOS:
@@ -106,6 +108,7 @@ SPEC REPOS:
     - SipHash
     - SnapKit
     - SwiftLint
+    - Then
 
 EXTERNAL SOURCES:
   QRCodeReaderViewController:
@@ -147,8 +150,9 @@ SPEC CHECKSUMS:
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
+  Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
   Vite-keystore: a5eeb16b6b1d54404ecbf44c251bd90e48d393e2
 
-PODFILE CHECKSUM: 560f50774fa12a19bcb0ca62b823c0eaec819a8c
+PODFILE CHECKSUM: f582757133af889cb952e57f564aab06c5971593
 
 COCOAPODS: 1.5.3

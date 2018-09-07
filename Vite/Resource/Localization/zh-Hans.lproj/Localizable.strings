@@ -11,3 +11,7 @@
 /* Login */
 "create account" = "创建账户";
 "import account" = "导入账户";
+
+/* Home */
+"tabbar.item.title.wallet" = "钱包";
+"tabbar.item.title.my" = "我";
