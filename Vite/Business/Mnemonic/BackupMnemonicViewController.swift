@@ -13,38 +13,6 @@ import Vite_keystore
 class BackupMnemonicViewController: UIViewController {
     fileprivate var viewModel: BackupMnemonicVM
 
-    lazy var afreshMnemonicBtn: UIButton = {
-        let afreshMnemonicBtn = UIButton()
-        afreshMnemonicBtn.setTitle("重新生成助记词", for: .normal)
-        afreshMnemonicBtn.setTitleColor(.black, for: .normal)
-        afreshMnemonicBtn.backgroundColor = .orange
-        afreshMnemonicBtn.addTarget(self, action: #selector(afreshMnemonicBtnAction), for: .touchUpInside)
-        return afreshMnemonicBtn
-    }()
-
-    lazy var nextMnemonicBtn: UIButton = {
-        let nextMnemonicBtn = UIButton()
-        nextMnemonicBtn.setTitle("助记词已备份", for: .normal)
-        nextMnemonicBtn.setTitleColor(.black, for: .normal)
-        nextMnemonicBtn.backgroundColor = .orange
-        nextMnemonicBtn.addTarget(self, action: #selector(nextMnemonicBtnAction), for: .touchUpInside)
-        return nextMnemonicBtn
-    }()
-
-    lazy var tipLab: UILabel = {
-       let tipLab =  UILabel()
-        tipLab.text = self.wordList
-        tipLab.numberOfLines = 0
-        tipLab.textColor = .black
-        return tipLab
-    }()
-
-    lazy var wordList: String = {
-        var wordList =  String()
-        wordList =  Mnemonic.randomGenerator(strength: .strong, language: .english)
-        return wordList
-    }()
-
     init() {
         self.viewModel = BackupMnemonicVM.init()
         super.init(nibName: nil, bundle: nil)
@@ -56,23 +24,92 @@ class BackupMnemonicViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self._setupView()
         self._bindViewModel()
-
-        self.title = "备份钱包助记词"
     }
 
-    private func _bindViewModel() {
+    lazy var tipTitleLab: UILabel = {
+        let tipTitleLab = UILabel()
+        tipTitleLab.textAlignment = .center
+        tipTitleLab.numberOfLines = 0
+        tipTitleLab.font =  AppStyle.descWord.font
+        tipTitleLab.textColor  = AppStyle.descWord.textColor
+        tipTitleLab.text =  R.string.localizable.mnemonicBackupPageTipTitle.key.localized()
+        return tipTitleLab
+    }()
 
+    lazy var tipContentTitleLab: UILabel = {
+        let tipContentTitleLab = UILabel()
+        tipContentTitleLab.textAlignment = .left
+        tipContentTitleLab.font =  AppStyle.descWord.font
+        tipContentTitleLab.textColor  = AppStyle.descWord.textColor
+        tipContentTitleLab.text =  R.string.localizable.mnemonicBackupPageTitle.key.localized()
+        return tipContentTitleLab
+    }()
+
+    lazy var tipContentLab: UILabel = {
+        let tipContentLab =  UILabel()
+        tipContentLab.numberOfLines = 0
+        tipContentLab.textColor = .black
+        return tipContentLab
+    }()
+
+    lazy var afreshMnemonicBtn: UIButton = {
+        let afreshMnemonicBtn = UIButton()
+
+        afreshMnemonicBtn.setTitle(R.string.localizable.mnemonicBackupPageTipAnewBtnTitle.key.localized(), for: .normal)
+        afreshMnemonicBtn.setTitleColor(.black, for: .normal)
+        afreshMnemonicBtn.backgroundColor = .orange
+        afreshMnemonicBtn.addTarget(self, action: #selector(afreshMnemonicBtnAction), for: .touchUpInside)
+        return afreshMnemonicBtn
+    }()
+
+    lazy var nextMnemonicBtn: UIButton = {
+        let nextMnemonicBtn = UIButton()
+        nextMnemonicBtn.setTitle(R.string.localizable.mnemonicBackupPageTipNextBtnTitle.key.localized(), for: .normal)
+        nextMnemonicBtn.setTitleColor(.black, for: .normal)
+        nextMnemonicBtn.backgroundColor = .orange
+        nextMnemonicBtn.addTarget(self, action: #selector(nextMnemonicBtnAction), for: .touchUpInside)
+        return nextMnemonicBtn
+    }()
+}
+
+extension BackupMnemonicViewController {
+    private func _bindViewModel() {
+        _ = self.viewModel.mnemonicWordsStr.asObservable().bind(to: self.tipContentLab.rx.text)
     }
 
     private func _setupView() {
         self.view.backgroundColor = .white
+        self.title = R.string.localizable.mnemonicBackupPageTitle.key.localized()
 
         self._addViewConstraint()
     }
     private func _addViewConstraint() {
-        self.view.backgroundColor = .white
+        self.view.addSubview(self.tipTitleLab)
+        self.tipTitleLab.snp.makeConstraints { (make) -> Void in
+            make.width.equalTo(200)
+            make.height.equalTo(80)
+            make.centerX.equalTo(self.view)
+            make.top.equalTo(self.view).offset(30+64)
+        }
+
+        self.view.addSubview(self.tipContentTitleLab)
+        self.tipContentTitleLab.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(30)
+            make.left.equalTo(self.view).offset(30)
+            make.top.equalTo(self.tipTitleLab.snp.bottom).offset(30)
+        }
+
+        self.view.addSubview(self.tipContentLab)
+        self.tipContentLab.snp.makeConstraints { (make) -> Void in
+            make.width.equalTo(200)
+            make.height.equalTo(200)
+            make.centerX.equalTo(self.view)
+            make.top.equalTo(self.tipContentTitleLab.snp.bottom).offset(10)
+        }
+
         self.view.addSubview(self.afreshMnemonicBtn)
         self.afreshMnemonicBtn.snp.makeConstraints { (make) -> Void in
             make.width.equalTo(130)
@@ -88,22 +125,14 @@ class BackupMnemonicViewController: UIViewController {
             make.right.equalTo(self.view).offset(-30)
             make.bottom.equalTo(self.view).offset(-100)
         }
-
-        self.view.addSubview(self.tipLab)
-        self.tipLab.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(200)
-            make.height.equalTo(200)
-            make.centerX.equalTo(self.view)
-            make.top.equalTo(self.view).offset(100)
-        }
     }
 
     @objc func afreshMnemonicBtnAction() {
-        wordList = Mnemonic.randomGenerator(strength: .strong, language: .english)
-        tipLab.text = wordList
+        _ = self.viewModel.fetchNewMnemonicWords()
     }
 
     @objc func nextMnemonicBtnAction() {
-
+        let vc = AffirmInputMnemonicViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

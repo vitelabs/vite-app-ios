@@ -20,10 +20,6 @@ final class CreateWalletAccountVM: NSObject {
         self.initBinds()
     }
 
-    deinit {
-
-    }
-
     func initBinds() {
         NotificationCenter.default.rx
             .notification(.languageChanged)
@@ -37,4 +33,3 @@ final class CreateWalletAccountVM: NSObject {
             }).disposed(by: rx.disposeBag)
     }
 }
-

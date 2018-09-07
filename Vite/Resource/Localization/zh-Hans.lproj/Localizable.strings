@@ -7,6 +7,9 @@
 */
 /* App */
 "Cancel" = "取消";
+"Finish" = "完成";
+"Yes" = "是";
+"No" = "否";
 
 /* Login */
 "create account" = "创建账户";
@@ -23,6 +26,16 @@
 "create.page.tip.content" = "钱包账户重要提示文案订单发的发送到发送到发送到发发送发送地方少点";
 "create.page.tip.nextBtn" = "备份助记词";
 
+/* mnemonic */
+"mnemonic.backup.page.title" = "备份助记词";
+"mnemonic.backup.page.tip.title" = "您只有通过助记词来恢复您的账户，如助记词丢失，您的数字资产将无法找回";
+"mnemonic.backup.page.tip.lab.title" = "助记词";
+"mnemonic.backup.page.tip.anewBtn.title" = "重新生成助记词";
+"mnemonic.backup.page.tip.nextBtn.title" = "助记词已备份";
+
+"mnemonic.affirm.page.title" = "确认输入助记词";
+"mnemonic.affirm.page.tip.title" = "按顺序选择助记词输入";
+"mnemonic.affirm.alter.title" = "返回会重新生成助记词，是否返回";
 
 /* import */
 "import page title" = "输入您的助记词";
