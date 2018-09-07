@@ -32,6 +32,19 @@
 		4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCE424C2124553C0080E92B /* Assets.xcassets */; };
 		4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE425A2124553C0080E92B /* ViteTests.swift */; };
 		4CCE42662124553C0080E92B /* ViteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE42652124553C0080E92B /* ViteUITests.swift */; };
+		8E6F3DF82140FE99003CDFC2 /* RPCServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */; };
+		8E6F3DFB2140FFEC003CDFC2 /* ViteServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */; };
+		8E6F3DFD2141012A003CDFC2 /* SnapshotChainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DFC2141012A003CDFC2 /* SnapshotChainProvider.swift */; };
+		8E6F3DFF2141025B003CDFC2 /* SnapshotChainHeightRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DFE2141025B003CDFC2 /* SnapshotChainHeightRequest.swift */; };
+		8E6F3E0121410424003CDFC2 /* RPCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0021410424003CDFC2 /* RPCError.swift */; };
+		8E6F3E04214115ED003CDFC2 /* AccountProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E03214115ED003CDFC2 /* AccountProvider.swift */; };
+		8E6F3E0721411650003CDFC2 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0621411650003CDFC2 /* Transaction.swift */; };
+		8E6F3E0A2141199B003CDFC2 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E092141199B003CDFC2 /* Address.swift */; };
+		8E6F3E0C21412150003CDFC2 /* GetTransactionsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0B21412150003CDFC2 /* GetTransactionsRequest.swift */; };
+		8E6F3E0E2141244F003CDFC2 /* BalanceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0D2141244F003CDFC2 /* BalanceType.swift */; };
+		8E6F3E102141263A003CDFC2 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0F2141263A003CDFC2 /* Balance.swift */; };
+		8E6F3E1221421A4F003CDFC2 /* JSONTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E1121421A4F003CDFC2 /* JSONTransformer.swift */; };
+		8E6F3E14214220DF003CDFC2 /* ViteNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E13214220DF003CDFC2 /* ViteNetworkTests.swift */; };
 		D273062C8B1A826F6BC2E810 /* Pods_ViteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EF60202B89DEC8B075E04F /* Pods_ViteUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +99,19 @@
 		4CCE42672124553C0080E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C959221E3DAE4FAF07176D1 /* Pods-Vite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.debug.xcconfig"; sourceTree = "<group>"; };
+		8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCServer.swift; sourceTree = "<group>"; };
+		8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteServiceRequest.swift; sourceTree = "<group>"; };
+		8E6F3DFC2141012A003CDFC2 /* SnapshotChainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotChainProvider.swift; sourceTree = "<group>"; };
+		8E6F3DFE2141025B003CDFC2 /* SnapshotChainHeightRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotChainHeightRequest.swift; sourceTree = "<group>"; };
+		8E6F3E0021410424003CDFC2 /* RPCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCError.swift; sourceTree = "<group>"; };
+		8E6F3E03214115ED003CDFC2 /* AccountProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProvider.swift; sourceTree = "<group>"; };
+		8E6F3E0621411650003CDFC2 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		8E6F3E092141199B003CDFC2 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		8E6F3E0B21412150003CDFC2 /* GetTransactionsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionsRequest.swift; sourceTree = "<group>"; };
+		8E6F3E0D2141244F003CDFC2 /* BalanceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceType.swift; sourceTree = "<group>"; };
+		8E6F3E0F2141263A003CDFC2 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
+		8E6F3E1121421A4F003CDFC2 /* JSONTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTransformer.swift; sourceTree = "<group>"; };
+		8E6F3E13214220DF003CDFC2 /* ViteNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteNetworkTests.swift; sourceTree = "<group>"; };
 		90D19E345292B3451EF0C77B /* Pods-ViteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9CDD7A55935285C97D7AB255 /* Pods-ViteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.release.xcconfig"; sourceTree = "<group>"; };
 		B5C0FE724D993EC85BD39D8F /* Pods-Vite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.release.xcconfig"; sourceTree = "<group>"; };
@@ -313,6 +339,8 @@
 				4C4C9D69213E96EC005542F8 /* UGCKit */,
 				4C4C9D6C213E96EC005542F8 /* Vendors */,
 				4C4C9D65213E9629005542F8 /* Business */,
+				8E6F3DF92140FEA5003CDFC2 /* Network */,
+				8E6F3E0821411664003CDFC2 /* Models */,
 				4CCE42452124553B0080E92B /* AppDelegate.swift */,
 				4C0024E721259DD6001DF390 /* HomeViewController.swift */,
 				4C0024E321258005001DF390 /* R.generated.swift */,
@@ -328,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				4CCE425A2124553C0080E92B /* ViteTests.swift */,
+				8E6F3E13214220DF003CDFC2 /* ViteNetworkTests.swift */,
 				4CCE425C2124553C0080E92B /* Info.plist */,
 			);
 			path = ViteTests;
@@ -350,6 +379,48 @@
 				E5EF60202B89DEC8B075E04F /* Pods_ViteUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8E6F3DF92140FEA5003CDFC2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8E6F3E0021410424003CDFC2 /* RPCError.swift */,
+				8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */,
+				8E6F3E1121421A4F003CDFC2 /* JSONTransformer.swift */,
+				8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */,
+				8E6F3E05214115F6003CDFC2 /* Account */,
+				8E6F3E0221410D65003CDFC2 /* SnapshotChain */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8E6F3E0221410D65003CDFC2 /* SnapshotChain */ = {
+			isa = PBXGroup;
+			children = (
+				8E6F3DFC2141012A003CDFC2 /* SnapshotChainProvider.swift */,
+				8E6F3DFE2141025B003CDFC2 /* SnapshotChainHeightRequest.swift */,
+			);
+			path = SnapshotChain;
+			sourceTree = "<group>";
+		};
+		8E6F3E05214115F6003CDFC2 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				8E6F3E03214115ED003CDFC2 /* AccountProvider.swift */,
+				8E6F3E0B21412150003CDFC2 /* GetTransactionsRequest.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		8E6F3E0821411664003CDFC2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8E6F3E0D2141244F003CDFC2 /* BalanceType.swift */,
+				8E6F3E0621411650003CDFC2 /* Transaction.swift */,
+				8E6F3E092141199B003CDFC2 /* Address.swift */,
+				8E6F3E0F2141263A003CDFC2 /* Balance.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,6 +602,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vite/Pods-Vite-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/APIKit/APIKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
@@ -538,7 +610,9 @@
 				"${BUILT_PRODUCTS_DIR}/JSONRPCKit/JSONRPCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReaderViewController/QRCodeReaderViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
@@ -550,12 +624,14 @@
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Vite-keystore/Vite_keystore.framework",
+				"${BUILT_PRODUCTS_DIR}/libEd25519Blake2b/libEd25519Blake2b.framework",
 				"${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APIKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
@@ -563,7 +639,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONRPCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReaderViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
@@ -575,6 +653,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vite_keystore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libEd25519Blake2b.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/scrypt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
 			);
@@ -645,23 +724,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C105ECF2140DA5C00D483C6 /* LoginVM.swift in Sources */,
+				8E6F3DFF2141025B003CDFC2 /* SnapshotChainHeightRequest.swift in Sources */,
 				4C4C9D6E213EA540005542F8 /* BackupMnemonicViewController.swift in Sources */,
 				4C105EBF213FCAD500D483C6 /* UIColor.swift in Sources */,
 				4C105EC9213FF45A00D483C6 /*  Language.swift in Sources */,
+				8E6F3E04214115ED003CDFC2 /* AccountProvider.swift in Sources */,
+				8E6F3E1221421A4F003CDFC2 /* JSONTransformer.swift in Sources */,
+				8E6F3DFB2140FFEC003CDFC2 /* ViteServiceRequest.swift in Sources */,
 				4C105EBC213FCA7400D483C6 /* Colors.swift in Sources */,
+				8E6F3E102141263A003CDFC2 /* Balance.swift in Sources */,
 				4C105EC5213FEFF800D483C6 /* NotificationName.swift in Sources */,
 				4C105EC1213FCB3700D483C6 /* AppStyle.swift in Sources */,
 				4C105EC7213FF3DC00D483C6 /* SettingDataService.swift in Sources */,
 				4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */,
+				8E6F3E0721411650003CDFC2 /* Transaction.swift in Sources */,
+				8E6F3E0E2141244F003CDFC2 /* BalanceType.swift in Sources */,
 				4C0024E421258005001DF390 /* R.generated.swift in Sources */,
 				4C0024E821259DD6001DF390 /* HomeViewController.swift in Sources */,
 				4C84D8FD21415636001B6EBD /* ImportAccountViewController.swift in Sources */,
+				8E6F3E0A2141199B003CDFC2 /* Address.swift in Sources */,
+				8E6F3E0121410424003CDFC2 /* RPCError.swift in Sources */,
+				8E6F3E0C21412150003CDFC2 /* GetTransactionsRequest.swift in Sources */,
+				8E6F3DF82140FE99003CDFC2 /* RPCServer.swift in Sources */,
 				4C4C9D71213F6F5D005542F8 /* BackupMnemonicVM.swift in Sources */,
 				4C105ED12141401100D483C6 /* String.swift in Sources */,
 				4C84D8FF21415643001B6EBD /* CreateWalletAccountViewController.swift in Sources */,
 				4C105ECC2140001100D483C6 /* LoginViewController.swift in Sources */,
 				4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */,
 				4C84D90221422453001B6EBD /* CreateWalletAccountVM.swift in Sources */,
+				8E6F3DFD2141012A003CDFC2 /* SnapshotChainProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +760,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E6F3E14214220DF003CDFC2 /* ViteNetworkTests.swift in Sources */,
 				4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
