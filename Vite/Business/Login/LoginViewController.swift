@@ -42,20 +42,9 @@ class LoginViewController: UIViewController {
     }
 
     private func _bindViewModel() {
-        self.viewModel.createAccountBtnStr.asObservable().subscribe(onNext: { [weak self] (title) in
-            guard let `self` = self else { return }
-            self.createAccountBtn.setTitle(title, for: .normal)
-        }).disposed(by: rx.disposeBag)
-
-        self.viewModel.recoverAccountBtnStr.asObservable().subscribe(onNext: { [weak self] (title) in
-            guard let `self` = self else { return }
-            self.importAccountBtn.setTitle(title, for: .normal)
-        }).disposed(by: rx.disposeBag)
-
-        self.viewModel.changeLanguageBtnStr.asObservable().subscribe(onNext: { [weak self] (title) in
-            guard let `self` = self else { return }
-            self.changeLanguageBtn.setTitle(title, for: .normal)
-        }).disposed(by: rx.disposeBag)
+        _ = self.viewModel.createAccountBtnStr.asObservable().bind(to: self.createAccountBtn.rx.title(for: .normal))
+        _ = self.viewModel.recoverAccountBtnStr.asObservable().bind(to: self.importAccountBtn.rx.title(for: .normal))
+        _ = self.viewModel.changeLanguageBtnStr.asObservable().bind(to: self.changeLanguageBtn.rx.title(for: .normal))
     }
 
     lazy var logoImg: UIImageView = {

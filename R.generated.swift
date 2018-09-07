@@ -88,7 +88,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 9 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 12 localization keys.
     struct localizable {
       /// en translation: Cancel
       /// 
@@ -110,6 +110,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPageTitle = Rswift.StringResource(key: "create.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 备份助记词
+      /// 
+      /// Locales: en, zh-Hans
+      static let createPageTipNextBtn = Rswift.StringResource(key: "create.page.tip.nextBtn", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 备份钱包账户
+      /// 
+      /// Locales: en, zh-Hans
+      static let createPageTipTitle = Rswift.StringResource(key: "create.page.tip.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 请输入6位数字密码
       /// 
       /// Locales: en, zh-Hans
@@ -126,6 +134,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPageTfTitle = Rswift.StringResource(key: "create.page.tf.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 钱包账户重要提示文案订单发的发送到发送到发送到发发送发送地方少点
+      /// 
+      /// Locales: en, zh-Hans
+      static let createPageTipContent = Rswift.StringResource(key: "create.page.tip.content", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation: Cancel
       /// 
@@ -162,6 +174,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("create.page.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 备份助记词
+      /// 
+      /// Locales: en, zh-Hans
+      static func createPageTipNextBtn(_: Void = ()) -> String {
+        return NSLocalizedString("create.page.tip.nextBtn", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 备份钱包账户
+      /// 
+      /// Locales: en, zh-Hans
+      static func createPageTipTitle(_: Void = ()) -> String {
+        return NSLocalizedString("create.page.tip.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 请输入6位数字密码
       /// 
       /// Locales: en, zh-Hans
@@ -188,6 +214,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func createPageTfTitle(_: Void = ()) -> String {
         return NSLocalizedString("create.page.tf.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 钱包账户重要提示文案订单发的发送到发送到发送到发发送发送地方少点
+      /// 
+      /// Locales: en, zh-Hans
+      static func createPageTipContent(_: Void = ()) -> String {
+        return NSLocalizedString("create.page.tip.content", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

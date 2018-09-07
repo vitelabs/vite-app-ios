@@ -33,20 +33,7 @@ class CreateWalletAccountViewController: UIViewController {
     }
 
     private func _bindViewModel() {
-//        self.viewModel.createAccountBtnStr.asObservable().subscribe(onNext: { [weak self] (title) in
-//            guard let `self` = self else { return }
-//            self.createAccountBtn.setTitle(title, for: .normal)
-//        }).disposed(by: rx.disposeBag)
-//
-//        self.viewModel.recoverAccountBtnStr.asObservable().subscribe(onNext: { [weak self] (title) in
-//            guard let `self` = self else { return }
-//            self.importAccountBtn.setTitle(title, for: .normal)
-//        }).disposed(by: rx.disposeBag)
-//
-//        self.viewModel.changeLanguageBtnStr.asObservable().subscribe(onNext: { [weak self] (title) in
-//            guard let `self` = self else { return }
-//            self.changeLanguageBtn.setTitle(title, for: .normal)
-//        }).disposed(by: rx.disposeBag)
+
     }
 
     lazy var walletNameTF: UITextField = {
@@ -174,7 +161,7 @@ extension CreateWalletAccountViewController {
     }
 
     @objc func submitBtnAction() {
-        let backupMnemonicCashVC = BackupMnemonicViewController()
-        self.navigationController?.pushViewController(backupMnemonicCashVC, animated: true)
+        let vc = CreateWalletTipViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

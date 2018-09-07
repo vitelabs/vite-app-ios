@@ -10,7 +10,6 @@ PODS:
   - JSONRPCKit (3.0.0):
     - Result (~> 3.2.0)
   - KeychainSwift (11.0.0)
-  - libEd25519Blake2b (0.0.3)
   - MBProgressHUD (1.1.0)
   - Moya (11.0.2):
     - Moya/Core (= 11.0.2)
@@ -44,7 +43,7 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.2.0)
-  - scrypt (1.5):
+  - scrypt (1.7):
     - CryptoSwift (~> 0.11)
   - secp256k1.swift (0.1.4)
   - SipHash (1.2.2)
@@ -53,7 +52,6 @@ PODS:
   - Vite-keystore (0.0.1):
     - BigInt (~> 3.0)
     - CryptoSwift (~> 0.11)
-    - libEd25519Blake2b
     - scrypt (~> 1.5)
     - secp256k1.swift (~> 0.1.4)
 
@@ -88,7 +86,6 @@ SPEC REPOS:
     - Eureka
     - JSONRPCKit
     - KeychainSwift
-    - libEd25519Blake2b
     - MBProgressHUD
     - Moya
     - "NSObject+Rx"
@@ -128,7 +125,6 @@ SPEC CHECKSUMS:
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
   KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
-  libEd25519Blake2b: a769ffc64de57a389dab7add8fdc77b53ca7b901
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   "NSObject+Rx": 9a5eeff5e08156f849fa973514456f28eef08742
@@ -142,12 +138,12 @@ SPEC CHECKSUMS:
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
   RxGesture: c278eb05b187abd47e11e65464ae4de53ab71d95
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
-  scrypt: 0da45be386be45f857d8545216148e86e753a9a1
+  scrypt: a828bd579086977f6db7f9798d1c6332ccaaed4e
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
-  Vite-keystore: a5eeb16b6b1d54404ecbf44c251bd90e48d393e2
+  Vite-keystore: f504e9c4ec555d1c43b7dcb32a41b3154b243308
 
 PODFILE CHECKSUM: 560f50774fa12a19bcb0ca62b823c0eaec819a8c
 
