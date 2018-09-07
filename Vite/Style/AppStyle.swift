@@ -9,6 +9,8 @@
 import UIKit
 
 enum AppStyle {
+    case inputDescWord
+    case descWord
     case heading
     case headingSemiBold
     case paragraph
@@ -21,6 +23,10 @@ enum AppStyle {
 
     var font: UIFont {
         switch self {
+        case .inputDescWord:
+            return UIFont.systemFont(ofSize: 18, weight: .regular)
+        case .descWord:
+            return UIFont.systemFont(ofSize: 16, weight: .regular)
         case .heading:
             return UIFont.systemFont(ofSize: 18, weight: .regular)
         case .headingSemiBold:
@@ -54,8 +60,10 @@ enum AppStyle {
             return Colors.darkBlue
         case .formHeader:
             return Colors.darkBlue
-        case .collactablesHeader:
+        case .collactablesHeader,.inputDescWord:
             return Colors.darkBlue
+        case .descWord:
+            return Colors.darkGray
         }
     }
 }

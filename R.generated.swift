@@ -88,7 +88,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 3 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 9 localization keys.
     struct localizable {
       /// en translation: Cancel
       /// 
@@ -102,6 +102,30 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importAccount = Rswift.StringResource(key: "import account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 创建
+      /// 
+      /// Locales: en, zh-Hans
+      static let createPageSubmitBtnTitle = Rswift.StringResource(key: "create.page.submit.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 创建钱包账户
+      /// 
+      /// Locales: en, zh-Hans
+      static let createPageTitle = Rswift.StringResource(key: "create.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 请输入6位数字密码
+      /// 
+      /// Locales: en, zh-Hans
+      static let createPagePwTitle = Rswift.StringResource(key: "create.page.pw.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 输入您的助记词
+      /// 
+      /// Locales: en, zh-Hans
+      static let importPageTitle = Rswift.StringResource(key: "import page title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 重复输入密码
+      /// 
+      /// Locales: en, zh-Hans
+      static let createPagePwRepeateTitle = Rswift.StringResource(key: "create.page.pw.repeate.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 钱包账户名
+      /// 
+      /// Locales: en, zh-Hans
+      static let createPageTfTitle = Rswift.StringResource(key: "create.page.tf.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation: Cancel
       /// 
@@ -122,6 +146,48 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func importAccount(_: Void = ()) -> String {
         return NSLocalizedString("import account", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 创建
+      /// 
+      /// Locales: en, zh-Hans
+      static func createPageSubmitBtnTitle(_: Void = ()) -> String {
+        return NSLocalizedString("create.page.submit.btn.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 创建钱包账户
+      /// 
+      /// Locales: en, zh-Hans
+      static func createPageTitle(_: Void = ()) -> String {
+        return NSLocalizedString("create.page.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 请输入6位数字密码
+      /// 
+      /// Locales: en, zh-Hans
+      static func createPagePwTitle(_: Void = ()) -> String {
+        return NSLocalizedString("create.page.pw.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 输入您的助记词
+      /// 
+      /// Locales: en, zh-Hans
+      static func importPageTitle(_: Void = ()) -> String {
+        return NSLocalizedString("import page title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 重复输入密码
+      /// 
+      /// Locales: en, zh-Hans
+      static func createPagePwRepeateTitle(_: Void = ()) -> String {
+        return NSLocalizedString("create.page.pw.repeate.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 钱包账户名
+      /// 
+      /// Locales: en, zh-Hans
+      static func createPageTfTitle(_: Void = ()) -> String {
+        return NSLocalizedString("create.page.tf.title", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

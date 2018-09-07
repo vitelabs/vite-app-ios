@@ -24,6 +24,9 @@
 		4C1FF4F0212A74730055067D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
 		4C4C9D6E213EA540005542F8 /* BackupMnemonicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4C9D6D213EA540005542F8 /* BackupMnemonicViewController.swift */; };
 		4C4C9D71213F6F5D005542F8 /* BackupMnemonicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4C9D70213F6F5D005542F8 /* BackupMnemonicVM.swift */; };
+		4C84D8FD21415636001B6EBD /* ImportAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D8FC21415636001B6EBD /* ImportAccountViewController.swift */; };
+		4C84D8FF21415643001B6EBD /* CreateWalletAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D8FE21415642001B6EBD /* CreateWalletAccountViewController.swift */; };
+		4C84D90221422453001B6EBD /* CreateWalletAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D90121422453001B6EBD /* CreateWalletAccountVM.swift */; };
 		4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
 		4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE42452124553B0080E92B /* AppDelegate.swift */; };
 		4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCE424C2124553C0080E92B /* Assets.xcassets */; };
@@ -67,6 +70,9 @@
 		4C1FF4F4212A76410055067D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4C4C9D6D213EA540005542F8 /* BackupMnemonicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupMnemonicViewController.swift; sourceTree = "<group>"; };
 		4C4C9D70213F6F5D005542F8 /* BackupMnemonicVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupMnemonicVM.swift; sourceTree = "<group>"; };
+		4C84D8FC21415636001B6EBD /* ImportAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAccountViewController.swift; sourceTree = "<group>"; };
+		4C84D8FE21415642001B6EBD /* CreateWalletAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWalletAccountViewController.swift; sourceTree = "<group>"; };
+		4C84D90121422453001B6EBD /* CreateWalletAccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletAccountVM.swift; sourceTree = "<group>"; };
 		4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CCE42422124553B0080E92B /* Vite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCE42452124553B0080E92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +181,8 @@
 		4C4C9D65213E9629005542F8 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4C84D8F921415610001B6EBD /* Create */,
+				4C84D8F821415610001B6EBD /* Import */,
 				4C105ECA213FFFFE00D483C6 /* Login */,
 				4C4C9D66213E9662005542F8 /* Mnemonic */,
 			);
@@ -243,6 +251,31 @@
 			isa = PBXGroup;
 			children = (
 				4C4C9D70213F6F5D005542F8 /* BackupMnemonicVM.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		4C84D8F821415610001B6EBD /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				4C84D8FC21415636001B6EBD /* ImportAccountViewController.swift */,
+			);
+			path = Import;
+			sourceTree = "<group>";
+		};
+		4C84D8F921415610001B6EBD /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				4C84D9002142240C001B6EBD /* VM */,
+				4C84D8FE21415642001B6EBD /* CreateWalletAccountViewController.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		4C84D9002142240C001B6EBD /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				4C84D90121422453001B6EBD /* CreateWalletAccountVM.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -622,10 +655,13 @@
 				4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */,
 				4C0024E421258005001DF390 /* R.generated.swift in Sources */,
 				4C0024E821259DD6001DF390 /* HomeViewController.swift in Sources */,
+				4C84D8FD21415636001B6EBD /* ImportAccountViewController.swift in Sources */,
 				4C4C9D71213F6F5D005542F8 /* BackupMnemonicVM.swift in Sources */,
 				4C105ED12141401100D483C6 /* String.swift in Sources */,
+				4C84D8FF21415643001B6EBD /* CreateWalletAccountViewController.swift in Sources */,
 				4C105ECC2140001100D483C6 /* LoginViewController.swift in Sources */,
 				4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */,
+				4C84D90221422453001B6EBD /* CreateWalletAccountVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,3 +11,14 @@
 /* Login */
 "create account" = "创建账户";
 "import account" = "导入账户";
+
+/* create */
+"create.page.title" = "创建钱包账户";
+"create.page.tf.title" = "钱包账户名";
+"create.page.pw.title" = "请输入6位数字密码";
+"create.page.pw.repeate.title" = "重复输入密码";
+"create.page.submit.btn.title" = "创建";
+
+
+/* import */
+"import page title" = "输入您的助记词";

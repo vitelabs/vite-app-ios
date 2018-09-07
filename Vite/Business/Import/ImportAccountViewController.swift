@@ -1,8 +1,8 @@
 //
-//  LoginViewController.swift
+//  ImportAccountViewController.swift
 //  Vite
 //
-//  Created by Water on 2018/9/5.
+//  Created by Water on 2018/9/6.
 //  Copyright © 2018年 vite labs. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ import RxCocoa
 import RxSwift
 import NSObject_Rx
 
-class LoginViewController: UIViewController {
+class ImportAccountViewController: UIViewController {
 
     fileprivate var viewModel: LoginVM
 
@@ -30,15 +30,6 @@ class LoginViewController: UIViewController {
 
         self._setupView()
         self._bindViewModel()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
     private func _bindViewModel() {
@@ -64,6 +55,8 @@ class LoginViewController: UIViewController {
         logoImg.image =  R.image.launch_screen_logo()
         return logoImg
     }()
+
+    var dd = R.string.localizable.cancel
 
     lazy var createAccountBtn: UIButton = {
         let createAccountBtn = UIButton()
@@ -93,9 +86,10 @@ class LoginViewController: UIViewController {
     }()
 }
 
-extension LoginViewController {
+extension ImportAccountViewController {
     private func _setupView() {
         self.view.backgroundColor = .white
+        self.title = "import page title".localized()
 
         self._addViewConstraint()
     }
@@ -111,16 +105,16 @@ extension LoginViewController {
         self.createAccountBtn.snp.makeConstraints { (make) -> Void in
             make.width.equalTo(100)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view).offset(-150)
-            make.centerX.equalTo(self.view)
+            make.bottom.equalTo(self.view).offset(-30)
+            make.left.equalTo(self.view).offset(30)
         }
 
         self.view.addSubview(self.importAccountBtn)
         self.importAccountBtn.snp.makeConstraints { (make) -> Void in
             make.width.equalTo(100)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view).offset(-80)
-            make.centerX.equalTo(self.view)
+            make.bottom.equalTo(self.view).offset(-30)
+            make.right.equalTo(self.view).offset(-30)
         }
 
         self.view.addSubview(self.changeLanguageBtn)
@@ -133,13 +127,13 @@ extension LoginViewController {
     }
 
     @objc func createAccountBtnAction() {
-        let vc = CreateWalletAccountViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let backupMnemonicCashVC = BackupMnemonicViewController()
+        self.navigationController?.pushViewController(backupMnemonicCashVC, animated: true)
     }
 
     @objc func importAccountBtnAction() {
-        let vc = ImportAccountViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let backupMnemonicCashVC = BackupMnemonicViewController()
+        self.navigationController?.pushViewController(backupMnemonicCashVC, animated: true)
     }
 
     @objc func changeLanguageBtnAction() {
@@ -149,10 +143,12 @@ extension LoginViewController {
         let languages: [Language] = SettingDataService.sharedInstance.getSupportedLanguages()
         for element in languages {
             let action = UIAlertAction(title: element.displayName, style: .destructive, handler: {_ in
-                 _ = SetLanguage(element.name)
+                _ = SetLanguage(element.name)
             })
             alertController.addAction(action)
         }
         self.present(alertController, animated: true, completion: nil)
     }
 }
+
+
