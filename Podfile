@@ -11,22 +11,24 @@ target 'Vite' do
   pod 'SnapKit', '~> 4.0.0'
   pod 'BigInt', '~> 3.0'
   pod 'R.swift'
-  pod 'JSONRPCKit', :git=> 'https://github.com/bricklife/JSONRPCKit.git'
+  pod 'JSONRPCKit' #, :git=> 'https://github.com/bricklife/JSONRPCKit.git'
   pod 'PromiseKit', '~> 6.0'
   pod 'APIKit'
+  pod 'ObjectMapper'
   pod 'Eureka'
   pod 'MBProgressHUD'
   pod 'QRCodeReaderViewController', :git=>'https://github.com/yannickl/QRCodeReaderViewController.git', :branch=>'master'
   pod 'KeychainSwift'
+  pod 'Moya'
   pod 'SwiftLint'
 
 
-    #RX
-    pod 'RxSwift',    '~> 4.0'
-    pod 'RxCocoa'
-    pod 'RxDataSources',    '~> 3.0'
-    pod 'NSObject+Rx'
-    pod 'RxGesture'
+  #RX
+  pod 'RxSwift', '~> 4.0'
+  pod 'RxCocoa'
+  pod 'RxDataSources', '~> 3.0'
+  pod 'NSObject+Rx'
+  pod 'RxGesture'
 
 
   target 'ViteTests' do
