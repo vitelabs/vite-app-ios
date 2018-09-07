@@ -12,7 +12,7 @@ import RxCocoa
 import RxSwift
 import NSObject_Rx
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
 
     fileprivate var viewModel: LoginVM
 

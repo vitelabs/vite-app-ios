@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Vite_keystore
 
-class BackupMnemonicViewController: UIViewController {
+class BackupMnemonicViewController: BaseViewController {
     fileprivate var viewModel: BackupMnemonicVM
 
     lazy var afreshMnemonicBtn: UIButton = {
