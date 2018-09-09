@@ -32,6 +32,7 @@
 		4C84D908214266D2001B6EBD /* AffirmInputMnemonicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D907214266D2001B6EBD /* AffirmInputMnemonicVM.swift */; };
 		4C84D90B21427D8B001B6EBD /* MnemonicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D90A21427D8B001B6EBD /* MnemonicCollectionView.swift */; };
 		4C84D90E21428183001B6EBD /* WordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D90D21428183001B6EBD /* WordCollectionViewCell.swift */; };
+		4C84D9102144F7D8001B6EBD /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D90F2144F7D8001B6EBD /* PasswordInputView.swift */; };
 		4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
 		4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE42452124553B0080E92B /* AppDelegate.swift */; };
 		4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCE424C2124553C0080E92B /* Assets.xcassets */; };
@@ -96,6 +97,7 @@
 		4C84D907214266D2001B6EBD /* AffirmInputMnemonicVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmInputMnemonicVM.swift; sourceTree = "<group>"; };
 		4C84D90A21427D8B001B6EBD /* MnemonicCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicCollectionView.swift; sourceTree = "<group>"; };
 		4C84D90D21428183001B6EBD /* WordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCollectionViewCell.swift; sourceTree = "<group>"; };
+		4C84D90F2144F7D8001B6EBD /* PasswordInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInputView.swift; sourceTree = "<group>"; };
 		4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CCE42422124553B0080E92B /* Vite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCE42452124553B0080E92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 		4C4C9D69213E96EC005542F8 /* UGCKit */ = {
 			isa = PBXGroup;
 			children = (
+				4C84D90F2144F7D8001B6EBD /* PasswordInputView.swift */,
 			);
 			path = UGCKit;
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				4C84D90E21428183001B6EBD /* WordCollectionViewCell.swift in Sources */,
 				4C105ECF2140DA5C00D483C6 /* LoginVM.swift in Sources */,
 				8E6F3DFF2141025B003CDFC2 /* SnapshotChainHeightRequest.swift in Sources */,
+				4C84D9102144F7D8001B6EBD /* PasswordInputView.swift in Sources */,
 				4C4C9D6E213EA540005542F8 /* BackupMnemonicViewController.swift in Sources */,
 				4C105EBF213FCAD500D483C6 /* UIColor.swift in Sources */,
 				4C105EC9213FF45A00D483C6 /*  Language.swift in Sources */,

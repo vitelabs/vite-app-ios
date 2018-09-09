@@ -11,7 +11,17 @@ import RxCocoa
 import RxSwift
 import ReusableKit
 
+private enum Reusable {
+    static let wordCollectionViewCell = ReusableCell<WordCollectionViewCell>()
+}
+
+protocol MnemonicCollectionViewDelegate: class {
+    func chooseWord(isHasSelected: Bool, dataIndex: Int, word: String)
+}
+
 final class MnemonicCollectionView: UIView {
+    var isHasSelected = false
+    weak var delegate: MnemonicCollectionViewDelegate?
 
     var dataList: [String] = [] {
         didSet {
@@ -19,9 +29,10 @@ final class MnemonicCollectionView: UIView {
         }
     }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(isHasSelected: Bool) {
+        super.init(frame: .zero)
 
+        self.isHasSelected = isHasSelected
         self.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
@@ -70,9 +81,7 @@ extension MnemonicCollectionView: UICollectionViewDataSource {
 }
 
 extension MnemonicCollectionView: UICollectionViewDelegate {
-
-}
-
-fileprivate enum Reusable {
-    static let wordCollectionViewCell = ReusableCell<WordCollectionViewCell>()
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.chooseWord(isHasSelected: isHasSelected, dataIndex: indexPath.row, word: dataList[indexPath.row])
+    }
 }

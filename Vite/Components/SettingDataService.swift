@@ -46,4 +46,3 @@ class SettingDataService {
         return Language(name: "en")
     }
 }
-

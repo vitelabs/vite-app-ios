@@ -14,7 +14,7 @@ class BackupMnemonicViewController: UIViewController {
     fileprivate var viewModel: BackupMnemonicVM
 
     init() {
-        self.viewModel = BackupMnemonicVM.init()
+        self.viewModel = BackupMnemonicVM()
         super.init(nibName: nil, bundle: nil)
     }
 

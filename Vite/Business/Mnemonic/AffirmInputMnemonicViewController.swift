@@ -10,11 +10,9 @@ import UIKit
 import SnapKit
 import RxDataSources
 
-class AffirmInputMnemonicViewController: UIViewController {
+class AffirmInputMnemonicViewController: UIViewController, MnemonicCollectionViewDelegate {
     fileprivate var viewModel: AffirmInputMnemonicVM
-    private var vmOutput: AffirmInputMnemonicVM.AffirmInputMnemonicOutput?
-    // DataSuorce
-//    var dataSource : RxCollectionViewSectionedReloadDataSource<HCBoutiqueSection>!
+//    private var vmOutput: AffirmInputMnemonicVM.AffirmInputMnemonicOutput?
 
     init(mnemonicWordsStr: String) {
         self.viewModel = AffirmInputMnemonicVM.init(mnemonicWordsStr: mnemonicWordsStr)
@@ -57,33 +55,35 @@ class AffirmInputMnemonicViewController: UIViewController {
     }()
 
     lazy var chooseMnemonicCollectionView: MnemonicCollectionView = {
-        let chooseMnemonicCollectionView = MnemonicCollectionView()
+        let chooseMnemonicCollectionView = MnemonicCollectionView.init(isHasSelected: true)
+        chooseMnemonicCollectionView.delegate = self
         chooseMnemonicCollectionView.backgroundColor = .orange
         return chooseMnemonicCollectionView
     }()
 
     lazy var defaultMnemonicCollectionView: MnemonicCollectionView = {
-        let defaultMnemonicCollectionView = MnemonicCollectionView()
+        let defaultMnemonicCollectionView = MnemonicCollectionView.init(isHasSelected: false)
+        defaultMnemonicCollectionView.delegate = self
         defaultMnemonicCollectionView.backgroundColor = .red
         return defaultMnemonicCollectionView
     }()
+
+    func chooseWord(isHasSelected: Bool, dataIndex: Int, word: String) {
+        self.viewModel.selectedWord(isHasSelected: isHasSelected, dataIndex: dataIndex, word: word)
+    }
 }
 
 extension AffirmInputMnemonicViewController {
     private func _bindViewModel() {
 
         // 设置代理
-        self.viewModel.leftMnemonicWordsList.asObservable().subscribe { (_) in
+        self.viewModel.hasChooseMnemonicWordsList.asObservable().subscribe { (_) in
+            self.chooseMnemonicCollectionView.dataList = (self.viewModel.hasChooseMnemonicWordsList.value)
+        }.disposed(by: rx.disposeBag)
 
-            self.chooseMnemonicCollectionView.dataList = (self.viewModel.chooseMnemonicWordsList.value)
-
-            }.disposed(by: rx.disposeBag)
-
-        self.viewModel.chooseMnemonicWordsList.asObservable().subscribe { (_) in
-
-            self.defaultMnemonicCollectionView.dataList = (self.viewModel.leftMnemonicWordsList.value)
-
-            }.disposed(by: rx.disposeBag)
+        self.viewModel.hasLeftMnemonicWordsList.asObservable().subscribe { (_) in
+            self.defaultMnemonicCollectionView.dataList = (self.viewModel.hasLeftMnemonicWordsList.value)
+        }.disposed(by: rx.disposeBag)
     }
 
     private func _setupView() {
@@ -106,7 +106,7 @@ extension AffirmInputMnemonicViewController {
         self.chooseMnemonicCollectionView.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.view)
             make.top.equalTo(self.tipTitleLab.snp.bottom).offset(20)
-            make.height.equalTo(100)
+            make.height.equalTo(140)
             make.left.equalTo(self.view).offset(30)
             make.right.equalTo(self.view).offset(-30)
         }
@@ -115,7 +115,7 @@ extension AffirmInputMnemonicViewController {
         self.defaultMnemonicCollectionView.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.view)
             make.top.equalTo(self.chooseMnemonicCollectionView.snp.bottom).offset(30)
-            make.height.equalTo(100)
+            make.height.equalTo(140)
             make.left.equalTo(self.view).offset(30)
             make.right.equalTo(self.view).offset(-30)
         }

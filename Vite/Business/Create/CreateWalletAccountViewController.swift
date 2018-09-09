@@ -53,11 +53,9 @@ class CreateWalletAccountViewController: UIViewController {
         return walletNameLab
     }()
 
-    lazy var passwordTF: UITextField = {
-        let passwordTF = UITextField()
-        passwordTF.backgroundColor = .gray
-        passwordTF.font =  AppStyle.inputDescWord.font
-        passwordTF.textColor =  AppStyle.descWord.textColor
+    lazy var passwordTF: PasswordInputView = {
+        let passwordTF = PasswordInputView()
+        passwordTF.delegate = self
         return passwordTF
     }()
 
@@ -70,11 +68,9 @@ class CreateWalletAccountViewController: UIViewController {
         return passwordLab
     }()
 
-    lazy var passwordRepeateTF: UITextField = {
-        let passwordRepeateTF = UITextField()
-        passwordRepeateTF.backgroundColor = .gray
-        passwordRepeateTF.font =  AppStyle.inputDescWord.font
-        passwordRepeateTF.textColor =  AppStyle.descWord.textColor
+    lazy var passwordRepeateTF: PasswordInputView = {
+        let passwordRepeateTF = PasswordInputView()
+        passwordRepeateTF.delegate = self
         return passwordRepeateTF
     }()
 
@@ -96,6 +92,15 @@ class CreateWalletAccountViewController: UIViewController {
         submitBtn.addTarget(self, action: #selector(submitBtnAction), for: .touchUpInside)
         return submitBtn
     }()
+}
+extension CreateWalletAccountViewController: PasswordInputViewDelegate {
+    func accomplished(passwordView: PasswordInputView, password: String) {
+
+    }
+
+    func close(passwordView: PasswordInputView) -> Bool {
+        return true
+    }
 }
 
 extension CreateWalletAccountViewController {
