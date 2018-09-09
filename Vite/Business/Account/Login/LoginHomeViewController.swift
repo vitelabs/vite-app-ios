@@ -12,12 +12,12 @@ import RxCocoa
 import RxSwift
 import NSObject_Rx
 
-class LoginViewController: UIViewController {
+class LoginHomeViewController: BaseViewController {
 
-    fileprivate var viewModel: LoginVM
+    fileprivate var viewModel: LoginHomeVM
 
     init() {
-        self.viewModel = LoginVM.init()
+        self.viewModel = LoginHomeVM.init()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -82,7 +82,7 @@ class LoginViewController: UIViewController {
     }()
 }
 
-extension LoginViewController {
+extension LoginHomeViewController {
     private func _setupView() {
         self.view.backgroundColor = .white
 

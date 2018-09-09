@@ -14,10 +14,10 @@ import NSObject_Rx
 
 class CreateWalletAccountViewController: UIViewController {
 
-    fileprivate var viewModel: LoginVM
+    fileprivate var viewModel: LoginHomeVM
 
     init() {
-        self.viewModel = LoginVM.init()
+        self.viewModel = LoginHomeVM.init()
         super.init(nibName: nil, bundle: nil)
     }
 

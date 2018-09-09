@@ -21,6 +21,7 @@ target 'Vite' do
   pod 'KeychainSwift'
   pod 'Moya'
   pod 'SwiftLint'
+  pod 'Then'
 
 
   #RX

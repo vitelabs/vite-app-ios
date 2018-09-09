@@ -31,14 +31,50 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 3 images.
+  /// This `R.image` struct is generated, and contains static references to 11 images.
   struct image {
+    /// Image `bar_icon_my`.
+    static let bar_icon_my = Rswift.ImageResource(bundle: R.hostingBundle, name: "bar_icon_my")
+    /// Image `bar_icon_qrcode`.
+    static let bar_icon_qrcode = Rswift.ImageResource(bundle: R.hostingBundle, name: "bar_icon_qrcode")
+    /// Image `bar_icon_scan`.
+    static let bar_icon_scan = Rswift.ImageResource(bundle: R.hostingBundle, name: "bar_icon_scan")
+    /// Image `bar_icon_wallet`.
+    static let bar_icon_wallet = Rswift.ImageResource(bundle: R.hostingBundle, name: "bar_icon_wallet")
     /// Image `error`.
     static let error = Rswift.ImageResource(bundle: R.hostingBundle, name: "error")
     /// Image `feed`.
     static let feed = Rswift.ImageResource(bundle: R.hostingBundle, name: "feed")
+    /// Image `home_wallet_address_copy`.
+    static let home_wallet_address_copy = Rswift.ImageResource(bundle: R.hostingBundle, name: "home_wallet_address_copy")
+    /// Image `icon_wallet_token_default`.
+    static let icon_wallet_token_default = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_wallet_token_default")
+    /// Image `icon_wallet_token_vcc`.
+    static let icon_wallet_token_vcc = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_wallet_token_vcc")
+    /// Image `icon_wallet_token_vite`.
+    static let icon_wallet_token_vite = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_wallet_token_vite")
     /// Image `launch_screen_logo`.
     static let launch_screen_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "launch_screen_logo")
+    
+    /// `UIImage(named: "bar_icon_my", bundle: ..., traitCollection: ...)`
+    static func bar_icon_my(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.bar_icon_my, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "bar_icon_qrcode", bundle: ..., traitCollection: ...)`
+    static func bar_icon_qrcode(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.bar_icon_qrcode, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "bar_icon_scan", bundle: ..., traitCollection: ...)`
+    static func bar_icon_scan(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.bar_icon_scan, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "bar_icon_wallet", bundle: ..., traitCollection: ...)`
+    static func bar_icon_wallet(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.bar_icon_wallet, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "error", bundle: ..., traitCollection: ...)`
     static func error(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -48,6 +84,26 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "feed", bundle: ..., traitCollection: ...)`
     static func feed(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.feed, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "home_wallet_address_copy", bundle: ..., traitCollection: ...)`
+    static func home_wallet_address_copy(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.home_wallet_address_copy, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_wallet_token_default", bundle: ..., traitCollection: ...)`
+    static func icon_wallet_token_default(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_wallet_token_default, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_wallet_token_vcc", bundle: ..., traitCollection: ...)`
+    static func icon_wallet_token_vcc(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_wallet_token_vcc, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_wallet_token_vite", bundle: ..., traitCollection: ...)`
+    static func icon_wallet_token_vite(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_wallet_token_vite, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "launch_screen_logo", bundle: ..., traitCollection: ...)`
@@ -88,8 +144,16 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 23 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 25 localization keys.
     struct localizable {
+      /// en translation: My
+      /// 
+      /// Locales: en, zh-Hans
+      static let tabbarItemTitleMy = Rswift.StringResource(key: "tabbar.item.title.my", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Wallet
+      /// 
+      /// Locales: en, zh-Hans
+      static let tabbarItemTitleWallet = Rswift.StringResource(key: "tabbar.item.title.wallet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 创建
       /// 
       /// Locales: en, zh-Hans
@@ -182,6 +246,20 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPageTipContent = Rswift.StringResource(key: "create.page.tip.content", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      
+      /// en translation: My
+      /// 
+      /// Locales: en, zh-Hans
+      static func tabbarItemTitleMy(_: Void = ()) -> String {
+        return NSLocalizedString("tabbar.item.title.my", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Wallet
+      /// 
+      /// Locales: en, zh-Hans
+      static func tabbarItemTitleWallet(_: Void = ()) -> String {
+        return NSLocalizedString("tabbar.item.title.wallet", bundle: R.hostingBundle, comment: "")
+      }
       
       /// en translation: 创建
       /// 

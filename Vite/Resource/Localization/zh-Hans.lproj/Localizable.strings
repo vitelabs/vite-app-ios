@@ -39,3 +39,6 @@
 
 /* import */
 "import page title" = "输入您的助记词";
+/* Home */
+"tabbar.item.title.wallet" = "钱包";
+"tabbar.item.title.my" = "我";

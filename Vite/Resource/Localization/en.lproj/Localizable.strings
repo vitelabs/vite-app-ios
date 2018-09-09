@@ -40,3 +40,7 @@
 
 /* import */
 "import page title" = "输入您的助记词";
+
+/* Home */
+"tabbar.item.title.wallet" = "Wallet";
+"tabbar.item.title.my" = "My";
