@@ -14,12 +14,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let rootVC = HomeViewController()
-        window = UIWindow.init(frame:UIScreen.main.bounds)
-        let nav = UINavigationController.init(rootViewController: rootVC)
+        _ = SettingDataService.sharedInstance.getCurrentLanguage()
+
+        #if true
+        let rootVC = LoginHomeViewController()
+        rootVC.automaticallyShowDismissButton = false
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let nav = BaseNavigationController(rootViewController: rootVC)
 
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
+        #else
+        let rootVC = HomeViewController()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = rootVC
+        window?.makeKeyAndVisible()
+        #endif
         return true
     }
 
