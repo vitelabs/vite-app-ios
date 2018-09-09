@@ -132,7 +132,7 @@ extension BackupMnemonicViewController {
     }
 
     @objc func nextMnemonicBtnAction() {
-        let vc = AffirmInputMnemonicViewController()
+        let vc = AffirmInputMnemonicViewController.init(mnemonicWordsStr: self.viewModel.mnemonicWordsStr.value)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -29,6 +29,9 @@
 		4C84D90221422453001B6EBD /* CreateWalletAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D90121422453001B6EBD /* CreateWalletAccountVM.swift */; };
 		4C84D904214242C6001B6EBD /* CreateWalletTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D903214242C6001B6EBD /* CreateWalletTipViewController.swift */; };
 		4C84D9062142533D001B6EBD /* AffirmInputMnemonicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D9052142533D001B6EBD /* AffirmInputMnemonicViewController.swift */; };
+		4C84D908214266D2001B6EBD /* AffirmInputMnemonicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D907214266D2001B6EBD /* AffirmInputMnemonicVM.swift */; };
+		4C84D90B21427D8B001B6EBD /* MnemonicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D90A21427D8B001B6EBD /* MnemonicCollectionView.swift */; };
+		4C84D90E21428183001B6EBD /* WordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D90D21428183001B6EBD /* WordCollectionViewCell.swift */; };
 		4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
 		4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE42452124553B0080E92B /* AppDelegate.swift */; };
 		4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCE424C2124553C0080E92B /* Assets.xcassets */; };
@@ -90,6 +93,9 @@
 		4C84D90121422453001B6EBD /* CreateWalletAccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletAccountVM.swift; sourceTree = "<group>"; };
 		4C84D903214242C6001B6EBD /* CreateWalletTipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletTipViewController.swift; sourceTree = "<group>"; };
 		4C84D9052142533D001B6EBD /* AffirmInputMnemonicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmInputMnemonicViewController.swift; sourceTree = "<group>"; };
+		4C84D907214266D2001B6EBD /* AffirmInputMnemonicVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmInputMnemonicVM.swift; sourceTree = "<group>"; };
+		4C84D90A21427D8B001B6EBD /* MnemonicCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicCollectionView.swift; sourceTree = "<group>"; };
+		4C84D90D21428183001B6EBD /* WordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCollectionViewCell.swift; sourceTree = "<group>"; };
 		4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CCE42422124553B0080E92B /* Vite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCE42452124553B0080E92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +228,8 @@
 		4C4C9D66213E9662005542F8 /* Mnemonic */ = {
 			isa = PBXGroup;
 			children = (
+				4C84D90C21428175001B6EBD /* Cell */,
+				4C84D90921427D2C001B6EBD /* View */,
 				4C4C9D6F213F6F44005542F8 /* VM */,
 				4C4C9D6D213EA540005542F8 /* BackupMnemonicViewController.swift */,
 				4C84D9052142533D001B6EBD /* AffirmInputMnemonicViewController.swift */,
@@ -282,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				4C4C9D70213F6F5D005542F8 /* BackupMnemonicVM.swift */,
+				4C84D907214266D2001B6EBD /* AffirmInputMnemonicVM.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -310,6 +319,22 @@
 				4C84D90121422453001B6EBD /* CreateWalletAccountVM.swift */,
 			);
 			path = VM;
+			sourceTree = "<group>";
+		};
+		4C84D90921427D2C001B6EBD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C84D90A21427D8B001B6EBD /* MnemonicCollectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4C84D90C21428175001B6EBD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4C84D90D21428183001B6EBD /* WordCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		4CCE42392124553B0080E92B = {
@@ -623,12 +648,14 @@
 				"${BUILT_PRODUCTS_DIR}/QRCodeReaderViewController/QRCodeReaderViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
 				"${BUILT_PRODUCTS_DIR}/Vite-keystore/Vite_keystore.framework",
 				"${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
@@ -651,12 +678,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReaderViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vite_keystore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/scrypt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
@@ -728,6 +757,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C84D904214242C6001B6EBD /* CreateWalletTipViewController.swift in Sources */,
+				4C84D90E21428183001B6EBD /* WordCollectionViewCell.swift in Sources */,
 				4C105ECF2140DA5C00D483C6 /* LoginVM.swift in Sources */,
 				8E6F3DFF2141025B003CDFC2 /* SnapshotChainHeightRequest.swift in Sources */,
 				4C4C9D6E213EA540005542F8 /* BackupMnemonicViewController.swift in Sources */,
@@ -739,6 +769,7 @@
 				4C105EBC213FCA7400D483C6 /* Colors.swift in Sources */,
 				8E6F3E102141263A003CDFC2 /* Balance.swift in Sources */,
 				4C105EC5213FEFF800D483C6 /* NotificationName.swift in Sources */,
+				4C84D90B21427D8B001B6EBD /* MnemonicCollectionView.swift in Sources */,
 				4C105EC1213FCB3700D483C6 /* AppStyle.swift in Sources */,
 				4C105EC7213FF3DC00D483C6 /* SettingDataService.swift in Sources */,
 				4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */,
@@ -754,6 +785,7 @@
 				4C4C9D71213F6F5D005542F8 /* BackupMnemonicVM.swift in Sources */,
 				4C105ED12141401100D483C6 /* String.swift in Sources */,
 				4C84D8FF21415643001B6EBD /* CreateWalletAccountViewController.swift in Sources */,
+				4C84D908214266D2001B6EBD /* AffirmInputMnemonicVM.swift in Sources */,
 				4C105ECC2140001100D483C6 /* LoginViewController.swift in Sources */,
 				4C84D9062142533D001B6EBD /* AffirmInputMnemonicViewController.swift in Sources */,
 				4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */,

@@ -7,11 +7,14 @@
 */
 
 /* App */
-"Cancel" = "Cancel";
+"Cancel" = "取消";
+"Finish" = "完成";
+"Yes" = "是";
+"No" = "否";
 
 /* Login */
-"create account" = "create account";
-"import account" = "import account";
+"create account" = "创建账户";
+"import account" = "导入账户";
 
 /* create */
 "create.page.title" = "创建钱包账户";
@@ -30,6 +33,10 @@
 "mnemonic.backup.page.tip.lab.title" = "助记词";
 "mnemonic.backup.page.tip.anewBtn.title" = "重新生成助记词";
 "mnemonic.backup.page.tip.nextBtn.title" = "助记词已备份";
+
+"mnemonic.affirm.page.title" = "确认输入助记词";
+"mnemonic.affirm.page.tip.title" = "按顺序选择助记词输入";
+"mnemonic.affirm.alter.title" = "返回会重新生成助记词，是否返回";
 
 /* import */
 "import page title" = "输入您的助记词";

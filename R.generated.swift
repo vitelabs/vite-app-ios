@@ -90,22 +90,14 @@ struct R: Rswift.Validatable {
   struct string {
     /// This `R.string.localizable` struct is generated, and contains static references to 23 localization keys.
     struct localizable {
-      /// en translation: Cancel
-      /// 
-      /// Locales: en, zh-Hans
-      static let cancel = Rswift.StringResource(key: "Cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: create account
-      /// 
-      /// Locales: en, zh-Hans
-      static let createAccount = Rswift.StringResource(key: "create account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: import account
-      /// 
-      /// Locales: en, zh-Hans
-      static let importAccount = Rswift.StringResource(key: "import account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 创建
       /// 
       /// Locales: en, zh-Hans
       static let createPageSubmitBtnTitle = Rswift.StringResource(key: "create.page.submit.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 创建账户
+      /// 
+      /// Locales: en, zh-Hans
+      static let createAccount = Rswift.StringResource(key: "create account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 创建钱包账户
       /// 
       /// Locales: en, zh-Hans
@@ -118,6 +110,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicBackupPageTipNextBtnTitle = Rswift.StringResource(key: "mnemonic.backup.page.tip.nextBtn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 取消
+      /// 
+      /// Locales: en, zh-Hans
+      static let cancel = Rswift.StringResource(key: "Cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 否
+      /// 
+      /// Locales: en, zh-Hans
+      static let no = Rswift.StringResource(key: "No", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 备份助记词
       /// 
       /// Locales: en, zh-Hans
@@ -130,10 +130,30 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPageTipTitle = Rswift.StringResource(key: "create.page.tip.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 完成
+      /// 
+      /// Locales: en, zh-Hans
+      static let finish = Rswift.StringResource(key: "Finish", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 导入账户
+      /// 
+      /// Locales: en, zh-Hans
+      static let importAccount = Rswift.StringResource(key: "import account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 您只有通过助记词来恢复您的账户，如助记词丢失，您的数字资产将无法找回
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicBackupPageTipTitle = Rswift.StringResource(key: "mnemonic.backup.page.tip.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 按顺序选择助记词输入
+      /// 
+      /// Locales: en, zh-Hans
+      static let mnemonicAffirmPageTipTitle = Rswift.StringResource(key: "mnemonic.affirm.page.tip.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 是
+      /// 
+      /// Locales: en, zh-Hans
+      static let yes = Rswift.StringResource(key: "Yes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 确认输入助记词
+      /// 
+      /// Locales: en, zh-Hans
+      static let mnemonicAffirmPageTitle = Rswift.StringResource(key: "mnemonic.affirm.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 请输入6位数字密码
       /// 
       /// Locales: en, zh-Hans
@@ -142,6 +162,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageTitle = Rswift.StringResource(key: "import page title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 返回会重新生成助记词，是否返回
+      /// 
+      /// Locales: en, zh-Hans
+      static let mnemonicAffirmAlterTitle = Rswift.StringResource(key: "mnemonic.affirm.alter.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 重复输入密码
       /// 
       /// Locales: en, zh-Hans
@@ -158,57 +182,19 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPageTipContent = Rswift.StringResource(key: "create.page.tip.content", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// zh-Hans translation: 否
-      /// 
-      /// Locales: zh-Hans
-      static let no = Rswift.StringResource(key: "No", tableName: "Localizable", bundle: R.hostingBundle, locales: ["zh-Hans"], comment: nil)
-      /// zh-Hans translation: 完成
-      /// 
-      /// Locales: zh-Hans
-      static let finish = Rswift.StringResource(key: "Finish", tableName: "Localizable", bundle: R.hostingBundle, locales: ["zh-Hans"], comment: nil)
-      /// zh-Hans translation: 按顺序选择助记词输入
-      /// 
-      /// Locales: zh-Hans
-      static let mnemonicAffirmPageTipTitle = Rswift.StringResource(key: "mnemonic.affirm.page.tip.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["zh-Hans"], comment: nil)
-      /// zh-Hans translation: 是
-      /// 
-      /// Locales: zh-Hans
-      static let yes = Rswift.StringResource(key: "Yes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["zh-Hans"], comment: nil)
-      /// zh-Hans translation: 确认输入助记词
-      /// 
-      /// Locales: zh-Hans
-      static let mnemonicAffirmPageTitle = Rswift.StringResource(key: "mnemonic.affirm.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["zh-Hans"], comment: nil)
-      /// zh-Hans translation: 返回会重新生成助记词，是否返回
-      /// 
-      /// Locales: zh-Hans
-      static let mnemonicAffirmAlterTitle = Rswift.StringResource(key: "mnemonic.affirm.alter.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["zh-Hans"], comment: nil)
-      
-      /// en translation: Cancel
-      /// 
-      /// Locales: en, zh-Hans
-      static func cancel(_: Void = ()) -> String {
-        return NSLocalizedString("Cancel", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: create account
-      /// 
-      /// Locales: en, zh-Hans
-      static func createAccount(_: Void = ()) -> String {
-        return NSLocalizedString("create account", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: import account
-      /// 
-      /// Locales: en, zh-Hans
-      static func importAccount(_: Void = ()) -> String {
-        return NSLocalizedString("import account", bundle: R.hostingBundle, comment: "")
-      }
       
       /// en translation: 创建
       /// 
       /// Locales: en, zh-Hans
       static func createPageSubmitBtnTitle(_: Void = ()) -> String {
         return NSLocalizedString("create.page.submit.btn.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 创建账户
+      /// 
+      /// Locales: en, zh-Hans
+      static func createAccount(_: Void = ()) -> String {
+        return NSLocalizedString("create account", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 创建钱包账户
@@ -232,6 +218,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("mnemonic.backup.page.tip.nextBtn.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 取消
+      /// 
+      /// Locales: en, zh-Hans
+      static func cancel(_: Void = ()) -> String {
+        return NSLocalizedString("Cancel", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 否
+      /// 
+      /// Locales: en, zh-Hans
+      static func no(_: Void = ()) -> String {
+        return NSLocalizedString("No", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 备份助记词
       /// 
       /// Locales: en, zh-Hans
@@ -253,11 +253,46 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("create.page.tip.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 完成
+      /// 
+      /// Locales: en, zh-Hans
+      static func finish(_: Void = ()) -> String {
+        return NSLocalizedString("Finish", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 导入账户
+      /// 
+      /// Locales: en, zh-Hans
+      static func importAccount(_: Void = ()) -> String {
+        return NSLocalizedString("import account", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 您只有通过助记词来恢复您的账户，如助记词丢失，您的数字资产将无法找回
       /// 
       /// Locales: en, zh-Hans
       static func mnemonicBackupPageTipTitle(_: Void = ()) -> String {
         return NSLocalizedString("mnemonic.backup.page.tip.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 按顺序选择助记词输入
+      /// 
+      /// Locales: en, zh-Hans
+      static func mnemonicAffirmPageTipTitle(_: Void = ()) -> String {
+        return NSLocalizedString("mnemonic.affirm.page.tip.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 是
+      /// 
+      /// Locales: en, zh-Hans
+      static func yes(_: Void = ()) -> String {
+        return NSLocalizedString("Yes", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 确认输入助记词
+      /// 
+      /// Locales: en, zh-Hans
+      static func mnemonicAffirmPageTitle(_: Void = ()) -> String {
+        return NSLocalizedString("mnemonic.affirm.page.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 请输入6位数字密码
@@ -272,6 +307,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func importPageTitle(_: Void = ()) -> String {
         return NSLocalizedString("import page title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 返回会重新生成助记词，是否返回
+      /// 
+      /// Locales: en, zh-Hans
+      static func mnemonicAffirmAlterTitle(_: Void = ()) -> String {
+        return NSLocalizedString("mnemonic.affirm.alter.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 重复输入密码
@@ -300,48 +342,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func createPageTipContent(_: Void = ()) -> String {
         return NSLocalizedString("create.page.tip.content", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// zh-Hans translation: 否
-      /// 
-      /// Locales: zh-Hans
-      static func no(_: Void = ()) -> String {
-        return NSLocalizedString("No", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// zh-Hans translation: 完成
-      /// 
-      /// Locales: zh-Hans
-      static func finish(_: Void = ()) -> String {
-        return NSLocalizedString("Finish", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// zh-Hans translation: 按顺序选择助记词输入
-      /// 
-      /// Locales: zh-Hans
-      static func mnemonicAffirmPageTipTitle(_: Void = ()) -> String {
-        return NSLocalizedString("mnemonic.affirm.page.tip.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// zh-Hans translation: 是
-      /// 
-      /// Locales: zh-Hans
-      static func yes(_: Void = ()) -> String {
-        return NSLocalizedString("Yes", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// zh-Hans translation: 确认输入助记词
-      /// 
-      /// Locales: zh-Hans
-      static func mnemonicAffirmPageTitle(_: Void = ()) -> String {
-        return NSLocalizedString("mnemonic.affirm.page.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// zh-Hans translation: 返回会重新生成助记词，是否返回
-      /// 
-      /// Locales: zh-Hans
-      static func mnemonicAffirmAlterTitle(_: Void = ()) -> String {
-        return NSLocalizedString("mnemonic.affirm.alter.title", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

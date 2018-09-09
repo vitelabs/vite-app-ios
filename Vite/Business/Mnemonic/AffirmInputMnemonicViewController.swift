@@ -8,12 +8,33 @@
 
 import UIKit
 import SnapKit
+import RxDataSources
 
 class AffirmInputMnemonicViewController: UIViewController {
+    fileprivate var viewModel: AffirmInputMnemonicVM
+    private var vmOutput: AffirmInputMnemonicVM.AffirmInputMnemonicOutput?
+    // DataSuorce
+//    var dataSource : RxCollectionViewSectionedReloadDataSource<HCBoutiqueSection>!
+
+    init(mnemonicWordsStr: String) {
+        self.viewModel = AffirmInputMnemonicVM.init(mnemonicWordsStr: mnemonicWordsStr)
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    init() {
+        fatalError("init has not been implemented")
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self._setupView()
+        self._bindViewModel()
     }
 
     lazy var tipTitleLab: UILabel = {
@@ -34,10 +55,38 @@ class AffirmInputMnemonicViewController: UIViewController {
         submitBtn.addTarget(self, action: #selector(submitBtnAction), for: .touchUpInside)
         return submitBtn
     }()
+
+    lazy var chooseMnemonicCollectionView: MnemonicCollectionView = {
+        let chooseMnemonicCollectionView = MnemonicCollectionView()
+        chooseMnemonicCollectionView.backgroundColor = .orange
+        return chooseMnemonicCollectionView
+    }()
+
+    lazy var defaultMnemonicCollectionView: MnemonicCollectionView = {
+        let defaultMnemonicCollectionView = MnemonicCollectionView()
+        defaultMnemonicCollectionView.backgroundColor = .red
+        return defaultMnemonicCollectionView
+    }()
 }
 
 extension AffirmInputMnemonicViewController {
-    func _setupView() {
+    private func _bindViewModel() {
+
+        // 设置代理
+        self.viewModel.leftMnemonicWordsList.asObservable().subscribe { (_) in
+
+            self.chooseMnemonicCollectionView.dataList = (self.viewModel.chooseMnemonicWordsList.value)
+
+            }.disposed(by: rx.disposeBag)
+
+        self.viewModel.chooseMnemonicWordsList.asObservable().subscribe { (_) in
+
+            self.defaultMnemonicCollectionView.dataList = (self.viewModel.leftMnemonicWordsList.value)
+
+            }.disposed(by: rx.disposeBag)
+    }
+
+    private func _setupView() {
         self.view.backgroundColor = .white
         self.title = R.string.localizable.mnemonicAffirmPageTitle.key.localized()
 
@@ -51,6 +100,24 @@ extension AffirmInputMnemonicViewController {
             make.top.equalTo(self.view).offset(100)
             make.left.equalTo(self.view).offset(30)
             make.height.equalTo(30)
+        }
+
+        self.view.addSubview(self.chooseMnemonicCollectionView)
+        self.chooseMnemonicCollectionView.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(self.view)
+            make.top.equalTo(self.tipTitleLab.snp.bottom).offset(20)
+            make.height.equalTo(100)
+            make.left.equalTo(self.view).offset(30)
+            make.right.equalTo(self.view).offset(-30)
+        }
+
+        self.view.addSubview(self.defaultMnemonicCollectionView)
+        self.defaultMnemonicCollectionView.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(self.view)
+            make.top.equalTo(self.chooseMnemonicCollectionView.snp.bottom).offset(30)
+            make.height.equalTo(100)
+            make.left.equalTo(self.view).offset(30)
+            make.right.equalTo(self.view).offset(-30)
         }
 
         self.view.addSubview(self.submitBtn)

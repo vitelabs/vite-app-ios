@@ -60,7 +60,7 @@ enum AppStyle {
             return Colors.darkBlue
         case .formHeader:
             return Colors.darkBlue
-        case .collactablesHeader,.inputDescWord:
+        case .collactablesHeader, .inputDescWord:
             return Colors.darkBlue
         case .descWord:
             return Colors.darkGray
