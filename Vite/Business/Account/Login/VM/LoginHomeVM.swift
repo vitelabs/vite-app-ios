@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-final class LoginVM: NSObject {
+final class LoginHomeVM: NSObject {
     var createAccountBtnStr  =  Variable("create account".localized())
     var recoverAccountBtnStr = Variable(LocalizationStr("import account"))
     var changeLanguageBtnStr = Variable(SettingDataService.sharedInstance.getCurrentLanguage().displayName)
@@ -18,10 +18,6 @@ final class LoginVM: NSObject {
     override init() {
         super.init()
         self.initBinds()
-    }
-
-    deinit {
-
     }
 
     func initBinds() {

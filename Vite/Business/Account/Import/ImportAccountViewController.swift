@@ -1,8 +1,8 @@
 //
-//  LoginViewController.swift
+//  ImportAccountViewController.swift
 //  Vite
 //
-//  Created by Water on 2018/9/5.
+//  Created by Water on 2018/9/6.
 //  Copyright © 2018年 vite labs. All rights reserved.
 //
 
@@ -12,12 +12,12 @@ import RxCocoa
 import RxSwift
 import NSObject_Rx
 
-class LoginViewController: BaseViewController {
+class ImportAccountViewController: UIViewController {
 
-    fileprivate var viewModel: LoginVM
+    fileprivate var viewModel: LoginHomeVM
 
     init() {
-        self.viewModel = LoginVM.init()
+        self.viewModel = LoginHomeVM.init()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -56,7 +56,7 @@ class LoginViewController: BaseViewController {
         return logoImg
     }()
 
-var dd = R.string.localizable.cancel
+    var dd = R.string.localizable.cancel
 
     lazy var createAccountBtn: UIButton = {
         let createAccountBtn = UIButton()
@@ -86,9 +86,10 @@ var dd = R.string.localizable.cancel
     }()
 }
 
-extension LoginViewController {
+extension ImportAccountViewController {
     private func _setupView() {
         self.view.backgroundColor = .white
+        self.title = "import page title".localized()
 
         self._addViewConstraint()
     }
@@ -142,7 +143,7 @@ extension LoginViewController {
         let languages: [Language] = SettingDataService.sharedInstance.getSupportedLanguages()
         for element in languages {
             let action = UIAlertAction(title: element.displayName, style: .destructive, handler: {_ in
-                 _ = SetLanguage(element.name)
+                _ = SetLanguage(element.name)
             })
             alertController.addAction(action)
         }

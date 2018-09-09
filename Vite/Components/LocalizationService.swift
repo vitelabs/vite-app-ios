@@ -98,4 +98,3 @@ class LocalizationService {
         return false
     }
 }
-

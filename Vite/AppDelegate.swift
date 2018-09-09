@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = SettingDataService.sharedInstance.getCurrentLanguage()
 
         #if true
-        let rootVC = LoginViewController()
+        let rootVC = LoginHomeViewController()
         rootVC.automaticallyShowDismissButton = false
         window = UIWindow(frame: UIScreen.main.bounds)
         let nav = BaseNavigationController(rootViewController: rootVC)

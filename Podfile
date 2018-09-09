@@ -30,6 +30,8 @@ target 'Vite' do
   pod 'RxDataSources', '~> 3.0'
   pod 'NSObject+Rx'
   pod 'RxGesture'
+  pod 'Then'
+  pod 'ReusableKit'
 
 
   target 'ViteTests' do

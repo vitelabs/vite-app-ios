@@ -12,6 +12,15 @@ extension String {
 
     func localized(bundle: Bundle = .main, tableName: String = "Localizable") -> String {
         return LocalizationStr(self)
-            //NSLocalizedString(self, tableName: tableName, value: "**\(self)**", comment: "")
+    }
+
+    //fetch substring as old
+    func subStringInRange(_ r: Range<Int>) -> String? {
+        if r.lowerBound < 0 || r.upperBound > self.count {
+            return nil
+        }
+        let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
+        let endIndex   = self.index(self.startIndex, offsetBy: r.upperBound)
+        return String(self[startIndex..<endIndex])
     }
 }
