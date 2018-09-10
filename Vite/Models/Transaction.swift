@@ -22,14 +22,14 @@ struct Transaction: Equatable, Mappable {
         case finished = 2
     }
 
-    fileprivate(set) var timestamp: Date!
-    fileprivate(set) var fromAddress: Address?
-    fileprivate(set) var toAddress: Address!
-    fileprivate(set) var status: Status!
-    fileprivate(set) var hash: String!
-    fileprivate(set) var balance: Balance!
-    fileprivate(set) var amount: Balance!
-    fileprivate(set) var confirmedTimes: String!
+    fileprivate(set) var timestamp = Date(timeIntervalSince1970: 0)
+    fileprivate(set) var fromAddress = Address()
+    fileprivate(set) var toAddress = Address()
+    fileprivate(set) var status = Status.error
+    fileprivate(set) var hash = ""
+    fileprivate(set) var balance = Balance()
+    fileprivate(set) var amount = Balance()
+    fileprivate(set) var confirmedTimes = ""
 
     init?(map: Map) {
 
