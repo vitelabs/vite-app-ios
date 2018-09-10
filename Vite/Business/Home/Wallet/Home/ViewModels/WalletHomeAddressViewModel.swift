@@ -16,13 +16,13 @@ final class WalletHomeAddressViewModel: WalletHomeAddressViewModelType {
     lazy var defaultAddressDriver: Driver<String> = self.defaultAddress.asDriver().map({ $0.description })
 
     fileprivate let account: Account
-    fileprivate let name: Variable<String>
-    fileprivate let defaultAddress: Variable<Address>
+    fileprivate let name: BehaviorRelay<String>
+    fileprivate let defaultAddress: BehaviorRelay<Address>
 
     init(account: Account) {
         self.account = account
-        name = Variable(account.name)
-        defaultAddress = Variable(account.defaultAddress)
+        name = BehaviorRelay(value: account.name)
+        defaultAddress = BehaviorRelay(value: account.defaultAddress)
     }
 
     func copy() {

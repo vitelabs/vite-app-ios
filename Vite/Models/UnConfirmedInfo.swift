@@ -1,8 +1,8 @@
 //
-//  BalanceInfo.swift
+//  UnConfirmedInfo.swift
 //  Vite
 //
-//  Created by Stone on 2018/9/9.
+//  Created by Stone on 2018/9/10.
 //  Copyright © 2018年 vite labs. All rights reserved.
 //
 
@@ -10,10 +10,9 @@ import Foundation
 import ObjectMapper
 import BigInt
 
-struct BalanceInfo: Mappable {
+struct UnConfirmedInfo: Mappable {
 
     fileprivate(set) var token = Token()
-    fileprivate(set) var balance = Balance()
     fileprivate(set) var unconfirmedBalance = Balance()
     fileprivate(set) var unconfirmedCount: Int = 0
 
@@ -29,12 +28,8 @@ struct BalanceInfo: Mappable {
         tokenId <- map["TokenTypeId"]
         tokenName <- map["TokenName"]
         tokenSymbol <- map["TokenSymbol"]
-        balance <- (map["Balance"], JSONTransformer.balance)
+        unconfirmedBalance <- (map["Balance"], JSONTransformer.balance)
+        unconfirmedCount <- map["UnconfirmedCount"]
         token = Token(id: tokenId, name: tokenName, symbol: tokenSymbol)
-    }
-
-    mutating func fill(unconfirmedBalance: Balance, unconfirmedCount: Int) {
-        self.unconfirmedBalance = unconfirmedBalance
-        self.unconfirmedCount = unconfirmedCount
     }
 }

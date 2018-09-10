@@ -78,5 +78,16 @@ class ViteNetworkTests: XCTestCase {
         }
 
     }
+
+    func testAccountProvider_GetUnconfirmedInfosRequest() {
+        async { (completion) in
+            let accountProvider = AccountProvider(server: RPCServer.shared)
+            _ = accountProvider.getUnconfirmedInfos(address: Address(string: "vite_7945df07bbf55f5afc76360a263b0870795ce5d1ecea36b786")).done { balanceInfos in
+                print("🏆\(balanceInfos)")
+                completion()
+            }
+        }
+
+    }
     
 }

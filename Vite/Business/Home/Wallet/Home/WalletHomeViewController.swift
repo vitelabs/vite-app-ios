@@ -32,6 +32,7 @@ class WalletHomeViewController: BaseTableViewController {
 
     var addressViewModel: WalletHomeAddressViewModel!
     var tableViewModel: WalletHomeBalanceInfoTableViewModel!
+    weak var balanceInfoDetailViewController: BalanceInfoDetailViewController?
 
     fileprivate func setupView() {
 
@@ -85,15 +86,24 @@ class WalletHomeViewController: BaseTableViewController {
                 if let itemModel = (try? self.dataSource.model(at: indexPath)) as? ItemModel {
                     switch itemModel {
                     case .balanceInfo(let viewModel):
-                            print(viewModel)
                             self.tableView.deselectRow(at: indexPath, animated: true)
-                            let balanceInfoDetailViewController = BalanceInfoDetailViewController()
+                            let balanceInfoDetailViewController = BalanceInfoDetailViewController(viewModel: viewModel)
                             self.navigationController?.pushViewController(balanceInfoDetailViewController, animated: true)
+                            self.balanceInfoDetailViewController = balanceInfoDetailViewController
                     default:
                         break
                     }
                 }
             }
             .disposed(by: rx.disposeBag)
+
+        tableViewModel.balanceInfosDriver.asObservable().bind { [weak self] in
+            if let viewModelBehaviorRelay = self?.balanceInfoDetailViewController?.viewModelBehaviorRelay {
+                for viewModel in $0 where viewModelBehaviorRelay.value.tokenId == viewModel.tokenId {
+                    viewModelBehaviorRelay.accept(viewModel)
+                    break
+                }
+            }
+        }.disposed(by: rx.disposeBag)
     }
 }
