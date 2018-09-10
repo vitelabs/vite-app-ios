@@ -30,7 +30,20 @@ final class AccountProvider {
                     seal.reject(error)
                 }
             }
+        }
+    }
 
+    func getBalanceInfos(address: Address) -> Promise<[BalanceInfo]> {
+        return Promise { seal in
+            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetBalanceInfosRequest(address: address.description)))
+            Session.send(request) { result in
+                switch result {
+                case .success(let balanceInfo):
+                    seal.fulfill(balanceInfo)
+                case .failure(let error):
+                    seal.reject(error)
+                }
+            }
         }
     }
 }

@@ -30,6 +30,9 @@ class WalletHomeAddressCell: BaseTableViewCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        selectionStyle = .none
+
         contentView.addSubview(nameLabel)
         contentView.addSubview(addressLabel)
         contentView.addSubview(copyButton)
@@ -51,12 +54,17 @@ class WalletHomeAddressCell: BaseTableViewCell {
             m.right.equalTo(copyButton)
             m.bottom.equalTo(contentView).offset(-5)
         }
-
-        nameLabel.text = "我的钱包哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
-        addressLabel.text = "vite_7945df07bbf55f5afc76360a263b0870795ce5d1ecea36b786"
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func bind(viewModel: WalletHomeAddressViewModelType) {
+        viewModel.nameDriver.drive(nameLabel.rx.text).disposed(by: disposeBag)
+        viewModel.defaultAddressDriver.drive(addressLabel.rx.text).disposed(by: disposeBag)
+        copyButton.rx.tap.bind {
+            viewModel.copy()
+        }.disposed(by: disposeBag)
     }
 }

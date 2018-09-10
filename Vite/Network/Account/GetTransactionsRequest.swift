@@ -30,13 +30,13 @@ struct GetTransactionsRequest: JSONRPCKit.Request {
         self.count = count
     }
 
-    func response(from resultObject: Any) throws -> Response {
+    func response(from resultObject: Any) throws -> [Transaction] {
         if let response = resultObject as? [[String: Any]] {
             let transactions = response.map({ Transaction(JSON: $0) })
             let ret = transactions.compactMap { $0 }
             return ret
         } else {
-            throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: Response.self)
+            throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: [Transaction].self)
         }
     }
 }

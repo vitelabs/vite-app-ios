@@ -57,11 +57,22 @@ class ViteNetworkTests: XCTestCase {
 
     }
 
-    func testAccountProvider() {
+    func testAccountProvider_GetTransactionsRequest() {
         async { (completion) in
             let accountProvider = AccountProvider(server: RPCServer.shared)
-            _ = accountProvider.getTransactions(address: Address(string: "vite_7945df07bbf55f5afc76360a263b0870795ce5d1ecea36b786")!).done { transactions in
+            _ = accountProvider.getTransactions(address: Address(string: "vite_7945df07bbf55f5afc76360a263b0870795ce5d1ecea36b786")).done { transactions in
                 print("🏆\(transactions)")
+                completion()
+            }
+        }
+
+    }
+
+    func testAccountProvider_GetBalanceInfosRequest() {
+        async { (completion) in
+            let accountProvider = AccountProvider(server: RPCServer.shared)
+            _ = accountProvider.getBalanceInfos(address: Address(string: "vite_7945df07bbf55f5afc76360a263b0870795ce5d1ecea36b786")).done { balanceInfos in
+                print("🏆\(balanceInfos)")
                 completion()
             }
         }

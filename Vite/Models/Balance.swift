@@ -28,5 +28,4 @@ struct Balance: BalanceType, CustomStringConvertible {
     var description: String {
         return value.description
     }
-    
 }
