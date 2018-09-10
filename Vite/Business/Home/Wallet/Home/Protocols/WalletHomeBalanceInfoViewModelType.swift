@@ -10,8 +10,11 @@ import Foundation
 import UIKit
 
 protocol WalletHomeBalanceInfoViewModelType {
+
+    var tokenId: String { get }
     var iconImage: UIImage { get }
     var name: String { get }
     var balance: String { get }
     var unconfirmed: String { get }
+    var unconfirmedCount: Int { get }
 }

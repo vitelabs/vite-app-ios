@@ -144,8 +144,12 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 25 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 31 localization keys.
     struct localizable {
+      /// en translation: (%@笔待确认)
+      /// 
+      /// Locales: en, zh-Hans
+      static let balanceInfoDetailUnconfirmedCountTitle = Rswift.StringResource(key: "balance.info.detail.unconfirmed.count.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: My
       /// 
       /// Locales: en, zh-Hans
@@ -182,6 +186,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let no = Rswift.StringResource(key: "No", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 在途资金
+      /// 
+      /// Locales: en, zh-Hans
+      static let balanceInfoDetailUnconfirmedTitle = Rswift.StringResource(key: "balance.info.detail.unconfirmed.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 备份助记词
       /// 
       /// Locales: en, zh-Hans
@@ -210,10 +218,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicAffirmPageTipTitle = Rswift.StringResource(key: "mnemonic.affirm.page.tip.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 收款
+      /// 
+      /// Locales: en, zh-Hans
+      static let balanceInfoDetailReveiceButtonTitle = Rswift.StringResource(key: "balance.info.detail.reveice.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 是
       /// 
       /// Locales: en, zh-Hans
       static let yes = Rswift.StringResource(key: "Yes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 查看交易记录
+      /// 
+      /// Locales: en, zh-Hans
+      static let balanceInfoDetailShowTransactionsButtonTitle = Rswift.StringResource(key: "balance.info.detail.show.transactions.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 确认输入助记词
       /// 
       /// Locales: en, zh-Hans
@@ -222,6 +238,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPagePwTitle = Rswift.StringResource(key: "create.page.pw.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 账户余额
+      /// 
+      /// Locales: en, zh-Hans
+      static let balanceInfoDetailBalanceTitle = Rswift.StringResource(key: "balance.info.detail.balance.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 转账
+      /// 
+      /// Locales: en, zh-Hans
+      static let balanceInfoDetailSendButtonTitle = Rswift.StringResource(key: "balance.info.detail.send.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 输入您的助记词
       /// 
       /// Locales: en, zh-Hans
@@ -246,6 +270,13 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPageTipContent = Rswift.StringResource(key: "create.page.tip.content", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      
+      /// en translation: (%@笔待确认)
+      /// 
+      /// Locales: en, zh-Hans
+      static func balanceInfoDetailUnconfirmedCountTitle(_ value1: String) -> String {
+        return String(format: NSLocalizedString("balance.info.detail.unconfirmed.count.title", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
       
       /// en translation: My
       /// 
@@ -310,6 +341,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("No", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 在途资金
+      /// 
+      /// Locales: en, zh-Hans
+      static func balanceInfoDetailUnconfirmedTitle(_: Void = ()) -> String {
+        return NSLocalizedString("balance.info.detail.unconfirmed.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 备份助记词
       /// 
       /// Locales: en, zh-Hans
@@ -359,11 +397,25 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("mnemonic.affirm.page.tip.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 收款
+      /// 
+      /// Locales: en, zh-Hans
+      static func balanceInfoDetailReveiceButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("balance.info.detail.reveice.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 是
       /// 
       /// Locales: en, zh-Hans
       static func yes(_: Void = ()) -> String {
         return NSLocalizedString("Yes", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 查看交易记录
+      /// 
+      /// Locales: en, zh-Hans
+      static func balanceInfoDetailShowTransactionsButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("balance.info.detail.show.transactions.button.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 确认输入助记词
@@ -378,6 +430,20 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func createPagePwTitle(_: Void = ()) -> String {
         return NSLocalizedString("create.page.pw.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 账户余额
+      /// 
+      /// Locales: en, zh-Hans
+      static func balanceInfoDetailBalanceTitle(_: Void = ()) -> String {
+        return NSLocalizedString("balance.info.detail.balance.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 转账
+      /// 
+      /// Locales: en, zh-Hans
+      static func balanceInfoDetailSendButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("balance.info.detail.send.button.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 输入您的助记词
