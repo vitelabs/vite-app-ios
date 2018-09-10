@@ -19,6 +19,6 @@ final class BackupMnemonicVM: NSObject {
     }
 
     func fetchNewMnemonicWords() {
-        self.mnemonicWordsStr.value = Mnemonic.randomGenerator(strength: .strong, language: .english)
+        self.mnemonicWordsStr.accept(Mnemonic.randomGenerator(strength: .strong, language: .english))
     }
 }

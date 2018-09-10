@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-final class LoginHomeVM: NSObject {
+final class CreateAccountHomeVM: NSObject {
     var createAccountBtnStr  =  BehaviorRelay(value: R.string.localizable.createAccount.key.localized())
     var recoverAccountBtnStr = BehaviorRelay(value: R.string.localizable.importAccount.key.localized())
     var changeLanguageBtnStr = BehaviorRelay(value: SettingDataService.sharedInstance.getCurrentLanguage().displayName)
@@ -27,9 +27,9 @@ final class LoginHomeVM: NSObject {
             .subscribe(onNext: { [weak self] (_) in
                 guard let `self` = self else { return }
 
-                self.createAccountBtnStr.value = R.string.localizable.createAccount.key.localized()
-                self.recoverAccountBtnStr.value = R.string.localizable.importAccount.key.localized()
-                self.changeLanguageBtnStr.value = SettingDataService.sharedInstance.getCurrentLanguage().displayName
+                self.createAccountBtnStr.accept(R.string.localizable.createAccount.key.localized())
+                self.recoverAccountBtnStr.accept(R.string.localizable.importAccount.key.localized())
+            self.changeLanguageBtnStr.accept(SettingDataService.sharedInstance.getCurrentLanguage().displayName)
             }).disposed(by: rx.disposeBag)
     }
 }

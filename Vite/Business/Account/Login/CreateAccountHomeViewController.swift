@@ -12,10 +12,10 @@ import RxCocoa
 import RxSwift
 
 class CreateAccountHomeViewController: BaseViewController {
-    fileprivate var viewModel: LoginHomeVM
+    fileprivate var viewModel: CreateAccountHomeVM
 
     init() {
-        self.viewModel = LoginHomeVM.init()
+        self.viewModel = CreateAccountHomeVM()
         super.init(nibName: nil, bundle: nil)
     }
 

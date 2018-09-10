@@ -12,10 +12,10 @@ import RxCocoa
 import RxSwift
 
 class LoginViewController: BaseViewController {
-    fileprivate var viewModel: LoginHomeVM
+    fileprivate var viewModel: LoginViewModel
 
     init() {
-        self.viewModel = LoginHomeVM.init()
+        self.viewModel = LoginViewModel()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -40,9 +40,7 @@ class LoginViewController: BaseViewController {
     }
 
     private func _bindViewModel() {
-        _ = self.viewModel.createAccountBtnStr.asObservable().bind(to: self.createAccountBtn.rx.title(for: .normal))
-        _ = self.viewModel.recoverAccountBtnStr.asObservable().bind(to: self.importAccountBtn.rx.title(for: .normal))
-        _ = self.viewModel.changeLanguageBtnStr.asObservable().bind(to: self.changeLanguageBtn.rx.title(for: .normal))
+
     }
 
     lazy var logoImgView: UIImageView = {

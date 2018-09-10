@@ -17,7 +17,7 @@ class CreateWalletAccountViewController: UIViewController {
     fileprivate var viewModel: CreateWalletAccountVM
 
     init() {
-        self.viewModel = CreateWalletAccountVM.init(input: (self.walletNameTF{},self.walletNameTF.text))
+        self.viewModel = CreateWalletAccountVM()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -33,7 +33,7 @@ class CreateWalletAccountViewController: UIViewController {
     }
 
     private func _bindViewModel() {
-        _ = self.viewModel.accountNameStr.asObservable().bind(to: self.walletNameTF.rx.text)
+//        _ = self.viewModel.accountNameStr.asObservable().bind(to: self.walletNameTF.rx.text)
     }
 
     fileprivate let walletNameTF = UITextField().then {
@@ -98,11 +98,11 @@ class CreateWalletAccountViewController: UIViewController {
 }
 extension CreateWalletAccountViewController: PasswordInputViewDelegate {
     func inputFinish(passwordView: PasswordInputView, password: String) {
-        if passwordView.tag == 101 {
-            self.viewModel.inputPwdStr = password
-        } else {
-            self.viewModel.repeatInputPwdStr = password
-        }
+//        if passwordView.tag == 101 {
+//            self.viewModel.inputPwdStr = password
+//        } else {
+//            self.viewModel.repeatInputPwdStr = password
+//        }
     }
 
     func close(passwordView: PasswordInputView) -> Bool {

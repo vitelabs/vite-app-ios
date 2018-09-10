@@ -12,12 +12,12 @@ import RxCocoa
 import RxSwift
 import NSObject_Rx
 
-class ImportAccountViewController: UIViewController {
+class ImportAccountViewController: BaseViewController {
 
-    fileprivate var viewModel: LoginHomeVM
+    fileprivate var viewModel: ImportAccountVM
 
     init() {
-        self.viewModel = LoginHomeVM.init()
+        self.viewModel = ImportAccountVM()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -33,20 +33,7 @@ class ImportAccountViewController: UIViewController {
     }
 
     private func _bindViewModel() {
-        self.viewModel.createAccountBtnStr.asObservable().subscribe(onNext: { [weak self] (title) in
-            guard let `self` = self else { return }
-            self.createAccountBtn.setTitle(title, for: .normal)
-        }).disposed(by: rx.disposeBag)
 
-        self.viewModel.recoverAccountBtnStr.asObservable().subscribe(onNext: { [weak self] (title) in
-            guard let `self` = self else { return }
-            self.importAccountBtn.setTitle(title, for: .normal)
-        }).disposed(by: rx.disposeBag)
-
-        self.viewModel.changeLanguageBtnStr.asObservable().subscribe(onNext: { [weak self] (title) in
-            guard let `self` = self else { return }
-            self.changeLanguageBtn.setTitle(title, for: .normal)
-        }).disposed(by: rx.disposeBag)
     }
 
     lazy var logoImg: UIImageView = {
