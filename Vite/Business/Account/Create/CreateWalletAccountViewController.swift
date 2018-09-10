@@ -17,7 +17,7 @@ class CreateWalletAccountViewController: UIViewController {
     fileprivate var viewModel: CreateWalletAccountVM
 
     init() {
-        self.viewModel = CreateWalletAccountVM()
+        self.viewModel = CreateWalletAccountVM.init(input: (self.walletNameTF{},self.walletNameTF.text))
         super.init(nibName: nil, bundle: nil)
     }
 

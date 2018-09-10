@@ -14,53 +14,44 @@ final class CreateWalletAccountVM: NSObject {
     var accountNameStr  =  Variable("")
     
 
-    let maxCharactersCount = 32
+    static let maxCharactersCount = 32
 
     var inputPwdStr : String?
     var repeatInputPwdStr : String?
 
-//    let accountNameEnable:Driver<CreateWalletResult>
-//    let userPasswordAble:Driver<CreateWalletResult>
-//    let loginButtonEnabled :Driver<CreateWalletResult>
-//    let loginResult:Driver<CreateWalletResult>
+    let accountNameEnable : Driver<CreateWalletResult>
+    let inputPwdEnable : Driver<CreateWalletResult>
 
-//    let accountUseable: Driver<CreateWalletResult>
-//    let passwordUseable: Driver<CreateWalletResult>
-//    let loginBtnEnable: Driver<Bool>
-//    let loginResult: Driver<CreateWalletResult>
-//
-//    init(input: (accountField: UITextField, passwordField: UITextField, loginBtn: UIButton), service: CreateWalletAccountService)  {
-//
-//        let accountDriver = input.accountField.rx.text.orEmpty.asDriver()
-//        let passwordDriver = input.passwordField.rx.text.orEmpty.asDriver()
-//        let loginTapDriver = input.loginBtn.rx.tap.asDriver()
-//
-//        accountUseable = accountDriver.skip(1).flatMapLatest { account in
-//            return service.validationAccount(account).asDriver(onErrorJustReturn: .failed(message: "连接service失败"))
-//        }
-//        }
-//    }
+    init(input:(accountName:Driver<String>,passwd:Driver<String>)) {
+           accountNameEnable = input.accountName.flatMapLatest{ accountName  in
+            return CreateWalletAccountVM.handleAccountNameValid(accountName).asDriver(onErrorJustReturn: .failed(message: ""))
+        }
+
+        inputPwdEnable = input.accountName.flatMapLatest{ accountName  in
+            return CreateWalletAccountVM.handleAccountNameValid(accountName).asDriver(onErrorJustReturn: .failed(message: ""))
+        }
 
 
+    }
 
-
-//    init(input:(accountName:Driver<String>,passwd:Driver<String>)) {
-//           accountNameEnable = input.accountName.flatMapLatest{ accountName  in
-//            return self.handleAccountNameValid(accountName)
-//
-//        }
-//
-//
-//    }
-
-    func handleAccountNameValid(_ name:String) -> Observable<CreateWalletResult> {
+    static func handleAccountNameValid(_ name:String) -> Observable<CreateWalletResult> {
         if name.isEmpty {
-            return .just(.empty)
+            return Observable.just(.empty)
         }
         if name.count < maxCharactersCount  {
-            return .just(.failed(message: "用户名至少是6个字符"))
+            return Observable.just(.failed(message: "用户名至少是6个字符"))
         }
-        return .just(.ok(message:"用户名可用"))
+        return Observable.just(.ok(message:"用户名可用"))
+    }
+
+    static func handlePasswordValid(_ name:String) -> Observable<CreateWalletResult> {
+        if name.isEmpty {
+            return Observable.just(.empty)
+        }
+        if name.count < maxCharactersCount  {
+            return Observable.just(.failed(message: "用户名至少是6个字符"))
+        }
+        return Observable.just(.ok(message:"用户名可用"))
     }
 
 

@@ -34,7 +34,7 @@
 		4C84D94C21461A4C001B6EBD /* WalletStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D94B21461A4C001B6EBD /* WalletStorage.swift */; };
 		4C84D94F21461B05001B6EBD /* WalletInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D94E21461B05001B6EBD /* WalletInfo.swift */; };
 		4C84D951214654BD001B6EBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D950214654BD001B6EBD /* LoginViewController.swift */; };
-		4C84D95521465A8B001B6EBD /*  Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D95421465A8B001B6EBD /*  Language.swift */; };
+		4C84D95521465A8B001B6EBD /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D95421465A8B001B6EBD /* Language.swift */; };
 		4C84D95C21466C1B001B6EBD /* AccountLoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D95B21466C1B001B6EBD /* AccountLoginResult.swift */; };
 		4C84D95F21466D4E001B6EBD /* CreateWalletAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D95E21466D4E001B6EBD /* CreateWalletAccountService.swift */; };
 		4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
@@ -126,7 +126,7 @@
 		4C84D94B21461A4C001B6EBD /* WalletStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletStorage.swift; sourceTree = "<group>"; };
 		4C84D94E21461B05001B6EBD /* WalletInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInfo.swift; sourceTree = "<group>"; };
 		4C84D950214654BD001B6EBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		4C84D95421465A8B001B6EBD /*  Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = " Language.swift"; sourceTree = "<group>"; };
+		4C84D95421465A8B001B6EBD /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		4C84D95B21466C1B001B6EBD /* AccountLoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLoginResult.swift; sourceTree = "<group>"; };
 		4C84D95E21466D4E001B6EBD /* CreateWalletAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletAccountService.swift; sourceTree = "<group>"; };
 		4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -550,7 +550,7 @@
 		8E6F3E0821411664003CDFC2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4C84D95421465A8B001B6EBD /*  Language.swift */,
+				4C84D95421465A8B001B6EBD /* Language.swift */,
 				8E6F3E0D2141244F003CDFC2 /* BalanceType.swift */,
 				8E6F3E0621411650003CDFC2 /* Transaction.swift */,
 				8E6F3E442144CC6B003CDFC2 /* Account.swift */,
@@ -978,7 +978,6 @@
 			files = (
 				8E6F3DFF2141025B003CDFC2 /* SnapshotChainHeightRequest.swift in Sources */,
 				4C105EBF213FCAD500D483C6 /* UIColor.swift in Sources */,
-				4C105EC9213FF45A00D483C6 /*  Language.swift in Sources */,
 				8E6F3E3A2144C3B5003CDFC2 /* BalanceInfoDetailViewController.swift in Sources */,
 				8E6F3E04214115ED003CDFC2 /* AccountProvider.swift in Sources */,
 				8E6F3E1221421A4F003CDFC2 /* JSONTransformer.swift in Sources */,
@@ -1030,7 +1029,7 @@
 				8E6F3E4C214516B0003CDFC2 /* Token.swift in Sources */,
 				4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */,
 				4C84D95C21466C1B001B6EBD /* AccountLoginResult.swift in Sources */,
-				4C84D95521465A8B001B6EBD /*  Language.swift in Sources */,
+				4C84D95521465A8B001B6EBD /* Language.swift in Sources */,
 				8E6F3E2221422A83003CDFC2 /* HomeViewController.swift in Sources */,
 				8E6F3E422144CA49003CDFC2 /* WalletHomeAddressViewModel.swift in Sources */,
 				8E6F3DFD2141012A003CDFC2 /* SnapshotChainProvider.swift in Sources */,
