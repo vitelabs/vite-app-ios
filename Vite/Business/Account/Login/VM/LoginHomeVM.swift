@@ -11,9 +11,9 @@ import RxCocoa
 import RxSwift
 
 final class LoginHomeVM: NSObject {
-    var createAccountBtnStr  =  Variable(R.string.localizable.createAccount.key.localized())
-    var recoverAccountBtnStr = Variable(R.string.localizable.importAccount.key.localized())
-    var changeLanguageBtnStr = Variable(SettingDataService.sharedInstance.getCurrentLanguage().displayName)
+    var createAccountBtnStr  =  BehaviorRelay(value: R.string.localizable.createAccount.key.localized())
+    var recoverAccountBtnStr = BehaviorRelay(value: R.string.localizable.importAccount.key.localized())
+    var changeLanguageBtnStr = BehaviorRelay(value: SettingDataService.sharedInstance.getCurrentLanguage().displayName)
 
     override init() {
         super.init()

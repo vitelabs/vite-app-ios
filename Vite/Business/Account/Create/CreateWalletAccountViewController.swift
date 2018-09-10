@@ -36,13 +36,12 @@ class CreateWalletAccountViewController: UIViewController {
         _ = self.viewModel.accountNameStr.asObservable().bind(to: self.walletNameTF.rx.text)
     }
 
-    lazy var walletNameTF: UITextField = {
-        let walletNameTF = UITextField()
-        walletNameTF.backgroundColor = .gray
-        walletNameTF.font =  AppStyle.inputDescWord.font
-        walletNameTF.textColor =  AppStyle.descWord.textColor
-        return walletNameTF
-    }()
+    fileprivate let walletNameTF = UITextField().then {
+        $0.backgroundColor = .gray
+        $0.font =  AppStyle.inputDescWord.font
+        $0.textColor =  AppStyle.descWord.textColor
+    }
+
 
     lazy var walletNameLab: UILabel = {
         let walletNameLab = UILabel()
@@ -53,12 +52,10 @@ class CreateWalletAccountViewController: UIViewController {
         return walletNameLab
     }()
 
-    lazy var passwordTF: PasswordInputView = {
-        let passwordTF = PasswordInputView()
-        passwordTF.delegate = self
-        passwordTF.tag = 101
-        return passwordTF
-    }()
+    fileprivate let passwordTF = PasswordInputView().then {
+       $0.tag = 101
+    }
+
 
     lazy var passwordLab: UILabel = {
         let passwordLab = UILabel()
@@ -69,12 +66,9 @@ class CreateWalletAccountViewController: UIViewController {
         return passwordLab
     }()
 
-    lazy var passwordRepeateTF: PasswordInputView = {
-        let passwordRepeateTF = PasswordInputView()
-        passwordRepeateTF.delegate = self
-        passwordRepeateTF.tag = 102
-        return passwordRepeateTF
-    }()
+    fileprivate let passwordRepeateTF = PasswordInputView().then {
+        $0.tag = 102
+    }
 
     lazy var passwordRepeateLab: UILabel = {
         let passwordRepeateLab = UILabel()
@@ -124,12 +118,15 @@ extension CreateWalletAccountViewController {
     }
 
     private func _addViewConstraint() {
+
         self.view.addSubview(self.dismissKeyboardBtn)
         self.dismissKeyboardBtn.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(self.view)
         }
-        self.view.addSubview(self.walletNameTF)
-        self.walletNameTF.snp.makeConstraints { (make) -> Void in
+
+        let walletNameTextField = walletNameTF
+        self.view.addSubview(walletNameTextField)
+        walletNameTextField.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.view).offset(100)
             make.centerX.equalTo(self.view)
             make.height.equalTo(50)

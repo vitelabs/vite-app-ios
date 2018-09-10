@@ -15,8 +15,8 @@ final class AffirmInputMnemonicVM: NSObject {
     var mnemonicWordsStr: String?
     var mnemonicWordsList: [String]?
 
-    var hasChooseMnemonicWordsList =  Variable<[String]>([])
-    var hasLeftMnemonicWordsList =  Variable<[String]>([])
+    var hasChooseMnemonicWordsList =  BehaviorRelay<[String]>(value: [])
+    var hasLeftMnemonicWordsList =  BehaviorRelay<[String]>(value: [])
 
     init(mnemonicWordsStr: String) {
 

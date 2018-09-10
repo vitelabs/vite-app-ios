@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 
 final class CreateWalletAccountVM: NSObject {
-    var accountNameStr  =  Variable("")
+    var accountNameStr  =  BehaviorRelay(value: "")
     
 
     static let maxCharactersCount = 32
