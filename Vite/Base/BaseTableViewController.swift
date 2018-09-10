@@ -30,8 +30,8 @@ class BaseTableViewController: BaseViewController {
         if #available(iOS 11.0, *) {
             tableView.contentInsetAdjustmentBehavior = .scrollableAxes
         }
-        tableView.dataSource = self
-        tableView.delegate = self
+//        tableView.dataSource = self
+//        tableView.delegate = self
         view.addSubview(tableView)
 
         tableView.translatesAutoresizingMaskIntoConstraints = false

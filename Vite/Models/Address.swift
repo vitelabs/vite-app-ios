@@ -15,9 +15,10 @@ struct Address: CustomStringConvertible {
     }
 
     private var address: String
+    let isValid: Bool
 
-    init?(string: String = "") {
-        guard Address.isValid(string: string) else { return nil }
+    init(string: String = "") {
+        isValid = Address.isValid(string: string)
         address = string
     }
 

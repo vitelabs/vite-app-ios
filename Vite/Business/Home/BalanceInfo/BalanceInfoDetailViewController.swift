@@ -1,14 +1,14 @@
 //
-//  ScanViewController.swift
+//  BalanceInfoDetailViewController.swift
 //  Vite
 //
-//  Created by Stone on 2018/9/7.
+//  Created by Stone on 2018/9/9.
 //  Copyright © 2018年 vite labs. All rights reserved.
 //
 
 import UIKit
 
-class ScanViewController: BaseViewController {
+class BalanceInfoDetailViewController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

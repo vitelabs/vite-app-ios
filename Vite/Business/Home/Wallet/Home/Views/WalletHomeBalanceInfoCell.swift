@@ -1,5 +1,5 @@
 //
-//  WalletHomeTokenCell.swift
+//  WalletHomeBalanceInfoCell.swift
 //  Vite
 //
 //  Created by Stone on 2018/9/7.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WalletHomeTokenCell: BaseTableViewCell {
+class WalletHomeBalanceInfoCell: BaseTableViewCell {
 
     fileprivate let iconImageView = UIImageView()
 
@@ -59,16 +59,16 @@ class WalletHomeTokenCell: BaseTableViewCell {
             m.right.equalTo(contentView).offset(-15)
             m.bottom.equalTo(contentView).offset(-10)
         }
-
-        iconImageView.image = R.image.icon_wallet_token_vite()
-        nameLabel.text = "Vite"
-        balanceLabel.text = "1234567890"
-        unconfirmedLabel.text = "8769"
-
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func bind(viewModel: WalletHomeBalanceInfoViewModelType) {
+        iconImageView.image = viewModel.iconImage
+        nameLabel.text = viewModel.name
+        balanceLabel.text = viewModel.balance
+        unconfirmedLabel.text = viewModel.unconfirmed
+    }
 }
