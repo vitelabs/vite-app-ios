@@ -12,7 +12,6 @@ import RxDataSources
 
 class AffirmInputMnemonicViewController: UIViewController, MnemonicCollectionViewDelegate {
     fileprivate var viewModel: AffirmInputMnemonicVM
-//    private var vmOutput: AffirmInputMnemonicVM.AffirmInputMnemonicOutput?
 
     init(mnemonicWordsStr: String) {
         self.viewModel = AffirmInputMnemonicVM.init(mnemonicWordsStr: mnemonicWordsStr)

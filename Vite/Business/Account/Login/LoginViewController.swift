@@ -10,10 +10,8 @@ import UIKit
 import SnapKit
 import RxCocoa
 import RxSwift
-import NSObject_Rx
 
-class LoginHomeViewController: BaseViewController {
-
+class LoginViewController: BaseViewController {
     fileprivate var viewModel: LoginHomeVM
 
     init() {
@@ -47,11 +45,11 @@ class LoginHomeViewController: BaseViewController {
         _ = self.viewModel.changeLanguageBtnStr.asObservable().bind(to: self.changeLanguageBtn.rx.title(for: .normal))
     }
 
-    lazy var logoImg: UIImageView = {
-        let logoImg = UIImageView()
-        logoImg.backgroundColor = .clear
-        logoImg.image =  R.image.launch_screen_logo()
-        return logoImg
+    lazy var logoImgView: UIImageView = {
+        let logoImgView = UIImageView()
+        logoImgView.backgroundColor = .clear
+        logoImgView.image =  R.image.launch_screen_logo()
+        return logoImgView
     }()
 
     lazy var createAccountBtn: UIButton = {
@@ -82,7 +80,7 @@ class LoginHomeViewController: BaseViewController {
     }()
 }
 
-extension LoginHomeViewController {
+extension LoginViewController {
     private func _setupView() {
         self.view.backgroundColor = .white
 
@@ -90,8 +88,8 @@ extension LoginHomeViewController {
     }
 
     private func _addViewConstraint() {
-        self.view.addSubview(self.logoImg)
-        self.logoImg.snp.makeConstraints { (make) -> Void in
+        self.view.addSubview(self.logoImgView)
+        self.logoImgView.snp.makeConstraints { (make) -> Void in
             make.center.equalTo(self.view)
             make.width.height.equalTo(150)
         }
@@ -138,7 +136,7 @@ extension LoginHomeViewController {
         let languages: [Language] = SettingDataService.sharedInstance.getSupportedLanguages()
         for element in languages {
             let action = UIAlertAction(title: element.displayName, style: .destructive, handler: {_ in
-                 _ = SetLanguage(element.name)
+                _ = SetLanguage(element.name)
             })
             alertController.addAction(action)
         }

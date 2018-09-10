@@ -14,10 +14,10 @@ import NSObject_Rx
 
 class CreateWalletAccountViewController: UIViewController {
 
-    fileprivate var viewModel: LoginHomeVM
+    fileprivate var viewModel: CreateWalletAccountVM
 
     init() {
-        self.viewModel = LoginHomeVM.init()
+        self.viewModel = CreateWalletAccountVM()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -33,7 +33,7 @@ class CreateWalletAccountViewController: UIViewController {
     }
 
     private func _bindViewModel() {
-
+        _ = self.viewModel.accountNameStr.asObservable().bind(to: self.walletNameTF.rx.text)
     }
 
     lazy var walletNameTF: UITextField = {
@@ -56,6 +56,7 @@ class CreateWalletAccountViewController: UIViewController {
     lazy var passwordTF: PasswordInputView = {
         let passwordTF = PasswordInputView()
         passwordTF.delegate = self
+        passwordTF.tag = 101
         return passwordTF
     }()
 
@@ -71,6 +72,7 @@ class CreateWalletAccountViewController: UIViewController {
     lazy var passwordRepeateTF: PasswordInputView = {
         let passwordRepeateTF = PasswordInputView()
         passwordRepeateTF.delegate = self
+        passwordRepeateTF.tag = 102
         return passwordRepeateTF
     }()
 
@@ -92,10 +94,21 @@ class CreateWalletAccountViewController: UIViewController {
         submitBtn.addTarget(self, action: #selector(submitBtnAction), for: .touchUpInside)
         return submitBtn
     }()
+
+    lazy var dismissKeyboardBtn: UIButton = {
+        let dismissKeyboardBtn = UIButton()
+        dismissKeyboardBtn.backgroundColor = .clear
+        dismissKeyboardBtn.addTarget(self, action: #selector(dismissKeyboardBtnAction), for: .touchUpInside)
+        return dismissKeyboardBtn
+    }()
 }
 extension CreateWalletAccountViewController: PasswordInputViewDelegate {
-    func accomplished(passwordView: PasswordInputView, password: String) {
-
+    func inputFinish(passwordView: PasswordInputView, password: String) {
+        if passwordView.tag == 101 {
+            self.viewModel.inputPwdStr = password
+        } else {
+            self.viewModel.repeatInputPwdStr = password
+        }
     }
 
     func close(passwordView: PasswordInputView) -> Bool {
@@ -111,6 +124,10 @@ extension CreateWalletAccountViewController {
     }
 
     private func _addViewConstraint() {
+        self.view.addSubview(self.dismissKeyboardBtn)
+        self.dismissKeyboardBtn.snp.makeConstraints { (make) -> Void in
+            make.edges.equalTo(self.view)
+        }
         self.view.addSubview(self.walletNameTF)
         self.walletNameTF.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.view).offset(100)
@@ -163,6 +180,12 @@ extension CreateWalletAccountViewController {
             make.bottom.equalTo(self.view).offset(-30)
             make.centerX.equalTo(self.view)
         }
+    }
+
+    @objc func dismissKeyboardBtnAction() {
+        self.walletNameTF.resignFirstResponder()
+        _ = self.passwordTF.resignFirstResponder()
+        _ = self.passwordRepeateTF.resignFirstResponder()
     }
 
     @objc func submitBtnAction() {

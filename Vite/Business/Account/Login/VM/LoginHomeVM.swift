@@ -11,8 +11,8 @@ import RxCocoa
 import RxSwift
 
 final class LoginHomeVM: NSObject {
-    var createAccountBtnStr  =  Variable("create account".localized())
-    var recoverAccountBtnStr = Variable(LocalizationStr("import account"))
+    var createAccountBtnStr  =  Variable(R.string.localizable.createAccount.key.localized())
+    var recoverAccountBtnStr = Variable(R.string.localizable.importAccount.key.localized())
     var changeLanguageBtnStr = Variable(SettingDataService.sharedInstance.getCurrentLanguage().displayName)
 
     override init() {
@@ -27,8 +27,8 @@ final class LoginHomeVM: NSObject {
             .subscribe(onNext: { [weak self] (_) in
                 guard let `self` = self else { return }
 
-                self.createAccountBtnStr.value = LocalizationStr("create account")
-                self.recoverAccountBtnStr.value = LocalizationStr("import account")
+                self.createAccountBtnStr.value = R.string.localizable.createAccount.key.localized()
+                self.recoverAccountBtnStr.value = R.string.localizable.importAccount.key.localized()
                 self.changeLanguageBtnStr.value = SettingDataService.sharedInstance.getCurrentLanguage().displayName
             }).disposed(by: rx.disposeBag)
     }

@@ -13,8 +13,8 @@
 "No" = "否";
 
 /* Login */
-"create account" = "创建账户";
-"import account" = "导入账户";
+"create.account" = "create account";
+"import.account" = "import account";
 
 /* create */
 "create.page.title" = "创建钱包账户";
@@ -39,7 +39,7 @@
 "mnemonic.affirm.alter.title" = "返回会重新生成助记词，是否返回";
 
 /* import */
-"import page title" = "输入您的助记词";
+"import.page.title" = "输入您的助记词";
 
 /* Home */
 "tabbar.item.title.wallet" = "Wallet";

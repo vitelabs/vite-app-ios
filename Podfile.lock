@@ -56,6 +56,8 @@ PODS:
   - Vite-keystore (0.0.1):
     - BigInt (~> 3.0)
     - CryptoSwift (~> 0.11)
+    - KeychainSwift
+    - ObjectMapper
     - scrypt (~> 1.5)
     - secp256k1.swift (~> 0.1.4)
 
@@ -153,7 +155,7 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
-  Vite-keystore: f504e9c4ec555d1c43b7dcb32a41b3154b243308
+  Vite-keystore: c5bf2ce37aa6601b44007bb2b9b2013692692d06
 
 PODFILE CHECKSUM: 064284fa7a0902ec8503587e3f59e160c4f6eb73
 

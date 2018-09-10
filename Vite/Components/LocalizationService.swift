@@ -17,8 +17,6 @@ func SetLanguage(_ language: String) -> Bool {
 }
 
 class LocalizationService {
-
-    // MARK: - Private properties
     private let userDefaults = UserDefaults.standard
     private var localizationDic: NSDictionary?
 
@@ -34,27 +32,14 @@ class LocalizationService {
     // MARK: - Public properties
     var updatedLanguage: String?
 
-    // MARK: - Singleton method
-    class var sharedInstance: LocalizationService {
-        struct Singleton {
-            static let instance = LocalizationService()
-        }
-        return Singleton.instance
-    }
-
-    // MARK: - Init method
-    init() {
-
-    }
+    static let  sharedInstance = LocalizationService()
 
     // MARK: - Public custom getter
-
     func getArrayAvailableLanguages() -> [String] {
         return availableLanguagesArray
     }
 
     // MARK: - Private instance methods
-
     fileprivate func loadDictionaryForLanguage(_ newLanguage: String) -> Bool {
         let arrayExt = newLanguage.components(separatedBy: "_")
         for ext in arrayExt {
@@ -88,8 +73,8 @@ class LocalizationService {
 
         if loadDictionaryForLanguage(newLanguage) {
             // Update the setting. It only works when the application is restarted.
-            UserDefaults.standard.set([newLanguage], forKey: "AppleLanguages")
-            UserDefaults.standard.synchronize()
+            userDefaults.set([newLanguage], forKey: "AppleLanguages")
+            userDefaults.synchronize()
 
             // runtime
             NotificationCenter.default.post(name: .languageChanged, object: nil)
