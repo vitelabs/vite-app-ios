@@ -44,3 +44,12 @@
 /* Home */
 "tabbar.item.title.wallet" = "Wallet";
 "tabbar.item.title.my" = "My";
+
+/* BalanceInfo */
+"balance.info.detail.balance.title" = "账户余额";
+"balance.info.detail.unconfirmed.title" = "在途资金";
+"balance.info.detail.unconfirmed.count.title" = "(%@笔待确认)";
+"balance.info.detail.show.transactions.button.title" = "查看交易记录";
+"balance.info.detail.reveice.button.title" = "收款";
+"balance.info.detail.send.button.title" = "转账";
+

@@ -43,6 +43,13 @@
 		4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE425A2124553C0080E92B /* ViteTests.swift */; };
 		4CCE42662124553C0080E92B /* ViteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE42652124553C0080E92B /* ViteUITests.swift */; };
 		8E56FC78214643B300A68823 /* WalletHomeBalanceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */; };
+		8E56FC7A21464A8500A68823 /* BalanceInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC7921464A8500A68823 /* BalanceInfoDetailView.swift */; };
+		8E56FC7D214656A700A68823 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC7C214656A700A68823 /* UIView+Helper.swift */; };
+		8E56FC7F21466BD100A68823 /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC7E21466BD100A68823 /* ReceiveViewController.swift */; };
+		8E56FC8221466BF500A68823 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC8121466BF500A68823 /* SendViewController.swift */; };
+		8E56FC8521466C3200A68823 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC8421466C3200A68823 /* TransactionsViewController.swift */; };
+		8E56FC8721466D6500A68823 /* GetUnconfirmedInfosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC8621466D6500A68823 /* GetUnconfirmedInfosRequest.swift */; };
+		8E56FC8921466E8C00A68823 /* UnConfirmedInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC8821466E8C00A68823 /* UnConfirmedInfo.swift */; };
 		8E6F3DF82140FE99003CDFC2 /* RPCServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */; };
 		8E6F3DFB2140FFEC003CDFC2 /* ViteServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */; };
 		8E6F3DFD2141012A003CDFC2 /* SnapshotChainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DFC2141012A003CDFC2 /* SnapshotChainProvider.swift */; };
@@ -143,6 +150,13 @@
 		7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C959221E3DAE4FAF07176D1 /* Pods-Vite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.debug.xcconfig"; sourceTree = "<group>"; };
 		8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletHomeBalanceInfoCell.swift; sourceTree = "<group>"; };
+		8E56FC7921464A8500A68823 /* BalanceInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceInfoDetailView.swift; sourceTree = "<group>"; };
+		8E56FC7C214656A700A68823 /* UIView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helper.swift"; sourceTree = "<group>"; };
+		8E56FC7E21466BD100A68823 /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
+		8E56FC8121466BF500A68823 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
+		8E56FC8421466C3200A68823 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		8E56FC8621466D6500A68823 /* GetUnconfirmedInfosRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUnconfirmedInfosRequest.swift; sourceTree = "<group>"; };
+		8E56FC8821466E8C00A68823 /* UnConfirmedInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnConfirmedInfo.swift; sourceTree = "<group>"; };
 		8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCServer.swift; sourceTree = "<group>"; };
 		8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteServiceRequest.swift; sourceTree = "<group>"; };
 		8E6F3DFC2141012A003CDFC2 /* SnapshotChainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotChainProvider.swift; sourceTree = "<group>"; };
@@ -515,6 +529,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8E56FC7B21464A8B00A68823 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8E56FC7921464A8500A68823 /* BalanceInfoDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8E56FC8021466BE000A68823 /* Receive */ = {
+			isa = PBXGroup;
+			children = (
+				8E56FC7E21466BD100A68823 /* ReceiveViewController.swift */,
+			);
+			path = Receive;
+			sourceTree = "<group>";
+		};
+		8E56FC8321466C0700A68823 /* Send */ = {
+			isa = PBXGroup;
+			children = (
+				8E56FC8121466BF500A68823 /* SendViewController.swift */,
+			);
+			path = Send;
+			sourceTree = "<group>";
+		};
 		8E6F3DF92140FEA5003CDFC2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +581,7 @@
 				8E6F3E03214115ED003CDFC2 /* AccountProvider.swift */,
 				8E6F3E0B21412150003CDFC2 /* GetTransactionsRequest.swift */,
 				8E6F3E4F21451F29003CDFC2 /* GetBalanceInfosRequest.swift */,
+				8E56FC8621466D6500A68823 /* GetUnconfirmedInfosRequest.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -556,6 +595,7 @@
 				8E6F3E442144CC6B003CDFC2 /* Account.swift */,
 				8E6F3E4B214516B0003CDFC2 /* Token.swift */,
 				8E6F3E4D21451806003CDFC2 /* BalanceInfo.swift */,
+				8E56FC8821466E8C00A68823 /* UnConfirmedInfo.swift */,
 				8E6F3E092141199B003CDFC2 /* Address.swift */,
 				8E6F3E0F2141263A003CDFC2 /* Balance.swift */,
 			);
@@ -589,6 +629,8 @@
 				8E6F3E2121422A83003CDFC2 /* HomeViewController.swift */,
 				8E6F3E17214227EC003CDFC2 /* Wallet */,
 				8E6F3E3B2144C3E4003CDFC2 /* BalanceInfo */,
+				8E56FC8021466BE000A68823 /* Receive */,
+				8E56FC8321466C0700A68823 /* Send */,
 				8E6F3E2621422AEE003CDFC2 /* My */,
 			);
 			path = Home;
@@ -598,6 +640,7 @@
 			isa = PBXGroup;
 			children = (
 				8E6F3E2721422BA1003CDFC2 /* MyHomeViewController.swift */,
+				8E56FC8421466C3200A68823 /* TransactionsViewController.swift */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -606,6 +649,7 @@
 			isa = PBXGroup;
 			children = (
 				8E6F3E2B2142644E003CDFC2 /* UITableView+Helper.swift */,
+				8E56FC7C214656A700A68823 /* UIView+Helper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -650,6 +694,7 @@
 			isa = PBXGroup;
 			children = (
 				8E6F3E392144C3B5003CDFC2 /* BalanceInfoDetailViewController.swift */,
+				8E56FC7B21464A8B00A68823 /* Views */,
 			);
 			path = BalanceInfo;
 			sourceTree = "<group>";
@@ -985,8 +1030,11 @@
 				8E6F3DFB2140FFEC003CDFC2 /* ViteServiceRequest.swift in Sources */,
 				8E6F3E2A21425317003CDFC2 /* WalletHomeAddressCell.swift in Sources */,
 				4C84D948214528D4001B6EBD /* CreateAccountHomeViewController.swift in Sources */,
+				8E56FC8721466D6500A68823 /* GetUnconfirmedInfosRequest.swift in Sources */,
+				4C84D948214528D4001B6EBD /* LoginHomeViewController.swift in Sources */,
 				8E6F3E202142280F003CDFC2 /* BaseNavigationController.swift in Sources */,
 				4C84D949214528D4001B6EBD /* LoginHomeVM.swift in Sources */,
+				8E56FC8921466E8C00A68823 /* UnConfirmedInfo.swift in Sources */,
 				4C105EBC213FCA7400D483C6 /* Colors.swift in Sources */,
 				8E6F3E3121427683003CDFC2 /* QRCodeViewController.swift in Sources */,
 				4C84D9332145280E001B6EBD /* ImportAccountViewController.swift in Sources */,
@@ -1010,6 +1058,7 @@
 				8E6F3E2821422BA1003CDFC2 /* MyHomeViewController.swift in Sources */,
 				4C0024E421258005001DF390 /* R.generated.swift in Sources */,
 				4C84D93F21452836001B6EBD /* BackupMnemonicViewController.swift in Sources */,
+				8E56FC7D214656A700A68823 /* UIView+Helper.swift in Sources */,
 				8E6F3E0A2141199B003CDFC2 /* Address.swift in Sources */,
 				4C84D91C2145277C001B6EBD /* PasswordInputView.swift in Sources */,
 				8E56FC78214643B300A68823 /* WalletHomeBalanceInfoCell.swift in Sources */,
@@ -1021,17 +1070,21 @@
 				4C84D951214654BD001B6EBD /* LoginViewController.swift in Sources */,
 				8E6F3DF82140FE99003CDFC2 /* RPCServer.swift in Sources */,
 				4C84D94021452836001B6EBD /* WordCollectionViewCell.swift in Sources */,
+				8E56FC8221466BF500A68823 /* SendViewController.swift in Sources */,
 				4C84D9302145280E001B6EBD /* CreateWalletAccountVM.swift in Sources */,
 				4C105ED12141401100D483C6 /* String.swift in Sources */,
 				8E6F3E3F2144CA23003CDFC2 /* WalletHomeAddressViewModelType.swift in Sources */,
 				8E6F3E5421453405003CDFC2 /* WalletHomeBalanceInfoViewModel.swift in Sources */,
 				8E6F3E4E21451806003CDFC2 /* BalanceInfo.swift in Sources */,
+				8E56FC7F21466BD100A68823 /* ReceiveViewController.swift in Sources */,
 				8E6F3E4C214516B0003CDFC2 /* Token.swift in Sources */,
 				4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */,
 				4C84D95C21466C1B001B6EBD /* AccountLoginResult.swift in Sources */,
 				4C84D95521465A8B001B6EBD /* Language.swift in Sources */,
 				8E6F3E2221422A83003CDFC2 /* HomeViewController.swift in Sources */,
 				8E6F3E422144CA49003CDFC2 /* WalletHomeAddressViewModel.swift in Sources */,
+				8E56FC7A21464A8500A68823 /* BalanceInfoDetailView.swift in Sources */,
+				8E56FC8521466C3200A68823 /* TransactionsViewController.swift in Sources */,
 				8E6F3DFD2141012A003CDFC2 /* SnapshotChainProvider.swift in Sources */,
 				4C84D94C21461A4C001B6EBD /* WalletStorage.swift in Sources */,
 				4C84D93E21452836001B6EBD /* AffirmInputMnemonicViewController.swift in Sources */,

@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         _ = SettingDataService.sharedInstance.getCurrentLanguage()
 
-        #if true
+        #if false
         let rootVC = CreateAccountHomeViewController()
         rootVC.automaticallyShowDismissButton = false
         window = UIWindow(frame: UIScreen.main.bounds)

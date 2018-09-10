@@ -31,12 +31,13 @@ struct GetTransactionsRequest: JSONRPCKit.Request {
     }
 
     func response(from resultObject: Any) throws -> [Transaction] {
-        if let response = resultObject as? [[String: Any]] {
-            let transactions = response.map({ Transaction(JSON: $0) })
-            let ret = transactions.compactMap { $0 }
-            return ret
-        } else {
-            throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: [Transaction].self)
+        var response = [[String: Any]]()
+        if let object = resultObject as? [[String: Any]] {
+            response = object
         }
+
+        let transactions = response.map({ Transaction(JSON: $0) })
+        let ret = transactions.compactMap { $0 }
+        return ret
     }
 }

@@ -13,7 +13,7 @@ import RxCocoa
 final class WalletHomeBalanceInfoTableViewModel: WalletHomeBalanceInfoTableViewModelType {
 
     lazy var  balanceInfosDriver: Driver<[WalletHomeBalanceInfoViewModelType]> = self.balanceInfos.asDriver()
-    fileprivate let balanceInfos: Variable<[WalletHomeBalanceInfoViewModelType]>
+    fileprivate let balanceInfos: BehaviorRelay<[WalletHomeBalanceInfoViewModelType]>
     fileprivate let address: Address
 
     fileprivate let disposeBag = DisposeBag()
@@ -26,7 +26,7 @@ final class WalletHomeBalanceInfoTableViewModel: WalletHomeBalanceInfoTableViewM
     init(address: Address) {
         self.address = address
         // TODO: need cache
-        balanceInfos = Variable<[WalletHomeBalanceInfoViewModelType]>([])
+        balanceInfos = BehaviorRelay<[WalletHomeBalanceInfoViewModelType]>(value: [])
 
         getBalanceInfos()
         Observable<Int>.interval(5, scheduler: MainScheduler.instance).bind { [weak self] _ in
@@ -36,13 +36,15 @@ final class WalletHomeBalanceInfoTableViewModel: WalletHomeBalanceInfoTableViewM
 
     private func getBalanceInfos() {
         _ = accountProvider.getBalanceInfos(address: address).done { [weak self] balanceInfos in
-            self?.balanceInfos.value = balanceInfos.map {
+            self?.balanceInfos.accept(balanceInfos.map {
                 WalletHomeBalanceInfoViewModel(
+                    tokenId: $0.token.id,
                     iconImage: $0.token.defaultIconImage,
                     name: $0.token.name,
                     balance: $0.balance.amountShort,
-                    unconfirmed: $0.unconfirmedBalance.amountShort)
-            }
+                    unconfirmed: $0.unconfirmedBalance.amountShort,
+                    unconfirmedCount: $0.unconfirmedCount)
+            })
         }
     }
 }
