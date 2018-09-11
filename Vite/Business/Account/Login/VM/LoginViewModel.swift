@@ -16,4 +16,3 @@ final class LoginViewModel: NSObject {
         super.init()
     }
 }
-

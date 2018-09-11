@@ -8,5 +8,4 @@
 
 struct WalletInfo {
 
-
 }

@@ -10,59 +10,82 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-final class CreateWalletAccountVM: NSObject {
-//    var accountNameStr  =  BehaviorRelay(value: "")
-//    
-//
-//    static let maxCharactersCount = 32
-//
-//    var inputPwdStr : String?
-//    var repeatInputPwdStr : String?
-//
-//    let accountNameEnable : Driver<CreateWalletResult>
-//    let inputPwdEnable : Driver<CreateWalletResult>
-//
-//    init(input:(accountName:Driver<String>,passwd:Driver<String>)) {
-//           accountNameEnable = input.accountName.flatMapLatest{ accountName  in
-//            return CreateWalletAccountVM.handleAccountNameValid(accountName).asDriver(onErrorJustReturn: .failed(message: ""))
-//        }
-//
-//        inputPwdEnable = input.accountName.flatMapLatest{ accountName  in
-//            return CreateWalletAccountVM.handleAccountNameValid(accountName).asDriver(onErrorJustReturn: .failed(message: ""))
-//        }
-//
-//
-//    }
-//
-//    static func handleAccountNameValid(_ name:String) -> Observable<CreateWalletResult> {
-//        if name.isEmpty {
-//            return Observable.just(.empty)
-//        }
-//        if name.count < maxCharactersCount  {
-//            return Observable.just(.failed(message: "用户名至少是6个字符"))
-//        }
-//        return Observable.just(.ok(message:"用户名可用"))
-//    }
-//
-//    static func handlePasswordValid(_ name:String) -> Observable<CreateWalletResult> {
-//        if name.isEmpty {
-//            return Observable.just(.empty)
-//        }
-//        if name.count < maxCharactersCount  {
-//            return Observable.just(.failed(message: "用户名至少是6个字符"))
-//        }
-//        return Observable.just(.ok(message:"用户名可用"))
-//    }
-//
-//
-//    func initBinds() {
-////        NotificationCenter.default.rx
-////            .notification(.languageChanged)
-////            .takeUntil(self.rx.deallocated)
-////            .subscribe(onNext: { [weak self] (_) in
-////                guard let `self` = self else { return }
-////
-////
-////            }).disposed(by: rx.disposeBag)
-//    }
+final class CreateWalletAccountVM {
+    static let maxCharactersCount = 32
+
+    let accountNameEnable: Driver<CreateWalletResult>
+    let inputPwdEnable: Driver<CreateWalletResult>
+    let inputRepeatePwdEnable: Driver<CreateWalletResult>
+    let submitBtnEnable: Driver<Bool>
+
+    init(input:(accountNameTF: UITextField, passwordTF: UITextField, repeatePwdTF: UITextField)) {
+        let accountDriver = input.accountNameTF.rx.text.orEmpty.asDriver()
+        let passwordDriver = input.passwordTF.rx.text.orEmpty.asDriver()
+        let repeatePwdTFDriver = input.repeatePwdTF.rx.text.orEmpty.asDriver()
+
+       accountNameEnable = accountDriver.skip(1).flatMapLatest {accountName  in
+            return CreateWalletAccountVM.handleAccountNameValid(accountName).asDriver(onErrorJustReturn: .failed(message: "用户名至少是6个字符"))
+       }
+
+        inputPwdEnable = passwordDriver.skip(1).flatMapLatest {pwd  in
+            return CreateWalletAccountVM.handleAccountNameValid(pwd).asDriver(onErrorJustReturn: .failed(message: ""))
+        }
+
+        inputRepeatePwdEnable = repeatePwdTFDriver.skip(1).flatMapLatest {pwd  in
+            return CreateWalletAccountVM.handleRepeatePasswordValid(pwd).asDriver(onErrorJustReturn: .failed(message: ""))
+        }
+
+        let createAccountIsOK = Driver.combineLatest(accountDriver, passwordDriver, repeatePwdTFDriver) {
+            return ($0, $1, $2)
+        }
+
+        submitBtnEnable = createAccountIsOK.flatMap { (arg) -> SharedSequence<DriverSharingStrategy, Bool> in
+            let (account, password, rePwd) = arg
+            return CreateWalletAccountVM.handleLoginBtnEnable(account, pwd: password, rePwd: rePwd).asDriver(onErrorJustReturn: false)
+        }
+    }
+
+    static func handleLoginBtnEnable(_ name: String, pwd: String, rePwd: String) -> Observable<Bool> {
+        if name.isEmpty || pwd.isEmpty || rePwd.isEmpty {
+            return Observable.just(false)
+        }
+
+        if pwd != rePwd {
+            return Observable.just(false)
+        }
+
+        return Observable.just(true)
+    }
+
+    static func handleAccountNameValid(_ name: String) -> Observable<CreateWalletResult> {
+        if name.isEmpty {
+            return Observable.just(.empty(message:"用户名必须输入"))
+        }
+        if name.count > maxCharactersCount {
+            return Observable.just(.failed(message: "超出字符限制"))
+        }
+        // TODO:::
+        // 格式合法性判断
+        return Observable.just(.ok(message:""))
+    }
+
+    static func handlePasswordValid(_ name: String) -> Observable<CreateWalletResult> {
+        if name.isEmpty {
+            return Observable.just(.empty(message:"密码必须输入"))
+        }
+        if name.count < maxCharactersCount {
+            return Observable.just(.failed(message: "用户名至少是6个字符"))
+        }
+        return Observable.just(.ok(message:""))
+    }
+
+    static func handleRepeatePasswordValid(_ name: String) -> Observable<CreateWalletResult> {
+        if name.isEmpty {
+            return Observable.just(.empty(message:"密码必须输入"))
+        }
+        if name.count < maxCharactersCount {
+            return Observable.just(.failed(message: "用户名至少是6个字符"))
+        }
+        return Observable.just(.ok(message:""))
+    }
 }

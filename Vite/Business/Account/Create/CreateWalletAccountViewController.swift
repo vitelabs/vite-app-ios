@@ -12,19 +12,43 @@ import RxCocoa
 import RxSwift
 import NSObject_Rx
 
+extension CreateWalletAccountViewController {
+    private func _bindViewModel() {
+        let viewModel = CreateWalletAccountVM(input: (self.walletNameTF, self.passwordTF.textField, self.passwordRepeateTF.textField))
+
+        viewModel.accountNameEnable.drive(onNext: { (result) in
+            switch result {
+            case .ok:
+                break
+            case .empty:
+                self.walletNameLab.text = result.description
+            case .failed:
+                self.walletNameLab.text = result.description
+            }
+        }).disposed(by: rx.disposeBag)
+
+        viewModel.inputRepeatePwdEnable.drive(onNext: { (result) in
+            switch result {
+            case .ok:
+                break
+            case .failed:
+                self.passwordLab.text = result.description
+            case .empty:
+                self.passwordLab.text = result.description
+            }
+        }).disposed(by: rx.disposeBag)
+
+        viewModel.submitBtnEnable.drive(onNext: { (isEnabled) in
+            self.submitBtn.isEnabled = isEnabled
+        }).disposed(by: rx.disposeBag)
+
+        //边框处理
+//        viewModel.accountNameEnable.drive(self.walletNameTF.rx.validationResult).disposed(by: rx.disposeBag)
+//        viewModel.inputPwdEnable.drive(self.passwordTF.textField.rx.validationResult).disposed(by: rx.disposeBag)
+    }
+}
+
 class CreateWalletAccountViewController: UIViewController {
-
-    fileprivate var viewModel: CreateWalletAccountVM
-
-    init() {
-        self.viewModel = CreateWalletAccountVM()
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,16 +56,14 @@ class CreateWalletAccountViewController: UIViewController {
         self._bindViewModel()
     }
 
-    private func _bindViewModel() {
-//        _ = self.viewModel.accountNameStr.asObservable().bind(to: self.walletNameTF.rx.text)
-    }
+    lazy var walletNameTF: UITextField = {
+        let walletNameTF = UITextField()
+        walletNameTF.backgroundColor = .gray
+        walletNameTF.font =  AppStyle.inputDescWord.font
+        walletNameTF.textColor =  AppStyle.descWord.textColor
 
-    fileprivate let walletNameTF = UITextField().then {
-        $0.backgroundColor = .gray
-        $0.font =  AppStyle.inputDescWord.font
-        $0.textColor =  AppStyle.descWord.textColor
-    }
-
+        return walletNameTF
+    }()
 
     lazy var walletNameLab: UILabel = {
         let walletNameLab = UILabel()
@@ -52,10 +74,10 @@ class CreateWalletAccountViewController: UIViewController {
         return walletNameLab
     }()
 
-    fileprivate let passwordTF = PasswordInputView().then {
-       $0.tag = 101
-    }
-
+    lazy var passwordTF: PasswordInputView = {
+        let passwordTF = PasswordInputView()
+        return passwordTF
+    }()
 
     lazy var passwordLab: UILabel = {
         let passwordLab = UILabel()
@@ -66,9 +88,10 @@ class CreateWalletAccountViewController: UIViewController {
         return passwordLab
     }()
 
-    fileprivate let passwordRepeateTF = PasswordInputView().then {
-        $0.tag = 102
-    }
+    lazy var passwordRepeateTF: PasswordInputView = {
+        let passwordRepeateTF = PasswordInputView()
+        return passwordRepeateTF
+    }()
 
     lazy var passwordRepeateLab: UILabel = {
         let passwordRepeateLab = UILabel()
@@ -84,7 +107,9 @@ class CreateWalletAccountViewController: UIViewController {
         submitBtn.setTitle(R.string.localizable.createPageSubmitBtnTitle.key.localized(), for: .normal)
         submitBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         submitBtn.setTitleColor(.black, for: .normal)
-        submitBtn.backgroundColor = .orange
+        submitBtn.setBackgroundImage(UIImage.color(.red), for: .normal)
+        submitBtn.setBackgroundImage(UIImage.color(.gray), for: .disabled)
+        submitBtn.setBackgroundImage(UIImage.color(.red), for: .highlighted)
         submitBtn.addTarget(self, action: #selector(submitBtnAction), for: .touchUpInside)
         return submitBtn
     }()
@@ -96,6 +121,7 @@ class CreateWalletAccountViewController: UIViewController {
         return dismissKeyboardBtn
     }()
 }
+
 extension CreateWalletAccountViewController: PasswordInputViewDelegate {
     func inputFinish(passwordView: PasswordInputView, password: String) {
 //        if passwordView.tag == 101 {
@@ -111,32 +137,32 @@ extension CreateWalletAccountViewController: PasswordInputViewDelegate {
 }
 
 extension CreateWalletAccountViewController {
+
     private func _setupView() {
         self.view.backgroundColor = .white
         self.title = "create.page.title".localized()
+
         self._addViewConstraint()
     }
 
     private func _addViewConstraint() {
-
-        self.view.addSubview(self.dismissKeyboardBtn)
-        self.dismissKeyboardBtn.snp.makeConstraints { (make) -> Void in
+        self.view.addSubview(dismissKeyboardBtn)
+        dismissKeyboardBtn.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(self.view)
         }
 
-        let walletNameTextField = walletNameTF
-        self.view.addSubview(walletNameTextField)
-        walletNameTextField.snp.makeConstraints { (make) -> Void in
+        self.view.addSubview(walletNameTF)
+        walletNameTF.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.view).offset(100)
             make.centerX.equalTo(self.view)
             make.height.equalTo(50)
             make.width.equalTo(250)
         }
 
-        self.view.addSubview(self.walletNameLab)
+        self.view.addSubview(walletNameLab)
         self.walletNameLab.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.walletNameTF.snp.bottom).offset(10)
-            make.left.equalTo(self.walletNameTF)
+            make.top.equalTo(walletNameTF.snp.bottom).offset(10)
+            make.left.equalTo(walletNameTF)
             make.height.equalTo(30)
         }
 
