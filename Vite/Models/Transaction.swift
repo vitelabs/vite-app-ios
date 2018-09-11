@@ -22,6 +22,11 @@ struct Transaction: Equatable, Mappable {
         case finished = 2
     }
 
+    enum TransactionType: Int {
+        case request
+        case response
+    }
+
     fileprivate(set) var timestamp = Date(timeIntervalSince1970: 0)
     fileprivate(set) var fromAddress = Address()
     fileprivate(set) var toAddress = Address()
@@ -30,6 +35,10 @@ struct Transaction: Equatable, Mappable {
     fileprivate(set) var balance = Balance()
     fileprivate(set) var amount = Balance()
     fileprivate(set) var confirmedTimes = ""
+
+    var type: TransactionType {
+        return fromAddress.isValid ? .response : .request
+    }
 
     init?(map: Map) {
 
