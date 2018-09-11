@@ -12,13 +12,13 @@ import RxSwift
 import Vite_keystore
 
 final class BackupMnemonicVM: NSObject {
-    var mnemonicWordsStr  =  Variable(Mnemonic.randomGenerator(strength: .strong, language: .english))
+    var mnemonicWordsStr  =  BehaviorRelay(value: Mnemonic.randomGenerator(strength: .strong, language: .english))
 
     override init() {
         super.init()
     }
 
     func fetchNewMnemonicWords() {
-        self.mnemonicWordsStr.value = Mnemonic.randomGenerator(strength: .strong, language: .english)
+        self.mnemonicWordsStr.accept(Mnemonic.randomGenerator(strength: .strong, language: .english))
     }
 }

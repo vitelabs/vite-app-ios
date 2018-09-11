@@ -1,8 +1,8 @@
 //
-//  ImportAccountViewController.swift
+//  LoginViewController.swift
 //  Vite
 //
-//  Created by Water on 2018/9/6.
+//  Created by Water on 2018/9/5.
 //  Copyright © 2018年 vite labs. All rights reserved.
 //
 
@@ -10,14 +10,12 @@ import UIKit
 import SnapKit
 import RxCocoa
 import RxSwift
-import NSObject_Rx
 
-class ImportAccountViewController: BaseViewController {
-
-    fileprivate var viewModel: ImportAccountVM
+class LoginViewController: BaseViewController {
+    fileprivate var viewModel: LoginViewModel
 
     init() {
-        self.viewModel = ImportAccountVM()
+        self.viewModel = LoginViewModel()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -32,18 +30,25 @@ class ImportAccountViewController: BaseViewController {
         self._bindViewModel()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
     private func _bindViewModel() {
 
     }
 
-    lazy var logoImg: UIImageView = {
-        let logoImg = UIImageView()
-        logoImg.backgroundColor = .clear
-        logoImg.image =  R.image.launch_screen_logo()
-        return logoImg
+    lazy var logoImgView: UIImageView = {
+        let logoImgView = UIImageView()
+        logoImgView.backgroundColor = .clear
+        logoImgView.image =  R.image.launch_screen_logo()
+        return logoImgView
     }()
-
-    var dd = R.string.localizable.cancel
 
     lazy var createAccountBtn: UIButton = {
         let createAccountBtn = UIButton()
@@ -73,17 +78,16 @@ class ImportAccountViewController: BaseViewController {
     }()
 }
 
-extension ImportAccountViewController {
+extension LoginViewController {
     private func _setupView() {
         self.view.backgroundColor = .white
-        self.title = "import page title".localized()
 
         self._addViewConstraint()
     }
 
     private func _addViewConstraint() {
-        self.view.addSubview(self.logoImg)
-        self.logoImg.snp.makeConstraints { (make) -> Void in
+        self.view.addSubview(self.logoImgView)
+        self.logoImgView.snp.makeConstraints { (make) -> Void in
             make.center.equalTo(self.view)
             make.width.height.equalTo(150)
         }
@@ -92,16 +96,16 @@ extension ImportAccountViewController {
         self.createAccountBtn.snp.makeConstraints { (make) -> Void in
             make.width.equalTo(100)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view).offset(-30)
-            make.left.equalTo(self.view).offset(30)
+            make.bottom.equalTo(self.view).offset(-150)
+            make.centerX.equalTo(self.view)
         }
 
         self.view.addSubview(self.importAccountBtn)
         self.importAccountBtn.snp.makeConstraints { (make) -> Void in
             make.width.equalTo(100)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view).offset(-30)
-            make.right.equalTo(self.view).offset(-30)
+            make.bottom.equalTo(self.view).offset(-80)
+            make.centerX.equalTo(self.view)
         }
 
         self.view.addSubview(self.changeLanguageBtn)
@@ -114,13 +118,13 @@ extension ImportAccountViewController {
     }
 
     @objc func createAccountBtnAction() {
-        let backupMnemonicCashVC = BackupMnemonicViewController()
-        self.navigationController?.pushViewController(backupMnemonicCashVC, animated: true)
+        let vc = CreateWalletAccountViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc func importAccountBtnAction() {
-        let backupMnemonicCashVC = BackupMnemonicViewController()
-        self.navigationController?.pushViewController(backupMnemonicCashVC, animated: true)
+        let vc = ImportAccountViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc func changeLanguageBtnAction() {

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol PasswordInputViewDelegate: class {
-    func accomplished(passwordView: PasswordInputView, password: String)
+    func inputFinish(passwordView: PasswordInputView, password: String)
     func close(passwordView: PasswordInputView) -> Bool
 }
 
@@ -18,7 +18,6 @@ enum SecretType {
 }
 
 public class PasswordInputView: UIView {
-
     var totalCount = 6
     let textField = UITextField(frame: .zero)
     var password = ""
@@ -101,12 +100,6 @@ public class PasswordInputView: UIView {
         return view
     }
 
-    func accomplished() {
-        updateView(text: "")
-        textField.resignFirstResponder()
-        textField.text = nil
-    }
-
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.next?.touchesBegan(touches, with: event)
         textField.text = nil
@@ -114,8 +107,11 @@ public class PasswordInputView: UIView {
     }
 
     public override func becomeFirstResponder() -> Bool {
-        textField.text = nil
         return textField.becomeFirstResponder()
+    }
+
+    public override func resignFirstResponder() -> Bool {
+        return textField.resignFirstResponder()
     }
 
     @objc func textFieldChange(sender: UITextField) {
@@ -127,8 +123,7 @@ public class PasswordInputView: UIView {
             if textCount == self.totalCount {
                 //输入完成
                 let _ = self.resignFirstResponder()
-                self.accomplished()
-                self.delegate?.accomplished(passwordView: self, password: text)
+                self.delegate?.inputFinish(passwordView: self, password: text)
             }
         }
     }

@@ -158,14 +158,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let tabbarItemTitleWallet = Rswift.StringResource(key: "tabbar.item.title.wallet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: create account
+      /// 
+      /// Locales: en, zh-Hans
+      static let createAccount = Rswift.StringResource(key: "create.account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: import account
+      /// 
+      /// Locales: en, zh-Hans
+      static let importAccount = Rswift.StringResource(key: "import.account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 创建
       /// 
       /// Locales: en, zh-Hans
       static let createPageSubmitBtnTitle = Rswift.StringResource(key: "create.page.submit.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 创建账户
-      /// 
-      /// Locales: en, zh-Hans
-      static let createAccount = Rswift.StringResource(key: "create account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 创建钱包账户
       /// 
       /// Locales: en, zh-Hans
@@ -206,10 +210,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let finish = Rswift.StringResource(key: "Finish", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 导入账户
-      /// 
-      /// Locales: en, zh-Hans
-      static let importAccount = Rswift.StringResource(key: "import account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 您只有通过助记词来恢复您的账户，如助记词丢失，您的数字资产将无法找回
       /// 
       /// Locales: en, zh-Hans
@@ -249,7 +249,7 @@ struct R: Rswift.Validatable {
       /// en translation: 输入您的助记词
       /// 
       /// Locales: en, zh-Hans
-      static let importPageTitle = Rswift.StringResource(key: "import page title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      static let importPageTitle = Rswift.StringResource(key: "import.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 返回会重新生成助记词，是否返回
       /// 
       /// Locales: en, zh-Hans
@@ -292,18 +292,25 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("tabbar.item.title.wallet", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: create account
+      /// 
+      /// Locales: en, zh-Hans
+      static func createAccount(_: Void = ()) -> String {
+        return NSLocalizedString("create.account", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: import account
+      /// 
+      /// Locales: en, zh-Hans
+      static func importAccount(_: Void = ()) -> String {
+        return NSLocalizedString("import.account", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 创建
       /// 
       /// Locales: en, zh-Hans
       static func createPageSubmitBtnTitle(_: Void = ()) -> String {
         return NSLocalizedString("create.page.submit.btn.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 创建账户
-      /// 
-      /// Locales: en, zh-Hans
-      static func createAccount(_: Void = ()) -> String {
-        return NSLocalizedString("create account", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 创建钱包账户
@@ -376,13 +383,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Finish", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: 导入账户
-      /// 
-      /// Locales: en, zh-Hans
-      static func importAccount(_: Void = ()) -> String {
-        return NSLocalizedString("import account", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: 您只有通过助记词来恢复您的账户，如助记词丢失，您的数字资产将无法找回
       /// 
       /// Locales: en, zh-Hans
@@ -450,7 +450,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static func importPageTitle(_: Void = ()) -> String {
-        return NSLocalizedString("import page title", bundle: R.hostingBundle, comment: "")
+        return NSLocalizedString("import.page.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 返回会重新生成助记词，是否返回

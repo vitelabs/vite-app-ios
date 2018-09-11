@@ -9,10 +9,10 @@
 import UIKit
 import SnapKit
 import RxDataSources
+import Vite_keystore
 
 class AffirmInputMnemonicViewController: UIViewController, MnemonicCollectionViewDelegate {
     fileprivate var viewModel: AffirmInputMnemonicVM
-//    private var vmOutput: AffirmInputMnemonicVM.AffirmInputMnemonicOutput?
 
     init(mnemonicWordsStr: String) {
         self.viewModel = AffirmInputMnemonicVM.init(mnemonicWordsStr: mnemonicWordsStr)
@@ -130,7 +130,9 @@ extension AffirmInputMnemonicViewController {
     }
 
     @objc func submitBtnAction() {
-        let backupMnemonicCashVC = BackupMnemonicViewController()
-        self.navigationController?.pushViewController(backupMnemonicCashVC, animated: true)
+        let walletAccount = CreateWalletService.sharedInstance.walletAccount
+        WalletStorage.shareInstance.add(account: walletAccount)
+
+        NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
     }
 }

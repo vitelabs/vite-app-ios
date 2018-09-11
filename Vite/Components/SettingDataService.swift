@@ -9,17 +9,7 @@
 import Foundation
 
 class SettingDataService {
-
-    class var sharedInstance: SettingDataService {
-        struct Singleton {
-            static let instance = SettingDataService()
-        }
-        return Singleton.instance
-    }
-
-    private init() {
-
-    }
+    static let sharedInstance = SettingDataService()
 
     // MARK: Language
     func getSupportedLanguages() -> [Language] {
