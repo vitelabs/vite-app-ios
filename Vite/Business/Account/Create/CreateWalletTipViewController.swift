@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Vite_keystore
 
 class CreateWalletTipViewController: UIViewController {
     override func viewDidLoad() {

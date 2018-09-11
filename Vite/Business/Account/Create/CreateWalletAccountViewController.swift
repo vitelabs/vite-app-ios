@@ -11,6 +11,7 @@ import SnapKit
 import RxCocoa
 import RxSwift
 import NSObject_Rx
+import Vite_keystore
 
 extension CreateWalletAccountViewController {
     private func _bindViewModel() {
@@ -212,6 +213,8 @@ extension CreateWalletAccountViewController {
     }
 
     @objc func submitBtnAction() {
+        CreateWalletService.sharedInstance.walletAccount.name = self.walletNameTF.text!
+        CreateWalletService.sharedInstance.walletAccount.password = self.passwordRepeateTF.textField.text!
         let vc = CreateWalletTipViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }

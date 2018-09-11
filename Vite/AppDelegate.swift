@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Vite_keystore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,23 +15,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        handleNotification()
         _ = SettingDataService.sharedInstance.getCurrentLanguage()
 
-        #if true
-        let rootVC = CreateAccountHomeViewController()
-        rootVC.automaticallyShowDismissButton = false
         window = UIWindow(frame: UIScreen.main.bounds)
-        let nav = BaseNavigationController(rootViewController: rootVC)
-
-        window?.rootViewController = nav
-        window?.makeKeyAndVisible()
-        #else
-        let rootVC = HomeViewController()
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = rootVC
-        window?.makeKeyAndVisible()
-        #endif
+        handleRootVC()
         return true
+    }
+
+    func handleNotification() {
+        NotificationCenter.default.rx
+            .notification(.createAccountSuccess)
+            .takeUntil(self.rx.deallocated)
+            .subscribe(onNext: { [weak self] (_) in
+                guard let `self` = self else { return }
+                self.handleRootVC()
+            }).disposed(by: rx.disposeBag)
+    }
+
+    func handleRootVC() {
+        if  WalletDataService.shareInstance.isExistWallet() {
+            let rootVC = CreateAccountHomeViewController()
+            rootVC.automaticallyShowDismissButton = false
+            let nav = BaseNavigationController(rootViewController: rootVC)
+            window?.rootViewController = nav
+        } else {
+            let rootVC = HomeViewController()
+            window?.rootViewController = rootVC
+        }
+        window?.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
