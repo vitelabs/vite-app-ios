@@ -15,14 +15,14 @@ target 'Vite' do
   pod 'PromiseKit', '~> 6.0'
   pod 'APIKit'
   pod 'ObjectMapper'
-  pod 'Eureka'
   pod 'MBProgressHUD'
   pod 'QRCodeReaderViewController', :git=>'https://github.com/yannickl/QRCodeReaderViewController.git', :branch=>'master'
   pod 'KeychainSwift'
   pod 'Moya'
-  pod 'SwiftLint'
-  pod 'Then'
 
+
+ #table static form
+  pod 'Eureka'
 
   #RX
   pod 'RxSwift', '~> 4.0'
@@ -32,6 +32,9 @@ target 'Vite' do
   pod 'RxGesture'
   pod 'Then'
   pod 'ReusableKit'
+
+  #code review
+  pod 'SwiftLint'
 
 
   target 'ViteTests' do

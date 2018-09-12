@@ -43,6 +43,15 @@
 "tabbar.item.title.wallet" = "钱包";
 "tabbar.item.title.my" = "我";
 
+/* my */
+"my.page.mangeWallet.cell.title" = "管理钱包";
+"my.page.dealLog.cell.title" = "交易记录";
+"my.page.message.cell.title" = "消息中心";
+"my.page.system.cell.title" = "系统设置";
+"my.page.help.cell.title" = "帮助中心";
+"my.page.aboutUs.cell.title" = "关于我们";
+"my.page.fetchMoney.cell.title" = "领福利";
+
 /* BalanceInfo */
 "balance.info.detail.balance.title" = "账户余额";
 "balance.info.detail.unconfirmed.title" = "在途资金";

@@ -18,9 +18,7 @@ class HomeViewController: UITabBarController {
             $0.automaticallyShowDismissButton = false
         }
 
-        let myVC = MyHomeViewController().then {
-            $0.automaticallyShowDismissButton = false
-        }
+        let myVC = MyHomeViewController()
 
         let walletNav = BaseNavigationController(rootViewController: walletVC).then {
             $0.tabBarItem.title = R.string.localizable.tabbarItemTitleWallet()

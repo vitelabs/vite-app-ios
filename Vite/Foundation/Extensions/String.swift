@@ -6,6 +6,7 @@
 //  Copyright © 2018年 vite labs. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 extension String {

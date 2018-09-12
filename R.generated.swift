@@ -144,7 +144,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 31 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 38 localization keys.
     struct localizable {
       /// en translation: (%@笔待确认)
       /// 
@@ -166,6 +166,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importAccount = Rswift.StringResource(key: "import.account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 交易记录
+      /// 
+      /// Locales: en, zh-Hans
+      static let myPageDealLogCellTitle = Rswift.StringResource(key: "my.page.dealLog.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 关于我们
+      /// 
+      /// Locales: en, zh-Hans
+      static let myPageAboutUsCellTitle = Rswift.StringResource(key: "my.page.aboutUs.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 创建
       /// 
       /// Locales: en, zh-Hans
@@ -210,6 +218,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let finish = Rswift.StringResource(key: "Finish", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 帮助中心
+      /// 
+      /// Locales: en, zh-Hans
+      static let myPageHelpCellTitle = Rswift.StringResource(key: "my.page.help.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 您只有通过助记词来恢复您的账户，如助记词丢失，您的数字资产将无法找回
       /// 
       /// Locales: en, zh-Hans
@@ -230,10 +242,22 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let balanceInfoDetailShowTransactionsButtonTitle = Rswift.StringResource(key: "balance.info.detail.show.transactions.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 消息中心
+      /// 
+      /// Locales: en, zh-Hans
+      static let myPageMessageCellTitle = Rswift.StringResource(key: "my.page.message.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 确认输入助记词
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicAffirmPageTitle = Rswift.StringResource(key: "mnemonic.affirm.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 管理钱包
+      /// 
+      /// Locales: en, zh-Hans
+      static let myPageMangeWalletCellTitle = Rswift.StringResource(key: "my.page.mangeWallet.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 系统设置
+      /// 
+      /// Locales: en, zh-Hans
+      static let myPageSystemCellTitle = Rswift.StringResource(key: "my.page.system.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 请输入6位数字密码
       /// 
       /// Locales: en, zh-Hans
@@ -270,6 +294,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPageTipContent = Rswift.StringResource(key: "create.page.tip.content", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 领福利
+      /// 
+      /// Locales: en, zh-Hans
+      static let myPageFetchMoneyCellTitle = Rswift.StringResource(key: "my.page.fetchMoney.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation: (%@笔待确认)
       /// 
@@ -304,6 +332,20 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func importAccount(_: Void = ()) -> String {
         return NSLocalizedString("import.account", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 交易记录
+      /// 
+      /// Locales: en, zh-Hans
+      static func myPageDealLogCellTitle(_: Void = ()) -> String {
+        return NSLocalizedString("my.page.dealLog.cell.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 关于我们
+      /// 
+      /// Locales: en, zh-Hans
+      static func myPageAboutUsCellTitle(_: Void = ()) -> String {
+        return NSLocalizedString("my.page.aboutUs.cell.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 创建
@@ -383,6 +425,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Finish", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 帮助中心
+      /// 
+      /// Locales: en, zh-Hans
+      static func myPageHelpCellTitle(_: Void = ()) -> String {
+        return NSLocalizedString("my.page.help.cell.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 您只有通过助记词来恢复您的账户，如助记词丢失，您的数字资产将无法找回
       /// 
       /// Locales: en, zh-Hans
@@ -418,11 +467,32 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("balance.info.detail.show.transactions.button.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 消息中心
+      /// 
+      /// Locales: en, zh-Hans
+      static func myPageMessageCellTitle(_: Void = ()) -> String {
+        return NSLocalizedString("my.page.message.cell.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 确认输入助记词
       /// 
       /// Locales: en, zh-Hans
       static func mnemonicAffirmPageTitle(_: Void = ()) -> String {
         return NSLocalizedString("mnemonic.affirm.page.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 管理钱包
+      /// 
+      /// Locales: en, zh-Hans
+      static func myPageMangeWalletCellTitle(_: Void = ()) -> String {
+        return NSLocalizedString("my.page.mangeWallet.cell.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 系统设置
+      /// 
+      /// Locales: en, zh-Hans
+      static func myPageSystemCellTitle(_: Void = ()) -> String {
+        return NSLocalizedString("my.page.system.cell.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 请输入6位数字密码
@@ -486,6 +556,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func createPageTipContent(_: Void = ()) -> String {
         return NSLocalizedString("create.page.tip.content", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 领福利
+      /// 
+      /// Locales: en, zh-Hans
+      static func myPageFetchMoneyCellTitle(_: Void = ()) -> String {
+        return NSLocalizedString("my.page.fetchMoney.cell.title", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
