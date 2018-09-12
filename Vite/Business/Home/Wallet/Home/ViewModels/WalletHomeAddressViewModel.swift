@@ -9,24 +9,24 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Vite_keystore
 
 final class WalletHomeAddressViewModel: WalletHomeAddressViewModelType {
 
     lazy var nameDriver: Driver<String> = self.name.asDriver()
     lazy var defaultAddressDriver: Driver<String> = self.defaultAddress.asDriver().map({ $0.description })
 
-    fileprivate let account: Account
+    fileprivate let account: WalletAccount
     fileprivate let name: BehaviorRelay<String>
     fileprivate let defaultAddress: BehaviorRelay<Address>
 
-    init(account: Account) {
+    init(account: WalletAccount) {
         self.account = account
         name = BehaviorRelay(value: account.name)
-        defaultAddress = BehaviorRelay(value: account.defaultAddress)
+        defaultAddress = BehaviorRelay(value: Address(string: account.defaultKey.address))
     }
 
     func copy() {
-        UIPasteboard.general.string = account.defaultAddress.description
-        print("copy: \(account.defaultAddress.description)")
+        UIPasteboard.general.string = account.defaultKey.address
     }
 }

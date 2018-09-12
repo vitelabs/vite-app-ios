@@ -25,6 +25,13 @@ struct BalanceInfo: Mappable {
 
     }
 
+    init(token: Token, balance: Balance, unconfirmedBalance: Balance, unconfirmedCount: Int) {
+        self.token = token
+        self.balance = balance
+        self.unconfirmedBalance = unconfirmedBalance
+        self.unconfirmedCount = unconfirmedCount
+    }
+
     mutating func mapping(map: Map) {
         tokenId <- map["TokenTypeId"]
         tokenName <- map["TokenName"]
@@ -36,5 +43,35 @@ struct BalanceInfo: Mappable {
     mutating func fill(unconfirmedBalance: Balance, unconfirmedCount: Int) {
         self.unconfirmedBalance = unconfirmedBalance
         self.unconfirmedCount = unconfirmedCount
+    }
+}
+
+extension BalanceInfo: Equatable {
+    static func == (lhs: BalanceInfo, rhs: BalanceInfo) -> Bool {
+        return lhs.token.id == rhs.token.id
+    }
+}
+
+extension BalanceInfo {
+
+    static let defaultBalanceInfos: [BalanceInfo] = Token.defaultTokens.map {
+        BalanceInfo(token: $0, balance: Balance(), unconfirmedBalance: Balance(), unconfirmedCount: 0)
+    }
+
+    static func mergeBalanceInfos(_ balanceInfos: [BalanceInfo]) -> [BalanceInfo] {
+        let infos = NSMutableArray(array: balanceInfos)
+        let ret = NSMutableArray()
+
+        for defaultBalanceInfo in defaultBalanceInfos {
+            if infos.contains(defaultBalanceInfo) {
+                let index = infos.index(of: defaultBalanceInfo)
+                ret.add(infos[index])
+                infos.removeObject(at: index)
+            } else {
+                ret.add(defaultBalanceInfo)
+            }
+        }
+        ret.addObjects(from: infos as! [Any])
+        return ret as! [BalanceInfo]
     }
 }

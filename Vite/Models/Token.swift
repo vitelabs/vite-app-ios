@@ -21,7 +21,7 @@ struct Token: Mappable {
 
     var defaultIconImage: UIImage {
         // Vite
-        if id == "tti_000000000000000000004cfd" {
+        if id == TokenID.vite.rawValue {
             return R.image.icon_wallet_token_vite()!
         } else {
             return placeholdIconImage
@@ -42,5 +42,18 @@ struct Token: Mappable {
         id <- map["TokenTypeId"]
         name <- map["TokenName"]
         symbol <- map["TokenSymbol"]
+    }
+}
+
+extension Token {
+
+    enum TokenID: String {
+        case vite = "tti_000000000000000000004cfd"
+    }
+
+    static let defaultTokens: [Token] = [makeViteToken()]
+
+    private static func makeViteToken() -> Token {
+        return Token(id: TokenID.vite.rawValue, name: "vite", symbol: "VITE")
     }
 }

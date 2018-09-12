@@ -91,7 +91,6 @@
 		8E6F3E3A2144C3B5003CDFC2 /* BalanceInfoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E392144C3B5003CDFC2 /* BalanceInfoDetailViewController.swift */; };
 		8E6F3E3F2144CA23003CDFC2 /* WalletHomeAddressViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E3E2144CA23003CDFC2 /* WalletHomeAddressViewModelType.swift */; };
 		8E6F3E422144CA49003CDFC2 /* WalletHomeAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E412144CA49003CDFC2 /* WalletHomeAddressViewModel.swift */; };
-		8E6F3E452144CC6B003CDFC2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E442144CC6B003CDFC2 /* Account.swift */; };
 		8E6F3E48214513EC003CDFC2 /* WalletHomeBalanceInfoTableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E47214513EC003CDFC2 /* WalletHomeBalanceInfoTableViewModelType.swift */; };
 		8E6F3E4A21451401003CDFC2 /* WalletHomeBalanceInfoTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E4921451401003CDFC2 /* WalletHomeBalanceInfoTableViewModel.swift */; };
 		8E6F3E4C214516B0003CDFC2 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E4B214516B0003CDFC2 /* Token.swift */; };
@@ -216,7 +215,6 @@
 		8E6F3E392144C3B5003CDFC2 /* BalanceInfoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceInfoDetailViewController.swift; sourceTree = "<group>"; };
 		8E6F3E3E2144CA23003CDFC2 /* WalletHomeAddressViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHomeAddressViewModelType.swift; sourceTree = "<group>"; };
 		8E6F3E412144CA49003CDFC2 /* WalletHomeAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHomeAddressViewModel.swift; sourceTree = "<group>"; };
-		8E6F3E442144CC6B003CDFC2 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		8E6F3E47214513EC003CDFC2 /* WalletHomeBalanceInfoTableViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHomeBalanceInfoTableViewModelType.swift; sourceTree = "<group>"; };
 		8E6F3E4921451401003CDFC2 /* WalletHomeBalanceInfoTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHomeBalanceInfoTableViewModel.swift; sourceTree = "<group>"; };
 		8E6F3E4B214516B0003CDFC2 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -705,7 +703,6 @@
 				4C84D95421465A8B001B6EBD /* Language.swift */,
 				8E6F3E0D2141244F003CDFC2 /* BalanceType.swift */,
 				8E6F3E0621411650003CDFC2 /* Transaction.swift */,
-				8E6F3E442144CC6B003CDFC2 /* Account.swift */,
 				8E6F3E4B214516B0003CDFC2 /* Token.swift */,
 				8E6F3E4D21451806003CDFC2 /* BalanceInfo.swift */,
 				8E56FC8821466E8C00A68823 /* UnConfirmedInfo.swift */,

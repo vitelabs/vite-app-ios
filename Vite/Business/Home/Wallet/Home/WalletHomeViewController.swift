@@ -27,9 +27,7 @@ class WalletHomeViewController: BaseTableViewController {
         bind()
     }
 
-    // Test
-    let account = Account(mnemonic: "d", name: "My First Vite Wallet")
-
+    let account = WalletDataService.shareInstance.walletStorage.walletAccounts[0]
     var addressViewModel: WalletHomeAddressViewModel!
     var tableViewModel: WalletHomeBalanceInfoTableViewModel!
     weak var balanceInfoDetailViewController: BalanceInfoDetailViewController?
@@ -67,7 +65,7 @@ class WalletHomeViewController: BaseTableViewController {
     func bind() {
 
         addressViewModel = WalletHomeAddressViewModel(account: self.account)
-        tableViewModel = WalletHomeBalanceInfoTableViewModel(address: account.defaultAddress)
+        tableViewModel = WalletHomeBalanceInfoTableViewModel(address: Address(string: self.account.defaultKey.address))
 
         Observable.combineLatest(Observable.just(addressViewModel),
                                  tableViewModel.balanceInfosDriver.asObservable())
