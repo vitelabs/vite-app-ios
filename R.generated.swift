@@ -158,7 +158,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 38 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 42 localization keys.
     struct localizable {
       /// en translation: (%@笔待确认)
       /// 
@@ -216,6 +216,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let balanceInfoDetailUnconfirmedTitle = Rswift.StringResource(key: "balance.info.detail.unconfirmed.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 地址管理
+      /// 
+      /// Locales: en, zh-Hans
+      static let manageWalletPageAddressManageCellTitle = Rswift.StringResource(key: "manage.wallet.page.addressManage.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 备份助记词
       /// 
       /// Locales: en, zh-Hans
@@ -232,6 +236,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let finish = Rswift.StringResource(key: "Finish", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 导出助记词
+      /// 
+      /// Locales: en, zh-Hans
+      static let manageWalletPageImportMnemonicCellTitle = Rswift.StringResource(key: "manage.wallet.page.importMnemonic.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 帮助中心
       /// 
       /// Locales: en, zh-Hans
@@ -264,6 +272,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicAffirmPageTitle = Rswift.StringResource(key: "mnemonic.affirm.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 管理钱包
+      /// 
+      /// Locales: en, zh-Hans
+      static let manageWalletPageTitle = Rswift.StringResource(key: "manage.wallet.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 管理钱包
       /// 
       /// Locales: en, zh-Hans
@@ -300,6 +312,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicBackupPageTipAnewBtnTitle = Rswift.StringResource(key: "mnemonic.backup.page.tip.anewBtn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 钱包名
+      /// 
+      /// Locales: en, zh-Hans
+      static let manageWalletPageNameCellTitle = Rswift.StringResource(key: "manage.wallet.page.name.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 钱包账户名
       /// 
       /// Locales: en, zh-Hans
@@ -411,6 +427,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("balance.info.detail.unconfirmed.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 地址管理
+      /// 
+      /// Locales: en, zh-Hans
+      static func manageWalletPageAddressManageCellTitle(_: Void = ()) -> String {
+        return NSLocalizedString("manage.wallet.page.addressManage.cell.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 备份助记词
       /// 
       /// Locales: en, zh-Hans
@@ -437,6 +460,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func finish(_: Void = ()) -> String {
         return NSLocalizedString("Finish", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 导出助记词
+      /// 
+      /// Locales: en, zh-Hans
+      static func manageWalletPageImportMnemonicCellTitle(_: Void = ()) -> String {
+        return NSLocalizedString("manage.wallet.page.importMnemonic.cell.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 帮助中心
@@ -493,6 +523,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func mnemonicAffirmPageTitle(_: Void = ()) -> String {
         return NSLocalizedString("mnemonic.affirm.page.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 管理钱包
+      /// 
+      /// Locales: en, zh-Hans
+      static func manageWalletPageTitle(_: Void = ()) -> String {
+        return NSLocalizedString("manage.wallet.page.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 管理钱包
@@ -556,6 +593,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func mnemonicBackupPageTipAnewBtnTitle(_: Void = ()) -> String {
         return NSLocalizedString("mnemonic.backup.page.tip.anewBtn.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 钱包名
+      /// 
+      /// Locales: en, zh-Hans
+      static func manageWalletPageNameCellTitle(_: Void = ()) -> String {
+        return NSLocalizedString("manage.wallet.page.name.cell.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 钱包账户名

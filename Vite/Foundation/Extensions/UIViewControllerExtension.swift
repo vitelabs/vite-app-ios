@@ -107,7 +107,7 @@ extension ViewControllerDataStatusable where Self: UIViewController {
         set {
             objc_setAssociatedObject(self, &kDataStatusKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 
-            dataStatusView.subviews.forEach{
+            dataStatusView.subviews.forEach {
                 $0.removeFromSuperview()
             }
 

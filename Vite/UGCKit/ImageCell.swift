@@ -50,8 +50,6 @@ public class ImageCell: Cell<Bool>, CellType {
 }
 
 public final class ImageRow: Row<ImageCell>, RowType {
-    open var routeVCClassName = ""
-
     required public init(tag: String?) {
         super.init(tag: tag)
         cellProvider = CellProvider<ImageCell>()
@@ -63,18 +61,5 @@ public final class ImageRow: Row<ImageCell>, RowType {
             return
         }
         deselect()
-        if !isDisabled {
-            if routeVCClassName.isEmpty {
-                return
-            }
-            let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
-            // transform into anyClass
-            let cls: AnyClass = NSClassFromString(namespace + "." + routeVCClassName)!
-            guard let VC = cls as? UIViewController.Type   else {
-                return
-            }
-            let vc = VC.init()
-            self.cell.formViewController()?.navigationController?.pushViewController( vc, animated: true)
-        }
     }
 }

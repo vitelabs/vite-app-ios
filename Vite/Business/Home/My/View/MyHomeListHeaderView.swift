@@ -9,7 +9,14 @@
 import UIKit
 import SnapKit
 
+protocol MyHomeListHeaderViewDelegate: class {
+    func transactionLogBtnAction()
+    func manageWalletBtnAction()
+}
+
 class MyHomeListHeaderView: UIView {
+
+    weak var delegate: MyHomeListHeaderViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,11 +60,11 @@ class MyHomeListHeaderView: UIView {
     }()
 
     @objc func transactionLogBtnAction() {
-
+        self.delegate?.transactionLogBtnAction()
     }
 
     @objc func manageWalletBtnAction() {
-
+        self.delegate?.manageWalletBtnAction()
     }
 
     required init?(coder aDecoder: NSCoder) {
