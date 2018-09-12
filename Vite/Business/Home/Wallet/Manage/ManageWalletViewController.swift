@@ -15,9 +15,7 @@ class ManageWalletViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = R.string.localizable.manageWalletPageTitle.key.localized()
-
         self.view.backgroundColor = .white
-
         self.tableView.backgroundColor = .white
 
         form +++
@@ -25,7 +23,7 @@ class ManageWalletViewController: FormViewController {
                 $0.header = HeaderFooterView<ManageWalletHeaderView>(.class)
                 $0.header?.height = { 100.0 }
             }
-            <<< ImageRow("my.page.message.cell.title") {
+            <<< ImageRow("manageWalletPageNameCellTitle") {
                 $0.cell.titleLab.text = R.string.localizable.manageWalletPageNameCellTitle.key.localized()
                 $0.cell.rightImageView.image = R.image.bar_icon_my()
             }.onCellSelection({ [unowned self] _, _  in
@@ -33,7 +31,7 @@ class ManageWalletViewController: FormViewController {
                     self.present(safari, animated: true, completion: nil)
             })
 
-            <<< ImageRow("my.page.system.cell.title") {
+            <<< ImageRow("manageWalletPageAddressManageCellTitle") {
                 $0.cell.titleLab.text =  R.string.localizable.manageWalletPageAddressManageCellTitle.key.localized()
                 $0.cell.rightImageView.image = R.image.bar_icon_my()
             }.onCellSelection({ [unowned self] _, _  in
@@ -41,12 +39,12 @@ class ManageWalletViewController: FormViewController {
                     self.present(safari, animated: true, completion: nil)
             })
 
-            <<< ImageRow("my.page.help.cell.title") {
+            <<< ImageRow("manageWalletPageImportMnemonicCellTitle") {
                 $0.cell.titleLab.text =  R.string.localizable.manageWalletPageImportMnemonicCellTitle.key.localized()
                 $0.cell.rightImageView.image = R.image.bar_icon_my()
             }.onCellSelection({ [unowned self] _, _  in
-                    let safari = SFSafariViewController(url: NSURL(string: "http://www.baidu.com")! as URL)
-                    self.present(safari, animated: true, completion: nil)
+                let vc = ExportMnemonicViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
             })
     }
 }
