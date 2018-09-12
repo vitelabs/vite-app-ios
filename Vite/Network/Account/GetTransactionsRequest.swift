@@ -10,7 +10,7 @@ import Foundation
 import JSONRPCKit
 
 struct GetTransactionsRequest: JSONRPCKit.Request {
-    typealias Response = [Transaction]
+    typealias Response = (transactions: [Transaction], hasMore: Bool)
 
     let address: String
     let index: Int
@@ -21,16 +21,16 @@ struct GetTransactionsRequest: JSONRPCKit.Request {
     }
 
     var parameters: Any? {
-        return [address, index, count]
+        return [address, index, count + 1]
     }
 
-    init(address: String, index: Int = 0, count: Int = 20) {
+    init(address: String, index: Int = 0, count: Int) {
         self.address = address
         self.index = index
         self.count = count
     }
 
-    func response(from resultObject: Any) throws -> [Transaction] {
+    func response(from resultObject: Any) throws -> Response {
         var response = [[String: Any]]()
         if let object = resultObject as? [[String: Any]] {
             response = object
@@ -38,6 +38,11 @@ struct GetTransactionsRequest: JSONRPCKit.Request {
 
         let transactions = response.map({ Transaction(JSON: $0) })
         let ret = transactions.compactMap { $0 }
-        return ret
+
+        if ret.count > count {
+            return (Array(ret.dropLast()), true)
+        } else {
+            return (ret, false)
+        }
     }
 }

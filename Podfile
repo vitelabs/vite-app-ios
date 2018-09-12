@@ -19,9 +19,9 @@ target 'Vite' do
   pod 'QRCodeReaderViewController', :git=>'https://github.com/yannickl/QRCodeReaderViewController.git', :branch=>'master'
   pod 'KeychainSwift'
   pod 'Moya'
+  pod 'MJRefresh'
 
-
- #table static form
+  #table static form
   pod 'Eureka'
 
   #RX

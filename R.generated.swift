@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 11 images.
+  /// This `R.image` struct is generated, and contains static references to 13 images.
   struct image {
     /// Image `bar_icon_my`.
     static let bar_icon_my = Rswift.ImageResource(bundle: R.hostingBundle, name: "bar_icon_my")
@@ -47,6 +47,10 @@ struct R: Rswift.Validatable {
     static let feed = Rswift.ImageResource(bundle: R.hostingBundle, name: "feed")
     /// Image `home_wallet_address_copy`.
     static let home_wallet_address_copy = Rswift.ImageResource(bundle: R.hostingBundle, name: "home_wallet_address_copy")
+    /// Image `icon_transcation_request`.
+    static let icon_transcation_request = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_transcation_request")
+    /// Image `icon_transcation_response`.
+    static let icon_transcation_response = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_transcation_response")
     /// Image `icon_wallet_token_default`.
     static let icon_wallet_token_default = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_wallet_token_default")
     /// Image `icon_wallet_token_vcc`.
@@ -89,6 +93,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "home_wallet_address_copy", bundle: ..., traitCollection: ...)`
     static func home_wallet_address_copy(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.home_wallet_address_copy, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_transcation_request", bundle: ..., traitCollection: ...)`
+    static func icon_transcation_request(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_transcation_request, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_transcation_response", bundle: ..., traitCollection: ...)`
+    static func icon_transcation_response(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_transcation_response, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "icon_wallet_token_default", bundle: ..., traitCollection: ...)`

@@ -75,7 +75,9 @@ class BalanceInfoDetailViewController: BaseViewController {
         }
 
         showTransactionsButton.rx.tap.bind { [weak self] in
-            self?.navigationController?.pushViewController(TransactionsViewController(), animated: true)
+            // TEST
+            let address = Address(string: "vite_7945df07bbf55f5afc76360a263b0870795ce5d1ecea36b786")
+            self?.navigationController?.pushViewController(TransactionListViewController(address: address), animated: true)
         }.disposed(by: rx.disposeBag)
 
         receiveButton.rx.tap.bind { [weak self] in
