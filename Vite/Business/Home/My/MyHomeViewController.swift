@@ -16,14 +16,20 @@ class MyHomeViewController: FormViewController {
         super.viewDidLoad()
 
         self.view.backgroundColor = .white
-
         self.tableView.backgroundColor = .white
 
         form +++
-            Section {
-                $0.header = HeaderFooterView<MyHomeListHeaderView>(.class)
-                $0.header?.height = { 130.0 }
-            }
+             Section {section in
+                var header = HeaderFooterView<MyHomeListHeaderView>(.class)
+
+                header = HeaderFooterView<MyHomeListHeaderView>(.class)
+                header.onSetupView = { view, section in
+                    view.delegate = self
+                }
+                header.height = { 130.0 }
+                section.header = header
+             }
+
             <<< ImageRow("my.page.message.cell.title") {
                 $0.cell.titleLab.text = R.string.localizable.myPageMessageCellTitle.key.localized()
                 $0.cell.rightImageView.image = R.image.bar_icon_my()
@@ -35,9 +41,11 @@ class MyHomeViewController: FormViewController {
             <<< ImageRow("my.page.system.cell.title") {
                 $0.cell.titleLab.text =  R.string.localizable.myPageSystemCellTitle.key.localized()
                 $0.cell.rightImageView.image = R.image.bar_icon_my()
+            }.onCellSelection({ [unowned self] _, _  in
+                let vc = SystemViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
 
-                $0.routeVCClassName =  "SystemViewController"
-            }
             <<< ImageRow("my.page.help.cell.title") {
                 $0.cell.titleLab.text =  R.string.localizable.myPageHelpCellTitle.key.localized()
                 $0.cell.rightImageView.image = R.image.bar_icon_my()
@@ -50,5 +58,17 @@ class MyHomeViewController: FormViewController {
                 $0.cell.titleLab.text =  R.string.localizable.myPageFetchMoneyCellTitle.key.localized()
                 $0.cell.rightImageView.image = R.image.bar_icon_my()
             }
+    }
+}
+
+extension MyHomeViewController: MyHomeListHeaderViewDelegate {
+    func transactionLogBtnAction() {
+        let vc = ManageWalletViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func manageWalletBtnAction() {
+        let vc = ManageWalletViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -45,6 +45,12 @@
 "tabbar.item.title.wallet" = "Wallet";
 "tabbar.item.title.my" = "My";
 
+/* Manage Wallet */
+"manage.wallet.page.title" = "管理钱包";
+"manage.wallet.page.name.cell.title" = "钱包名";
+"manage.wallet.page.addressManage.cell.title" = "地址管理";
+"manage.wallet.page.importMnemonic.cell.title" = "导出助记词";
+
 /* my */
 "my.page.mangeWallet.cell.title" = "管理钱包";
 "my.page.dealLog.cell.title" = "交易记录";
