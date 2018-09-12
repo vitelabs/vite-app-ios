@@ -19,12 +19,12 @@ final class WalletHomeBalanceInfoViewModel: WalletHomeBalanceInfoViewModelType {
     let unconfirmed: String
     let unconfirmedCount: Int
 
-    init(tokenId: String, iconImage: UIImage, name: String, balance: String, unconfirmed: String, unconfirmedCount: Int) {
-        self.tokenId = tokenId
-        self.iconImage = iconImage
-        self.name = name
-        self.balance = balance
-        self.unconfirmed = unconfirmed
-        self.unconfirmedCount = unconfirmedCount
+    init(balanceInfo: BalanceInfo) {
+        self.tokenId = balanceInfo.token.id
+        self.iconImage = balanceInfo.token.defaultIconImage
+        self.name = balanceInfo.token.name
+        self.balance = balanceInfo.balance.amountShort
+        self.unconfirmed = balanceInfo.unconfirmedBalance.amountShort
+        self.unconfirmedCount = balanceInfo.unconfirmedCount
     }
 }

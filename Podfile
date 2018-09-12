@@ -22,6 +22,7 @@ target 'Vite' do
   pod 'Moya'
   pod 'SwiftLint'
   pod 'Then'
+  pod 'MJRefresh'
 
 
   #RX

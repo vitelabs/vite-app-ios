@@ -18,14 +18,14 @@ struct Balance: BalanceType, CustomStringConvertible {
     }
 
     var amountShort: String {
-        return value.description
+        return (value/1000000000000000000).description
     }
 
     var amountFull: String {
-        return value.description
+        return (value/1000000000000000000).description
     }
 
     var description: String {
-        return value.description
+        return (value/1000000000000000000).description
     }
 }

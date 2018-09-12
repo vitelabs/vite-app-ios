@@ -19,13 +19,13 @@ final class AccountProvider {
         self.server = server
     }
 
-    func getTransactions(address: Address, index: Int = 0) -> Promise<[Transaction]> {
+    func getTransactions(address: Address, index: Int = 0, count: Int) -> Promise<(transactions: [Transaction], hasMore: Bool)> {
         return Promise { seal in
-            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetTransactionsRequest(address: address.description, index: index)))
+            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetTransactionsRequest(address: address.description, index: index, count: count)))
             Session.send(request) { result in
                 switch result {
-                case .success(let transactions):
-                    seal.fulfill(transactions)
+                case .success(let (transactions, hasMore)):
+                    seal.fulfill((transactions, hasMore))
                 case .failure(let error):
                     seal.reject(error)
                 }
