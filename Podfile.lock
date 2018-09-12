@@ -10,6 +10,7 @@ PODS:
   - JSONRPCKit (3.0.0):
     - Result (~> 3.2.0)
   - KeychainSwift (11.0.0)
+  - libEd25519Blake2b (0.0.4)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.15.7)
   - Moya (11.0.2):
@@ -58,6 +59,7 @@ PODS:
     - BigInt (~> 3.0)
     - CryptoSwift (~> 0.11)
     - KeychainSwift
+    - libEd25519Blake2b (= 0.0.4)
     - ObjectMapper
     - scrypt (~> 1.5)
     - secp256k1.swift (~> 0.1.4)
@@ -96,6 +98,7 @@ SPEC REPOS:
     - Eureka
     - JSONRPCKit
     - KeychainSwift
+    - libEd25519Blake2b
     - MBProgressHUD
     - MJRefresh
     - Moya
@@ -138,6 +141,7 @@ SPEC CHECKSUMS:
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
   KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
+  libEd25519Blake2b: b291b518f4560bf137d8bb81ab3f8855979ece5c
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   Moya: a725035953bc1c0eb1be505ab903984501d82440
@@ -159,8 +163,8 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
-  Vite-keystore: c5bf2ce37aa6601b44007bb2b9b2013692692d06
+  Vite-keystore: bf086734f75a2e2174f6584298ca5d764727214f
 
-PODFILE CHECKSUM: 25f9a1a2081f6c1168745a12bef24ebf66a420e8
+PODFILE CHECKSUM: a82a7d939055ce2246eac7ad92ff8031ce116621
 
 COCOAPODS: 1.5.3
