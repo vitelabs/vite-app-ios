@@ -36,7 +36,7 @@ final class WalletHomeBalanceInfoTableViewModel: WalletHomeBalanceInfoTableViewM
 
     private func getBalanceInfos() {
         _ = accountProvider.getBalanceInfos(address: address).done { [weak self] balanceInfos in
-            self?.balanceInfos.accept(balanceInfos.map {
+            self?.balanceInfos.accept(BalanceInfo.mergeBalanceInfos(balanceInfos).map {
                 WalletHomeBalanceInfoViewModel(balanceInfo: $0)
             })
         }
