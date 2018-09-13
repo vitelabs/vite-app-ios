@@ -7,17 +7,102 @@
 //
 
 import UIKit
+import SnapKit
+import Vite_keystore
 
 class QRCodeViewController: BaseViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    let account: WalletAccount
 
-        // Do any additional setup after loading the view.
+    let titleLabel = UILabel().then {
+        $0.backgroundColor = .red
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    let addressLabel = UILabel().then {
+        $0.backgroundColor = .red
+        $0.numberOfLines = 0
+    }
+
+    let qrcodeImageView = UIImageView().then {
+        $0.backgroundColor = .red
+    }
+
+    let copyAddressButton = UIButton().then {
+        $0.backgroundColor = .red
+    }
+
+    init(account: WalletAccount) {
+        self.account = account
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+        createQRCode()
+    }
+
+    func setupUI() {
+        title = LocalizationStr("My QRCode")
+        titleLabel.text = account.name
+        addressLabel.text = account.defaultKey.address
+        copyAddressButton.setTitle(LocalizationStr("Copy Address"), for: .normal)
+        copyAddressButton.rx.tap.bind { [weak self] in
+            guard let address = self?.account.defaultKey.address else { return }
+            UIPasteboard.general.string = address
+            self?.copyAddressButton.setTitle(LocalizationStr("Copied"), for: .normal)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                self?.copyAddressButton.setTitle(LocalizationStr("Copy Address"), for: .normal)
+            })
+        }.disposed(by: rx.disposeBag)
+
+        view.addSubview(titleLabel)
+        view.addSubview(addressLabel)
+        view.addSubview(qrcodeImageView)
+        view.addSubview(copyAddressButton)
+
+        titleLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(view.snp.topMargin).offset(20)
+            make.centerX.equalTo(view)
+        }
+
+        addressLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.centerX.equalTo(view)
+            make.leading.equalTo(view.snp.leading).offset(20)
+            make.trailing.equalTo(view.snp.trailing).offset(-20)
+        }
+
+        qrcodeImageView.snp.makeConstraints { (make) in
+            make.top.equalTo(addressLabel.snp.bottom)
+            make.centerX.equalTo(view)
+            make.width.height.equalTo(200)
+        }
+
+        copyAddressButton.snp.makeConstraints { (make) in
+            make.bottom.equalTo(view).offset(-30)
+            make.centerX.equalTo(view)
+        }
+    }
+
+    func createQRCode() {
+        DispatchQueue.global(qos: .userInteractive).async {
+            let string = self.account.defaultKey.address
+            let context = CIContext()
+            let data = string.data(using: String.Encoding.ascii)
+            guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return }
+            filter.setValue(data, forKey: "inputMessage")
+            guard let output = filter.outputImage?.transformed(by: CGAffineTransform(scaleX: 7, y: 7)),
+                let cgImage = context.createCGImage(output, from: output.extent) else {
+                    return
+            }
+            DispatchQueue.main.async {
+                self.qrcodeImageView.image  = UIImage.init(cgImage: cgImage)
+            }
+        }
     }
 }
