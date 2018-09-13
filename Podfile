@@ -20,6 +20,11 @@ target 'Vite' do
   pod 'Moya'
   pod 'MJRefresh'
 
+  #UI Control
+  pod 'ActionSheetPicker-3.0'
+  pod 'MBProgressHUD'
+  pod 'Toast-Swift', '~> 3.0.1'
+
   #table static form
   pod 'Eureka'
 

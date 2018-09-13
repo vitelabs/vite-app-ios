@@ -10,8 +10,10 @@ import Foundation
 
 extension Notification.Name {
     // Need to update UI
-    static let languageChanged = NSNotification.Name(rawValue: "ViteAPPLanguageChanged")
+    static let languageChanged = NSNotification.Name(rawValue: "Vite_APPLanguageChanged")
 
-    // Need to update UI
-    static let createAccountSuccess = NSNotification.Name(rawValue: "VitecreateAccountSuccess")
+    // account
+    static let createAccountSuccess = NSNotification.Name(rawValue: "Vite_createAccountSuccess")
+    static let logoutDidFinish = NSNotification.Name(rawValue: "Vite_logoutDidFinish")
+    static let loginDidFinish = NSNotification.Name(rawValue: "Vite_loginDidFinish")
 }

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import NSObject_Rx
 import Vite_keystore
 
 @UIApplicationMain
@@ -24,18 +26,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func handleNotification() {
-        NotificationCenter.default.rx
-            .notification(.createAccountSuccess)
+        let a = NotificationCenter.default.rx.notification(.createAccountSuccess)
+        let b = NotificationCenter.default.rx.notification(.logoutDidFinish)
+        let c = NotificationCenter.default.rx.notification(.loginDidFinish)
+
+        Observable.of(a, b, c)
+            .merge()
             .takeUntil(self.rx.deallocated)
-            .subscribe(onNext: { [weak self] (_) in
+            .subscribe {[weak self] (_) in
                 guard let `self` = self else { return }
                 self.handleRootVC()
-            }).disposed(by: rx.disposeBag)
+            }.disposed(by: rx.disposeBag)
     }
 
     func handleRootVC() {
         if  WalletDataService.shareInstance.isExistWallet() {
             let rootVC = CreateAccountHomeViewController()
+            rootVC.automaticallyShowDismissButton = false
+            let nav = BaseNavigationController(rootViewController: rootVC)
+            window?.rootViewController = nav
+        } else if WalletDataService.shareInstance.existWalletAndLogout() {
+            let rootVC = LoginViewController()
             rootVC.automaticallyShowDismissButton = false
             let nav = BaseNavigationController(rootViewController: rootVC)
             window?.rootViewController = nav

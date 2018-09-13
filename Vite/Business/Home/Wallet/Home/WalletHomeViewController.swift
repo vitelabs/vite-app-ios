@@ -28,7 +28,7 @@ class WalletHomeViewController: BaseTableViewController {
         bind()
     }
 
-    let account = WalletDataService.shareInstance.walletStorage.walletAccounts[0]
+    let account = WalletDataService.shareInstance.defaultWalletAccount
     var addressViewModel: WalletHomeAddressViewModel!
     var tableViewModel: WalletHomeBalanceInfoTableViewModel!
     weak var balanceInfoDetailViewController: BalanceInfoDetailViewController?

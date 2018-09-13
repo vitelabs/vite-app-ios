@@ -52,7 +52,7 @@ class AddressManageViewController: BaseTableViewController {
         }
     })
 
-     let account = WalletDataService.shareInstance.walletStorage.walletAccounts[0]
+     let account = WalletDataService.shareInstance.defaultWalletAccount
     var tableViewModel: AddressManagerTableViewModel!
 
     fileprivate func bind() {

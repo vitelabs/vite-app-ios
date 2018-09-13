@@ -11,6 +11,7 @@ import Eureka
 import SafariServices
 
 struct Preferences: Codable {
+
 }
 
 enum NotificationChanged {
@@ -24,12 +25,43 @@ class SystemViewController: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self._setupView()
+    }
+
+    lazy var logoutBtn: UIButton = {
+        let logoutBtn = UIButton()
+        logoutBtn.setTitle("退出并切换钱包", for: .normal)
+        logoutBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
+        logoutBtn.setTitleColor(.black, for: .normal)
+        logoutBtn.backgroundColor = .orange
+        logoutBtn.addTarget(self, action: #selector(logoutBtnAction), for: .touchUpInside)
+        logoutBtn.frame = CGRect(x: 0, y: 0, width: kScreenW, height: 44)
+        return logoutBtn
+    }()
+
+    private func _setupView() {
         self.title = "系统设置"
         self.view.backgroundColor = .white
 
+        self.setupTableView()
+
+        self.view.addSubview(self.logoutBtn)
+        self.logoutBtn.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalTo(self.view)
+            make.height.equalTo(84)
+        }
+    }
+
+    func setupTableView() {
         self.tableView.backgroundColor = .white
 
-        form +++ Section()
+        form
+            +++
+            Section {
+                $0.header = HeaderFooterView<UIView>(.class)
+                $0.header?.height = { 0.0 }
+            }
             <<< ImageRow("my.page.message1.cell.title") {
                 $0.cell.titleLab.text = "语言选择"
                 $0.cell.rightImageView.image = R.image.bar_icon_my()
@@ -42,7 +74,7 @@ class SystemViewController: FormViewController {
                 $0.title = "输入密码唤起app"
                 $0.value = true
             }.onChange { [unowned self] row in
-                           self.didChange?(.state(isEnabled: row.value ?? false))
+                    self.didChange?(.state(isEnabled: row.value ?? false))
             }
 
             <<< SwitchRow("my.page.system.3cell.title") {
@@ -58,5 +90,11 @@ class SystemViewController: FormViewController {
             }.onChange { [unowned self] row in
                     self.didChange?(.state(isEnabled: row.value ?? false))
             }
+    }
+
+    @objc func logoutBtnAction() {
+        WalletDataService.shareInstance.logoutCurrentWallet()
+
+        NotificationCenter.default.post(name: .logoutDidFinish, object: nil)
     }
 }

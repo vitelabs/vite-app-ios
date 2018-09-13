@@ -9,8 +9,11 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import Vite_keystore
 
 final class LoginViewModel: NSObject {
+
+    public var chooseWalletAccount: WalletAccount = WalletDataService.shareInstance.defaultWalletAccount
 
     override init() {
         super.init()
