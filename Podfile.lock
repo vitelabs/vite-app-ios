@@ -1,4 +1,5 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.3.0)
   - Alamofire (4.7.3)
   - APIKit (3.2.1):
     - Result (~> 3.0)
@@ -55,6 +56,7 @@ PODS:
   - SnapKit (4.0.0)
   - SwiftLint (0.27.0)
   - Then (2.3.0)
+  - Toast-Swift (3.0.1)
   - Vite-keystore (0.0.1):
     - BigInt (~> 3.0)
     - CryptoSwift (~> 0.11)
@@ -65,6 +67,7 @@ PODS:
     - secp256k1.swift (~> 0.1.4)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
   - APIKit
   - BigInt (~> 3.0)
   - Eureka
@@ -86,10 +89,12 @@ DEPENDENCIES:
   - SnapKit (~> 4.0.0)
   - SwiftLint
   - Then
+  - Toast-Swift (~> 3.0.1)
   - Vite-keystore (from `../vite-keystore-ios`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ActionSheetPicker-3.0
     - Alamofire
     - APIKit
     - BigInt
@@ -119,6 +124,7 @@ SPEC REPOS:
     - SnapKit
     - SwiftLint
     - Then
+    - Toast-Swift
 
 EXTERNAL SOURCES:
   QRCodeReaderViewController:
@@ -133,6 +139,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/yannickl/QRCodeReaderViewController.git
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   APIKit: a39ff72ac44efc15513fd1b98800f63c525be61b
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
@@ -163,8 +170,9 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   Vite-keystore: 1987ba1387d428a36156ecc845084cf492fbc040
 
-PODFILE CHECKSUM: a82a7d939055ce2246eac7ad92ff8031ce116621
+PODFILE CHECKSUM: 702b8239c8a4604a9d3e5b3e5536aa835337a57d
 
 COCOAPODS: 1.5.3

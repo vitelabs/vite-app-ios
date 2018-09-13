@@ -131,8 +131,9 @@ extension AffirmInputMnemonicViewController {
 
     @objc func submitBtnAction() {
         let walletAccount = CreateWalletService.sharedInstance.walletAccount
-        WalletStorage.shareInstance.add(account: walletAccount)
 
+        WalletStorage.shareInstance.add(account: walletAccount)
+        WalletDataService.shareInstance.loginWallet(account: walletAccount)
         NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
     }
 }

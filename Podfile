@@ -15,11 +15,15 @@ target 'Vite' do
   pod 'PromiseKit', '~> 6.0'
   pod 'APIKit'
   pod 'ObjectMapper'
-  pod 'MBProgressHUD'
   pod 'QRCodeReaderViewController', :git=>'https://github.com/yannickl/QRCodeReaderViewController.git', :branch=>'master'
   pod 'KeychainSwift'
   pod 'Moya'
   pod 'MJRefresh'
+
+  #UI Control
+  pod 'ActionSheetPicker-3.0'
+  pod 'MBProgressHUD'
+  pod 'Toast-Swift', '~> 3.0.1'
 
   #table static form
   pod 'Eureka'

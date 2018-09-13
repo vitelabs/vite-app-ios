@@ -98,4 +98,3 @@ extension ExportMnemonicViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
-

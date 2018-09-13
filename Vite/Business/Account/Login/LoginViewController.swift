@@ -10,6 +10,9 @@ import UIKit
 import SnapKit
 import RxCocoa
 import RxSwift
+import Vite_keystore
+import Toast_Swift
+import ActionSheetPicker_3_0
 
 class LoginViewController: BaseViewController {
     fileprivate var viewModel: LoginViewModel
@@ -48,6 +51,30 @@ class LoginViewController: BaseViewController {
         logoImgView.backgroundColor = .clear
         logoImgView.image =  R.image.launch_screen_logo()
         return logoImgView
+    }()
+
+    lazy var userNameBtn: UIButton = {
+        let userNameBtn = UIButton()
+        userNameBtn.setTitle(self.viewModel.chooseWalletAccount.name, for: .normal)
+        userNameBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
+        userNameBtn.setTitleColor(.black, for: .normal)
+        userNameBtn.backgroundColor = .red
+        userNameBtn.addTarget(self, action: #selector(userNameBtnAction), for: .touchUpInside)
+        return userNameBtn
+    }()
+
+    lazy var passwordLab: UILabel = {
+        let passwordLab = UILabel()
+        passwordLab.backgroundColor = .clear
+        passwordLab.font =  AppStyle.descWord.font
+        passwordLab.textColor  = AppStyle.descWord.textColor
+        passwordLab.text =    R.string.localizable.createPagePwTitle.key.localized()
+        return passwordLab
+    }()
+
+    lazy var passwordTF: PasswordInputView = {
+        let passwordTF = PasswordInputView()
+        return passwordTF
     }()
 
     lazy var createAccountBtn: UIButton = {
@@ -91,33 +118,58 @@ extension LoginViewController {
     private func _addViewConstraint() {
         self.view.addSubview(self.logoImgView)
         self.logoImgView.snp.makeConstraints { (make) -> Void in
-            make.center.equalTo(self.view)
+            make.centerX.equalTo(self.view)
+            make.centerY.equalTo(self.view).offset(-200)
             make.width.height.equalTo(150)
+        }
+
+        self.view.addSubview(self.userNameBtn)
+        self.userNameBtn.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(self.view)
+            make.top.equalTo(self.view).offset(200)
+            make.width.equalTo(150)
+            make.height.equalTo(50)
+        }
+
+        self.view.addSubview(self.passwordLab)
+        self.passwordLab.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(self.view)
+            make.top.equalTo(self.userNameBtn.snp.bottom).offset(10)
+            make.width.equalTo(150)
+            make.height.equalTo(40)
+        }
+
+        self.view.addSubview(self.passwordTF)
+        self.passwordTF.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(self.view)
+            make.top.equalTo(self.passwordLab.snp.bottom).offset(10)
+            make.width.equalTo(150)
+            make.height.equalTo(100)
+        }
+
+        self.view.addSubview(self.loginBtn)
+        self.loginBtn.snp.makeConstraints { (make) -> Void in
+            make.width.equalTo(60)
+            make.height.equalTo(50)
+            make.bottom.equalTo(self.view).offset(-160)
+            make.centerX.equalTo(self.view)
         }
 
         self.view.addSubview(self.createAccountBtn)
         self.createAccountBtn.snp.makeConstraints { (make) -> Void in
             make.width.equalTo(100)
-            make.height.equalTo(50)
-            make.bottom.equalTo(self.view).offset(-150)
+            make.height.equalTo(30)
+            make.bottom.equalTo(self.view).offset(-120)
             make.centerX.equalTo(self.view)
         }
 
         self.view.addSubview(self.importAccountBtn)
         self.importAccountBtn.snp.makeConstraints { (make) -> Void in
             make.width.equalTo(100)
-            make.height.equalTo(50)
-            make.bottom.equalTo(self.view).offset(-80)
+            make.height.equalTo(30)
+            make.bottom.equalTo(self.view).offset(-50)
             make.centerX.equalTo(self.view)
         }
-
-//        self.view.addSubview(self.changeLanguageBtn)
-//        self.changeLanguageBtn.snp.makeConstraints { (make) -> Void in
-//            make.width.equalTo(60)
-//            make.height.equalTo(50)
-//            make.right.equalTo(self.view).offset(-30)
-//            make.top.equalTo(self.view).offset(100)
-//        }
     }
 
     @objc func createAccountBtnAction() {
@@ -130,17 +182,29 @@ extension LoginViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
-    @objc func loginBtnAction() {
-        let alertController = UIAlertController.init()
-        let cancelAction = UIAlertAction(title: LocalizationStr("Cancel"), style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        let languages: [Language] = SettingDataService.sharedInstance.getSupportedLanguages()
-        for element in languages {
-            let action = UIAlertAction(title: element.displayName, style: .destructive, handler: {_ in
-                _ = SetLanguage(element.name)
-            })
-            alertController.addAction(action)
+    @objc func userNameBtnAction() {
+        let pickData = WalletStorage.shareInstance.walletAccounts.map { (account) -> String in
+             return account.name
         }
-        self.present(alertController, animated: true, completion: nil)
+
+        _ =  ActionSheetStringPicker.show(withTitle: "选择钱包账户", rows: pickData, initialSelection: 1, doneBlock: {
+            _, index, _ in
+            self.viewModel.chooseWalletAccount = WalletStorage.shareInstance.walletAccounts[index]
+            self.userNameBtn.setTitle(self.viewModel.chooseWalletAccount.name, for: .normal)
+            return
+        }, cancel: { _ in return }, origin: self.view)
+
+    }
+
+    @objc func loginBtnAction() {
+        let password = self.passwordTF.textField.text
+
+        if self.viewModel.chooseWalletAccount.password == password {
+                WalletDataService.shareInstance.loginWallet(account: self.viewModel.chooseWalletAccount)
+                self.view.makeToast("登录成功")
+                NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
+        } else {
+                self.view.makeToast("密码错误，知道助记词可以导入")
+        }
     }
 }
