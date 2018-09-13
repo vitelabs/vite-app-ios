@@ -65,3 +65,8 @@
 "balance.info.detail.show.transactions.button.title" = "查看交易记录";
 "balance.info.detail.reveice.button.title" = "收款";
 "balance.info.detail.send.button.title" = "转账";
+
+/* Address Manage */
+"address.manage.page.title" = "地址管理";
+"address.manage.default.address.cell.title" = "默认收款地址";
+"address.manage.address.header.title" = "地址列表";
