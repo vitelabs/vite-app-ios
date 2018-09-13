@@ -16,7 +16,6 @@ target 'Vite' do
   pod 'APIKit'
   pod 'ObjectMapper'
   pod 'MBProgressHUD'
-  pod 'QRCodeReaderViewController', :git=>'https://github.com/yannickl/QRCodeReaderViewController.git', :branch=>'master'
   pod 'KeychainSwift'
   pod 'Moya'
   pod 'MJRefresh'
