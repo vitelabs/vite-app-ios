@@ -101,6 +101,15 @@
 		8ED4CECF2147C5910005A82D /* WebHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CECE2147C5910005A82D /* WebHandler.swift */; };
 		8ED4CED32148AF630005A82D /* GetMoreLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CED22148AF630005A82D /* GetMoreLoadingView.swift */; };
 		8ED4CED7214900240005A82D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CED6214900240005A82D /* UIViewControllerExtension.swift */; };
+		8EE468E021493A7E00807D2C /* AddressManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468DF21493A7E00807D2C /* AddressManageViewController.swift */; };
+		8EE468E3214A047500807D2C /* AddressManageDefaultAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468E2214A047500807D2C /* AddressManageDefaultAddressCell.swift */; };
+		8EE468E6214A077D00807D2C /* AddressManagerTableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468E5214A077D00807D2C /* AddressManagerTableViewModelType.swift */; };
+		8EE468E9214A07D300807D2C /* AddressManageAddressViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468E8214A07D300807D2C /* AddressManageAddressViewModelType.swift */; };
+		8EE468EB214A098B00807D2C /* AddressManageAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468EA214A098B00807D2C /* AddressManageAddressViewModel.swift */; };
+		8EE468EE214A09CA00807D2C /* AddressManagerTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468ED214A09CA00807D2C /* AddressManagerTableViewModel.swift */; };
+		8EE468F0214A277500807D2C /* AddressManageAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468EF214A277500807D2C /* AddressManageAddressCell.swift */; };
+		8EE468F2214A2AB000807D2C /* AddressManageGenerateAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468F1214A2AB000807D2C /* AddressManageGenerateAddressCell.swift */; };
+		8EE468F4214A2BAD00807D2C /* AddressManageAddressHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468F3214A2BAD00807D2C /* AddressManageAddressHeaderCell.swift */; };
 		D273062C8B1A826F6BC2E810 /* Pods_ViteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EF60202B89DEC8B075E04F /* Pods_ViteUITests.framework */; };
 		D62F634C8DA45F93E78F5B8D /* Pods_Vite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */; };
 /* End PBXBuildFile section */
@@ -226,6 +235,15 @@
 		8ED4CECE2147C5910005A82D /* WebHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHandler.swift; sourceTree = "<group>"; };
 		8ED4CED22148AF630005A82D /* GetMoreLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoreLoadingView.swift; sourceTree = "<group>"; };
 		8ED4CED6214900240005A82D /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		8EE468DF21493A7E00807D2C /* AddressManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManageViewController.swift; sourceTree = "<group>"; };
+		8EE468E2214A047500807D2C /* AddressManageDefaultAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManageDefaultAddressCell.swift; sourceTree = "<group>"; };
+		8EE468E5214A077D00807D2C /* AddressManagerTableViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManagerTableViewModelType.swift; sourceTree = "<group>"; };
+		8EE468E8214A07D300807D2C /* AddressManageAddressViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManageAddressViewModelType.swift; sourceTree = "<group>"; };
+		8EE468EA214A098B00807D2C /* AddressManageAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManageAddressViewModel.swift; sourceTree = "<group>"; };
+		8EE468ED214A09CA00807D2C /* AddressManagerTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManagerTableViewModel.swift; sourceTree = "<group>"; };
+		8EE468EF214A277500807D2C /* AddressManageAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManageAddressCell.swift; sourceTree = "<group>"; };
+		8EE468F1214A2AB000807D2C /* AddressManageGenerateAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManageGenerateAddressCell.swift; sourceTree = "<group>"; };
+		8EE468F3214A2BAD00807D2C /* AddressManageAddressHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManageAddressHeaderCell.swift; sourceTree = "<group>"; };
 		90D19E345292B3451EF0C77B /* Pods-ViteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9CDD7A55935285C97D7AB255 /* Pods-ViteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.release.xcconfig"; sourceTree = "<group>"; };
 		B5C0FE724D993EC85BD39D8F /* Pods-Vite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.release.xcconfig"; sourceTree = "<group>"; };
@@ -715,7 +733,6 @@
 		8E6F3E17214227EC003CDFC2 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				4C2284BC21490E63003E9907 /* Manage */,
 				8E6F3E352142783A003CDFC2 /* Home */,
 				8E6F3E3621427845003CDFC2 /* QRCode */,
 				8E6F3E3721427853003CDFC2 /* Scan */,
@@ -751,10 +768,12 @@
 		8E6F3E2621422AEE003CDFC2 /* My */ = {
 			isa = PBXGroup;
 			children = (
+				4C2284BC21490E63003E9907 /* Manage */,
 				4C2284B62148BC0A003E9907 /* View */,
 				4C2284B32148BAF5003E9907 /* Cell */,
 				8E6F3E2721422BA1003CDFC2 /* MyHomeViewController.swift */,
 				8E56FC8E2147639F00A68823 /* TransactionList */,
+				8EE468E121493A8E00807D2C /* AddressManage */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -840,6 +859,46 @@
 				8ED4CECE2147C5910005A82D /* WebHandler.swift */,
 			);
 			path = Web;
+			sourceTree = "<group>";
+		};
+		8EE468E121493A8E00807D2C /* AddressManage */ = {
+			isa = PBXGroup;
+			children = (
+				8EE468DF21493A7E00807D2C /* AddressManageViewController.swift */,
+				8EE468E7214A07B900807D2C /* Protocols */,
+				8EE468EC214A099300807D2C /* ViewModels */,
+				8EE468E4214A066C00807D2C /* Views */,
+			);
+			path = AddressManage;
+			sourceTree = "<group>";
+		};
+		8EE468E4214A066C00807D2C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8EE468E2214A047500807D2C /* AddressManageDefaultAddressCell.swift */,
+				8EE468F3214A2BAD00807D2C /* AddressManageAddressHeaderCell.swift */,
+				8EE468EF214A277500807D2C /* AddressManageAddressCell.swift */,
+				8EE468F1214A2AB000807D2C /* AddressManageGenerateAddressCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8EE468E7214A07B900807D2C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8EE468E5214A077D00807D2C /* AddressManagerTableViewModelType.swift */,
+				8EE468E8214A07D300807D2C /* AddressManageAddressViewModelType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8EE468EC214A099300807D2C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8EE468ED214A09CA00807D2C /* AddressManagerTableViewModel.swift */,
+				8EE468EA214A098B00807D2C /* AddressManageAddressViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1150,6 +1209,7 @@
 			files = (
 				8E6F3DFF2141025B003CDFC2 /* SnapshotChainHeightRequest.swift in Sources */,
 				4C105EBF213FCAD500D483C6 /* UIColor.swift in Sources */,
+				8EE468E6214A077D00807D2C /* AddressManagerTableViewModelType.swift in Sources */,
 				8E6F3E3A2144C3B5003CDFC2 /* BalanceInfoDetailViewController.swift in Sources */,
 				8E6F3E04214115ED003CDFC2 /* AccountProvider.swift in Sources */,
 				8ED4CED7214900240005A82D /* UIViewControllerExtension.swift in Sources */,
@@ -1160,6 +1220,7 @@
 				8E56FC8721466D6500A68823 /* GetUnconfirmedInfosRequest.swift in Sources */,
 				8ED4CECC2147C4A60005A82D /* SafariViewController.swift in Sources */,
 				8E56FC9C2147A9CE00A68823 /* DateExtension.swift in Sources */,
+				8EE468F4214A2BAD00807D2C /* AddressManageAddressHeaderCell.swift in Sources */,
 				8E6F3E202142280F003CDFC2 /* BaseNavigationController.swift in Sources */,
 				4C84D949214528D4001B6EBD /* CreateAccountHomeVM.swift in Sources */,
 				8E56FC8921466E8C00A68823 /* UnConfirmedInfo.swift in Sources */,
@@ -1168,8 +1229,10 @@
 				4C84D9332145280E001B6EBD /* ImportAccountViewController.swift in Sources */,
 				8E6F3E102141263A003CDFC2 /* Balance.swift in Sources */,
 				8E6F3E2C2142644E003CDFC2 /* UITableView+Helper.swift in Sources */,
+				8EE468EE214A09CA00807D2C /* AddressManagerTableViewModel.swift in Sources */,
 				8E6F3E48214513EC003CDFC2 /* WalletHomeBalanceInfoTableViewModelType.swift in Sources */,
 				8E6F3E1F2142280F003CDFC2 /* BaseTableViewController.swift in Sources */,
+				8EE468F0214A277500807D2C /* AddressManageAddressCell.swift in Sources */,
 				4C84D94121452836001B6EBD /* BackupMnemonicVM.swift in Sources */,
 				4C105EC5213FEFF800D483C6 /* NotificationName.swift in Sources */,
 				4C105EC1213FCB3700D483C6 /* AppStyle.swift in Sources */,
@@ -1178,10 +1241,12 @@
 				8E56FC96214768BD00A68823 /* TransactionViewModelType.swift in Sources */,
 				8E6F3E332142768B003CDFC2 /* ScanViewController.swift in Sources */,
 				8ED4CED32148AF630005A82D /* GetMoreLoadingView.swift in Sources */,
+				8EE468E021493A7E00807D2C /* AddressManageViewController.swift in Sources */,
 				4C84D9312145280E001B6EBD /* CreateWalletTipViewController.swift in Sources */,
 				8E56FC9A21479A7D00A68823 /* TransactionCell.swift in Sources */,
 				4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */,
 				8E56FC902147684200A68823 /* TransactionListTableViewModelType.swift in Sources */,
+				8EE468E3214A047500807D2C /* AddressManageDefaultAddressCell.swift in Sources */,
 				8E6F3E16214227E7003CDFC2 /* WalletHomeViewController.swift in Sources */,
 				8E6F3E0721411650003CDFC2 /* Transaction.swift in Sources */,
 				4C84D96421469FFA001B6EBD /* ImportAccountVM.swift in Sources */,
@@ -1212,6 +1277,7 @@
 				4C105ED12141401100D483C6 /* String.swift in Sources */,
 				8E6F3E3F2144CA23003CDFC2 /* WalletHomeAddressViewModelType.swift in Sources */,
 				8E6F3E5421453405003CDFC2 /* WalletHomeBalanceInfoViewModel.swift in Sources */,
+				8EE468E9214A07D300807D2C /* AddressManageAddressViewModelType.swift in Sources */,
 				8E6F3E4E21451806003CDFC2 /* BalanceInfo.swift in Sources */,
 				8E56FC7F21466BD100A68823 /* ReceiveViewController.swift in Sources */,
 				8E6F3E4C214516B0003CDFC2 /* Token.swift in Sources */,
@@ -1225,12 +1291,14 @@
 				8E6F3E422144CA49003CDFC2 /* WalletHomeAddressViewModel.swift in Sources */,
 				8E56FC7A21464A8500A68823 /* BalanceInfoDetailView.swift in Sources */,
 				4C2284C321493087003E9907 /* ExportMnemonicViewController.swift in Sources */,
+				8EE468F2214A2AB000807D2C /* AddressManageGenerateAddressCell.swift in Sources */,
 				8E56FC8521466C3200A68823 /* TransactionListViewController.swift in Sources */,
 				8E6F3DFD2141012A003CDFC2 /* SnapshotChainProvider.swift in Sources */,
 				8ED4CECF2147C5910005A82D /* WebHandler.swift in Sources */,
 				4C84D93E21452836001B6EBD /* AffirmInputMnemonicViewController.swift in Sources */,
 				8E6F3E4A21451401003CDFC2 /* WalletHomeBalanceInfoTableViewModel.swift in Sources */,
 				8E6F3E1E2142280F003CDFC2 /* BaseTableViewCell.swift in Sources */,
+				8EE468EB214A098B00807D2C /* AddressManageAddressViewModel.swift in Sources */,
 				4C2284BB214906F0003E9907 /* SystemViewController.swift in Sources */,
 				8E6F3E1D2142280F003CDFC2 /* BaseViewController.swift in Sources */,
 				4C2284C1214917FE003E9907 /* ManageWalletHeaderView.swift in Sources */,

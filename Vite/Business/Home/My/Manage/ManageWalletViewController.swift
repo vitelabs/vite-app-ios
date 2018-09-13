@@ -27,16 +27,16 @@ class ManageWalletViewController: FormViewController {
                 $0.cell.titleLab.text = R.string.localizable.manageWalletPageNameCellTitle.key.localized()
                 $0.cell.rightImageView.image = R.image.bar_icon_my()
             }.onCellSelection({ [unowned self] _, _  in
-                    let safari = SFSafariViewController(url: NSURL(string: "http://www.baidu.com")! as URL)
-                    self.present(safari, animated: true, completion: nil)
+                let safari = SFSafariViewController(url: NSURL(string: "http://www.baidu.com")! as URL)
+                self.present(safari, animated: true, completion: nil)
             })
 
             <<< ImageRow("manageWalletPageAddressManageCellTitle") {
                 $0.cell.titleLab.text =  R.string.localizable.manageWalletPageAddressManageCellTitle.key.localized()
                 $0.cell.rightImageView.image = R.image.bar_icon_my()
             }.onCellSelection({ [unowned self] _, _  in
-                    let safari = SFSafariViewController(url: NSURL(string: "http://www.baidu.com")! as URL)
-                    self.present(safari, animated: true, completion: nil)
+                let vc = AddressManageViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
             })
 
             <<< ImageRow("manageWalletPageImportMnemonicCellTitle") {

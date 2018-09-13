@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 13 images.
+  /// This `R.image` struct is generated, and contains static references to 14 images.
   struct image {
     /// Image `bar_icon_my`.
     static let bar_icon_my = Rswift.ImageResource(bundle: R.hostingBundle, name: "bar_icon_my")
@@ -47,6 +47,8 @@ struct R: Rswift.Validatable {
     static let feed = Rswift.ImageResource(bundle: R.hostingBundle, name: "feed")
     /// Image `home_wallet_address_copy`.
     static let home_wallet_address_copy = Rswift.ImageResource(bundle: R.hostingBundle, name: "home_wallet_address_copy")
+    /// Image `icon_address_manage_selected`.
+    static let icon_address_manage_selected = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_address_manage_selected")
     /// Image `icon_transcation_request`.
     static let icon_transcation_request = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_transcation_request")
     /// Image `icon_transcation_response`.
@@ -93,6 +95,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "home_wallet_address_copy", bundle: ..., traitCollection: ...)`
     static func home_wallet_address_copy(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.home_wallet_address_copy, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_address_manage_selected", bundle: ..., traitCollection: ...)`
+    static func icon_address_manage_selected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_address_manage_selected, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "icon_transcation_request", bundle: ..., traitCollection: ...)`
@@ -158,7 +165,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 42 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 45 localization keys.
     struct localizable {
       /// en translation: (%@笔待确认)
       /// 
@@ -216,6 +223,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let balanceInfoDetailUnconfirmedTitle = Rswift.StringResource(key: "balance.info.detail.unconfirmed.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 地址列表
+      /// 
+      /// Locales: en, zh-Hans
+      static let addressManageAddressHeaderTitle = Rswift.StringResource(key: "address.manage.address.header.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 地址管理
+      /// 
+      /// Locales: en, zh-Hans
+      static let addressManagePageTitle = Rswift.StringResource(key: "address.manage.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 地址管理
       /// 
       /// Locales: en, zh-Hans
@@ -328,6 +343,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let myPageFetchMoneyCellTitle = Rswift.StringResource(key: "my.page.fetchMoney.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 默认收款地址
+      /// 
+      /// Locales: en, zh-Hans
+      static let addressManageDefaultAddressCellTitle = Rswift.StringResource(key: "address.manage.default.address.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation: (%@笔待确认)
       /// 
@@ -425,6 +444,20 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func balanceInfoDetailUnconfirmedTitle(_: Void = ()) -> String {
         return NSLocalizedString("balance.info.detail.unconfirmed.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 地址列表
+      /// 
+      /// Locales: en, zh-Hans
+      static func addressManageAddressHeaderTitle(_: Void = ()) -> String {
+        return NSLocalizedString("address.manage.address.header.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 地址管理
+      /// 
+      /// Locales: en, zh-Hans
+      static func addressManagePageTitle(_: Void = ()) -> String {
+        return NSLocalizedString("address.manage.page.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 地址管理
@@ -621,6 +654,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func myPageFetchMoneyCellTitle(_: Void = ()) -> String {
         return NSLocalizedString("my.page.fetchMoney.cell.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 默认收款地址
+      /// 
+      /// Locales: en, zh-Hans
+      static func addressManageDefaultAddressCellTitle(_: Void = ()) -> String {
+        return NSLocalizedString("address.manage.default.address.cell.title", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
