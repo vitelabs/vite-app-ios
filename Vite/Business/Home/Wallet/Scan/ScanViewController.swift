@@ -19,21 +19,21 @@ class ScanViewController: BaseViewController {
         setupAVComponents()
         setupUIComponents()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if captureSession.isRunning == false {
             captureSession.startRunning()
         }
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if captureSession.isRunning == true {
             captureSession.stopRunning()
         }
     }
-    
+
     func setupAVComponents() {
         guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else { return }
         do {
@@ -52,51 +52,51 @@ class ScanViewController: BaseViewController {
             print(error)
         }
     }
-    
+
     func setupUIComponents() {
         navigationItem.title = LocalizationStr("Scan QR Code")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: LocalizationStr("Album"), style: .plain, target: self, action: #selector(self.pickeImage(_:)))
-       
+
         do {
             let screenWidth = UIScreen.main.bounds.width
-            let topBackgroundView = UIView().then { 
+            let topBackgroundView = UIView().then {
                 $0.frame =  CGRect(x: 0, y: 0, width: screenWidth, height: screenWidth * 0.2)
                 $0.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
             }
-            let leftBackgroundView = UIView().then { 
+            let leftBackgroundView = UIView().then {
                 $0.frame =  CGRect(x: 0, y: topBackgroundView.frame.maxY, width: screenWidth * 0.2, height: screenWidth * 0.6)
                 $0.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
             }
-            let bottomBackgroundView = UIView().then { 
+            let bottomBackgroundView = UIView().then {
                 $0.frame = CGRect(x: 0, y: leftBackgroundView.frame.maxY, width: screenWidth, height: UIScreen.main.bounds.height)
                 $0.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
             }
-            let rightBackgroundView = UIView().then { 
+            let rightBackgroundView = UIView().then {
                 $0.frame = CGRect(x: screenWidth * 0.8, y: leftBackgroundView.frame.minY, width: screenWidth * 0.2, height: screenWidth * 0.6)
                 $0.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
             }
             view.addSubview(topBackgroundView)
             view.addSubview(bottomBackgroundView)
             view.addSubview(leftBackgroundView)
-            view.addSubview(rightBackgroundView) 
+            view.addSubview(rightBackgroundView)
         }
-        
+
         do {
             let flashButton = UIButton().then {
                 $0.translatesAutoresizingMaskIntoConstraints = false
-                $0.backgroundColor = .red;
+                $0.backgroundColor = .red
             }
             view.addSubview(flashButton)
             NSLayoutConstraint.activate([
                 flashButton.widthAnchor.constraint(equalToConstant: 50),
                 flashButton.heightAnchor.constraint(equalToConstant: 50),
                 flashButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                flashButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
+                flashButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
                 ])
             flashButton.addTarget(self, action: #selector(switchFlash(_:)), for: .touchUpInside)
-        }       
+        }
     }
-    
+
     @objc func pickeImage(_ button: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -104,7 +104,7 @@ class ScanViewController: BaseViewController {
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true) {}
     }
-    
+
     @objc func switchFlash(_ sender: UIButton) {
         guard let device = AVCaptureDevice.default(for: .video) else { return }
         if device.hasTorch && device.isTorchAvailable {
@@ -117,13 +117,13 @@ class ScanViewController: BaseViewController {
             device.unlockForConfiguration()
         }
     }
-    
+
     func handleQRResult(_ result: String?) {
         guard let result = result else { return }
         let alertController = UIAlertController.init()
         let action = UIAlertAction.init(title: LocalizationStr("OK"), style: .default) { [weak self](_) in
             guard var viewControllers = self?.navigationController?.viewControllers else { return }
-            print(result);
+            print(result)
             _ = viewControllers.popLast()
             viewControllers.append(SendViewController())
             self?.navigationController?.setViewControllers(viewControllers, animated: true)
@@ -132,7 +132,7 @@ class ScanViewController: BaseViewController {
         alertController.title = result
         present(alertController, animated: true, completion: nil)
     }
-    
+
     func detectQRCode(_ image: UIImage?) -> [CIFeature]? {
         if let image = image, let ciImage = CIImage.init(image: image) {
             var options: [String: Any]
@@ -162,7 +162,7 @@ extension ScanViewController: UIImagePickerControllerDelegate, UINavigationContr
             self.handleQRResult(stringValue)
         }
     }
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
         var stringValue: String?
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {

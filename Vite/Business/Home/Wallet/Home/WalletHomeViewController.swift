@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import NSObject_Rx
 import RxDataSources
+import Vite_keystore
 
 class WalletHomeViewController: BaseTableViewController {
 
@@ -40,7 +41,8 @@ class WalletHomeViewController: BaseTableViewController {
         navigationItem.rightBarButtonItem = scanItem
 
         qrcodeItem.rx.tap.bind { [weak self] _ in
-            self?.navigationController?.pushViewController(QRCodeViewController(), animated: true)
+            guard let `self` = self else { return }
+            self.navigationController?.pushViewController(QRCodeViewController(account: self.account), animated: true)
         }.disposed(by: rx.disposeBag)
 
         scanItem.rx.tap.bind {  [weak self] _ in

@@ -30,7 +30,6 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.4.0):
     - PromiseKit/CorePromise
-  - QRCodeReaderViewController (4.0.2)
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
@@ -76,7 +75,6 @@ DEPENDENCIES:
   - "NSObject+Rx"
   - ObjectMapper
   - PromiseKit (~> 6.0)
-  - QRCodeReaderViewController (from `https://github.com/yannickl/QRCodeReaderViewController.git`, branch `master`)
   - R.swift
   - ReusableKit
   - RxCocoa
@@ -121,16 +119,8 @@ SPEC REPOS:
     - Then
 
 EXTERNAL SOURCES:
-  QRCodeReaderViewController:
-    :branch: master
-    :git: https://github.com/yannickl/QRCodeReaderViewController.git
   Vite-keystore:
     :path: "../vite-keystore-ios"
-
-CHECKOUT OPTIONS:
-  QRCodeReaderViewController:
-    :commit: ea01c9a19438c686cce675010636755a6549b57c
-    :git: https://github.com/yannickl/QRCodeReaderViewController.git
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
@@ -148,7 +138,6 @@ SPEC CHECKSUMS:
   "NSObject+Rx": 9a5eeff5e08156f849fa973514456f28eef08742
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   PromiseKit: ae3616f45d7bb9bf4ff1e91abc9b7a8c48a340e0
-  QRCodeReaderViewController: e8f27d035b3e72b1d4b1c61ff66458287e3be0ff
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
@@ -165,6 +154,6 @@ SPEC CHECKSUMS:
   Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
   Vite-keystore: 1987ba1387d428a36156ecc845084cf492fbc040
 
-PODFILE CHECKSUM: a82a7d939055ce2246eac7ad92ff8031ce116621
+PODFILE CHECKSUM: 0f25bd198be80ba383537a5146cadc5ae09c56d9
 
 COCOAPODS: 1.5.3
