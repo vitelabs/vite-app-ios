@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0970C99FC4C5C861FB486591 /* Pods_Vite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */; };
 		1FCD87D2C89D50D6F05BCA86 /* Pods_ViteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9ECCAAC94107661B825DB36 /* Pods_ViteTests.framework */; };
 		4C0024E421258005001DF390 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0024E321258005001DF390 /* R.generated.swift */; };
 		4C105EBC213FCA7400D483C6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EBB213FCA7400D483C6 /* Colors.swift */; };
@@ -103,6 +102,7 @@
 		8ED4CED32148AF630005A82D /* GetMoreLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CED22148AF630005A82D /* GetMoreLoadingView.swift */; };
 		8ED4CED7214900240005A82D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CED6214900240005A82D /* UIViewControllerExtension.swift */; };
 		D273062C8B1A826F6BC2E810 /* Pods_ViteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EF60202B89DEC8B075E04F /* Pods_ViteUITests.framework */; };
+		D62F634C8DA45F93E78F5B8D /* Pods_Vite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -240,7 +240,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0970C99FC4C5C861FB486591 /* Pods_Vite.framework in Frameworks */,
+				D62F634C8DA45F93E78F5B8D /* Pods_Vite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1234,7 +1234,6 @@
 				4C2284BB214906F0003E9907 /* SystemViewController.swift in Sources */,
 				8E6F3E1D2142280F003CDFC2 /* BaseViewController.swift in Sources */,
 				4C2284C1214917FE003E9907 /* ManageWalletHeaderView.swift in Sources */,
-				8E6F3E452144CC6B003CDFC2 /* Account.swift in Sources */,
 				8E56FC932147686700A68823 /* TransactionListTableViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -52,6 +52,7 @@ class LoginViewController: BaseViewController {
 
     lazy var createAccountBtn: UIButton = {
         let createAccountBtn = UIButton()
+        createAccountBtn.setTitle(R.string.localizable.createAccount.key.localized(), for: .normal)
         createAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         createAccountBtn.setTitleColor(.black, for: .normal)
         createAccountBtn.backgroundColor = .orange
@@ -61,6 +62,7 @@ class LoginViewController: BaseViewController {
 
     lazy var importAccountBtn: UIButton = {
         let importAccountBtn = UIButton()
+        importAccountBtn.setTitle(R.string.localizable.importAccount.key.localized(), for: .normal)
         importAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         importAccountBtn.setTitleColor(.black, for: .normal)
         importAccountBtn.backgroundColor = .orange
@@ -68,13 +70,14 @@ class LoginViewController: BaseViewController {
         return importAccountBtn
     }()
 
-    lazy var changeLanguageBtn: UIButton = {
-        let changeLanguageBtn = UIButton()
-        changeLanguageBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        changeLanguageBtn.setTitleColor(.black, for: .normal)
-        changeLanguageBtn.backgroundColor = .orange
-        changeLanguageBtn.addTarget(self, action: #selector(changeLanguageBtnAction), for: .touchUpInside)
-        return changeLanguageBtn
+    lazy var loginBtn: UIButton = {
+        let loginBtn = UIButton()
+        loginBtn.setTitle("登录", for: .normal)
+        loginBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
+        loginBtn.setTitleColor(.black, for: .normal)
+        loginBtn.backgroundColor = .orange
+        loginBtn.addTarget(self, action: #selector(loginBtnAction), for: .touchUpInside)
+        return loginBtn
     }()
 }
 
@@ -108,13 +111,13 @@ extension LoginViewController {
             make.centerX.equalTo(self.view)
         }
 
-        self.view.addSubview(self.changeLanguageBtn)
-        self.changeLanguageBtn.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(60)
-            make.height.equalTo(50)
-            make.right.equalTo(self.view).offset(-30)
-            make.top.equalTo(self.view).offset(100)
-        }
+//        self.view.addSubview(self.changeLanguageBtn)
+//        self.changeLanguageBtn.snp.makeConstraints { (make) -> Void in
+//            make.width.equalTo(60)
+//            make.height.equalTo(50)
+//            make.right.equalTo(self.view).offset(-30)
+//            make.top.equalTo(self.view).offset(100)
+//        }
     }
 
     @objc func createAccountBtnAction() {
@@ -127,7 +130,7 @@ extension LoginViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
-    @objc func changeLanguageBtnAction() {
+    @objc func loginBtnAction() {
         let alertController = UIAlertController.init()
         let cancelAction = UIAlertAction(title: LocalizationStr("Cancel"), style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
