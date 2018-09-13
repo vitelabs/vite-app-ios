@@ -49,7 +49,7 @@ class WalletHomeViewController: BaseTableViewController {
 
     }
 
-    let dataSource = DataSource(configureCell: { (_, tableView, indexPath, item) -> UITableViewCell in
+    fileprivate let dataSource = DataSource(configureCell: { (_, tableView, indexPath, item) -> UITableViewCell in
         switch item {
         case .address(let viewModel):
             let cell: WalletHomeAddressCell = tableView.dequeueReusableCell(for: indexPath)
@@ -62,7 +62,7 @@ class WalletHomeViewController: BaseTableViewController {
         }
     })
 
-    func bind() {
+    fileprivate func bind() {
 
         addressViewModel = WalletHomeAddressViewModel(account: self.account)
         tableViewModel = WalletHomeBalanceInfoTableViewModel(address: Address(string: self.account.defaultKey.address))
