@@ -12,7 +12,8 @@ class BaseNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.white
+        self.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,4 +29,16 @@ class BaseNavigationController: UINavigationController {
         super.pushViewController(viewController, animated: animated)
     }
 
+}
+
+extension BaseNavigationController: UINavigationControllerDelegate {
+
+    open func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        let item = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
+        viewController.navigationItem.backBarButtonItem = item
+    }
+
+    override var childViewControllerForStatusBarStyle: UIViewController? {
+        return self.topViewController
+    }
 }

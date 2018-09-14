@@ -19,6 +19,7 @@ target 'Vite' do
   pod 'KeychainSwift'
   pod 'Moya'
   pod 'MJRefresh'
+  pod 'KMNavigationBarTransition'
 
   #UI Control
   pod 'ActionSheetPicker-3.0'
