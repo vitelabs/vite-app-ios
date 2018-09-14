@@ -15,7 +15,7 @@ import Vite_keystore
 
 extension CreateWalletAccountViewController {
     private func _bindViewModel() {
-        let viewModel = CreateWalletAccountVM(input: (self.walletNameTF, self.passwordTF.textField, self.passwordRepeateTF.textField))
+        let viewModel = CreateWalletAccountVM(input: (self.walletNameTF.textField, self.passwordTF.textField, self.passwordRepeateTF.textField))
 
         viewModel.accountNameEnable.drive(onNext: { (result) in
             switch result {
@@ -57,14 +57,20 @@ class CreateWalletAccountViewController: UIViewController {
         self._bindViewModel()
     }
 
-    lazy var walletNameTF: UITextField = {
-        let walletNameTF = UITextField()
-        walletNameTF.backgroundColor = .gray
-        walletNameTF.font =  AppStyle.inputDescWord.font
-        walletNameTF.textColor =  AppStyle.descWord.textColor
-
-        return walletNameTF
+    lazy var walletNameTF: TitleTextFieldView = {
+        let addressView = TitleTextFieldView(title: R.string.localizable.sendPageToAddressTitle(), placeholder: "", text: "")
+        return addressView
     }()
+//    let addressView = TitleTextFieldView(title: R.string.localizable.sendPageToAddressTitle(), placeholder: "", text: "")
+
+//    lazy var walletNameTF: UITextField = {
+//        let walletNameTF = UITextField()
+//        walletNameTF.backgroundColor = .gray
+//        walletNameTF.font =  AppStyle.inputDescWord.font
+//        walletNameTF.textColor =  AppStyle.descWord.textColor
+//
+//        return walletNameTF
+//    }()
 
     lazy var walletNameLab: UILabel = {
         let walletNameLab = UILabel()
@@ -213,7 +219,7 @@ extension CreateWalletAccountViewController {
     }
 
     @objc func submitBtnAction() {
-        CreateWalletService.sharedInstance.walletAccount.name = self.walletNameTF.text!
+        CreateWalletService.sharedInstance.walletAccount.name = self.walletNameTF.textField.text!
         CreateWalletService.sharedInstance.walletAccount.password = self.passwordRepeateTF.textField.text!
         let vc = CreateWalletTipViewController()
         self.navigationController?.pushViewController(vc, animated: true)

@@ -16,6 +16,22 @@ func SetLanguage(_ language: String) -> Bool {
     return LocalizationService.sharedInstance.setLanguage(language)
 }
 
+extension UIViewController {
+    func showChangeLanguageList() {
+        let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        let languages: [Language] = SettingDataService.sharedInstance.getSupportedLanguages()
+        for element in languages {
+            let action = UIAlertAction(title: element.displayName, style: .destructive, handler: {_ in
+                _ = SetLanguage(element.name)
+            })
+            alertController.addAction(action)
+        }
+        self.present(alertController, animated: true, completion: nil)
+    }
+}
+
 class LocalizationService {
     private let userDefaults = UserDefaults.standard
     private var localizationDic: NSDictionary?

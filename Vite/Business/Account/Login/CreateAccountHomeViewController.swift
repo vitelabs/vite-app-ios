@@ -102,14 +102,14 @@ extension CreateAccountHomeViewController {
         self.logoImgView.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(self.view).offset(30)
             make.top.equalTo(self.view).offset(130)
-            make.width.height.equalTo(150)
+            make.width.height.equalTo(65)
         }
 
         self.view.addSubview(self.sloganImgView)
         self.sloganImgView.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(self.view).offset(30)
             make.top.equalTo(self.logoImgView.snp.bottom).offset(50)
-            make.width.height.equalTo(150)
+            make.width.height.equalTo(65)
         }
 
         self.view.addSubview(self.importAccountBtn)
@@ -148,16 +148,6 @@ extension CreateAccountHomeViewController {
     }
 
     @objc func changeLanguageBtnAction() {
-        let alertController = UIAlertController.init()
-        let cancelAction = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        let languages: [Language] = SettingDataService.sharedInstance.getSupportedLanguages()
-        for element in languages {
-            let action = UIAlertAction(title: element.displayName, style: .destructive, handler: {_ in
-                 _ = SetLanguage(element.name)
-            })
-            alertController.addAction(action)
-        }
-        self.present(alertController, animated: true, completion: nil)
+        self.showChangeLanguageList()
     }
 }
