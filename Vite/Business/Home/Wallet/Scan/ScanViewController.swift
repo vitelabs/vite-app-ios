@@ -34,6 +34,10 @@ class ScanViewController: BaseViewController {
         }
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     func setupAVComponents() {
         guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else { return }
         do {
@@ -54,8 +58,9 @@ class ScanViewController: BaseViewController {
     }
 
     func setupUIComponents() {
+        navigationBarStyle = .custom(tintColor: UIColor.white, backgroundColor: UIColor(netHex: 0x24272B))
         navigationItem.title = LocalizationStr("Scan QR Code")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: LocalizationStr("Album"), style: .plain, target: self, action: #selector(self.pickeImage(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.icon_nav_photo_black(), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self.pickeImage(_:)))
 
         do {
             let screenWidth = UIScreen.main.bounds.width

@@ -35,10 +35,12 @@ class WalletHomeViewController: BaseTableViewController {
 
     fileprivate func setupView() {
 
-        let qrcodeItem = UIBarButtonItem(image: R.image.bar_icon_qrcode(), style: .plain, target: nil, action: nil)
-        let scanItem = UIBarButtonItem(image: R.image.bar_icon_scan(), style: .plain, target: nil, action: nil)
+        let qrcodeItem = UIBarButtonItem(image: R.image.icon_nav_qrcode_black(), style: .plain, target: nil, action: nil)
+        let scanItem = UIBarButtonItem(image: R.image.icon_nav_scan_black(), style: .plain, target: nil, action: nil)
         navigationItem.leftBarButtonItem = qrcodeItem
         navigationItem.rightBarButtonItem = scanItem
+
+        navigationTitleView = NavigationTitleView(title: account?.name)
 
         qrcodeItem.rx.tap.bind { [weak self] _ in
             guard let `self` = self else { return }
