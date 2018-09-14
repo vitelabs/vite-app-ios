@@ -183,13 +183,13 @@ extension LoginViewController {
     }
 
     @objc func userNameBtnAction() {
-        let pickData = WalletStorage.shareInstance.walletAccounts.map { (account) -> String in
+        let pickData = self.viewModel.walletStorage.walletAccounts.map { (account) -> String in
              return account.name
         }
 
         _ =  ActionSheetStringPicker.show(withTitle: "选择钱包账户", rows: pickData, initialSelection: 1, doneBlock: {
             _, index, _ in
-            self.viewModel.chooseWalletAccount = WalletStorage.shareInstance.walletAccounts[index]
+            self.viewModel.chooseWalletAccount = self.viewModel.walletStorage.walletAccounts[index]
             self.userNameBtn.setTitle(self.viewModel.chooseWalletAccount.name, for: .normal)
             return
         }, cancel: { _ in return }, origin: self.view)

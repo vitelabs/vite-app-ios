@@ -13,7 +13,8 @@ import Vite_keystore
 
 final class LoginViewModel: NSObject {
 
-    public var chooseWalletAccount: WalletAccount = WalletDataService.shareInstance.defaultWalletAccount
+    public var chooseWalletAccount: WalletAccount = WalletDataService.shareInstance.defaultWalletAccount!
+    public var walletStorage = WalletStorage()
 
     override init() {
         super.init()

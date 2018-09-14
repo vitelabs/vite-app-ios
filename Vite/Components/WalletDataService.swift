@@ -7,32 +7,42 @@
 //
 import Vite_keystore
 
-public class WalletDataService {
+public class WalletDataService: NSObject {
     static let shareInstance = WalletDataService()
 
+    private let walletStorage: WalletStorage
     //current login account
-    public var defaultWalletAccount: WalletAccount = WalletStorage.shareInstance.walletAccounts.first!
+    public var defaultWalletAccount: WalletAccount?
+
+    public override init() {
+        walletStorage = WalletStorage()
+        defaultWalletAccount = walletStorage.walletAccounts.first
+    }
 
     public func isExistWallet() -> Bool {
-        return WalletStorage.shareInstance.walletAccounts.isEmpty
+        return walletStorage.walletAccounts.isEmpty
+    }
+
+    public func addWallet(account: WalletAccount) {
+        walletStorage.add(account: account)
     }
 
     public func loginWallet(account: WalletAccount) {
         account.isLogin = true
-        WalletStorage.shareInstance.login(replace: account)
-        self.defaultWalletAccount = WalletStorage.shareInstance.walletAccounts.first!
-        WalletStorage.shareInstance.storeAllWallets()
+        walletStorage.login(replace: account)
+        self.defaultWalletAccount = walletStorage.walletAccounts.first!
+        walletStorage.storeAllWallets()
     }
 
     //if  exist wallet , true has wallets, false no wallets
     public func logoutCurrentWallet() {
-        self.defaultWalletAccount.isLogin = false
-        WalletStorage.shareInstance.storeAllWallets()
+        self.defaultWalletAccount?.isLogin = false
+        walletStorage.storeAllWallets()
     }
 
    //true has wallets and , false no wallets
     public func existWalletAndLogout() -> Bool {
-        if !WalletStorage.shareInstance.walletAccounts.isEmpty && !(WalletStorage.shareInstance.walletAccounts.first?.isLogin)! {
+        if !walletStorage.walletAccounts.isEmpty && !(walletStorage.walletAccounts.first?.isLogin)! {
             return true
         } else {
             return false

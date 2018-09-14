@@ -56,7 +56,7 @@ class AddressManageViewController: BaseTableViewController {
     var tableViewModel: AddressManagerTableViewModel!
 
     fileprivate func bind() {
-        tableViewModel = AddressManagerTableViewModel(account: account)
+        tableViewModel = AddressManagerTableViewModel(account: account!)
 
         Observable.combineLatest(tableViewModel.defaultAddressDriver.asObservable(),
                                  tableViewModel.addressesDriver.asObservable())
