@@ -52,6 +52,13 @@ class CreateAccountHomeViewController: BaseViewController {
         return logoImgView
     }()
 
+    lazy var sloganImgView: UIImageView = {
+        let sloganImgView = UIImageView()
+        sloganImgView.backgroundColor = .clear
+        sloganImgView.image =  R.image.launch_screen_logo()
+        return sloganImgView
+    }()
+
     lazy var createAccountBtn: UIButton = {
         let createAccountBtn = UIButton()
         createAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
@@ -72,9 +79,12 @@ class CreateAccountHomeViewController: BaseViewController {
 
     lazy var changeLanguageBtn: UIButton = {
         let changeLanguageBtn = UIButton()
+        changeLanguageBtn.contentHorizontalAlignment = .right
+        changeLanguageBtn.contentVerticalAlignment = .top
         changeLanguageBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        changeLanguageBtn.setTitleColor(.black, for: .normal)
-        changeLanguageBtn.backgroundColor = .orange
+        changeLanguageBtn.setTitleColor(.white, for: .normal)
+        changeLanguageBtn.backgroundColor = .clear
+        changeLanguageBtn.titleLabel?.font = AppStyle.descWord.font
         changeLanguageBtn.addTarget(self, action: #selector(changeLanguageBtnAction), for: .touchUpInside)
         return changeLanguageBtn
     }()
@@ -82,7 +92,7 @@ class CreateAccountHomeViewController: BaseViewController {
 
 extension CreateAccountHomeViewController {
     private func _setupView() {
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .blue
 
         self._addViewConstraint()
     }
@@ -90,32 +100,40 @@ extension CreateAccountHomeViewController {
     private func _addViewConstraint() {
         self.view.addSubview(self.logoImgView)
         self.logoImgView.snp.makeConstraints { (make) -> Void in
-            make.center.equalTo(self.view)
+            make.left.equalTo(self.view).offset(30)
+            make.top.equalTo(self.view).offset(130)
             make.width.height.equalTo(150)
         }
 
-        self.view.addSubview(self.createAccountBtn)
-        self.createAccountBtn.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(100)
-            make.height.equalTo(50)
-            make.bottom.equalTo(self.view).offset(-150)
-            make.centerX.equalTo(self.view)
+        self.view.addSubview(self.sloganImgView)
+        self.sloganImgView.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(30)
+            make.top.equalTo(self.logoImgView.snp.bottom).offset(50)
+            make.width.height.equalTo(150)
         }
 
         self.view.addSubview(self.importAccountBtn)
         self.importAccountBtn.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(100)
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view).offset(-80)
-            make.centerX.equalTo(self.view)
+            make.bottom.equalTo(self.view).offset(-(24+Safe_Area_Bottom_Height))
+        }
+
+        self.view.addSubview(self.createAccountBtn)
+        self.createAccountBtn.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.height.equalTo(50)
+            make.bottom.equalTo(self.importAccountBtn.snp.top).offset(-20)
         }
 
         self.view.addSubview(self.changeLanguageBtn)
         self.changeLanguageBtn.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(60)
+            make.width.equalTo(100)
             make.height.equalTo(50)
-            make.right.equalTo(self.view).offset(-30)
-            make.top.equalTo(self.view).offset(100)
+            make.right.equalTo(self.view).offset(-24)
+            make.top.equalTo(self.view).offset(32)
         }
     }
 

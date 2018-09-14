@@ -17,7 +17,7 @@ let is_iPhoneX = (kScreenW == 375.0 && kScreenH == 812.0 ? true : false)
 let kNavibarH: CGFloat = is_iPhoneX ? 88.0 : 64.0
 let kTabbarH: CGFloat = is_iPhoneX ? 49.0+34.0 : 49.0
 let kStatusbarH: CGFloat = is_iPhoneX ? 44.0 : 20.0
-let iPhoneXBottomH: CGFloat = 34.0
+let Safe_Area_Bottom_Height: CGFloat = is_iPhoneX ? 34.0 : 0.0
 let iPhoneXTopH: CGFloat = 24.0
 
 enum AppStyle {

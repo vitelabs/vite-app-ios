@@ -24,7 +24,7 @@ class LocalizationService {
     private var availableLanguagesArray = ["DeviceLanguage", "en", "zh-Hans"]
     static let map = [
         "en": "English",
-        "zh-Hans": "简体中文",
+        "zh-Hans": "中文",
     ]
 
     private let kSaveLanguageDefaultKey = "kSaveLanguageDefaultKey"
