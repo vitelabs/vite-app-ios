@@ -36,16 +36,9 @@ class BalanceInfoDetailViewController: BaseViewController {
             $0.setTitleColor(UIColor.red, for: .normal)
             $0.setTitle(R.string.localizable.balanceInfoDetailShowTransactionsButtonTitle(), for: .normal)
         }
-        let receiveButton = UIButton.init(type: .system).then {
-            $0.setTitleColor(UIColor.red, for: .normal)
-            $0.backgroundColor = UIColor.blue
-            $0.setTitle(R.string.localizable.balanceInfoDetailReveiceButtonTitle(), for: .normal)
-        }
-        let sendButton = UIButton.init(type: .system).then {
-            $0.setTitleColor(UIColor.red, for: .normal)
-            $0.backgroundColor = UIColor.yellow
-            $0.setTitle(R.string.localizable.balanceInfoDetailSendButtonTitle(), for: .normal)
-        }
+
+        let receiveButton = UIButton(style: .blue, title: R.string.localizable.balanceInfoDetailReveiceButtonTitle())
+        let sendButton = UIButton(style: .white, title: R.string.localizable.balanceInfoDetailSendButtonTitle())
 
         view.addSubview(detailView)
         view.addSubview(showTransactionsButton)
