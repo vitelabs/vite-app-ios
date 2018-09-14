@@ -42,7 +42,7 @@ class WalletHomeViewController: BaseTableViewController {
 
         qrcodeItem.rx.tap.bind { [weak self] _ in
             guard let `self` = self else { return }
-            self.navigationController?.pushViewController(QRCodeViewController(account: self.account), animated: true)
+            self.navigationController?.pushViewController(QRCodeViewController(account: self.account!), animated: true)
         }.disposed(by: rx.disposeBag)
 
         scanItem.rx.tap.bind {  [weak self] _ in
@@ -66,8 +66,8 @@ class WalletHomeViewController: BaseTableViewController {
 
     fileprivate func bind() {
 
-        addressViewModel = WalletHomeAddressViewModel(account: self.account)
-        tableViewModel = WalletHomeBalanceInfoTableViewModel(address: Address(string: self.account.defaultKey.address))
+        addressViewModel = WalletHomeAddressViewModel(account: self.account!)
+        tableViewModel = WalletHomeBalanceInfoTableViewModel(address: Address(string: (self.account?.defaultKey.address)!))
 
         Observable.combineLatest(Observable.just(addressViewModel),
                                  tableViewModel.balanceInfosDriver.asObservable())

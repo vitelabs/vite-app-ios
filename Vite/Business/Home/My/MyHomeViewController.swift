@@ -63,7 +63,7 @@ class MyHomeViewController: FormViewController {
 
 extension MyHomeViewController: MyHomeListHeaderViewDelegate {
     func transactionLogBtnAction() {
-        let address = Address(string: WalletDataService.shareInstance.defaultWalletAccount.defaultKey.address)
+        let address = Address(string: (WalletDataService.shareInstance.defaultWalletAccount?.defaultKey.address)!)
         navigationController?.pushViewController(TransactionListViewController(address: address), animated: true)
     }
 
