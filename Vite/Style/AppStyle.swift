@@ -91,3 +91,8 @@ func DebugLog<T>(_ message: T, file: String = #file, funcName: String = #functio
 
     #endif
 }
+
+extension CGFloat {
+    static var singleLineWidth: CGFloat { return 1.0 / UIScreen.main.scale }
+    static var singleLineWidthAdjustOffset: CGFloat { return 1.0 / UIScreen.main.scale / 2 }
+}

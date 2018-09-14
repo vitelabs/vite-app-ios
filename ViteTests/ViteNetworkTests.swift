@@ -49,9 +49,13 @@ class ViteNetworkTests: XCTestCase {
 
         async { (completion) in
             let provider = SnapshotChainProvider(server: RPCServer.shared)
-            _ = provider.height().done { height in
-                print("🏆snapschot china height: \(height)")
-                completion()
+            _ = provider.height()
+                .done { height in
+                    print("🏆snapschot china height: \(height)")
+                }.catch({ (error) in
+                    print("🤯🤯🤯🤯🤯🤯\(error)")
+                }).finally {
+                    completion()
             }
         }
 
