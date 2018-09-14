@@ -165,7 +165,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 45 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 51 localization keys.
     struct localizable {
       /// en translation: (%@笔待确认)
       /// 
@@ -187,6 +187,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importAccount = Rswift.StringResource(key: "import.account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 下一项
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageAmountToolbarButtonTitle = Rswift.StringResource(key: "send.page.amount.toolbar.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 交易记录
       /// 
       /// Locales: en, zh-Hans
@@ -247,6 +251,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPageTipTitle = Rswift.StringResource(key: "create.page.tip.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 备注
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageRemarkTitle = Rswift.StringResource(key: "send.page.remark.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 完成
       /// 
       /// Locales: en, zh-Hans
@@ -271,6 +279,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let balanceInfoDetailReveiceButtonTitle = Rswift.StringResource(key: "balance.info.detail.reveice.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 收款地址
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageToAddressTitle = Rswift.StringResource(key: "send.page.to.address.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 是
       /// 
       /// Locales: en, zh-Hans
@@ -311,6 +323,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let balanceInfoDetailSendButtonTitle = Rswift.StringResource(key: "balance.info.detail.send.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 转账
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageSendButtonTitle = Rswift.StringResource(key: "send.page.send.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 转账
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageTitle = Rswift.StringResource(key: "send.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 输入您的助记词
       /// 
       /// Locales: en, zh-Hans
@@ -327,6 +347,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicBackupPageTipAnewBtnTitle = Rswift.StringResource(key: "mnemonic.backup.page.tip.anewBtn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 金额
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageAmountTitle = Rswift.StringResource(key: "send.page.amount.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 钱包名
       /// 
       /// Locales: en, zh-Hans
@@ -381,6 +405,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func importAccount(_: Void = ()) -> String {
         return NSLocalizedString("import.account", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 下一项
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageAmountToolbarButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.amount.toolbar.button.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 交易记录
@@ -488,6 +519,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("create.page.tip.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 备注
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageRemarkTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.remark.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 完成
       /// 
       /// Locales: en, zh-Hans
@@ -528,6 +566,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func balanceInfoDetailReveiceButtonTitle(_: Void = ()) -> String {
         return NSLocalizedString("balance.info.detail.reveice.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 收款地址
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageToAddressTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.to.address.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 是
@@ -600,6 +645,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("balance.info.detail.send.button.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 转账
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageSendButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.send.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 转账
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 输入您的助记词
       /// 
       /// Locales: en, zh-Hans
@@ -626,6 +685,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func mnemonicBackupPageTipAnewBtnTitle(_: Void = ()) -> String {
         return NSLocalizedString("mnemonic.backup.page.tip.anewBtn.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 金额
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageAmountTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.amount.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 钱包名

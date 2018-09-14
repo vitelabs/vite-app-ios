@@ -70,3 +70,11 @@
 "address.manage.page.title" = "地址管理";
 "address.manage.default.address.cell.title" = "默认收款地址";
 "address.manage.address.header.title" = "地址列表";
+
+/* Send Page */
+"send.page.title" = "转账";
+"send.page.to.address.title" = "收款地址";
+"send.page.amount.title" = "金额";
+"send.page.remark.title" = "备注";
+"send.page.send.button.title" = "转账";
+"send.page.amount.toolbar.button.title" = "下一项";
