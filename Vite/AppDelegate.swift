@@ -22,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         handleRootVC()
+
+        AutoGatheringService.instance.start()
+
+
         return true
     }
 

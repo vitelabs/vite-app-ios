@@ -80,6 +80,18 @@ class ViteNetworkTests: XCTestCase {
                 completion()
             }
         }
+    }
 
+    func testTransactionProvider_GetUnconfirmedTransactionRequest() {
+        async { (completion) in
+            let transactionProvider = TransactionProvider(server: RPCServer.shared)
+            _ = transactionProvider.getUnconfirmedTransaction(address: Address(string: "vite_4827fbc6827797ac4d9e814affb34b4c5fa85d39bf96d105e7")).done { accountBlock in
+                print("🏆\(accountBlock)")
+                }.catch({ (error) in
+                    print("🤯🤯🤯🤯🤯🤯\(error)")
+                }).finally {
+                    completion()
+            }
+        }
     }
 }
