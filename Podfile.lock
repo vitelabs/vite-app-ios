@@ -48,7 +48,7 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.2.0)
-  - scrypt (1.7):
+  - scrypt (1.8):
     - CryptoSwift (~> 0.11)
   - secp256k1.swift (0.1.4)
   - SipHash (1.2.2)
@@ -153,7 +153,7 @@ SPEC CHECKSUMS:
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
   RxGesture: c278eb05b187abd47e11e65464ae4de53ab71d95
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
-  scrypt: a828bd579086977f6db7f9798d1c6332ccaaed4e
+  scrypt: cc8333b4338b9d4127743e3f7b1304e309d8061c
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694

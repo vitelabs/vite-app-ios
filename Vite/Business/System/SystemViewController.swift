@@ -29,6 +29,10 @@ class SystemViewController: FormViewController {
         self._setupView()
     }
 
+//    override func viewDidAppear(_ animated: Bool) {
+//        self.displayLoading(text: "loading",animated: true)
+//    }
+
     lazy var logoutBtn: UIButton = {
         let logoutBtn = UIButton()
         logoutBtn.setTitle("退出并切换钱包", for: .normal)
@@ -93,8 +97,13 @@ class SystemViewController: FormViewController {
     }
 
     @objc func logoutBtnAction() {
-        WalletDataService.shareInstance.logoutCurrentWallet()
-
-        NotificationCenter.default.post(name: .logoutDidFinish, object: nil)
+        self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
+        DispatchQueue.global().async {
+            WalletDataService.shareInstance.logoutCurrentWallet()
+            DispatchQueue.main.async {
+                self.view.hideLoading()
+                NotificationCenter.default.post(name: .logoutDidFinish, object: nil)
+            }
+        }
     }
 }

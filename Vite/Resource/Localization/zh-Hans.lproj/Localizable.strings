@@ -10,6 +10,7 @@
 "Finish" = "完成";
 "Yes" = "是";
 "No" = "否";
+"Loading" = "加载中";
 
 /* Login */
 "create.account" = "创建账户";
@@ -78,3 +79,6 @@
 "send.page.remark.title" = "备注";
 "send.page.send.button.title" = "转账";
 "send.page.amount.toolbar.button.title" = "下一项";
+
+/* System */
+"system.page.logout.loading" = "退出中";

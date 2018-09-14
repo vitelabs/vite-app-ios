@@ -200,9 +200,13 @@ extension LoginViewController {
         let password = self.passwordTF.textField.text
 
         if self.viewModel.chooseWalletAccount.password == password {
-                WalletDataService.shareInstance.loginWallet(account: self.viewModel.chooseWalletAccount)
-                self.view.makeToast("登录成功")
-                NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
+                self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
+                DispatchQueue.global().async {
+                    WalletDataService.shareInstance.loginWallet(account: self.viewModel.chooseWalletAccount)
+                    DispatchQueue.main.async {
+                        NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
+                    }
+                }
         } else {
                 self.view.makeToast("密码错误，知道助记词可以导入")
         }

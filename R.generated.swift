@@ -165,7 +165,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 51 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 53 localization keys.
     struct localizable {
       /// en translation: (%@笔待确认)
       /// 
@@ -371,6 +371,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let addressManageDefaultAddressCellTitle = Rswift.StringResource(key: "address.manage.default.address.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// zh-Hans translation: 加载中
+      /// 
+      /// Locales: zh-Hans
+      static let loading = Rswift.StringResource(key: "Loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["zh-Hans"], comment: nil)
+      /// zh-Hans translation: 退出中
+      /// 
+      /// Locales: zh-Hans
+      static let systemPageLogoutLoading = Rswift.StringResource(key: "system.page.logout.loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["zh-Hans"], comment: nil)
       
       /// en translation: (%@笔待确认)
       /// 
@@ -727,6 +735,20 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func addressManageDefaultAddressCellTitle(_: Void = ()) -> String {
         return NSLocalizedString("address.manage.default.address.cell.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// zh-Hans translation: 加载中
+      /// 
+      /// Locales: zh-Hans
+      static func loading(_: Void = ()) -> String {
+        return NSLocalizedString("Loading", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// zh-Hans translation: 退出中
+      /// 
+      /// Locales: zh-Hans
+      static func systemPageLogoutLoading(_: Void = ()) -> String {
+        return NSLocalizedString("system.page.logout.loading", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

@@ -49,6 +49,7 @@
 		4CE4E13D214794D000A6CD7E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4E13C214794D000A6CD7E /* UIImage.swift */; };
 		4CE4E14521479EAF00A6CD7E /*  CreateWalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4E14421479EAF00A6CD7E /*  CreateWalletService.swift */; };
 		4CE4E1472147AC0100A6CD7E /* WalletDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4E1462147AC0100A6CD7E /* WalletDataService.swift */; };
+		4CEB2926214B968000E5F7F4 /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */; };
 		8E56FC78214643B300A68823 /* WalletHomeBalanceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */; };
 		8E56FC7A21464A8500A68823 /* BalanceInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC7921464A8500A68823 /* BalanceInfoDetailView.swift */; };
 		8E56FC7D214656A700A68823 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC7C214656A700A68823 /* UIView+Helper.swift */; };
@@ -185,6 +186,7 @@
 		4CE4E13C214794D000A6CD7E /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		4CE4E14421479EAF00A6CD7E /*  CreateWalletService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CreateWalletService.swift"; sourceTree = "<group>"; };
 		4CE4E1462147AC0100A6CD7E /* WalletDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDataService.swift; sourceTree = "<group>"; };
+		4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loading.swift"; sourceTree = "<group>"; };
 		7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C959221E3DAE4FAF07176D1 /* Pods-Vite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.debug.xcconfig"; sourceTree = "<group>"; };
 		8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletHomeBalanceInfoCell.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				8ED4CED6214900240005A82D /* UIViewControllerExtension.swift */,
 				8EE468FC214A574600807D2C /* UIViewController+KeyboardAutoScrolling.swift */,
 				8EE468FE214A6D4200807D2C /* UITextField+FDSKeyboardAutoScrolling.swift */,
+				4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1321,6 +1324,7 @@
 				8E6F3E1D2142280F003CDFC2 /* BaseViewController.swift in Sources */,
 				4C2284C1214917FE003E9907 /* ManageWalletHeaderView.swift in Sources */,
 				8E56FC932147686700A68823 /* TransactionListTableViewModel.swift in Sources */,
+				4CEB2926214B968000E5F7F4 /* UIView+Loading.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
