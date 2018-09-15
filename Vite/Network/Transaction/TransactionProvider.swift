@@ -19,13 +19,13 @@ final class TransactionProvider {
         self.server = server
     }
 
-    func getUnconfirmedTransaction(address: Address) -> Promise<[AccountBlock]> {
+    func getUnconfirmedTransaction(address: Address) -> Promise<([AccountBlock], AccountBlock)> {
         return Promise { seal in
-            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetUnconfirmedTransactionRequest(address: address.description)))
+            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetUnconfirmedTransactionRequest(address: address.description), GetLatestAccountBlockRequest(address: address.description)))
             Session.send(request) { result in
                 switch result {
-                case .success(let accountBlocks):
-                    seal.fulfill(accountBlocks)
+                case .success(let accountBlocks, let latestAccountBlock):
+                    seal.fulfill((accountBlocks, latestAccountBlock))
                 case .failure(let error):
                     seal.reject(error)
                 }

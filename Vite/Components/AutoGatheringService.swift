@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 final class AutoGatheringService {
     static let instance = AutoGatheringService()
@@ -20,17 +21,38 @@ final class AutoGatheringService {
 
     func getUnconfirmedTransaction() {
 
+        print("\(AccountBlock.test)")
+
+//        _ = transactionProvider.getUnconfirmedTransaction(address: Address(string: "vite_4827fbc6827797ac4d9e814affb34b4c5fa85d39bf96d105e7"))
+//            .done { accountBlocks in
+//                if let accountBlock = accountBlocks.first {
+//                    print("🏆")
+//                    GCD.delay(1) { self.getUnconfirmedTransaction() }
+//                } else {
+//                    GCD.delay(1) { self.getUnconfirmedTransaction() }
+//                }
+//            }.catch({ (error) in
+//                print("🤯🤯🤯🤯🤯🤯\(error)")
+//                GCD.delay(1) { self.getUnconfirmedTransaction() }
+//            })
         _ = transactionProvider.getUnconfirmedTransaction(address: Address(string: "vite_4827fbc6827797ac4d9e814affb34b4c5fa85d39bf96d105e7"))
-            .done { accountBlocks in
+            .then({ (accountBlocks, latestAccountBlock) -> Promise<Void> in
                 if let accountBlock = accountBlocks.first {
-                    print("🏆")
-                    GCD.delay(1) { self.getUnconfirmedTransaction() }
+                    let key = WalletDataService.shareInstance.defaultWalletAccount!.defaultKey
+                    let receiveAccountBlock = accountBlock.makeReceiveAccountBlock(latestAccountBlock: latestAccountBlock, key: key)
+                    return self.transactionProvider.createTransaction(accountBlock: receiveAccountBlock)
                 } else {
-                    GCD.delay(1) { self.getUnconfirmedTransaction() }
+                    return Promise { $0.fulfill(Void()) }
                 }
-            }.catch({ (error) in
+            })
+            .done({
+                print("🏆")
+            })
+            .catch({ (error) in
                 print("🤯🤯🤯🤯🤯🤯\(error)")
-                GCD.delay(1) { self.getUnconfirmedTransaction() }
+            })
+            .finally({
+                print("fsfs")
             })
     }
 }

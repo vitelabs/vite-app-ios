@@ -29,4 +29,8 @@ struct AccountBlockMeta: Mappable {
         status <- map["Status"]
         isSnapshotted <- map["IsSnapshotted"]
     }
+
+    mutating func setHeight(_ height: BigInt) {
+        self.height = height
+    }
 }

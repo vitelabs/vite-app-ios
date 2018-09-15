@@ -26,3 +26,13 @@ struct Address: CustomStringConvertible {
         return address
     }
 }
+
+extension String {
+    var addressStrip: String {
+        return (self as NSString).substring(with: NSMakeRange(5, 40)) as String
+    }
+
+    var tokenIdStrip: String {
+        return (self as NSString).substring(with: NSMakeRange(4, 24)) as String
+    }
+}
