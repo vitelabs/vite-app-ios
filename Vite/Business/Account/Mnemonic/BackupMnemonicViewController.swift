@@ -87,9 +87,8 @@ extension BackupMnemonicViewController {
         self.mnemonicCollectionView.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
-//            make.top.equalTo(self.tipTitleLab.snp.bottom).offset(10)
             make.centerY.equalTo(self.view)
-            make.height.equalTo(186)
+            make.height.equalTo(kScreenH * (186.0/667.0))
         }
 
         self.view.addSubview(self.afreshMnemonicBtn)

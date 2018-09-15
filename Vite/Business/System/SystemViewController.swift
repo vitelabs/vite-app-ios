@@ -29,10 +29,6 @@ class SystemViewController: FormViewController {
         self._setupView()
     }
 
-//    override func viewDidAppear(_ animated: Bool) {
-//        self.displayLoading(text: "loading",animated: true)
-//    }
-
     lazy var logoutBtn: UIButton = {
         let logoutBtn = UIButton()
         logoutBtn.setTitle("退出并切换钱包", for: .normal)
