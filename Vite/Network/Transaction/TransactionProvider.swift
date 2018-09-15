@@ -32,4 +32,18 @@ final class TransactionProvider {
             }
         }
     }
+
+    func createTransaction(accountBlock: AccountBlock) -> Promise<Void> {
+        return Promise { seal in
+            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(CreateTransactionRequest(accountBlock: accountBlock)))
+            Session.send(request) { result in
+                switch result {
+                case .success:
+                    seal.fulfill(Void())
+                case .failure(let error):
+                    seal.reject(error)
+                }
+            }
+        }
+    }
 }

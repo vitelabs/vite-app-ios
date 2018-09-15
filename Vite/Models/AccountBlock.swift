@@ -22,9 +22,9 @@ struct AccountBlock: Mappable {
     fileprivate(set) var hash = ""
     fileprivate(set) var balance = BigInt(0)
     fileprivate(set) var amount = BigInt(0)
-    fileprivate(set) var timestamp = Date()
+    fileprivate(set) var timestamp = UInt64(0)
     fileprivate(set) var tokenId = ""
-    fileprivate(set) var lastBlockHeightInToken = Date()
+    fileprivate(set) var lastBlockHeightInToken = UInt64(0)
     fileprivate(set) var data = ""
     fileprivate(set) var snapshotTimestamp = ""
     fileprivate(set) var signature = ""
@@ -48,9 +48,9 @@ struct AccountBlock: Mappable {
         hash <- map["Hash"]
         balance <- (map["Balance"], JSONTransformer.bigint)
         amount <- (map["Amount"], JSONTransformer.bigint)
-        timestamp <- (map["Timestamp"], JSONTransformer.timestamp)
+        timestamp <- map["Timestamp"]
         tokenId <- map["TokenId"]
-        lastBlockHeightInToken <- (map["LastBlockHeightInToken"], JSONTransformer.timestamp)
+        lastBlockHeightInToken <- map["LastBlockHeightInToken"]
         data <- map["Data"]
         snapshotTimestamp <- map["SnapshotTimestamp"]
         signature <- map["Signature"]
@@ -59,8 +59,4 @@ struct AccountBlock: Mappable {
         confirmedTimes <- (map["ConfirmedTimes"], JSONTransformer.bigint)
 
     }
-
-
-
 }
-
