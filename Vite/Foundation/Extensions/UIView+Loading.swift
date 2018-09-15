@@ -25,6 +25,6 @@ extension UIView {
     }
 
     func  showToast (str: String) {
-        self.makeToast(str)
+        self.makeToast(str, duration: 2.0, position: .center)
     }
 }

@@ -23,6 +23,7 @@
 		4C2284BE21490E79003E9907 /* ManageWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284BD21490E79003E9907 /* ManageWalletViewController.swift */; };
 		4C2284C1214917FE003E9907 /* ManageWalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284C0214917FE003E9907 /* ManageWalletHeaderView.swift */; };
 		4C2284C321493087003E9907 /* ExportMnemonicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284C221493087003E9907 /* ExportMnemonicViewController.swift */; };
+		4C745494214D0A9D0070F7AB /* TitleBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C745493214D0A9D0070F7AB /* TitleBtnView.swift */; };
 		4C84D91C2145277C001B6EBD /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D91B2145277C001B6EBD /* PasswordInputView.swift */; };
 		4C84D9302145280E001B6EBD /* CreateWalletAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D92B2145280E001B6EBD /* CreateWalletAccountVM.swift */; };
 		4C84D9312145280E001B6EBD /* CreateWalletTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D92C2145280E001B6EBD /* CreateWalletTipViewController.swift */; };
@@ -161,6 +162,7 @@
 		4C2284BD21490E79003E9907 /* ManageWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWalletViewController.swift; sourceTree = "<group>"; };
 		4C2284C0214917FE003E9907 /* ManageWalletHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWalletHeaderView.swift; sourceTree = "<group>"; };
 		4C2284C221493087003E9907 /* ExportMnemonicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportMnemonicViewController.swift; sourceTree = "<group>"; };
+		4C745493214D0A9D0070F7AB /* TitleBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBtnView.swift; sourceTree = "<group>"; };
 		4C84D91B2145277C001B6EBD /* PasswordInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordInputView.swift; sourceTree = "<group>"; };
 		4C84D92B2145280E001B6EBD /* CreateWalletAccountVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWalletAccountVM.swift; sourceTree = "<group>"; };
 		4C84D92C2145280E001B6EBD /* CreateWalletTipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWalletTipViewController.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				4C84D91B2145277C001B6EBD /* PasswordInputView.swift */,
 				4C2284B42148BB2A003E9907 /* ImageCell.swift */,
 				8EE468F5214A494800807D2C /* TitleTextFieldView.swift */,
+				4C745493214D0A9D0070F7AB /* TitleBtnView.swift */,
 				8EE468F7214A4E5300807D2C /* PrimaryButton.swift */,
 				4CC4F450214CCB5B0068DA53 /* TitlePasswordInputView.swift */,
 			);
@@ -1257,6 +1260,7 @@
 				8E6F3E04214115ED003CDFC2 /* AccountProvider.swift in Sources */,
 				8ED4CED7214900240005A82D /* UIViewControllerExtension.swift in Sources */,
 				8E6F3E1221421A4F003CDFC2 /* JSONTransformer.swift in Sources */,
+				4C745494214D0A9D0070F7AB /* TitleBtnView.swift in Sources */,
 				4C84D9322145280E001B6EBD /* CreateWalletAccountViewController.swift in Sources */,
 				8E6F3DFB2140FFEC003CDFC2 /* ViteServiceRequest.swift in Sources */,
 				8E6F3E2A21425317003CDFC2 /* WalletHomeAddressCell.swift in Sources */,

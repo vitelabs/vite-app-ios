@@ -40,9 +40,16 @@
 "mnemonic.affirm.page.add.loading" = "添加中...";
 /* import */
 "import.page.title" = "输入您的助记词";
+
+/* login */
+"login.page.btn.chooseName" = "选择钱包账户";
+"login.page.btn.login" = "登录";
+
 /* Home */
 "tabbar.item.title.wallet" = "钱包";
 "tabbar.item.title.my" = "我";
+
+
 
 /* Manage Wallet */
 "manage.wallet.page.title" = "管理钱包";

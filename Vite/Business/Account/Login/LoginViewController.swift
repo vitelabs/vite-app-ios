@@ -33,15 +33,6 @@ class LoginViewController: BaseViewController {
         self._bindViewModel()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-
     private func _bindViewModel() {
 
     }
@@ -53,32 +44,30 @@ class LoginViewController: BaseViewController {
         return logoImgView
     }()
 
-    lazy var userNameBtn: UIButton = {
-        let userNameBtn = UIButton()
-        userNameBtn.setTitle(self.viewModel.chooseWalletAccount.name, for: .normal)
-        userNameBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        userNameBtn.setTitleColor(.black, for: .normal)
-        userNameBtn.backgroundColor = .red
-        userNameBtn.addTarget(self, action: #selector(userNameBtnAction), for: .touchUpInside)
+    lazy var userNameBtn: TitleBtnView = {
+        let userNameBtn = TitleBtnView(title: R.string.localizable.loginPageBtnChooseName.key.localized(), text: self.viewModel.chooseWalletAccount.name)
+        userNameBtn.btn.addTarget(self, action: #selector(userNameBtnAction), for: .touchUpInside)
         return userNameBtn
     }()
 
-    lazy var passwordLab: UILabel = {
-        let passwordLab = UILabel()
-        passwordLab.backgroundColor = .clear
-        passwordLab.font =  AppStyle.descWord.font
-        passwordLab.textColor  = AppStyle.descWord.textColor
-        passwordLab.text =    R.string.localizable.createPagePwTitle.key.localized()
-        return passwordLab
+    lazy var walletNameTF: TitleTextFieldView = {
+        let walletNameTF = TitleTextFieldView(title: R.string.localizable.createPageTfTitle.key.localized(), placeholder: "", text: "")
+        walletNameTF.titleLabel.textColor = Colors.titleGray
+        walletNameTF.textField.font = AppStyle.inputDescWord.font
+        walletNameTF.textField.textColor = Colors.descGray
+        walletNameTF.titleLabel.font = AppStyle.formHeader.font
+        return walletNameTF
     }()
 
-    lazy var passwordTF: PasswordInputView = {
-        let passwordTF = PasswordInputView()
+    lazy var passwordTF: TitlePasswordInputView = {
+        let passwordTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwTitle.key.localized())
+        passwordTF.titleLabel.textColor = Colors.titleGray
+        passwordTF.titleLabel.font = AppStyle.formHeader.font
         return passwordTF
     }()
 
     lazy var createAccountBtn: UIButton = {
-        let createAccountBtn = UIButton.init(style: .blue)
+        let createAccountBtn = UIButton.init(style: .white)
         createAccountBtn.setTitle(R.string.localizable.createAccount.key.localized(), for: .normal)
         createAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         createAccountBtn.addTarget(self, action: #selector(createAccountBtnAction), for: .touchUpInside)
@@ -94,11 +83,9 @@ class LoginViewController: BaseViewController {
     }()
 
     lazy var loginBtn: UIButton = {
-        let loginBtn = UIButton()
-        loginBtn.setTitle("登录", for: .normal)
+        let loginBtn = UIButton.init(style: .blue)
+        loginBtn.setTitle(R.string.localizable.loginPageBtnLogin.key.localized(), for: .normal)
         loginBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        loginBtn.setTitleColor(.black, for: .normal)
-        loginBtn.backgroundColor = .orange
         loginBtn.addTarget(self, action: #selector(loginBtnAction), for: .touchUpInside)
         return loginBtn
     }()
@@ -107,7 +94,7 @@ class LoginViewController: BaseViewController {
 extension LoginViewController {
     private func _setupView() {
         self.view.backgroundColor = .white
-
+        navigationBarStyle = .clear
         self._addViewConstraint()
     }
 
@@ -121,50 +108,52 @@ extension LoginViewController {
 
         self.view.addSubview(self.userNameBtn)
         self.userNameBtn.snp.makeConstraints { (make) -> Void in
-            make.centerX.equalTo(self.view)
-            make.top.equalTo(self.view).offset(200)
-            make.width.equalTo(150)
-            make.height.equalTo(50)
-        }
-
-        self.view.addSubview(self.passwordLab)
-        self.passwordLab.snp.makeConstraints { (make) -> Void in
-            make.centerX.equalTo(self.view)
-            make.top.equalTo(self.userNameBtn.snp.bottom).offset(10)
-            make.width.equalTo(150)
-            make.height.equalTo(40)
+            make.centerY.equalTo(self.view).offset(-100)
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.height.equalTo(60)
         }
 
         self.view.addSubview(self.passwordTF)
         self.passwordTF.snp.makeConstraints { (make) -> Void in
-            make.centerX.equalTo(self.view)
-            make.top.equalTo(self.passwordLab.snp.bottom).offset(10)
-            make.width.equalTo(150)
-            make.height.equalTo(100)
+            make.top.equalTo(self.userNameBtn.snp.bottom).offset(40)
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.height.equalTo(62)
         }
 
         self.view.addSubview(self.loginBtn)
         self.loginBtn.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(60)
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view).offset(-160)
-            make.centerX.equalTo(self.view)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-80)
         }
 
         self.view.addSubview(self.createAccountBtn)
         self.createAccountBtn.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(100)
-            make.height.equalTo(30)
-            make.bottom.equalTo(self.view).offset(-120)
+            make.height.equalTo(50)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-24)
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view.snp.centerX).offset(2)
+        }
+
+        let line = UIView()
+        line.backgroundColor = Colors.lineGray
+        self.view.addSubview(line)
+        line.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(16)
+            make.width.equalTo(1)
+            make.centerY.equalTo(self.createAccountBtn)
             make.centerX.equalTo(self.view)
         }
 
         self.view.addSubview(self.importAccountBtn)
         self.importAccountBtn.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(100)
-            make.height.equalTo(30)
-            make.bottom.equalTo(self.view).offset(-50)
-            make.centerX.equalTo(self.view)
+            make.height.equalTo(50)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-24)
+            make.right.equalTo(self.view).offset(-24)
+            make.left.equalTo(self.view.snp.centerX).offset(2)
         }
     }
 
@@ -186,14 +175,14 @@ extension LoginViewController {
         _ =  ActionSheetStringPicker.show(withTitle: "选择钱包账户", rows: pickData, initialSelection: 1, doneBlock: {
             _, index, _ in
             self.viewModel.chooseWalletAccount = self.viewModel.walletStorage.walletAccounts[index]
-            self.userNameBtn.setTitle(self.viewModel.chooseWalletAccount.name, for: .normal)
+            self.userNameBtn.btn.setTitle(self.viewModel.chooseWalletAccount.name, for: .normal)
             return
         }, cancel: { _ in return }, origin: self.view)
 
     }
 
     @objc func loginBtnAction() {
-        let password = self.passwordTF.textField.text
+        let password = self.passwordTF.passwordInputView.textField.text
 
         if self.viewModel.chooseWalletAccount.password == password {
                 self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
@@ -204,7 +193,7 @@ extension LoginViewController {
                     }
                 }
         } else {
-                self.view.makeToast("密码错误，知道助记词可以导入")
+            self.view.showToast(str: "密码错误，知道助记词可以导入")
         }
     }
 }
