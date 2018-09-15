@@ -45,36 +45,30 @@ class CreateAccountHomeViewController: BaseViewController {
         _ = self.viewModel.changeLanguageBtnStr.asObservable().bind(to: self.changeLanguageBtn.rx.title(for: .normal))
     }
 
-    lazy var logoImgView: UIImageView = {
-        let logoImgView = UIImageView()
-        logoImgView.backgroundColor = .clear
-        logoImgView.image =  R.image.launch_screen_logo()
-        return logoImgView
-    }()
-
     lazy var createAccountBtn: UIButton = {
-        let createAccountBtn = UIButton()
+        let createAccountBtn = UIButton.init(style: .blue)
+        createAccountBtn.setTitle(R.string.localizable.createAccount.key.localized(), for: .normal)
         createAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        createAccountBtn.setTitleColor(.black, for: .normal)
-        createAccountBtn.backgroundColor = .orange
         createAccountBtn.addTarget(self, action: #selector(createAccountBtnAction), for: .touchUpInside)
         return createAccountBtn
     }()
 
     lazy var importAccountBtn: UIButton = {
-        let importAccountBtn = UIButton()
+        let importAccountBtn = UIButton.init(style: .white)
+        importAccountBtn.setTitle(R.string.localizable.importAccount.key.localized(), for: .normal)
         importAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        importAccountBtn.setTitleColor(.black, for: .normal)
-        importAccountBtn.backgroundColor = .orange
         importAccountBtn.addTarget(self, action: #selector(importAccountBtnAction), for: .touchUpInside)
         return importAccountBtn
     }()
 
     lazy var changeLanguageBtn: UIButton = {
         let changeLanguageBtn = UIButton()
+        changeLanguageBtn.contentHorizontalAlignment = .right
+        changeLanguageBtn.contentVerticalAlignment = .top
         changeLanguageBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        changeLanguageBtn.setTitleColor(.black, for: .normal)
-        changeLanguageBtn.backgroundColor = .orange
+        changeLanguageBtn.setTitleColor(.white, for: .normal)
+        changeLanguageBtn.backgroundColor = .clear
+        changeLanguageBtn.titleLabel?.font = AppStyle.descWord.font
         changeLanguageBtn.addTarget(self, action: #selector(changeLanguageBtnAction), for: .touchUpInside)
         return changeLanguageBtn
     }()
@@ -82,45 +76,60 @@ class CreateAccountHomeViewController: BaseViewController {
 
 extension CreateAccountHomeViewController {
     private func _setupView() {
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .clear
+//        navigationBarStyle = .clear
 
         self._addViewConstraint()
     }
 
     private func _addViewConstraint() {
-        self.view.addSubview(self.logoImgView)
-        self.logoImgView.snp.makeConstraints { (make) -> Void in
-            make.center.equalTo(self.view)
-            make.width.height.equalTo(150)
+        let bgImgView = UIImageView.init(image: R.image.login_bg())
+        self.view.addSubview(bgImgView)
+        bgImgView.snp.makeConstraints { (make) -> Void in
+            make.edges.equalTo(self.view)
         }
 
-        self.view.addSubview(self.createAccountBtn)
-        self.createAccountBtn.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(100)
-            make.height.equalTo(50)
-            make.bottom.equalTo(self.view).offset(-150)
-            make.centerX.equalTo(self.view)
+        let logoImgView = UIImageView.init(image: R.image.icon_vite_logo())
+        let sloganImgView = UIImageView.init(image: R.image.splash_slogen())
+        self.view.addSubview(logoImgView)
+        logoImgView.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(30)
+            make.top.equalTo(self.view).offset(100)
+        }
+        self.view.addSubview(sloganImgView)
+        sloganImgView.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(30)
+            make.right.equalTo(self.view).offset(-60)
+            make.top.equalTo(logoImgView.snp.bottom).offset(50)
         }
 
         self.view.addSubview(self.importAccountBtn)
         self.importAccountBtn.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(100)
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view).offset(-80)
-            make.centerX.equalTo(self.view)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-24)
+        }
+
+        self.view.addSubview(self.createAccountBtn)
+        self.createAccountBtn.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.height.equalTo(50)
+            make.bottom.equalTo(self.importAccountBtn.snp.top).offset(-24)
         }
 
         self.view.addSubview(self.changeLanguageBtn)
         self.changeLanguageBtn.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(60)
+            make.width.equalTo(100)
             make.height.equalTo(50)
-            make.right.equalTo(self.view).offset(-30)
-            make.top.equalTo(self.view).offset(100)
+            make.right.equalTo(self.view).offset(-24)
+            make.top.equalTo(self.view).offset(32)
         }
     }
 
     @objc func createAccountBtnAction() {
-        let vc = CreateWalletAccountViewController()
+        let vc = CreateWalletTipViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -130,16 +139,6 @@ extension CreateAccountHomeViewController {
     }
 
     @objc func changeLanguageBtnAction() {
-        let alertController = UIAlertController.init()
-        let cancelAction = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        let languages: [Language] = SettingDataService.sharedInstance.getSupportedLanguages()
-        for element in languages {
-            let action = UIAlertAction(title: element.displayName, style: .destructive, handler: {_ in
-                 _ = SetLanguage(element.name)
-            })
-            alertController.addAction(action)
-        }
-        self.present(alertController, animated: true, completion: nil)
+        self.showChangeLanguageList()
     }
 }

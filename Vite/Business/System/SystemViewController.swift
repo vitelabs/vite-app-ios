@@ -66,9 +66,8 @@ class SystemViewController: FormViewController {
                 $0.cell.titleLab.text = "语言选择"
                 $0.cell.rightImageView.image = R.image.bar_icon_my()
             }.onCellSelection({ [unowned self] _, _  in
-                    let safari = SafariViewController(url: NSURL(string: "http://www.baidu.com")! as URL)
-                    self.present(safari, animated: true, completion: nil)
-                })
+                    self.showChangeLanguageList()
+            })
 
             <<< SwitchRow("my.page.system2.cell.title") {
                 $0.title = "输入密码唤起app"
@@ -93,8 +92,13 @@ class SystemViewController: FormViewController {
     }
 
     @objc func logoutBtnAction() {
-        WalletDataService.shareInstance.logoutCurrentWallet()
-
-        NotificationCenter.default.post(name: .logoutDidFinish, object: nil)
+        self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
+        DispatchQueue.global().async {
+            WalletDataService.shareInstance.logoutCurrentWallet()
+            DispatchQueue.main.async {
+                self.view.hideLoading()
+                NotificationCenter.default.post(name: .logoutDidFinish, object: nil)
+            }
+        }
     }
 }

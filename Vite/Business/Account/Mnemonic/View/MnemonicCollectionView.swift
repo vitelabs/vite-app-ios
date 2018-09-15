@@ -22,6 +22,9 @@ protocol MnemonicCollectionViewDelegate: class {
 final class MnemonicCollectionView: UIView {
     var isHasSelected = false
     weak var delegate: MnemonicCollectionViewDelegate?
+    let padding = CGFloat(6.0)
+    let w_num = CGFloat(4.0)
+    let h_num = CGFloat(6.0)
 
     var dataList: [String] = [] {
         didSet {
@@ -35,7 +38,7 @@ final class MnemonicCollectionView: UIView {
         self.isHasSelected = isHasSelected
         self.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = Colors.bgGray
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(Reusable.wordCollectionViewCell)
@@ -48,18 +51,29 @@ final class MnemonicCollectionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    lazy var layout: UICollectionViewLayout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 8
-        layout.minimumInteritemSpacing = 8
-        layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
-        layout.sectionInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-        return layout
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let w = self.frame.size.width
+        let h = self.frame.size.height
+
+        let itemWidth = (w-(padding * (w_num+1)))/w_num
+        let itemHeight = (h-(padding * (h_num+1)))/h_num
+        collectionViewLayout.itemSize = CGSize.init(width: itemWidth, height: itemHeight)
+
+        collectionView.reloadData()
+    }
+
+    lazy var collectionViewLayout: UICollectionViewFlowLayout = {
+        let collectionViewLayout = UICollectionViewFlowLayout()
+        collectionViewLayout.minimumLineSpacing = padding
+        collectionViewLayout.minimumInteritemSpacing = padding
+        return collectionViewLayout
     }()
 
     lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.collectionViewLayout)
         collectionView.isScrollEnabled = false
+        collectionView.contentInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         return collectionView
     }()
 }
@@ -78,6 +92,7 @@ extension MnemonicCollectionView: UICollectionViewDataSource {
         cell.wordLabel.text = dataList[indexPath.row]
         return cell
     }
+
 }
 
 extension MnemonicCollectionView: UICollectionViewDelegate {

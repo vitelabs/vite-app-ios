@@ -15,16 +15,18 @@ import Vite_keystore
 
 extension CreateWalletAccountViewController {
     private func _bindViewModel() {
-        let viewModel = CreateWalletAccountVM(input: (self.walletNameTF, self.passwordTF.textField, self.passwordRepeateTF.textField))
+        let viewModel = CreateWalletAccountVM(input: (self.walletNameTF.textField, self.passwordTF.passwordInputView.textField, self.passwordRepeateTF.passwordInputView.textField))
 
         viewModel.accountNameEnable.drive(onNext: { (result) in
             switch result {
             case .ok:
                 break
             case .empty:
-                self.walletNameLab.text = result.description
+//                self.walletNameLab.text = result.description
+                break
             case .failed:
-                self.walletNameLab.text = result.description
+//                self.walletNameLab.text = result.description
+                break
             }
         }).disposed(by: rx.disposeBag)
 
@@ -33,9 +35,11 @@ extension CreateWalletAccountViewController {
             case .ok:
                 break
             case .failed:
-                self.passwordLab.text = result.description
+                break
+//                self.passwordLab.text = result.description
             case .empty:
-                self.passwordLab.text = result.description
+                break
+//                self.passwordLab.text = result.description
             }
         }).disposed(by: rx.disposeBag)
 
@@ -49,7 +53,7 @@ extension CreateWalletAccountViewController {
     }
 }
 
-class CreateWalletAccountViewController: UIViewController {
+class CreateWalletAccountViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,60 +61,35 @@ class CreateWalletAccountViewController: UIViewController {
         self._bindViewModel()
     }
 
-    lazy var walletNameTF: UITextField = {
-        let walletNameTF = UITextField()
-        walletNameTF.backgroundColor = .gray
-        walletNameTF.font =  AppStyle.inputDescWord.font
-        walletNameTF.textColor =  AppStyle.descWord.textColor
-
+    lazy var walletNameTF: TitleTextFieldView = {
+        let walletNameTF = TitleTextFieldView(title: R.string.localizable.createPageTfTitle.key.localized(), placeholder: "", text: "")
+        walletNameTF.titleLabel.textColor = Colors.titleGray
+        walletNameTF.textField.font = AppStyle.inputDescWord.font
+        walletNameTF.textField.textColor = Colors.descGray
+        walletNameTF.titleLabel.font = AppStyle.formHeader.font
         return walletNameTF
     }()
 
-    lazy var walletNameLab: UILabel = {
-        let walletNameLab = UILabel()
-        walletNameLab.backgroundColor = .clear
-        walletNameLab.font =  AppStyle.descWord.font
-        walletNameLab.textColor  = AppStyle.descWord.textColor
-        walletNameLab.text =  R.string.localizable.createPageTfTitle.key.localized()
-        return walletNameLab
-    }()
-
-    lazy var passwordTF: PasswordInputView = {
-        let passwordTF = PasswordInputView()
+    lazy var passwordTF: TitlePasswordInputView = {
+        let passwordTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwTitle.key.localized())
+        passwordTF.titleLabel.textColor = Colors.titleGray
+        passwordTF.titleLabel.font = AppStyle.formHeader.font
         return passwordTF
     }()
 
-    lazy var passwordLab: UILabel = {
-        let passwordLab = UILabel()
-        passwordLab.backgroundColor = .clear
-        passwordLab.font =  AppStyle.descWord.font
-        passwordLab.textColor  = AppStyle.descWord.textColor
-        passwordLab.text =    R.string.localizable.createPagePwTitle.key.localized()
-        return passwordLab
-    }()
-
-    lazy var passwordRepeateTF: PasswordInputView = {
-        let passwordRepeateTF = PasswordInputView()
+    lazy var passwordRepeateTF: TitlePasswordInputView = {
+        let passwordRepeateTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwRepeateTitle.key.localized())
+        passwordRepeateTF.titleLabel.textColor = Colors.titleGray
+        passwordRepeateTF.titleLabel.font = AppStyle.formHeader.font
         return passwordRepeateTF
     }()
 
-    lazy var passwordRepeateLab: UILabel = {
-        let passwordRepeateLab = UILabel()
-        passwordRepeateLab.backgroundColor = .clear
-        passwordRepeateLab.font =  AppStyle.descWord.font
-        passwordRepeateLab.textColor  = AppStyle.descWord.textColor
-        passwordRepeateLab.text =    R.string.localizable.createPagePwRepeateTitle.key.localized()
-        return passwordRepeateLab
-    }()
-
     lazy var submitBtn: UIButton = {
-        let submitBtn = UIButton()
+        let submitBtn = UIButton.init(style: .blue)
         submitBtn.setTitle(R.string.localizable.createPageSubmitBtnTitle.key.localized(), for: .normal)
         submitBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         submitBtn.setTitleColor(.black, for: .normal)
-        submitBtn.setBackgroundImage(UIImage.color(.red), for: .normal)
         submitBtn.setBackgroundImage(UIImage.color(.gray), for: .disabled)
-        submitBtn.setBackgroundImage(UIImage.color(.red), for: .highlighted)
         submitBtn.addTarget(self, action: #selector(submitBtnAction), for: .touchUpInside)
         return submitBtn
     }()
@@ -141,7 +120,8 @@ extension CreateWalletAccountViewController {
 
     private func _setupView() {
         self.view.backgroundColor = .white
-        self.title = "create.page.title".localized()
+        kas_activateAutoScrollingForView(self.view)
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.createPageTitle.key.localized())
 
         self._addViewConstraint()
     }
@@ -154,67 +134,46 @@ extension CreateWalletAccountViewController {
 
         self.view.addSubview(walletNameTF)
         walletNameTF.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(100)
-            make.centerX.equalTo(self.view)
-            make.height.equalTo(50)
-            make.width.equalTo(250)
-        }
-
-        self.view.addSubview(walletNameLab)
-        self.walletNameLab.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(walletNameTF.snp.bottom).offset(10)
-            make.left.equalTo(walletNameTF)
-            make.height.equalTo(30)
+            make.top.equalTo(self.view).offset(60)
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.height.equalTo(60)
         }
 
         self.view.addSubview(self.passwordTF)
         self.passwordTF.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.walletNameLab.snp.bottom).offset(30)
-            make.centerX.equalTo(self.view)
-            make.height.equalTo(50)
-            make.width.equalTo(250)
-        }
-
-        self.view.addSubview(self.passwordLab)
-        self.passwordLab.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.passwordTF.snp.bottom).offset(10)
-            make.left.equalTo(self.passwordTF)
-            make.height.equalTo(30)
+            make.top.equalTo(self.walletNameTF.snp.bottom).offset(30)
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.height.equalTo(60)
         }
 
         self.view.addSubview(self.passwordRepeateTF)
         self.passwordRepeateTF.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.passwordLab.snp.bottom).offset(30)
-            make.centerX.equalTo(self.view)
-            make.height.equalTo(50)
-            make.width.equalTo(250)
-        }
-
-        self.view.addSubview(self.passwordRepeateLab)
-        self.passwordRepeateLab.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.passwordRepeateTF.snp.bottom).offset(10)
-            make.left.equalTo(self.passwordRepeateTF)
-            make.height.equalTo(30)
+            make.top.equalTo(self.passwordTF.snp.bottom).offset(30)
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.height.equalTo(60)
         }
 
         self.view.addSubview(self.submitBtn)
         self.submitBtn.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(100)
-            make.height.equalTo(45)
-            make.bottom.equalTo(self.view).offset(-30)
-            make.centerX.equalTo(self.view)
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.height.equalTo(50)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-24)
         }
     }
 
     @objc func dismissKeyboardBtnAction() {
-        self.walletNameTF.resignFirstResponder()
-        _ = self.passwordTF.resignFirstResponder()
-        _ = self.passwordRepeateTF.resignFirstResponder()
+        self.walletNameTF.textField.resignFirstResponder()
+        _ = self.passwordTF.passwordInputView.textField.resignFirstResponder()
+        _ = self.passwordRepeateTF.passwordInputView.textField.resignFirstResponder()
     }
 
     @objc func submitBtnAction() {
-        CreateWalletService.sharedInstance.walletAccount.name = self.walletNameTF.text!
-        CreateWalletService.sharedInstance.walletAccount.password = self.passwordRepeateTF.textField.text!
+        CreateWalletService.sharedInstance.walletAccount.name = self.walletNameTF.textField.text!
+        CreateWalletService.sharedInstance.walletAccount.password = self.passwordRepeateTF.passwordInputView.textField.text!
         let vc = CreateWalletTipViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }

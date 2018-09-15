@@ -23,13 +23,17 @@ final class WordCollectionViewCell: UICollectionViewCell {
         let wordLabel = UILabel()
         wordLabel.textAlignment = .center
         wordLabel.backgroundColor = .clear
-        wordLabel.layer.borderColor = UIColor(hex: "C6C6C6").cgColor
-        wordLabel.layer.borderWidth = 0.5
-        wordLabel.layer.cornerRadius = 4
+        wordLabel.font = Fonts.Font12
+        wordLabel.textColor = Colors.descGray
+        wordLabel.adjustsFontSizeToFitWidth = true
         return wordLabel
     }()
 
     func initView() {
+        self.backgroundColor = .white
+        self.layer.cornerRadius = 2
+        self.layer.masksToBounds = true
+
         self.addSubview(wordLabel)
         self.wordLabel.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(self)

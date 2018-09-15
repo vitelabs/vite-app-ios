@@ -17,8 +17,13 @@ let is_iPhoneX = (kScreenW == 375.0 && kScreenH == 812.0 ? true : false)
 let kNavibarH: CGFloat = is_iPhoneX ? 88.0 : 64.0
 let kTabbarH: CGFloat = is_iPhoneX ? 49.0+34.0 : 49.0
 let kStatusbarH: CGFloat = is_iPhoneX ? 44.0 : 20.0
-let iPhoneXBottomH: CGFloat = 34.0
+let Safe_Area_Bottom_Height: CGFloat = is_iPhoneX ? 34.0 : 0.0
 let iPhoneXTopH: CGFloat = 24.0
+
+struct Fonts {
+    static let descFont = UIFont.systemFont(ofSize: 16, weight: .regular)
+    static let Font12 = UIFont.systemFont(ofSize: 12, weight: .semibold)
+}
 
 enum AppStyle {
     case inputDescWord
@@ -75,7 +80,7 @@ enum AppStyle {
         case .collactablesHeader, .inputDescWord:
             return Colors.darkBlue
         case .descWord:
-            return Colors.darkGray
+            return Colors.titleGray
         }
     }
 }
@@ -93,6 +98,6 @@ func DebugLog<T>(_ message: T, file: String = #file, funcName: String = #functio
 }
 
 extension CGFloat {
-    static var singleLineWidth: CGFloat { return 1.0 / UIScreen.main.scale }
+    static var singleLineWidth: CGFloat { return 2.0 / UIScreen.main.scale }
     static var singleLineWidthAdjustOffset: CGFloat { return 1.0 / UIScreen.main.scale / 2 }
 }
