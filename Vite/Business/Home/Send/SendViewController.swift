@@ -71,8 +71,15 @@ class SendViewController: BaseViewController {
             $0.resignFirstResponder()
         }))
 
-        sendButton.rx.tap.bind {
-            print("Send...")
+        sendButton.rx.tap.bind { [weak self] in
+            let confirmViewController = ConfirmTransactionViewController.init(confirmTypye: .biometry,
+                                                                              address: "0xBdEAa223649c580C947058d9b2555269E806C1e7&123456789",
+                                                                              token: "vcc",
+                                                                              amount: "10000",
+                                                                              completion: { (result) in
+                                                                                print(result)
+            })
+           self?.present(confirmViewController, animated: false, completion: nil)
         }.disposed(by: rx.disposeBag)
     }
 }

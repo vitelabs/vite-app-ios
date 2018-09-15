@@ -10,19 +10,19 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int, alpha: Float = 1.0) {
+    convenience init(red: Int, green: Int, blue: Int, alpha: CGFloat = 1.0) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
         assert(blue >= 0 && blue <= 255, "Invalid blue component")
 
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: CGFloat(alpha))
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: alpha)
     }
 
-    convenience init(netHex: Int) {
-        self.init(red: (netHex >> 16) & 0xff, green: (netHex >> 8) & 0xff, blue: netHex & 0xff)
+    convenience init(netHex: Int, alpha: CGFloat = 1.0) {
+        self.init(red: (netHex >> 16) & 0xff, green: (netHex >> 8) & 0xff, blue: netHex & 0xff, alpha: alpha)
     }
 
-    convenience init(hex: String) {
+    convenience init(hex: String, alpha: CGFloat = 1.0) {
         let scanner = Scanner(string: hex)
         scanner.scanLocation = 0
 
@@ -37,7 +37,7 @@ extension UIColor {
         self.init(
             red: CGFloat(r) / 0xff,
             green: CGFloat(g) / 0xff,
-            blue: CGFloat(b) / 0xff, alpha: 1
+            blue: CGFloat(b) / 0xff, alpha: alpha
         )
     }
 
