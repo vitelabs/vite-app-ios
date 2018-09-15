@@ -20,6 +20,10 @@ let kStatusbarH: CGFloat = is_iPhoneX ? 44.0 : 20.0
 let Safe_Area_Bottom_Height: CGFloat = is_iPhoneX ? 34.0 : 0.0
 let iPhoneXTopH: CGFloat = 24.0
 
+struct Fonts {
+    static let descFont = UIFont.systemFont(ofSize: 16, weight: .regular)
+}
+
 enum AppStyle {
     case inputDescWord
     case descWord

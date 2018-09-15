@@ -24,7 +24,7 @@
 "create.page.submit.btn.title" = "创建";
 
 "create.page.tip.title" = "备份钱包账户";
-"create.page.tip.content" = "钱包账户重要提示文案订单发的发送到发送到发送到发发送发送地方少点";
+"create.page.tip.content" = "钱包账户重要提示文案\n订单发的发送到发送到发送到发发送发送地方少点";
 "create.page.tip.nextBtn" = "备份助记词";
 
 /* mnemonic */
