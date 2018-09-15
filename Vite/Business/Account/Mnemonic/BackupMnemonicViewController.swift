@@ -40,20 +40,9 @@ class BackupMnemonicViewController: BaseViewController {
         return tipTitleLab
     }()
 
-    lazy var tipContentTitleLab: UILabel = {
-        let tipContentTitleLab = UILabel()
-        tipContentTitleLab.textAlignment = .left
-        tipContentTitleLab.font =  AppStyle.descWord.font
-        tipContentTitleLab.textColor  = AppStyle.descWord.textColor
-        tipContentTitleLab.text =  R.string.localizable.mnemonicBackupPageTitle.key.localized()
-        return tipContentTitleLab
-    }()
-
-    lazy var tipContentLab: UILabel = {
-        let tipContentLab =  UILabel()
-        tipContentLab.numberOfLines = 0
-        tipContentLab.textColor = .black
-        return tipContentLab
+    lazy var mnemonicCollectionView: MnemonicCollectionView = {
+        let mnemonicCollectionView = MnemonicCollectionView.init(isHasSelected: true)
+        return mnemonicCollectionView
     }()
 
     lazy var afreshMnemonicBtn: UIButton = {
@@ -74,7 +63,9 @@ class BackupMnemonicViewController: BaseViewController {
 
 extension BackupMnemonicViewController {
     private func _bindViewModel() {
-        _ = self.viewModel.mnemonicWordsStr.asObservable().bind(to: self.tipContentLab.rx.text)
+        self.viewModel.mnemonicWordsList.asObservable().subscribe { (_) in
+            self.mnemonicCollectionView.dataList = (self.viewModel.mnemonicWordsList.value)
+        }.disposed(by: rx.disposeBag)
     }
 
     private func _setupView() {
@@ -92,12 +83,13 @@ extension BackupMnemonicViewController {
             make.height.equalTo(48)
         }
 
-        self.view.addSubview(self.tipContentLab)
-        self.tipContentLab.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(200)
-            make.height.equalTo(200)
-            make.centerX.equalTo(self.view)
-            make.top.equalTo(self.tipTitleLab.snp.bottom).offset(10)
+        self.view.addSubview(self.mnemonicCollectionView)
+        self.mnemonicCollectionView.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+//            make.top.equalTo(self.tipTitleLab.snp.bottom).offset(10)
+            make.centerY.equalTo(self.view)
+            make.height.equalTo(186)
         }
 
         self.view.addSubview(self.afreshMnemonicBtn)

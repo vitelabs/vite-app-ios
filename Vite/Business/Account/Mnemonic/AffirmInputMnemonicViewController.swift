@@ -75,8 +75,6 @@ class AffirmInputMnemonicViewController: UIViewController, MnemonicCollectionVie
 
 extension AffirmInputMnemonicViewController {
     private func _bindViewModel() {
-
-        // 设置代理
         self.viewModel.hasChooseMnemonicWordsList.asObservable().subscribe { (_) in
             self.chooseMnemonicCollectionView.dataList = (self.viewModel.hasChooseMnemonicWordsList.value)
         }.disposed(by: rx.disposeBag)
