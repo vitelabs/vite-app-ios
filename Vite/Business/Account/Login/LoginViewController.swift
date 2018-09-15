@@ -78,21 +78,17 @@ class LoginViewController: BaseViewController {
     }()
 
     lazy var createAccountBtn: UIButton = {
-        let createAccountBtn = UIButton()
+        let createAccountBtn = UIButton.init(style: .blue)
         createAccountBtn.setTitle(R.string.localizable.createAccount.key.localized(), for: .normal)
         createAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        createAccountBtn.setTitleColor(.black, for: .normal)
-        createAccountBtn.backgroundColor = .orange
         createAccountBtn.addTarget(self, action: #selector(createAccountBtnAction), for: .touchUpInside)
         return createAccountBtn
     }()
 
     lazy var importAccountBtn: UIButton = {
-        let importAccountBtn = UIButton()
+        let importAccountBtn = UIButton.init(style: .white)
         importAccountBtn.setTitle(R.string.localizable.importAccount.key.localized(), for: .normal)
         importAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        importAccountBtn.setTitleColor(.black, for: .normal)
-        importAccountBtn.backgroundColor = .orange
         importAccountBtn.addTarget(self, action: #selector(importAccountBtnAction), for: .touchUpInside)
         return importAccountBtn
     }()

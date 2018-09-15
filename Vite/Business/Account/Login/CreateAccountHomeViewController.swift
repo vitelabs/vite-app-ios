@@ -45,34 +45,18 @@ class CreateAccountHomeViewController: BaseViewController {
         _ = self.viewModel.changeLanguageBtnStr.asObservable().bind(to: self.changeLanguageBtn.rx.title(for: .normal))
     }
 
-    lazy var logoImgView: UIImageView = {
-        let logoImgView = UIImageView()
-        logoImgView.backgroundColor = .clear
-        logoImgView.image =  R.image.launch_screen_logo()
-        return logoImgView
-    }()
-
-    lazy var sloganImgView: UIImageView = {
-        let sloganImgView = UIImageView()
-        sloganImgView.backgroundColor = .clear
-        sloganImgView.image =  R.image.launch_screen_logo()
-        return sloganImgView
-    }()
-
     lazy var createAccountBtn: UIButton = {
-        let createAccountBtn = UIButton()
+        let createAccountBtn = UIButton.init(style: .blue)
+        createAccountBtn.setTitle(R.string.localizable.createAccount.key.localized(), for: .normal)
         createAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        createAccountBtn.setTitleColor(.black, for: .normal)
-        createAccountBtn.backgroundColor = .orange
         createAccountBtn.addTarget(self, action: #selector(createAccountBtnAction), for: .touchUpInside)
         return createAccountBtn
     }()
 
     lazy var importAccountBtn: UIButton = {
-        let importAccountBtn = UIButton()
+        let importAccountBtn = UIButton.init(style: .white)
+        importAccountBtn.setTitle(R.string.localizable.importAccount.key.localized(), for: .normal)
         importAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        importAccountBtn.setTitleColor(.black, for: .normal)
-        importAccountBtn.backgroundColor = .orange
         importAccountBtn.addTarget(self, action: #selector(importAccountBtnAction), for: .touchUpInside)
         return importAccountBtn
     }()
@@ -92,24 +76,30 @@ class CreateAccountHomeViewController: BaseViewController {
 
 extension CreateAccountHomeViewController {
     private func _setupView() {
-        self.view.backgroundColor = .blue
+        self.view.backgroundColor = .clear
 
         self._addViewConstraint()
     }
 
     private func _addViewConstraint() {
-        self.view.addSubview(self.logoImgView)
-        self.logoImgView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view).offset(30)
-            make.top.equalTo(self.view).offset(130)
-            make.width.height.equalTo(65)
+        let bgImgView = UIImageView.init(image: R.image.login_bg())
+        self.view.addSubview(bgImgView)
+        bgImgView.snp.makeConstraints { (make) -> Void in
+            make.edges.equalTo(self.view)
         }
 
-        self.view.addSubview(self.sloganImgView)
-        self.sloganImgView.snp.makeConstraints { (make) -> Void in
+        let logoImgView = UIImageView.init(image: R.image.icon_vite_logo())
+        let sloganImgView = UIImageView.init(image: R.image.splash_slogen())
+        self.view.addSubview(logoImgView)
+        logoImgView.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(self.view).offset(30)
-            make.top.equalTo(self.logoImgView.snp.bottom).offset(50)
-            make.width.height.equalTo(65)
+            make.top.equalTo(self.view).offset(100)
+        }
+        self.view.addSubview(sloganImgView)
+        sloganImgView.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(30)
+            make.right.equalTo(self.view).offset(-60)
+            make.top.equalTo(logoImgView.snp.bottom).offset(50)
         }
 
         self.view.addSubview(self.importAccountBtn)
