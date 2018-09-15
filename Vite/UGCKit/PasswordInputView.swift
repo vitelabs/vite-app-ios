@@ -17,12 +17,26 @@ enum SecretType {
     case asterisk, point, plaintext
 }
 
+protocol DeleteTextFieldDelegate: class {
+    func textFieldBackKeyPressed(_ textField: UITextField)
+}
+
+class DeleteTextField: UITextField {
+    weak var deleteTextFieldDelegate: DeleteTextFieldDelegate?
+    override func deleteBackward() {
+        super.deleteBackward()
+        if deleteTextFieldDelegate != nil {
+            deleteTextFieldDelegate?.textFieldBackKeyPressed(self)
+        }
+    }
+}
+
 public class PasswordInputView: UIView {
     var totalCount = 6
-    let textField = UITextField(frame: .zero)
+    let textField = DeleteTextField(frame: .zero)
     var password = ""
-    var partitionColor = UIColor.lightGray
-    var partitionWidth: CGFloat = 1.0
+    var partitionColor = Colors.lineGray
+    var partitionWidth: CGFloat = 6.0
     weak var delegate: PasswordInputViewDelegate?
 
     var wordView: UIView?
@@ -54,21 +68,18 @@ public class PasswordInputView: UIView {
     }
 
     func createWordView(size: CGSize) -> UIView {
-        var h = size.height
-        var w = size.width
+        let h = size.height
+        let w = size.width
         let center = CGPoint(x: frame.width / 2.0, y: frame.height / 2.0)
-        let labelH1 = h - 2.0 * partitionWidth
-        let labelH2 = (w - CGFloat(totalCount) * partitionWidth) / CGFloat(totalCount)
-        let labelH = min(labelH1, labelH2)
-        h = labelH + 2.0 * partitionWidth
-        w = (labelH + partitionWidth) * CGFloat(totalCount) + partitionWidth
+        let labelH = h
+        let labelW = (w - (2.0 * partitionWidth * (CGFloat(totalCount)-1))) / 6
         let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: w, height: h)))
+        view.backgroundColor = .clear
         view.center = center
-        view.backgroundColor = partitionColor
 
         for i in 0..<totalCount {
-            let x = CGFloat(i) * (labelH + partitionWidth) + partitionWidth
-            let y = partitionWidth
+            let x = CGFloat(i) * (labelW + partitionWidth*2)
+            let y = CGFloat(0)
             if secretType == .asterisk {
                 let label = UILabel(frame: CGRect(x: x, y: y, width: labelH, height: labelH))
                 label.backgroundColor = UIColor.white
@@ -83,20 +94,20 @@ public class PasswordInputView: UIView {
                 view.addSubview(v)
                 secretViews.append(v)
             } else {
-                let label = UILabel(frame: CGRect(x: x, y: y, width: labelH, height: labelH))
-                label.backgroundColor = UIColor.white
+                let label = UILabel(frame: CGRect(x: x, y: y, width: labelW, height: labelH))
+                label.backgroundColor = UIColor.clear
                 label.textAlignment = .center
-                label.font = UIFont.systemFont(ofSize: 40)
+                label.font = UIFont.systemFont(ofSize: 18)
+                label.textColor = UIColor.black
                 label.adjustsFontSizeToFitWidth = true
                 view.addSubview(label)
                 secretLabels.append(label)
             }
+            let line  = UIView()
+            line.frame =  CGRect(x: x, y: labelH-1, width: labelW, height: 1)
+            line.backgroundColor = partitionColor
+            view.addSubview(line)
         }
-
-        view.layer.cornerRadius = 5.0
-        view.clipsToBounds = true
-        view.layer.borderWidth = 1.0
-        view.layer.borderColor = partitionColor.cgColor
         return view
     }
 
@@ -151,7 +162,6 @@ public class PasswordInputView: UIView {
                     point.center = CGPoint(x: w / 2.0, y: w / 2.0)
                     point.layer.cornerRadius = w / 8.0
                     point.clipsToBounds = true
-                    point.backgroundColor = UIColor.darkText
                     view.addSubview(point)
             }
         } else {
@@ -169,7 +179,7 @@ public class PasswordInputView: UIView {
     }
 }
 
-extension PasswordInputView: UITextFieldDelegate {
+extension PasswordInputView: UITextFieldDelegate, DeleteTextFieldDelegate {
     public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if let count = textField.text?.count, count == 6 {
             return true
@@ -178,5 +188,24 @@ extension PasswordInputView: UITextFieldDelegate {
             return delegate.close(passwordView: self)
         }
         return true
+    }
+
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let text = textField.text == nil ? "" : textField.text!
+        let textCount = text.count
+
+        updateView(text: text)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            if textCount == self.totalCount {
+                //输入完成
+                let _ = self.resignFirstResponder()
+                self.delegate?.inputFinish(passwordView: self, password: text)
+            }
+        }
+        return true
+    }
+
+    func textFieldBackKeyPressed(_ textField: UITextField) {
+        //do something
     }
 }

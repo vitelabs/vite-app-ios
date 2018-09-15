@@ -75,7 +75,7 @@ enum AppStyle {
         case .collactablesHeader, .inputDescWord:
             return Colors.darkBlue
         case .descWord:
-            return Colors.darkGray
+            return Colors.titleGray
         }
     }
 }
@@ -93,6 +93,6 @@ func DebugLog<T>(_ message: T, file: String = #file, funcName: String = #functio
 }
 
 extension CGFloat {
-    static var singleLineWidth: CGFloat { return 1.0 / UIScreen.main.scale }
+    static var singleLineWidth: CGFloat { return 2.0 / UIScreen.main.scale }
     static var singleLineWidthAdjustOffset: CGFloat { return 1.0 / UIScreen.main.scale / 2 }
 }

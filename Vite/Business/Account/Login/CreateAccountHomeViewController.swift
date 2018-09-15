@@ -77,6 +77,7 @@ class CreateAccountHomeViewController: BaseViewController {
 extension CreateAccountHomeViewController {
     private func _setupView() {
         self.view.backgroundColor = .clear
+//        navigationBarStyle = .clear
 
         self._addViewConstraint()
     }
@@ -107,7 +108,7 @@ extension CreateAccountHomeViewController {
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view).offset(-(24+Safe_Area_Bottom_Height))
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-24)
         }
 
         self.view.addSubview(self.createAccountBtn)
@@ -115,7 +116,7 @@ extension CreateAccountHomeViewController {
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.importAccountBtn.snp.top).offset(-20)
+            make.bottom.equalTo(self.importAccountBtn.snp.top).offset(-24)
         }
 
         self.view.addSubview(self.changeLanguageBtn)

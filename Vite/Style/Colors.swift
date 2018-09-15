@@ -10,5 +10,8 @@ import UIKit
 
 struct Colors {
     static let darkBlue = UIColor(hex: "3375BB")
-    static let darkGray = UIColor(hex: "3315BB")
+    static let titleGray = UIColor(hex: "3E4A59")
+    static let lineGray = UIColor(hex: "3E4A59")
+    static let descGray = UIColor(hex: "24272B")
+
 }
