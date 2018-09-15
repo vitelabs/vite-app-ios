@@ -11,6 +11,7 @@ PODS:
   - JSONRPCKit (3.0.0):
     - Result (~> 3.2.0)
   - KeychainSwift (11.0.0)
+  - KMNavigationBarTransition (1.1.5)
   - libEd25519Blake2b (0.0.4)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.15.7)
@@ -72,6 +73,7 @@ DEPENDENCIES:
   - Eureka
   - JSONRPCKit
   - KeychainSwift
+  - KMNavigationBarTransition
   - MBProgressHUD
   - MJRefresh
   - Moya
@@ -101,6 +103,7 @@ SPEC REPOS:
     - Eureka
     - JSONRPCKit
     - KeychainSwift
+    - KMNavigationBarTransition
     - libEd25519Blake2b
     - MBProgressHUD
     - MJRefresh
@@ -138,6 +141,7 @@ SPEC CHECKSUMS:
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
   KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
+  KMNavigationBarTransition: 7a52c9bc25b39b6e3343e980b453facee1591b82
   libEd25519Blake2b: b291b518f4560bf137d8bb81ab3f8855979ece5c
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
@@ -162,6 +166,6 @@ SPEC CHECKSUMS:
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   Vite-keystore: 1987ba1387d428a36156ecc845084cf492fbc040
 
-PODFILE CHECKSUM: 12283e713a4a42bfb2ebbe20894e4be9da89f4e6
+PODFILE CHECKSUM: 13341e23bc25c5977b6396df7bcafe07fc99472a
 
 COCOAPODS: 1.5.3

@@ -40,4 +40,8 @@ extension UIColor {
             blue: CGFloat(b) / 0xff, alpha: 1
         )
     }
+
+    var highlighted: UIColor {
+        return self.withAlphaComponent(0.6)
+    }
 }

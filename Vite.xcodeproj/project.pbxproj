@@ -117,6 +117,10 @@
 		8EE468F8214A4E5300807D2C /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468F7214A4E5300807D2C /* PrimaryButton.swift */; };
 		8EE468FD214A574600807D2C /* UIViewController+KeyboardAutoScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468FC214A574600807D2C /* UIViewController+KeyboardAutoScrolling.swift */; };
 		8EE468FF214A6D4200807D2C /* UITextField+FDSKeyboardAutoScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468FE214A6D4200807D2C /* UITextField+FDSKeyboardAutoScrolling.swift */; };
+		8EE46903214B5B9600807D2C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EE46902214B5B9600807D2C /* Images.xcassets */; };
+		8EE46907214B9AC800807D2C /* NavigationBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46906214B9AC800807D2C /* NavigationBarStyle.swift */; };
+		8EE46909214BA1BE00807D2C /* NavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46908214BA1BE00807D2C /* NavigationTitleView.swift */; };
+		8EE4690B214BBE0B00807D2C /* UIButton+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4690A214BBE0B00807D2C /* UIButton+Helper.swift */; };
 		D273062C8B1A826F6BC2E810 /* Pods_ViteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EF60202B89DEC8B075E04F /* Pods_ViteUITests.framework */; };
 		D62F634C8DA45F93E78F5B8D /* Pods_Vite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */; };
 /* End PBXBuildFile section */
@@ -258,6 +262,10 @@
 		8EE468F7214A4E5300807D2C /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		8EE468FC214A574600807D2C /* UIViewController+KeyboardAutoScrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+KeyboardAutoScrolling.swift"; sourceTree = "<group>"; };
 		8EE468FE214A6D4200807D2C /* UITextField+FDSKeyboardAutoScrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+FDSKeyboardAutoScrolling.swift"; sourceTree = "<group>"; };
+		8EE46902214B5B9600807D2C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8EE46906214B9AC800807D2C /* NavigationBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarStyle.swift; sourceTree = "<group>"; };
+		8EE46908214BA1BE00807D2C /* NavigationTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleView.swift; sourceTree = "<group>"; };
+		8EE4690A214BBE0B00807D2C /* UIButton+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Helper.swift"; sourceTree = "<group>"; };
 		90D19E345292B3451EF0C77B /* Pods-ViteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9CDD7A55935285C97D7AB255 /* Pods-ViteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.release.xcconfig"; sourceTree = "<group>"; };
 		B5C0FE724D993EC85BD39D8F /* Pods-Vite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.release.xcconfig"; sourceTree = "<group>"; };
@@ -596,6 +604,7 @@
 				4CCE42452124553B0080E92B /* AppDelegate.swift */,
 				4C0024E321258005001DF390 /* R.generated.swift */,
 				4CCE424C2124553C0080E92B /* Assets.xcassets */,
+				8EE46902214B5B9600807D2C /* Images.xcassets */,
 				4C1FF4EC212A73FB0055067D /* Resource */,
 				4CCE42512124553C0080E92B /* Info.plist */,
 				4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */,
@@ -764,6 +773,8 @@
 		8E6F3E182142280F003CDFC2 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				8EE46906214B9AC800807D2C /* NavigationBarStyle.swift */,
+				8EE46908214BA1BE00807D2C /* NavigationTitleView.swift */,
 				8E6F3E192142280F003CDFC2 /* BaseViewController.swift */,
 				8E6F3E1A2142280F003CDFC2 /* BaseTableViewCell.swift */,
 				8E6F3E1B2142280F003CDFC2 /* BaseTableViewController.swift */,
@@ -804,6 +815,7 @@
 			children = (
 				8E6F3E2B2142644E003CDFC2 /* UITableView+Helper.swift */,
 				8E56FC7C214656A700A68823 /* UIView+Helper.swift */,
+				8EE4690A214BBE0B00807D2C /* UIButton+Helper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1043,6 +1055,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */,
+				8EE46903214B5B9600807D2C /* Images.xcassets in Resources */,
 				4C1FF4F0212A74730055067D /* Localizable.strings in Resources */,
 				4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */,
 			);
@@ -1108,6 +1121,7 @@
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONRPCKit/JSONRPCKit.framework",
+				"${BUILT_PRODUCTS_DIR}/KMNavigationBarTransition/KMNavigationBarTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
@@ -1141,6 +1155,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONRPCKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMNavigationBarTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
@@ -1233,6 +1248,7 @@
 				8E6F3DFF2141025B003CDFC2 /* SnapshotChainHeightRequest.swift in Sources */,
 				4C105EBF213FCAD500D483C6 /* UIColor.swift in Sources */,
 				8EE468F6214A494800807D2C /* TitleTextFieldView.swift in Sources */,
+				8EE46909214BA1BE00807D2C /* NavigationTitleView.swift in Sources */,
 				8EE468E6214A077D00807D2C /* AddressManagerTableViewModelType.swift in Sources */,
 				8E6F3E3A2144C3B5003CDFC2 /* BalanceInfoDetailViewController.swift in Sources */,
 				8E6F3E04214115ED003CDFC2 /* AccountProvider.swift in Sources */,
@@ -1292,6 +1308,7 @@
 				4C84D9662146A06F001B6EBD /* LoginViewModel.swift in Sources */,
 				8E6F3E0C21412150003CDFC2 /* GetTransactionsRequest.swift in Sources */,
 				4C84D94221452836001B6EBD /* AffirmInputMnemonicVM.swift in Sources */,
+				8EE4690B214BBE0B00807D2C /* UIButton+Helper.swift in Sources */,
 				4C84D951214654BD001B6EBD /* LoginViewController.swift in Sources */,
 				8E6F3DF82140FE99003CDFC2 /* RPCServer.swift in Sources */,
 				4C84D94021452836001B6EBD /* WordCollectionViewCell.swift in Sources */,
@@ -1312,6 +1329,7 @@
 				4C84D95C21466C1B001B6EBD /* AccountLoginResult.swift in Sources */,
 				4C2284BE21490E79003E9907 /* ManageWalletViewController.swift in Sources */,
 				4C84D95521465A8B001B6EBD /* Language.swift in Sources */,
+				8EE46907214B9AC800807D2C /* NavigationBarStyle.swift in Sources */,
 				8E6F3E2221422A83003CDFC2 /* HomeViewController.swift in Sources */,
 				4CE4E1472147AC0100A6CD7E /* WalletDataService.swift in Sources */,
 				8E6F3E422144CA49003CDFC2 /* WalletHomeAddressViewModel.swift in Sources */,

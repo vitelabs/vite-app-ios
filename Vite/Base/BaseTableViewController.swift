@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SnapKit
 import RxSwift
 
 class BaseTableViewController: BaseViewController {
@@ -24,21 +24,32 @@ class BaseTableViewController: BaseViewController {
         super.init(coder: aDecoder)
     }
 
+    override var navigationTitleView: NavigationTitleView? {
+        didSet {
+
+            if let new = navigationTitleView {
+                tableView.snp.remakeConstraints { (m) in
+                    m.top.equalTo(new.snp.bottom)
+                    m.left.right.bottom.equalTo(view)
+                }
+            } else {
+                tableView.snp.remakeConstraints { (m) in
+                    m.edges.equalTo(view)
+                }
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         if #available(iOS 11.0, *) {
             tableView.contentInsetAdjustmentBehavior = .scrollableAxes
         }
-//        tableView.dataSource = self
-//        tableView.delegate = self
         view.addSubview(tableView)
-
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        view.addConstraint(NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal, toItem: tableView, attribute: .top, multiplier: 1, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: view, attribute: .left, relatedBy: .equal, toItem: tableView, attribute: .left, multiplier: 1, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: view, attribute: .right, relatedBy: .equal, toItem: tableView, attribute: .right, multiplier: 1, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: tableView, attribute: .bottom, multiplier: 1, constant: 0))
+        tableView.snp.makeConstraints { (m) in
+            m.edges.equalTo(view)
+        }
     }
 }
 
