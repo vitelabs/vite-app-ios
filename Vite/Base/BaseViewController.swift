@@ -22,7 +22,45 @@ class BaseViewController: UIViewController {
 
             if let new = navigationTitleView {
                 view.addSubview(new)
-                new.snp.makeConstraints { (m) in
+            }
+
+            layoutNavigationTitleViewAndCustomHeaderView()
+        }
+    }
+
+    var customHeaderView: UIView? {
+        didSet {
+            if let old = oldValue {
+                old.removeFromSuperview()
+            }
+
+            if let new = customHeaderView {
+                view.addSubview(new)
+            }
+
+            layoutNavigationTitleViewAndCustomHeaderView()
+        }
+    }
+
+    private func layoutNavigationTitleViewAndCustomHeaderView() {
+
+        if let navigationTitleView = navigationTitleView {
+            navigationTitleView.snp.remakeConstraints { (m) in
+                m.top.equalTo(view.safeAreaLayoutGuideSnp.top)
+                m.left.equalTo(view)
+                m.right.equalTo(view)
+            }
+
+            if let customHeaderView = customHeaderView {
+                customHeaderView.snp.remakeConstraints { (m) in
+                    m.top.equalTo(navigationTitleView.snp.bottom)
+                    m.left.equalTo(view)
+                    m.right.equalTo(view)
+                }
+            }
+        } else {
+            if let customHeaderView = customHeaderView {
+                customHeaderView.snp.remakeConstraints { (m) in
                     m.top.equalTo(view.safeAreaLayoutGuideSnp.top)
                     m.left.equalTo(view)
                     m.right.equalTo(view)

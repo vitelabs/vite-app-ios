@@ -12,7 +12,8 @@ import UIKit
 protocol WalletHomeBalanceInfoViewModelType {
 
     var tokenId: String { get }
-    var iconImage: UIImage { get }
+    var icon: Token.Icon { get }
+    var backgroundColors: [UIColor] { get }
     var name: String { get }
     var balance: String { get }
     var unconfirmed: String { get }
