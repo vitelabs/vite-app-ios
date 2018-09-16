@@ -21,38 +21,26 @@ final class AutoGatheringService {
 
     func getUnconfirmedTransaction() {
 
-        print("\(AccountBlock.test)")
-
-//        _ = transactionProvider.getUnconfirmedTransaction(address: Address(string: "vite_4827fbc6827797ac4d9e814affb34b4c5fa85d39bf96d105e7"))
-//            .done { accountBlocks in
-//                if let accountBlock = accountBlocks.first {
-//                    print("🏆")
-//                    GCD.delay(1) { self.getUnconfirmedTransaction() }
-//                } else {
-//                    GCD.delay(1) { self.getUnconfirmedTransaction() }
-//                }
-//            }.catch({ (error) in
-//                print("🤯🤯🤯🤯🤯🤯\(error)")
-//                GCD.delay(1) { self.getUnconfirmedTransaction() }
-//            })
-        _ = transactionProvider.getUnconfirmedTransaction(address: Address(string: "vite_4827fbc6827797ac4d9e814affb34b4c5fa85d39bf96d105e7"))
-            .then({ (accountBlocks, latestAccountBlock) -> Promise<Void> in
+        let key = WalletDataService.shareInstance.defaultWalletAccount!.defaultKey
+        _ = transactionProvider.getUnconfirmedTransaction(address: Address(string: key.address))
+            .then({ (accountBlocks, latestAccountBlock, snapshotChainHash) -> Promise<Void> in
                 if let accountBlock = accountBlocks.first {
                     let key = WalletDataService.shareInstance.defaultWalletAccount!.defaultKey
-                    let receiveAccountBlock = accountBlock.makeReceiveAccountBlock(latestAccountBlock: latestAccountBlock, key: key)
+                    let receiveAccountBlock = accountBlock.makeReceiveAccountBlock(latestAccountBlock: latestAccountBlock, key: key, snapshotChainHash: snapshotChainHash)
                     return self.transactionProvider.createTransaction(accountBlock: receiveAccountBlock)
                 } else {
                     return Promise { $0.fulfill(Void()) }
                 }
             })
             .done({
-                print("🏆")
+                print("\((#file as NSString).lastPathComponent)[\(#line)], \(#function): 🏆")
             })
             .catch({ (error) in
-                print("🤯🤯🤯🤯🤯🤯\(error)")
+                print("\((#file as NSString).lastPathComponent)[\(#line)], \(#function): 🤯\(error)")
             })
             .finally({
-                print("fsfs")
+                GCD.delay(2) { self.getUnconfirmedTransaction() }
             })
     }
+
 }

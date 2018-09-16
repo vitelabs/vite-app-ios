@@ -12,9 +12,9 @@ import BigInt
 
 struct AccountBlockMeta: Mappable {
 
-    fileprivate(set) var height = BigInt(0)
-    fileprivate(set) var status = Transaction.Status.error
-    fileprivate(set) var isSnapshotted = false
+    fileprivate(set) var height: BigInt?
+    fileprivate(set) var status: Transaction.Status?
+    fileprivate(set) var isSnapshotted: Bool?
 
     init?(map: Map) {
 

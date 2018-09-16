@@ -11,6 +11,7 @@ import PromiseKit
 import BigInt
 import APIKit
 import JSONRPCKit
+import Vite_keystore
 
 final class TransactionProvider {
     let server: RPCServer
@@ -19,13 +20,32 @@ final class TransactionProvider {
         self.server = server
     }
 
-    func getUnconfirmedTransaction(address: Address) -> Promise<([AccountBlock], AccountBlock)> {
+    func getUnconfirmedTransaction(address: Address) -> Promise<(accountBlocks: [AccountBlock], latestAccountBlock: AccountBlock, snapshotChainHash: String)> {
         return Promise { seal in
-            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetUnconfirmedTransactionRequest(address: address.description), GetLatestAccountBlockRequest(address: address.description)))
+            let request = ViteServiceRequest(for: server, batch: BatchFactory()
+                .create(GetUnconfirmedTransactionRequest(address: address.description),
+                        GetLatestAccountBlockRequest(address: address.description),
+                        GetLatestSnapshotChainHashRequest()))
             Session.send(request) { result in
                 switch result {
-                case .success(let accountBlocks, let latestAccountBlock):
-                    seal.fulfill((accountBlocks, latestAccountBlock))
+                case .success(let accountBlocks, let latestAccountBlock, let snapshotChainHash):
+                    seal.fulfill((accountBlocks, latestAccountBlock, snapshotChainHash))
+                case .failure(let error):
+                    seal.reject(error)
+                }
+            }
+        }
+    }
+
+    func getLatestAccountBlock(address: Address) -> Promise<(latestAccountBlock: AccountBlock, snapshotChainHash: String)> {
+        return Promise { seal in
+            let request = ViteServiceRequest(for: server, batch: BatchFactory()
+                .create(GetLatestAccountBlockRequest(address: address.description),
+                        GetLatestSnapshotChainHashRequest()))
+            Session.send(request) { result in
+                switch result {
+                case .success(let latestAccountBlock, let snapshotChainHash):
+                    seal.fulfill((latestAccountBlock, snapshotChainHash))
                 case .failure(let error):
                     seal.reject(error)
                 }

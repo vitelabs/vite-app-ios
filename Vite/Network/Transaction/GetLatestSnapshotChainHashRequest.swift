@@ -1,33 +1,27 @@
 //
-//  CreateTransactionRequest.swift
+//  GetLatestSnapshotChainHashRequest.swift
 //  Vite
 //
-//  Created by Stone on 2018/9/15.
+//  Created by Stone on 2018/9/16.
 //  Copyright © 2018年 vite labs. All rights reserved.
 //
 
 import UIKit
 import JSONRPCKit
 
-struct CreateTransactionRequest: JSONRPCKit.Request {
-    typealias Response = NSNull
-
-    let accountBlock: AccountBlock
+class GetLatestSnapshotChainHashRequest: JSONRPCKit.Request {
+    typealias Response = String
 
     var method: String {
-        return "ledger_createTx"
+        return "ledger_getLatestSnapshotChainHash"
     }
 
     var parameters: Any? {
-        return [accountBlock.toJSON()]
-    }
-
-    init(accountBlock: AccountBlock) {
-        self.accountBlock = accountBlock
+        return []
     }
 
     func response(from resultObject: Any) throws -> Response {
-        if let response = resultObject as? Response {
+        if let response = resultObject as? String {
             return response
         } else {
             throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: Response.self)
