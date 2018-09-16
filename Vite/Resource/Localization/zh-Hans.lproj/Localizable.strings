@@ -11,6 +11,7 @@
 "Yes" = "是";
 "No" = "否";
 "Loading" = "加载中";
+"Confirm" = "确定";
 
 /* Login */
 "create.account" = "创建账户";
@@ -38,8 +39,10 @@
 "mnemonic.affirm.page.tip.title" = "按顺序选择助记词输入";
 "mnemonic.affirm.alter.title" = "返回会重新生成助记词，是否返回";
 "mnemonic.affirm.page.add.loading" = "添加中...";
-/* import */
+/* import mnemonic*/
 "import.page.title" = "输入您的助记词";
+/* export mnemonic */
+"export.page.title" = "导出助记词";
 
 /* login */
 "login.page.btn.chooseName" = "选择钱包账户";
