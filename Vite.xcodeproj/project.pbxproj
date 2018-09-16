@@ -54,6 +54,10 @@
 		4CEB2926214B968000E5F7F4 /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */; };
 		4CEB292B214BBD2400E5F7F4 /* ViteInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */; };
 		4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */; };
+		740C3E4B214B6425005FCD24 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4A214B6425005FCD24 /* AuthenticationManager.swift */; };
+		740C3E4E214B9CC2005FCD24 /* TransactionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4D214B9CC2005FCD24 /* TransactionInfoView.swift */; };
+		740C3E50214BD6A9005FCD24 /* ConfirmTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4F214BD6A9005FCD24 /* ConfirmTransactionViewController.swift */; };
+		740C3E52214CB832005FCD24 /* ConfirmTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E51214CB832005FCD24 /* ConfirmTransactionView.swift */; };
 		8E56FC78214643B300A68823 /* WalletHomeBalanceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */; };
 		8E56FC7A21464A8500A68823 /* BalanceInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC7921464A8500A68823 /* BalanceInfoDetailView.swift */; };
 		8E56FC7D214656A700A68823 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC7C214656A700A68823 /* UIView+Helper.swift */; };
@@ -199,6 +203,10 @@
 		4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loading.swift"; sourceTree = "<group>"; };
 		4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidator.swift; sourceTree = "<group>"; };
 		4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidTest.swift; sourceTree = "<group>"; };
+		740C3E4A214B6425005FCD24 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		740C3E4D214B9CC2005FCD24 /* TransactionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionInfoView.swift; sourceTree = "<group>"; };
+		740C3E4F214BD6A9005FCD24 /* ConfirmTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionViewController.swift; sourceTree = "<group>"; };
+		740C3E51214CB832005FCD24 /* ConfirmTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionView.swift; sourceTree = "<group>"; };
 		7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C959221E3DAE4FAF07176D1 /* Pods-Vite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.debug.xcconfig"; sourceTree = "<group>"; };
 		8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletHomeBalanceInfoCell.swift; sourceTree = "<group>"; };
@@ -409,6 +417,7 @@
 				4C105EC6213FF3DC00D483C6 /* SettingDataService.swift */,
 				4CE4E1462147AC0100A6CD7E /* WalletDataService.swift */,
 				4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */,
+				740C3E4A214B6425005FCD24 /* AuthenticationManager.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -656,6 +665,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		740C3E4C214B9CA8005FCD24 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				740C3E4D214B9CC2005FCD24 /* TransactionInfoView.swift */,
+				740C3E51214CB832005FCD24 /* ConfirmTransactionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8E56FC7B21464A8B00A68823 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -676,6 +694,8 @@
 			isa = PBXGroup;
 			children = (
 				8E56FC8121466BF500A68823 /* SendViewController.swift */,
+				740C3E4F214BD6A9005FCD24 /* ConfirmTransactionViewController.swift */,
+				740C3E4C214B9CA8005FCD24 /* View */,
 			);
 			path = Send;
 			sourceTree = "<group>";
@@ -1258,6 +1278,7 @@
 				8EE468E6214A077D00807D2C /* AddressManagerTableViewModelType.swift in Sources */,
 				8E6F3E3A2144C3B5003CDFC2 /* BalanceInfoDetailViewController.swift in Sources */,
 				8E6F3E04214115ED003CDFC2 /* AccountProvider.swift in Sources */,
+				740C3E52214CB832005FCD24 /* ConfirmTransactionView.swift in Sources */,
 				8ED4CED7214900240005A82D /* UIViewControllerExtension.swift in Sources */,
 				8E6F3E1221421A4F003CDFC2 /* JSONTransformer.swift in Sources */,
 				4C745494214D0A9D0070F7AB /* TitleBtnView.swift in Sources */,
@@ -1282,6 +1303,7 @@
 				8EE468F0214A277500807D2C /* AddressManageAddressCell.swift in Sources */,
 				4C84D94121452836001B6EBD /* BackupMnemonicVM.swift in Sources */,
 				4C105EC5213FEFF800D483C6 /* NotificationName.swift in Sources */,
+				740C3E4E214B9CC2005FCD24 /* TransactionInfoView.swift in Sources */,
 				4C105EC1213FCB3700D483C6 /* AppStyle.swift in Sources */,
 				4C105EC7213FF3DC00D483C6 /* SettingDataService.swift in Sources */,
 				4C84D96121469E8D001B6EBD /* CreateAccountHomeViewController.swift in Sources */,
@@ -1320,6 +1342,7 @@
 				8E6F3DF82140FE99003CDFC2 /* RPCServer.swift in Sources */,
 				4C84D94021452836001B6EBD /* WordCollectionViewCell.swift in Sources */,
 				4C2284B82148BC2B003E9907 /* MyHomeListHeaderView.swift in Sources */,
+				740C3E4B214B6425005FCD24 /* AuthenticationManager.swift in Sources */,
 				4CE4E14521479EAF00A6CD7E /*  CreateWalletService.swift in Sources */,
 				8E56FC8221466BF500A68823 /* SendViewController.swift in Sources */,
 				4C84D9302145280E001B6EBD /* CreateWalletAccountVM.swift in Sources */,
@@ -1329,6 +1352,7 @@
 				8EE468E9214A07D300807D2C /* AddressManageAddressViewModelType.swift in Sources */,
 				8E6F3E4E21451806003CDFC2 /* BalanceInfo.swift in Sources */,
 				8E56FC7F21466BD100A68823 /* ReceiveViewController.swift in Sources */,
+				740C3E50214BD6A9005FCD24 /* ConfirmTransactionViewController.swift in Sources */,
 				8E6F3E4C214516B0003CDFC2 /* Token.swift in Sources */,
 				8EE468FF214A6D4200807D2C /* UITextField+FDSKeyboardAutoScrolling.swift in Sources */,
 				8E56FC98214768D000A68823 /* TransactionViewModel.swift in Sources */,
