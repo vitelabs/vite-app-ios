@@ -66,7 +66,7 @@ class MyHomeViewController: FormViewController {
 
             <<< ImageRow("my.page.aboutUs.cell.title") {
                 $0.cell.titleLab.text =  R.string.localizable.myPageAboutUsCellTitle.key.localized()
-                $0.cell.rightImageView.image = R.image.splash_about()
+                $0.cell.rightImageView.image = R.image.icon_token_vite()
             }.onCellSelection({ [unowned self] _, _  in
                     let safari = SFSafariViewController(url: NSURL(string: "https://www.vite.org/zh/")! as URL)
                     self.present(safari, animated: true, completion: nil)
@@ -81,7 +81,7 @@ class MyHomeViewController: FormViewController {
             })
 
         self.tableView.snp.makeConstraints { (make) in
-            make.top.equalTo((self.navigationTitleView?.snp.bottom)!)
+            make.top.equalTo((self.navigationTitleView?.snp.bottom)!).offset(-20)
             make.left.right.bottom.equalTo(self.view)
         }
     }
