@@ -93,7 +93,6 @@
 		8E6F3E202142280F003CDFC2 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E1C2142280F003CDFC2 /* BaseNavigationController.swift */; };
 		8E6F3E2221422A83003CDFC2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E2121422A83003CDFC2 /* HomeViewController.swift */; };
 		8E6F3E2821422BA1003CDFC2 /* MyHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E2721422BA1003CDFC2 /* MyHomeViewController.swift */; };
-		8E6F3E2A21425317003CDFC2 /* WalletHomeAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E2921425317003CDFC2 /* WalletHomeAddressCell.swift */; };
 		8E6F3E2C2142644E003CDFC2 /* UITableView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E2B2142644E003CDFC2 /* UITableView+Helper.swift */; };
 		8E6F3E3121427683003CDFC2 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E3021427683003CDFC2 /* QRCodeViewController.swift */; };
 		8E6F3E332142768B003CDFC2 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E322142768B003CDFC2 /* ScanViewController.swift */; };
@@ -107,6 +106,8 @@
 		8E6F3E5021451F29003CDFC2 /* GetBalanceInfosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E4F21451F29003CDFC2 /* GetBalanceInfosRequest.swift */; };
 		8E6F3E5221453333003CDFC2 /* WalletHomeBalanceInfoViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E5121453333003CDFC2 /* WalletHomeBalanceInfoViewModelType.swift */; };
 		8E6F3E5421453405003CDFC2 /* WalletHomeBalanceInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E5321453405003CDFC2 /* WalletHomeBalanceInfoViewModel.swift */; };
+		8E79C6E8214D392900FAEEBC /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6E7214D392900FAEEBC /* FileHelper.swift */; };
+		8E79C6EA214DFD9C00FAEEBC /* TokenCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */; };
 		8ED4CECC2147C4A60005A82D /* SafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CECB2147C4A60005A82D /* SafariViewController.swift */; };
 		8ED4CECF2147C5910005A82D /* WebHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CECE2147C5910005A82D /* WebHandler.swift */; };
 		8ED4CED32148AF630005A82D /* GetMoreLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CED22148AF630005A82D /* GetMoreLoadingView.swift */; };
@@ -128,6 +129,7 @@
 		8EE46907214B9AC800807D2C /* NavigationBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46906214B9AC800807D2C /* NavigationBarStyle.swift */; };
 		8EE46909214BA1BE00807D2C /* NavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46908214BA1BE00807D2C /* NavigationTitleView.swift */; };
 		8EE4690B214BBE0B00807D2C /* UIButton+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4690A214BBE0B00807D2C /* UIButton+Helper.swift */; };
+		8EE4691E214CE03F00807D2C /* WalletHomeAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4691D214CE03F00807D2C /* WalletHomeAddressView.swift */; };
 		D273062C8B1A826F6BC2E810 /* Pods_ViteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EF60202B89DEC8B075E04F /* Pods_ViteUITests.framework */; };
 		D62F634C8DA45F93E78F5B8D /* Pods_Vite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */; };
 /* End PBXBuildFile section */
@@ -245,7 +247,6 @@
 		8E6F3E1C2142280F003CDFC2 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		8E6F3E2121422A83003CDFC2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8E6F3E2721422BA1003CDFC2 /* MyHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHomeViewController.swift; sourceTree = "<group>"; };
-		8E6F3E2921425317003CDFC2 /* WalletHomeAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHomeAddressCell.swift; sourceTree = "<group>"; };
 		8E6F3E2B2142644E003CDFC2 /* UITableView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Helper.swift"; sourceTree = "<group>"; };
 		8E6F3E3021427683003CDFC2 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		8E6F3E322142768B003CDFC2 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
@@ -259,6 +260,8 @@
 		8E6F3E4F21451F29003CDFC2 /* GetBalanceInfosRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBalanceInfosRequest.swift; sourceTree = "<group>"; };
 		8E6F3E5121453333003CDFC2 /* WalletHomeBalanceInfoViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHomeBalanceInfoViewModelType.swift; sourceTree = "<group>"; };
 		8E6F3E5321453405003CDFC2 /* WalletHomeBalanceInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHomeBalanceInfoViewModel.swift; sourceTree = "<group>"; };
+		8E79C6E7214D392900FAEEBC /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
+		8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCacheService.swift; sourceTree = "<group>"; };
 		8ED4CECB2147C4A60005A82D /* SafariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewController.swift; sourceTree = "<group>"; };
 		8ED4CECE2147C5910005A82D /* WebHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHandler.swift; sourceTree = "<group>"; };
 		8ED4CED22148AF630005A82D /* GetMoreLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoreLoadingView.swift; sourceTree = "<group>"; };
@@ -280,6 +283,7 @@
 		8EE46906214B9AC800807D2C /* NavigationBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarStyle.swift; sourceTree = "<group>"; };
 		8EE46908214BA1BE00807D2C /* NavigationTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleView.swift; sourceTree = "<group>"; };
 		8EE4690A214BBE0B00807D2C /* UIButton+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Helper.swift"; sourceTree = "<group>"; };
+		8EE4691D214CE03F00807D2C /* WalletHomeAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHomeAddressView.swift; sourceTree = "<group>"; };
 		90D19E345292B3451EF0C77B /* Pods-ViteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9CDD7A55935285C97D7AB255 /* Pods-ViteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.release.xcconfig"; sourceTree = "<group>"; };
 		B5C0FE724D993EC85BD39D8F /* Pods-Vite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.release.xcconfig"; sourceTree = "<group>"; };
@@ -412,6 +416,7 @@
 				4CE4E1462147AC0100A6CD7E /* WalletDataService.swift */,
 				4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */,
 				740C3E4A214B6425005FCD24 /* AuthenticationManager.swift */,
+				8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -845,6 +850,7 @@
 				8E6F3E2B2142644E003CDFC2 /* UITableView+Helper.swift */,
 				8E56FC7C214656A700A68823 /* UIView+Helper.swift */,
 				8EE4690A214BBE0B00807D2C /* UIButton+Helper.swift */,
+				8E79C6E7214D392900FAEEBC /* FileHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -879,7 +885,7 @@
 		8E6F3E3821427864003CDFC2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8E6F3E2921425317003CDFC2 /* WalletHomeAddressCell.swift */,
+				8EE4691D214CE03F00807D2C /* WalletHomeAddressView.swift */,
 				8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */,
 			);
 			path = Views;
@@ -1146,6 +1152,7 @@
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
@@ -1180,6 +1187,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
@@ -1287,7 +1295,6 @@
 				4C745494214D0A9D0070F7AB /* TitleBtnView.swift in Sources */,
 				4C84D9322145280E001B6EBD /* CreateWalletAccountViewController.swift in Sources */,
 				8E6F3DFB2140FFEC003CDFC2 /* ViteServiceRequest.swift in Sources */,
-				8E6F3E2A21425317003CDFC2 /* WalletHomeAddressCell.swift in Sources */,
 				8E56FC8721466D6500A68823 /* GetUnconfirmedInfosRequest.swift in Sources */,
 				8ED4CECC2147C4A60005A82D /* SafariViewController.swift in Sources */,
 				8E56FC9C2147A9CE00A68823 /* DateExtension.swift in Sources */,
@@ -1318,10 +1325,12 @@
 				4C84D9312145280E001B6EBD /* CreateWalletTipViewController.swift in Sources */,
 				8E56FC9A21479A7D00A68823 /* TransactionCell.swift in Sources */,
 				4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */,
+				8E79C6EA214DFD9C00FAEEBC /* TokenCacheService.swift in Sources */,
 				8E56FC902147684200A68823 /* TransactionListTableViewModelType.swift in Sources */,
 				8EE468E3214A047500807D2C /* AddressManageDefaultAddressCell.swift in Sources */,
 				8E6F3E16214227E7003CDFC2 /* WalletHomeViewController.swift in Sources */,
 				8E6F3E0721411650003CDFC2 /* Transaction.swift in Sources */,
+				8E79C6E8214D392900FAEEBC /* FileHelper.swift in Sources */,
 				4C84D96421469FFA001B6EBD /* ImportAccountVM.swift in Sources */,
 				8E6F3E5221453333003CDFC2 /* WalletHomeBalanceInfoViewModelType.swift in Sources */,
 				8E6F3E5021451F29003CDFC2 /* GetBalanceInfosRequest.swift in Sources */,
@@ -1335,6 +1344,7 @@
 				4C2284B52148BB2A003E9907 /* ImageCell.swift in Sources */,
 				4C84D91C2145277C001B6EBD /* PasswordInputView.swift in Sources */,
 				8E56FC78214643B300A68823 /* WalletHomeBalanceInfoCell.swift in Sources */,
+				8EE4691E214CE03F00807D2C /* WalletHomeAddressView.swift in Sources */,
 				8E6F3E0121410424003CDFC2 /* RPCError.swift in Sources */,
 				4CEB292B214BBD2400E5F7F4 /* ViteInputValidator.swift in Sources */,
 				4C84D94321452836001B6EBD /* MnemonicCollectionView.swift in Sources */,

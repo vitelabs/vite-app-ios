@@ -9,24 +9,13 @@
 import Foundation
 import UIKit
 import ObjectMapper
+import Rswift
 
 struct Token: Mappable {
+    
     fileprivate(set) var id: String = ""
     fileprivate(set) var name: String = ""
     fileprivate(set) var symbol: String = ""
-
-    var placeholdIconImage: UIImage {
-        return R.image.icon_wallet_token_default()!
-    }
-
-    var defaultIconImage: UIImage {
-        // Vite
-        if id == TokenID.vite.rawValue {
-            return R.image.icon_wallet_token_vite()!
-        } else {
-            return placeholdIconImage
-        }
-    }
 
     init(id: String = "", name: String = "", symbol: String = "") {
         self.id = id
@@ -47,13 +36,12 @@ struct Token: Mappable {
 
 extension Token {
 
-    enum TokenID: String {
+    enum Currency: String {
         case vite = "tti_000000000000000000004cfd"
     }
 
-    static let defaultTokens: [Token] = [makeViteToken()]
-
-    private static func makeViteToken() -> Token {
-        return Token(id: TokenID.vite.rawValue, name: "vite", symbol: "VITE")
+    enum Icon {
+        case url(url: URL)
+        case local(imageResource: ImageResource)
     }
 }

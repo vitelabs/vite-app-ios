@@ -25,17 +25,27 @@ class BaseTableViewController: BaseViewController {
     }
 
     override var navigationTitleView: NavigationTitleView? {
-        didSet {
+        didSet { layoutTableView() }
+    }
 
-            if let new = navigationTitleView {
-                tableView.snp.remakeConstraints { (m) in
-                    m.top.equalTo(new.snp.bottom)
-                    m.left.right.bottom.equalTo(view)
-                }
-            } else {
-                tableView.snp.remakeConstraints { (m) in
-                    m.edges.equalTo(view)
-                }
+    override var customHeaderView: UIView? {
+        didSet { layoutTableView() }
+    }
+
+    private func layoutTableView() {
+        if let customHeaderView = customHeaderView {
+            tableView.snp.remakeConstraints { (m) in
+                m.top.equalTo(customHeaderView.snp.bottom)
+                m.left.right.bottom.equalTo(view)
+            }
+        } else if let navigationTitleView = navigationTitleView {
+            tableView.snp.remakeConstraints { (m) in
+                m.top.equalTo(navigationTitleView.snp.bottom)
+                m.left.right.bottom.equalTo(view)
+            }
+        } else {
+            tableView.snp.remakeConstraints { (m) in
+                m.edges.equalTo(view)
             }
         }
     }

@@ -5,6 +5,9 @@ PODS:
     - Result (~> 3.0)
   - BigInt (3.1.0):
     - SipHash (~> 1.2)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - CryptoSwift (0.11.0)
   - Differentiator (3.0.2)
   - Eureka (4.2.0)
@@ -49,7 +52,7 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.2.0)
-  - scrypt (1.8):
+  - scrypt (1.7):
     - CryptoSwift (~> 0.11)
   - secp256k1.swift (0.1.4)
   - SipHash (1.2.2)
@@ -70,6 +73,7 @@ DEPENDENCIES:
   - ActionSheetPicker-3.0
   - APIKit
   - BigInt (~> 3.0)
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Eureka
   - JSONRPCKit
   - KeychainSwift
@@ -128,14 +132,22 @@ SPEC REPOS:
     - Toast-Swift
 
 EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
   Vite-keystore:
     :path: "../vite-keystore-ios"
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: 6dd284bde21ea2e7f9fd89bc36f40df16e16369d
+    :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   APIKit: a39ff72ac44efc15513fd1b98800f63c525be61b
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   CryptoSwift: ad5208dd2aae0a764ea4ce2c2d34bd067cae67f0
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
@@ -157,7 +169,7 @@ SPEC CHECKSUMS:
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
   RxGesture: c278eb05b187abd47e11e65464ae4de53ab71d95
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
-  scrypt: cc8333b4338b9d4127743e3f7b1304e309d8061c
+  scrypt: a828bd579086977f6db7f9798d1c6332ccaaed4e
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
@@ -166,6 +178,6 @@ SPEC CHECKSUMS:
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   Vite-keystore: 1987ba1387d428a36156ecc845084cf492fbc040
 
-PODFILE CHECKSUM: 13341e23bc25c5977b6396df7bcafe07fc99472a
+PODFILE CHECKSUM: 93cb0c81ddcd59a5c0f1fc50b217f873d93fd295
 
 COCOAPODS: 1.5.3

@@ -13,7 +13,8 @@ import RxCocoa
 final class WalletHomeBalanceInfoViewModel: WalletHomeBalanceInfoViewModelType {
 
     let tokenId: String
-    let iconImage: UIImage
+    let icon: Token.Icon
+    let backgroundColors: [UIColor]
     let name: String
     let balance: String
     let unconfirmed: String
@@ -21,7 +22,8 @@ final class WalletHomeBalanceInfoViewModel: WalletHomeBalanceInfoViewModelType {
 
     init(balanceInfo: BalanceInfo) {
         self.tokenId = balanceInfo.token.id
-        self.iconImage = balanceInfo.token.defaultIconImage
+        self.icon = TokenCacheService.instance.iconForId(balanceInfo.token.id)
+        self.backgroundColors = TokenCacheService.instance.backgroundColorsForId(balanceInfo.token.id)
         self.name = balanceInfo.token.name
         self.balance = balanceInfo.balance.amountShort
         self.unconfirmed = balanceInfo.unconfirmedBalance.amountShort
