@@ -24,6 +24,6 @@ class ViteInputValidator: NSObject {
     }
 
     class func isValidWalletPasswordCount(str: String) -> Bool {
-        return str.count == 32
+        return str.count == 6
     }
 }

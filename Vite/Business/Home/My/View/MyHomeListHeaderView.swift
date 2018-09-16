@@ -38,25 +38,16 @@ class MyHomeListHeaderView: UIView {
         }
     }
 
-    lazy var manageWalletBtn: UIButton = {
-        let manageWalletBtn = UIButton()
-        manageWalletBtn.setTitle(R.string.localizable.myPageMangeWalletCellTitle.key.localized(), for: .normal)
-        manageWalletBtn.setTitleColor(.black, for: .normal)
-        manageWalletBtn.backgroundColor = .orange
-        manageWalletBtn.addTarget(self, action: #selector(manageWalletBtnAction), for: .touchUpInside)
+    lazy var manageWalletBtn: IconBtnView = {
+        let manageWalletBtn = IconBtnView.init(iconImg: R.image.icon_wallet()!, text: R.string.localizable.myPageMangeWalletCellTitle.key.localized())
+        manageWalletBtn.btn.addTarget(self, action: #selector(manageWalletBtnAction), for: .touchUpInside)
         return manageWalletBtn
     }()
 
-    lazy var transactionLogBtn: UIButton = {
-        let transactionLogBtn = UIButton()
-        transactionLogBtn.setTitle(R.string.localizable.myPageDealLogCellTitle.key.localized(), for: .normal)
-        transactionLogBtn.setTitleColor(.black, for: .normal)
-        transactionLogBtn.backgroundColor = .orange
-        transactionLogBtn.addTarget(self, action: #selector(transactionLogBtnAction), for: .touchUpInside)
+    lazy var transactionLogBtn: IconBtnView = {
+        let transactionLogBtn = IconBtnView.init(iconImg: R.image.icon_transrecord()!, text: R.string.localizable.myPageDealLogCellTitle.key.localized())
+        transactionLogBtn.btn.addTarget(self, action: #selector(transactionLogBtnAction), for: .touchUpInside)
         return transactionLogBtn
-
-        //TODO:::  左边文字，右边图片封装
-
     }()
 
     @objc func transactionLogBtnAction() {
