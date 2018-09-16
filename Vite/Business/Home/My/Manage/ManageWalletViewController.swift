@@ -54,7 +54,7 @@ class ManageWalletViewController: FormViewController {
             <<< ImageRow("manageWalletPageAddressManageCellTitle") {
                 $0.cell.titleLab.text =  R.string.localizable.manageWalletPageAddressManageCellTitle.key.localized()
                 $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
-                }.onCellSelection({ [unowned self] _, _  in
+            }.onCellSelection({ [unowned self] _, _  in
                     let vc = AddressManageViewController()
                     self.navigationController?.pushViewController(vc, animated: true)
                 })
@@ -62,7 +62,7 @@ class ManageWalletViewController: FormViewController {
             <<< ImageRow("manageWalletPageImportMnemonicCellTitle") {
                 $0.cell.titleLab.text =  R.string.localizable.manageWalletPageImportMnemonicCellTitle.key.localized()
                 $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
-                }.onCellSelection({ [unowned self] _, _  in
+            }.onCellSelection({ [unowned self] _, _  in
                     let vc = ExportMnemonicViewController()
                     self.navigationController?.pushViewController(vc, animated: true)
                 })

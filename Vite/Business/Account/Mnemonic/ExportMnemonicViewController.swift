@@ -27,6 +27,7 @@ class ExportMnemonicViewController: BaseViewController {
         contentTextView.layer.cornerRadius = 2
         contentTextView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         contentTextView.isEditable = false
+        contentTextView.isScrollEnabled = false
         return contentTextView
     }()
 
