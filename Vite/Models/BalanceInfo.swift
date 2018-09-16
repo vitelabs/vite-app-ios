@@ -12,7 +12,6 @@ import BigInt
 
 struct BalanceInfo: Mappable {
 
-    fileprivate(set) var token = Token()
     fileprivate(set) var balance = Balance()
     fileprivate(set) var unconfirmedBalance = Balance()
     fileprivate(set) var unconfirmedCount: Int = 0
@@ -21,15 +20,22 @@ struct BalanceInfo: Mappable {
     fileprivate var tokenName = ""
     fileprivate var tokenSymbol = ""
 
+    var token: Token {
+        return Token(id: tokenId, name: tokenName, symbol: tokenSymbol)
+    }
+
     init?(map: Map) {
 
     }
 
     init(token: Token, balance: Balance, unconfirmedBalance: Balance, unconfirmedCount: Int) {
-        self.token = token
         self.balance = balance
         self.unconfirmedBalance = unconfirmedBalance
         self.unconfirmedCount = unconfirmedCount
+
+        self.tokenId = token.id
+        self.tokenName = token.name
+        self.tokenSymbol = token.symbol
     }
 
     mutating func mapping(map: Map) {
@@ -37,7 +43,6 @@ struct BalanceInfo: Mappable {
         tokenName <- map["TokenName"]
         tokenSymbol <- map["TokenSymbol"]
         balance <- (map["Balance"], JSONTransformer.balance)
-        token = Token(id: tokenId, name: tokenName, symbol: tokenSymbol)
     }
 
     mutating func fill(unconfirmedBalance: Balance, unconfirmedCount: Int) {
@@ -48,13 +53,13 @@ struct BalanceInfo: Mappable {
 
 extension BalanceInfo: Equatable {
     static func == (lhs: BalanceInfo, rhs: BalanceInfo) -> Bool {
-        return lhs.token.id == rhs.token.id
+        return lhs.tokenId == rhs.tokenId
     }
 }
 
 extension BalanceInfo {
 
-    static let defaultBalanceInfos: [BalanceInfo] = Token.defaultTokens.map {
+    static let defaultBalanceInfos: [BalanceInfo] = TokenCacheService.instance.defaultTokens.map {
         BalanceInfo(token: $0, balance: Balance(), unconfirmedBalance: Balance(), unconfirmedCount: 0)
     }
 

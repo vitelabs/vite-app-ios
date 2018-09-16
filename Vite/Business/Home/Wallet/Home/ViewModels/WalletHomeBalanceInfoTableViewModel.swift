@@ -19,14 +19,29 @@ final class WalletHomeBalanceInfoTableViewModel: WalletHomeBalanceInfoTableViewM
     fileprivate let disposeBag = DisposeBag()
     fileprivate let accountProvider = AccountProvider(server: RPCServer.shared)
 
+    fileprivate let fileHelper: FileHelper
+    fileprivate static let saveKey = "BalanceInfos"
+
     deinit {
         print("deinit WalletHomeBalanceInfoTableViewModel")
     }
 
     init(address: Address) {
         self.address = address
-        // TODO: need cache
-        balanceInfos = BehaviorRelay<[WalletHomeBalanceInfoViewModelType]>(value: [])
+        self.fileHelper = FileHelper(.library, appending: "\(FileHelper.accountPathComponent)/\(address.description)")
+
+        var oldBalanceInfos: [BalanceInfo]!
+        if let data = self.fileHelper.contentsAtRelativePath(type(of: self).saveKey),
+            let jsonString = String(data: data, encoding: .utf8),
+            let array = [BalanceInfo](JSONString: jsonString) {
+            oldBalanceInfos = array
+        } else {
+            oldBalanceInfos = BalanceInfo.mergeBalanceInfos([])
+        }
+
+        balanceInfos = BehaviorRelay<[WalletHomeBalanceInfoViewModelType]>(value: oldBalanceInfos.map {
+            WalletHomeBalanceInfoViewModel(balanceInfo: $0)
+        })
 
         getBalanceInfos()
         Observable<Int>.interval(5, scheduler: MainScheduler.instance).bind { [weak self] _ in
@@ -36,9 +51,20 @@ final class WalletHomeBalanceInfoTableViewModel: WalletHomeBalanceInfoTableViewM
 
     private func getBalanceInfos() {
         _ = accountProvider.getBalanceInfos(address: address).done { [weak self] balanceInfos in
-            self?.balanceInfos.accept(BalanceInfo.mergeBalanceInfos(balanceInfos).map {
-                WalletHomeBalanceInfoViewModel(balanceInfo: $0)
-            })
+            let allBalanceInfos = BalanceInfo.mergeBalanceInfos(balanceInfos)
+
+            let tokens = allBalanceInfos.map { $0.token }
+            TokenCacheService.instance.updateTokensIfNeeded(tokens)
+
+            if let data = allBalanceInfos.toJSONString()?.data(using: .utf8) {
+                do {
+                    try self?.fileHelper.writeData(data, relativePath: WalletHomeBalanceInfoTableViewModel.saveKey)
+                } catch let error {
+                    assert(false, error.localizedDescription)
+                }
+
+            }
+            self?.balanceInfos.accept(allBalanceInfos.map { WalletHomeBalanceInfoViewModel(balanceInfo: $0) })
         }
     }
 }

@@ -7,57 +7,135 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class WalletHomeBalanceInfoCell: BaseTableViewCell {
 
+    static var cellHeight: CGFloat {
+        return 130
+    }
+
+    fileprivate let colorView = UIImageView()
     fileprivate let iconImageView = UIImageView()
 
     fileprivate let nameLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 17)
-        $0.textColor = UIColor.red
+        $0.font = UIFont.systemFont(ofSize: 16)
+        $0.textColor = UIColor.white
     }
 
     fileprivate let balanceLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 17)
-        $0.textColor = UIColor.green
+        $0.font = UIFont.systemFont(ofSize: 16)
+        $0.textColor = UIColor(netHex: 0x24272B)
         $0.numberOfLines = 1
     }
 
     fileprivate let unconfirmedLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 13)
-        $0.textColor = UIColor.green
+        $0.font = UIFont.systemFont(ofSize: 12)
+        $0.textColor = UIColor(netHex: 0x4B5461)
         $0.numberOfLines = 1
+    }
+
+    fileprivate let highlightedMaskView = UIView().then {
+        $0.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        $0.layer.masksToBounds = true
+        $0.layer.cornerRadius = 2
+        $0.isUserInteractionEnabled = false
+        $0.isHidden = true
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        contentView.addSubview(iconImageView)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(balanceLabel)
-        contentView.addSubview(unconfirmedLabel)
+        let shadowView = UIView().then {
+            $0.backgroundColor = UIColor.white
+            $0.layer.shadowColor = UIColor(netHex: 0x000000).cgColor
+            $0.layer.shadowOpacity = 0.1
+            $0.layer.shadowOffset = CGSize(width: 0, height: 5)
+            $0.layer.shadowRadius = 20
+        }
 
+        let whiteView = UIView().then {
+            $0.backgroundColor = UIColor.white
+            $0.layer.masksToBounds = true
+            $0.layer.cornerRadius = 2
+        }
+
+        let arrowView = UIImageView(image: R.image.icon_right_white())
+        let balanceTitleView = UILabel().then {
+            $0.font = UIFont.systemFont(ofSize: 14)
+            $0.textColor = UIColor(netHex: 0x3E4A59)
+            $0.text = R.string.localizable.walletHomeBalanceTitle()
+        }
+
+        backgroundColor = UIColor.clear
+        contentView.backgroundColor = UIColor.clear
+        contentView.addSubview(shadowView)
+        contentView.addSubview(whiteView)
+        contentView.addSubview(highlightedMaskView)
+
+        colorView.addSubview(iconImageView)
+        colorView.addSubview(nameLabel)
+        colorView.addSubview(arrowView)
+
+        whiteView.addSubview(colorView)
+        whiteView.addSubview(balanceTitleView)
+        whiteView.addSubview(balanceLabel)
+        whiteView.addSubview(unconfirmedLabel)
+
+        whiteView.snp.makeConstraints { (m) in
+            m.top.equalTo(contentView)
+            m.left.equalTo(contentView).offset(24)
+            m.right.equalTo(contentView).offset(-24)
+            m.height.equalTo(110)
+            m.bottom.equalTo(contentView).offset(-20)
+        }
+
+        shadowView.snp.makeConstraints { (m) in
+            m.edges.equalTo(whiteView)
+        }
+
+        highlightedMaskView.snp.makeConstraints { (m) in
+            m.edges.equalTo(whiteView)
+        }
+
+        colorView.snp.makeConstraints { (m) in
+            m.top.left.right.equalTo(whiteView)
+            m.height.equalTo(56)
+        }
+
+        iconImageView.setContentHuggingPriority(.required, for: .horizontal)
+        iconImageView.setContentCompressionResistancePriority(.required, for: .horizontal)
         iconImageView.snp.makeConstraints { (m) in
-            m.centerY.equalTo(contentView)
-            m.left.equalTo(contentView).offset(15)
+            m.centerY.equalTo(colorView)
+            m.left.equalTo(colorView).offset(16)
         }
 
         nameLabel.snp.makeConstraints { (m) in
-            m.centerY.equalTo(contentView)
+            m.centerY.equalTo(colorView)
             m.left.equalTo(iconImageView.snp.right).offset(10)
         }
 
+        arrowView.setContentHuggingPriority(.required - 1, for: .horizontal)
+        arrowView.setContentCompressionResistancePriority(.required - 1, for: .horizontal)
+        arrowView.snp.makeConstraints { (m) in
+            m.centerY.equalTo(colorView)
+            m.left.equalTo(nameLabel.snp.right).offset(10)
+            m.right.equalTo(colorView).offset(-10)
+        }
+
+        balanceTitleView.snp.makeConstraints { (m) in
+            m.top.equalTo(colorView.snp.bottom).offset(17)
+            m.left.equalTo(whiteView).offset(16)
+        }
+
         balanceLabel.snp.makeConstraints { (m) in
-            m.top.equalTo(contentView).offset(10)
-            m.left.greaterThanOrEqualTo(nameLabel.snp.right).offset(10)
-            m.right.equalTo(contentView).offset(-15)
+            m.top.equalTo(colorView.snp.bottom).offset(8)
+            m.right.equalTo(whiteView).offset(-16)
         }
 
         unconfirmedLabel.snp.makeConstraints { (m) in
-            m.top.equalTo(balanceLabel.snp.bottom).offset(5)
-            m.left.greaterThanOrEqualTo(nameLabel.snp.right).offset(10)
-            m.right.equalTo(contentView).offset(-15)
-            m.bottom.equalTo(contentView).offset(-10)
+            m.right.equalTo(whiteView).offset(-16)
+            m.bottom.equalTo(whiteView).offset(-8)
         }
     }
 
@@ -65,10 +143,29 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        highlightedMaskView.isHidden = !highlighted
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        highlightedMaskView.isHidden = !selected
+    }
+
     func bind(viewModel: WalletHomeBalanceInfoViewModelType) {
-        iconImageView.image = viewModel.iconImage
+
+        switch viewModel.icon {
+        case .local(let imageResource):
+            iconImageView.image = UIImage(resource: imageResource)
+        case .url(let url):
+            fatalError("\(url) Currently not supported!")
+        }
+
         nameLabel.text = viewModel.name
         balanceLabel.text = viewModel.balance
-        unconfirmedLabel.text = viewModel.unconfirmed
+        unconfirmedLabel.text = R.string.localizable.walletHomeUnconfirmedTitle(viewModel.unconfirmed)
+
+        DispatchQueue.main.async {
+            self.colorView.backgroundColor = GradientColor(.leftToRight, frame: self.colorView.frame, colors: viewModel.backgroundColors)
+        }
     }
 }

@@ -49,7 +49,9 @@
 "tabbar.item.title.wallet" = "钱包";
 "tabbar.item.title.my" = "我";
 
-
+/* Wallet Home */
+"wallet.home.balance.title" = "账户余额";
+"wallet.home.unconfirmed.title" = "在途资金 %@";
 
 /* Manage Wallet */
 "manage.wallet.page.title" = "管理钱包";
