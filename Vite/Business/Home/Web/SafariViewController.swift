@@ -14,7 +14,7 @@ class SafariViewController: SFSafariViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        preferredControlTintColor = UIColor.red
+        preferredControlTintColor = UIColor(netHex: 0x007AFF)
         if #available(iOS 11.0, *) {
             dismissButtonStyle = .close
         }

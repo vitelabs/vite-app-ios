@@ -13,12 +13,14 @@ final class TransactionViewModel: TransactionViewModelType {
     let timeString: String
     let hash: String
     let balanceString: String
+    let symbolString: String
 
     init(transaction: Transaction) {
-        self.typeImage = (transaction.type == .request ? R.image.icon_transcation_request() : R.image.icon_transcation_response())!
+        self.typeImage = (transaction.type == .request ? R.image.icon_tx_send() : R.image.icon_tx_recieve())!
         self.timeString = transaction.timestamp.format()
         self.hash = transaction.hash
         let symbol = transaction.type == .request ? "-" : "+"
         self.balanceString = "\(symbol)\(transaction.amount.amountShort)"
+        self.symbolString = TokenCacheService.instance.tokenForId(transaction.tokenId)?.symbol ?? ""
     }
 }

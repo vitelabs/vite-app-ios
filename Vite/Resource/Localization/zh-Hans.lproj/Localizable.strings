@@ -55,6 +55,7 @@
 /* Wallet Home */
 "wallet.home.balance.title" = "账户余额";
 "wallet.home.unconfirmed.title" = "在途资金 %@";
+"wallet.home.toast.copy.address" = "地址已复制";
 
 /* Manage Wallet */
 "manage.wallet.page.title" = "管理钱包";
@@ -69,10 +70,13 @@
 "my.page.aboutUs.cell.title" = "关于我们";
 "my.page.fetchMoney.cell.title" = "领福利";
 
+/* Transaction List */
+"transaction.list.page.title" = "交易记录";
+
 /* BalanceInfo */
 "balance.info.detail.balance.title" = "账户余额";
 "balance.info.detail.unconfirmed.title" = "在途资金";
-"balance.info.detail.unconfirmed.count.title" = "(%@笔待确认)";
+"balance.info.detail.unconfirmed.count.title" = "%@笔待确认";
 "balance.info.detail.show.transactions.button.title" = "查看交易记录";
 "balance.info.detail.reveice.button.title" = "收款";
 "balance.info.detail.send.button.title" = "转账";

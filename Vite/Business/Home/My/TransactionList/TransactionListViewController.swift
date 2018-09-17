@@ -29,6 +29,11 @@ class TransactionListViewController: BaseTableViewController {
 
     fileprivate func setupView() {
 
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.transactionListPageTitle())
+
+        tableView.separatorStyle = .none
+        tableView.rowHeight = TransactionCell.cellHeight
+        tableView.estimatedRowHeight = TransactionCell.cellHeight
         tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             self?.tableViewModel.refreshList { [weak self] in
                 self?.tableView.mj_header.endRefreshing()

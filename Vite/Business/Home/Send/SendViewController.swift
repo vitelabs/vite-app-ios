@@ -84,16 +84,11 @@ class SendViewController: BaseViewController {
         let tokenId = Token.Currency.vite.rawValue
         let amount = BigInt(1000000000000000000)
 
-
-        func send() {
-            sendTransaction(bag: bag, toAddress: addressView.textField.text!, tokenId: tokenId, amount: amount)
-        }
-
         sendButton.rx.tap.bind { [weak self] in
             let confirmViewController = ConfirmTransactionViewController(confirmTypye: .biometry, address: addressView.textField.text!, token: "vcc", amount: "10000", completion: { [weak self] (result) in
                 guard let `self` = self else { return }
                 if result {
-                    self.sendTransaction(bag: self.bag, toAddress: addressView.textField.text!, tokenId: tokenId, amount: amount)
+                    self.sendTransaction(bag: self.bag, toAddress: Address(string: addressView.textField.text!), tokenId: tokenId, amount: amount)
                 }
             })
             self?.present(confirmViewController, animated: false, completion: nil)
@@ -101,7 +96,7 @@ class SendViewController: BaseViewController {
 
     }
 
-    func sendTransaction(bag: HDWalletManager.Bag, toAddress: String, tokenId: String, amount: BigInt) {
+    func sendTransaction(bag: HDWalletManager.Bag, toAddress: Address, tokenId: String, amount: BigInt) {
 
         let transactionProvider = TransactionProvider(server: RPCServer.shared)
         _ = transactionProvider.getLatestAccountBlock(address: bag.address)
