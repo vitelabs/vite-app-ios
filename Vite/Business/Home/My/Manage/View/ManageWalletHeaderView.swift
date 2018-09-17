@@ -14,36 +14,37 @@ class ManageWalletHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.addSubview(self.nameLab)
-        self.nameLab.snp.makeConstraints {  (make) -> Void in
-            make.centerX.equalTo(self)
-            make.top.equalTo(self).offset(10)
-            make.height.equalTo(30)
+        self.addSubview(self.nameTitleLab)
+        self.nameTitleLab.snp.makeConstraints {  (make) -> Void in
+            make.left.equalTo(self).offset(24)
+            make.top.equalTo(self)
+            make.height.equalTo(20)
         }
 
-        self.addSubview(self.addressLab)
-        self.addressLab.snp.makeConstraints {  (make) -> Void in
-            make.centerX.equalTo(self)
-            make.top.equalTo(self.nameLab.snp.bottom).offset(10)
-            make.height.equalTo(40)
+        self.addSubview(self.nameLab)
+        self.nameLab.snp.makeConstraints {  (make) -> Void in
+            make.left.equalTo(self).offset(24)
+            make.bottom.equalTo(self).offset(-19)
+            make.height.equalTo(20)
         }
     }
 
-    lazy var nameLab: UILabel = {
-        let nameLab =  UILabel()
-        nameLab.text = "ddd"
-        nameLab.textAlignment = .center
-        nameLab.textColor = .black
-        return nameLab
+    lazy var nameTitleLab: UILabel = {
+        let nameTitleLab =  UILabel()
+        nameTitleLab.text = R.string.localizable.manageWalletPageNameCellTitle.key.localized()
+        nameTitleLab.textAlignment = .left
+        nameTitleLab.textColor =  Colors.titleGray
+        nameTitleLab.adjustsFontSizeToFitWidth = true
+        return nameTitleLab
     }()
 
-    lazy var addressLab: UILabel = {
-        let addressLab =  UILabel()
-        addressLab.text = "vite_ddd"
-        addressLab.textAlignment = .center
-        addressLab.textColor = .black
-        addressLab.numberOfLines = 2
-        return addressLab
+    lazy var nameLab: UILabel = {
+        let nameLab =  UILabel()
+        nameLab.text = WalletDataService.shareInstance.defaultWalletAccount?.name
+        nameLab.textAlignment = .left
+        nameLab.adjustsFontSizeToFitWidth = true
+        nameLab.textColor = Colors.cellTitleGray
+        return nameLab
     }()
 
     required init?(coder aDecoder: NSCoder) {

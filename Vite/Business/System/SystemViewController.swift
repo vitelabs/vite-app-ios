@@ -20,6 +20,28 @@ enum NotificationChanged {
 }
 
 class SystemViewController: FormViewController {
+    var navigationBarStyle = NavigationBarStyle.default
+    var navigationTitleView: NavigationTitleView? {
+        didSet {
+            if let old = oldValue {
+                old.removeFromSuperview()
+            }
+
+            if let new = navigationTitleView {
+                view.addSubview(new)
+                new.snp.makeConstraints { (m) in
+                    m.top.equalTo(view.safeAreaLayoutGuideSnp.top)
+                    m.left.equalTo(view)
+                    m.right.equalTo(view)
+                }
+            }
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NavigationBarStyle.configStyle(navigationBarStyle, viewController: self)
+    }
 
     var didChange: ((_ change: NotificationChanged) -> Void)?
 
@@ -30,26 +52,25 @@ class SystemViewController: FormViewController {
     }
 
     lazy var logoutBtn: UIButton = {
-        let logoutBtn = UIButton()
+        let logoutBtn = UIButton.init(style: .white)
         logoutBtn.setTitle("退出并切换钱包", for: .normal)
         logoutBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        logoutBtn.setTitleColor(.black, for: .normal)
-        logoutBtn.backgroundColor = .orange
         logoutBtn.addTarget(self, action: #selector(logoutBtnAction), for: .touchUpInside)
-        logoutBtn.frame = CGRect(x: 0, y: 0, width: kScreenW, height: 44)
         return logoutBtn
     }()
 
     private func _setupView() {
-        self.title = "系统设置"
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.myPageSystemCellTitle.key.localized())
         self.view.backgroundColor = .white
 
         self.setupTableView()
 
         self.view.addSubview(self.logoutBtn)
         self.logoutBtn.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalTo(self.view)
-            make.height.equalTo(84)
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.height.equalTo(50)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-24)
         }
     }
 
@@ -64,7 +85,7 @@ class SystemViewController: FormViewController {
             }
             <<< ImageRow("my.page.message1.cell.title") {
                 $0.cell.titleLab.text = "语言选择"
-                $0.cell.rightImageView.image = R.image.bar_icon_my()
+                $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
             }.onCellSelection({ [unowned self] _, _  in
                     self.showChangeLanguageList()
             })
@@ -72,23 +93,40 @@ class SystemViewController: FormViewController {
             <<< SwitchRow("my.page.system2.cell.title") {
                 $0.title = "输入密码唤起app"
                 $0.value = true
-            }.onChange { [unowned self] row in
+                $0.cell.height = { 60 }
+            }.cellUpdate({ (cell, _) in
+                    cell.textLabel?.textColor = Colors.cellTitleGray
+                    cell.textLabel?.font = Fonts.descFont
+                }) .onChange { [unowned self] row in
                     self.didChange?(.state(isEnabled: row.value ?? false))
             }
 
             <<< SwitchRow("my.page.system.3cell.title") {
                 $0.title = "支持指纹/面部识别"
                 $0.value = true
-            }.onChange { [unowned self] row in
+                $0.cell.height = { 60 }
+            }.cellUpdate({ (cell, _) in
+                    cell.textLabel?.textColor = Colors.cellTitleGray
+                    cell.textLabel?.font = Fonts.descFont
+                }) .onChange { [unowned self] row in
                     self.didChange?(.state(isEnabled: row.value ?? false))
             }
 
             <<< SwitchRow("my.page.system.3ceddll.title") {
                 $0.title = "转账开启指纹/面部识别"
                 $0.value = true
-            }.onChange { [unowned self] row in
+                $0.cell.height = { 60 }
+            }.cellUpdate({ (cell, _) in
+                    cell.textLabel?.textColor = Colors.cellTitleGray
+                    cell.textLabel?.font = Fonts.descFont
+                }) .onChange { [unowned self] row in
                     self.didChange?(.state(isEnabled: row.value ?? false))
             }
+
+        self.tableView.snp.makeConstraints { (make) in
+            make.top.equalTo((self.navigationTitleView?.snp.bottom)!)
+            make.left.right.bottom.equalTo(self.view)
+        }
     }
 
     @objc func logoutBtnAction() {

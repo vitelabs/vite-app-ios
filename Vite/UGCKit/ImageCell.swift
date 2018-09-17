@@ -15,6 +15,7 @@ public class ImageCell: Cell<Bool>, CellType {
         let titleLab = UILabel()
         titleLab.translatesAutoresizingMaskIntoConstraints = false
         titleLab.textAlignment = .left
+        titleLab.textColor = Colors.cellTitleGray
         return titleLab
     }()
 
@@ -40,7 +41,7 @@ public class ImageCell: Cell<Bool>, CellType {
             make.right.equalTo(contentView).offset(-30)
             make.centerY.equalTo(contentView)
         }
-        self.height = { 66 }
+        self.height = { 60 }
     }
 
     public override func update() {
