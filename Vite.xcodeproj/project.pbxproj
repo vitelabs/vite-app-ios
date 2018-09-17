@@ -108,6 +108,7 @@
 		8E79C6E8214D392900FAEEBC /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6E7214D392900FAEEBC /* FileHelper.swift */; };
 		8E79C6EA214DFD9C00FAEEBC /* TokenCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */; };
 		8E79C6EC214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6EB214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift */; };
+		8E79C6EE214E71E300FAEEBC /* HDWalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6ED214E71E300FAEEBC /* HDWalletManager.swift */; };
 		8ED4CECC2147C4A60005A82D /* SafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CECB2147C4A60005A82D /* SafariViewController.swift */; };
 		8ED4CECF2147C5910005A82D /* WebHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CECE2147C5910005A82D /* WebHandler.swift */; };
 		8ED4CED32148AF630005A82D /* GetMoreLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CED22148AF630005A82D /* GetMoreLoadingView.swift */; };
@@ -270,6 +271,7 @@
 		8E79C6E7214D392900FAEEBC /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCacheService.swift; sourceTree = "<group>"; };
 		8E79C6EB214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLatestSnapshotChainHashRequest.swift; sourceTree = "<group>"; };
+		8E79C6ED214E71E300FAEEBC /* HDWalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWalletManager.swift; sourceTree = "<group>"; };
 		8ED4CECB2147C4A60005A82D /* SafariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewController.swift; sourceTree = "<group>"; };
 		8ED4CECE2147C5910005A82D /* WebHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHandler.swift; sourceTree = "<group>"; };
 		8ED4CED22148AF630005A82D /* GetMoreLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoreLoadingView.swift; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 				4CE4E1462147AC0100A6CD7E /* WalletDataService.swift */,
 				4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */,
 				740C3E4A214B6425005FCD24 /* AuthenticationManager.swift */,
+				8E79C6ED214E71E300FAEEBC /* HDWalletManager.swift */,
 				8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */,
 				8EE4690C214BCE0700807D2C /* AutoGatheringService.swift */,
 			);
@@ -1389,6 +1392,7 @@
 				4C84D951214654BD001B6EBD /* LoginViewController.swift in Sources */,
 				8E6F3DF82140FE99003CDFC2 /* RPCServer.swift in Sources */,
 				4C84D94021452836001B6EBD /* WordCollectionViewCell.swift in Sources */,
+				8E79C6EE214E71E300FAEEBC /* HDWalletManager.swift in Sources */,
 				4C2284B82148BC2B003E9907 /* MyHomeListHeaderView.swift in Sources */,
 				740C3E4B214B6425005FCD24 /* AuthenticationManager.swift in Sources */,
 				4CE4E14521479EAF00A6CD7E /*  CreateWalletService.swift in Sources */,

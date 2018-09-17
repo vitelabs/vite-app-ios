@@ -129,24 +129,24 @@ class ViteNetworkTests: XCTestCase {
 //        }
 //    }
 
-    func testSend() {
-        async { (completion) in
-            let transactionProvider = TransactionProvider(server: RPCServer.shared)
-            _ = transactionProvider.getLatestAccountBlock(address: Address(string: "vite_4827fbc6827797ac4d9e814affb34b4c5fa85d39bf96d105e7"))
-                .then({ accountBlock -> Promise<Void> in
-                    let key = WalletDataService.shareInstance.defaultWalletAccount!.defaultKey
-                    let send = accountBlock.makeSendAccountBlock(latestAccountBlock: accountBlock, key: key, toAddress: "vite_7945df07bbf55f5afc76360a263b0870795ce5d1ecea36b786", tokenId: Token.Currency.vite.rawValue, amount: BigInt(1000000000000000000))
-                    return transactionProvider.createTransaction(accountBlock: send)
-                })
-                .done({
-                    print("🏆")
-                })
-                .catch({ (error) in
-                    print("🤯🤯🤯🤯🤯🤯\(error)")
-                })
-                .finally({
-                    completion()
-                })
-        }
-    }
+//    func testSend() {
+//        async { (completion) in
+//            let transactionProvider = TransactionProvider(server: RPCServer.shared)
+//            _ = transactionProvider.getLatestAccountBlock(address: Address(string: "vite_4827fbc6827797ac4d9e814affb34b4c5fa85d39bf96d105e7"))
+//                .then({ accountBlock -> Promise<Void> in
+//                    let bag = HDWalletManager.instance.bag()
+//                    let send = accountBlock.makeSendAccountBlock(latestAccountBlock: accountBlock, bag: bag, toAddress: "vite_7945df07bbf55f5afc76360a263b0870795ce5d1ecea36b786", tokenId: Token.Currency.vite.rawValue, amount: BigInt(1000000000000000000))
+//                    return transactionProvider.createTransaction(accountBlock: send)
+//                })
+//                .done({
+//                    print("🏆")
+//                })
+//                .catch({ (error) in
+//                    print("🤯🤯🤯🤯🤯🤯\(error)")
+//                })
+//                .finally({
+//                    completion()
+//                })
+//        }
+//    }
 }

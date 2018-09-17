@@ -13,48 +13,29 @@ import Vite_keystore
 
 class AddressManagerTableViewModel: AddressManagerTableViewModelType {
 
-    lazy var defaultAddressDriver: Driver<String> = self.defaultAddress.asDriver()
-    lazy var addressesDriver: Driver<[AddressManageAddressViewModelType]> = self.addresses.asDriver()
-    var canGenerateAddress: Bool { return self.account.canGenerateAddress }
+    lazy var defaultAddressDriver: Driver<String> = HDWalletManager.instance.bagDriver.map { $0.address.description }
+    lazy var addressesDriver: Driver<[AddressManageAddressViewModelType]> =
+        Driver.combineLatest(HDWalletManager.instance.bagsDriver, HDWalletManager.instance.bagDriver)
+            .map { (bags, _) -> [AddressManageAddressViewModelType] in
+                var number = 0
+                return bags.map { bag -> AddressManageAddressViewModelType in
+                    let isSelected = number == HDWalletManager.instance.selectBagIndex()
+                    number += 1
+                    return AddressManageAddressViewModel(number: number, address: bag.address.description, isSelected: isSelected)
+                }
+            }
 
-    fileprivate let defaultAddress: BehaviorRelay<String>
-    fileprivate let addresses: BehaviorRelay<[AddressManageAddressViewModelType]>
-
-    fileprivate let account: WalletAccount
+    var canGenerateAddress: Bool { return HDWalletManager.instance.canGenerateNextBag() }
 
     deinit {
         print("deinit AddressManagerTableViewModel")
     }
 
-    init(account: WalletAccount) {
-        self.account = account
-        defaultAddress = BehaviorRelay<String>(value: account.defaultKey.address)
-        var number = 0
-        addresses = BehaviorRelay<[AddressManageAddressViewModelType]>(value: account.existKeys.map({
-            number += 1
-            let isSelected = account.defaultKey.address == $0.address
-            return AddressManageAddressViewModel(number: number, address: $0.address, isSelected: isSelected)
-        }))
-    }
-
     func generateAddress() {
-        account.generateAddress()
-        updare()
+        _ = HDWalletManager.instance.generateNextBag()
     }
 
     func setDefaultAddressIndex(_ index: Int) {
-        account.setDefaultAddressIndex(index)
-        updare()
+        _ = HDWalletManager.instance.selectBag(index: index)
     }
-
-    private func updare() {
-        defaultAddress.accept(account.defaultKey.address)
-        var number = 0
-        addresses.accept(account.existKeys.map({
-            number += 1
-            let isSelected = account.defaultKey.address == $0.address
-            return AddressManageAddressViewModel(number: number, address: $0.address, isSelected: isSelected)
-        }))
-    }
-
 }

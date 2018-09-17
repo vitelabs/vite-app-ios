@@ -17,6 +17,8 @@ public class WalletDataService: NSObject {
     public override init() {
         walletStorage = WalletStorage()
         defaultWalletAccount = walletStorage.walletAccounts.first
+        // 为了保存新增的uuid，读取之后就先保存一下
+        walletStorage.storeAllWallets()
     }
 
     public func isExistWallet() -> Bool {

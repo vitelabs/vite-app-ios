@@ -52,11 +52,11 @@ class AddressManageViewController: BaseTableViewController {
         }
     })
 
-     let account = WalletDataService.shareInstance.defaultWalletAccount
+    let accountDriver = HDWalletManager.instance.accountDriver
     var tableViewModel: AddressManagerTableViewModel!
 
     fileprivate func bind() {
-        tableViewModel = AddressManagerTableViewModel(account: account!)
+        tableViewModel = AddressManagerTableViewModel()
 
         Observable.combineLatest(tableViewModel.defaultAddressDriver.asObservable(),
                                  tableViewModel.addressesDriver.asObservable())

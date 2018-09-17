@@ -9,7 +9,6 @@
 import UIKit
 import ObjectMapper
 import BigInt
-import Vite_keystore
 import libEd25519Blake2b
 import CryptoSwift
 
@@ -75,13 +74,13 @@ struct AccountBlock: Mappable {
 }
 
 extension AccountBlock {
-    func makeSendAccountBlock(latestAccountBlock: AccountBlock, key: WalletAccount.Key, snapshotChainHash: String, toAddress: String, tokenId: String, amount: BigInt) -> AccountBlock {
+    func makeSendAccountBlock(latestAccountBlock: AccountBlock, bag: HDWalletManager.Bag, snapshotChainHash: String, toAddress: String, tokenId: String, amount: BigInt) -> AccountBlock {
 
-        var accountBlock = makeBaseAccountBlock(latestAccountBlock: latestAccountBlock, key: key, snapshotChainHash: snapshotChainHash)
+        var accountBlock = makeBaseAccountBlock(latestAccountBlock: latestAccountBlock, bag: bag, snapshotChainHash: snapshotChainHash)
         accountBlock.to = toAddress
         accountBlock.tokenId = tokenId
         accountBlock.amount = amount
-        let (hash, signature) = self.signature(accountBlock: accountBlock, secretKeyHexString: key.secretKey, publicKeyHexString: key.publicKey)
+        let (hash, signature) = self.signature(accountBlock: accountBlock, secretKeyHexString: bag.secretKey, publicKeyHexString: bag.publicKey)
 
         accountBlock.hash = hash
         accountBlock.signature = signature
@@ -89,17 +88,17 @@ extension AccountBlock {
         return accountBlock
     }
 
-    func makeReceiveAccountBlock(latestAccountBlock: AccountBlock, key: WalletAccount.Key, snapshotChainHash: String) -> AccountBlock {
+    func makeReceiveAccountBlock(latestAccountBlock: AccountBlock, bag: HDWalletManager.Bag, snapshotChainHash: String) -> AccountBlock {
 
-        var accountBlock = makeBaseAccountBlock(latestAccountBlock: latestAccountBlock, key: key, snapshotChainHash: snapshotChainHash)
-        let (hash, signature) = self.signature(accountBlock: accountBlock, secretKeyHexString: key.secretKey, publicKeyHexString: key.publicKey)
+        var accountBlock = makeBaseAccountBlock(latestAccountBlock: latestAccountBlock, bag: bag, snapshotChainHash: snapshotChainHash)
+        let (hash, signature) = self.signature(accountBlock: accountBlock, secretKeyHexString: bag.secretKey, publicKeyHexString: bag.publicKey)
         accountBlock.hash = hash
         accountBlock.signature = signature
 
         return accountBlock
     }
 
-    private func makeBaseAccountBlock(latestAccountBlock: AccountBlock, key: WalletAccount.Key, snapshotChainHash: String) -> AccountBlock {
+    private func makeBaseAccountBlock(latestAccountBlock: AccountBlock, bag: HDWalletManager.Bag, snapshotChainHash: String) -> AccountBlock {
 
         var accountBlock = AccountBlock()
 
@@ -109,8 +108,8 @@ extension AccountBlock {
             accountBlock.meta.setHeight(1)
         }
 
-        accountBlock.accountAddress = key.address
-        accountBlock.publicKey = key.publicKey
+        accountBlock.accountAddress = bag.address.description
+        accountBlock.publicKey = bag.publicKey
         accountBlock.fromHash = self.hash
         accountBlock.prevHash = latestAccountBlock.hash
         accountBlock.timestamp = BigInt(Date().timeIntervalSince1970)
