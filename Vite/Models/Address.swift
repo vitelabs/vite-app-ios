@@ -7,10 +7,18 @@
 //
 
 import Foundation
+import Vite_keystore
+import libEd25519Blake2b
 
 struct Address: CustomStringConvertible {
 
     static func isValid(string: String) -> Bool {
+        guard string.count == 55 else { return false }
+        let prefix = (string as NSString).substring(to: 5) as String
+        let hash = (string as NSString).substring(with: NSRange(location: 5, length: 40)) as String
+        let checksum = (string as NSString).substring(from: 45) as String
+        guard prefix == "vite_" else { return false }
+        guard checksum == Blake2b.hash(outLength: 5, in: hash.hex2Bytes)?.toHexString() else { return false }
         return true
     }
 
@@ -25,16 +33,10 @@ struct Address: CustomStringConvertible {
     var description: String {
         return address
     }
-}
 
-extension String {
-    var addressStrip: String {
-        guard count == 45 else { return "" }
-        return (self as NSString).substring(with: NSRange(location: 5, length: 40)) as String
-    }
-
-    var tokenIdStrip: String {
-        guard count == 28 else { return "" }
-        return (self as NSString).substring(with: NSRange(location: 4, length: 24)) as String
+    var raw: String {
+        guard address.count == 55 else { return "" }
+        let string = (address as NSString).substring(with: NSRange(location: 5, length: 40)) as String
+        return string
     }
 }

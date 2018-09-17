@@ -21,7 +21,7 @@ extension UIButton {
         self.init()
 
         setTitle(title, for: .normal)
-        titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         snp.makeConstraints { $0.height.equalTo(50) }
 
         switch style {

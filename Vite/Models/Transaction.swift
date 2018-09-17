@@ -30,14 +30,13 @@ struct Transaction: Equatable, Mappable {
     fileprivate(set) var timestamp = Date(timeIntervalSince1970: 0)
     fileprivate(set) var fromAddress = Address()
     fileprivate(set) var toAddress = Address()
-    fileprivate(set) var status = Status.error
     fileprivate(set) var hash = ""
     fileprivate(set) var balance = Balance()
     fileprivate(set) var amount = Balance()
-    fileprivate(set) var confirmedTimes = ""
+    fileprivate(set) var tokenId = ""
 
     var type: TransactionType {
-        return fromAddress.isValid ? .response : .request
+        return toAddress.isValid ? .request : .response
     }
 
     init?(map: Map) {
@@ -46,12 +45,11 @@ struct Transaction: Equatable, Mappable {
 
     mutating func mapping(map: Map) {
         timestamp <- (map["Timestamp"], JSONTransformer.timestamp)
-        fromAddress <- (map["FromAddr"], JSONTransformer.address)
-        toAddress <- (map["ToAddr"], JSONTransformer.address)
-        status <- map["Status"]
+        fromAddress <- (map["From"], JSONTransformer.address)
+        toAddress <- (map["To"], JSONTransformer.address)
         hash <- map["Hash"]
         balance <- (map["Balance"], JSONTransformer.balance)
         amount <- (map["Amount"], JSONTransformer.balance)
-        confirmedTimes <- map["ConfirmedTimes"]
+        tokenId <- map["TokenId"]
     }
 }

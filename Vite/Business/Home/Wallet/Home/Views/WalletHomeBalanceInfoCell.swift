@@ -19,12 +19,12 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
     fileprivate let iconImageView = UIImageView()
 
     fileprivate let nameLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 16)
+        $0.font = UIFont.boldSystemFont(ofSize: 16)
         $0.textColor = UIColor.white
     }
 
     fileprivate let balanceLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 16)
+        $0.font = UIFont.boldSystemFont(ofSize: 16)
         $0.textColor = UIColor(netHex: 0x24272B)
         $0.numberOfLines = 1
     }
@@ -153,13 +153,7 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
 
     func bind(viewModel: WalletHomeBalanceInfoViewModelType) {
 
-        switch viewModel.icon {
-        case .local(let imageResource):
-            iconImageView.image = UIImage(resource: imageResource)
-        case .url(let url):
-            fatalError("\(url) Currently not supported!")
-        }
-
+        viewModel.icon.putIn(iconImageView)
         nameLabel.text = viewModel.name
         balanceLabel.text = viewModel.balance
         unconfirmedLabel.text = R.string.localizable.walletHomeUnconfirmedTitle(viewModel.unconfirmed)

@@ -149,4 +149,11 @@ class ViteNetworkTests: XCTestCase {
 //                })
 //        }
 //    }
+
+    func testAddress() {
+        let correct = "vite_4827fbc6827797ac4d9e814affb34b4c5fa85d39bf96d105e7"
+        let error = "vite_4827fbc6827797ac4d9e814affb34b4c5fa85d39bf96d105e6"
+        XCTAssert(Address.isValid(string: correct))
+        XCTAssert(!Address.isValid(string: error))
+    }
 }

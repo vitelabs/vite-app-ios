@@ -79,28 +79,24 @@ class SendViewController: BaseViewController {
         // test
         addressView.textField.text = "vite_4827fbc6827797ac4d9e814affb34b4c5fa85d39bf96d105e7" // iphone x
         addressView.textField.text = "vite_18068b64b49852e1c4dfbc304c4e606011e068836260bc9975" // iphone 6s
-//        addressView.textField.text = "vite_568c182884e989ea87995412051cb40f1cdf5a6896d658f434" // iphone se 10.3.1
+        //        addressView.textField.text = "vite_568c182884e989ea87995412051cb40f1cdf5a6896d658f434" // iphone se 10.3.1
 
         let tokenId = Token.Currency.vite.rawValue
         let amount = BigInt(1000000000000000000)
-
-        func send() {
-            sendTransaction(bag: bag, toAddress: addressView.textField.text!, tokenId: tokenId, amount: amount)
-        }
 
         sendButton.rx.tap.bind { [weak self] in
             let confirmViewController = ConfirmTransactionViewController(confirmTypye: .biometry, address: addressView.textField.text!, token: "vcc", amount: "10000", completion: { [weak self] (result) in
                 guard let `self` = self else { return }
                 if result {
-                    self.sendTransaction(bag: self.bag, toAddress: addressView.textField.text!, tokenId: tokenId, amount: amount)
+                    self.sendTransaction(bag: self.bag, toAddress: Address(string: addressView.textField.text!), tokenId: tokenId, amount: amount)
                 }
             })
             self?.present(confirmViewController, animated: false, completion: nil)
-        }.disposed(by: rx.disposeBag)
+            }.disposed(by: rx.disposeBag)
 
     }
 
-    func sendTransaction(bag: HDWalletManager.Bag, toAddress: String, tokenId: String, amount: BigInt) {
+    func sendTransaction(bag: HDWalletManager.Bag, toAddress: Address, tokenId: String, amount: BigInt) {
 
         let transactionProvider = TransactionProvider(server: RPCServer.shared)
         _ = transactionProvider.getLatestAccountBlock(address: bag.address)
