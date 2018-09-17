@@ -3,7 +3,7 @@ inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Vite' do
-  use_frameworks!
+ use_frameworks!
 
   #vite kit
   pod 'Vite-keystore', :path => '../vite-keystore-ios'
@@ -20,6 +20,9 @@ target 'Vite' do
   pod 'Moya'
   pod 'MJRefresh'
   pod 'KMNavigationBarTransition'
+
+  #statistics
+  pod 'BaiduMobStat'
 
   #UI Control
   pod 'ActionSheetPicker-3.0'

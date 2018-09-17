@@ -129,7 +129,7 @@ extension CreateAccountHomeViewController {
     }
 
     @objc func createAccountBtnAction() {
-        let vc = CreateWalletTipViewController()
+        let vc = CreateWalletAccountViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

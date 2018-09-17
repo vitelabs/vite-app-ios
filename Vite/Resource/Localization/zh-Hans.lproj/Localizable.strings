@@ -95,3 +95,13 @@
 
 /* System */
 "system.page.logout.loading" = "退出中";
+
+/* about us */
+"aboutUs.page.cell.blockHeight" = "当前区块高度";
+"aboutUs.page.cell.version" = "版本";
+"aboutUs.page.cell.contact" = "联系我们";
+"aboutUs.page.cell.shareUs" = "分享Vite APP";
+"aboutUs.page.cell.official.website" = "Vite 官网";
+"aboutUs.page.cell.portal.website" = "Vite 门户网站";
+"aboutUs.page.cell.blog.website" = "Vite.blog";
+

@@ -6,65 +6,94 @@
 //  Copyright © 2018年 vite labs. All rights reserved.
 //
 import UIKit
+import Eureka
 import SnapKit
 import Vite_keystore
 
-class AboutUsViewController: BaseViewController {
+class AboutUsViewController: FormViewController {
+    var navigationBarStyle = NavigationBarStyle.default
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self._setupView()
     }
 
-    lazy var contentTextView: UITextView = {
-        let contentTextView =  UITextView()
-        contentTextView.font = Fonts.Font18
-        contentTextView.backgroundColor = Colors.bgGray
-        contentTextView.textColor = Colors.descGray
-        contentTextView.text = WalletDataService.shareInstance.defaultWalletAccount?.mnemonic
-        contentTextView.layer.masksToBounds = true
-        contentTextView.layer.cornerRadius = 2
-        contentTextView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        contentTextView.isEditable = false
-        contentTextView.isScrollEnabled = false
-        return contentTextView
-    }()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NavigationBarStyle.configStyle(navigationBarStyle, viewController: self)
+    }
 
-    lazy var confirmBtn: UIButton = {
-        let confirmBtn = UIButton.init(style: .blue)
-        confirmBtn.setTitle(R.string.localizable.confirm.key.localized(), for: .normal)
-        confirmBtn.addTarget(self, action: #selector(confirmBtnAction), for: .touchUpInside)
-        return confirmBtn
+    lazy var logoImgView: UIImageView = {
+        let logoImgView = UIImageView()
+        logoImgView.backgroundColor = .clear
+        logoImgView.image =  R.image.login_logo()
+        return logoImgView
     }()
 }
 
 extension AboutUsViewController {
 
     private func _setupView() {
-        self.view.backgroundColor = .white
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.exportPageTitle.key.localized())
-
         self._addViewConstraint()
+        setupTableView()
+    }
+
+    func setupTableView() {
+        self.tableView.backgroundColor = .white
+        let headerView = UIView(frame: CGRect.init(x: 0, y: 0, width: kScreenW, height: 146))
+        headerView.addSubview(logoImgView)
+        logoImgView.snp.makeConstraints { (make) in
+            make.center.equalTo(headerView)
+            make.width.height.equalTo(84)
+        }
+        self.tableView.tableHeaderView = headerView
+
+        form +++
+            Section {
+                $0.header = HeaderFooterView<UIView>(.class)
+                $0.header?.height = { 0.0 }
+            }
+
+            <<< LabelRow("aboutUsPageCellBlockHeight") {
+                $0.title =  R.string.localizable.aboutUsPageCellBlockHeight.key.localized()
+                $0.cell.height = { 60 }
+                }.onCellSelection({ [unowned self] _, _  in
+
+                })
+
+            <<< LabelRow("aboutUsPageCellVersion") {
+                $0.title =  R.string.localizable.aboutUsPageCellVersion.key.localized()
+                $0.value = String.getAppVersion()
+                $0.cell.height = { 60 }
+                }.onCellSelection({ [unowned self] _, _  in
+                    let vc = FetchWelfareViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                })
+
+            <<< ImageRow("aboutUsPageCellContact") {
+                $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellContact.key.localized()
+                $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
+                }.onCellSelection({ [unowned self] _, _  in
+                    let vc = FetchWelfareViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                })
+
+            <<< ImageRow("aboutUsPageCellShareUs") {
+                $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellShareUs.key.localized()
+                $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
+                }.onCellSelection({ [unowned self] _, _  in
+                    let vc = FetchWelfareViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                })
+
+        self.tableView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.view.safeAreaLayoutGuideSnp.top)
+            make.left.right.bottom.equalTo(self.view)
+        }
     }
     private func _addViewConstraint() {
-        self.view.addSubview(self.contentTextView)
-        self.contentTextView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-            make.height.equalTo(142)
-            make.top.equalTo((self.navigationTitleView?.snp.bottom)!).offset(10)
-        }
 
-        self.view.addSubview(self.confirmBtn)
-        self.confirmBtn.snp.makeConstraints { (make) -> Void in
-            make.height.equalTo(50)
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-24)
-        }
-    }
-
-    @objc func confirmBtnAction() {
-        self.navigationController?.popViewController(animated: true)
     }
 }
