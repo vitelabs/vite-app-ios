@@ -16,7 +16,7 @@ PODS:
     - Result (~> 3.2.0)
   - KeychainSwift (11.0.0)
   - KMNavigationBarTransition (1.1.5)
-  - libEd25519Blake2b (0.0.4)
+  - libEd25519Blake2b (0.0.6)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.15.7)
   - Moya (11.0.2):
@@ -158,7 +158,7 @@ SPEC CHECKSUMS:
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
   KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
   KMNavigationBarTransition: 7a52c9bc25b39b6e3343e980b453facee1591b82
-  libEd25519Blake2b: b291b518f4560bf137d8bb81ab3f8855979ece5c
+  libEd25519Blake2b: e73e268d598795e86d75094c6d7ed11c457cd067
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   Moya: a725035953bc1c0eb1be505ab903984501d82440

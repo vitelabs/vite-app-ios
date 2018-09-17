@@ -27,6 +27,6 @@ extension String {
 
     static  func getAppVersion() -> String {
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        return version 
+        return version
     }
 }

@@ -84,7 +84,6 @@ class SendViewController: BaseViewController {
         let tokenId = Token.Currency.vite.rawValue
         let amount = BigInt(1000000000000000000)
 
-
         func send() {
             sendTransaction(bag: bag, toAddress: addressView.textField.text!, tokenId: tokenId, amount: amount)
         }

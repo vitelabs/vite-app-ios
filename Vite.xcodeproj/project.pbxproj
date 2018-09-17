@@ -46,6 +46,7 @@
 		4C9AFD59214E2FF2005B12C2 /* ManageWalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD58214E2FF2005B12C2 /* ManageWalletHeaderView.swift */; };
 		4C9AFD5C214F433C005B12C2 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD5B214F433C005B12C2 /* AboutUsViewController.swift */; };
 		4C9AFD5E214F4370005B12C2 /* FetchWelfareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */; };
+		4C9AFD8C214FBB85005B12C2 /* AboutUsTableBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD8B214FBB85005B12C2 /* AboutUsTableBottomView.swift */; };
 		4CC4F451214CCB5B0068DA53 /* TitlePasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4F450214CCB5B0068DA53 /* TitlePasswordInputView.swift */; };
 		4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE42452124553B0080E92B /* AppDelegate.swift */; };
 		4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCE424C2124553C0080E92B /* Assets.xcassets */; };
@@ -216,6 +217,7 @@
 		4C9AFD83214F8F9C005B12C2 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		4C9AFD85214F9087005B12C2 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		4C9AFD89214FB81C005B12C2 /* Vite-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vite-Bridging-Header.h"; sourceTree = "<group>"; };
+		4C9AFD8B214FBB85005B12C2 /* AboutUsTableBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsTableBottomView.swift; sourceTree = "<group>"; };
 		4CC4F450214CCB5B0068DA53 /* TitlePasswordInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePasswordInputView.swift; sourceTree = "<group>"; };
 		4CCE42422124553B0080E92B /* Vite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCE42452124553B0080E92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 		4C2284B9214906D6003E9907 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				4C9AFD8A214FBB69005B12C2 /* View */,
 				4C2284BA214906F0003E9907 /* SystemViewController.swift */,
 				4C9AFD5B214F433C005B12C2 /* AboutUsViewController.swift */,
 				4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */,
@@ -624,6 +627,14 @@
 			isa = PBXGroup;
 			children = (
 				4C9AFD58214E2FF2005B12C2 /* ManageWalletHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4C9AFD8A214FBB69005B12C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C9AFD8B214FBB85005B12C2 /* AboutUsTableBottomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1434,6 +1445,7 @@
 				4C84D9302145280E001B6EBD /* CreateWalletAccountVM.swift in Sources */,
 				8EE4691A214CA8E800807D2C /* GCD+Helper.swift in Sources */,
 				8EE4690F214BCEC100807D2C /* TransactionProvider.swift in Sources */,
+				4C9AFD8C214FBB85005B12C2 /* AboutUsTableBottomView.swift in Sources */,
 				4C105ED12141401100D483C6 /* String.swift in Sources */,
 				8E6F3E3F2144CA23003CDFC2 /* WalletHomeAddressViewModelType.swift in Sources */,
 				8E6F3E5421453405003CDFC2 /* WalletHomeBalanceInfoViewModel.swift in Sources */,

@@ -13,7 +13,6 @@ import Vite_keystore
 class AboutUsViewController: FormViewController {
     var navigationBarStyle = NavigationBarStyle.default
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,6 +49,9 @@ extension AboutUsViewController {
         }
         self.tableView.tableHeaderView = headerView
 
+        let bottomView = AboutUsTableBottomView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenW, height: 270) )
+        self.tableView.tableFooterView = bottomView
+
         form +++
             Section {
                 $0.header = HeaderFooterView<UIView>(.class)
@@ -59,7 +61,7 @@ extension AboutUsViewController {
             <<< LabelRow("aboutUsPageCellBlockHeight") {
                 $0.title =  R.string.localizable.aboutUsPageCellBlockHeight.key.localized()
                 $0.cell.height = { 60 }
-                }.onCellSelection({ [unowned self] _, _  in
+            }.onCellSelection({ [unowned self] _, _  in
 
                 })
 
@@ -67,7 +69,7 @@ extension AboutUsViewController {
                 $0.title =  R.string.localizable.aboutUsPageCellVersion.key.localized()
                 $0.value = String.getAppVersion()
                 $0.cell.height = { 60 }
-                }.onCellSelection({ [unowned self] _, _  in
+            }.onCellSelection({ [unowned self] _, _  in
                     let vc = FetchWelfareViewController()
                     self.navigationController?.pushViewController(vc, animated: true)
                 })
@@ -75,7 +77,7 @@ extension AboutUsViewController {
             <<< ImageRow("aboutUsPageCellContact") {
                 $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellContact.key.localized()
                 $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
-                }.onCellSelection({ [unowned self] _, _  in
+            }.onCellSelection({ [unowned self] _, _  in
                     let vc = FetchWelfareViewController()
                     self.navigationController?.pushViewController(vc, animated: true)
                 })
@@ -83,7 +85,7 @@ extension AboutUsViewController {
             <<< ImageRow("aboutUsPageCellShareUs") {
                 $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellShareUs.key.localized()
                 $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
-                }.onCellSelection({ [unowned self] _, _  in
+            }.onCellSelection({ [unowned self] _, _  in
                     let vc = FetchWelfareViewController()
                     self.navigationController?.pushViewController(vc, animated: true)
                 })
