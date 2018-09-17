@@ -23,7 +23,7 @@ class WalletHomeViewController: BaseTableViewController {
         bind()
     }
 
-    let account = WalletDataService.shareInstance.defaultWalletAccount
+    let accountDriver = HDWalletManager.instance.accountDriver
     let addressView = WalletHomeAddressView()
     var addressViewModel: WalletHomeAddressViewModel!
     var tableViewModel: WalletHomeBalanceInfoTableViewModel!
@@ -36,7 +36,7 @@ class WalletHomeViewController: BaseTableViewController {
         navigationItem.leftBarButtonItem = qrcodeItem
         navigationItem.rightBarButtonItem = scanItem
 
-        navigationTitleView = NavigationTitleView(title: account?.name)
+        navigationTitleView = NavigationTitleView(title: nil)
         customHeaderView = addressView
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor.clear
@@ -62,8 +62,7 @@ class WalletHomeViewController: BaseTableViewController {
         }
 
         qrcodeItem.rx.tap.bind { [weak self] _ in
-            guard let `self` = self else { return }
-            self.navigationController?.pushViewController(QRCodeViewController(account: self.account!), animated: true)
+            self?.navigationController?.pushViewController(QRCodeViewController(), animated: true)
         }.disposed(by: rx.disposeBag)
 
         scanItem.rx.tap.bind {  [weak self] _ in
@@ -80,8 +79,9 @@ class WalletHomeViewController: BaseTableViewController {
 
     fileprivate func bind() {
 
-        addressViewModel = WalletHomeAddressViewModel(account: self.account!)
-        tableViewModel = WalletHomeBalanceInfoTableViewModel(address: Address(string: (self.account?.defaultKey.address)!))
+        accountDriver.map({ $0.name }).drive(navigationTitleView!.titleLabel.rx.text).disposed(by: rx.disposeBag)
+        addressViewModel = WalletHomeAddressViewModel()
+        tableViewModel = WalletHomeBalanceInfoTableViewModel()
 
         addressView.bind(viewModel: addressViewModel)
 

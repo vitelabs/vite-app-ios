@@ -11,7 +11,6 @@ import RxSwift
 import RxCocoa
 
 protocol WalletHomeAddressViewModelType {
-    var nameDriver: Driver<String> { get }
     var defaultAddressDriver: Driver<String> { get }
     func copy()
 }

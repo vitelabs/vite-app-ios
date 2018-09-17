@@ -8,6 +8,7 @@
 
 import XCTest
 import PromiseKit
+import BigInt
 @testable import Vite
 
 class ViteNetworkTests: XCTestCase {
@@ -40,7 +41,7 @@ class ViteNetworkTests: XCTestCase {
         block {
             expect.fulfill()
         }
-        waitForExpectations(timeout: 15, handler: nil)
+        waitForExpectations(timeout: 60, handler: nil)
         print("🍺🍺🍺🍺🍺🍺")
 
     }
@@ -80,6 +81,72 @@ class ViteNetworkTests: XCTestCase {
                 completion()
             }
         }
-
     }
+
+//    func testTransactionProvider_GetUnconfirmedTransactionRequest_no() {
+//        async { (completion) in
+//            let transactionProvider = TransactionProvider(server: RPCServer.shared)
+//            _ = transactionProvider.getUnconfirmedTransaction(address: Address(string: "vite_7945df07bbf55f5afc76360a263b0870795ce5d1ecea36b786"))
+//                .then({ accountBlocks -> Promise<Void> in
+//                    if let accountBlock = accountBlocks.first {
+//                        return transactionProvider.createTransaction(accountBlock: accountBlock)
+//                    } else {
+//                        return Promise { $0.fulfill(Void()) }
+//                    }
+//                })
+//                .done({
+//                    print("🏆")
+//                })
+//                .catch({ (error) in
+//                    print("🤯🤯🤯🤯🤯🤯\(error)")
+//                })
+//                .finally({
+//                    completion()
+//                })
+//        }
+//    }
+
+//    func testTransactionProvider_GetUnconfirmedTransactionRequest() {
+//        async { (completion) in
+//            let transactionProvider = TransactionProvider(server: RPCServer.shared)
+//            _ = transactionProvider.getUnconfirmedTransaction(address: Address(string: "vite_4827fbc6827797ac4d9e814affb34b4c5fa85d39bf96d105e7"))
+//                .then({ accountBlocks -> Promise<Void> in
+//                    if let accountBlock = accountBlocks.first {
+//                        return transactionProvider.createTransaction(accountBlock: accountBlock)
+//                    } else {
+//                        return Promise { $0.fulfill(Void()) }
+//                    }
+//                })
+//                .done({
+//                    print("🏆")
+//                })
+//                .catch({ (error) in
+//                    print("🤯🤯🤯🤯🤯🤯\(error)")
+//                })
+//                .finally({
+//                    completion()
+//            })
+//        }
+//    }
+
+//    func testSend() {
+//        async { (completion) in
+//            let transactionProvider = TransactionProvider(server: RPCServer.shared)
+//            _ = transactionProvider.getLatestAccountBlock(address: Address(string: "vite_4827fbc6827797ac4d9e814affb34b4c5fa85d39bf96d105e7"))
+//                .then({ accountBlock -> Promise<Void> in
+//                    let bag = HDWalletManager.instance.bag()
+//                    let send = accountBlock.makeSendAccountBlock(latestAccountBlock: accountBlock, bag: bag, toAddress: "vite_7945df07bbf55f5afc76360a263b0870795ce5d1ecea36b786", tokenId: Token.Currency.vite.rawValue, amount: BigInt(1000000000000000000))
+//                    return transactionProvider.createTransaction(accountBlock: send)
+//                })
+//                .done({
+//                    print("🏆")
+//                })
+//                .catch({ (error) in
+//                    print("🤯🤯🤯🤯🤯🤯\(error)")
+//                })
+//                .finally({
+//                    completion()
+//                })
+//        }
+//    }
 }

@@ -27,6 +27,14 @@ struct JSONTransformer {
         return address.description
     })
 
+    static let bigint = TransformOf<BigInt, String>(fromJSON: { (string) -> BigInt? in
+        guard let string = string, let bigInt = BigInt(string) else { return nil }
+        return bigInt
+    }, toJSON: { (bigint) -> String? in
+        guard let bigint = bigint else { return nil }
+        return String(bigint)
+    })
+
     static let balance = TransformOf<Balance, String>(fromJSON: { (string) -> Balance? in
         guard let string = string, let bigInt = BigInt(string) else { return nil }
         return Balance(value: bigInt)

@@ -8,11 +8,14 @@
 
 import UIKit
 import SnapKit
-import Vite_keystore
+import RxSwift
+import RxCocoa
+import NSObject_Rx
 
 class QRCodeViewController: BaseViewController {
 
-    let account: WalletAccount
+    let account = HDWalletManager.instance.account()
+    let bag = HDWalletManager.instance.bag()
 
     let titleLabel = UILabel().then {
         $0.backgroundColor = .red
@@ -31,15 +34,6 @@ class QRCodeViewController: BaseViewController {
         $0.backgroundColor = .red
     }
 
-    init(account: WalletAccount) {
-        self.account = account
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -49,10 +43,10 @@ class QRCodeViewController: BaseViewController {
     func setupUI() {
         title = LocalizationStr("My QRCode")
         titleLabel.text = account.name
-        addressLabel.text = account.defaultKey.address
+        addressLabel.text = bag.address.description
         copyAddressButton.setTitle(LocalizationStr("Copy Address"), for: .normal)
         copyAddressButton.rx.tap.bind { [weak self] in
-            guard let address = self?.account.defaultKey.address else { return }
+            guard let address = self?.bag.address.description else { return }
             UIPasteboard.general.string = address
             self?.copyAddressButton.setTitle(LocalizationStr("Copied"), for: .normal)
             DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
@@ -91,7 +85,7 @@ class QRCodeViewController: BaseViewController {
 
     func createQRCode() {
         DispatchQueue.global(qos: .userInteractive).async {
-            let string = self.account.defaultKey.address
+            let string = self.bag.address.description
             let context = CIContext()
             let data = string.data(using: String.Encoding.ascii)
             guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return }

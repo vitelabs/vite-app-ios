@@ -11,3 +11,7 @@ import Foundation
 enum RPCError<ExpectedType>: Error {
     case responseTypeNotMatch(actualValue: Any, expectedType: ExpectedType.Type)
 }
+
+enum JSONError: Error {
+    case jsonData
+}
