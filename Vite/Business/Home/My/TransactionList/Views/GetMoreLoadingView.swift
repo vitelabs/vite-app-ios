@@ -14,7 +14,6 @@ class GetMoreLoadingView: UITableViewHeaderFooterView {
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
 
-        contentView.backgroundColor = UIColor.green
         let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         activityIndicatorView.startAnimating()
         contentView.addSubview(activityIndicatorView)

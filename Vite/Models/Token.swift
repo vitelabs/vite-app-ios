@@ -12,7 +12,7 @@ import ObjectMapper
 import Rswift
 
 struct Token: Mappable {
-    
+
     fileprivate(set) var id: String = ""
     fileprivate(set) var name: String = ""
     fileprivate(set) var symbol: String = ""
@@ -43,5 +43,22 @@ extension Token {
     enum Icon {
         case url(url: URL)
         case local(imageResource: ImageResource)
+
+        func putIn(_ imageView: UIImageView) {
+            switch self {
+            case .local(let imageResource):
+                imageView.image = UIImage(resource: imageResource)
+            case .url(let url):
+                fatalError("\(url) Currently not supported!")
+            }
+        }
+    }
+}
+
+extension Token {
+    static func idStriped(_ id: String) -> String {
+        guard id.count == 28 else { return "" }
+        let string = (id as NSString).substring(from: 4) as String
+        return string
     }
 }

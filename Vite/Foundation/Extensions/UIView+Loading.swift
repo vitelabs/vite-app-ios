@@ -28,3 +28,10 @@ extension UIView {
         self.makeToast(str, duration: 2.0, position: .center)
     }
 }
+
+struct Toast {
+    static func show(_ string: String, duration: TimeInterval = 2.0, position: ToastPosition = .center) {
+        guard let window = UIApplication.shared.keyWindow else { return }
+        window.makeToast(string, duration: duration, position: position)
+    }
+}

@@ -31,7 +31,7 @@ class NavigationTitleView: UIView {
             m.left.equalTo(self).offset(24)
             m.right.equalTo(self).offset(-24)
             m.bottom.equalTo(self).offset(-20)
-            m.height.equalTo(28)
+//            m.height.equalTo(28)
         }
 
         switch style {

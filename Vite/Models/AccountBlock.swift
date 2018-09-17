@@ -15,10 +15,10 @@ import CryptoSwift
 struct AccountBlock: Mappable {
 
     fileprivate(set) var meta = AccountBlockMeta()
-    fileprivate(set) var accountAddress: String?
+    fileprivate(set) var accountAddress: Address?
     fileprivate(set) var publicKey: String?
-    fileprivate(set) var to: String?
-    fileprivate(set) var from: String?
+    fileprivate(set) var to: Address?
+    fileprivate(set) var from: Address?
     fileprivate(set) var fromHash: String?
     fileprivate(set) var prevHash: String?
     fileprivate(set) var hash: String?
@@ -43,7 +43,7 @@ struct AccountBlock: Mappable {
 
     }
 
-    init(address: String) {
+    init(address: Address) {
         self.init()
         self.accountAddress = address
     }
@@ -51,10 +51,10 @@ struct AccountBlock: Mappable {
     mutating func mapping(map: Map) {
 
         meta <- map["Meta"]
-        accountAddress <- map["AccountAddress"]
+        accountAddress <- (map["AccountAddress"], JSONTransformer.address)
         publicKey <- map["PublicKey"]
-        to <- map["To"]
-        from <- map["From"]
+        to <- (map["To"], JSONTransformer.address)
+        from <- (map["From"], JSONTransformer.address)
         fromHash <- map["FromHash"]
         prevHash <- map["PrevHash"]
         hash <- map["Hash"]
@@ -74,7 +74,7 @@ struct AccountBlock: Mappable {
 }
 
 extension AccountBlock {
-    func makeSendAccountBlock(latestAccountBlock: AccountBlock, bag: HDWalletManager.Bag, snapshotChainHash: String, toAddress: String, tokenId: String, amount: BigInt) -> AccountBlock {
+    func makeSendAccountBlock(latestAccountBlock: AccountBlock, bag: HDWalletManager.Bag, snapshotChainHash: String, toAddress: Address, tokenId: String, amount: BigInt) -> AccountBlock {
 
         var accountBlock = makeBaseAccountBlock(latestAccountBlock: latestAccountBlock, bag: bag, snapshotChainHash: snapshotChainHash)
         accountBlock.to = toAddress
@@ -108,7 +108,7 @@ extension AccountBlock {
             accountBlock.meta.setHeight(1)
         }
 
-        accountBlock.accountAddress = bag.address.description
+        accountBlock.accountAddress = bag.address
         accountBlock.publicKey = bag.publicKey
         accountBlock.fromHash = self.hash
         accountBlock.prevHash = latestAccountBlock.hash
@@ -126,7 +126,7 @@ extension AccountBlock {
         var source = Bytes()
 
         // Bytes->hex2Bytes
-        // string->my_bytes
+        // string->bytes
 
         if let prevHash = accountBlock.prevHash {
             source.append(contentsOf: prevHash.hex2Bytes)
@@ -134,23 +134,20 @@ extension AccountBlock {
 
         if let height = accountBlock.meta.height {
             // bytes 函数名冲突
-            source.append(contentsOf: height.description.my_bytes)
+            source.append(contentsOf: height.description.bytes)
         }
 
         if let accountAddress = accountBlock.accountAddress {
-            // accountAddress 掐头去尾
-            source.append(contentsOf: accountAddress.addressStrip.hex2Bytes)
+            source.append(contentsOf: accountAddress.raw.hex2Bytes)
         }
 
         if let to = accountBlock.to {
-            // to 掐头去尾
-            source.append(contentsOf: to.addressStrip.hex2Bytes)
+            source.append(contentsOf: to.raw.hex2Bytes)
             if let tokenId = accountBlock.tokenId {
-                // tokenId 掐头去尾
-                source.append(contentsOf: tokenId.tokenIdStrip.hex2Bytes)
+                source.append(contentsOf: Token.idStriped(tokenId).hex2Bytes)
             }
             if let amount = accountBlock.amount {
-                source.append(contentsOf: amount.description.my_bytes)
+                source.append(contentsOf: amount.description.bytes)
             }
         } else {
             if let fromHash = accountBlock.fromHash {
@@ -162,7 +159,7 @@ extension AccountBlock {
         source.append(contentsOf: "EFBFBD".hex2Bytes)
 
         if let data = accountBlock.data {
-            source.append(contentsOf: data.my_bytes)
+            source.append(contentsOf: data.bytes)
         }
 
         if let snapshotChainHash = accountBlock.snapshotChainHash {
@@ -178,18 +175,12 @@ extension AccountBlock {
         }
 
         if let fAmount = accountBlock.fAmount {
-            source.append(contentsOf: fAmount.description.my_bytes)
+            source.append(contentsOf: fAmount.description.bytes)
         }
 
         let hash = Blake2b.hash(outLength: 32, in: source) ?? Bytes()
         let hashString = hash.toHexString()
         let signature = Ed25519.sign(message: hash, secretKey: secretKeyHexString.hex2Bytes, publicKey: publicKeyHexString.hex2Bytes).toHexString()
         return (hashString, signature)
-    }
-}
-
-extension String {
-    public var my_bytes: Array<UInt8> {
-        return data(using: String.Encoding.utf8, allowLossyConversion: true)?.bytes ?? Array(utf8)
     }
 }

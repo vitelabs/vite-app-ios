@@ -28,7 +28,7 @@ struct GetLatestAccountBlockRequest: JSONRPCKit.Request {
 
     func response(from resultObject: Any) throws -> Response {
         if let _ = resultObject as? NSNull {
-            return AccountBlock(address: self.address)
+            return AccountBlock(address: Address(string: self.address))
         } else if let response = resultObject as? [String: Any] {
             if let ret = AccountBlock(JSON: response) {
                 return ret

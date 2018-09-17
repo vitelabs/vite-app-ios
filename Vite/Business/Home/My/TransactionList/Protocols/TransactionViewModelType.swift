@@ -14,4 +14,5 @@ protocol TransactionViewModelType {
     var timeString: String { get }
     var hash: String { get }
     var balanceString: String { get }
+    var symbolString: String { get }
 }

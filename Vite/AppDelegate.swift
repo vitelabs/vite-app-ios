@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         AutoGatheringService.instance.start()
 
-
         return true
     }
 
