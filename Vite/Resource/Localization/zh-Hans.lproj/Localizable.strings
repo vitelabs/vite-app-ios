@@ -43,6 +43,9 @@
 "import.page.title" = "输入您的助记词";
 /* export mnemonic */
 "export.page.title" = "导出助记词";
+"export.page.alter.title" = "请输入密码";
+"export.page.alter.tf.placeholder" = "6位数字密码";
+"export.page.alter.password.error" = "密码错误";
 
 /* login */
 "login.page.btn.chooseName" = "选择钱包账户";

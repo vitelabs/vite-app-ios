@@ -63,9 +63,11 @@ class ManageWalletViewController: FormViewController {
                 $0.cell.titleLab.text =  R.string.localizable.manageWalletPageImportMnemonicCellTitle.key.localized()
                 $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
             }.onCellSelection({ [unowned self] _, _  in
-                    let vc = ExportMnemonicViewController()
-                    self.navigationController?.pushViewController(vc, animated: true)
+                self.verifyWalletPassword(callback: {
+                      let vc = ExportMnemonicViewController()
+                      self.navigationController?.pushViewController(vc, animated: true)
                 })
+            })
 
         self.tableView.snp.makeConstraints { (make) in
             make.top.equalTo((self.navigationTitleView?.snp.bottom)!)

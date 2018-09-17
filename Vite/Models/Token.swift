@@ -12,7 +12,7 @@ import ObjectMapper
 import Rswift
 
 struct Token: Mappable {
-    
+
     fileprivate(set) var id: String = ""
     fileprivate(set) var name: String = ""
     fileprivate(set) var symbol: String = ""

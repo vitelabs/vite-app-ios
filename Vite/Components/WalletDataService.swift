@@ -14,6 +14,10 @@ public class WalletDataService: NSObject {
     //current login account
     public var defaultWalletAccount: WalletAccount?
 
+    public func verifyWalletPassword(pwd: String) -> Bool {
+        return self.defaultWalletAccount?.password == pwd
+    }
+
     public override init() {
         walletStorage = WalletStorage()
         defaultWalletAccount = walletStorage.walletAccounts.first

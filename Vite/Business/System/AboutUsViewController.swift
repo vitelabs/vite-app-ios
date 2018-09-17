@@ -1,38 +1,15 @@
 //
-//  ExportMnemonicViewController.swift
+//  AboutUsViewController.swift
 //  Vite
 //
-//  Created by Water on 2018/9/12.
+//  Created by Water on 2018/9/17.
 //  Copyright © 2018年 vite labs. All rights reserved.
 //
-
 import UIKit
 import SnapKit
 import Vite_keystore
 
-extension UIViewController {
-    func verifyWalletPassword(callback: @escaping () -> Void) {
-        let controller = UIAlertController(title: nil, message: R.string.localizable.exportPageAlterTitle.key.localized(), preferredStyle: UIAlertControllerStyle.alert)
-        let cancelAction = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: .cancel, handler: nil)
-        let okAction = UIAlertAction(title: R.string.localizable.confirm.key.localized(), style: UIAlertActionStyle.default) { (_) in
-            let textField = (controller.textFields?.first)! as UITextField
-            if WalletDataService.shareInstance.verifyWalletPassword(pwd: textField.text!) {
-                callback()
-            } else {
-                self.view.showToast(str: R.string.localizable.exportPageAlterPasswordError.key.localized())
-            }
-        }
-        controller.addTextField { (textfield) in
-            textfield.keyboardType = .numberPad
-            textfield.placeholder = R.string.localizable.exportPageAlterTfPlaceholder.key.localized()
-        }
-        controller.addAction(cancelAction)
-        controller.addAction(okAction)
-        self.present(controller, animated: true, completion: nil)
-    }
-}
-
-class ExportMnemonicViewController: BaseViewController {
+class AboutUsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -61,7 +38,7 @@ class ExportMnemonicViewController: BaseViewController {
     }()
 }
 
-extension ExportMnemonicViewController {
+extension AboutUsViewController {
 
     private func _setupView() {
         self.view.backgroundColor = .white

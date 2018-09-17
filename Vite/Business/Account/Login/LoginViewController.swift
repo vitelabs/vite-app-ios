@@ -172,8 +172,7 @@ extension LoginViewController {
              return account.name
         }
 
-        _ =  ActionSheetStringPicker.show(withTitle: "选择钱包账户", rows: pickData, initialSelection: 1, doneBlock: {
-            _, index, _ in
+        _ =  ActionSheetStringPicker.show(withTitle: "选择钱包账户", rows: pickData, initialSelection: 1, doneBlock: {_, index, _ in
             self.viewModel.chooseWalletAccount = self.viewModel.walletStorage.walletAccounts[index]
             self.userNameBtn.btn.setTitle(self.viewModel.chooseWalletAccount.name, for: .normal)
             return
