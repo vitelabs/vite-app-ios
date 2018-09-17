@@ -21,7 +21,6 @@
 		4C2284B82148BC2B003E9907 /* MyHomeListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284B72148BC2B003E9907 /* MyHomeListHeaderView.swift */; };
 		4C2284BB214906F0003E9907 /* SystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284BA214906F0003E9907 /* SystemViewController.swift */; };
 		4C2284BE21490E79003E9907 /* ManageWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284BD21490E79003E9907 /* ManageWalletViewController.swift */; };
-		4C2284C1214917FE003E9907 /* ManageWalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284C0214917FE003E9907 /* ManageWalletHeaderView.swift */; };
 		4C2284C321493087003E9907 /* ExportMnemonicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284C221493087003E9907 /* ExportMnemonicViewController.swift */; };
 		4C745494214D0A9D0070F7AB /* TitleBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C745493214D0A9D0070F7AB /* TitleBtnView.swift */; };
 		4C84D91C2145277C001B6EBD /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D91B2145277C001B6EBD /* PasswordInputView.swift */; };
@@ -43,6 +42,8 @@
 		4C84D96421469FFA001B6EBD /* ImportAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D96321469FFA001B6EBD /* ImportAccountVM.swift */; };
 		4C84D9662146A06F001B6EBD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D9652146A06F001B6EBD /* LoginViewModel.swift */; };
 		4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
+		4C9AFD56214E241F005B12C2 /* IconBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD55214E241F005B12C2 /* IconBtnView.swift */; };
+		4C9AFD59214E2FF2005B12C2 /* ManageWalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD58214E2FF2005B12C2 /* ManageWalletHeaderView.swift */; };
 		4CC4F451214CCB5B0068DA53 /* TitlePasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4F450214CCB5B0068DA53 /* TitlePasswordInputView.swift */; };
 		4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE42452124553B0080E92B /* AppDelegate.swift */; };
 		4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCE424C2124553C0080E92B /* Assets.xcassets */; };
@@ -166,7 +167,6 @@
 		4C2284B72148BC2B003E9907 /* MyHomeListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHomeListHeaderView.swift; sourceTree = "<group>"; };
 		4C2284BA214906F0003E9907 /* SystemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemViewController.swift; sourceTree = "<group>"; };
 		4C2284BD21490E79003E9907 /* ManageWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWalletViewController.swift; sourceTree = "<group>"; };
-		4C2284C0214917FE003E9907 /* ManageWalletHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWalletHeaderView.swift; sourceTree = "<group>"; };
 		4C2284C221493087003E9907 /* ExportMnemonicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportMnemonicViewController.swift; sourceTree = "<group>"; };
 		4C745493214D0A9D0070F7AB /* TitleBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBtnView.swift; sourceTree = "<group>"; };
 		4C84D91B2145277C001B6EBD /* PasswordInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordInputView.swift; sourceTree = "<group>"; };
@@ -188,6 +188,8 @@
 		4C84D96321469FFA001B6EBD /* ImportAccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAccountVM.swift; sourceTree = "<group>"; };
 		4C84D9652146A06F001B6EBD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4C9AFD55214E241F005B12C2 /* IconBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconBtnView.swift; sourceTree = "<group>"; };
+		4C9AFD58214E2FF2005B12C2 /* ManageWalletHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageWalletHeaderView.swift; sourceTree = "<group>"; };
 		4CC4F450214CCB5B0068DA53 /* TitlePasswordInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePasswordInputView.swift; sourceTree = "<group>"; };
 		4CCE42422124553B0080E92B /* Vite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCE42452124553B0080E92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -389,18 +391,10 @@
 		4C2284BC21490E63003E9907 /* Manage */ = {
 			isa = PBXGroup;
 			children = (
-				4C2284BF214917D6003E9907 /* View */,
+				4C9AFD57214E2FF2005B12C2 /* View */,
 				4C2284BD21490E79003E9907 /* ManageWalletViewController.swift */,
 			);
 			path = Manage;
-			sourceTree = "<group>";
-		};
-		4C2284BF214917D6003E9907 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				4C2284C0214917FE003E9907 /* ManageWalletHeaderView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		4C4C9D65213E9629005542F8 /* Business */ = {
@@ -434,6 +428,7 @@
 				4C2284B42148BB2A003E9907 /* ImageCell.swift */,
 				8EE468F5214A494800807D2C /* TitleTextFieldView.swift */,
 				4C745493214D0A9D0070F7AB /* TitleBtnView.swift */,
+				4C9AFD55214E241F005B12C2 /* IconBtnView.swift */,
 				8EE468F7214A4E5300807D2C /* PrimaryButton.swift */,
 				4CC4F450214CCB5B0068DA53 /* TitlePasswordInputView.swift */,
 			);
@@ -583,6 +578,14 @@
 				4C84D96321469FFA001B6EBD /* ImportAccountVM.swift */,
 			);
 			path = VM;
+			sourceTree = "<group>";
+		};
+		4C9AFD57214E2FF2005B12C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C9AFD58214E2FF2005B12C2 /* ManageWalletHeaderView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4CCE42392124553B0080E92B = {
@@ -1314,6 +1317,7 @@
 				4C105EC1213FCB3700D483C6 /* AppStyle.swift in Sources */,
 				4C105EC7213FF3DC00D483C6 /* SettingDataService.swift in Sources */,
 				4C84D96121469E8D001B6EBD /* CreateAccountHomeViewController.swift in Sources */,
+				4C9AFD56214E241F005B12C2 /* IconBtnView.swift in Sources */,
 				8E56FC96214768BD00A68823 /* TransactionViewModelType.swift in Sources */,
 				8E6F3E332142768B003CDFC2 /* ScanViewController.swift in Sources */,
 				8ED4CED32148AF630005A82D /* GetMoreLoadingView.swift in Sources */,
@@ -1389,7 +1393,7 @@
 				8EE468FD214A574600807D2C /* UIViewController+KeyboardAutoScrolling.swift in Sources */,
 				4C2284BB214906F0003E9907 /* SystemViewController.swift in Sources */,
 				8E6F3E1D2142280F003CDFC2 /* BaseViewController.swift in Sources */,
-				4C2284C1214917FE003E9907 /* ManageWalletHeaderView.swift in Sources */,
+				4C9AFD59214E2FF2005B12C2 /* ManageWalletHeaderView.swift in Sources */,
 				8E56FC932147686700A68823 /* TransactionListTableViewModel.swift in Sources */,
 				4CEB2926214B968000E5F7F4 /* UIView+Loading.swift in Sources */,
 			);

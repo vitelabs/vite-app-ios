@@ -48,4 +48,8 @@ public class WalletDataService: NSObject {
             return false
         }
     }
+
+    public func delAllWalletData() {
+        walletStorage.delAllWallet()
+    }
 }

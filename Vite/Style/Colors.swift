@@ -14,5 +14,6 @@ struct Colors {
     static let lineGray = UIColor.init(red: 62, green: 74, blue: 89, alpha: 0.20)
     static let descGray = UIColor.init(red: 36, green: 39, blue: 43, alpha: 0.8)
     static let bgGray = UIColor(hex: "EFF0F4")
-
+    static let blueBg = UIColor(hex: "007AFF")
+    static let cellTitleGray = UIColor(hex: "24272B")
 }
