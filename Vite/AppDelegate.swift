@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        startBaiduMobileStat()
         handleNotification()
         _ = SettingDataService.sharedInstance.getCurrentLanguage()
 
@@ -76,4 +77,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
 
     }
+
+    func startBaiduMobileStat() {
+        let statTracker: BaiduMobStat = BaiduMobStat.default()
+        statTracker.shortAppVersion  =  Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        statTracker.start(withAppId: "e74c7f32c0")
+    }
+
 }

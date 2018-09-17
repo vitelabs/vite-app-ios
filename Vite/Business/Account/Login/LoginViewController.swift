@@ -40,7 +40,7 @@ class LoginViewController: BaseViewController {
     lazy var logoImgView: UIImageView = {
         let logoImgView = UIImageView()
         logoImgView.backgroundColor = .clear
-        logoImgView.image =  R.image.launch_screen_logo()
+        logoImgView.image =  R.image.login_logo()
         return logoImgView
     }()
 
@@ -67,7 +67,7 @@ class LoginViewController: BaseViewController {
     }()
 
     lazy var createAccountBtn: UIButton = {
-        let createAccountBtn = UIButton.init(style: .white)
+        let createAccountBtn = UIButton.init(style: .whiteWithoutShadow)
         createAccountBtn.setTitle(R.string.localizable.createAccount.key.localized(), for: .normal)
         createAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         createAccountBtn.addTarget(self, action: #selector(createAccountBtnAction), for: .touchUpInside)
@@ -75,7 +75,7 @@ class LoginViewController: BaseViewController {
     }()
 
     lazy var importAccountBtn: UIButton = {
-        let importAccountBtn = UIButton.init(style: .white)
+        let importAccountBtn = UIButton.init(style: .whiteWithoutShadow)
         importAccountBtn.setTitle(R.string.localizable.importAccount.key.localized(), for: .normal)
         importAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         importAccountBtn.addTarget(self, action: #selector(importAccountBtnAction), for: .touchUpInside)
@@ -102,13 +102,13 @@ extension LoginViewController {
         self.view.addSubview(self.logoImgView)
         self.logoImgView.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.view)
-            make.centerY.equalTo(self.view).offset(-200)
-            make.width.height.equalTo(150)
+            make.top.equalTo(self.view.safeAreaLayoutGuideSnp.top).offset(80)
+            make.width.height.equalTo(84)
         }
 
         self.view.addSubview(self.userNameBtn)
         self.userNameBtn.snp.makeConstraints { (make) -> Void in
-            make.centerY.equalTo(self.view).offset(-100)
+            make.top.equalTo(self.logoImgView.snp.bottom).offset(140)
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
             make.height.equalTo(60)
@@ -135,7 +135,7 @@ extension LoginViewController {
             make.height.equalTo(50)
             make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-24)
             make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view.snp.centerX).offset(2)
+            make.right.equalTo(self.view.snp.centerX).offset(-2)
         }
 
         let line = UIView()

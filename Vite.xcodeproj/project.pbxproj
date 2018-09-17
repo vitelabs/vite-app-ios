@@ -46,6 +46,18 @@
 		4C9AFD59214E2FF2005B12C2 /* ManageWalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD58214E2FF2005B12C2 /* ManageWalletHeaderView.swift */; };
 		4C9AFD5C214F433C005B12C2 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD5B214F433C005B12C2 /* AboutUsViewController.swift */; };
 		4C9AFD5E214F4370005B12C2 /* FetchWelfareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */; };
+		4C9AFD70214F8E03005B12C2 /* libBaiduMobStat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9AFD6F214F8E03005B12C2 /* libBaiduMobStat.a */; };
+		4C9AFD72214F8F4C005B12C2 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9AFD71214F8F4C005B12C2 /* JavaScriptCore.framework */; };
+		4C9AFD74214F8F54005B12C2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9AFD73214F8F54005B12C2 /* Security.framework */; };
+		4C9AFD76214F8F5E005B12C2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9AFD75214F8F5E005B12C2 /* CoreLocation.framework */; };
+		4C9AFD78214F8F66005B12C2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9AFD77214F8F66005B12C2 /* SystemConfiguration.framework */; };
+		4C9AFD7A214F8F6D005B12C2 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9AFD79214F8F6D005B12C2 /* CoreTelephony.framework */; };
+		4C9AFD7C214F8F74005B12C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9AFD7B214F8F74005B12C2 /* CoreGraphics.framework */; };
+		4C9AFD7E214F8F7C005B12C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9AFD7D214F8F7C005B12C2 /* UIKit.framework */; };
+		4C9AFD80214F8F83005B12C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9AFD7F214F8F83005B12C2 /* Foundation.framework */; };
+		4C9AFD82214F8F8E005B12C2 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9AFD81214F8F8E005B12C2 /* libz.1.2.5.tbd */; };
+		4C9AFD84214F8F9C005B12C2 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9AFD83214F8F9C005B12C2 /* libstdc++.tbd */; };
+		4C9AFD86214F9087005B12C2 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9AFD85214F9087005B12C2 /* libicucore.tbd */; };
 		4CC4F451214CCB5B0068DA53 /* TitlePasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4F450214CCB5B0068DA53 /* TitlePasswordInputView.swift */; };
 		4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE42452124553B0080E92B /* AppDelegate.swift */; };
 		4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCE424C2124553C0080E92B /* Assets.xcassets */; };
@@ -194,6 +206,19 @@
 		4C9AFD58214E2FF2005B12C2 /* ManageWalletHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageWalletHeaderView.swift; sourceTree = "<group>"; };
 		4C9AFD5B214F433C005B12C2 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWelfareViewController.swift; sourceTree = "<group>"; };
+		4C9AFD6E214F8E03005B12C2 /* BaiduMobStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobStat.h; sourceTree = "<group>"; };
+		4C9AFD6F214F8E03005B12C2 /* libBaiduMobStat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBaiduMobStat.a; sourceTree = "<group>"; };
+		4C9AFD71214F8F4C005B12C2 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		4C9AFD73214F8F54005B12C2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4C9AFD75214F8F5E005B12C2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4C9AFD77214F8F66005B12C2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4C9AFD79214F8F6D005B12C2 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		4C9AFD7B214F8F74005B12C2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4C9AFD7D214F8F7C005B12C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4C9AFD7F214F8F83005B12C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4C9AFD81214F8F8E005B12C2 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		4C9AFD83214F8F9C005B12C2 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		4C9AFD85214F9087005B12C2 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		4CC4F450214CCB5B0068DA53 /* TitlePasswordInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePasswordInputView.swift; sourceTree = "<group>"; };
 		4CCE42422124553B0080E92B /* Vite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCE42452124553B0080E92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -302,6 +327,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C9AFD86214F9087005B12C2 /* libicucore.tbd in Frameworks */,
+				4C9AFD84214F8F9C005B12C2 /* libstdc++.tbd in Frameworks */,
+				4C9AFD82214F8F8E005B12C2 /* libz.1.2.5.tbd in Frameworks */,
+				4C9AFD80214F8F83005B12C2 /* Foundation.framework in Frameworks */,
+				4C9AFD7E214F8F7C005B12C2 /* UIKit.framework in Frameworks */,
+				4C9AFD7C214F8F74005B12C2 /* CoreGraphics.framework in Frameworks */,
+				4C9AFD7A214F8F6D005B12C2 /* CoreTelephony.framework in Frameworks */,
+				4C9AFD78214F8F66005B12C2 /* SystemConfiguration.framework in Frameworks */,
+				4C9AFD76214F8F5E005B12C2 /* CoreLocation.framework in Frameworks */,
+				4C9AFD74214F8F54005B12C2 /* Security.framework in Frameworks */,
+				4C9AFD72214F8F4C005B12C2 /* JavaScriptCore.framework in Frameworks */,
+				4C9AFD70214F8E03005B12C2 /* libBaiduMobStat.a in Frameworks */,
 				D62F634C8DA45F93E78F5B8D /* Pods_Vite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +498,7 @@
 		4C4C9D6C213E96EC005542F8 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				4C9AFD64214F85F8005B12C2 /* BaiduMTJ */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -594,6 +632,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4C9AFD64214F85F8005B12C2 /* BaiduMTJ */ = {
+			isa = PBXGroup;
+			children = (
+				4C9AFD6E214F8E03005B12C2 /* BaiduMobStat.h */,
+				4C9AFD6F214F8E03005B12C2 /* libBaiduMobStat.a */,
+			);
+			path = BaiduMTJ;
+			sourceTree = "<group>";
+		};
 		4CCE42392124553B0080E92B = {
 			isa = PBXGroup;
 			children = (
@@ -672,6 +719,17 @@
 		63EB5F834DEBA43A777880E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C9AFD85214F9087005B12C2 /* libicucore.tbd */,
+				4C9AFD83214F8F9C005B12C2 /* libstdc++.tbd */,
+				4C9AFD81214F8F8E005B12C2 /* libz.1.2.5.tbd */,
+				4C9AFD7F214F8F83005B12C2 /* Foundation.framework */,
+				4C9AFD7D214F8F7C005B12C2 /* UIKit.framework */,
+				4C9AFD7B214F8F74005B12C2 /* CoreGraphics.framework */,
+				4C9AFD79214F8F6D005B12C2 /* CoreTelephony.framework */,
+				4C9AFD77214F8F66005B12C2 /* SystemConfiguration.framework */,
+				4C9AFD75214F8F5E005B12C2 /* CoreLocation.framework */,
+				4C9AFD73214F8F54005B12C2 /* Security.framework */,
+				4C9AFD71214F8F4C005B12C2 /* JavaScriptCore.framework */,
 				7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */,
 				D9ECCAAC94107661B825DB36 /* Pods_ViteTests.framework */,
 				E5EF60202B89DEC8B075E04F /* Pods_ViteUITests.framework */,
@@ -1577,16 +1635,22 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7BMF8UG4WB;
+				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vite/Vendors/BaiduMTJ",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.vite.demo-keychain.xx";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = Vite/Vendors/BaiduMTJ/BaiduMobStat.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1600,17 +1664,23 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7BMF8UG4WB;
+				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vite/Vendors/BaiduMTJ",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.vite.demo-keychain.xx";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = Vite/Vendors/BaiduMTJ/BaiduMobStat.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
