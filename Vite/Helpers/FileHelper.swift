@@ -123,9 +123,3 @@ extension FileHelper {
         return NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
     }()
 }
-
-extension FileHelper {
-    static var appPathComponent = "app"
-    // TODO: need account UUID
-    static var accountPathComponent = "Account_UUID"
-}

@@ -22,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         handleRootVC()
+
+        AutoGatheringService.instance.start()
+
+
         return true
     }
 
@@ -51,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let nav = BaseNavigationController(rootViewController: rootVC)
             window?.rootViewController = nav
         } else {
+            HDWalletManager.instance.updateAccount(WalletDataService.shareInstance.defaultWalletAccount!)
             let rootVC = HomeViewController()
             window?.rootViewController = rootVC
         }

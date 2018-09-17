@@ -68,8 +68,7 @@ class BalanceInfoDetailViewController: BaseViewController {
         }
 
         showTransactionsButton.rx.tap.bind { [weak self] in
-            let address = Address(string: (WalletDataService.shareInstance.defaultWalletAccount?.defaultKey.address)!)
-            self?.navigationController?.pushViewController(TransactionListViewController(address: address), animated: true)
+            self?.navigationController?.pushViewController(TransactionListViewController(), animated: true)
         }.disposed(by: rx.disposeBag)
 
         receiveButton.rx.tap.bind { [weak self] in

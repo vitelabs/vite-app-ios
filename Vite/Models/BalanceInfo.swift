@@ -68,8 +68,8 @@ extension BalanceInfo {
         let ret = NSMutableArray()
 
         for defaultBalanceInfo in defaultBalanceInfos {
-            if infos.contains(defaultBalanceInfo) {
-                let index = infos.index(of: defaultBalanceInfo)
+            if infos.contains(where: { ($0 as! BalanceInfo).tokenId == defaultBalanceInfo.tokenId }) {
+                let index = (infos as Array).index(where: { ($0 as! BalanceInfo).tokenId == defaultBalanceInfo.tokenId })!
                 ret.add(infos[index])
                 infos.removeObject(at: index)
             } else {

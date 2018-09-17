@@ -13,21 +13,24 @@ import RxCocoa
 final class WalletHomeBalanceInfoTableViewModel: WalletHomeBalanceInfoTableViewModelType {
 
     lazy var  balanceInfosDriver: Driver<[WalletHomeBalanceInfoViewModelType]> = self.balanceInfos.asDriver()
-    fileprivate let balanceInfos: BehaviorRelay<[WalletHomeBalanceInfoViewModelType]>
-    fileprivate let address: Address
+    fileprivate var balanceInfos: BehaviorRelay<[WalletHomeBalanceInfoViewModelType]>! = nil
 
     fileprivate let disposeBag = DisposeBag()
     fileprivate let accountProvider = AccountProvider(server: RPCServer.shared)
 
-    fileprivate let fileHelper: FileHelper
+    fileprivate var fileHelper: FileHelper! = nil
     fileprivate static let saveKey = "BalanceInfos"
+
+    fileprivate var address: Address! = nil
 
     deinit {
         print("deinit WalletHomeBalanceInfoTableViewModel")
     }
 
-    init(address: Address) {
-        self.address = address
+    init() {
+
+        HDWalletManager.instance.bagDriver.drive(onNext: { [weak self] in self?.address = $0.address }).disposed(by: disposeBag)
+
         self.fileHelper = FileHelper(.library, appending: "\(FileHelper.accountPathComponent)/\(address.description)")
 
         var oldBalanceInfos: [BalanceInfo]!
@@ -50,6 +53,7 @@ final class WalletHomeBalanceInfoTableViewModel: WalletHomeBalanceInfoTableViewM
     }
 
     private func getBalanceInfos() {
+        print("\((#file as NSString).lastPathComponent)[\(#line)], \(#function): \(address.description)")
         _ = accountProvider.getBalanceInfos(address: address).done { [weak self] balanceInfos in
             let allBalanceInfos = BalanceInfo.mergeBalanceInfos(balanceInfos)
 
