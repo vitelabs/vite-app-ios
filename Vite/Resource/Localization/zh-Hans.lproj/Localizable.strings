@@ -34,6 +34,10 @@
 "mnemonic.backup.page.tip.lab.title" = "助记词";
 "mnemonic.backup.page.tip.anewBtn.title" = "重新生成助记词";
 "mnemonic.backup.page.tip.nextBtn.title" = "助记词已备份";
+"mnemonic.backup.page.alter.title" = "截图保存助记词是不安全的方式，建议您用纸笔记录并存放在安全的地方";
+"mnemonic.backup.page.alter.message" = "是否重新生成助记词？";
+"mnemonic.backup.page.alter.cancel" = "不了";
+"mnemonic.backup.page.alter.confirm" = "好的";
 
 "mnemonic.affirm.page.title" = "确认输入助记词";
 "mnemonic.affirm.page.tip.title" = "按顺序选择助记词输入";

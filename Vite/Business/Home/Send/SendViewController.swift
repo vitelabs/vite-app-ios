@@ -92,7 +92,7 @@ class SendViewController: BaseViewController {
                 }
             })
             self?.present(confirmViewController, animated: false, completion: nil)
-            }.disposed(by: rx.disposeBag)
+        }.disposed(by: rx.disposeBag)
 
     }
 
