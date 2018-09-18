@@ -13,7 +13,9 @@ class TokenCacheService {
     fileprivate let fileHelper = FileHelper(.library, appending: FileHelper.appPathComponent)
     fileprivate static let saveKey = "TokenCache"
 
-    let defaultTokens: [Token] = [Token(id: Token.Currency.vite.rawValue, name: "vite", symbol: "VITE")]
+    let defaultTokens: [Token] = [Token(id: Token.Currency.vite.rawValue, name: "vite", symbol: "VITE"),
+                                  Token(id: Token.Currency.vcc.rawValue, name: "vcc", symbol: "VCC"),
+                                  Token(id: Token.Currency.vcandy.rawValue, name: "vcandy", symbol: "vcandy")]
     var tokenDic = [String: Token]()
 
     private init() {
@@ -57,13 +59,10 @@ extension TokenCacheService {
     }
 
     func iconForId(_ id: String) -> Token.Icon {
-        if let type = Token.Currency(rawValue: id) {
-            switch type {
-            case .vite:
-                return Token.Icon.local(imageResource: R.image.icon_wallet_token_vite)
-            }
+        if let _ = Token.Currency(rawValue: id) {
+            return Token.Icon.image(image: R.image.icon_token_vite_white()!)
         } else {
-            return Token.Icon.local(imageResource: R.image.icon_wallet_token_default)
+            return Token.Icon.image(image: R.image.icon_token_vite_white()!)
         }
     }
 
@@ -76,6 +75,14 @@ extension TokenCacheService {
                         UIColor(netHex: 0x0998F3),
                         UIColor(netHex: 0x00C3FF),
                         UIColor(netHex: 0x00ECFF),
+                ]
+            case .vcc:
+                return [ UIColor(netHex: 0xF76B1C),
+                         UIColor(netHex: 0xFAD961),
+                ]
+            case .vcandy:
+                return [UIColor(netHex: 0x429321),
+                        UIColor(netHex: 0xB4EC51),
                 ]
             }
         } else {

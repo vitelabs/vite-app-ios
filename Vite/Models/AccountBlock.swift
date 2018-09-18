@@ -50,79 +50,100 @@ struct AccountBlock: Mappable {
 
     mutating func mapping(map: Map) {
 
-        meta <- map["Meta"]
-        accountAddress <- (map["AccountAddress"], JSONTransformer.address)
-        publicKey <- map["PublicKey"]
-        to <- (map["To"], JSONTransformer.address)
-        from <- (map["From"], JSONTransformer.address)
-        fromHash <- map["FromHash"]
-        prevHash <- map["PrevHash"]
-        hash <- map["Hash"]
-        balance <- (map["Balance"], JSONTransformer.bigint)
-        amount <- (map["Amount"], JSONTransformer.bigint)
-        timestamp <- map["Timestamp"]
-        tokenId <- map["TokenId"]
-        lastBlockHeightInToken <- (map["LastBlockHeightInToken"], JSONTransformer.bigint)
-        data <- map["Data"]
-        snapshotChainHash <- map["SnapshotTimestamp"]
-        signature <- map["Signature"]
-        nonce <- map["Nonce"]
-        difficulty <- map["Difficulty"]
-        confirmedTimes <- (map["ConfirmedTimes"], JSONTransformer.bigint)
+        meta <- map["meta"]
+        accountAddress <- (map["accountAddress"], JSONTransformer.address)
+        publicKey <- map["publicKey"]
+        to <- (map["to"], JSONTransformer.address)
+        from <- (map["from"], JSONTransformer.address)
+        fromHash <- map["fromHash"]
+        prevHash <- map["prevHash"]
+        hash <- map["hash"]
+        balance <- (map["balance"], JSONTransformer.bigint)
+        amount <- (map["amount"], JSONTransformer.bigint)
+        timestamp <- map["timestamp"]
+        tokenId <- map["tokenId"]
+        lastBlockHeightInToken <- (map["lastBlockHeightInToken"], JSONTransformer.bigint)
+        data <- map["data"]
+        snapshotChainHash <- map["snapshotTimestamp"]
+        signature <- map["signature"]
+        nonce <- map["nonce"]
+        difficulty <- map["difficulty"]
+        confirmedTimes <- (map["confirmedTimes"], JSONTransformer.bigint)
 
     }
 }
 
 extension AccountBlock {
-    func makeSendAccountBlock(latestAccountBlock: AccountBlock, bag: HDWalletManager.Bag, snapshotChainHash: String, toAddress: Address, tokenId: String, amount: BigInt) -> AccountBlock {
 
-        var accountBlock = makeBaseAccountBlock(latestAccountBlock: latestAccountBlock, bag: bag, snapshotChainHash: snapshotChainHash)
-        accountBlock.to = toAddress
-        accountBlock.tokenId = tokenId
-        accountBlock.amount = amount
-        let (hash, signature) = self.signature(accountBlock: accountBlock, secretKeyHexString: bag.secretKey, publicKeyHexString: bag.publicKey)
+    static func makeSendAccountBlock(latest: AccountBlock,
+                                     bag: HDWalletManager.Bag,
+                                     snapshotChainHash: String,
+                                     toAddress: Address,
+                                     tokenId: String,
+                                     amount: BigInt,
+                                     data: String?) -> AccountBlock {
+        var block = makeBaseAccountBlock(latest: latest, bag: bag, snapshotChainHash: snapshotChainHash)
 
-        accountBlock.hash = hash
-        accountBlock.signature = signature
+        block.data = data
+        block.tokenId = tokenId
 
-        return accountBlock
+        block.to = toAddress
+        block.amount = amount
+
+        let (hash, signature) = sign(accountBlock: block,
+                                     secretKeyHexString: bag.secretKey,
+                                     publicKeyHexString: bag.publicKey)
+        block.hash = hash
+        block.signature = signature
+
+        return block
     }
 
-    func makeReceiveAccountBlock(latestAccountBlock: AccountBlock, bag: HDWalletManager.Bag, snapshotChainHash: String) -> AccountBlock {
+    static func makeReceiveAccountBlock(unconfirmed: AccountBlock,
+                                        latest: AccountBlock,
+                                        bag: HDWalletManager.Bag,
+                                        snapshotChainHash: String) -> AccountBlock {
+        var block = makeBaseAccountBlock(latest: latest, bag: bag, snapshotChainHash: snapshotChainHash)
 
-        var accountBlock = makeBaseAccountBlock(latestAccountBlock: latestAccountBlock, bag: bag, snapshotChainHash: snapshotChainHash)
-        let (hash, signature) = self.signature(accountBlock: accountBlock, secretKeyHexString: bag.secretKey, publicKeyHexString: bag.publicKey)
-        accountBlock.hash = hash
-        accountBlock.signature = signature
+        block.data = unconfirmed.data
+        block.tokenId = unconfirmed.tokenId
 
-        return accountBlock
+        block.fromHash = unconfirmed.hash
+
+        let (hash, signature) = sign(accountBlock: block,
+                                     secretKeyHexString: bag.secretKey,
+                                     publicKeyHexString: bag.publicKey)
+        block.hash = hash
+        block.signature = signature
+
+        return block
     }
 
-    private func makeBaseAccountBlock(latestAccountBlock: AccountBlock, bag: HDWalletManager.Bag, snapshotChainHash: String) -> AccountBlock {
+    private static func makeBaseAccountBlock(latest: AccountBlock,
+                                             bag: HDWalletManager.Bag,
+                                             snapshotChainHash: String) -> AccountBlock {
+        var block = AccountBlock()
 
-        var accountBlock = AccountBlock()
-
-        if let height = latestAccountBlock.meta.height {
-            accountBlock.meta.setHeight(height + 1)
+        if let height = latest.meta.height {
+            block.meta.setHeight(height + 1)
         } else {
-            accountBlock.meta.setHeight(1)
+            block.meta.setHeight(1)
         }
 
-        accountBlock.accountAddress = bag.address
-        accountBlock.publicKey = bag.publicKey
-        accountBlock.fromHash = self.hash
-        accountBlock.prevHash = latestAccountBlock.hash
-        accountBlock.timestamp = BigInt(Date().timeIntervalSince1970)
-        accountBlock.tokenId = self.tokenId
-        accountBlock.data = self.data
-        accountBlock.snapshotChainHash = snapshotChainHash
-        accountBlock.nonce = "0000000000"
-        accountBlock.difficulty = "0000000000"
+        block.accountAddress = bag.address
+        block.publicKey = bag.publicKey
+        block.prevHash = latest.hash
+        block.timestamp = BigInt(Date().timeIntervalSince1970)
+        block.snapshotChainHash = snapshotChainHash
+        block.nonce = "0000000000"
+        block.difficulty = "0000000000"
 
-        return accountBlock
+        return block
     }
 
-    private func signature(accountBlock: AccountBlock, secretKeyHexString: String, publicKeyHexString: String) -> (hash: String, signature: String) {
+    private static func sign(accountBlock: AccountBlock,
+                             secretKeyHexString: String,
+                             publicKeyHexString: String) -> (hash: String, signature: String) {
         var source = Bytes()
 
         // Bytes->hex2Bytes

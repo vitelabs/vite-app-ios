@@ -28,9 +28,9 @@ struct Token: Mappable {
     }
 
     mutating func mapping(map: Map) {
-        id <- map["TokenTypeId"]
-        name <- map["TokenName"]
-        symbol <- map["TokenSymbol"]
+        id <- map["id"]
+        name <- map["name"]
+        symbol <- map["symbol"]
     }
 }
 
@@ -38,16 +38,18 @@ extension Token {
 
     enum Currency: String {
         case vite = "tti_000000000000000000004cfd"
+        case vcc = "tti_000000000000000000001111"
+        case vcandy = "tti_000000000000000000002222"
     }
 
     enum Icon {
         case url(url: URL)
-        case local(imageResource: ImageResource)
+        case image(image: UIImage)
 
         func putIn(_ imageView: UIImageView) {
             switch self {
-            case .local(let imageResource):
-                imageView.image = UIImage(resource: imageResource)
+            case .image(let image):
+                imageView.image = image
             case .url(let url):
                 fatalError("\(url) Currently not supported!")
             }

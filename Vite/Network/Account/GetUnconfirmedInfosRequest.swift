@@ -33,7 +33,7 @@ class GetUnconfirmedInfosRequest: JSONRPCKit.Request {
         }
 
         var unConfirmedInfoArray = [[String: Any]]()
-        if let array = response["BalanceInfos"] as?  [[String: Any]] {
+        if let array = response["balanceInfos"] as?  [[String: Any]] {
             unConfirmedInfoArray = array
         }
 

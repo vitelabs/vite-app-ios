@@ -44,12 +44,12 @@ struct Transaction: Equatable, Mappable {
     }
 
     mutating func mapping(map: Map) {
-        timestamp <- (map["Timestamp"], JSONTransformer.timestamp)
-        fromAddress <- (map["From"], JSONTransformer.address)
-        toAddress <- (map["To"], JSONTransformer.address)
-        hash <- map["Hash"]
-        balance <- (map["Balance"], JSONTransformer.balance)
-        amount <- (map["Amount"], JSONTransformer.balance)
-        tokenId <- map["TokenId"]
+        timestamp <- (map["timestamp"], JSONTransformer.timestamp)
+        fromAddress <- (map["from"], JSONTransformer.address)
+        toAddress <- (map["to"], JSONTransformer.address)
+        hash <- map["hash"]
+        balance <- (map["balance"], JSONTransformer.balance)
+        amount <- (map["amount"], JSONTransformer.balance)
+        tokenId <- map["tokenId"]
     }
 }

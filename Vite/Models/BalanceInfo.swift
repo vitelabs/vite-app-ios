@@ -12,37 +12,25 @@ import BigInt
 
 struct BalanceInfo: Mappable {
 
+    fileprivate(set) var token = Token()
     fileprivate(set) var balance = Balance()
     fileprivate(set) var unconfirmedBalance = Balance()
     fileprivate(set) var unconfirmedCount: Int = 0
-
-    fileprivate var tokenId = ""
-    fileprivate var tokenName = ""
-    fileprivate var tokenSymbol = ""
-
-    var token: Token {
-        return Token(id: tokenId, name: tokenName, symbol: tokenSymbol)
-    }
 
     init?(map: Map) {
 
     }
 
     init(token: Token, balance: Balance, unconfirmedBalance: Balance, unconfirmedCount: Int) {
+        self.token = token
         self.balance = balance
         self.unconfirmedBalance = unconfirmedBalance
         self.unconfirmedCount = unconfirmedCount
-
-        self.tokenId = token.id
-        self.tokenName = token.name
-        self.tokenSymbol = token.symbol
     }
 
     mutating func mapping(map: Map) {
-        tokenId <- map["TokenTypeId"]
-        tokenName <- map["TokenName"]
-        tokenSymbol <- map["TokenSymbol"]
-        balance <- (map["Balance"], JSONTransformer.balance)
+        token <- map["mintage"]
+        balance <- (map["balance"], JSONTransformer.balance)
     }
 
     mutating func fill(unconfirmedBalance: Balance, unconfirmedCount: Int) {
@@ -53,7 +41,7 @@ struct BalanceInfo: Mappable {
 
 extension BalanceInfo: Equatable {
     static func == (lhs: BalanceInfo, rhs: BalanceInfo) -> Bool {
-        return lhs.tokenId == rhs.tokenId
+        return lhs.token.id == rhs.token.id
     }
 }
 
@@ -68,8 +56,7 @@ extension BalanceInfo {
         let ret = NSMutableArray()
 
         for defaultBalanceInfo in defaultBalanceInfos {
-            if infos.contains(where: { ($0 as! BalanceInfo).tokenId == defaultBalanceInfo.tokenId }) {
-                let index = (infos as Array).index(where: { ($0 as! BalanceInfo).tokenId == defaultBalanceInfo.tokenId })!
+            if let index = (infos as Array).index(where: { ($0 as! BalanceInfo).token.id == defaultBalanceInfo.token.id }) {
                 ret.add(infos[index])
                 infos.removeObject(at: index)
             } else {

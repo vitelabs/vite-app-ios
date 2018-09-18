@@ -100,8 +100,14 @@ class SendViewController: BaseViewController {
 
         let transactionProvider = TransactionProvider(server: RPCServer.shared)
         _ = transactionProvider.getLatestAccountBlock(address: bag.address)
-            .then({ [weak self] (accountBlock, snapshotChainHash) -> Promise<Void> in
-                let send = accountBlock.makeSendAccountBlock(latestAccountBlock: accountBlock, bag: self!.bag, snapshotChainHash: snapshotChainHash, toAddress: toAddress, tokenId: tokenId, amount: amount)
+            .then({ [weak self] (latestAccountBlock, snapshotChainHash) -> Promise<Void> in
+                let send = AccountBlock.makeSendAccountBlock(latest: latestAccountBlock,
+                                                             bag: self!.bag,
+                                                             snapshotChainHash: snapshotChainHash,
+                                                             toAddress: toAddress,
+                                                             tokenId: tokenId,
+                                                             amount: amount,
+                                                             data: nil)
                 return transactionProvider.createTransaction(accountBlock: send)
             })
             .done({
