@@ -82,7 +82,8 @@ class SendViewController: BaseViewController {
         //        addressView.textField.text = "vite_568c182884e989ea87995412051cb40f1cdf5a6896d658f434" // iphone se 10.3.1
 
         let tokenId = Token.Currency.vite.rawValue
-        let amount = BigInt(1000000000000000000)
+//        let amount = BigInt(1000000000000000000)
+        let amount = BigInt(1234567890123456789)
 
         sendButton.rx.tap.bind { [weak self] in
             let confirmViewController = ConfirmTransactionViewController(confirmTypye: .biometry, address: addressView.textField.text!, token: "vcc", amount: "10000", completion: { [weak self] (result) in

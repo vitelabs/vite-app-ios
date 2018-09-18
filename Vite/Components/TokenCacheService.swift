@@ -13,9 +13,10 @@ class TokenCacheService {
     fileprivate let fileHelper = FileHelper(.library, appending: FileHelper.appPathComponent)
     fileprivate static let saveKey = "TokenCache"
 
-    let defaultTokens: [Token] = [Token(id: Token.Currency.vite.rawValue, name: "vite", symbol: "VITE"),
-                                  Token(id: Token.Currency.vcc.rawValue, name: "vcc", symbol: "VCC"),
-                                  Token(id: Token.Currency.vcandy.rawValue, name: "vcandy", symbol: "vcandy")]
+    let defaultTokens: [Token] = [Token(id: Token.Currency.vite.rawValue, name: "vite", symbol: "VITE", decimals: 18),
+                                  Token(id: Token.Currency.vcc.rawValue, name: "vcc", symbol: "VCC", decimals: 17),
+                                  Token(id: Token.Currency.vcandy.rawValue, name: "vcandy", symbol: "vcandy", decimals: 16),
+                                  ]
     var tokenDic = [String: Token]()
 
     private init() {

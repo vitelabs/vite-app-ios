@@ -20,7 +20,7 @@ final class TransactionViewModel: TransactionViewModelType {
         self.timeString = transaction.timestamp.format()
         self.hash = transaction.hash
         let symbol = transaction.type == .request ? "-" : "+"
-        self.balanceString = "\(symbol)\(transaction.amount.amountShort)"
+        self.balanceString = "\(symbol)\(transaction.amount.amountShort(decimals: transaction.token.decimals))"
         self.symbolString = TokenCacheService.instance.tokenForId(transaction.tokenId)?.symbol ?? ""
     }
 }

@@ -35,11 +35,10 @@ class TransactionListViewController: BaseTableViewController {
         tableView.rowHeight = TransactionCell.cellHeight
         tableView.estimatedRowHeight = TransactionCell.cellHeight
         tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
-            self?.tableViewModel.refreshList { [weak self] in
+            self?.refreshList(finished: { [weak self] in
                 self?.tableView.mj_header.endRefreshing()
-            }
+            })
         })
-
     }
 
     let dataSource = DataSource(configureCell: { (_, tableView, indexPath, item) -> UITableViewCell in
@@ -56,8 +55,6 @@ class TransactionListViewController: BaseTableViewController {
         tableViewModel.hasMore.asObservable().bind { [weak self] in
             self?.tableView.tableFooterView = $0 ? self?.footerView : nil
         }.disposed(by: rx.disposeBag)
-
-        tableViewModel.transactionsDriver.asObservable().map { String($0.count) }.bind(to: navigationItem.rx.title).disposed(by: rx.disposeBag)
 
         tableViewModel.transactionsDriver.asObservable()
             .map { [SectionModel(model: "transaction", items: $0)] }
@@ -81,18 +78,50 @@ class TransactionListViewController: BaseTableViewController {
             let triggerOffset = self.tableView.frame.height / 2
             let frame = footerView.superview!.convert(footerView.frame, to: self.view)
             if frame.origin.y < self.view.frame.height + triggerOffset {
-                self.tableViewModel.getMore()
+                self.getMore()
             }
 
         }.disposed(by: rx.disposeBag)
 
         dataStatus = .loading
-        tableViewModel.refreshList { [weak self] in
-            self?.dataStatus = .normal
+        refreshList()
+    }
+
+    private func getMore(finished: (() -> Void)? = nil) {
+        self.tableViewModel.getMore { error in
+            if let error = error {
+                print(error)
+            }
+        }
+    }
+
+    private func refreshList(finished: (() -> Void)? = nil) {
+        tableViewModel.refreshList { [weak self] error in
+            if let f = finished {
+                f()
+            }
+
+            if let error = error {
+                self?.dataStatus = .networkError(error, { [weak self] in
+                    self?.refreshList()
+                })
+            } else {
+                self?.dataStatus = .normal
+            }
         }
     }
 }
 
 extension TransactionListViewController: ViewControllerDataStatusable {
 
+    func networkErrorView(error: Error, retry: @escaping () -> Void) -> UIView {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.red
+        button.setTitle(error.localizedDescription, for: .normal)
+        button.rx.tap.bind { [weak self] in
+            self?.dataStatus = .loading
+            retry()
+        }.disposed(by: rx.disposeBag)
+        return button
+    }
 }

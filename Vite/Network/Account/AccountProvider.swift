@@ -55,4 +55,18 @@ final class AccountProvider {
             }
         }
     }
+
+    func getTokenForId(_ id: String) -> Promise<Token> {
+        return Promise { seal in
+            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetTokenInfoRequest(tokenId: id)))
+            Session.send(request) { result in
+                switch result {
+                case .success(let token):
+                    seal.fulfill(token)
+                case .failure(let error):
+                    seal.reject(error)
+                }
+            }
+        }
+    }
 }

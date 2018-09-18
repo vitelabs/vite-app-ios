@@ -69,7 +69,7 @@ struct AccountBlock: Mappable {
         nonce <- map["nonce"]
         difficulty <- map["difficulty"]
         confirmedTimes <- (map["confirmedTimes"], JSONTransformer.bigint)
-
+        fAmount <- (map["fAmount"], JSONTransformer.bigint)
     }
 }
 
@@ -119,7 +119,7 @@ extension AccountBlock {
         return block
     }
 
-    private static func makeBaseAccountBlock(latest: AccountBlock,
+    static func makeBaseAccountBlock(latest: AccountBlock,
                                              bag: HDWalletManager.Bag,
                                              snapshotChainHash: String) -> AccountBlock {
         var block = AccountBlock()
@@ -137,6 +137,7 @@ extension AccountBlock {
         block.snapshotChainHash = snapshotChainHash
         block.nonce = "0000000000"
         block.difficulty = "0000000000"
+        block.fAmount = BigInt(0)
 
         return block
     }

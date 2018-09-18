@@ -35,6 +35,10 @@ struct Transaction: Equatable, Mappable {
     fileprivate(set) var amount = Balance()
     fileprivate(set) var tokenId = ""
 
+    var token: Token {
+        return TokenCacheService.instance.tokenForId(tokenId) ?? Token()
+    }
+
     var type: TransactionType {
         return toAddress.isValid ? .request : .response
     }

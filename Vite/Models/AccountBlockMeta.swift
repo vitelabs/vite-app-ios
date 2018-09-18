@@ -20,8 +20,10 @@ struct AccountBlockMeta: Mappable {
 
     }
 
-    init() {
-
+    init(height: BigInt? = nil, status: Transaction.Status? = nil, isSnapshotted: Bool? = nil) {
+        self.height = height
+        self.status = status
+        self.isSnapshotted = isSnapshotted
     }
 
     mutating func mapping(map: Map) {
