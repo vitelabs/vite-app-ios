@@ -112,6 +112,8 @@
 		8E6F3E5021451F29003CDFC2 /* GetBalanceInfosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E4F21451F29003CDFC2 /* GetBalanceInfosRequest.swift */; };
 		8E6F3E5221453333003CDFC2 /* WalletHomeBalanceInfoViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E5121453333003CDFC2 /* WalletHomeBalanceInfoViewModelType.swift */; };
 		8E6F3E5421453405003CDFC2 /* WalletHomeBalanceInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E5321453405003CDFC2 /* WalletHomeBalanceInfoViewModel.swift */; };
+		8E792614215151E0007FEBAB /* ViteURI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E792613215151E0007FEBAB /* ViteURI.swift */; };
+		8E79261621515D3A007FEBAB /* ViteURITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261521515D3A007FEBAB /* ViteURITest.swift */; };
 		8E79C6E8214D392900FAEEBC /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6E7214D392900FAEEBC /* FileHelper.swift */; };
 		8E79C6EA214DFD9C00FAEEBC /* TokenCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */; };
 		8E79C6EC214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6EB214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift */; };
@@ -285,6 +287,8 @@
 		8E6F3E4F21451F29003CDFC2 /* GetBalanceInfosRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBalanceInfosRequest.swift; sourceTree = "<group>"; };
 		8E6F3E5121453333003CDFC2 /* WalletHomeBalanceInfoViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHomeBalanceInfoViewModelType.swift; sourceTree = "<group>"; };
 		8E6F3E5321453405003CDFC2 /* WalletHomeBalanceInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHomeBalanceInfoViewModel.swift; sourceTree = "<group>"; };
+		8E792613215151E0007FEBAB /* ViteURI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteURI.swift; sourceTree = "<group>"; };
+		8E79261521515D3A007FEBAB /* ViteURITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteURITest.swift; sourceTree = "<group>"; };
 		8E79C6E7214D392900FAEEBC /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCacheService.swift; sourceTree = "<group>"; };
 		8E79C6EB214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLatestSnapshotChainHashRequest.swift; sourceTree = "<group>"; };
@@ -467,6 +471,7 @@
 				8E79C6ED214E71E300FAEEBC /* HDWalletManager.swift */,
 				8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */,
 				8EE4690C214BCE0700807D2C /* AutoGatheringService.swift */,
+				8E792613215151E0007FEBAB /* ViteURI.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -700,6 +705,7 @@
 				4CCE425A2124553C0080E92B /* ViteTests.swift */,
 				8E6F3E13214220DF003CDFC2 /* ViteNetworkTests.swift */,
 				4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */,
+				8E79261521515D3A007FEBAB /* ViteURITest.swift */,
 				4CCE425C2124553C0080E92B /* Info.plist */,
 			);
 			path = ViteTests;
@@ -1378,6 +1384,7 @@
 				8E6F3E5021451F29003CDFC2 /* GetBalanceInfosRequest.swift in Sources */,
 				8E6F3E0E2141244F003CDFC2 /* BalanceType.swift in Sources */,
 				4CE4E13D214794D000A6CD7E /* UIImage.swift in Sources */,
+				8E792614215151E0007FEBAB /* ViteURI.swift in Sources */,
 				8E6F3E2821422BA1003CDFC2 /* MyHomeViewController.swift in Sources */,
 				4C0024E421258005001DF390 /* R.generated.swift in Sources */,
 				4C84D93F21452836001B6EBD /* BackupMnemonicViewController.swift in Sources */,
@@ -1457,6 +1464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E79261621515D3A007FEBAB /* ViteURITest.swift in Sources */,
 				4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */,
 				8E6F3E14214220DF003CDFC2 /* ViteNetworkTests.swift in Sources */,
 				4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */,

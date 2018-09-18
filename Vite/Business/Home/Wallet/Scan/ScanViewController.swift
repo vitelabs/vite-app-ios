@@ -125,16 +125,30 @@ class ScanViewController: BaseViewController {
 
     func handleQRResult(_ result: String?) {
         guard let result = result else { return }
+        if let uri = ViteURI.parser(string: result) {
+            switch uri {
+            case .address:
+                showAlert(string: result)
+            case .transfer(let address, let tokenId, let amount, let note):
+                let tokenId = tokenId ?? Token.Currency.vite.rawValue
+                let sendViewController = SendViewController(tokenId: tokenId, address: address, amount: amount, note: note)
+                guard var viewControllers = navigationController?.viewControllers else { return }
+                _ = viewControllers.popLast()
+                viewControllers.append(sendViewController)
+                self.navigationController?.setViewControllers(viewControllers, animated: true)
+            }
+        } else {
+            showAlert(string: result)
+        }
+    }
+
+    func showAlert(string: String) {
         let alertController = UIAlertController.init()
         let action = UIAlertAction.init(title: LocalizationStr("OK"), style: .default) { [weak self](_) in
-            guard var viewControllers = self?.navigationController?.viewControllers else { return }
-            print(result)
-            _ = viewControllers.popLast()
-            viewControllers.append(SendViewController())
-            self?.navigationController?.setViewControllers(viewControllers, animated: true)
+            self?.navigationController?.popViewController(animated: true)
         }
         alertController.addAction(action)
-        alertController.title = result
+        alertController.title = string
         present(alertController, animated: true, completion: nil)
     }
 

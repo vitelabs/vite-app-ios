@@ -28,6 +28,7 @@ final class TransactionListTableViewModel: TransactionListTableViewModelType {
 
     fileprivate let viewModels = NSMutableArray()
     fileprivate var index = 0
+    fileprivate var hash: String? = nil
     fileprivate var loadingStatus = LoadingStatus.no {
         didSet {
             print("old: \(oldValue) new: \(loadingStatus)")
@@ -49,6 +50,7 @@ final class TransactionListTableViewModel: TransactionListTableViewModelType {
         print("start refreshList")
         loadingStatus = .refresh
         index = 0
+        hash = nil
         viewModels.removeAllObjects()
         getTransactions(completion: completion)
     }
@@ -62,7 +64,7 @@ final class TransactionListTableViewModel: TransactionListTableViewModelType {
     }
 
     private func getTransactions(completion: @escaping (Error?) -> Void) {
-        _ = accountProvider.getTransactions(address: address, index: index, count: 10).done({ [weak self] (transactions, hasMore) in
+        _ = accountProvider.getTransactions(address: address, hash: hash, count: 10).done({ [weak self] (transactions, hasMore) in
             guard let `self` = self else { return }
 
             self.getTokensIfNeeded(ids: transactions.map { $0.tokenId }, completion: { (error) in
@@ -71,6 +73,7 @@ final class TransactionListTableViewModel: TransactionListTableViewModelType {
                     self.loadingStatus = .no
                     completion(error)
                 } else {
+                    self.hash = transactions.last?.hash
                     self.viewModels.addObjects(from: transactions.map {
                         TransactionViewModel(transaction: $0)
                     })

@@ -29,4 +29,8 @@ extension String {
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         return version
     }
+
+    func substring(range: NSRange) -> String {
+        return (self as NSString).substring(with: range) as String
+    }
 }
