@@ -28,7 +28,7 @@ class LoginViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        kas_activateAutoScrollingForView(view)
         self._setupView()
         self._bindViewModel()
     }

@@ -45,6 +45,7 @@
 "mnemonic.affirm.page.add.loading" = "添加中...";
 /* import mnemonic*/
 "import.page.title" = "输入您的助记词";
+"import.page.submit.btn" = "恢复账户";
 /* export mnemonic */
 "export.page.title" = "导出助记词";
 "export.page.alter.title" = "请输入密码";

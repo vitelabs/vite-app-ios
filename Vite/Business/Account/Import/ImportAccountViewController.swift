@@ -8,132 +8,78 @@
 
 import UIKit
 import SnapKit
-import RxCocoa
-import RxSwift
-import NSObject_Rx
+import Vite_keystore
 
 class ImportAccountViewController: BaseViewController {
-
-    fileprivate var viewModel: ImportAccountVM
-
-    init() {
-        self.viewModel = ImportAccountVM()
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self._setupView()
-        self._bindViewModel()
     }
 
-    private func _bindViewModel() {
-
-    }
-
-    lazy var logoImg: UIImageView = {
-        let logoImg = UIImageView()
-        logoImg.backgroundColor = .clear
-        logoImg.image =  R.image.launch_screen_logo()
-        return logoImg
+    lazy var contentTextView: UITextView = {
+        let contentTextView =  UITextView()
+        contentTextView.font = Fonts.Font18
+        contentTextView.backgroundColor = Colors.bgGray
+        contentTextView.textColor = Colors.descGray
+        contentTextView.text = ""
+        contentTextView.layer.masksToBounds = true
+        contentTextView.layer.cornerRadius = 2
+        contentTextView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        contentTextView.isEditable = true
+        contentTextView.isScrollEnabled = true
+        return contentTextView
     }()
 
-    var dd = R.string.localizable.cancel
-
-    lazy var createAccountBtn: UIButton = {
-        let createAccountBtn = UIButton()
-        createAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        createAccountBtn.setTitleColor(.black, for: .normal)
-        createAccountBtn.backgroundColor = .orange
-        createAccountBtn.addTarget(self, action: #selector(createAccountBtnAction), for: .touchUpInside)
-        return createAccountBtn
+    lazy var createNameAndPwdView: CreateNameAndPwdView = {
+        let createNameAndPwdView = CreateNameAndPwdView()
+        return createNameAndPwdView
     }()
 
-    lazy var importAccountBtn: UIButton = {
-        let importAccountBtn = UIButton()
-        importAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        importAccountBtn.setTitleColor(.black, for: .normal)
-        importAccountBtn.backgroundColor = .orange
-        importAccountBtn.addTarget(self, action: #selector(importAccountBtnAction), for: .touchUpInside)
-        return importAccountBtn
+    lazy var confirmBtn: UIButton = {
+        let confirmBtn = UIButton.init(style: .blue)
+        confirmBtn.setTitle(R.string.localizable.importPageSubmitBtn.key.localized(), for: .normal)
+        confirmBtn.addTarget(self, action: #selector(confirmBtnAction), for: .touchUpInside)
+        return confirmBtn
     }()
 
-    lazy var changeLanguageBtn: UIButton = {
-        let changeLanguageBtn = UIButton()
-        changeLanguageBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        changeLanguageBtn.setTitleColor(.black, for: .normal)
-        changeLanguageBtn.backgroundColor = .orange
-        changeLanguageBtn.addTarget(self, action: #selector(changeLanguageBtnAction), for: .touchUpInside)
-        return changeLanguageBtn
-    }()
 }
 
 extension ImportAccountViewController {
+
     private func _setupView() {
+        kas_activateAutoScrollingForView(view)
         self.view.backgroundColor = .white
-        self.title = "import page title".localized()
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.importPageTitle.key.localized())
 
         self._addViewConstraint()
     }
-
     private func _addViewConstraint() {
-        self.view.addSubview(self.logoImg)
-        self.logoImg.snp.makeConstraints { (make) -> Void in
-            make.center.equalTo(self.view)
-            make.width.height.equalTo(150)
+        self.view.addSubview(self.contentTextView)
+        self.contentTextView.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.height.equalTo(142)
+            make.top.equalTo((self.navigationTitleView?.snp.bottom)!).offset(10)
         }
 
-        self.view.addSubview(self.createAccountBtn)
-        self.createAccountBtn.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(100)
-            make.height.equalTo(50)
-            make.bottom.equalTo(self.view).offset(-30)
-            make.left.equalTo(self.view).offset(30)
+        self.view.addSubview(self.createNameAndPwdView)
+        self.createNameAndPwdView.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.top.equalTo(self.contentTextView.snp.bottom).offset(10)
         }
 
-        self.view.addSubview(self.importAccountBtn)
-        self.importAccountBtn.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(100)
+        self.view.addSubview(self.confirmBtn)
+        self.confirmBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view).offset(-30)
-            make.right.equalTo(self.view).offset(-30)
-        }
-
-        self.view.addSubview(self.changeLanguageBtn)
-        self.changeLanguageBtn.snp.makeConstraints { (make) -> Void in
-            make.width.equalTo(60)
-            make.height.equalTo(50)
-            make.right.equalTo(self.view).offset(-30)
-            make.top.equalTo(self.view).offset(100)
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-24)
         }
     }
 
-    @objc func createAccountBtnAction() {
-        let backupMnemonicCashVC = BackupMnemonicViewController()
-        self.navigationController?.pushViewController(backupMnemonicCashVC, animated: true)
-    }
+    @objc func confirmBtnAction() {
 
-    @objc func importAccountBtnAction() {
-        let backupMnemonicCashVC = BackupMnemonicViewController()
-        self.navigationController?.pushViewController(backupMnemonicCashVC, animated: true)
-    }
-
-    @objc func changeLanguageBtnAction() {
-        let alertController = UIAlertController.init()
-        let cancelAction = UIAlertAction(title: LocalizationStr("Cancel"), style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        let languages: [Language] = SettingDataService.sharedInstance.getSupportedLanguages()
-        for element in languages {
-            let action = UIAlertAction(title: element.displayName, style: .destructive, handler: {_ in
-                _ = SetLanguage(element.name)
-            })
-            alertController.addAction(action)
-        }
-        self.present(alertController, animated: true, completion: nil)
     }
 }

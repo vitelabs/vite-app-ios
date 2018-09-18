@@ -15,13 +15,13 @@ import Vite_keystore
 
 extension CreateWalletAccountViewController {
     private func _bindViewModel() {
-            self.viewModel = CreateWalletAccountVM(input: (self.walletNameTF.textField, self.passwordTF.passwordInputView.textField, self.passwordRepeateTF.passwordInputView.textField))
-        self.viewModel?.submitBtnEnable.drive(onNext: { (isEnabled) in
+        self.createNameAndPwdVM = CreateNameAndPwdVM(input: (self.createNameAndPwdView.walletNameTF.textField, self.createNameAndPwdView.passwordTF.passwordInputView.textField, self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField))
+        self.createNameAndPwdVM?.submitBtnEnable.drive(onNext: { (isEnabled) in
                 self.submitBtn.isEnabled = isEnabled
             }).disposed(by: rx.disposeBag)
 
         self.submitBtn.rx.tap.bind {_ in
-            self.viewModel?.submitAction.execute((self.walletNameTF.textField.text ?? "", self.passwordTF.passwordInputView.textField.text ?? "", self.passwordRepeateTF.passwordInputView.textField.text ?? "")).subscribe(onNext: { (result) in
+            self.createNameAndPwdVM?.submitAction.execute((self.createNameAndPwdView.walletNameTF.textField.text ?? "", self.createNameAndPwdView.passwordTF.passwordInputView.textField.text ?? "", self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text ?? "")).subscribe(onNext: { (result) in
                 switch result {
                 case .ok:
                         self.goNextVC()
@@ -35,6 +35,8 @@ extension CreateWalletAccountViewController {
 
 class CreateWalletAccountViewController: BaseViewController {
     fileprivate var viewModel: CreateWalletAccountVM?
+    fileprivate var createNameAndPwdVM: CreateNameAndPwdVM?
+
     var disposeBag = DisposeBag()
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -51,29 +53,9 @@ class CreateWalletAccountViewController: BaseViewController {
         self._bindViewModel()
     }
 
-    lazy var walletNameTF: TitleTextFieldView = {
-        let walletNameTF = TitleTextFieldView(title: R.string.localizable.createPageTfTitle.key.localized(), placeholder: "", text: "")
-        walletNameTF.titleLabel.textColor = Colors.titleGray
-        walletNameTF.textField.font = AppStyle.inputDescWord.font
-        walletNameTF.textField.textColor = Colors.descGray
-        walletNameTF.titleLabel.font = AppStyle.formHeader.font
-        return walletNameTF
-    }()
-
-    lazy var passwordTF: TitlePasswordInputView = {
-        let passwordTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwTitle.key.localized())
-        passwordTF.passwordInputView.delegate = self
-        passwordTF.titleLabel.textColor = Colors.titleGray
-        passwordTF.titleLabel.font = AppStyle.formHeader.font
-        return passwordTF
-    }()
-
-    lazy var passwordRepeateTF: TitlePasswordInputView = {
-        let passwordRepeateTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwRepeateTitle.key.localized())
-        passwordRepeateTF.passwordInputView.delegate = self
-        passwordRepeateTF.titleLabel.textColor = Colors.titleGray
-        passwordRepeateTF.titleLabel.font = AppStyle.formHeader.font
-        return passwordRepeateTF
+    lazy var createNameAndPwdView: CreateNameAndPwdView = {
+        let createNameAndPwdView = CreateNameAndPwdView()
+        return createNameAndPwdView
     }()
 
     lazy var submitBtn: UIButton = {
@@ -83,22 +65,6 @@ class CreateWalletAccountViewController: BaseViewController {
         submitBtn.setBackgroundImage(UIImage.color(Colors.btnDisableGray), for: .disabled)
         return submitBtn
     }()
-
-    lazy var dismissKeyboardBtn: UIButton = {
-        let dismissKeyboardBtn = UIButton()
-        dismissKeyboardBtn.backgroundColor = .clear
-        dismissKeyboardBtn.addTarget(self, action: #selector(dismissKeyboardBtnAction), for: .touchUpInside)
-        return dismissKeyboardBtn
-    }()
-}
-
-extension CreateWalletAccountViewController: PasswordInputViewDelegate {
-    func inputFinish(passwordView: PasswordInputView, password: String) {
-        if passwordView ==  self.passwordTF.passwordInputView {
-            _ = self.passwordTF.passwordInputView.resignFirstResponder()
-            _ = self.passwordRepeateTF.passwordInputView.becomeFirstResponder()
-        }
-    }
 }
 
 extension CreateWalletAccountViewController {
@@ -109,37 +75,14 @@ extension CreateWalletAccountViewController {
         navigationTitleView = NavigationTitleView(title: R.string.localizable.createPageTitle.key.localized())
 
         self._addViewConstraint()
-
     }
 
     private func _addViewConstraint() {
-        self.view.addSubview(dismissKeyboardBtn)
-        dismissKeyboardBtn.snp.makeConstraints { (make) -> Void in
-            make.edges.equalTo(self.view)
-        }
-
-        self.view.addSubview(walletNameTF)
-        walletNameTF.snp.makeConstraints { (make) -> Void in
+        self.view.addSubview(self.createNameAndPwdView)
+        self.createNameAndPwdView.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
             make.top.equalTo(self.view).offset(60)
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-            make.height.equalTo(60)
-        }
-
-        self.view.addSubview(self.passwordTF)
-        self.passwordTF.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.walletNameTF.snp.bottom).offset(30)
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-            make.height.equalTo(60)
-        }
-
-        self.view.addSubview(self.passwordRepeateTF)
-        self.passwordRepeateTF.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.passwordTF.snp.bottom).offset(30)
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-            make.height.equalTo(60)
         }
 
         self.view.addSubview(self.submitBtn)
@@ -151,15 +94,15 @@ extension CreateWalletAccountViewController {
         }
     }
 
-    @objc func dismissKeyboardBtnAction() {
-        self.walletNameTF.textField.resignFirstResponder()
-        _ = self.passwordTF.passwordInputView.textField.resignFirstResponder()
-        _ = self.passwordRepeateTF.passwordInputView.textField.resignFirstResponder()
-    }
+//    @objc func dismissKeyboardBtnAction() {
+//        self.walletNameTF.textField.resignFirstResponder()
+//        _ = self.passwordTF.passwordInputView.textField.resignFirstResponder()
+//        _ = self.passwordRepeateTF.passwordInputView.textField.resignFirstResponder()
+//    }
 
     func goNextVC() {
-        CreateWalletService.sharedInstance.walletAccount.name = self.walletNameTF.textField.text!
-        CreateWalletService.sharedInstance.walletAccount.password = self.passwordRepeateTF.passwordInputView.textField.text!
+        CreateWalletService.sharedInstance.walletAccount.name = self.createNameAndPwdView.walletNameTF.textField.text!
+        CreateWalletService.sharedInstance.walletAccount.password = self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text!
         let vc = CreateWalletTipViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
