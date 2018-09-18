@@ -10,7 +10,6 @@ import UIKit
 
 protocol PasswordInputViewDelegate: class {
     func inputFinish(passwordView: PasswordInputView, password: String)
-    func close(passwordView: PasswordInputView) -> Bool
 }
 
 enum SecretType {
@@ -113,7 +112,6 @@ public class PasswordInputView: UIView {
 
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.next?.touchesBegan(touches, with: event)
-        textField.text = nil
         textField.becomeFirstResponder()
     }
 
@@ -129,11 +127,9 @@ public class PasswordInputView: UIView {
         let text = textField.text == nil ? "" : textField.text!
         let textCount = text.count
 
-        updateView(text: text)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        if  textCount <= 6 {
+            updateView(text: text)
             if textCount == self.totalCount {
-                //输入完成
-                let _ = self.resignFirstResponder()
                 self.delegate?.inputFinish(passwordView: self, password: text)
             }
         }
@@ -180,32 +176,18 @@ public class PasswordInputView: UIView {
 }
 
 extension PasswordInputView: UITextFieldDelegate, DeleteTextFieldDelegate {
-    public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if let count = textField.text?.count, count == 6 {
-            return true
-        }
-        if let delegate = self.delegate {
-            return delegate.close(passwordView: self)
-        }
-        return true
-    }
-
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let text = textField.text == nil ? "" : textField.text!
-        let textCount = text.count
+        let textCount = text.count + string.count - range.length
 
-        updateView(text: text)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if textCount == self.totalCount {
-                //输入完成
-                let _ = self.resignFirstResponder()
-                self.delegate?.inputFinish(passwordView: self, password: text)
-            }
+        if  textCount <= 6 {
+            return true
+        } else {
+            return false
         }
-        return true
     }
 
     func textFieldBackKeyPressed(_ textField: UITextField) {
-        //do something
+
     }
 }

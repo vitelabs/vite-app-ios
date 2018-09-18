@@ -1,4 +1,7 @@
 PODS:
+  - Action (3.5.0):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - ActionSheetPicker-3.0 (2.3.0)
   - Alamofire (4.7.3)
   - APIKit (3.2.1):
@@ -53,9 +56,6 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.3.0)
-  - scrypt (1.8):
-    - CryptoSwift (~> 0.11)
-  - secp256k1.swift (0.1.4)
   - SipHash (1.2.2)
   - SnapKit (4.0.0)
   - SwiftLint (0.27.0)
@@ -63,14 +63,13 @@ PODS:
   - Toast-Swift (3.0.1)
   - Vite-keystore (0.0.1):
     - BigInt (~> 3.0)
-    - CryptoSwift (~> 0.11)
+    - CryptoSwift (~> 0.12.0)
     - KeychainSwift
     - libEd25519Blake2b (~> 0.0.6)
     - ObjectMapper
-    - scrypt (~> 1.5)
-    - secp256k1.swift (~> 0.1.4)
 
 DEPENDENCIES:
+  - Action
   - ActionSheetPicker-3.0
   - APIKit
   - BaiduMobStat
@@ -100,6 +99,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Action
     - ActionSheetPicker-3.0
     - Alamofire
     - APIKit
@@ -126,8 +126,6 @@ SPEC REPOS:
     - RxDataSources
     - RxGesture
     - RxSwift
-    - scrypt
-    - secp256k1.swift
     - SipHash
     - SnapKit
     - SwiftLint
@@ -146,6 +144,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
+  Action: d60087ebce41b969d1afdad01e2fa1372a82f26e
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   APIKit: a39ff72ac44efc15513fd1b98800f63c525be61b
@@ -173,15 +172,13 @@ SPEC CHECKSUMS:
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxGesture: c278eb05b187abd47e11e65464ae4de53ab71d95
   RxSwift: a9717a34df3179fe63563f76e046ad345078dd3a
-  scrypt: cc8333b4338b9d4127743e3f7b1304e309d8061c
-  secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
-  Vite-keystore: 17d6ea9494bf412d9c7409ae4fffc9f969444cfe
+  Vite-keystore: 7067da9e87220f31c8378bc7b6424c8c2775510a
 
-PODFILE CHECKSUM: cbcdf253132d179bad15414090e6978fc6da86d4
+PODFILE CHECKSUM: 0a34cc3838e78b67d08cd18744c41654db2f40f8
 
 COCOAPODS: 1.5.3

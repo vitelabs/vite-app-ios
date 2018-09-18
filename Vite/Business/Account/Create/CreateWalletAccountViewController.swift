@@ -15,45 +15,35 @@ import Vite_keystore
 
 extension CreateWalletAccountViewController {
     private func _bindViewModel() {
-        let viewModel = CreateWalletAccountVM(input: (self.walletNameTF.textField, self.passwordTF.passwordInputView.textField, self.passwordRepeateTF.passwordInputView.textField))
+            self.viewModel = CreateWalletAccountVM(input: (self.walletNameTF.textField, self.passwordTF.passwordInputView.textField, self.passwordRepeateTF.passwordInputView.textField))
+        self.viewModel?.submitBtnEnable.drive(onNext: { (isEnabled) in
+                self.submitBtn.isEnabled = isEnabled
+            }).disposed(by: rx.disposeBag)
 
-        viewModel.accountNameEnable.drive(onNext: { (result) in
-            switch result {
-            case .ok:
-                break
-            case .empty:
-//                self.walletNameLab.text = result.description
-                break
-            case .failed:
-//                self.walletNameLab.text = result.description
-                break
-            }
-        }).disposed(by: rx.disposeBag)
-
-        viewModel.inputRepeatePwdEnable.drive(onNext: { (result) in
-            switch result {
-            case .ok:
-                break
-            case .failed:
-                break
-//                self.passwordLab.text = result.description
-            case .empty:
-                break
-//                self.passwordLab.text = result.description
-            }
-        }).disposed(by: rx.disposeBag)
-
-        viewModel.submitBtnEnable.drive(onNext: { (isEnabled) in
-            self.submitBtn.isEnabled = isEnabled
-        }).disposed(by: rx.disposeBag)
-
-        //边框处理
-//        viewModel.accountNameEnable.drive(self.walletNameTF.rx.validationResult).disposed(by: rx.disposeBag)
-//        viewModel.inputPwdEnable.drive(self.passwordTF.textField.rx.validationResult).disposed(by: rx.disposeBag)
+        self.submitBtn.rx.tap.bind {_ in
+            self.viewModel?.submitAction.execute((self.walletNameTF.textField.text ?? "", self.passwordTF.passwordInputView.textField.text ?? "", self.passwordRepeateTF.passwordInputView.textField.text ?? "")).subscribe(onNext: { (result) in
+                switch result {
+                case .ok:
+                        self.goNextVC()
+                case .empty, .failed:
+                        self.view.showToast(str: result.description)
+                }
+            }).disposed(by: self.disposeBag)
+        }.disposed(by: rx.disposeBag)
     }
 }
 
 class CreateWalletAccountViewController: BaseViewController {
+    fileprivate var viewModel: CreateWalletAccountVM?
+    var disposeBag = DisposeBag()
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -72,6 +62,7 @@ class CreateWalletAccountViewController: BaseViewController {
 
     lazy var passwordTF: TitlePasswordInputView = {
         let passwordTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwTitle.key.localized())
+        passwordTF.passwordInputView.delegate = self
         passwordTF.titleLabel.textColor = Colors.titleGray
         passwordTF.titleLabel.font = AppStyle.formHeader.font
         return passwordTF
@@ -79,18 +70,17 @@ class CreateWalletAccountViewController: BaseViewController {
 
     lazy var passwordRepeateTF: TitlePasswordInputView = {
         let passwordRepeateTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwRepeateTitle.key.localized())
+        passwordRepeateTF.passwordInputView.delegate = self
         passwordRepeateTF.titleLabel.textColor = Colors.titleGray
         passwordRepeateTF.titleLabel.font = AppStyle.formHeader.font
         return passwordRepeateTF
     }()
 
     lazy var submitBtn: UIButton = {
-        let submitBtn = UIButton.init(style: .blue)
-        submitBtn.setTitle(R.string.localizable.createPageSubmitBtnTitle.key.localized(), for: .normal)
+        var submitBtn = UIButton.init(style: .blue)
+    submitBtn.setTitle(R.string.localizable.createPageSubmitBtnTitle.key.localized(), for: .normal)
         submitBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        submitBtn.setTitleColor(.black, for: .normal)
-        submitBtn.setBackgroundImage(UIImage.color(.gray), for: .disabled)
-        submitBtn.addTarget(self, action: #selector(submitBtnAction), for: .touchUpInside)
+        submitBtn.setBackgroundImage(UIImage.color(Colors.btnDisableGray), for: .disabled)
         return submitBtn
     }()
 
@@ -104,15 +94,10 @@ class CreateWalletAccountViewController: BaseViewController {
 
 extension CreateWalletAccountViewController: PasswordInputViewDelegate {
     func inputFinish(passwordView: PasswordInputView, password: String) {
-//        if passwordView.tag == 101 {
-//            self.viewModel.inputPwdStr = password
-//        } else {
-//            self.viewModel.repeatInputPwdStr = password
-//        }
-    }
-
-    func close(passwordView: PasswordInputView) -> Bool {
-        return true
+        if passwordView ==  self.passwordTF.passwordInputView {
+            _ = self.passwordTF.passwordInputView.resignFirstResponder()
+            _ = self.passwordRepeateTF.passwordInputView.becomeFirstResponder()
+        }
     }
 }
 
@@ -120,10 +105,11 @@ extension CreateWalletAccountViewController {
 
     private func _setupView() {
         self.view.backgroundColor = .white
-        kas_activateAutoScrollingForView(self.view)
+        kas_activateAutoScrollingForView(view)
         navigationTitleView = NavigationTitleView(title: R.string.localizable.createPageTitle.key.localized())
 
         self._addViewConstraint()
+
     }
 
     private func _addViewConstraint() {
@@ -171,7 +157,7 @@ extension CreateWalletAccountViewController {
         _ = self.passwordRepeateTF.passwordInputView.textField.resignFirstResponder()
     }
 
-    @objc func submitBtnAction() {
+    func goNextVC() {
         CreateWalletService.sharedInstance.walletAccount.name = self.walletNameTF.textField.text!
         CreateWalletService.sharedInstance.walletAccount.password = self.passwordRepeateTF.passwordInputView.textField.text!
         let vc = CreateWalletTipViewController()

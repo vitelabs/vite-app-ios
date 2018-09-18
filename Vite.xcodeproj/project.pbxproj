@@ -51,7 +51,7 @@
 		4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE42452124553B0080E92B /* AppDelegate.swift */; };
 		4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCE424C2124553C0080E92B /* Assets.xcassets */; };
 		4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE425A2124553C0080E92B /* ViteTests.swift */; };
-		4CCE42662124553C0080E92B /* ViteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE42652124553C0080E92B /* ViteUITests.swift */; };
+		4CD8347D2150A6FE006537A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CD8347C2150A6FE006537A2 /* Images.xcassets */; };
 		4CE4E13D214794D000A6CD7E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4E13C214794D000A6CD7E /* UIImage.swift */; };
 		4CE4E14521479EAF00A6CD7E /*  CreateWalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4E14421479EAF00A6CD7E /*  CreateWalletService.swift */; };
 		4CE4E1472147AC0100A6CD7E /* WalletDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4E1462147AC0100A6CD7E /* WalletDataService.swift */; };
@@ -130,7 +130,6 @@
 		8EE468F8214A4E5300807D2C /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468F7214A4E5300807D2C /* PrimaryButton.swift */; };
 		8EE468FD214A574600807D2C /* UIViewController+KeyboardAutoScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468FC214A574600807D2C /* UIViewController+KeyboardAutoScrolling.swift */; };
 		8EE468FF214A6D4200807D2C /* UITextField+FDSKeyboardAutoScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468FE214A6D4200807D2C /* UITextField+FDSKeyboardAutoScrolling.swift */; };
-		8EE46903214B5B9600807D2C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EE46902214B5B9600807D2C /* Images.xcassets */; };
 		8EE46907214B9AC800807D2C /* NavigationBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46906214B9AC800807D2C /* NavigationBarStyle.swift */; };
 		8EE46909214BA1BE00807D2C /* NavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46908214BA1BE00807D2C /* NavigationTitleView.swift */; };
 		8EE4690B214BBE0B00807D2C /* UIButton+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4690A214BBE0B00807D2C /* UIButton+Helper.swift */; };
@@ -143,19 +142,11 @@
 		8EE4691C214CAD6600807D2C /* CreateTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4691B214CAD6600807D2C /* CreateTransactionRequest.swift */; };
 		8EE4691E214CE03F00807D2C /* WalletHomeAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4691D214CE03F00807D2C /* WalletHomeAddressView.swift */; };
 		8EE46922214D017200807D2C /* GetLatestAccountBlockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46921214D017200807D2C /* GetLatestAccountBlockRequest.swift */; };
-		D273062C8B1A826F6BC2E810 /* Pods_ViteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EF60202B89DEC8B075E04F /* Pods_ViteUITests.framework */; };
 		D62F634C8DA45F93E78F5B8D /* Pods_Vite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		4CCE42572124553C0080E92B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4CCE423A2124553B0080E92B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4CCE42412124553B0080E92B;
-			remoteInfo = Vite;
-		};
-		4CCE42622124553C0080E92B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4CCE423A2124553B0080E92B /* Project object */;
 			proxyType = 1;
@@ -226,9 +217,8 @@
 		4CCE42562124553C0080E92B /* ViteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCE425A2124553C0080E92B /* ViteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteTests.swift; sourceTree = "<group>"; };
 		4CCE425C2124553C0080E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4CCE42612124553C0080E92B /* ViteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CCE42652124553C0080E92B /* ViteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteUITests.swift; sourceTree = "<group>"; };
 		4CCE42672124553C0080E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CD8347C2150A6FE006537A2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4CE4E13C214794D000A6CD7E /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		4CE4E14421479EAF00A6CD7E /*  CreateWalletService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CreateWalletService.swift"; sourceTree = "<group>"; };
 		4CE4E1462147AC0100A6CD7E /* WalletDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDataService.swift; sourceTree = "<group>"; };
@@ -309,7 +299,6 @@
 		8EE468F7214A4E5300807D2C /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		8EE468FC214A574600807D2C /* UIViewController+KeyboardAutoScrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+KeyboardAutoScrolling.swift"; sourceTree = "<group>"; };
 		8EE468FE214A6D4200807D2C /* UITextField+FDSKeyboardAutoScrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+FDSKeyboardAutoScrolling.swift"; sourceTree = "<group>"; };
-		8EE46902214B5B9600807D2C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8EE46906214B9AC800807D2C /* NavigationBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarStyle.swift; sourceTree = "<group>"; };
 		8EE46908214BA1BE00807D2C /* NavigationTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleView.swift; sourceTree = "<group>"; };
 		8EE4690A214BBE0B00807D2C /* UIButton+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Helper.swift"; sourceTree = "<group>"; };
@@ -345,14 +334,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FCD87D2C89D50D6F05BCA86 /* Pods_ViteTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4CCE425E2124553C0080E92B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D273062C8B1A826F6BC2E810 /* Pods_ViteUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,7 +637,6 @@
 			children = (
 				4CCE42422124553B0080E92B /* Vite.app */,
 				4CCE42562124553C0080E92B /* ViteTests.xctest */,
-				4CCE42612124553C0080E92B /* ViteUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -678,8 +658,8 @@
 				4CCE42452124553B0080E92B /* AppDelegate.swift */,
 				4C0024E321258005001DF390 /* R.generated.swift */,
 				4C9AFD89214FB81C005B12C2 /* Vite-Bridging-Header.h */,
+				4CD8347C2150A6FE006537A2 /* Images.xcassets */,
 				4CCE424C2124553C0080E92B /* Assets.xcassets */,
-				8EE46902214B5B9600807D2C /* Images.xcassets */,
 				4C1FF4EC212A73FB0055067D /* Resource */,
 				4CCE42512124553C0080E92B /* Info.plist */,
 				4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */,
@@ -701,7 +681,6 @@
 		4CCE42642124553C0080E92B /* ViteUITests */ = {
 			isa = PBXGroup;
 			children = (
-				4CCE42652124553C0080E92B /* ViteUITests.swift */,
 				4CCE42672124553C0080E92B /* Info.plist */,
 			);
 			path = ViteUITests;
@@ -1091,25 +1070,6 @@
 			productReference = 4CCE42562124553C0080E92B /* ViteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4CCE42602124553C0080E92B /* ViteUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4CCE42702124553C0080E92B /* Build configuration list for PBXNativeTarget "ViteUITests" */;
-			buildPhases = (
-				E798777C7DAA296E51AD873F /* [CP] Check Pods Manifest.lock */,
-				4CCE425D2124553C0080E92B /* Sources */,
-				4CCE425E2124553C0080E92B /* Frameworks */,
-				4CCE425F2124553C0080E92B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4CCE42632124553C0080E92B /* PBXTargetDependency */,
-			);
-			name = ViteUITests;
-			productName = ViteUITests;
-			productReference = 4CCE42612124553C0080E92B /* ViteUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1136,10 +1096,6 @@
 						CreatedOnToolsVersion = 9.4.1;
 						TestTargetID = 4CCE42412124553B0080E92B;
 					};
-					4CCE42602124553C0080E92B = {
-						CreatedOnToolsVersion = 9.4.1;
-						TestTargetID = 4CCE42412124553B0080E92B;
-					};
 				};
 			};
 			buildConfigurationList = 4CCE423D2124553B0080E92B /* Build configuration list for PBXProject "Vite" */;
@@ -1158,7 +1114,6 @@
 			targets = (
 				4CCE42412124553B0080E92B /* Vite */,
 				4CCE42552124553C0080E92B /* ViteTests */,
-				4CCE42602124553C0080E92B /* ViteUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1169,20 +1124,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */,
-				8EE46903214B5B9600807D2C /* Images.xcassets in Resources */,
+				4CD8347D2150A6FE006537A2 /* Images.xcassets in Resources */,
 				4C1FF4F0212A74730055067D /* Localizable.strings in Resources */,
 				4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4CCE42542124553C0080E92B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4CCE425F2124553C0080E92B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1228,6 +1176,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vite/Pods-Vite-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/APIKit/APIKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
@@ -1257,12 +1206,11 @@
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/Vite-keystore/Vite_keystore.framework",
 				"${BUILT_PRODUCTS_DIR}/libEd25519Blake2b/libEd25519Blake2b.framework",
-				"${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework",
-				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APIKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
@@ -1292,8 +1240,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vite_keystore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libEd25519Blake2b.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/scrypt.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1330,24 +1276,6 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Vite-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E798777C7DAA296E51AD873F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ViteUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1501,14 +1429,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4CCE425D2124553C0080E92B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4CCE42662124553C0080E92B /* ViteUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1516,11 +1436,6 @@
 			isa = PBXTargetDependency;
 			target = 4CCE42412124553B0080E92B /* Vite */;
 			targetProxy = 4CCE42572124553C0080E92B /* PBXContainerItemProxy */;
-		};
-		4CCE42632124553C0080E92B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4CCE42412124553B0080E92B /* Vite */;
-			targetProxy = 4CCE42622124553C0080E92B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1748,46 +1663,6 @@
 			};
 			name = Release;
 		};
-		4CCE42712124553C0080E92B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D83E6CF5AD50F3015A693D0D /* Pods-ViteUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ViteUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vite.org.ViteUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Vite;
-			};
-			name = Debug;
-		};
-		4CCE42722124553C0080E92B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED2FE67C927C72B4CA67FD50 /* Pods-ViteUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ViteUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vite.org.ViteUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Vite;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1814,15 +1689,6 @@
 			buildConfigurations = (
 				4CCE426E2124553C0080E92B /* Debug */,
 				4CCE426F2124553C0080E92B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4CCE42702124553C0080E92B /* Build configuration list for PBXNativeTarget "ViteUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4CCE42712124553C0080E92B /* Debug */,
-				4CCE42722124553C0080E92B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

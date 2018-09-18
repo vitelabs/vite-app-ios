@@ -56,7 +56,7 @@ public final class ImageRow: Row<ImageCell>, RowType {
         cellProvider = CellProvider<ImageCell>()
     }
 
-    open override func customDidSelect() {
+    public override func customDidSelect() {
         guard !isDisabled else {
             super.customDidSelect()
             return

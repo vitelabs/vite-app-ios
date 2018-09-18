@@ -40,6 +40,7 @@ target 'Vite' do
   pod 'NSObject+Rx'
   pod 'RxGesture'
   pod 'Then'
+  pod 'Action'
   pod 'ReusableKit'
 
   #code review
@@ -49,11 +50,6 @@ target 'Vite' do
   target 'ViteTests' do
     inherit! :search_paths
   end
-
-  target 'ViteUITests' do
-    inherit! :search_paths
-  end
-
 end
 
 post_install do |installer|

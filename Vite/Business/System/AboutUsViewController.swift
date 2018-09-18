@@ -62,7 +62,7 @@ extension AboutUsViewController {
                 $0.title =  R.string.localizable.aboutUsPageCellBlockHeight.key.localized()
                 $0.cell.height = { 60 }
             }.onCellSelection({ [unowned self] _, _  in
-
+//TODO  fetch data
                 })
 
             <<< LabelRow("aboutUsPageCellVersion") {
