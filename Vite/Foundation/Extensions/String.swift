@@ -25,9 +25,8 @@ extension String {
         return String(self[startIndex..<endIndex])
     }
 
-    func getAppVersion() -> String {
+    static  func getAppVersion() -> String {
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        let build = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as! String
-        return version + " (" + build + ")"
+        return version
     }
 }

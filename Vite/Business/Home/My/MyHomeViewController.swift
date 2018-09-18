@@ -68,16 +68,16 @@ class MyHomeViewController: FormViewController {
                 $0.cell.titleLab.text =  R.string.localizable.myPageAboutUsCellTitle.key.localized()
                 $0.cell.rightImageView.image = R.image.icon_token_vite()
             }.onCellSelection({ [unowned self] _, _  in
-                    let safari = SFSafariViewController(url: NSURL(string: "https://www.vite.org/zh/")! as URL)
-                    self.present(safari, animated: true, completion: nil)
+                let vc = AboutUsViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
             })
 
             <<< ImageRow("my.page.fetchMoney.cell.title") {
                 $0.cell.titleLab.text =  R.string.localizable.myPageFetchMoneyCellTitle.key.localized()
                 $0.cell.rightImageView.image = R.image.gift()
             }.onCellSelection({ [unowned self] _, _  in
-                    let safari = SFSafariViewController(url: NSURL(string: "https://www.vite.org/zh/")! as URL)
-                    self.present(safari, animated: true, completion: nil)
+                let vc = FetchWelfareViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
             })
 
         self.tableView.snp.makeConstraints { (make) in

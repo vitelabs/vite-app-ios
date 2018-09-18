@@ -14,6 +14,7 @@ extension UIButton {
     enum Style {
         case blue
         case white
+        case whiteWithoutShadow
     }
 
     convenience init(style: Style, title: String? = nil) {
@@ -37,6 +38,10 @@ extension UIButton {
             self.layer.shadowRadius = 3
             self.layer.shadowOffset = CGSize(width: 0, height: 0)
             self.layer.cornerRadius = 2
+        case .whiteWithoutShadow:
+            setTitleColor(UIColor(netHex: 0x007AFF), for: .normal)
+            setBackgroundImage(R.image.background_button_white()?.resizable, for: .normal)
+            setBackgroundImage(R.image.background_button_white()?.tintColor(UIColor(netHex: 0xf5f5f5)).resizable, for: .highlighted)
         }
     }
 

@@ -44,6 +44,9 @@
 		4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
 		4C9AFD56214E241F005B12C2 /* IconBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD55214E241F005B12C2 /* IconBtnView.swift */; };
 		4C9AFD59214E2FF2005B12C2 /* ManageWalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD58214E2FF2005B12C2 /* ManageWalletHeaderView.swift */; };
+		4C9AFD5C214F433C005B12C2 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD5B214F433C005B12C2 /* AboutUsViewController.swift */; };
+		4C9AFD5E214F4370005B12C2 /* FetchWelfareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */; };
+		4C9AFD8C214FBB85005B12C2 /* AboutUsTableBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD8B214FBB85005B12C2 /* AboutUsTableBottomView.swift */; };
 		4CC4F451214CCB5B0068DA53 /* TitlePasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4F450214CCB5B0068DA53 /* TitlePasswordInputView.swift */; };
 		4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE42452124553B0080E92B /* AppDelegate.swift */; };
 		4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCE424C2124553C0080E92B /* Assets.xcassets */; };
@@ -200,6 +203,21 @@
 		4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C9AFD55214E241F005B12C2 /* IconBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconBtnView.swift; sourceTree = "<group>"; };
 		4C9AFD58214E2FF2005B12C2 /* ManageWalletHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageWalletHeaderView.swift; sourceTree = "<group>"; };
+		4C9AFD5B214F433C005B12C2 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWelfareViewController.swift; sourceTree = "<group>"; };
+		4C9AFD71214F8F4C005B12C2 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		4C9AFD73214F8F54005B12C2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4C9AFD75214F8F5E005B12C2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4C9AFD77214F8F66005B12C2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4C9AFD79214F8F6D005B12C2 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		4C9AFD7B214F8F74005B12C2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4C9AFD7D214F8F7C005B12C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4C9AFD7F214F8F83005B12C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4C9AFD81214F8F8E005B12C2 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		4C9AFD83214F8F9C005B12C2 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		4C9AFD85214F9087005B12C2 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		4C9AFD89214FB81C005B12C2 /* Vite-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vite-Bridging-Header.h"; sourceTree = "<group>"; };
+		4C9AFD8B214FBB85005B12C2 /* AboutUsTableBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsTableBottomView.swift; sourceTree = "<group>"; };
 		4CC4F450214CCB5B0068DA53 /* TitlePasswordInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePasswordInputView.swift; sourceTree = "<group>"; };
 		4CCE42422124553B0080E92B /* Vite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCE42452124553B0080E92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -403,7 +421,10 @@
 		4C2284B9214906D6003E9907 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				4C9AFD8A214FBB69005B12C2 /* View */,
 				4C2284BA214906F0003E9907 /* SystemViewController.swift */,
+				4C9AFD5B214F433C005B12C2 /* AboutUsViewController.swift */,
+				4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -610,6 +631,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4C9AFD8A214FBB69005B12C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C9AFD8B214FBB85005B12C2 /* AboutUsTableBottomView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4CCE42392124553B0080E92B = {
 			isa = PBXGroup;
 			children = (
@@ -648,6 +677,7 @@
 				8E6F3E0821411664003CDFC2 /* Models */,
 				4CCE42452124553B0080E92B /* AppDelegate.swift */,
 				4C0024E321258005001DF390 /* R.generated.swift */,
+				4C9AFD89214FB81C005B12C2 /* Vite-Bridging-Header.h */,
 				4CCE424C2124553C0080E92B /* Assets.xcassets */,
 				8EE46902214B5B9600807D2C /* Images.xcassets */,
 				4C1FF4EC212A73FB0055067D /* Resource */,
@@ -688,6 +718,17 @@
 		63EB5F834DEBA43A777880E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C9AFD85214F9087005B12C2 /* libicucore.tbd */,
+				4C9AFD83214F8F9C005B12C2 /* libstdc++.tbd */,
+				4C9AFD81214F8F8E005B12C2 /* libz.1.2.5.tbd */,
+				4C9AFD7F214F8F83005B12C2 /* Foundation.framework */,
+				4C9AFD7D214F8F7C005B12C2 /* UIKit.framework */,
+				4C9AFD7B214F8F74005B12C2 /* CoreGraphics.framework */,
+				4C9AFD79214F8F6D005B12C2 /* CoreTelephony.framework */,
+				4C9AFD77214F8F66005B12C2 /* SystemConfiguration.framework */,
+				4C9AFD75214F8F5E005B12C2 /* CoreLocation.framework */,
+				4C9AFD73214F8F54005B12C2 /* Security.framework */,
+				4C9AFD71214F8F4C005B12C2 /* JavaScriptCore.framework */,
 				7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */,
 				D9ECCAAC94107661B825DB36 /* Pods_ViteTests.framework */,
 				E5EF60202B89DEC8B075E04F /* Pods_ViteUITests.framework */,
@@ -1404,6 +1445,7 @@
 				4C84D9302145280E001B6EBD /* CreateWalletAccountVM.swift in Sources */,
 				8EE4691A214CA8E800807D2C /* GCD+Helper.swift in Sources */,
 				8EE4690F214BCEC100807D2C /* TransactionProvider.swift in Sources */,
+				4C9AFD8C214FBB85005B12C2 /* AboutUsTableBottomView.swift in Sources */,
 				4C105ED12141401100D483C6 /* String.swift in Sources */,
 				8E6F3E3F2144CA23003CDFC2 /* WalletHomeAddressViewModelType.swift in Sources */,
 				8E6F3E5421453405003CDFC2 /* WalletHomeBalanceInfoViewModel.swift in Sources */,
@@ -1411,6 +1453,7 @@
 				8E6F3E4E21451806003CDFC2 /* BalanceInfo.swift in Sources */,
 				8E56FC7F21466BD100A68823 /* ReceiveViewController.swift in Sources */,
 				740C3E50214BD6A9005FCD24 /* ConfirmTransactionViewController.swift in Sources */,
+				4C9AFD5C214F433C005B12C2 /* AboutUsViewController.swift in Sources */,
 				8E6F3E4C214516B0003CDFC2 /* Token.swift in Sources */,
 				8EE468FF214A6D4200807D2C /* UITextField+FDSKeyboardAutoScrolling.swift in Sources */,
 				8E56FC98214768D000A68823 /* TransactionViewModel.swift in Sources */,
@@ -1440,6 +1483,7 @@
 				8EE468FD214A574600807D2C /* UIViewController+KeyboardAutoScrolling.swift in Sources */,
 				4C2284BB214906F0003E9907 /* SystemViewController.swift in Sources */,
 				8E6F3E1D2142280F003CDFC2 /* BaseViewController.swift in Sources */,
+				4C9AFD5E214F4370005B12C2 /* FetchWelfareViewController.swift in Sources */,
 				8EE4691C214CAD6600807D2C /* CreateTransactionRequest.swift in Sources */,
 				4C9AFD59214E2FF2005B12C2 /* ManageWalletHeaderView.swift in Sources */,
 				8E56FC932147686700A68823 /* TransactionListTableViewModel.swift in Sources */,
@@ -1617,16 +1661,18 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7BMF8UG4WB;
+				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.vite.demo-keychain.xx";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Vite/Vite-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1640,17 +1686,19 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7BMF8UG4WB;
+				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.vite.demo-keychain.xx";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Vite/Vite-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

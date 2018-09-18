@@ -3,6 +3,7 @@ PODS:
   - Alamofire (4.7.3)
   - APIKit (3.2.1):
     - Result (~> 3.0)
+  - BaiduMobStat (4.9.1)
   - BigInt (3.1.0):
     - SipHash (~> 1.2)
   - ChameleonFramework/Default (2.1.0)
@@ -72,6 +73,7 @@ PODS:
 DEPENDENCIES:
   - ActionSheetPicker-3.0
   - APIKit
+  - BaiduMobStat
   - BigInt (~> 3.0)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Eureka
@@ -101,6 +103,7 @@ SPEC REPOS:
     - ActionSheetPicker-3.0
     - Alamofire
     - APIKit
+    - BaiduMobStat
     - BigInt
     - CryptoSwift
     - Differentiator
@@ -146,6 +149,7 @@ SPEC CHECKSUMS:
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   APIKit: a39ff72ac44efc15513fd1b98800f63c525be61b
+  BaiduMobStat: e2dbfd44f1535adf3c0001cbd3212eb61c4fe639
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
@@ -178,6 +182,6 @@ SPEC CHECKSUMS:
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   Vite-keystore: 17d6ea9494bf412d9c7409ae4fffc9f969444cfe
 
-PODFILE CHECKSUM: 93cb0c81ddcd59a5c0f1fc50b217f873d93fd295
+PODFILE CHECKSUM: cbcdf253132d179bad15414090e6978fc6da86d4
 
 COCOAPODS: 1.5.3
