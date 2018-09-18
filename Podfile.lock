@@ -65,7 +65,7 @@ PODS:
     - BigInt (~> 3.0)
     - CryptoSwift (~> 0.11)
     - KeychainSwift
-    - libEd25519Blake2b (~> 0.0.4)
+    - libEd25519Blake2b (~> 0.0.6)
     - ObjectMapper
     - scrypt (~> 1.5)
     - secp256k1.swift (~> 0.1.4)
@@ -180,7 +180,7 @@ SPEC CHECKSUMS:
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
-  Vite-keystore: 1987ba1387d428a36156ecc845084cf492fbc040
+  Vite-keystore: 17d6ea9494bf412d9c7409ae4fffc9f969444cfe
 
 PODFILE CHECKSUM: cbcdf253132d179bad15414090e6978fc6da86d4
 
