@@ -47,8 +47,6 @@ class MyHomeViewController: FormViewController {
         form +++
             Section {section in
                 var header = HeaderFooterView<MyHomeListHeaderView>(.class)
-
-                header = HeaderFooterView<MyHomeListHeaderView>(.class)
                 header.onSetupView = { view, section in
                     view.delegate = self
                 }

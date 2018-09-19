@@ -48,8 +48,6 @@ final class AffirmInputMnemonicVM: NSObject {
     }
 }
 
-
-
 extension MutableCollection {
     /// Shuffles the contents of this collection.
     mutating func shuffle() {

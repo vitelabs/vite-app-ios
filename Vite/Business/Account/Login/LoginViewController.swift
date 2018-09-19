@@ -188,11 +188,14 @@ extension LoginViewController {
                 DispatchQueue.global().async {
                     WalletDataService.shareInstance.loginWallet(account: self.viewModel.chooseWalletAccount)
                     DispatchQueue.main.async {
+                        self.view.hideLoading()
                         NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
                     }
                 }
         } else {
-            self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle.key.localized() , done: R.string.localizable.confirm.key.localized(), doneHandler: {})
+            self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
+
+            })
         }
     }
 }

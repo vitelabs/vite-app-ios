@@ -12,13 +12,16 @@ import SnapKit
 class TitleBtnView: UIView {
 
     let titleLabel = UILabel().then {
-        $0.textColor = UIColor.blue
-        $0.font = UIFont.systemFont(ofSize: 17)
+        $0.textColor = Colors.titleGray
+        $0.font = AppStyle.formHeader.font
     }
 
     let btn = UIButton().then {
-        $0.setTitleColor(.black, for: .normal)
-        $0.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        $0.setTitleColor(Colors.descGray, for: .normal)
+        $0.setTitleColor(Colors.descGray, for: .highlighted)
+        $0.titleLabel?.font = AppStyle.inputDescWord.font
+        $0.contentHorizontalAlignment = .left
+        $0.titleLabel?.adjustsFontSizeToFitWidth = true
     }
 
     let separatorLine = UIView().then {
