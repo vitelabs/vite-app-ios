@@ -33,7 +33,7 @@ class GetBalanceInfosRequest: JSONRPCKit.Request {
         }
 
         var balanceInfoArray = [[String: Any]]()
-        if let array = response["BalanceInfos"] as?  [[String: Any]] {
+        if let array = response["balanceInfos"] as?  [[String: Any]] {
             balanceInfoArray = array
         }
 

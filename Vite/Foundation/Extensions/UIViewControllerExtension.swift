@@ -44,7 +44,7 @@ extension ViewControllerDataStatusable {
     }
 
     public func networkErrorView(error: Error, retry: @escaping () -> Swift.Void) -> UIView {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.backgroundColor = UIColor.red
         button.setTitle(error.localizedDescription, for: .normal)
         return button

@@ -11,6 +11,6 @@ import BigInt
 
 protocol BalanceType {
     var value: BigInt { get }
-    var amountShort: String { get }
-    var amountFull: String { get }
+    func amountShort(decimals: Int) -> String
+    func amountFull(decimals: Int) -> String
 }

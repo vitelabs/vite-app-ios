@@ -26,11 +26,13 @@ final class HDWalletManager {
     fileprivate var bagsBehaviorRelay = BehaviorRelay(value: [Bag]())
     fileprivate var bagBehaviorRelay = BehaviorRelay(value: Bag())
 
+    fileprivate(set) var hasAccount = false
+
     fileprivate var fileHelper: FileHelper!
     fileprivate static let saveKey = "HDWallet"
 
     func updateAccount(_ walletAccount: WalletAccount) {
-
+        hasAccount = true
         accountBehaviorRelay.accept(Account(uuid: walletAccount.uuid,
                                             mnemonic: walletAccount.mnemonic,
                                             passwordHash: walletAccount.password,
@@ -48,6 +50,15 @@ final class HDWalletManager {
 
         pri_updateBags()
         pri_updateBag()
+    }
+
+    func cleanAccount() {
+        hasAccount = false
+        accountBehaviorRelay.accept(Account(uuid: "nil", mnemonic: "nil", passwordHash: "nil", name: "nil"))
+        fileHelper = nil
+        walletBehaviorRelay.accept(Wallet())
+        bagsBehaviorRelay.accept([Bag]())
+        bagBehaviorRelay.accept(Bag())
     }
 
     func updateAccountName(name: String) {

@@ -25,8 +25,8 @@ final class WalletHomeBalanceInfoViewModel: WalletHomeBalanceInfoViewModelType {
         self.icon = TokenCacheService.instance.iconForId(balanceInfo.token.id)
         self.backgroundColors = TokenCacheService.instance.backgroundColorsForId(balanceInfo.token.id)
         self.name = balanceInfo.token.name
-        self.balance = balanceInfo.balance.amountShort
-        self.unconfirmed = balanceInfo.unconfirmedBalance.amountShort
+        self.balance = balanceInfo.balance.amountShort(decimals: balanceInfo.token.decimals)
+        self.unconfirmed = balanceInfo.unconfirmedBalance.amountShort(decimals: balanceInfo.token.decimals)
         self.unconfirmedCount = balanceInfo.unconfirmedCount
     }
 }

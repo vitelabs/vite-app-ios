@@ -62,13 +62,12 @@ class WalletHomeViewController: BaseTableViewController {
         }
 
         qrcodeItem.rx.tap.bind { [weak self] _ in
-            self?.navigationController?.pushViewController(QRCodeViewController(), animated: true)
+            self?.navigationController?.pushViewController(QRCodeViewController(token: nil), animated: true)
         }.disposed(by: rx.disposeBag)
 
         scanItem.rx.tap.bind {  [weak self] _ in
             self?.navigationController?.pushViewController(ScanViewController(), animated: true)
         }.disposed(by: rx.disposeBag)
-
     }
 
     fileprivate let dataSource = DataSource(configureCell: { (_, tableView, indexPath, item) -> UITableViewCell in

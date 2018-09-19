@@ -16,6 +16,20 @@ class QRCodeViewController: BaseViewController {
 
     let account = HDWalletManager.instance.account()
     let bag = HDWalletManager.instance.bag()
+    let token: Token?
+    let uriBehaviorRelay: BehaviorRelay<ViteURI>
+
+    init(token: Token?) {
+        self.token = token
+        var tokenId = Token.Currency.vite.rawValue
+        if let token = token { tokenId = token.id }
+        self.uriBehaviorRelay = BehaviorRelay(value: ViteURI.transfer(address: self.bag.address, tokenId: tokenId, amount: nil, note: nil))
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     let titleLabel = UILabel().then {
         $0.backgroundColor = .red
@@ -37,7 +51,7 @@ class QRCodeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        createQRCode()
+        bind()
     }
 
     func setupUI() {
@@ -83,9 +97,14 @@ class QRCodeViewController: BaseViewController {
         }
     }
 
-    func createQRCode() {
+    func bind() {
+        self.uriBehaviorRelay.asDriver().drive(onNext: { [weak self] uri in
+            self?.createQRCode(string: uri.string())
+        }).disposed(by: rx.disposeBag)
+    }
+
+    func createQRCode(string: String) {
         DispatchQueue.global(qos: .userInteractive).async {
-            let string = self.bag.address.description
             let context = CIContext()
             let data = string.data(using: String.Encoding.ascii)
             guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return }

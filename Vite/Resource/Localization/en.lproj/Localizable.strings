@@ -9,6 +9,8 @@
 /* App */
 "Cancel" = "取消";
 "Finish" = "完成";
+"Delete" = "删除";
+"Hint" = "提示";
 "Yes" = "是";
 "No" = "否";
 
@@ -78,6 +80,10 @@
 "address.manage.page.title" = "地址管理";
 "address.manage.default.address.cell.title" = "默认收款地址";
 "address.manage.address.header.title" = "地址列表";
+"address.manage.address.generate.button.title" = "添加地址";
+"address.manage.address.generate.button.toast" = "最多只能添加10个地址";
+"address.manage.tip.alert.message" = "账户生成上限：10；恢复账户时1号地址和有交易的地址会显示，无交易地址隐藏，可重新生成再次使用。";
+"address.manage.tip.alert.ok" = "我知道了";
 
 /* Send Page */
 "send.page.title" = "转账";
