@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         handleRootVC()
 
         AutoGatheringService.instance.start()
+        FetchBalanceInfoService.instance.start()
 
         return true
     }

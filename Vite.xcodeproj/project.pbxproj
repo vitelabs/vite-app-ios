@@ -116,6 +116,7 @@
 		8E79261621515D3A007FEBAB /* ViteURITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261521515D3A007FEBAB /* ViteURITest.swift */; };
 		8E7926182151D1E7007FEBAB /* AddressManageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7926172151D1E7007FEBAB /* AddressManageHeaderView.swift */; };
 		8E79261A21522085007FEBAB /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261921522085007FEBAB /* Alert.swift */; };
+		8E79261C21522BF1007FEBAB /* FetchBalanceInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261B21522BF1007FEBAB /* FetchBalanceInfoService.swift */; };
 		8E79C6E8214D392900FAEEBC /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6E7214D392900FAEEBC /* FileHelper.swift */; };
 		8E79C6EA214DFD9C00FAEEBC /* TokenCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */; };
 		8E79C6EC214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6EB214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift */; };
@@ -293,6 +294,7 @@
 		8E79261521515D3A007FEBAB /* ViteURITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteURITest.swift; sourceTree = "<group>"; };
 		8E7926172151D1E7007FEBAB /* AddressManageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManageHeaderView.swift; sourceTree = "<group>"; };
 		8E79261921522085007FEBAB /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		8E79261B21522BF1007FEBAB /* FetchBalanceInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBalanceInfoService.swift; sourceTree = "<group>"; };
 		8E79C6E7214D392900FAEEBC /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCacheService.swift; sourceTree = "<group>"; };
 		8E79C6EB214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLatestSnapshotChainHashRequest.swift; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 				8E79C6ED214E71E300FAEEBC /* HDWalletManager.swift */,
 				8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */,
 				8EE4690C214BCE0700807D2C /* AutoGatheringService.swift */,
+				8E79261B21522BF1007FEBAB /* FetchBalanceInfoService.swift */,
 				8E792613215151E0007FEBAB /* ViteURI.swift */,
 			);
 			path = Components;
@@ -1348,6 +1351,7 @@
 				8E6F3DFB2140FFEC003CDFC2 /* ViteServiceRequest.swift in Sources */,
 				8E56FC8721466D6500A68823 /* GetUnconfirmedInfosRequest.swift in Sources */,
 				8ED4CECC2147C4A60005A82D /* SafariViewController.swift in Sources */,
+				8E79261C21522BF1007FEBAB /* FetchBalanceInfoService.swift in Sources */,
 				8E56FC9C2147A9CE00A68823 /* DateExtension.swift in Sources */,
 				8EE468F4214A2BAD00807D2C /* AddressManageAddressHeaderCell.swift in Sources */,
 				8E6F3E202142280F003CDFC2 /* BaseNavigationController.swift in Sources */,

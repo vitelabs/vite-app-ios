@@ -20,11 +20,15 @@ final class AutoGatheringService {
     var bag: HDWalletManager.Bag! = nil
 
     func start() {
-        HDWalletManager.instance.bagDriver.drive(onNext: { [weak self] in self?.bag = $0 }).disposed(by: disposeBag)
-        getUnconfirmedTransaction()
+        HDWalletManager.instance.bagDriver.drive(onNext: { [weak self] in
+            self?.bag = $0
+            self?.getUnconfirmedTransaction()
+        }).disposed(by: disposeBag)
     }
 
     func getUnconfirmedTransaction() {
+
+        guard HDWalletManager.instance.hasAccount else { return }
 
         _ = transactionProvider.getUnconfirmedTransaction(address: self.bag.address)
             .then({ [weak self] (accountBlocks, latestAccountBlock, snapshotChainHash) -> Promise<Void> in

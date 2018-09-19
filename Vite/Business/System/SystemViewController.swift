@@ -132,6 +132,7 @@ class SystemViewController: FormViewController {
     @objc func logoutBtnAction() {
         self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
         DispatchQueue.global().async {
+            HDWalletManager.instance.cleanAccount()
             WalletDataService.shareInstance.logoutCurrentWallet()
             DispatchQueue.main.async {
                 self.view.hideLoading()
