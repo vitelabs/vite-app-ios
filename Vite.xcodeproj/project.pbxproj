@@ -114,6 +114,8 @@
 		8E6F3E5421453405003CDFC2 /* WalletHomeBalanceInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E5321453405003CDFC2 /* WalletHomeBalanceInfoViewModel.swift */; };
 		8E792614215151E0007FEBAB /* ViteURI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E792613215151E0007FEBAB /* ViteURI.swift */; };
 		8E79261621515D3A007FEBAB /* ViteURITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261521515D3A007FEBAB /* ViteURITest.swift */; };
+		8E7926182151D1E7007FEBAB /* AddressManageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7926172151D1E7007FEBAB /* AddressManageHeaderView.swift */; };
+		8E79261A21522085007FEBAB /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261921522085007FEBAB /* Alert.swift */; };
 		8E79C6E8214D392900FAEEBC /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6E7214D392900FAEEBC /* FileHelper.swift */; };
 		8E79C6EA214DFD9C00FAEEBC /* TokenCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */; };
 		8E79C6EC214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6EB214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift */; };
@@ -289,6 +291,8 @@
 		8E6F3E5321453405003CDFC2 /* WalletHomeBalanceInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHomeBalanceInfoViewModel.swift; sourceTree = "<group>"; };
 		8E792613215151E0007FEBAB /* ViteURI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteURI.swift; sourceTree = "<group>"; };
 		8E79261521515D3A007FEBAB /* ViteURITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteURITest.swift; sourceTree = "<group>"; };
+		8E7926172151D1E7007FEBAB /* AddressManageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManageHeaderView.swift; sourceTree = "<group>"; };
+		8E79261921522085007FEBAB /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		8E79C6E7214D392900FAEEBC /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCacheService.swift; sourceTree = "<group>"; };
 		8E79C6EB214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLatestSnapshotChainHashRequest.swift; sourceTree = "<group>"; };
@@ -931,6 +935,7 @@
 				8EE4690A214BBE0B00807D2C /* UIButton+Helper.swift */,
 				8E79C6E7214D392900FAEEBC /* FileHelper.swift */,
 				8EE46919214CA8E800807D2C /* GCD+Helper.swift */,
+				8E79261921522085007FEBAB /* Alert.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1023,6 +1028,7 @@
 		8EE468E4214A066C00807D2C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8E7926172151D1E7007FEBAB /* AddressManageHeaderView.swift */,
 				8EE468E2214A047500807D2C /* AddressManageDefaultAddressCell.swift */,
 				8EE468F3214A2BAD00807D2C /* AddressManageAddressHeaderCell.swift */,
 				8EE468EF214A277500807D2C /* AddressManageAddressCell.swift */,
@@ -1371,10 +1377,12 @@
 				4C84D9312145280E001B6EBD /* CreateWalletTipViewController.swift in Sources */,
 				8EE46914214BCFAB00807D2C /* AccountBlockMeta.swift in Sources */,
 				8E56FC9A21479A7D00A68823 /* TransactionCell.swift in Sources */,
+				8E7926182151D1E7007FEBAB /* AddressManageHeaderView.swift in Sources */,
 				4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */,
 				8E79C6EA214DFD9C00FAEEBC /* TokenCacheService.swift in Sources */,
 				8E79C6EC214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift in Sources */,
 				8E56FC902147684200A68823 /* TransactionListTableViewModelType.swift in Sources */,
+				8E79261A21522085007FEBAB /* Alert.swift in Sources */,
 				8EE468E3214A047500807D2C /* AddressManageDefaultAddressCell.swift in Sources */,
 				8E6F3E16214227E7003CDFC2 /* WalletHomeViewController.swift in Sources */,
 				8E6F3E0721411650003CDFC2 /* Transaction.swift in Sources */,
