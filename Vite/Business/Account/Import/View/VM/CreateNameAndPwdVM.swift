@@ -1,8 +1,8 @@
 //
-//  CreateWalletAccountVM.swift
+//  CreateNameAndPwdVM.swift
 //  Vite
 //
-//  Created by Water on 2018/9/7.
+//  Created by Water on 2018/9/18.
 //  Copyright © 2018年 vite labs. All rights reserved.
 //
 
@@ -11,12 +11,12 @@ import Action
 import RxCocoa
 import RxSwift
 
-final class CreateWalletAccountVM {
+final class CreateNameAndPwdVM {
     let submitBtnEnable: Driver<Bool>
     let submitAction: Action<(String, String, String), CreateWalletResult> = Action {(name, pwd, rePwd) in
         //TODO... 本地化
         if name.isEmpty || pwd.isEmpty || rePwd.isEmpty {
-             return Observable.just(.empty(message:"用户名或者密码必须输入"))
+            return Observable.just(.empty(message:"用户名或者密码必须输入"))
         }
         if  !ViteInputValidator.isValidWalletName(str: name  ) {
             return Observable.just(.failed(message: "用户名中文英文"))
@@ -33,7 +33,7 @@ final class CreateWalletAccountVM {
         return Observable.just(.ok(message:""))
     }
 
-     var accountNameTF: UITextField
+    var accountNameTF: UITextField
     private var passwordTF: UITextField
     private var repeatePwdTF: UITextField
 
@@ -62,20 +62,5 @@ final class CreateWalletAccountVM {
         } else {
             return Observable.just(true)
         }
-    }
-
-    static func handleAccountNameValid(_ name: String) -> Observable<CreateWalletResult> {
-        if name.isEmpty {
-            return Observable.just(.empty(message:"用户名必须输入"))
-        }
-
-        if  ViteInputValidator.isValidWalletName(str: name) {
-            return Observable.just(.failed(message: "中文英文"))
-        }
-
-        if  ViteInputValidator.isValidWalletNameCount(str: name) {
-            return Observable.just(.failed(message: "超出字符限制"))
-        }
-        return Observable.just(.ok(message:""))
     }
 }

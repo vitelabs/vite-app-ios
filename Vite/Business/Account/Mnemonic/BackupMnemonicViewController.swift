@@ -47,9 +47,10 @@ class BackupMnemonicViewController: BaseViewController {
 
     lazy var afreshMnemonicBtn: UIButton = {
         let afreshMnemonicBtn = UIButton.init(style: .white)
-
-        afreshMnemonicBtn.setTitle(R.string.localizable.mnemonicBackupPageTipAnewBtnTitle.key.localized(), for: .normal)
-        afreshMnemonicBtn.addTarget(self, action: #selector(afreshMnemonicBtnAction), for: .touchUpInside)
+    afreshMnemonicBtn.setTitle(R.string.localizable.mnemonicBackupPageTipAnewBtnTitle.key.localized(), for: .normal)
+        afreshMnemonicBtn.rx.tap.bind {
+                    self.viewModel.fetchNewMnemonicWordsAction?.execute(())
+        }.disposed(by: rx.disposeBag)
         return afreshMnemonicBtn
     }()
 
@@ -66,6 +67,18 @@ extension BackupMnemonicViewController {
         self.viewModel.mnemonicWordsList.asObservable().subscribe { (_) in
             self.mnemonicCollectionView.dataList = (self.viewModel.mnemonicWordsList.value)
         }.disposed(by: rx.disposeBag)
+
+        NotificationCenter.default.rx
+            .notification(NSNotification.Name.UIApplicationUserDidTakeScreenshot)
+            .takeUntil(self.rx.deallocated)
+            .subscribe(onNext: { [weak self] (_) in
+                guard let `self` = self else { return }
+                self.displayAlter(title: R.string.localizable.mnemonicBackupPageAlterTitle.key.localized(), message: R.string.localizable.mnemonicBackupPageAlterMessage.key.localized(), cancel: R.string.localizable.mnemonicBackupPageAlterCancel.key.localized(), done:
+                    R.string.localizable.mnemonicBackupPageAlterConfirm.key.localized(),
+                                  doneHandler: {
+                                    self.viewModel.fetchNewMnemonicWordsAction?.execute(())
+                })
+            }).disposed(by: rx.disposeBag)
     }
 
     private func _setupView() {
@@ -106,10 +119,6 @@ extension BackupMnemonicViewController {
             make.height.equalTo(50)
             make.bottom.equalTo(self.afreshMnemonicBtn.snp.top).offset(-24)
         }
-    }
-
-    @objc func afreshMnemonicBtnAction() {
-        _ = self.viewModel.fetchNewMnemonicWords()
     }
 
     @objc func nextMnemonicBtnAction() {

@@ -19,9 +19,10 @@ class AboutUsTableBottomView: UIView {
     let w_num = CGFloat(4.0)
     let h_num = CGFloat(2.0)
 
-    var dataList: [[String: String]] {
-        get {
-            return [
+    var dataList: [[String: String]]
+    override init(frame: CGRect) {
+        self.dataList =
+             [
                 ["img": "icon_button_github", "web": "https://github.com/vitelabs"],
                 ["img": "icon_button_twitter", "web": "https://twitter.com/vitelabs"],
                 ["img": "icon_button_telegram", "web": "https://t.me/vite_en"],
@@ -30,11 +31,7 @@ class AboutUsTableBottomView: UIView {
                 ["img": "icon_button_facebook", "web": "https://facebook"],
                 ["img": "icon_button_medium", "web": "https://discordapp.com/invite/CsVY76q"],
                 ["img": "icon_button_youtube", "web": "https://www.youtube.com/channel/UC8qft2rEzBnP9yJOGdsJBVg"],
-            ]
-        }
-    }
-
-    override init(frame: CGRect) {
+                ]
         super.init(frame: frame)
 
         self.addSubview(collectionView)
@@ -110,7 +107,7 @@ class AboutUsTableBottomView: UIView {
         officialWebsiteBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         officialWebsiteBtn.rx.tap.bind {_ in
             WebHandler.open(URL.init(string: "https://www.vite.org/")!)
-        }
+        }.disposed(by: rx.disposeBag)
         return officialWebsiteBtn
     }()
 
@@ -119,7 +116,7 @@ class AboutUsTableBottomView: UIView {
         portalWebsiteBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         portalWebsiteBtn.rx.tap.bind {_ in
             WebHandler.open(URL.init(string: "https://vite.blog/")!)
-        }
+        }.disposed(by: rx.disposeBag)
         return portalWebsiteBtn
     }()
 
@@ -128,7 +125,7 @@ class AboutUsTableBottomView: UIView {
         blogWebsiteBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         blogWebsiteBtn.rx.tap.bind {_ in
             WebHandler.open(URL.init(string: "https://vite.blog/")!)
-        }
+        }.disposed(by: rx.disposeBag)
         return blogWebsiteBtn
     }()
 

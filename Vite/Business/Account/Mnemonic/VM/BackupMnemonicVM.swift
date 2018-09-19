@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Action
 import RxCocoa
 import RxSwift
 import Vite_keystore
@@ -16,9 +17,18 @@ final class BackupMnemonicVM: NSObject {
 
     var mnemonicWordsList =  BehaviorRelay<[String]>(value: [])
 
+    var fetchNewMnemonicWordsAction: Action<Void, Void>?
+
     override init() {
         super.init()
         mnemonicWordsList.accept(mnemonicWordsStr.value.components(separatedBy: " "))
+
+        fetchNewMnemonicWordsAction = Action {
+            self.mnemonicWordsStr.accept(Mnemonic.randomGenerator(strength: .strong, language: .english))
+            self.mnemonicWordsList.accept(self.mnemonicWordsStr.value.components(separatedBy: " "))
+            return Observable.empty()
+        }
+
     }
 
     func fetchNewMnemonicWords() {

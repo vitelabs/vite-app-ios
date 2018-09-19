@@ -27,24 +27,3 @@ extension CreateWalletResult {
         }
     }
 }
-
-extension CreateWalletResult {
-    var borderColor: CGColor {
-        switch self {
-        case .ok:
-            return UIColor.red.cgColor
-        case .empty:
-            return UIColor.blue.cgColor
-        case .failed:
-            return UIColor.black.cgColor
-        }
-    }
-}
-
-extension Reactive where Base: UITextField {
-    var validationResult: Binder<CreateWalletResult> {
-        return Binder(self.base) { field, result in
-            field.layer.borderColor = result.borderColor
-        }
-    }
-}

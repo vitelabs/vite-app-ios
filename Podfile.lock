@@ -1,4 +1,7 @@
 PODS:
+  - Action (3.7.0):
+    - RxCocoa (~> 4.3.0)
+    - RxSwift (~> 4.3.0)
   - ActionSheetPicker-3.0 (2.3.0)
   - Alamofire (4.7.3)
   - APIKit (3.2.1):
@@ -53,9 +56,8 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.3.0)
-  - secp256k1.swift (0.1.4)
   - SipHash (1.2.2)
-  - SnapKit (4.0.0)
+  - SnapKit (4.0.1)
   - SwiftLint (0.27.0)
   - Then (2.3.0)
   - Toast-Swift (3.0.1)
@@ -65,9 +67,9 @@ PODS:
     - KeychainSwift
     - libEd25519Blake2b (~> 0.0.6)
     - ObjectMapper
-    - secp256k1.swift (~> 0.1.4)
 
 DEPENDENCIES:
+  - Action
   - ActionSheetPicker-3.0
   - APIKit
   - BaiduMobStat
@@ -97,6 +99,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Action
     - ActionSheetPicker-3.0
     - Alamofire
     - APIKit
@@ -123,7 +126,6 @@ SPEC REPOS:
     - RxDataSources
     - RxGesture
     - RxSwift
-    - secp256k1.swift
     - SipHash
     - SnapKit
     - SwiftLint
@@ -142,6 +144,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
+  Action: c75b59ecb8b6dc3cc31a98c8a92cc04f722d4904
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   APIKit: a39ff72ac44efc15513fd1b98800f63c525be61b
@@ -169,14 +172,13 @@ SPEC CHECKSUMS:
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxGesture: c278eb05b187abd47e11e65464ae4de53ab71d95
   RxSwift: a9717a34df3179fe63563f76e046ad345078dd3a
-  secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
-  Vite-keystore: 8440a5207f0bdfd8ad6e55026b69ca860cb012e7
+  Vite-keystore: 7067da9e87220f31c8378bc7b6424c8c2775510a
 
-PODFILE CHECKSUM: cbcdf253132d179bad15414090e6978fc6da86d4
+PODFILE CHECKSUM: e2c05b48b99c2fdf447693b087ba22fd9160dd25
 
 COCOAPODS: 1.5.3
