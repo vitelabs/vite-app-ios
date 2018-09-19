@@ -42,6 +42,7 @@
 "mnemonic.affirm.page.title" = "确认输入助记词";
 "mnemonic.affirm.page.tip.title" = "按顺序选择助记词输入";
 "mnemonic.affirm.alter.title" = "返回会重新生成助记词，是否返回";
+"mnemonic.affirm.alter.check.title" = "助记词输入错误";
 "mnemonic.affirm.page.add.loading" = "添加中...";
 /* import mnemonic*/
 "import.page.title" = "输入您的助记词";
@@ -55,6 +56,8 @@
 /* login */
 "login.page.btn.chooseName" = "选择钱包账户";
 "login.page.btn.login" = "登录";
+"login.page.loading.title" = "登录中";
+"login.page.error.toast.title" = "密码错误，知道助记词可以导入";
 
 /* Home */
 "tabbar.item.title.wallet" = "钱包";

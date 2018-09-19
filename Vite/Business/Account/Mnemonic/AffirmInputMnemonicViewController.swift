@@ -84,8 +84,10 @@ extension AffirmInputMnemonicViewController {
 
     private func _setupView() {
         self.view.backgroundColor = .white
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.mnemonicAffirmPageTitle.key.localized())
+        let backItem = UIBarButtonItem(image: R.image.icon_nav_back_black(), style: .plain, target: self, action: #selector(backItemAction))
+        navigationItem.leftBarButtonItem = backItem
 
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.mnemonicAffirmPageTitle.key.localized())
         self._addViewConstraint()
     }
 
@@ -108,15 +110,6 @@ extension AffirmInputMnemonicViewController {
             make.right.equalTo(self.view).offset(-24)
         }
 
-        self.view.addSubview(self.defaultMnemonicCollectionView)
-        self.defaultMnemonicCollectionView.snp.makeConstraints { (make) -> Void in
-            make.centerX.equalTo(self.view)
-            make.top.equalTo(self.chooseMnemonicCollectionView.snp.bottom).offset(12)
-            make.height.equalTo(kScreenH * (210.0/667.0))
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-        }
-
         self.view.addSubview(self.submitBtn)
         self.submitBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
@@ -124,19 +117,43 @@ extension AffirmInputMnemonicViewController {
             make.right.equalTo(self.view).offset(-24)
             make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-24)
         }
+
+        self.view.addSubview(self.defaultMnemonicCollectionView)
+        self.defaultMnemonicCollectionView.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(self.view)
+            make.top.equalTo(self.chooseMnemonicCollectionView.snp.bottom).offset(12)
+            make.height.lessThanOrEqualTo(kScreenH * (210.0/667.0))
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.bottom.equalTo(self.submitBtn.snp.top).offset(-10).priority(250)
+        }
     }
 
     @objc func submitBtnAction() {
-        let walletAccount = CreateWalletService.sharedInstance.walletAccount
+         let chooseStr = self.viewModel.hasChooseMnemonicWordsList.value.joined(separator: " ")
+        if chooseStr != CreateWalletService.sharedInstance.walletAccount.mnemonic {
+            self.displayConfirmAlter(title: R.string.localizable.mnemonicAffirmAlterCheckTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
 
-        self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading.key.localized(), animated: true)
-        DispatchQueue.global().async {
-            WalletDataService.shareInstance.addWallet(account: walletAccount)
-            WalletDataService.shareInstance.loginWallet(account: walletAccount)
-            DispatchQueue.main.async {
-                self.view.hideLoading()
-                NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
+            })
+        } else {
+            let walletAccount = CreateWalletService.sharedInstance.walletAccount
+            self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading.key.localized(), animated: true)
+            DispatchQueue.global().async {
+                WalletDataService.shareInstance.addWallet(account: walletAccount)
+                WalletDataService.shareInstance.loginWallet(account: walletAccount)
+                DispatchQueue.main.async {
+                    self.view.hideLoading()
+                    NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
+                }
             }
         }
+    }
+
+    @objc func backItemAction() {
+        self.displayAlter(title: R.string.localizable.mnemonicAffirmAlterTitle.key.localized(), message: "", cancel: R.string.localizable.no.key.localized(), done:
+            R.string.localizable.yes.key.localized(),
+                          doneHandler: {
+                self.navigationController?.popViewController(animated: true)
+        })
     }
 }

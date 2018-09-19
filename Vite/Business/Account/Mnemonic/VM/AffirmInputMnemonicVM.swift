@@ -23,7 +23,7 @@ final class AffirmInputMnemonicVM: NSObject {
         super.init()
         self.mnemonicWordsStr = mnemonicWordsStr
         self.mnemonicWordsList = mnemonicWordsStr.components(separatedBy: " ")
-        self.hasLeftMnemonicWordsList.accept(mnemonicWordsStr.components(separatedBy: " "))
+        self.hasLeftMnemonicWordsList.accept(self.mnemonicWordsList?.shuffled() ?? [])
     }
 
     func selectedWord(isHasSelected: Bool, dataIndex: Int, word: String) {
@@ -45,5 +45,31 @@ final class AffirmInputMnemonicVM: NSObject {
             list1.remove(at: dataIndex)
             self.hasLeftMnemonicWordsList.accept(list1)
         }
+    }
+}
+
+
+
+extension MutableCollection {
+    /// Shuffles the contents of this collection.
+    mutating func shuffle() {
+        let c = count
+        guard c > 1 else { return }
+
+        for (firstUnshuffled, unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
+            // Change `Int` in the next line to `IndexDistance` in < Swift 4.1
+            let d: Int = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+            let i = index(firstUnshuffled, offsetBy: d)
+            swapAt(firstUnshuffled, i)
+        }
+    }
+}
+
+extension Sequence {
+    /// Returns an array with the contents of this sequence, shuffled.
+    func shuffled() -> [Element] {
+        var result = Array(self)
+        result.shuffle()
+        return result
     }
 }

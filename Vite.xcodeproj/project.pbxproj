@@ -551,7 +551,6 @@
 		4C84D93421452836001B6EBD /* Mnemonic */ = {
 			isa = PBXGroup;
 			children = (
-				4C84D95921466BE6001B6EBD /* Model */,
 				4C84D93521452836001B6EBD /* AffirmInputMnemonicViewController.swift */,
 				4C84D93621452836001B6EBD /* BackupMnemonicViewController.swift */,
 				4C2284C221493087003E9907 /* ExportMnemonicViewController.swift */,
@@ -604,13 +603,6 @@
 				4C84D9652146A06F001B6EBD /* LoginViewModel.swift */,
 			);
 			path = VM;
-			sourceTree = "<group>";
-		};
-		4C84D95921466BE6001B6EBD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		4C84D95A21466BED001B6EBD /* Model */ = {

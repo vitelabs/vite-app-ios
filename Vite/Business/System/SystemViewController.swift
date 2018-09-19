@@ -132,7 +132,8 @@ class SystemViewController: FormViewController {
     @objc func logoutBtnAction() {
         self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
         DispatchQueue.global().async {
-            WalletDataService.shareInstance.logoutCurrentWallet()
+            WalletDataService.shareInstance.delAllWalletData()
+//            WalletDataService.shareInstance.logoutCurrentWallet()
             DispatchQueue.main.async {
                 self.view.hideLoading()
                 NotificationCenter.default.post(name: .logoutDidFinish, object: nil)

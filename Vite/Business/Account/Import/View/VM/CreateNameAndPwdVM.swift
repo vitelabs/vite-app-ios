@@ -24,9 +24,6 @@ final class CreateNameAndPwdVM {
         if  !ViteInputValidator.isValidWalletNameCount(str: name) {
             return Observable.just(.failed(message: "超出字符限制"))
         }
-        if !ViteInputValidator.isValidWalletPasswordCount(str: pwd) || !ViteInputValidator.isValidWalletPasswordCount(str: rePwd) {
-            return Observable.just(.empty(message:"密码或重复输入的密码必须为6位"))
-        }
         if  pwd != rePwd {
             return Observable.just(.empty(message:"密码和重复输入的密码不相同"))
         }
@@ -59,8 +56,12 @@ final class CreateNameAndPwdVM {
     static func handleLoginBtnEnable(_ name: String, pwd: String, rePwd: String) -> Observable<Bool> {
         if name.isEmpty || pwd.isEmpty || rePwd.isEmpty {
             return Observable.just(false)
-        } else {
-            return Observable.just(true)
         }
+
+        if !ViteInputValidator.isValidWalletPasswordCount(str: pwd) ||
+            !ViteInputValidator.isValidWalletPasswordCount(str: rePwd) {
+            return Observable.just(false)
+        }
+        return Observable.just(true)
     }
 }

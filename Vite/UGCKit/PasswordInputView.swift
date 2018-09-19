@@ -54,9 +54,11 @@ public class PasswordInputView: UIView {
     }
 
     func initalizeUI(frame: CGRect) {
-        textField.frame = .zero
+        textField.frame = frame
         textField.borderStyle = .none
         textField.backgroundColor = UIColor.clear
+        textField.textColor = UIColor.clear
+        textField.tintColor =  UIColor.clear
         textField.keyboardType = .numberPad
         textField.delegate = self
         textField.addTarget(self, action: #selector(textFieldChange(sender:)), for: .editingChanged)
