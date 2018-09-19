@@ -20,14 +20,16 @@ struct AccountBlockMeta: Mappable {
 
     }
 
-    init() {
-
+    init(height: BigInt? = nil, status: Transaction.Status? = nil, isSnapshotted: Bool? = nil) {
+        self.height = height
+        self.status = status
+        self.isSnapshotted = isSnapshotted
     }
 
     mutating func mapping(map: Map) {
-        height <- (map["Height"], JSONTransformer.bigint)
-        status <- map["Status"]
-        isSnapshotted <- map["IsSnapshotted"]
+        height <- (map["height"], JSONTransformer.bigint)
+        status <- map["status"]
+        isSnapshotted <- map["isSnapshotted"]
     }
 
     mutating func setHeight(_ height: BigInt) {

@@ -108,6 +108,7 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
         iconImageView.snp.makeConstraints { (m) in
             m.centerY.equalTo(colorView)
             m.left.equalTo(colorView).offset(16)
+            m.size.equalTo(CGSize(width: 32, height: 32))
         }
 
         nameLabel.snp.makeConstraints { (m) in

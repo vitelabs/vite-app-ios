@@ -68,6 +68,7 @@ class BalanceInfoDetailView: UIView {
             m.top.equalTo(nameLabel)
             m.left.equalTo(nameLabel.snp.right).offset(-10)
             m.right.equalTo(self).offset(-24)
+            m.size.equalTo(CGSize(width: 50, height: 50))
         }
 
         balanceTitleLabel.snp.makeConstraints { (m) in

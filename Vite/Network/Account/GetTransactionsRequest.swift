@@ -13,20 +13,24 @@ struct GetTransactionsRequest: JSONRPCKit.Request {
     typealias Response = (transactions: [Transaction], hasMore: Bool)
 
     let address: String
-    let index: Int
+    let hash: String?
     let count: Int
 
     var method: String {
-        return "ledger_getBlocksByAccAddr"
+        return "ledger_getBlocksByHash"
     }
 
     var parameters: Any? {
-        return [address, index, count + 1]
+        if let hash = hash {
+            return [address, hash, count + 1]
+        } else {
+            return [address, nil, count + 1]
+        }
     }
 
-    init(address: String, index: Int = 0, count: Int) {
+    init(address: String, hash: String? = nil, count: Int) {
         self.address = address
-        self.index = index
+        self.hash = hash
         self.count = count
     }
 

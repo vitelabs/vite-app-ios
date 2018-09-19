@@ -19,9 +19,9 @@ final class AccountProvider {
         self.server = server
     }
 
-    func getTransactions(address: Address, index: Int = 0, count: Int) -> Promise<(transactions: [Transaction], hasMore: Bool)> {
+    func getTransactions(address: Address, hash: String?, count: Int) -> Promise<(transactions: [Transaction], hasMore: Bool)> {
         return Promise { seal in
-            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetTransactionsRequest(address: address.description, index: index, count: count)))
+            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetTransactionsRequest(address: address.description, hash: hash, count: count)))
             Session.send(request) { result in
                 switch result {
                 case .success(let (transactions, hasMore)):
@@ -49,6 +49,20 @@ final class AccountProvider {
                         ret.append(info)
                     }
                     seal.fulfill(ret)
+                case .failure(let error):
+                    seal.reject(error)
+                }
+            }
+        }
+    }
+
+    func getTokenForId(_ id: String) -> Promise<Token> {
+        return Promise { seal in
+            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetTokenInfoRequest(tokenId: id)))
+            Session.send(request) { result in
+                switch result {
+                case .success(let token):
+                    seal.fulfill(token)
                 case .failure(let error):
                     seal.reject(error)
                 }

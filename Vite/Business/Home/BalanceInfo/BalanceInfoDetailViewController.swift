@@ -111,7 +111,9 @@ class BalanceInfoDetailViewController: BaseViewController {
         }.disposed(by: rx.disposeBag)
 
         sendButton.rx.tap.bind { [weak self] in
-            self?.navigationController?.pushViewController(SendViewController(), animated: true)
+            guard let `self` = self else { return }
+            let sendViewController = SendViewController(tokenId: self.viewModelBehaviorRelay.value.tokenId, address: nil, amount: nil, note: nil)
+            self.navigationController?.pushViewController(sendViewController, animated: true)
         }.disposed(by: rx.disposeBag)
 
         detailView.bind(viewModelBehaviorRelay: viewModelBehaviorRelay)
