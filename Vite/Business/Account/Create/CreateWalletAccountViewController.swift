@@ -34,7 +34,6 @@ extension CreateWalletAccountViewController {
 }
 
 class CreateWalletAccountViewController: BaseViewController {
-    fileprivate var viewModel: CreateWalletAccountVM?
     fileprivate var createNameAndPwdVM: CreateNameAndPwdVM?
 
     var disposeBag = DisposeBag()
