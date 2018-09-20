@@ -60,7 +60,7 @@ struct AccountBlock: Mappable {
         hash <- map["hash"]
         balance <- (map["balance"], JSONTransformer.bigint)
         amount <- (map["amount"], JSONTransformer.bigint)
-        timestamp <- map["timestamp"]
+        timestamp <- (map["timestamp"], JSONTransformer.bigint)
         tokenId <- map["tokenId"]
         lastBlockHeightInToken <- (map["lastBlockHeightInToken"], JSONTransformer.bigint)
         data <- map["data"]
@@ -119,9 +119,9 @@ extension AccountBlock {
         return block
     }
 
-    static func makeBaseAccountBlock(latest: AccountBlock,
-                                             bag: HDWalletManager.Bag,
-                                             snapshotChainHash: String) -> AccountBlock {
+    fileprivate static func makeBaseAccountBlock(latest: AccountBlock,
+                                                 bag: HDWalletManager.Bag,
+                                                 snapshotChainHash: String) -> AccountBlock {
         var block = AccountBlock()
 
         if let height = latest.meta.height {
