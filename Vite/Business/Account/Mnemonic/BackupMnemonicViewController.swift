@@ -29,6 +29,13 @@ class BackupMnemonicViewController: BaseViewController {
         self._bindViewModel()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // other page inter then refresh words
+        self.viewModel.fetchNewMnemonicWordsAction?.execute(())
+    }
+
     lazy var tipTitleLab: UILabel = {
         let tipTitleLab = UILabel()
         tipTitleLab.textAlignment = .left

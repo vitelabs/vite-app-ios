@@ -94,12 +94,6 @@ extension CreateWalletAccountViewController {
         }
     }
 
-//    @objc func dismissKeyboardBtnAction() {
-//        self.walletNameTF.textField.resignFirstResponder()
-//        _ = self.passwordTF.passwordInputView.textField.resignFirstResponder()
-//        _ = self.passwordRepeateTF.passwordInputView.textField.resignFirstResponder()
-//    }
-
     func goNextVC() {
         CreateWalletService.sharedInstance.walletAccount.name = self.createNameAndPwdView.walletNameTF.textField.text!
         CreateWalletService.sharedInstance.walletAccount.password = self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text!

@@ -14,22 +14,20 @@ import RxSwift
 final class CreateNameAndPwdVM {
     let submitBtnEnable: Driver<Bool>
     let submitAction: Action<(String, String, String), CreateWalletResult> = Action {(name, pwd, rePwd) in
-        //TODO... 本地化
+
         if name.isEmpty || pwd.isEmpty || rePwd.isEmpty {
-            return Observable.just(.empty(message:"用户名或者密码必须输入"))
+            return Observable.just(.empty(message:         R.string.localizable.mnemonicBackupPageErrorTypeName.key.localized()))
         }
         if  !ViteInputValidator.isValidWalletName(str: name  ) {
-            return Observable.just(.failed(message: "用户名中文英文"))
+            return Observable.just(.failed(message:         R.string.localizable.mnemonicBackupPageErrorTypeNameValid.key.localized()))
         }
         if  !ViteInputValidator.isValidWalletNameCount(str: name) {
-            return Observable.just(.failed(message: "超出字符限制"))
-        }
-        if !ViteInputValidator.isValidWalletPasswordCount(str: pwd) || !ViteInputValidator.isValidWalletPasswordCount(str: rePwd) {
-            return Observable.just(.empty(message:"密码或重复输入的密码必须为6位"))
+            return Observable.just(.failed(message: R.string.localizable.mnemonicBackupPageErrorTypeValidWalletNameCount.key.localized()))
         }
         if  pwd != rePwd {
-            return Observable.just(.empty(message:"密码和重复输入的密码不相同"))
+            return Observable.just(.empty(message:R.string.localizable.mnemonicBackupPageErrorTypeDifference.key.localized()))
         }
+
         return Observable.just(.ok(message:""))
     }
 
@@ -59,8 +57,12 @@ final class CreateNameAndPwdVM {
     static func handleLoginBtnEnable(_ name: String, pwd: String, rePwd: String) -> Observable<Bool> {
         if name.isEmpty || pwd.isEmpty || rePwd.isEmpty {
             return Observable.just(false)
-        } else {
-            return Observable.just(true)
         }
+
+        if !ViteInputValidator.isValidWalletPasswordCount(str: pwd) ||
+            !ViteInputValidator.isValidWalletPasswordCount(str: rePwd) {
+            return Observable.just(false)
+        }
+        return Observable.just(true)
     }
 }

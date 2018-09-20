@@ -9,7 +9,12 @@
 import UIKit
 import SnapKit
 
+protocol ManageWalletHeaderViewDelegate: class {
+    func changeNameAction()
+}
+
 class ManageWalletHeaderView: UIView {
+    weak var delegate: ManageWalletHeaderViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,11 +27,22 @@ class ManageWalletHeaderView: UIView {
         }
 
         self.addSubview(self.nameLab)
+        self.addSubview(self.rightImageView)
+        self.rightImageView.snp.makeConstraints {  (make) -> Void in
+            make.right.equalTo(self).offset(-30)
+            make.centerY.equalTo(self.nameLab)
+        }
+
         self.nameLab.snp.makeConstraints {  (make) -> Void in
             make.left.equalTo(self).offset(24)
+            make.right.equalTo(self).offset(-50)
             make.bottom.equalTo(self).offset(-19)
             make.height.equalTo(20)
         }
+
+        let gesture = UITapGestureRecognizer()
+        gesture.addTarget(self, action: #selector(tapAction))
+        self.addGestureRecognizer(gesture)
     }
 
     lazy var nameTitleLab: UILabel = {
@@ -47,7 +63,19 @@ class ManageWalletHeaderView: UIView {
         return nameLab
     }()
 
+    lazy var rightImageView: UIImageView = {
+        let rightImageView = UIImageView.init(image: R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable)
+        rightImageView.backgroundColor = .clear
+        rightImageView.translatesAutoresizingMaskIntoConstraints = false
+        rightImageView.contentMode = .scaleAspectFit
+        return rightImageView
+    }()
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc func tapAction() {
+        self.delegate?.changeNameAction()
     }
 }

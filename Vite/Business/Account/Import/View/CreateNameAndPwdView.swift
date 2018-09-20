@@ -49,24 +49,21 @@ class CreateNameAndPwdView: UIView {
         self.addSubview(walletNameTF)
         walletNameTF.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self)
-            make.left.equalTo(self).offset(24)
-            make.right.equalTo(self).offset(-24)
+            make.left.right.equalTo(self)
             make.height.equalTo(60)
         }
 
         self.addSubview(self.passwordTF)
         self.passwordTF.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.walletNameTF.snp.bottom).offset(30)
-            make.left.equalTo(self).offset(24)
-            make.right.equalTo(self).offset(-24)
+            make.left.right.equalTo(self)
             make.height.equalTo(60)
         }
 
         self.addSubview(self.passwordRepeateTF)
         self.passwordRepeateTF.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.passwordTF.snp.bottom).offset(30)
-            make.left.equalTo(self).offset(24)
-            make.right.equalTo(self).offset(-24)
+            make.left.right.equalTo(self)
             make.height.equalTo(60)
             make.bottom.equalTo(self)
         }

@@ -30,6 +30,10 @@ public class WalletDataService: NSObject {
     }
 
     public func addWallet(account: WalletAccount) {
+        walletStorage.update(account: account)
+    }
+
+    public func updateWallet(account: WalletAccount) {
         walletStorage.add(account: account)
     }
 

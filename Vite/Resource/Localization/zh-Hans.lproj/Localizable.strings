@@ -27,7 +27,7 @@
 "create.page.submit.btn.title" = "创建";
 
 "create.page.tip.title" = "备份钱包账户";
-"create.page.tip.content" = "钱包账户重要提示文案\n订单发的发送到发送到发送到发发送发送地方少点";
+"create.page.tip.content" = "请备份助记词，没有妥善备份就无法保障您的资产安全。更换手机或删除app后，您需要通过备份助记词来恢复钱包。";
 "create.page.tip.nextBtn" = "备份助记词";
 
 /* mnemonic */
@@ -40,11 +40,17 @@
 "mnemonic.backup.page.alter.message" = "是否重新生成助记词？";
 "mnemonic.backup.page.alter.cancel" = "不了";
 "mnemonic.backup.page.alter.confirm" = "好的";
+"mnemonic.backup.page.error.type.name" = "请输入用户名或密码";
+"mnemonic.backup.page.error.type.nameValid" = "账户名仅支持中英文字符及下划线";
+"mnemonic.backup.page.error.type.validWalletNameCount" = "账户名超出字符限制";
+"mnemonic.backup.page.error.type.difference" = "两次输入密码不同";
 
 "mnemonic.affirm.page.title" = "确认输入助记词";
 "mnemonic.affirm.page.tip.title" = "按顺序选择助记词输入";
 "mnemonic.affirm.alter.title" = "返回会重新生成助记词，是否返回";
+"mnemonic.affirm.alter.check.title" = "助记词输入错误";
 "mnemonic.affirm.page.add.loading" = "添加中...";
+
 /* import mnemonic*/
 "import.page.title" = "输入您的助记词";
 "import.page.submit.btn" = "恢复账户";
@@ -57,6 +63,8 @@
 /* login */
 "login.page.btn.chooseName" = "选择钱包账户";
 "login.page.btn.login" = "登录";
+"login.page.loading.title" = "登录中";
+"login.page.error.toast.title" = "密码错误，知道助记词可以导入";
 
 /* Home */
 "tabbar.item.title.wallet" = "钱包";
@@ -72,6 +80,8 @@
 "manage.wallet.page.name.cell.title" = "钱包名";
 "manage.wallet.page.addressManage.cell.title" = "地址管理";
 "manage.wallet.page.importMnemonic.cell.title" = "导出助记词";
+"manage.wallet.page.alter.changeName" = "修改钱包名";
+"manage.wallet.page.changeName.loading" = "修改中";
 
 /* my */
 "my.page.mangeWallet.cell.title" = "管理钱包";

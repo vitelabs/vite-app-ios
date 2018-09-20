@@ -565,7 +565,6 @@
 		4C84D93421452836001B6EBD /* Mnemonic */ = {
 			isa = PBXGroup;
 			children = (
-				4C84D95921466BE6001B6EBD /* Model */,
 				4C84D93521452836001B6EBD /* AffirmInputMnemonicViewController.swift */,
 				4C84D93621452836001B6EBD /* BackupMnemonicViewController.swift */,
 				4C2284C221493087003E9907 /* ExportMnemonicViewController.swift */,
@@ -618,13 +617,6 @@
 				4C84D9652146A06F001B6EBD /* LoginViewModel.swift */,
 			);
 			path = VM;
-			sourceTree = "<group>";
-		};
-		4C84D95921466BE6001B6EBD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		4C84D95A21466BED001B6EBD /* Model */ = {
@@ -1249,7 +1241,6 @@
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/Vite-keystore/Vite_keystore.framework",
 				"${BUILT_PRODUCTS_DIR}/libEd25519Blake2b/libEd25519Blake2b.framework",
-				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1284,7 +1275,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vite_keystore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libEd25519Blake2b.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

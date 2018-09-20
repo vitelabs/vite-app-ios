@@ -108,7 +108,7 @@ extension LoginViewController {
 
         self.view.addSubview(self.userNameBtn)
         self.userNameBtn.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.logoImgView.snp.bottom).offset(140)
+            make.centerY.equalTo(self.view)
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
             make.height.equalTo(60)
@@ -184,15 +184,18 @@ extension LoginViewController {
         let password = self.passwordTF.passwordInputView.textField.text
 
         if self.viewModel.chooseWalletAccount.password == password {
-                self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
+                self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
                 DispatchQueue.global().async {
                     WalletDataService.shareInstance.loginWallet(account: self.viewModel.chooseWalletAccount)
                     DispatchQueue.main.async {
+                        self.view.hideLoading()
                         NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
                     }
                 }
         } else {
-            self.view.showToast(str: "密码错误，知道助记词可以导入")
+            self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
+
+            })
         }
     }
 }
