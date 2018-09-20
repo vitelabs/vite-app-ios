@@ -8,6 +8,7 @@
 
 import UIKit
 import Eureka
+import Vite_keystore
 import SafariServices
 
 class ManageWalletViewController: FormViewController {
@@ -46,9 +47,15 @@ class ManageWalletViewController: FormViewController {
         self.tableView.backgroundColor = .white
 
         form +++
-            Section {
-                $0.header = HeaderFooterView<ManageWalletHeaderView>(.class)
-                $0.header?.height = { 68.0 }
+            Section {section in
+                var header = HeaderFooterView<ManageWalletHeaderView>(.class)
+                header.onSetupView = { view, section in
+                    view.delegate = self
+                    view.nameLab.text = WalletDataService.shareInstance.defaultWalletAccount?.name
+                }
+                header.height = { 68.0 }
+                section.header = header
+                section.tag = "ManageWalletHeaderView"
             }
 
             <<< ImageRow("manageWalletPageAddressManageCellTitle") {
@@ -57,7 +64,7 @@ class ManageWalletViewController: FormViewController {
             }.onCellSelection({ [unowned self] _, _  in
                     let vc = AddressManageViewController()
                     self.navigationController?.pushViewController(vc, animated: true)
-                })
+            })
 
             <<< ImageRow("manageWalletPageImportMnemonicCellTitle") {
                 $0.cell.titleLab.text =  R.string.localizable.manageWalletPageImportMnemonicCellTitle.key.localized()
@@ -72,6 +79,56 @@ class ManageWalletViewController: FormViewController {
         self.tableView.snp.makeConstraints { (make) in
             make.top.equalTo((self.navigationTitleView?.snp.bottom)!)
             make.left.right.bottom.equalTo(self.view)
+        }
+    }
+
+    func changeWalletName(callback: @escaping () -> Void) {
+        let controller = UIAlertController(title: nil, message: R.string.localizable.manageWalletPageAlterChangeName.key.localized(), preferredStyle: UIAlertControllerStyle.alert)
+
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: R.string.localizable.confirm.key.localized(), style: UIAlertActionStyle.default) { (_) in
+            let textField = (controller.textFields?.first)! as UITextField
+            let name = textField.text ?? ""
+
+            if name.isEmpty {
+                self.view.showToast(str: R.string.localizable.mnemonicBackupPageErrorTypeName.key.localized())
+                return
+            }
+            if !ViteInputValidator.isValidWalletName(str: name  ) {
+                self.view.showToast(str: R.string.localizable.mnemonicBackupPageErrorTypeNameValid.key.localized())
+
+                return
+            }
+            if !ViteInputValidator.isValidWalletNameCount(str: name  ) {
+                self.view.showToast(str: R.string.localizable.mnemonicBackupPageErrorTypeValidWalletNameCount.key.localized())
+                return
+            }
+
+            self.view.displayLoading(text: R.string.localizable.manageWalletPageChangeNameLoading.key.localized(), animated: true)
+            DispatchQueue.global().async {
+                let wallet =  WalletDataService.shareInstance.defaultWalletAccount ?? WalletAccount()
+                wallet.name = name
+                WalletDataService.shareInstance.addWallet(account: wallet )
+                DispatchQueue.main.async {
+                    self.view.hideLoading()
+                    let section = self.form.sectionBy(tag: "ManageWalletHeaderView")
+                    section?.reload()
+                }
+            }
+        }
+        controller.addTextField { (textfield) in
+            textfield.text = WalletDataService.shareInstance.defaultWalletAccount?.name
+        }
+        controller.addAction(cancelAction)
+        controller.addAction(okAction)
+        self.present(controller, animated: true, completion: nil)
+    }
+}
+
+extension ManageWalletViewController: ManageWalletHeaderViewDelegate {
+    func changeNameAction() {
+        self.changeWalletName {
+
         }
     }
 }
