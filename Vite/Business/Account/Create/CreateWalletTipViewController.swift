@@ -65,7 +65,7 @@ extension CreateWalletTipViewController {
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-24)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
         }
     }
 

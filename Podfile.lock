@@ -56,6 +56,7 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.2.0)
+  - secp256k1.swift (0.1.4)
   - SipHash (1.2.2)
   - SnapKit (4.0.0)
   - SwiftLint (0.27.0)
@@ -67,6 +68,7 @@ PODS:
     - KeychainSwift
     - libEd25519Blake2b (~> 0.0.6)
     - ObjectMapper
+    - secp256k1.swift (~> 0.1.4)
 
 DEPENDENCIES:
   - Action
@@ -126,6 +128,7 @@ SPEC REPOS:
     - RxDataSources
     - RxGesture
     - RxSwift
+    - secp256k1.swift
     - SipHash
     - SnapKit
     - SwiftLint
@@ -172,12 +175,13 @@ SPEC CHECKSUMS:
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxGesture: c278eb05b187abd47e11e65464ae4de53ab71d95
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
+  secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
-  Vite-keystore: 7067da9e87220f31c8378bc7b6424c8c2775510a
+  Vite-keystore: 8440a5207f0bdfd8ad6e55026b69ca860cb012e7
 
 PODFILE CHECKSUM: e2c05b48b99c2fdf447693b087ba22fd9160dd25
 

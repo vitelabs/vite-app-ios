@@ -91,7 +91,7 @@ extension AboutUsViewController {
                 })
 
         self.tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.safeAreaLayoutGuideSnp.top)
+            make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop)
             make.left.right.bottom.equalTo(self.view)
         }
     }
