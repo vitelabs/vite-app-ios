@@ -105,7 +105,7 @@ class WalletHomeViewController: BaseTableViewController {
 
         tableViewModel.balanceInfosDriver.asObservable().bind { [weak self] in
             if let viewModelBehaviorRelay = self?.balanceInfoDetailViewController?.viewModelBehaviorRelay {
-                for viewModel in $0 where viewModelBehaviorRelay.value.tokenId == viewModel.tokenId {
+                for viewModel in $0 where viewModelBehaviorRelay.value.token.id == viewModel.token.id {
                     viewModelBehaviorRelay.accept(viewModel)
                     break
                 }

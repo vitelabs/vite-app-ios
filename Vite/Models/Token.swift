@@ -38,6 +38,16 @@ struct Token: Mappable {
 }
 
 extension Token {
+    var backgroundColors: [UIColor] {
+        return TokenCacheService.instance.backgroundColorsForId(id)
+    }
+
+    var icon: Token.Icon {
+        return TokenCacheService.instance.iconForId(id)
+    }
+}
+
+extension Token {
 
     enum Currency: String {
         case vite = "tti_000000000000000000004cfd"

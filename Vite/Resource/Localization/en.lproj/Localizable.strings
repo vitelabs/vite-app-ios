@@ -1,10 +1,10 @@
-/* 
+/*
   Localizable.strings
   Vite
 
   Created by Water on 2018/8/20.
   Copyright © 2018年 vite labs. All rights reserved.
-*/
+ */
 
 /* App */
 "Cancel" = "取消";
@@ -57,6 +57,7 @@
 "import.page.title" = "输入您的助记词";
 "import.page.submit.btn" = "恢复账户";
 "import.page.submit.invalid.mnemonic" = "助记词输入有误，请重新输入。";
+
 /* export mnemonic */
 "export.page.title" = "导出助记词";
 "export.page.alter.title" = "请输入密码";
@@ -104,7 +105,7 @@
 "balance.info.detail.reveice.button.title" = "收款";
 "balance.info.detail.send.button.title" = "转账";
 
-/* Address Manage */
+/* Address Manage Page */
 "address.manage.page.title" = "地址管理";
 "address.manage.default.address.cell.title" = "默认收款地址";
 "address.manage.address.header.title" = "地址列表";
@@ -124,6 +125,12 @@
 "send.page.not.enough.balance.alert.title" = "账户余额不足";
 "send.page.not.enough.balance.alert.button" = "取消交易";
 
+/* Receive Page */
+"Receive.page.title" = "收款";
+"Receive.page.token.name.label" = "请转入 %@";
+"Receive.page.token.amount.button.title" = "指定金额";
+"Receive.page.token.note.label" = "备注";
+
 /* System */
 "system.page.logout.loading" = "退出中";
 "system.page.cell.change.language" = "语言选择";
@@ -142,6 +149,7 @@
 "aboutUs.page.cell.blog.website" = "Vite.blog";
 "aboutUs.page.email.title" = "Feedback";
 "aboutUs.page.email.content" = "\n\n\n\n\nThe advice comes from the using environment as below：\n1.设备系统：%@\n2.系统版本:%@\n3.APP版本：%@\n4.语言环境：%@";
+
 /* fetch welfare */
 "fetch.welfare.page.title" = "领福利";
 "fetch.welfare.content.title" = "第一期福利";

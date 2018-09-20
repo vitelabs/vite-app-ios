@@ -154,13 +154,13 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
 
     func bind(viewModel: WalletHomeBalanceInfoViewModelType) {
 
-        viewModel.icon.putIn(iconImageView)
+        viewModel.token.icon.putIn(iconImageView)
         nameLabel.text = viewModel.name
         balanceLabel.text = viewModel.balance
         unconfirmedLabel.text = R.string.localizable.walletHomeUnconfirmedTitle(viewModel.unconfirmed)
 
         DispatchQueue.main.async {
-            self.colorView.backgroundColor = GradientColor(.leftToRight, frame: self.colorView.frame, colors: viewModel.backgroundColors)
+            self.colorView.backgroundColor = GradientColor(.leftToRight, frame: self.colorView.frame, colors: viewModel.token.backgroundColors)
         }
     }
 }

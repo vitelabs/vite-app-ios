@@ -24,7 +24,7 @@ struct AccountBlock: Mappable {
     fileprivate(set) var hash: String?
     fileprivate(set) var balance: BigInt?
     fileprivate(set) var amount: BigInt?
-    fileprivate(set) var timestamp: BigInt?
+    fileprivate(set) var timestamp: Int?
     fileprivate(set) var tokenId: String?
     fileprivate(set) var lastBlockHeightInToken: BigInt?
     fileprivate(set) var data: String?
@@ -60,7 +60,7 @@ struct AccountBlock: Mappable {
         hash <- map["hash"]
         balance <- (map["balance"], JSONTransformer.bigint)
         amount <- (map["amount"], JSONTransformer.bigint)
-        timestamp <- (map["timestamp"], JSONTransformer.bigint)
+        timestamp <- map["timestamp"]
         tokenId <- map["tokenId"]
         lastBlockHeightInToken <- (map["lastBlockHeightInToken"], JSONTransformer.bigint)
         data <- map["data"]
@@ -133,7 +133,7 @@ extension AccountBlock {
         block.accountAddress = bag.address
         block.publicKey = bag.publicKey
         block.prevHash = latest.hash
-        block.timestamp = BigInt(Date().timeIntervalSince1970)
+        block.timestamp = Int(Date().timeIntervalSince1970)
         block.snapshotChainHash = snapshotChainHash
         block.nonce = "0000000000"
         block.difficulty = "0000000000"
