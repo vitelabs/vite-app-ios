@@ -22,7 +22,7 @@ class ManageWalletViewController: FormViewController {
             if let new = navigationTitleView {
                 view.addSubview(new)
                 new.snp.makeConstraints { (m) in
-                    m.top.equalTo(view.safeAreaLayoutGuideSnp.top)
+                    m.top.equalTo(view.safeAreaLayoutGuideSnpTop)
                     m.left.equalTo(view)
                     m.right.equalTo(view)
                 }

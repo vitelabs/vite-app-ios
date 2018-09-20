@@ -30,7 +30,7 @@ class SystemViewController: FormViewController {
             if let new = navigationTitleView {
                 view.addSubview(new)
                 new.snp.makeConstraints { (m) in
-                    m.top.equalTo(view.safeAreaLayoutGuideSnp.top)
+                    m.top.equalTo(view.safeAreaLayoutGuideSnpTop)
                     m.left.equalTo(view)
                     m.right.equalTo(view)
                 }
@@ -70,7 +70,7 @@ class SystemViewController: FormViewController {
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-24)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
         }
     }
 

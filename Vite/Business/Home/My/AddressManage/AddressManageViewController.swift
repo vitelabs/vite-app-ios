@@ -52,7 +52,7 @@ class AddressManageViewController: BaseTableViewController {
         view.addSubview(generateButton)
         generateButton.snp.makeConstraints { (m) in
             m.centerX.equalTo(view)
-            m.bottom.equalTo(view.safeAreaLayoutGuideSnp.bottom).offset(-24)
+            m.bottom.equalTo(view.safeAreaLayoutGuideSnpBottom).offset(-24)
             m.height.equalTo(50)
         }
     }
