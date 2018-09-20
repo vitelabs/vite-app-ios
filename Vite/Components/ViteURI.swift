@@ -79,7 +79,7 @@ extension ViteURI {
 
         let tokenId = dic[Key.tokenId.rawValue] ?? Token.Currency.vite.rawValue
         let amountString = dic[Key.amount.rawValue]
-        var amount: BigInt? = nil
+        var amount: BigInt?
         if let amountString = amountString {
             guard let a = BigInt(amountString) else { return nil }
             amount = a

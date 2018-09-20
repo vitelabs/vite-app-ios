@@ -70,8 +70,16 @@ extension AboutUsViewController {
                 $0.value = String.getAppVersion()
                 $0.cell.height = { 60 }
             }.onCellSelection({ [unowned self] _, _  in
-                    let vc = FetchWelfareViewController()
-                    self.navigationController?.pushViewController(vc, animated: true)
+
+                self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
+                DispatchQueue.global().async {
+                    HDWalletManager.instance.cleanAccount()
+                    WalletDataService.shareInstance.delAllWalletData()
+                    DispatchQueue.main.async {
+                        self.view.hideLoading()
+                        NotificationCenter.default.post(name: .logoutDidFinish, object: nil)
+                    }
+                }
                 })
 
             <<< ImageRow("aboutUsPageCellContact") {

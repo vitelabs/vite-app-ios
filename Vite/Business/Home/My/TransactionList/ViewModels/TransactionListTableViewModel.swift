@@ -28,7 +28,7 @@ final class TransactionListTableViewModel: TransactionListTableViewModelType {
 
     fileprivate let viewModels = NSMutableArray()
     fileprivate var index = 0
-    fileprivate var hash: String? = nil
+    fileprivate var hash: String?
     fileprivate var loadingStatus = LoadingStatus.no {
         didSet {
             print("old: \(oldValue) new: \(loadingStatus)")

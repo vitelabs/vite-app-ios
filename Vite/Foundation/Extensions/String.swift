@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import CryptoSwift
 
 extension String {
 
@@ -32,5 +33,9 @@ extension String {
 
     func substring(range: NSRange) -> String {
         return (self as NSString).substring(with: range) as String
+    }
+
+    func pwdEncrypt() -> String {
+        return self.md5().md5()
     }
 }

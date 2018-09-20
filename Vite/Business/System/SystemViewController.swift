@@ -87,7 +87,7 @@ class SystemViewController: FormViewController {
                 $0.cell.titleLab.text = "语言选择"
                 $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
             }.onCellSelection({ [unowned self] _, _  in
-                    self.showChangeLanguageList()
+                self.showChangeLanguageList(isSettingPage: true)
             })
 
             <<< SwitchRow("my.page.system2.cell.title") {
