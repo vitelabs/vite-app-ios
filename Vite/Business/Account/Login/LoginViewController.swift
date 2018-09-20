@@ -102,7 +102,7 @@ extension LoginViewController {
         self.view.addSubview(self.logoImgView)
         self.logoImgView.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.view)
-            make.top.equalTo(self.view.safeAreaLayoutGuideSnp.top).offset(80)
+            make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop).offset(80)
             make.width.height.equalTo(84)
         }
 
@@ -127,13 +127,13 @@ extension LoginViewController {
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-80)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-80)
         }
 
         self.view.addSubview(self.createAccountBtn)
         self.createAccountBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-24)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view.snp.centerX).offset(-2)
         }
@@ -151,7 +151,7 @@ extension LoginViewController {
         self.view.addSubview(self.importAccountBtn)
         self.importAccountBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnp.bottom).offset(-24)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
             make.right.equalTo(self.view).offset(-24)
             make.left.equalTo(self.view.snp.centerX).offset(2)
         }

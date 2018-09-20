@@ -46,7 +46,7 @@ class BaseViewController: UIViewController {
 
         if let navigationTitleView = navigationTitleView {
             navigationTitleView.snp.remakeConstraints { (m) in
-                m.top.equalTo(view.safeAreaLayoutGuideSnp.top)
+                m.top.equalTo(view.safeAreaLayoutGuideSnpTop)
                 m.left.equalTo(view)
                 m.right.equalTo(view)
             }
@@ -61,7 +61,7 @@ class BaseViewController: UIViewController {
         } else {
             if let customHeaderView = customHeaderView {
                 customHeaderView.snp.remakeConstraints { (m) in
-                    m.top.equalTo(view.safeAreaLayoutGuideSnp.top)
+                    m.top.equalTo(view.safeAreaLayoutGuideSnpTop)
                     m.left.equalTo(view)
                     m.right.equalTo(view)
                 }

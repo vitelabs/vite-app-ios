@@ -59,7 +59,7 @@ class BalanceInfoDetailViewController: BaseViewController {
         detailView.snp.makeConstraints { (m) in
             m.top.equalTo(view)
             m.left.right.equalTo(view)
-            m.bottom.equalTo(view.safeAreaLayoutGuideSnp.top).offset(182)
+            m.bottom.equalTo(view.safeAreaLayoutGuideSnpTop).offset(182)
         }
 
         let contentLayout = UILayoutGuide()
@@ -92,7 +92,7 @@ class BalanceInfoDetailViewController: BaseViewController {
 
         receiveButton.snp.makeConstraints { (m) in
             m.left.equalTo(view).offset(24)
-            m.bottom.equalTo(view.safeAreaLayoutGuideSnp.bottom).offset(-24)
+            m.bottom.equalTo(view.safeAreaLayoutGuideSnpBottom).offset(-24)
         }
 
         sendButton.snp.makeConstraints { (m) in

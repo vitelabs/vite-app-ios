@@ -86,7 +86,7 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
         view.addSubview(sendButton)
 
         addressView.snp.makeConstraints { (m) in
-            m.top.equalTo(view.safeAreaLayoutGuideSnp.top).offset(300)
+            m.top.equalTo(view.safeAreaLayoutGuideSnpTop).offset(300)
             m.left.equalTo(view).offset(15)
             m.right.equalTo(view).offset(-15)
         }
@@ -103,7 +103,7 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
 
         sendButton.snp.makeConstraints { (m) in
             m.left.right.equalTo(noteView)
-            m.bottom.equalTo(view.safeAreaLayoutGuideSnp.bottom).offset(-30)
+            m.bottom.equalTo(view.safeAreaLayoutGuideSnpBottom).offset(-30)
         }
 
         addressView.textField.keyboardType = .default
