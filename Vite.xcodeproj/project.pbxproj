@@ -69,6 +69,8 @@
 		740C3E4E214B9CC2005FCD24 /* TransactionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4D214B9CC2005FCD24 /* TransactionInfoView.swift */; };
 		740C3E50214BD6A9005FCD24 /* ConfirmTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4F214BD6A9005FCD24 /* ConfirmTransactionViewController.swift */; };
 		740C3E52214CB832005FCD24 /* ConfirmTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E51214CB832005FCD24 /* ConfirmTransactionView.swift */; };
+		8E107ECD2153656C00B28DE2 /* Provider+Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107ECC2153656C00B28DE2 /* Provider+Transaction.swift */; };
+		8E107ECF215365F000B28DE2 /* Provider+Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107ECE215365F000B28DE2 /* Provider+Account.swift */; };
 		8E56FC78214643B300A68823 /* WalletHomeBalanceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */; };
 		8E56FC7A21464A8500A68823 /* BalanceInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC7921464A8500A68823 /* BalanceInfoDetailView.swift */; };
 		8E56FC7D214656A700A68823 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC7C214656A700A68823 /* UIView+Helper.swift */; };
@@ -85,10 +87,8 @@
 		8E56FC9C2147A9CE00A68823 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC9B2147A9CE00A68823 /* DateExtension.swift */; };
 		8E6F3DF82140FE99003CDFC2 /* RPCServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */; };
 		8E6F3DFB2140FFEC003CDFC2 /* ViteServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */; };
-		8E6F3DFD2141012A003CDFC2 /* SnapshotChainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DFC2141012A003CDFC2 /* SnapshotChainProvider.swift */; };
-		8E6F3DFF2141025B003CDFC2 /* SnapshotChainHeightRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DFE2141025B003CDFC2 /* SnapshotChainHeightRequest.swift */; };
+		8E6F3DFF2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DFE2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift */; };
 		8E6F3E0121410424003CDFC2 /* RPCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0021410424003CDFC2 /* RPCError.swift */; };
-		8E6F3E04214115ED003CDFC2 /* AccountProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E03214115ED003CDFC2 /* AccountProvider.swift */; };
 		8E6F3E0721411650003CDFC2 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0621411650003CDFC2 /* Transaction.swift */; };
 		8E6F3E0A2141199B003CDFC2 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E092141199B003CDFC2 /* Address.swift */; };
 		8E6F3E0C21412150003CDFC2 /* GetTransactionsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0B21412150003CDFC2 /* GetTransactionsRequest.swift */; };
@@ -147,7 +147,7 @@
 		8EE46909214BA1BE00807D2C /* NavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46908214BA1BE00807D2C /* NavigationTitleView.swift */; };
 		8EE4690B214BBE0B00807D2C /* UIButton+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4690A214BBE0B00807D2C /* UIButton+Helper.swift */; };
 		8EE4690D214BCE0700807D2C /* AutoGatheringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4690C214BCE0700807D2C /* AutoGatheringService.swift */; };
-		8EE4690F214BCEC100807D2C /* TransactionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4690E214BCEC100807D2C /* TransactionProvider.swift */; };
+		8EE4690F214BCEC100807D2C /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4690E214BCEC100807D2C /* Provider.swift */; };
 		8EE46912214BCF2600807D2C /* GetUnconfirmedTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46911214BCF2600807D2C /* GetUnconfirmedTransactionRequest.swift */; };
 		8EE46914214BCFAB00807D2C /* AccountBlockMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46913214BCFAB00807D2C /* AccountBlockMeta.swift */; };
 		8EE46916214BD1AF00807D2C /* AccountBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46915214BD1AF00807D2C /* AccountBlock.swift */; };
@@ -251,6 +251,8 @@
 		740C3E51214CB832005FCD24 /* ConfirmTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionView.swift; sourceTree = "<group>"; };
 		7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C959221E3DAE4FAF07176D1 /* Pods-Vite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.debug.xcconfig"; sourceTree = "<group>"; };
+		8E107ECC2153656C00B28DE2 /* Provider+Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+Transaction.swift"; sourceTree = "<group>"; };
+		8E107ECE215365F000B28DE2 /* Provider+Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+Account.swift"; sourceTree = "<group>"; };
 		8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletHomeBalanceInfoCell.swift; sourceTree = "<group>"; };
 		8E56FC7921464A8500A68823 /* BalanceInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceInfoDetailView.swift; sourceTree = "<group>"; };
 		8E56FC7C214656A700A68823 /* UIView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helper.swift"; sourceTree = "<group>"; };
@@ -267,10 +269,8 @@
 		8E56FC9B2147A9CE00A68823 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCServer.swift; sourceTree = "<group>"; };
 		8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteServiceRequest.swift; sourceTree = "<group>"; };
-		8E6F3DFC2141012A003CDFC2 /* SnapshotChainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotChainProvider.swift; sourceTree = "<group>"; };
-		8E6F3DFE2141025B003CDFC2 /* SnapshotChainHeightRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotChainHeightRequest.swift; sourceTree = "<group>"; };
+		8E6F3DFE2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSnapshotChainHeightRequest.swift; sourceTree = "<group>"; };
 		8E6F3E0021410424003CDFC2 /* RPCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCError.swift; sourceTree = "<group>"; };
-		8E6F3E03214115ED003CDFC2 /* AccountProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProvider.swift; sourceTree = "<group>"; };
 		8E6F3E0621411650003CDFC2 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		8E6F3E092141199B003CDFC2 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		8E6F3E0B21412150003CDFC2 /* GetTransactionsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionsRequest.swift; sourceTree = "<group>"; };
@@ -329,7 +329,7 @@
 		8EE46908214BA1BE00807D2C /* NavigationTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleView.swift; sourceTree = "<group>"; };
 		8EE4690A214BBE0B00807D2C /* UIButton+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Helper.swift"; sourceTree = "<group>"; };
 		8EE4690C214BCE0700807D2C /* AutoGatheringService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoGatheringService.swift; sourceTree = "<group>"; };
-		8EE4690E214BCEC100807D2C /* TransactionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionProvider.swift; sourceTree = "<group>"; };
+		8EE4690E214BCEC100807D2C /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		8EE46911214BCF2600807D2C /* GetUnconfirmedTransactionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUnconfirmedTransactionRequest.swift; sourceTree = "<group>"; };
 		8EE46913214BCFAB00807D2C /* AccountBlockMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBlockMeta.swift; sourceTree = "<group>"; };
 		8EE46915214BD1AF00807D2C /* AccountBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBlock.swift; sourceTree = "<group>"; };
@@ -760,6 +760,32 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8E107ED0215366EF00B28DE2 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				8EE46911214BCF2600807D2C /* GetUnconfirmedTransactionRequest.swift */,
+				8E79C6EB214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift */,
+				8EE46921214D017200807D2C /* GetLatestAccountBlockRequest.swift */,
+				8EE4691B214CAD6600807D2C /* CreateTransactionRequest.swift */,
+				8E6F3E0B21412150003CDFC2 /* GetTransactionsRequest.swift */,
+				8E6F3E4F21451F29003CDFC2 /* GetBalanceInfosRequest.swift */,
+				8EBDD8012150F4AB00D65BCD /* GetTokenInfoRequest.swift */,
+				8E56FC8621466D6500A68823 /* GetUnconfirmedInfosRequest.swift */,
+				8E6F3DFE2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		8E107ED12153670400B28DE2 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				8EE4690E214BCEC100807D2C /* Provider.swift */,
+				8E107ECC2153656C00B28DE2 /* Provider+Transaction.swift */,
+				8E107ECE215365F000B28DE2 /* Provider+Account.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
 		8E56FC7B21464A8B00A68823 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -831,32 +857,10 @@
 				8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */,
 				8E6F3E1121421A4F003CDFC2 /* JSONTransformer.swift */,
 				8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */,
-				8EE46910214BCEC800807D2C /* Transaction */,
-				8E6F3E05214115F6003CDFC2 /* Account */,
-				8E6F3E0221410D65003CDFC2 /* SnapshotChain */,
+				8E107ED12153670400B28DE2 /* Provider */,
+				8E107ED0215366EF00B28DE2 /* Request */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		8E6F3E0221410D65003CDFC2 /* SnapshotChain */ = {
-			isa = PBXGroup;
-			children = (
-				8E6F3DFC2141012A003CDFC2 /* SnapshotChainProvider.swift */,
-				8E6F3DFE2141025B003CDFC2 /* SnapshotChainHeightRequest.swift */,
-			);
-			path = SnapshotChain;
-			sourceTree = "<group>";
-		};
-		8E6F3E05214115F6003CDFC2 /* Account */ = {
-			isa = PBXGroup;
-			children = (
-				8E6F3E03214115ED003CDFC2 /* AccountProvider.swift */,
-				8E6F3E0B21412150003CDFC2 /* GetTransactionsRequest.swift */,
-				8E6F3E4F21451F29003CDFC2 /* GetBalanceInfosRequest.swift */,
-				8EBDD8012150F4AB00D65BCD /* GetTokenInfoRequest.swift */,
-				8E56FC8621466D6500A68823 /* GetUnconfirmedInfosRequest.swift */,
-			);
-			path = Account;
 			sourceTree = "<group>";
 		};
 		8E6F3E0821411664003CDFC2 /* Models */ = {
@@ -1052,18 +1056,6 @@
 				8EE468EA214A098B00807D2C /* AddressManageAddressViewModel.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		8EE46910214BCEC800807D2C /* Transaction */ = {
-			isa = PBXGroup;
-			children = (
-				8EE4690E214BCEC100807D2C /* TransactionProvider.swift */,
-				8EE46911214BCF2600807D2C /* GetUnconfirmedTransactionRequest.swift */,
-				8E79C6EB214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift */,
-				8EE46921214D017200807D2C /* GetLatestAccountBlockRequest.swift */,
-				8EE4691B214CAD6600807D2C /* CreateTransactionRequest.swift */,
-			);
-			path = Transaction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1328,7 +1320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E6F3DFF2141025B003CDFC2 /* SnapshotChainHeightRequest.swift in Sources */,
+				8E6F3DFF2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift in Sources */,
 				8EE46916214BD1AF00807D2C /* AccountBlock.swift in Sources */,
 				4CFD6CC12154BF4C00437F33 /* FetchWelfareCardView.swift in Sources */,
 				4C105EBF213FCAD500D483C6 /* UIColor.swift in Sources */,
@@ -1336,7 +1328,6 @@
 				8EE46909214BA1BE00807D2C /* NavigationTitleView.swift in Sources */,
 				8EE468E6214A077D00807D2C /* AddressManagerTableViewModelType.swift in Sources */,
 				8E6F3E3A2144C3B5003CDFC2 /* BalanceInfoDetailViewController.swift in Sources */,
-				8E6F3E04214115ED003CDFC2 /* AccountProvider.swift in Sources */,
 				740C3E52214CB832005FCD24 /* ConfirmTransactionView.swift in Sources */,
 				8ED4CED7214900240005A82D /* UIViewControllerExtension.swift in Sources */,
 				8EBDD8022150F4AB00D65BCD /* GetTokenInfoRequest.swift in Sources */,
@@ -1375,6 +1366,7 @@
 				8EE468E021493A7E00807D2C /* AddressManageViewController.swift in Sources */,
 				4C84D9312145280E001B6EBD /* CreateWalletTipViewController.swift in Sources */,
 				8EE46914214BCFAB00807D2C /* AccountBlockMeta.swift in Sources */,
+				8E107ECF215365F000B28DE2 /* Provider+Account.swift in Sources */,
 				8E56FC9A21479A7D00A68823 /* TransactionCell.swift in Sources */,
 				8E7926182151D1E7007FEBAB /* AddressManageHeaderView.swift in Sources */,
 				4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */,
@@ -1421,7 +1413,7 @@
 				8E56FC8221466BF500A68823 /* SendViewController.swift in Sources */,
 				4CFD6CC32154CAF800437F33 /* LineView.swift in Sources */,
 				8EE4691A214CA8E800807D2C /* GCD+Helper.swift in Sources */,
-				8EE4690F214BCEC100807D2C /* TransactionProvider.swift in Sources */,
+				8EE4690F214BCEC100807D2C /* Provider.swift in Sources */,
 				4C9AFD8C214FBB85005B12C2 /* AboutUsTableBottomView.swift in Sources */,
 				4C105ED12141401100D483C6 /* String.swift in Sources */,
 				8E6F3E3F2144CA23003CDFC2 /* WalletHomeAddressViewModelType.swift in Sources */,
@@ -1435,6 +1427,7 @@
 				8EE468FF214A6D4200807D2C /* UITextField+FDSKeyboardAutoScrolling.swift in Sources */,
 				8E56FC98214768D000A68823 /* TransactionViewModel.swift in Sources */,
 				8EE46922214D017200807D2C /* GetLatestAccountBlockRequest.swift in Sources */,
+				8E107ECD2153656C00B28DE2 /* Provider+Transaction.swift in Sources */,
 				4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */,
 				4CC4F451214CCB5B0068DA53 /* TitlePasswordInputView.swift in Sources */,
 				4C84D95C21466C1B001B6EBD /* AccountLoginResult.swift in Sources */,
@@ -1450,7 +1443,6 @@
 				8EE468F2214A2AB000807D2C /* AddressManageGenerateAddressCell.swift in Sources */,
 				8E56FC8521466C3200A68823 /* TransactionListViewController.swift in Sources */,
 				8EE46912214BCF2600807D2C /* GetUnconfirmedTransactionRequest.swift in Sources */,
-				8E6F3DFD2141012A003CDFC2 /* SnapshotChainProvider.swift in Sources */,
 				8EE468F8214A4E5300807D2C /* PrimaryButton.swift in Sources */,
 				8ED4CECF2147C5910005A82D /* WebHandler.swift in Sources */,
 				4C84D93E21452836001B6EBD /* AffirmInputMnemonicViewController.swift in Sources */,
@@ -1628,7 +1620,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5SR42372L5;
+				DEVELOPMENT_TEAM = 65435Z8382;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1653,7 +1645,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5SR42372L5;
+				DEVELOPMENT_TEAM = 65435Z8382;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

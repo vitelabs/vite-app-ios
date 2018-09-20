@@ -5,6 +5,7 @@
   Created by Water on 2018/8/20.
   Copyright © 2018年 vite labs. All rights reserved.
 */
+
 /* App */
 "Cancel" = "取消";
 "Finish" = "完成";
@@ -119,6 +120,9 @@
 "send.page.remark.title" = "备注";
 "send.page.send.button.title" = "转账";
 "send.page.amount.toolbar.button.title" = "下一项";
+"send.page.toast.send.success" = "支付成功";
+"send.page.not.enough.balance.alert.title" = "账户余额不足";
+"send.page.not.enough.balance.alert.button" = "取消交易";
 
 /* System */
 "system.page.logout.loading" = "退出中";

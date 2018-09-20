@@ -12,5 +12,6 @@ final class RPCServer {
     static let shared = RPCServer()
     private init() {}
 
-    var rpcURL = URL(string: "http://192.168.31.50:48132")!
+//    var rpcURL = URL(string: "http://192.168.31.50:48132")!
+    var rpcURL = URL(string: "http://192.168.31.237:48132")!
 }

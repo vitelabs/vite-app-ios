@@ -15,6 +15,7 @@
 "No" = "否";
 "Loading" = "加载中";
 "Confirm" = "确定";
+"Submit" = "提交";
 
 /* Login */
 "create.account" = "create account";
@@ -55,6 +56,7 @@
 /* import mnemonic*/
 "import.page.title" = "输入您的助记词";
 "import.page.submit.btn" = "恢复账户";
+"import.page.submit.invalid.mnemonic" = "助记词输入有误，请重新输入。";
 /* export mnemonic */
 "export.page.title" = "导出助记词";
 "export.page.alter.title" = "请输入密码";
@@ -118,9 +120,17 @@
 "send.page.remark.title" = "备注";
 "send.page.send.button.title" = "转账";
 "send.page.amount.toolbar.button.title" = "下一项";
+"send.page.toast.send.success" = "支付成功";
+"send.page.not.enough.balance.alert.title" = "账户余额不足";
+"send.page.not.enough.balance.alert.button" = "取消交易";
 
 /* System */
 "system.page.logout.loading" = "退出中";
+"system.page.cell.change.language" = "语言选择";
+"system.page.cell.login.pwd" = "输入密码唤起APP";
+"system.page.cell.login.faceId" = "支持指纹/面部识别";
+"system.page.cell.transfer.faceId" = "转账开启指纹/面部识别";
+"system.page.cell.logout.title" = "退出并切换钱包";
 
 /* about us */
 "aboutUs.page.cell.blockHeight" = "当前区块高度";
@@ -132,4 +142,11 @@
 "aboutUs.page.cell.blog.website" = "Vite.blog";
 "aboutUs.page.email.title" = "Feedback";
 "aboutUs.page.email.content" = "\n\n\n\n\nThe advice comes from the using environment as below：\n1.设备系统：%@\n2.系统版本:%@\n3.APP版本：%@\n4.语言环境：%@";
-
+/* fetch welfare */
+"fetch.welfare.page.title" = "领福利";
+"fetch.welfare.content.title" = "第一期福利";
+"fetch.welfare.content.desc" = "针对路印社区的用户的空投正在进行中\n后续不定期推出各项福利，\n敬请关注！";
+"fetch.welfare.participation.title" = "参与方式:";
+"fetch.welfare.participation.ways" = "1、在路印社区提交您的Vite地址；\n2、系统对Vite地址进行特定代币-VV的空投；\n3、在本页面请填写您的以太坊地址，确认提交，会发起一笔转给特定账户的交易，输入任意金额。\n4、特定账户收到VV后，会转给您以太坊地址等量的Vite在以太坊的ERC20的代币。";
+"fetch.welfare.inputEthereumAddress.title" = "请填写您的以太坊地址:";
+"fetch.welfare.inputEthereumAddress.error.title" = "格式错误";

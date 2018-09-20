@@ -11,6 +11,7 @@ import SnapKit
 import Vite_keystore
 import BigInt
 import PromiseKit
+import JSONRPCKit
 
 class SendViewController: BaseViewController, ViewControllerDataStatusable {
 
@@ -56,17 +57,21 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
 
     private func getToken() {
         self.dataStatus = .loading
-        _ = AccountProvider.init(server: RPCServer.shared).getTokenForId(tokenId).done({ [weak self] token in
-            TokenCacheService.instance.updateTokensIfNeeded([token])
-            self?.token = token
-            self?.dataStatus = .normal
-            self?.setupView()
-        }).catch({ [weak self] (error) in
-            self?.dataStatus = .networkError(error, { [weak self] in
-                self?.dataStatus = .loading
-                self?.getToken()
-            })
-        })
+        Provider.instance.getTokenForId(tokenId) { [weak self] result in
+            guard let `self` = self else { return }
+            switch result {
+            case .success(let token):
+                TokenCacheService.instance.updateTokensIfNeeded([token])
+                self.token = token
+                self.dataStatus = .normal
+                self.setupView()
+            case .error(let error):
+                self.dataStatus = .networkError(error, { [weak self] in
+                    self?.dataStatus = .loading
+                    self?.getToken()
+                })
+            }
+        }
     }
 
     private func setupView() {
@@ -124,13 +129,17 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
             $0.resignFirstResponder()
         }))
 
+
+
         addressView.textField.text = address?.description
         amountView.textField.text = amount?.description
         noteView.textField.text = note
 
+        amountView.textField.text = "1000000000000000000100"
+
 //        // test
-//        addressView.textField.text = "vite_4827fbc6827797ac4d9e814affb34b4c5fa85d39bf96d105e7" // iphone x
-//        addressView.textField.text = "vite_18068b64b49852e1c4dfbc304c4e606011e068836260bc9975" // iphone 6s
+        addressView.textField.text = "vite_4827fbc6827797ac4d9e814affb34b4c5fa85d39bf96d105e7" // iphone x
+        addressView.textField.text = "vite_18068b64b49852e1c4dfbc304c4e606011e068836260bc9975" // iphone 6s
 //        //        addressView.textField.text = "vite_568c182884e989ea87995412051cb40f1cdf5a6896d658f434" // iphone se 10.3.1
 
 //        let tokenId = Token.Currency.vite.rawValue
@@ -155,26 +164,22 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
 
     private func sendTransaction(bag: HDWalletManager.Bag, toAddress: Address, tokenId: String, amount: BigInt, note: String?) {
 
-        let transactionProvider = TransactionProvider(server: RPCServer.shared)
-        _ = transactionProvider.getLatestAccountBlock(address: bag.address)
-            .then({ [weak self] (latestAccountBlock, snapshotChainHash) -> Promise<Void> in
-                let send = AccountBlock.makeSendAccountBlock(latest: latestAccountBlock,
-                                                             bag: self!.bag,
-                                                             snapshotChainHash: snapshotChainHash,
-                                                             toAddress: toAddress,
-                                                             tokenId: tokenId,
-                                                             amount: amount,
-                                                             data: nil)
-                return transactionProvider.createTransaction(accountBlock: send)
-            })
-            .done({
-                print("🏆")
-            })
-            .catch({ (error) in
-                print("🤯🤯🤯🤯🤯🤯\(error)")
-            })
-            .finally({
-
-            })
+        Provider.instance.sendTransaction(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, note: note) { [weak self] result in
+            guard let `self` = self else { return }
+            switch result {
+            case .success:
+                Toast.show(R.string.localizable.sendPageToastSendSuccess())
+                GCD.delay(0.5) { self.dismiss() }
+            case .error(let error):
+                if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
+                    Alert.show(into: self,
+                               title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
+                               message: nil,
+                               actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
+                } else {
+                    Toast.show(error.message)
+                }
+            }
+        }
     }
 }
