@@ -17,9 +17,9 @@ class FetchWelfareViewController: BaseViewController {
         self._setupView()
     }
 
-    lazy var contentView: UIScrollView = {
-        let contentView = UIScrollView()
-        return contentView
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        return scrollView
     }()
 
     lazy var confirmBtn: UIButton = {
@@ -50,10 +50,17 @@ extension FetchWelfareViewController {
         self._addViewConstraint()
     }
     private func _addViewConstraint() {
+        self.view.addSubview(self.scrollView)
+        self.scrollView.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalTo(self.view)
+            make.top.equalTo((self.navigationTitleView?.snp.bottom)!).offset(10)
+        }
 
-        view.addSubview(contentView)
+        let contentView = UIView()
+        self.scrollView.addSubview(contentView)
         contentView.snp.makeConstraints { (make) in
-            make.edges.equalTo(view)
+            make.top.bottom.equalTo(scrollView)
+            make.left.right.equalTo(view)
         }
 
         let fetchWelfareCardView = FetchWelfareCardView().then {
@@ -61,10 +68,10 @@ extension FetchWelfareViewController {
         }
         contentView.addSubview(fetchWelfareCardView)
         fetchWelfareCardView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(view).offset(24)
-            make.right.equalTo(view).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
             make.height.equalTo(171)
-            make.top.equalTo((self.navigationTitleView?.snp.bottom)!).offset(10)
+            make.top.equalTo(contentView).offset(10)
         }
 
         let wayTitleLab = UILabel().then {
@@ -76,8 +83,8 @@ extension FetchWelfareViewController {
         contentView.addSubview(wayTitleLab)
         wayTitleLab.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(22)
-            make.left.equalTo(view).offset(24)
-            make.right.equalTo(view).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
             make.top.equalTo(fetchWelfareCardView.snp.bottom).offset(20)
         }
 
@@ -91,28 +98,29 @@ extension FetchWelfareViewController {
                           NSAttributedStringKey.foregroundColor: Colors.titleGray,
                           NSAttributedStringKey.paragraphStyle: paragraph,]
         wayContentLab.attributedText = NSAttributedString(string: R.string.localizable.fetchWelfareParticipationWays.key.localized(), attributes: attributes)
-        
+
         contentView.addSubview(wayContentLab)
         wayContentLab.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(view).offset(24)
-            make.right.equalTo(view).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
             make.top.equalTo(wayTitleLab.snp.bottom)
         }
 
         contentView.addSubview(self.addressTF)
         self.addressTF.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(60)
-            make.left.equalTo(view).offset(24)
-            make.right.equalTo(view).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
             make.top.equalTo(wayContentLab.snp.bottom).offset(20)
         }
 
         contentView.addSubview(self.confirmBtn)
         self.confirmBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
-            make.left.equalTo(view).offset(24)
-            make.right.equalTo(view).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
             make.top.equalTo(addressTF.snp.bottom).offset(50)
+            make.bottom.equalToSuperview().offset(-50)
         }
     }
 
