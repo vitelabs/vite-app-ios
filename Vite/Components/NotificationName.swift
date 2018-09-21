@@ -11,6 +11,7 @@ import Foundation
 extension Notification.Name {
     // Need to update UI
     static let languageChanged = NSNotification.Name(rawValue: "Vite_APPLanguageChanged")
+    static let languageChangedInSetting = NSNotification.Name(rawValue: "Vite_APPLanguageChangedInSetting")
 
     // account
     static let createAccountSuccess = NSNotification.Name(rawValue: "Vite_createAccountSuccess")

@@ -50,7 +50,7 @@ final class CreateNameAndPwdVM {
 
         submitBtnEnable = createAccountIsOK.flatMap { (arg) -> SharedSequence<DriverSharingStrategy, Bool> in
             let (account, password, rePwd) = arg
-            return CreateWalletAccountVM.handleLoginBtnEnable(account, pwd: password, rePwd: rePwd).asDriver(onErrorJustReturn: false)
+            return CreateNameAndPwdVM.handleLoginBtnEnable(account, pwd: password, rePwd: rePwd).asDriver(onErrorJustReturn: false)
         }
     }
 

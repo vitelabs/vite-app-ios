@@ -142,7 +142,6 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
             guard Address.isValid(string: addressView.textField.text ?? "") else { return }
             guard let amountString = amountView.textField.text, let amount = BigInt(amountString) else { return }
 
-
             let confirmViewController = ConfirmTransactionViewController(confirmTypye: .biometry, address: addressView.textField.text!, token: "vcc", amount: "10000", completion: { [weak self] (result) in
                 guard let `self` = self else { return }
                 if result {

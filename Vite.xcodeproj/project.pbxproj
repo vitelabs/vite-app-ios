@@ -26,7 +26,6 @@
 		4C2A1920215137EF00C51CE8 /* CreateNameAndPwdVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A191F215137EF00C51CE8 /* CreateNameAndPwdVM.swift */; };
 		4C745494214D0A9D0070F7AB /* TitleBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C745493214D0A9D0070F7AB /* TitleBtnView.swift */; };
 		4C84D91C2145277C001B6EBD /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D91B2145277C001B6EBD /* PasswordInputView.swift */; };
-		4C84D9302145280E001B6EBD /* CreateWalletAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D92B2145280E001B6EBD /* CreateWalletAccountVM.swift */; };
 		4C84D9312145280E001B6EBD /* CreateWalletTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D92C2145280E001B6EBD /* CreateWalletTipViewController.swift */; };
 		4C84D9322145280E001B6EBD /* CreateWalletAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D92D2145280E001B6EBD /* CreateWalletAccountViewController.swift */; };
 		4C84D9332145280E001B6EBD /* ImportAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D92F2145280E001B6EBD /* ImportAccountViewController.swift */; };
@@ -185,7 +184,6 @@
 		4C2A191F215137EF00C51CE8 /* CreateNameAndPwdVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNameAndPwdVM.swift; sourceTree = "<group>"; };
 		4C745493214D0A9D0070F7AB /* TitleBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBtnView.swift; sourceTree = "<group>"; };
 		4C84D91B2145277C001B6EBD /* PasswordInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordInputView.swift; sourceTree = "<group>"; };
-		4C84D92B2145280E001B6EBD /* CreateWalletAccountVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWalletAccountVM.swift; sourceTree = "<group>"; };
 		4C84D92C2145280E001B6EBD /* CreateWalletTipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWalletTipViewController.swift; sourceTree = "<group>"; };
 		4C84D92D2145280E001B6EBD /* CreateWalletAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWalletAccountViewController.swift; sourceTree = "<group>"; };
 		4C84D92F2145280E001B6EBD /* ImportAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportAccountViewController.swift; sourceTree = "<group>"; };
@@ -547,7 +545,6 @@
 		4C84D92A2145280E001B6EBD /* VM */ = {
 			isa = PBXGroup;
 			children = (
-				4C84D92B2145280E001B6EBD /* CreateWalletAccountVM.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -1241,7 +1238,6 @@
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/Vite-keystore/Vite_keystore.framework",
 				"${BUILT_PRODUCTS_DIR}/libEd25519Blake2b/libEd25519Blake2b.framework",
-				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1276,7 +1272,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vite_keystore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libEd25519Blake2b.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1415,7 +1410,6 @@
 				4C2A1920215137EF00C51CE8 /* CreateNameAndPwdVM.swift in Sources */,
 				4CE4E14521479EAF00A6CD7E /*  CreateWalletService.swift in Sources */,
 				8E56FC8221466BF500A68823 /* SendViewController.swift in Sources */,
-				4C84D9302145280E001B6EBD /* CreateWalletAccountVM.swift in Sources */,
 				8EE4691A214CA8E800807D2C /* GCD+Helper.swift in Sources */,
 				8EE4690F214BCEC100807D2C /* TransactionProvider.swift in Sources */,
 				4C9AFD8C214FBB85005B12C2 /* AboutUsTableBottomView.swift in Sources */,
@@ -1622,7 +1616,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7BMF8UG4WB;
+				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1647,7 +1641,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7BMF8UG4WB;
+				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

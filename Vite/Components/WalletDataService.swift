@@ -6,6 +6,7 @@
 //  Copyright © 2018年 vite labs. All rights reserved.
 //
 import Vite_keystore
+import CryptoSwift
 
 public class WalletDataService: NSObject {
     static let shareInstance = WalletDataService()
@@ -15,7 +16,8 @@ public class WalletDataService: NSObject {
     public var defaultWalletAccount: WalletAccount?
 
     public func verifyWalletPassword(pwd: String) -> Bool {
-        return self.defaultWalletAccount?.password == pwd
+        let  md5 = pwd.pwdEncrypt()
+        return self.defaultWalletAccount?.password == md5
     }
 
     public override init() {
@@ -30,11 +32,15 @@ public class WalletDataService: NSObject {
     }
 
     public func addWallet(account: WalletAccount) {
-        walletStorage.update(account: account)
+        walletStorage.add(account: account)
     }
 
     public func updateWallet(account: WalletAccount) {
-        walletStorage.add(account: account)
+        if walletStorage.isExist(account) {
+              walletStorage.update(account: account)
+        }else{
+              walletStorage.add(account: account)
+        }
     }
 
     public func loginWallet(account: WalletAccount) {

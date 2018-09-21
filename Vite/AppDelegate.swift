@@ -42,6 +42,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 guard let `self` = self else { return }
                 self.handleRootVC()
             }.disposed(by: rx.disposeBag)
+
+        //change language in setting page
+        NotificationCenter.default.rx
+            .notification(.languageChangedInSetting)
+            .takeUntil(self.rx.deallocated)
+            .subscribe(onNext: { [weak self] (_) in
+                guard let `self` = self else { return }
+                self.goHomePage()
+            }).disposed(by: rx.disposeBag)
     }
 
     func handleRootVC() {
@@ -56,11 +65,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let nav = BaseNavigationController(rootViewController: rootVC)
             window?.rootViewController = nav
         } else {
-            HDWalletManager.instance.updateAccount(WalletDataService.shareInstance.defaultWalletAccount!)
-            let rootVC = HomeViewController()
-            window?.rootViewController = rootVC
+            self.goHomePage()
+            return
         }
         window?.makeKeyAndVisible()
+    }
+
+    func goHomePage() {
+    HDWalletManager.instance.updateAccount(WalletDataService.shareInstance.defaultWalletAccount!)
+        let rootVC = HomeViewController()
+        window?.rootViewController = rootVC
+         window?.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

@@ -54,6 +54,7 @@
 /* import mnemonic*/
 "import.page.title" = "输入您的助记词";
 "import.page.submit.btn" = "恢复账户";
+"import.page.submit.invalid.mnemonic" = "无法导入助记词。请重新输入。";
 /* export mnemonic */
 "export.page.title" = "导出助记词";
 "export.page.alter.title" = "请输入密码";

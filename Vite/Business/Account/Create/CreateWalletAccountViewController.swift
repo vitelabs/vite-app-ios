@@ -34,7 +34,6 @@ extension CreateWalletAccountViewController {
 }
 
 class CreateWalletAccountViewController: BaseViewController {
-    fileprivate var viewModel: CreateWalletAccountVM?
     fileprivate var createNameAndPwdVM: CreateNameAndPwdVM?
 
     var disposeBag = DisposeBag()
@@ -95,8 +94,8 @@ extension CreateWalletAccountViewController {
     }
 
     func goNextVC() {
-        CreateWalletService.sharedInstance.walletAccount.name = self.createNameAndPwdView.walletNameTF.textField.text!
-        CreateWalletService.sharedInstance.walletAccount.password = self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text!
+        CreateWalletService.sharedInstance.walletAccount.name = self.createNameAndPwdView.walletNameTF.textField.text!.trimmingCharacters(in: .whitespaces)
+        CreateWalletService.sharedInstance.walletAccount.password = self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text!.pwdEncrypt()
         let vc = CreateWalletTipViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }

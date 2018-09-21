@@ -17,7 +17,7 @@ func SetLanguage(_ language: String) -> Bool {
 }
 
 extension UIViewController {
-    func showChangeLanguageList() {
+    func showChangeLanguageList(isSettingPage: Bool = false) {
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
@@ -25,6 +25,9 @@ extension UIViewController {
         for element in languages {
             let action = UIAlertAction(title: element.displayName, style: .destructive, handler: {_ in
                 _ = SetLanguage(element.name)
+                if isSettingPage {
+                    NotificationCenter.default.post(name: .languageChangedInSetting, object: nil)
+                }
             })
             alertController.addAction(action)
         }

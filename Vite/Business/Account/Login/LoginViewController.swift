@@ -172,7 +172,7 @@ extension LoginViewController {
              return account.name
         }
 
-        _ =  ActionSheetStringPicker.show(withTitle: "选择钱包账户", rows: pickData, initialSelection: 1, doneBlock: {_, index, _ in
+        _ =  ActionSheetStringPicker.show(withTitle: "选择钱包账户", rows: pickData, initialSelection: 0, doneBlock: {_, index, _ in
             self.viewModel.chooseWalletAccount = self.viewModel.walletStorage.walletAccounts[index]
             self.userNameBtn.btn.setTitle(self.viewModel.chooseWalletAccount.name, for: .normal)
             return
@@ -183,7 +183,7 @@ extension LoginViewController {
     @objc func loginBtnAction() {
         let password = self.passwordTF.passwordInputView.textField.text
 
-        if self.viewModel.chooseWalletAccount.password == password {
+        if self.viewModel.chooseWalletAccount.password == password?.pwdEncrypt() {
                 self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
                 DispatchQueue.global().async {
                     WalletDataService.shareInstance.loginWallet(account: self.viewModel.chooseWalletAccount)
@@ -194,7 +194,6 @@ extension LoginViewController {
                 }
         } else {
             self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
-
             })
         }
     }
