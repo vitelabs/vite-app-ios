@@ -140,3 +140,4 @@
 "fetch.welfare.participation.title" = "参与方式:";
 "fetch.welfare.participation.ways" = "1、在路印社区提交您的Vite地址；\n2、系统对Vite地址进行特定代币-VV的空投；\n3、在本页面请填写您的以太坊地址，确认提交，会发起一笔转给特定账户的交易，输入任意金额。\n4、特定账户收到VV后，会转给您以太坊地址等量的Vite在以太坊的ERC20的代币。";
 "fetch.welfare.inputEthereumAddress.title" = "请填写您的以太坊地址:";
+"fetch.welfare.inputEthereumAddress.error.title" = "格式错误";

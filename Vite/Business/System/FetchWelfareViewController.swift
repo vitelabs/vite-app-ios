@@ -34,6 +34,7 @@ class FetchWelfareViewController: BaseViewController {
         addressTF.titleLabel.textColor = Colors.titleGray
         addressTF.textField.font = AppStyle.inputDescWord.font
         addressTF.textField.textColor = Colors.descGray
+        addressTF.textField.adjustsFontSizeToFitWidth = true
         addressTF.titleLabel.font = AppStyle.formHeader.font
         return addressTF
     }()
@@ -98,7 +99,6 @@ extension FetchWelfareViewController {
             make.top.equalTo(wayTitleLab.snp.bottom)
         }
 
-
         contentView.addSubview(self.addressTF)
         self.addressTF.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(60)
@@ -117,6 +117,16 @@ extension FetchWelfareViewController {
     }
 
     @objc func confirmBtnAction() {
-        self.navigationController?.popViewController(animated: true)
+
+        let address = self.addressTF.textField.text ?? ""
+
+        if  EthereumAddress.isValid(string: address) {
+            //TODO:::  go send
+            let sendViewController = SendViewController(tokenId: "", address: nil, amount: nil, note: nil)
+            self.navigationController?.pushViewController(sendViewController, animated: true)
+        } else {
+            self.displayConfirmAlter(title: R.string.localizable.fetchWelfareInputEthereumAddressErrorTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
+            })
+        }
     }
 }
