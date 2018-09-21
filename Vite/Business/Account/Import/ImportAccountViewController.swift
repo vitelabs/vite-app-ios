@@ -115,16 +115,13 @@ extension ImportAccountViewController {
         wallet.mnemonic = self.contentTextView.text
         self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading.key.localized(), animated: true)
         DispatchQueue.global().async {
-            WalletDataService.shareInstance.addWallet(account: wallet)
+
+            WalletDataService.shareInstance.updateWallet(account: wallet)
             WalletDataService.shareInstance.loginWallet(account: wallet)
             DispatchQueue.main.async {
                 self.view.hideLoading()
                 NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
             }
         }
-    }
-
-    @objc func confirmBtnAction() {
-
     }
 }
