@@ -8,6 +8,7 @@
 import UIKit
 import Eureka
 import SnapKit
+import MessageUI
 import Vite_keystore
 
 class AboutUsViewController: FormViewController {
@@ -35,7 +36,6 @@ class AboutUsViewController: FormViewController {
 extension AboutUsViewController {
 
     private func _setupView() {
-        self._addViewConstraint()
         setupTableView()
     }
 
@@ -86,8 +86,7 @@ extension AboutUsViewController {
                 $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellContact.key.localized()
                 $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
             }.onCellSelection({ [unowned self] _, _  in
-                    let vc = FetchWelfareViewController()
-                    self.navigationController?.pushViewController(vc, animated: true)
+                self.sendUsEmail()
                 })
 
             <<< ImageRow("aboutUsPageCellShareUs") {
@@ -103,7 +102,34 @@ extension AboutUsViewController {
             make.left.right.bottom.equalTo(self.view)
         }
     }
-    private func _addViewConstraint() {
 
+    func sendUsEmail() {
+        let composerController = MFMailComposeViewController()
+        composerController.mailComposeDelegate = self
+        composerController.setToRecipients([Constants.supportEmail])
+        composerController.setSubject(R.string.localizable.aboutUsPageEmailTitle.key.localized())
+        composerController.setMessageBody(emailTemplate(), isHTML: false)
+
+        if MFMailComposeViewController.canSendMail() {
+            present(composerController, animated: true, completion: nil)
+        }
+    }
+    private func emailTemplate() -> String {
+        return """
+        \n\n\n
+
+        Helpful information to developers:
+        iOS Version: \(UIDevice.current.systemVersion)
+        Device Model: \(UIDevice.current.model)
+        Vite Version: \(String.getAppVersion)
+        Current locale: \(Locale.preferredLanguages.first ?? "")
+        """
+    }
+}
+
+
+extension AboutUsViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
