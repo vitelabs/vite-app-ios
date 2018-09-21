@@ -14,6 +14,7 @@
 "No" = "否";
 "Loading" = "加载中";
 "Confirm" = "确定";
+"Submit" = "提交";
 
 /* Login */
 "create.account" = "创建账户";
@@ -132,3 +133,10 @@
 "aboutUs.page.cell.blog.website" = "Vite.blog";
 "aboutUs.page.email.title" = "意见反馈";
 
+/* fetch welfare */
+"fetch.welfare.page.title" = "领福利";
+"fetch.welfare.content.title" = "第一期福利";
+"fetch.welfare.content.desc" = "针对路印社区的用户的空投正在进行中\n后续不定期推出各项福利，\n敬请关注！";
+"fetch.welfare.participation.title" = "参与方式:";
+"fetch.welfare.participation.ways" = "1、在路印社区提交您的Vite地址；\n2、系统对Vite地址进行特定代币-VV的空投；\n3、在本页面请填写您的以太坊地址，确认提交，会发起一笔转给特定账户的交易，输入任意金额。\n4、特定账户收到VV后，会转给您以太坊地址等量的Vite在以太坊的ERC20的代币。";
+"fetch.welfare.inputEthereumAddress.title" = "请填写您的以太坊地址:";

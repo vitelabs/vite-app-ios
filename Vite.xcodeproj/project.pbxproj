@@ -62,6 +62,8 @@
 		4CEB2926214B968000E5F7F4 /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */; };
 		4CEB292B214BBD2400E5F7F4 /* ViteInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */; };
 		4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */; };
+		4CFD6CC12154BF4C00437F33 /* FetchWelfareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD6CC02154BF4C00437F33 /* FetchWelfareCardView.swift */; };
+		4CFD6CC32154CAF800437F33 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD6CC22154CAF800437F33 /* LineView.swift */; };
 		740C3E4B214B6425005FCD24 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4A214B6425005FCD24 /* AuthenticationManager.swift */; };
 		740C3E4E214B9CC2005FCD24 /* TransactionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4D214B9CC2005FCD24 /* TransactionInfoView.swift */; };
 		740C3E50214BD6A9005FCD24 /* ConfirmTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4F214BD6A9005FCD24 /* ConfirmTransactionViewController.swift */; };
@@ -239,6 +241,8 @@
 		4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loading.swift"; sourceTree = "<group>"; };
 		4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidator.swift; sourceTree = "<group>"; };
 		4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidTest.swift; sourceTree = "<group>"; };
+		4CFD6CC02154BF4C00437F33 /* FetchWelfareCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWelfareCardView.swift; sourceTree = "<group>"; };
+		4CFD6CC22154CAF800437F33 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		740C3E4A214B6425005FCD24 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		740C3E4D214B9CC2005FCD24 /* TransactionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionInfoView.swift; sourceTree = "<group>"; };
 		740C3E4F214BD6A9005FCD24 /* ConfirmTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionViewController.swift; sourceTree = "<group>"; };
@@ -505,6 +509,7 @@
 				4C9AFD55214E241F005B12C2 /* IconBtnView.swift */,
 				8EE468F7214A4E5300807D2C /* PrimaryButton.swift */,
 				4CC4F450214CCB5B0068DA53 /* TitlePasswordInputView.swift */,
+				4CFD6CC22154CAF800437F33 /* LineView.swift */,
 			);
 			path = UGCKit;
 			sourceTree = "<group>";
@@ -549,18 +554,10 @@
 			children = (
 				4CE4E14121479E8B00A6CD7E /* Service */,
 				4C84D95A21466BED001B6EBD /* Model */,
-				4C84D92A2145280E001B6EBD /* VM */,
 				4C84D92C2145280E001B6EBD /* CreateWalletTipViewController.swift */,
 				4C84D92D2145280E001B6EBD /* CreateWalletAccountViewController.swift */,
 			);
 			path = Create;
-			sourceTree = "<group>";
-		};
-		4C84D92A2145280E001B6EBD /* VM */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = VM;
 			sourceTree = "<group>";
 		};
 		4C84D92E2145280E001B6EBD /* Import */ = {
@@ -658,6 +655,7 @@
 			isa = PBXGroup;
 			children = (
 				4C9AFD8B214FBB85005B12C2 /* AboutUsTableBottomView.swift */,
+				4CFD6CC02154BF4C00437F33 /* FetchWelfareCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1337,6 +1335,7 @@
 			files = (
 				8E6F3DFF2141025B003CDFC2 /* SnapshotChainHeightRequest.swift in Sources */,
 				8EE46916214BD1AF00807D2C /* AccountBlock.swift in Sources */,
+				4CFD6CC12154BF4C00437F33 /* FetchWelfareCardView.swift in Sources */,
 				4C105EBF213FCAD500D483C6 /* UIColor.swift in Sources */,
 				8EE468F6214A494800807D2C /* TitleTextFieldView.swift in Sources */,
 				8EE46909214BA1BE00807D2C /* NavigationTitleView.swift in Sources */,
@@ -1426,6 +1425,7 @@
 				4C2A1920215137EF00C51CE8 /* CreateNameAndPwdVM.swift in Sources */,
 				4CE4E14521479EAF00A6CD7E /*  CreateWalletService.swift in Sources */,
 				8E56FC8221466BF500A68823 /* SendViewController.swift in Sources */,
+				4CFD6CC32154CAF800437F33 /* LineView.swift in Sources */,
 				8EE4691A214CA8E800807D2C /* GCD+Helper.swift in Sources */,
 				8EE4690F214BCEC100807D2C /* TransactionProvider.swift in Sources */,
 				4C9AFD8C214FBB85005B12C2 /* AboutUsTableBottomView.swift in Sources */,

@@ -34,4 +34,3 @@ var isDebug: Bool {
     return false
     #endif
 }
-

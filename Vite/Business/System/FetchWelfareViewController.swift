@@ -5,6 +5,7 @@
 //  Created by Water on 2018/9/17.
 //  Copyright © 2018年 vite labs. All rights reserved.
 //
+import Then
 import UIKit
 import SnapKit
 import Vite_keystore
@@ -16,25 +17,25 @@ class FetchWelfareViewController: BaseViewController {
         self._setupView()
     }
 
-    lazy var contentTextView: UITextView = {
-        let contentTextView =  UITextView()
-        contentTextView.font = Fonts.Font18
-        contentTextView.backgroundColor = Colors.bgGray
-        contentTextView.textColor = Colors.descGray
-        contentTextView.text = WalletDataService.shareInstance.defaultWalletAccount?.mnemonic
-        contentTextView.layer.masksToBounds = true
-        contentTextView.layer.cornerRadius = 2
-        contentTextView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        contentTextView.isEditable = false
-        contentTextView.isScrollEnabled = false
-        return contentTextView
+    lazy var contentView: UIScrollView = {
+        let contentView = UIScrollView()
+        return contentView
     }()
 
     lazy var confirmBtn: UIButton = {
         let confirmBtn = UIButton.init(style: .blue)
-        confirmBtn.setTitle(R.string.localizable.confirm.key.localized(), for: .normal)
+        confirmBtn.setTitle(R.string.localizable.submit.key.localized(), for: .normal)
         confirmBtn.addTarget(self, action: #selector(confirmBtnAction), for: .touchUpInside)
         return confirmBtn
+    }()
+
+    lazy var addressTF: TitleTextFieldView = {
+        let addressTF = TitleTextFieldView(title: R.string.localizable.fetchWelfareInputEthereumAddressTitle.key.localized(), placeholder: "", text: "")
+        addressTF.titleLabel.textColor = Colors.titleGray
+        addressTF.textField.font = AppStyle.inputDescWord.font
+        addressTF.textField.textColor = Colors.descGray
+        addressTF.titleLabel.font = AppStyle.formHeader.font
+        return addressTF
     }()
 }
 
@@ -42,25 +43,76 @@ extension FetchWelfareViewController {
 
     private func _setupView() {
         self.view.backgroundColor = .white
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.exportPageTitle.key.localized())
+        kas_activateAutoScrollingForView(view)
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.fetchWelfarePageTitle.key.localized())
 
         self._addViewConstraint()
     }
     private func _addViewConstraint() {
-        self.view.addSubview(self.contentTextView)
-        self.contentTextView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-            make.height.equalTo(142)
+
+        view.addSubview(contentView)
+        contentView.snp.makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
+
+        let fetchWelfareCardView = FetchWelfareCardView().then {
+            $0.backgroundColor = .clear
+        }
+        contentView.addSubview(fetchWelfareCardView)
+        fetchWelfareCardView.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(view).offset(24)
+            make.right.equalTo(view).offset(-24)
+            make.height.equalTo(171)
             make.top.equalTo((self.navigationTitleView?.snp.bottom)!).offset(10)
         }
 
-        self.view.addSubview(self.confirmBtn)
+        let wayTitleLab = UILabel().then {
+            $0.backgroundColor = .clear
+            $0.font = Fonts.Font14_b
+            $0.textColor = Colors.titleGray
+            $0.text = R.string.localizable.fetchWelfareParticipationTitle.key.localized()
+        }
+        contentView.addSubview(wayTitleLab)
+        wayTitleLab.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(22)
+            make.left.equalTo(view).offset(24)
+            make.right.equalTo(view).offset(-24)
+            make.top.equalTo(fetchWelfareCardView.snp.bottom).offset(20)
+        }
+
+        let wayContentLab = UILabel().then {
+            $0.backgroundColor = .clear
+            $0.numberOfLines = 0
+        }
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.lineSpacing = 5
+        let attributes = [NSAttributedStringKey.font: Fonts.Font14,
+                          NSAttributedStringKey.foregroundColor: Colors.titleGray,
+                          NSAttributedStringKey.paragraphStyle: paragraph,]
+        wayContentLab.attributedText = NSAttributedString(string: R.string.localizable.fetchWelfareParticipationWays.key.localized(), attributes: attributes)
+        
+        contentView.addSubview(wayContentLab)
+        wayContentLab.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(view).offset(24)
+            make.right.equalTo(view).offset(-24)
+            make.top.equalTo(wayTitleLab.snp.bottom)
+        }
+
+
+        contentView.addSubview(self.addressTF)
+        self.addressTF.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(60)
+            make.left.equalTo(view).offset(24)
+            make.right.equalTo(view).offset(-24)
+            make.top.equalTo(wayContentLab.snp.bottom).offset(20)
+        }
+
+        contentView.addSubview(self.confirmBtn)
         self.confirmBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
+            make.left.equalTo(view).offset(24)
+            make.right.equalTo(view).offset(-24)
+            make.top.equalTo(addressTF.snp.bottom).offset(50)
         }
     }
 
