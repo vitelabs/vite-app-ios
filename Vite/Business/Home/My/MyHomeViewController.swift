@@ -43,6 +43,13 @@ class MyHomeViewController: FormViewController {
 
     func setupTableView() {
         self.tableView.backgroundColor = .white
+        self.tableView.separatorStyle = .none
+
+        SwitchRow.defaultCellSetup = { cell, row in
+            cell.preservesSuperviewLayoutMargins = false
+            cell.layoutMargins.left = 24
+            cell.layoutMargins.right = 24
+        }
 
         form +++
             Section {section in

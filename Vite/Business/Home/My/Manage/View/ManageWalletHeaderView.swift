@@ -40,6 +40,14 @@ class ManageWalletHeaderView: UIView {
             make.height.equalTo(20)
         }
 
+        self.addSubview(lineView)
+        lineView.snp.makeConstraints {  (make) -> Void in
+            make.left.equalTo(self).offset(24)
+            make.right.equalTo(self).offset(-24)
+            make.bottom.equalTo(self).offset(-1)
+            make.height.equalTo(1)
+        }
+
         let gesture = UITapGestureRecognizer()
         gesture.addTarget(self, action: #selector(tapAction))
         self.addGestureRecognizer(gesture)
@@ -69,6 +77,13 @@ class ManageWalletHeaderView: UIView {
         rightImageView.translatesAutoresizingMaskIntoConstraints = false
         rightImageView.contentMode = .scaleAspectFit
         return rightImageView
+    }()
+
+    lazy var lineView: LineView = {
+        let lineView = LineView.init(direction: .horizontal)
+        lineView.backgroundColor = Colors.lineGray
+        lineView.alpha = 1.0
+        return lineView
     }()
 
     required init?(coder aDecoder: NSCoder) {

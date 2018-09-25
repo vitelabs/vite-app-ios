@@ -76,5 +76,9 @@ extension CreateNameAndPwdView: PasswordInputViewDelegate {
             _ = self.passwordTF.passwordInputView.resignFirstResponder()
             _ = self.passwordRepeateTF.passwordInputView.becomeFirstResponder()
         }
+        if passwordView ==  self.passwordRepeateTF.passwordInputView {
+            _ = self.passwordTF.passwordInputView.resignFirstResponder()
+            _ = self.passwordRepeateTF.passwordInputView.resignFirstResponder()
+        }
     }
 }

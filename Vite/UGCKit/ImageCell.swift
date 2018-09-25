@@ -11,6 +11,7 @@ import Eureka
 import SnapKit
 
 public class ImageCell: Cell<Bool>, CellType {
+
     public lazy var titleLab: UILabel = {
         let titleLab = UILabel()
         titleLab.translatesAutoresizingMaskIntoConstraints = false
@@ -33,15 +34,17 @@ public class ImageCell: Cell<Bool>, CellType {
         contentView.addSubview(rightImageView)
 
         self.titleLab.snp.makeConstraints { (make) in
-            make.left.equalTo(contentView).offset(30)
+            make.left.equalTo(contentView).offset(24)
             make.centerY.equalTo(contentView)
         }
 
         self.rightImageView.snp.makeConstraints { (make) in
-            make.right.equalTo(contentView).offset(-30)
+            make.right.equalTo(contentView).offset(-20)
             make.centerY.equalTo(contentView)
         }
         self.height = { 60 }
+
+        self.downSeparatorLine.isHidden = false
     }
 
     public override func update() {

@@ -45,6 +45,7 @@ class ManageWalletViewController: FormViewController {
 
     func setupTable() {
         self.tableView.backgroundColor = .white
+        self.tableView.separatorStyle = .none
 
         form +++
             Section {section in

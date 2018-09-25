@@ -41,7 +41,7 @@ class AboutUsTableBottomView: UIView {
         collectionView.delegate = self
         collectionView.register(Reusable.aboutUsCollectionViewCell)
         self.collectionView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self).offset(72)
+            make.top.equalTo(self).offset(32)
             make.left.right.equalTo(self)
             make.height.equalTo(120)
         }
@@ -49,7 +49,8 @@ class AboutUsTableBottomView: UIView {
         self.addSubview(self.officialWebsiteBtn)
         self.officialWebsiteBtn.snp.makeConstraints {  (make) -> Void in
             make.left.equalTo(self).offset(padding)
-            make.bottom.equalTo(self)
+            make.top.equalTo(collectionView.snp.bottom).offset(30)
+            make.width.equalTo(63)
             make.height.equalTo(20)
         }
 
@@ -58,14 +59,15 @@ class AboutUsTableBottomView: UIView {
         self.addSubview(paddingView)
         paddingView.snp.makeConstraints {  (make) -> Void in
             make.left.equalTo(self.officialWebsiteBtn.snp.right)
-            make.bottom.equalTo(self)
+            make.top.equalTo(collectionView.snp.bottom).offset(30)
             make.height.equalTo(20)
         }
 
         self.addSubview(portalWebsiteBtn)
         self.portalWebsiteBtn.snp.makeConstraints {  (make) -> Void in
-            make.left.equalTo(paddingView.snp.right).offset(padding)
-            make.bottom.equalTo(self)
+            make.left.equalTo(paddingView.snp.right)
+            make.top.equalTo(collectionView.snp.bottom).offset(30)
+            make.width.equalTo(93)
             make.height.equalTo(20)
         }
 
@@ -74,7 +76,7 @@ class AboutUsTableBottomView: UIView {
         self.addSubview(paddingView1)
         paddingView1.snp.makeConstraints {  (make) -> Void in
             make.left.equalTo(self.portalWebsiteBtn.snp.right)
-            make.bottom.equalTo(self)
+            make.top.equalTo(collectionView.snp.bottom).offset(30)
             make.height.equalTo(20)
             make.width.equalTo(paddingView)
         }
@@ -83,7 +85,8 @@ class AboutUsTableBottomView: UIView {
         self.blogWebsiteBtn.snp.makeConstraints {  (make) -> Void in
             make.left.equalTo(paddingView1.snp.right)
             make.right.equalTo(self).offset(-padding)
-            make.bottom.equalTo(self)
+            make.top.equalTo(collectionView.snp.bottom).offset(30)
+            make.width.equalTo(63)
             make.height.equalTo(20)
         }
     }
