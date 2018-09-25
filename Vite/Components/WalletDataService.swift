@@ -38,7 +38,7 @@ public class WalletDataService: NSObject {
     public func updateWallet(account: WalletAccount) {
         if walletStorage.isExist(account) {
               walletStorage.update(account: account)
-        }else{
+        } else {
               walletStorage.add(account: account)
         }
     }

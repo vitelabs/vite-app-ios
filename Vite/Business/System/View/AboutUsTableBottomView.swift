@@ -28,7 +28,7 @@ class AboutUsTableBottomView: UIView {
                 ["img": "icon_button_telegram", "web": "https://t.me/vite_en"],
                 ["img": "icon_button_reddit", "web": "https://www.reddit.com/r/vitelabs"],
                 ["img": "icon_button_wechat", "web": "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU0NDgxMjU0Ng==&scene=124#wechat_redirect"],
-                ["img": "icon_button_facebook", "web": "https://facebook"],
+                ["img": "icon_button_facebook", "web": "https://www.facebook.com/vitelabs/"],
                 ["img": "icon_button_medium", "web": "https://discordapp.com/invite/CsVY76q"],
                 ["img": "icon_button_youtube", "web": "https://www.youtube.com/channel/UC8qft2rEzBnP9yJOGdsJBVg"],
                 ]
@@ -115,7 +115,7 @@ class AboutUsTableBottomView: UIView {
         let portalWebsiteBtn = UIButton.init(style: .whiteWithoutShadow, title: R.string.localizable.aboutUsPageCellPortalWebsite.key.localized())
         portalWebsiteBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         portalWebsiteBtn.rx.tap.bind {_ in
-            WebHandler.open(URL.init(string: "https://vite.blog/")!)
+            WebHandler.open(URL.init(string: "https://vite.net/")!)
         }.disposed(by: rx.disposeBag)
         return portalWebsiteBtn
     }()
@@ -128,14 +128,6 @@ class AboutUsTableBottomView: UIView {
         }.disposed(by: rx.disposeBag)
         return blogWebsiteBtn
     }()
-
-    @objc func transactionLogBtnAction() {
-
-    }
-
-    @objc func manageWalletBtnAction() {
-
-    }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
