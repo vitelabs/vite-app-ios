@@ -48,7 +48,7 @@ extension AboutUsViewController {
             cell.layoutMargins.left = 24
             cell.layoutMargins.right = 24
         }
-        
+
         let headerView = UIView(frame: CGRect.init(x: 0, y: 0, width: kScreenW, height: 176))
         headerView.addSubview(logoImgView)
         logoImgView.snp.makeConstraints { (make) in
@@ -109,8 +109,6 @@ extension AboutUsViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
                 })
 
-
-
         self.tableView.snp.makeConstraints { (make) in
             make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop)
             make.left.right.bottom.equalTo(self.view)
@@ -129,15 +127,9 @@ extension AboutUsViewController {
         }
     }
     private func emailTemplate() -> String {
-        return """
-        \n\n\n
+        return   R.string.localizable.aboutUsPageEmailContent.key.localized(arguments: UIDevice.current.systemVersion, UIDevice.current.model, String.getAppVersion(), Locale.preferredLanguages.first ?? "")
 
-        Helpful information to developers:
-        iOS Version: \(UIDevice.current.systemVersion)
-        Device Model: \(UIDevice.current.model)
-        Vite Version: \(String.getAppVersion)
-        Current locale: \(Locale.preferredLanguages.first ?? "")
-        """
+//            String.init(format:R.string.localizable.aboutUsPageEmailContent.key.localized(), UIDevice.current.systemVersion, UIDevice.current.model, String.getAppVersion(), Locale.preferredLanguages.first ?? "")
     }
 }
 

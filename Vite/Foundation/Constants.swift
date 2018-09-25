@@ -11,4 +11,6 @@ import Foundation
 public struct Constants {
     // support
     public static let supportEmail = "info@vite.org"
+    //baidu  statistics
+    public static let baiduMobileStat = "e74c7f32c0"
 }

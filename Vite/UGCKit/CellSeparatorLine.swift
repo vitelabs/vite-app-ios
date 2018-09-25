@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 private var kdownSeparatorLineKey: UInt8 = 0
-extension UITableViewCell : CellSeparatorLine{
+extension UITableViewCell: CellSeparatorLine {
 
     var downSeparatorLine: LineView {
         get {
@@ -38,7 +38,6 @@ extension UITableViewCell : CellSeparatorLine{
 
 }
 
-protocol CellSeparatorLine : class {
+protocol CellSeparatorLine: class {
     var downSeparatorLine: LineView { get }
 }
-
