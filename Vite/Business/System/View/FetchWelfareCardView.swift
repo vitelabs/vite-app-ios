@@ -49,7 +49,7 @@ class FetchWelfareCardView: UIView {
         paragraph.lineSpacing = 10
         let attributes = [NSAttributedStringKey.font: Fonts.Font14,
                                   NSAttributedStringKey.foregroundColor: UIColor.white,
-                          NSAttributedStringKey.paragraphStyle: paragraph]
+                          NSAttributedStringKey.paragraphStyle: paragraph, ]
         descLab.attributedText = NSAttributedString(string: R.string.localizable.fetchWelfareContentDesc.key.localized(), attributes: attributes)
 
         bgImgView.snp.makeConstraints { (make) in
