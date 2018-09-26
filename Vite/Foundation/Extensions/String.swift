@@ -59,8 +59,4 @@ extension String {
     func substring(from: Int) -> String {
         return (self as NSString).substring(from: from) as String
     }
-
-    func toHexString() -> String {
-        return hex2Bytes.toHexString()
-    }
 }

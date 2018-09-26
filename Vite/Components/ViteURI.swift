@@ -42,8 +42,9 @@ extension ViteURI {
                 string.append(key: Key.amount.rawValue, value: amount.description)
             }
 
-            if let data = data, !data.isEmpty {
-                string.append(key: Key.data.rawValue, value: data.toHexString())
+            let custom = CharacterSet(charactersIn: ":-@/?&=\\\"").inverted
+            if let data = data, !data.isEmpty, let note = data.addingPercentEncoding(withAllowedCharacters: custom) {
+                string.append(key: Key.data.rawValue, value: "\"\(note)\"")
             }
         }
 
@@ -85,8 +86,9 @@ extension ViteURI {
             amount = a
         }
 
+        guard let token = TokenCacheService.instance.tokenForId(tokenId) else { return nil }
         let decimalsString = dic[Key.decimals.rawValue]
-        var decimals = BigInt(10).power(TokenCacheService.instance.tokenForId(Token.Currency.vite.rawValue)!.decimals)
+        var decimals = BigInt(10).power(token.decimals)
         if let decimalsString = decimalsString {
             guard let a = scientificNotationStringToBigInt(decimalsString) else { return nil }
             decimals = a
@@ -97,8 +99,12 @@ extension ViteURI {
         }
 
         var data: String?
-        if let dataString = dic[Key.data.rawValue], let s = String(data: Data(bytes: dataString.hex2Bytes), encoding: .utf8) {
-            data = s
+        if let dataString = dic[Key.data.rawValue],
+            !dataString.isEmpty,
+            dataString.hasPrefix("\""),
+            dataString.hasSuffix("\""),
+            let s = dataString.removingPercentEncoding {
+            data = s.substring(range: NSRange(location: 1, length: s.count - 2))
         }
 
         return ViteURI.transfer(address: address, tokenId: tokenId, amount: amount, data: data)
