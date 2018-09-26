@@ -20,7 +20,7 @@ class WalletHomeAddressView: UIView {
 
     fileprivate let copyButton = UIButton().then {
         $0.setImage(R.image.icon_button_paste_blue(), for: .normal)
-        $0.setImage(R.image.icon_button_paste_blue()?.highlighted, for: .normal)
+        $0.setImage(R.image.icon_button_paste_blue()?.highlighted, for: .highlighted)
     }
 
     override init(frame: CGRect) {

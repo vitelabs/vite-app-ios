@@ -13,6 +13,10 @@ class TokenCacheService {
     fileprivate let fileHelper = FileHelper(.library, appending: FileHelper.appPathComponent)
     fileprivate static let saveKey = "TokenCache"
 
+    var viteToken: Token {
+        return defaultTokens[0]
+    }
+
     let defaultTokens: [Token] = [Token(id: Token.Currency.vite.rawValue, name: "vite", symbol: "VITE", decimals: 18),
                                   Token(id: Token.Currency.vcc.rawValue, name: "vcc", symbol: "VCC", decimals: 17),
                                   Token(id: Token.Currency.vcandy.rawValue, name: "vcandy", symbol: "vcandy", decimals: 16),
@@ -88,6 +92,29 @@ extension TokenCacheService {
             }
         } else {
             return [UIColor(netHex: 0xf0f0f0)]
+        }
+    }
+}
+
+extension Token {
+
+    enum Currency: String {
+        case vite = "tti_000000000000000000004cfd"
+        case vcc = "tti_111000000000000000001111"
+        case vcandy = "tti_222000000000000000002222"
+    }
+
+    enum Icon {
+        case url(url: URL)
+        case image(image: UIImage)
+
+        func putIn(_ imageView: UIImageView) {
+            switch self {
+            case .image(let image):
+                imageView.image = image
+            case .url(let url):
+                fatalError("\(url) Currently not supported!")
+            }
         }
     }
 }

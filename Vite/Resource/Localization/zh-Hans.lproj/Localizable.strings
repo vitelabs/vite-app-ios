@@ -1,10 +1,11 @@
-/* 
+/*
   Localizable.strings
   Vite
 
   Created by Water on 2018/8/20.
   Copyright © 2018年 vite labs. All rights reserved.
 */
+
 /* App */
 "Cancel" = "取消";
 "Finish" = "完成";
@@ -56,6 +57,7 @@
 "import.page.title" = "输入您的助记词";
 "import.page.submit.btn" = "恢复账户";
 "import.page.submit.invalid.mnemonic" = "助记词输入有误，请重新输入。";
+
 /* export mnemonic */
 "export.page.title" = "导出助记词";
 "export.page.alter.title" = "请输入密码";
@@ -103,7 +105,7 @@
 "balance.info.detail.reveice.button.title" = "收款";
 "balance.info.detail.send.button.title" = "转账";
 
-/* Address Manage */
+/* Address Manage Page */
 "address.manage.page.title" = "地址管理";
 "address.manage.default.address.cell.title" = "默认收款地址";
 "address.manage.address.header.title" = "地址列表";
@@ -114,11 +116,26 @@
 
 /* Send Page */
 "send.page.title" = "转账";
+"send.page.my.address.title" = "转出账户地址";
+"send.page.my.balance.title" = "转出账户余额";
 "send.page.to.address.title" = "收款地址";
 "send.page.amount.title" = "金额";
 "send.page.remark.title" = "备注";
 "send.page.send.button.title" = "转账";
 "send.page.amount.toolbar.button.title" = "下一项";
+"send.page.toast.send.success" = "支付成功";
+"send.page.not.enough.balance.alert.title" = "账户余额不足";
+"send.page.not.enough.balance.alert.button" = "取消交易";
+
+/* Receive Page */
+"Receive.page.title" = "收款";
+"Receive.page.token.name.label" = "请转入 %@";
+"Receive.page.token.amount.button.title" = "指定金额";
+"Receive.page.token.note.label" = "备注";
+"Receive.page.token.amount.alert.title" = "输入金额";
+
+/* Scan Page */
+"Scan.page.title" = "扫码";
 
 /* System */
 "system.page.logout.loading" = "退出中";

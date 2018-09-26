@@ -23,7 +23,7 @@ class QRCodeViewController: BaseViewController {
         self.token = token
         var tokenId = Token.Currency.vite.rawValue
         if let token = token { tokenId = token.id }
-        self.uriBehaviorRelay = BehaviorRelay(value: ViteURI.transfer(address: self.bag.address, tokenId: tokenId, amount: nil, note: nil))
+        self.uriBehaviorRelay = BehaviorRelay(value: ViteURI.transfer(address: self.bag.address, tokenId: tokenId, amount: nil, data: nil))
         super.init(nibName: nil, bundle: nil)
     }
 

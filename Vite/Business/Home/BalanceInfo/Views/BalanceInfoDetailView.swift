@@ -112,12 +112,12 @@ class BalanceInfoDetailView: UIView {
     func bind(viewModelBehaviorRelay: BehaviorRelay<WalletHomeBalanceInfoViewModelType>) {
         viewModelBehaviorRelay.asObservable().bind { [weak self] in
             guard let `self` = self else { return }
-            $0.icon.putIn(self.iconImageView)
+            $0.token.icon.putIn(self.iconImageView)
             self.nameLabel.text = $0.name
             self.balanceLabel.text = $0.balance
             self.unconfirmedLabel.text = $0.unconfirmed
             self.unconfirmedCountLabel.text = R.string.localizable.balanceInfoDetailUnconfirmedCountTitle(String($0.unconfirmedCount))
-            self.backgroundColors = $0.backgroundColors
+            self.backgroundColors = $0.token.backgroundColors
             DispatchQueue.main.async {
                 self.backgroundColor = GradientColor(.leftToRight, frame: self.frame, colors: self.backgroundColors)
             }

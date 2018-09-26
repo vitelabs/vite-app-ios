@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Then
+import SnapKit
 
 class ScanViewController: BaseViewController {
 
@@ -58,46 +59,83 @@ class ScanViewController: BaseViewController {
     }
 
     func setupUIComponents() {
+        navigationItem.title = R.string.localizable.scanPageTitle()
         navigationBarStyle = .custom(tintColor: UIColor.white, backgroundColor: UIColor(netHex: 0x24272B))
-        navigationItem.title = LocalizationStr("Scan QR Code")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.icon_nav_photo_black(), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self.pickeImage(_:)))
 
         do {
-            let screenWidth = UIScreen.main.bounds.width
+
+            let clearView = UIView().then {
+                $0.backgroundColor = UIColor.clear
+                $0.layer.borderColor = UIColor(netHex: 0x0079df).cgColor
+                $0.layer.borderWidth = 2
+            }
+
             let topBackgroundView = UIView().then {
-                $0.frame =  CGRect(x: 0, y: 0, width: screenWidth, height: screenWidth * 0.2)
-                $0.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+                $0.backgroundColor = UIColor(netHex: 0x24272B).withAlphaComponent(0.8)
             }
             let leftBackgroundView = UIView().then {
-                $0.frame =  CGRect(x: 0, y: topBackgroundView.frame.maxY, width: screenWidth * 0.2, height: screenWidth * 0.6)
-                $0.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+                $0.backgroundColor = UIColor(netHex: 0x24272B).withAlphaComponent(0.8)
             }
             let bottomBackgroundView = UIView().then {
-                $0.frame = CGRect(x: 0, y: leftBackgroundView.frame.maxY, width: screenWidth, height: UIScreen.main.bounds.height)
-                $0.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+                $0.backgroundColor = UIColor(netHex: 0x24272B).withAlphaComponent(0.8)
             }
             let rightBackgroundView = UIView().then {
-                $0.frame = CGRect(x: screenWidth * 0.8, y: leftBackgroundView.frame.minY, width: screenWidth * 0.2, height: screenWidth * 0.6)
-                $0.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+                $0.backgroundColor = UIColor(netHex: 0x24272B).withAlphaComponent(0.8)
             }
+
+            let flashButton = UIButton().then {
+                $0.setImage(R.image.icon_button_light(), for: .normal)
+                $0.setImage(R.image.icon_button_light()?.highlighted, for: .highlighted)
+
+                guard let device = AVCaptureDevice.default(for: .video) else { return }
+                if !device.hasTorch || !device.isTorchAvailable {
+                    $0.isHidden = true
+                }
+            }
+
+            view.addSubview(clearView)
             view.addSubview(topBackgroundView)
             view.addSubview(bottomBackgroundView)
             view.addSubview(leftBackgroundView)
             view.addSubview(rightBackgroundView)
-        }
-
-        do {
-            let flashButton = UIButton().then {
-                $0.translatesAutoresizingMaskIntoConstraints = false
-                $0.backgroundColor = .red
-            }
             view.addSubview(flashButton)
-            NSLayoutConstraint.activate([
-                flashButton.widthAnchor.constraint(equalToConstant: 50),
-                flashButton.heightAnchor.constraint(equalToConstant: 50),
-                flashButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                flashButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
-                ])
+
+            clearView.snp.makeConstraints { (m) in
+                m.centerX.equalTo(view)
+                m.centerY.equalTo(view).offset(-70)
+                m.size.equalTo(CGSize(width: 262, height: 262))
+            }
+
+            topBackgroundView.snp.makeConstraints { (m) in
+                m.top.left.right.equalTo(view)
+                m.bottom.equalTo(clearView.snp.top)
+            }
+
+            bottomBackgroundView.snp.makeConstraints { (m) in
+                m.bottom.left.right.equalTo(view)
+                m.top.equalTo(clearView.snp.bottom)
+            }
+
+            leftBackgroundView.snp.makeConstraints { (m) in
+                m.top.equalTo(topBackgroundView.snp.bottom)
+                m.bottom.equalTo(bottomBackgroundView.snp.top)
+                m.left.equalTo(view)
+                m.right.equalTo(clearView.snp.left)
+            }
+
+            rightBackgroundView.snp.makeConstraints { (m) in
+                m.top.equalTo(topBackgroundView.snp.bottom)
+                m.bottom.equalTo(bottomBackgroundView.snp.top)
+                m.left.equalTo(clearView.snp.right)
+                m.right.equalTo(view)
+            }
+
+            flashButton.snp.makeConstraints { (m) in
+                m.centerX.equalTo(view)
+                m.top.equalTo(clearView.snp.bottom).offset(40)
+            }
+
             flashButton.addTarget(self, action: #selector(switchFlash(_:)), for: .touchUpInside)
         }
     }
