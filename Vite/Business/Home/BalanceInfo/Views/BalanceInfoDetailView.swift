@@ -42,10 +42,10 @@ class BalanceInfoDetailView: UIView {
         $0.textColor = UIColor.white
     }
 
-    fileprivate let unconfirmedCountLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 12)
-        $0.textColor = UIColor.white
-    }
+//    fileprivate let unconfirmedCountLabel = UILabel().then {
+//        $0.font = UIFont.systemFont(ofSize: 12)
+//        $0.textColor = UIColor.white
+//    }
 
     fileprivate var backgroundColors: [UIColor] = []
 
@@ -58,7 +58,7 @@ class BalanceInfoDetailView: UIView {
         addSubview(balanceLabel)
         addSubview(unconfirmedTitleLabel)
         addSubview(unconfirmedLabel)
-        addSubview(unconfirmedCountLabel)
+//        addSubview(unconfirmedCountLabel)
 
         nameLabel.snp.makeConstraints { (m) in
             m.left.equalTo(self).offset(24)
@@ -89,17 +89,18 @@ class BalanceInfoDetailView: UIView {
 
         unconfirmedLabel.snp.makeConstraints { (m) in
             m.left.equalTo(nameLabel)
+            m.right.equalTo(self).offset(-24)
             m.top.equalTo(unconfirmedTitleLabel.snp.bottom).offset(2)
             m.bottom.equalTo(self).offset(-20)
         }
 
-        unconfirmedCountLabel.setContentHuggingPriority(.required, for: .horizontal)
-        unconfirmedCountLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-        unconfirmedCountLabel.snp.makeConstraints { (m) in
-            m.left.equalTo(unconfirmedLabel.snp.right).offset(10)
-            m.right.equalTo(self).offset(-24)
-            m.centerY.equalTo(unconfirmedLabel)
-        }
+//        unconfirmedCountLabel.setContentHuggingPriority(.required, for: .horizontal)
+//        unconfirmedCountLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+//        unconfirmedCountLabel.snp.makeConstraints { (m) in
+//            m.left.equalTo(unconfirmedLabel.snp.right).offset(10)
+//            m.right.equalTo(self).offset(-24)
+//            m.centerY.equalTo(unconfirmedLabel)
+//        }
 
         balanceTitleLabel.text = R.string.localizable.balanceInfoDetailBalanceTitle()
         unconfirmedTitleLabel.text = R.string.localizable.balanceInfoDetailUnconfirmedTitle()
@@ -116,7 +117,7 @@ class BalanceInfoDetailView: UIView {
             self.nameLabel.text = $0.name
             self.balanceLabel.text = $0.balance
             self.unconfirmedLabel.text = $0.unconfirmed
-            self.unconfirmedCountLabel.text = R.string.localizable.balanceInfoDetailUnconfirmedCountTitle(String($0.unconfirmedCount))
+//            self.unconfirmedCountLabel.text = R.string.localizable.balanceInfoDetailUnconfirmedCountTitle(String($0.unconfirmedCount))
             self.backgroundColors = $0.token.backgroundColors
             DispatchQueue.main.async {
                 self.backgroundColor = GradientColor(.leftToRight, frame: self.frame, colors: self.backgroundColors)
