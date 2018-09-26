@@ -100,8 +100,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func startBaiduMobileStat() {
         let statTracker: BaiduMobStat = BaiduMobStat.default()
-        statTracker.shortAppVersion  =  (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)
-        statTracker.start(withAppId: "e74c7f32c0")
+        statTracker.shortAppVersion  =  Bundle.main.fullVersion
+        statTracker.start(withAppId: Constants.baiduMobileStat)
     }
 
 }

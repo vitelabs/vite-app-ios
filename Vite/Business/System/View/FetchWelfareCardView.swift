@@ -17,7 +17,7 @@ class FetchWelfareCardView: UIView {
         let bgImgView = UIImageView().then {
             $0.backgroundColor = .clear
             $0.image = R.image.fetch_gift_bg()
-            $0.layer.cornerRadius = 4
+            $0.layer.cornerRadius = 2
             $0.layer.masksToBounds = true
         }
         self.addSubview(bgImgView)
@@ -49,7 +49,7 @@ class FetchWelfareCardView: UIView {
         paragraph.lineSpacing = 10
         let attributes = [NSAttributedStringKey.font: Fonts.Font14,
                                   NSAttributedStringKey.foregroundColor: UIColor.white,
-                          NSAttributedStringKey.paragraphStyle: paragraph,]
+                          NSAttributedStringKey.paragraphStyle: paragraph, ]
         descLab.attributedText = NSAttributedString(string: R.string.localizable.fetchWelfareContentDesc.key.localized(), attributes: attributes)
 
         bgImgView.snp.makeConstraints { (make) in

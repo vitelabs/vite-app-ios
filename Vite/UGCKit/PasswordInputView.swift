@@ -41,7 +41,7 @@ public class PasswordInputView: UIView {
     var wordView: UIView?
     var secretLabels = [UILabel]()
     var secretViews = [UIView]()
-    var secretType = SecretType.plaintext
+    var secretType = SecretType.asterisk
     var initalized = false
 
     override public func layoutSubviews() {
@@ -82,15 +82,15 @@ public class PasswordInputView: UIView {
             let x = CGFloat(i) * (labelW + partitionWidth*2)
             let y = CGFloat(0)
             if secretType == .asterisk {
-                let label = UILabel(frame: CGRect(x: x, y: y, width: labelH, height: labelH))
-                label.backgroundColor = UIColor.white
+                let label = UILabel(frame: CGRect(x: x, y: y+5, width: labelW, height: labelH))
+                label.backgroundColor = UIColor.clear
                 label.textAlignment = .center
-                label.font = UIFont.systemFont(ofSize: 40)
+                label.font = UIFont.systemFont(ofSize: 18)
                 label.adjustsFontSizeToFitWidth = true
                 view.addSubview(label)
                 secretLabels.append(label)
             } else if secretType == .point {
-                let v = UIView(frame: CGRect(x: x, y: y, width: labelH, height: labelH))
+                let v = UIView(frame: CGRect(x: x, y: y, width: labelW, height: labelH))
                 v.backgroundColor = UIColor.white
                 view.addSubview(v)
                 secretViews.append(v)
@@ -139,8 +139,8 @@ public class PasswordInputView: UIView {
 
     func updateView(text: String) {
         if secretType == .asterisk {
-            for i in 0..<secretLabels.count {
-                if i < totalCount {
+            for i in 0..<totalCount {
+                if i < text.count {
                     secretLabels[i].text = "*"
                 } else {
                     secretLabels[i].text = ""

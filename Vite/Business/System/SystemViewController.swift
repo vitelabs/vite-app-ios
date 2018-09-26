@@ -53,7 +53,7 @@ class SystemViewController: FormViewController {
 
     lazy var logoutBtn: UIButton = {
         let logoutBtn = UIButton.init(style: .white)
-        logoutBtn.setTitle("退出并切换钱包", for: .normal)
+        logoutBtn.setTitle(R.string.localizable.systemPageCellLogoutTitle.key.localized(), for: .normal)
         logoutBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         logoutBtn.addTarget(self, action: #selector(logoutBtnAction), for: .touchUpInside)
         return logoutBtn
@@ -76,6 +76,13 @@ class SystemViewController: FormViewController {
 
     func setupTableView() {
         self.tableView.backgroundColor = .white
+        self.tableView.separatorStyle = .none
+
+        SwitchRow.defaultCellSetup = { cell, row in
+            cell.preservesSuperviewLayoutMargins = false
+            cell.layoutMargins.left = 24
+            cell.layoutMargins.right = 24
+        }
 
         form
             +++
@@ -83,17 +90,19 @@ class SystemViewController: FormViewController {
                 $0.header = HeaderFooterView<UIView>(.class)
                 $0.header?.height = { 0.0 }
             }
-            <<< ImageRow("my.page.message1.cell.title") {
-                $0.cell.titleLab.text = "语言选择"
+            <<< ImageRow("systemPageCellChangeLanguage") {
+                $0.cell.titleLab.text = R.string.localizable.systemPageCellChangeLanguage.key.localized()
                 $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
+                $0.cell.downSeparatorLine.isHidden = false
             }.onCellSelection({ [unowned self] _, _  in
                 self.showChangeLanguageList(isSettingPage: true)
             })
 
-            <<< SwitchRow("my.page.system2.cell.title") {
-                $0.title = "输入密码唤起app"
+            <<< SwitchRow("systemPageCellLoginPwd") {
+                $0.title = R.string.localizable.systemPageCellLoginPwd.key.localized()
                 $0.value = true
                 $0.cell.height = { 60 }
+               $0.cell.downSeparatorLine.isHidden = false
             }.cellUpdate({ (cell, _) in
                     cell.textLabel?.textColor = Colors.cellTitleGray
                     cell.textLabel?.font = Fonts.descFont
@@ -101,10 +110,11 @@ class SystemViewController: FormViewController {
                     self.didChange?(.state(isEnabled: row.value ?? false))
             }
 
-            <<< SwitchRow("my.page.system.3cell.title") {
-                $0.title = "支持指纹/面部识别"
+            <<< SwitchRow("systemPageCellLoginFaceId") {
+                $0.title = R.string.localizable.systemPageCellLoginFaceId.key.localized()
                 $0.value = true
                 $0.cell.height = { 60 }
+               $0.cell.downSeparatorLine.isHidden = false
             }.cellUpdate({ (cell, _) in
                     cell.textLabel?.textColor = Colors.cellTitleGray
                     cell.textLabel?.font = Fonts.descFont
@@ -112,10 +122,11 @@ class SystemViewController: FormViewController {
                     self.didChange?(.state(isEnabled: row.value ?? false))
             }
 
-            <<< SwitchRow("my.page.system.3ceddll.title") {
-                $0.title = "转账开启指纹/面部识别"
+            <<< SwitchRow("systemPageCellTransferFaceId") {
+                $0.title = R.string.localizable.systemPageCellTransferFaceId.key.localized()
                 $0.value = true
                 $0.cell.height = { 60 }
+               $0.cell.downSeparatorLine.isHidden = false
             }.cellUpdate({ (cell, _) in
                     cell.textLabel?.textColor = Colors.cellTitleGray
                     cell.textLabel?.font = Fonts.descFont

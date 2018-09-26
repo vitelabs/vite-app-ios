@@ -122,6 +122,11 @@
 
 /* System */
 "system.page.logout.loading" = "退出中";
+"system.page.cell.change.language" = "语言选择";
+"system.page.cell.login.pwd" = "输入密码唤起APP";
+"system.page.cell.login.faceId" = "支持指纹/面部识别";
+"system.page.cell.transfer.faceId" = "转账开启指纹/面部识别";
+"system.page.cell.logout.title" = "退出并切换钱包";
 
 /* about us */
 "aboutUs.page.cell.blockHeight" = "当前区块高度";
@@ -132,6 +137,7 @@
 "aboutUs.page.cell.portal.website" = "Vite 门户网站";
 "aboutUs.page.cell.blog.website" = "Vite.blog";
 "aboutUs.page.email.title" = "意见反馈";
+"aboutUs.page.email.content" = "\n\n\n\n\n意见来自以下使用环境：\n1.设备系统：%@\n2.系统版本:%@\n3.APP版本：%@\n4.语言环境：%@";
 
 /* fetch welfare */
 "fetch.welfare.page.title" = "领福利";

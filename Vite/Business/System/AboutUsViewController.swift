@@ -28,7 +28,7 @@ class AboutUsViewController: FormViewController {
     lazy var logoImgView: UIImageView = {
         let logoImgView = UIImageView()
         logoImgView.backgroundColor = .clear
-        logoImgView.image =  R.image.login_logo()
+        logoImgView.image =  R.image.aboutus_logo()
         return logoImgView
     }()
 }
@@ -41,11 +41,21 @@ extension AboutUsViewController {
 
     func setupTableView() {
         self.tableView.backgroundColor = .white
-        let headerView = UIView(frame: CGRect.init(x: 0, y: 0, width: kScreenW, height: 146))
+        self.tableView.separatorStyle = .none
+
+        LabelRow.defaultCellSetup = { cell, row in
+            cell.preservesSuperviewLayoutMargins = false
+            cell.layoutMargins.left = 24
+            cell.layoutMargins.right = 24
+        }
+
+        let headerView = UIView(frame: CGRect.init(x: 0, y: 0, width: kScreenW, height: 176))
         headerView.addSubview(logoImgView)
         logoImgView.snp.makeConstraints { (make) in
-            make.center.equalTo(headerView)
-            make.width.height.equalTo(84)
+            make.top.equalTo(headerView).offset(30)
+            make.centerX.equalTo(headerView)
+            make.width.equalTo(82)
+            make.width.height.equalTo(116)
         }
         self.tableView.tableHeaderView = headerView
 
@@ -61,6 +71,7 @@ extension AboutUsViewController {
             <<< LabelRow("aboutUsPageCellBlockHeight") {
                 $0.title =  R.string.localizable.aboutUsPageCellBlockHeight.key.localized()
                 $0.cell.height = { 60 }
+                $0.cell.downSeparatorLine.isHidden = false
             }.onCellSelection({ [unowned self] _, _  in
 //TODO  fetch data
                 })
@@ -69,6 +80,7 @@ extension AboutUsViewController {
                 $0.title =  R.string.localizable.aboutUsPageCellVersion.key.localized()
                 $0.value = String.getAppVersion()
                 $0.cell.height = { 60 }
+                $0.cell.downSeparatorLine.isHidden = false
             }.onCellSelection({ [unowned self] _, _  in
 
                 self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
@@ -115,15 +127,9 @@ extension AboutUsViewController {
         }
     }
     private func emailTemplate() -> String {
-        return """
-        \n\n\n
+        return   R.string.localizable.aboutUsPageEmailContent.key.localized(arguments: UIDevice.current.systemVersion, UIDevice.current.model, String.getAppVersion(), Locale.preferredLanguages.first ?? "")
 
-        Helpful information to developers:
-        iOS Version: \(UIDevice.current.systemVersion)
-        Device Model: \(UIDevice.current.model)
-        Vite Version: \(String.getAppVersion)
-        Current locale: \(Locale.preferredLanguages.first ?? "")
-        """
+//            String.init(format:R.string.localizable.aboutUsPageEmailContent.key.localized(), UIDevice.current.systemVersion, UIDevice.current.model, String.getAppVersion(), Locale.preferredLanguages.first ?? "")
     }
 }
 

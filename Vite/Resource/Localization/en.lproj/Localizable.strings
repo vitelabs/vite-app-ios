@@ -130,4 +130,6 @@
 "aboutUs.page.cell.official.website" = "Vite 官网";
 "aboutUs.page.cell.portal.website" = "Vite 门户网站";
 "aboutUs.page.cell.blog.website" = "Vite.blog";
+"aboutUs.page.email.title" = "Feedback";
+"aboutUs.page.email.content" = "\n\n\n\n\nThe advice comes from the using environment as below：\n1.设备系统：%@\n2.系统版本:%@\n3.APP版本：%@\n4.语言环境：%@";
 

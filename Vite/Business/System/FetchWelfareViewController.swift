@@ -96,7 +96,7 @@ extension FetchWelfareViewController {
         paragraph.lineSpacing = 5
         let attributes = [NSAttributedStringKey.font: Fonts.Font14,
                           NSAttributedStringKey.foregroundColor: Colors.titleGray,
-                          NSAttributedStringKey.paragraphStyle: paragraph,]
+                          NSAttributedStringKey.paragraphStyle: paragraph, ]
         wayContentLab.attributedText = NSAttributedString(string: R.string.localizable.fetchWelfareParticipationWays.key.localized(), attributes: attributes)
 
         contentView.addSubview(wayContentLab)
