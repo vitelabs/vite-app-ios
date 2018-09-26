@@ -116,6 +116,8 @@
 
 /* Send Page */
 "send.page.title" = "转账";
+"send.page.my.address.title" = "转出账户地址";
+"send.page.my.balance.title" = "转出账户余额";
 "send.page.to.address.title" = "收款地址";
 "send.page.amount.title" = "金额";
 "send.page.remark.title" = "备注";
@@ -130,6 +132,10 @@
 "Receive.page.token.name.label" = "请转入 %@";
 "Receive.page.token.amount.button.title" = "指定金额";
 "Receive.page.token.note.label" = "备注";
+"Receive.page.token.amount.alert.title" = "输入金额";
+
+/* Scan Page */
+"Scan.page.title" = "扫码";
 
 /* System */
 "system.page.logout.loading" = "退出中";

@@ -48,29 +48,6 @@ extension Token {
 }
 
 extension Token {
-
-    enum Currency: String {
-        case vite = "tti_000000000000000000004cfd"
-        case vcc = "tti_111000000000000000001111"
-        case vcandy = "tti_222000000000000000002222"
-    }
-
-    enum Icon {
-        case url(url: URL)
-        case image(image: UIImage)
-
-        func putIn(_ imageView: UIImageView) {
-            switch self {
-            case .image(let image):
-                imageView.image = image
-            case .url(let url):
-                fatalError("\(url) Currently not supported!")
-            }
-        }
-    }
-}
-
-extension Token {
     static func idStriped(_ id: String) -> String {
         guard id.count == 28 else { return "" }
         let string = (id as NSString).substring(with: NSRange(location: 4, length: 20)) as String

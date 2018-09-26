@@ -38,11 +38,11 @@ extension ViteURI {
                 string.append(key: Key.tokenId.rawValue, value: tokenId)
             }
 
-            if let amount = amount {
+            if let amount = amount, amount != 0 {
                 string.append(key: Key.amount.rawValue, value: amount.description)
             }
 
-            if let data = data {
+            if let data = data, !data.isEmpty {
                 string.append(key: Key.data.rawValue, value: data.toHexString())
             }
         }
@@ -115,7 +115,6 @@ extension ViteURI {
             symbol *= BigInt(-1)
         }
 
-        var decimalDigits = 0
         var exponent = 0
         var front: String!
 
@@ -132,21 +131,8 @@ extension ViteURI {
             }
         }
 
-        do {
-            let array = front.components(separatedBy: ".")
-            if array.count == 1 {
-                decimalDigits = 0
-            } else if array.count == 2 {
-                decimalDigits = Int(array.last!.count)
-            } else {
-                return nil
-            }
-        }
-
-        guard decimalDigits <= exponent else { return nil }
-        guard let base = BigInt(front.replacingOccurrences(of: ".", with: "")) else { return nil }
-
-        return symbol * base * BigInt(10).power(exponent - decimalDigits)
+        guard let bigInt = front.toBigInt(decimals: exponent) else { return nil }
+        return symbol * bigInt
     }
 }
 

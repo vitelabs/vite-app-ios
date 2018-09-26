@@ -9,7 +9,7 @@
 import Foundation
 import BigInt
 
-struct Balance: BalanceType, CustomStringConvertible {
+struct Balance: BalanceType {
 
     var value: BigInt
 
@@ -36,12 +36,26 @@ struct Balance: BalanceType, CustomStringConvertible {
         }
         return "\(integer).\(decimal)"
     }
+}
 
-    var raw: String {
-        return value.description
-    }
+extension String {
 
-    var description: String {
-        return (value/1000000000000000000).description
+    func toBigInt(decimals: Int) -> BigInt? {
+
+        var decimalDigits = 0
+        do {
+            let array = components(separatedBy: ".")
+            if array.count == 1 {
+                decimalDigits = 0
+            } else if array.count == 2 {
+                decimalDigits = Int(array.last!.count)
+            } else {
+                return nil
+            }
+        }
+
+        guard decimalDigits <= decimals else { return nil }
+        guard let base = BigInt(replacingOccurrences(of: ".", with: "")) else { return nil }
+        return base * BigInt(10).power(decimals - decimalDigits)
     }
 }

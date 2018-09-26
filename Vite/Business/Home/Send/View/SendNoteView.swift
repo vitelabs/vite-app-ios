@@ -1,15 +1,15 @@
 //
-//  TitleTextFieldView.swift
+//  SendNoteView.swift
 //  Vite
 //
-//  Created by Stone on 2018/9/13.
+//  Created by Stone on 2018/9/26.
 //  Copyright © 2018年 vite labs. All rights reserved.
 //
 
 import UIKit
 import SnapKit
 
-class TitleTextFieldView: UIView {
+class SendNoteView: UIView {
 
     let titleLabel = UILabel().then {
         $0.textColor = Colors.titleGray
@@ -25,34 +25,34 @@ class TitleTextFieldView: UIView {
         $0.backgroundColor = UIColor(netHex: 0xD3DFEF)
     }
 
-    init(title: String, placeholder: String = "", text: String = "") {
+    init(note: String, canEdit: Bool = true) {
         super.init(frame: CGRect.zero)
 
-        let attributedString = NSMutableAttributedString(string: placeholder)
-        attributedString.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.green,
-                                        NSAttributedStringKey.font: textField.font!, ], range: NSRange(location: 0, length: placeholder.count))
-
-        titleLabel.text = title
-        textField.text = text
-        textField.attributedPlaceholder = attributedString
+        titleLabel.text = R.string.localizable.sendPageRemarkTitle()
+        textField.text = note
+        textField.isUserInteractionEnabled = canEdit
 
         addSubview(titleLabel)
         addSubview(textField)
         addSubview(separatorLine)
 
         titleLabel.snp.makeConstraints { (m) in
-            m.top.left.right.equalTo(self)
+            m.top.equalTo(self).offset(20)
+            m.left.equalTo(self).offset(24)
+            m.right.equalTo(self).offset(-24)
         }
 
         textField.snp.makeConstraints { (m) in
+            m.left.right.equalTo(titleLabel)
             m.top.equalTo(titleLabel.snp.bottom).offset(10)
-            m.left.right.equalTo(self)
+            m.bottom.equalTo(self).offset(-10)
         }
 
         separatorLine.snp.makeConstraints { (m) in
-            m.top.equalTo(textField.snp.bottom).offset(10)
             m.height.equalTo(CGFloat.singleLineWidth)
-            m.left.right.bottom.equalTo(self)
+            m.left.equalTo(self).offset(24)
+            m.right.equalTo(self).offset(-24)
+            m.bottom.equalTo(self)
         }
     }
 

@@ -46,6 +46,13 @@ class WalletHomeViewController: BaseTableViewController {
             $0.backgroundColor = UIColor.clear
         }
 
+        if #available(iOS 11.0, *) {
+
+        } else {
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
+            tableView.scrollIndicatorInsets = tableView.contentInset
+        }
+
         let shadowView = UIView().then {
             $0.backgroundColor = UIColor.white
             $0.layer.shadowColor = UIColor(netHex: 0x000000).cgColor
@@ -62,7 +69,7 @@ class WalletHomeViewController: BaseTableViewController {
         }
 
         qrcodeItem.rx.tap.bind { [weak self] _ in
-            self?.navigationController?.pushViewController(QRCodeViewController(token: nil), animated: true)
+            self?.navigationController?.pushViewController(ReceiveViewController(token: TokenCacheService.instance.viteToken, style: .default), animated: true)
         }.disposed(by: rx.disposeBag)
 
         scanItem.rx.tap.bind {  [weak self] _ in

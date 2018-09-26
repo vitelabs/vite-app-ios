@@ -21,21 +21,21 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
 
     let tokenId: String
     let address: Address?
-    let amount: BigInt?
+    let amount: Balance?
     let note: String?
 
-    let addressCanEdit: Bool
-    let amountCanEdit: Bool
     let noteCanEdit: Bool
 
-    init(tokenId: String, address: Address?, amount: BigInt?, note: String?) {
+    init(tokenId: String, address: Address?, amount: BigInt?, note: String?, noteCanEdit: Bool = true) {
         self.tokenId = tokenId
         self.address = address
-        self.amount = amount
+        if let amount = amount {
+            self.amount = Balance(value: amount)
+        } else {
+            self.amount = nil
+        }
         self.note = note
-        self.addressCanEdit = address == nil
-        self.amountCanEdit = amount == nil
-        self.noteCanEdit = note == nil
+        self.noteCanEdit = noteCanEdit
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -49,10 +49,10 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
         if let token = TokenCacheService.instance.tokenForId(tokenId) {
             self.token = token
             setupView()
+            bind()
         } else {
             getToken()
         }
-
     }
 
     private func getToken() {
@@ -65,6 +65,7 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
                 self.token = token
                 self.dataStatus = .normal
                 self.setupView()
+                self.bind()
             case .error(let error):
                 self.dataStatus = .networkError(error, { [weak self] in
                     self?.dataStatus = .loading
@@ -74,44 +75,96 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
         }
     }
 
+    // View
+    lazy var scrollView = ScrollableView().then {
+        $0.layer.masksToBounds = false
+        if #available(iOS 11.0, *) {
+            $0.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+    }
+
+    lazy var contentView = UIView().then { view in
+        view.layer.masksToBounds = false
+        scrollView.addSubview(view)
+        view.snp.makeConstraints { (m) in
+            m.edges.equalTo(scrollView)
+            m.width.equalTo(scrollView)
+        }
+    }
+
+    // headerView
+    lazy var headerView = SendHeaderView(address: bag.address.description)
+
     private func setupView() {
 
-        navigationItem.title = R.string.localizable.sendPageTitle()
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.sendPageTitle())
+        kas_activateAutoScrollingForView(contentView)
 
-        kas_activateAutoScrollingForView(view)
+        let addressView = SendAddressView(address: address?.description ?? "")
+        let amountView = SendAmountView(amount: amount?.amountShort(decimals: token.decimals) ?? "", symbol: token.symbol)
+        let noteView = SendNoteView(note: note ?? "", canEdit: noteCanEdit)
 
-        let addressView = TitleTextFieldView(title: R.string.localizable.sendPageToAddressTitle(), placeholder: "", text: "")
-        let amountView = TitleTextFieldView(title: R.string.localizable.sendPageAmountTitle(), placeholder: "", text: "")
-        let noteView = TitleTextFieldView(title: R.string.localizable.sendPageRemarkTitle(), placeholder: "", text: "")
-        let sendButton = PrimaryButton(title: R.string.localizable.sendPageSendButtonTitle())
+        let sendButton = UIButton(style: .blue, title: R.string.localizable.sendPageSendButtonTitle())
 
-        view.addSubview(addressView)
-        view.addSubview(amountView)
-        view.addSubview(noteView)
+        let shadowView = UIView().then {
+            $0.backgroundColor = UIColor.white
+            $0.layer.shadowColor = UIColor(netHex: 0x000000).cgColor
+            $0.layer.shadowOpacity = 0.1
+            $0.layer.shadowOffset = CGSize(width: 0, height: 5)
+            $0.layer.shadowRadius = 20
+        }
+
+        view.addSubview(scrollView)
         view.addSubview(sendButton)
 
+        scrollView.snp.makeConstraints { (m) in
+            m.top.equalTo(navigationTitleView!.snp.bottom)
+            m.left.right.equalTo(view)
+        }
+
+        contentView.addSubview(shadowView)
+        contentView.addSubview(headerView)
+        contentView.addSubview(addressView)
+        contentView.addSubview(amountView)
+        contentView.addSubview(noteView)
+
+        shadowView.snp.makeConstraints { (m) in
+            m.edges.equalTo(headerView)
+        }
+
+        headerView.snp.makeConstraints { (m) in
+            m.top.equalTo(contentView)
+            m.left.equalTo(contentView).offset(24)
+            m.right.equalTo(contentView).offset(-24)
+        }
+
         addressView.snp.makeConstraints { (m) in
-            m.top.equalTo(view.safeAreaLayoutGuideSnpTop).offset(300)
-            m.left.equalTo(view).offset(15)
-            m.right.equalTo(view).offset(-15)
+            m.left.right.equalTo(contentView)
+            m.top.equalTo(headerView.snp.bottom).offset(30)
         }
 
         amountView.snp.makeConstraints { (m) in
-            m.top.equalTo(addressView.snp.bottom).offset(30)
-            m.left.right.equalTo(addressView)
+            m.left.right.equalTo(contentView)
+            m.top.equalTo(addressView.snp.bottom)
         }
 
         noteView.snp.makeConstraints { (m) in
-            m.top.equalTo(amountView.snp.bottom).offset(30)
-            m.left.right.equalTo(amountView)
+            m.left.right.equalTo(contentView)
+            m.top.equalTo(amountView.snp.bottom)
+            m.bottom.equalTo(contentView).offset(-30)
         }
 
         sendButton.snp.makeConstraints { (m) in
-            m.left.right.equalTo(noteView)
-            m.bottom.equalTo(view.safeAreaLayoutGuideSnpBottom).offset(-30)
+            m.top.greaterThanOrEqualTo(scrollView.snp.bottom).offset(10)
+            m.left.equalTo(view).offset(24)
+            m.right.equalTo(view).offset(-24)
+            m.bottom.equalTo(view.safeAreaLayoutGuideSnpBottom).offset(-24)
+            m.height.equalTo(50)
         }
 
-        addressView.textField.keyboardType = .default
+        addressView.textView.keyboardType = .default
         amountView.textField.keyboardType = .decimalPad
         noteView.textField.keyboardType = .default
 
@@ -123,43 +176,37 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
         done.rx.tap.bind { noteView.textField.becomeFirstResponder() }.disposed(by: rx.disposeBag)
         amountView.textField.inputAccessoryView = toolbar
 
-        addressView.textField.kas_setReturnAction(.next(responder: amountView.textField))
+        addressView.textView.kas_setReturnAction(.next(responder: amountView.textField))
         amountView.textField.kas_setReturnAction(.next(responder: noteView.textField))
         noteView.textField.kas_setReturnAction(.done(block: {
             $0.resignFirstResponder()
         }))
 
-
-
-        addressView.textField.text = address?.description
-        amountView.textField.text = amount?.description
-        noteView.textField.text = note
-
-        amountView.textField.text = "1000000000000000000100"
-
-//        // test
-        addressView.textField.text = "vite_4827fbc6827797ac4d9e814affb34b4c5fa85d39bf96d105e7" // iphone x
-        addressView.textField.text = "vite_18068b64b49852e1c4dfbc304c4e606011e068836260bc9975" // iphone 6s
-//        //        addressView.textField.text = "vite_568c182884e989ea87995412051cb40f1cdf5a6896d658f434" // iphone se 10.3.1
-
-//        let tokenId = Token.Currency.vite.rawValue
-//        let amount = BigInt(1000000000000000000)
-//        let amount = BigInt(1234567890123456789)
-
-        sendButton.rx.tap.bind { [weak self] in
-
-            guard Address.isValid(string: addressView.textField.text ?? "") else { return }
-            guard let amountString = amountView.textField.text, let amount = BigInt(amountString) else { return }
-
-            let confirmViewController = ConfirmTransactionViewController(confirmTypye: .biometry, address: addressView.textField.text!, token: "vcc", amount: "10000", completion: { [weak self] (result) in
+        sendButton.rx.tap
+            .bind { [weak self] in
                 guard let `self` = self else { return }
-                if result {
-                    self.sendTransaction(bag: self.bag, toAddress: Address(string: addressView.textField.text!), tokenId: self.tokenId, amount: amount, note: noteView.textField.text)
-                }
-            })
-            self?.present(confirmViewController, animated: false, completion: nil)
-        }.disposed(by: rx.disposeBag)
+                guard Address.isValid(string: addressView.textView.text ?? "") else { return }
+                guard let amountString = amountView.textField.text, let amount = amountString.toBigInt(decimals: self.token.decimals) else { return }
+                let address = Address(string: addressView.textView.text!)
 
+                let confirmViewController = ConfirmTransactionViewController(confirmTypye: .biometry, address: address.description, token: self.token.symbol, amount: amountString, completion: { [weak self] (result) in
+                    guard let `self` = self else { return }
+                    if result {
+                        self.sendTransaction(bag: self.bag, toAddress: address, tokenId: self.tokenId, amount: amount, note: noteView.textField.text)
+                    }
+                })
+                self.present(confirmViewController, animated: false, completion: nil)
+            }
+            .disposed(by: rx.disposeBag)
+    }
+
+    private func bind() {
+        FetchBalanceInfoService.instance.balanceInfosDriver.drive(onNext: { [weak self] balanceInfos in
+            guard let `self` = self else { return }
+            for balanceInfo in balanceInfos where self.token.id == balanceInfo.token.id {
+                self.headerView.balanceLabel.text = balanceInfo.balance
+            }
+        }).disposed(by: rx.disposeBag)
     }
 
     private func sendTransaction(bag: HDWalletManager.Bag, toAddress: Address, tokenId: String, amount: BigInt, note: String?) {
