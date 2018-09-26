@@ -107,7 +107,7 @@ final class TransactionListTableViewModel: TransactionListTableViewModelType {
                     case .success(let token):
                         TokenCacheService.instance.updateTokensIfNeeded([token])
                         self.getTokensIfNeeded(ids: tokenIds, completion: completion)
-                        case .error(let error):
+                    case .error(let error):
                         completion(error)
                     }
                 }
