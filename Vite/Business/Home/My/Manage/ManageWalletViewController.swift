@@ -109,7 +109,7 @@ class ManageWalletViewController: FormViewController {
             DispatchQueue.global().async {
                 let wallet =  WalletDataService.shareInstance.defaultWalletAccount ?? WalletAccount()
                 wallet.name = name
-                WalletDataService.shareInstance.addWallet(account: wallet )
+                WalletDataService.shareInstance.updateWallet(account: wallet )
                 DispatchQueue.main.async {
                     self.view.hideLoading()
                     let section = self.form.sectionBy(tag: "ManageWalletHeaderView")

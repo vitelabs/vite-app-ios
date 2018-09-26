@@ -16,16 +16,16 @@ final class SystemViewModel: NSObject {
     var isSwitchPwdBehaviorRelay =  BehaviorRelay<Bool>(value: WalletDataService.shareInstance.defaultWalletAccount?.isSwitchPwd ?? false)
     var isSwitchTouchIdBehaviorRelay =  BehaviorRelay<Bool>(value: WalletDataService.shareInstance.defaultWalletAccount?.isSwitchTouchId ?? false)
     var isSwitchTransferBehaviorRelay =  BehaviorRelay<Bool>(value: WalletDataService.shareInstance.defaultWalletAccount?.isSwitchTransfer ?? true)
+    var isSwitchTransferHideBehaviorRelay =  BehaviorRelay<Bool>(value: WalletDataService.shareInstance.defaultWalletAccount?.isSwitchTransfer ?? true)
 
     override init() {
         super.init()
-//        mnemonicWordsList.accept(mnemonicWordsStr.value.components(separatedBy: " "))
-//
-//        fetchNewMnemonicWordsAction = Action {
-//            self.mnemonicWordsStr.accept(Mnemonic.randomGenerator(strength: .strong, language: .english))
-//            self.mnemonicWordsList.accept(self.mnemonicWordsStr.value.components(separatedBy: " "))
-//            return Observable.empty()
-//        }
-    }
-}
 
+        if BiometryAuthenticationType.current == .none {
+            isSwitchTransferHideBehaviorRelay.accept(true)
+        } else {
+            isSwitchTransferHideBehaviorRelay.accept(false)
+        }
+    }
+
+}

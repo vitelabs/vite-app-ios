@@ -8,19 +8,12 @@
 
 import UIKit
 import Eureka
-import SafariServices
-
-struct Preferences: Codable {
-
-}
-
-enum NotificationChanged {
-    case state(isEnabled: Bool)
-    case preferences(Preferences)
-}
+import Vite_keystore
+import LocalAuthentication
 
 class SystemViewController: FormViewController {
     fileprivate var viewModel: SystemViewModel
+    private var context: LAContext!
 
     init() {
         self.viewModel = SystemViewModel()
@@ -49,8 +42,6 @@ class SystemViewController: FormViewController {
         }
     }
 
-    var didChange: ((_ change: NotificationChanged) -> Void)?
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NavigationBarStyle.configStyle(navigationBarStyle, viewController: self)
@@ -58,7 +49,6 @@ class SystemViewController: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self._setupView()
     }
 
@@ -117,8 +107,11 @@ class SystemViewController: FormViewController {
             }.cellUpdate({ (cell, _) in
                     cell.textLabel?.textColor = Colors.cellTitleGray
                     cell.textLabel?.font = Fonts.descFont
-                }) .onChange { [unowned self] row in
-                    self.didChange?(.state(isEnabled: row.value ?? false))
+                }) .onChange { row  in
+                    guard let enabled = row.value else { return }
+                    let wallet =  WalletDataService.shareInstance.defaultWalletAccount ?? WalletAccount()
+                    wallet.isSwitchPwd = enabled
+                    WalletDataService.shareInstance.updateWallet(account: wallet )
             }
 
             <<< SwitchRow("systemPageCellLoginFaceId") {
@@ -131,7 +124,8 @@ class SystemViewController: FormViewController {
                     cell.textLabel?.textColor = Colors.cellTitleGray
                     cell.textLabel?.font = Fonts.descFont
                 }) .onChange { [unowned self] row in
-                    self.didChange?(.state(isEnabled: row.value ?? false))
+                    guard let enabled = row.value else { return }
+                    self.showBiometricAuth("systemPageCellLoginFaceId", value: enabled)
             }
 
             <<< SwitchRow("systemPageCellTransferFaceId") {
@@ -140,16 +134,62 @@ class SystemViewController: FormViewController {
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
             }.cellUpdate({ (cell, _) in
-                    cell.textLabel?.textColor = Colors.cellTitleGray
-                    cell.textLabel?.font = Fonts.descFont
+                   cell.textLabel?.textColor = Colors.cellTitleGray
+                   cell.textLabel?.font = Fonts.descFont
+                   cell.isHidden = self.viewModel.isSwitchTransferHideBehaviorRelay.value
                 }) .onChange { [unowned self] row in
-                    self.didChange?(.state(isEnabled: row.value ?? false))
+                    guard let enabled = row.value else { return }
+                    self.showBiometricAuth("systemPageCellTransferFaceId", value: enabled)
             }
 
         self.tableView.snp.makeConstraints { (make) in
             make.top.equalTo((self.navigationTitleView?.snp.bottom)!)
             make.left.right.bottom.equalTo(self.view)
         }
+    }
+}
+
+extension SystemViewController {
+    private func showBiometricAuth(_ tag: String, value: Bool) {
+        self.context = LAContext()
+        self.touchValidation(tag, value: value)
+    }
+
+    private func canEvaluatePolicy() -> Bool {
+        var authError: NSError?
+        let result = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError)
+        if result == false {
+            self.view.showToast(str: authError?.localizedDescription ?? "")
+        }
+        return result
+    }
+    private func touchValidation(_ tag: String, value: Bool) {
+        guard canEvaluatePolicy() else {
+            self.changeSwitchRowValue(tag, value: false)
+            return
+        }
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "open switch") { [weak self] success, _ in
+            DispatchQueue.main.async {
+                guard let `self` = self else { return }
+                if success {
+                    let wallet =  WalletDataService.shareInstance.defaultWalletAccount ?? WalletAccount()
+                    if tag == "systemPageCellLoginFaceId" {
+                          wallet.isSwitchTouchId = value
+                    } else {
+                          wallet.isSwitchTransfer = value
+                    }
+                    WalletDataService.shareInstance.updateWallet(account: wallet )
+                } else {
+                     self.changeSwitchRowValue(tag, value: false)
+                }
+            }
+        }
+    }
+
+    func changeSwitchRowValue (_ tag: String, value: Bool) {
+        let row = self.form.rowBy(tag: tag) as! SwitchRow
+        row.value = value
+        row.updateCell()
     }
 }
 
