@@ -17,4 +17,5 @@ extension Notification.Name {
     static let createAccountSuccess = NSNotification.Name(rawValue: "Vite_createAccountSuccess")
     static let logoutDidFinish = NSNotification.Name(rawValue: "Vite_logoutDidFinish")
     static let loginDidFinish = NSNotification.Name(rawValue: "Vite_loginDidFinish")
+    static let unlockDidSuccess = NSNotification.Name(rawValue: "Vite_unlockDidSuccess")
 }

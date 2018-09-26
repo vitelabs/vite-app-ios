@@ -44,7 +44,7 @@ public class ImageCell: Cell<Bool>, CellType {
         }
         self.height = { 60 }
 
-        self.downSeparatorLine.isHidden = false
+        self.bottomSeparatorLine.isHidden = false
     }
 
     public override func update() {

@@ -28,11 +28,5 @@ final class BackupMnemonicVM: NSObject {
             self.mnemonicWordsList.accept(self.mnemonicWordsStr.value.components(separatedBy: " "))
             return Observable.empty()
         }
-
-    }
-
-    func fetchNewMnemonicWords() {
-        self.mnemonicWordsStr.accept(Mnemonic.randomGenerator(strength: .strong, language: .english))
-        self.mnemonicWordsList.accept(mnemonicWordsStr.value.components(separatedBy: " "))
     }
 }

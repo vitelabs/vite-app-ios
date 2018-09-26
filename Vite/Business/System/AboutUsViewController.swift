@@ -71,7 +71,7 @@ extension AboutUsViewController {
             <<< LabelRow("aboutUsPageCellBlockHeight") {
                 $0.title =  R.string.localizable.aboutUsPageCellBlockHeight.key.localized()
                 $0.cell.height = { 60 }
-                $0.cell.downSeparatorLine.isHidden = false
+                $0.cell.bottomSeparatorLine.isHidden = false
             }.onCellSelection({ [unowned self] _, _  in
 //TODO  fetch data
                 })
@@ -80,7 +80,7 @@ extension AboutUsViewController {
                 $0.title =  R.string.localizable.aboutUsPageCellVersion.key.localized()
                 $0.value = String.getAppVersion()
                 $0.cell.height = { 60 }
-                $0.cell.downSeparatorLine.isHidden = false
+                $0.cell.bottomSeparatorLine.isHidden = false
             }.onCellSelection({ [unowned self] _, _  in
 
                 self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)

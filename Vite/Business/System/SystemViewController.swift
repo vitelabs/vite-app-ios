@@ -8,18 +8,22 @@
 
 import UIKit
 import Eureka
-import SafariServices
-
-struct Preferences: Codable {
-
-}
-
-enum NotificationChanged {
-    case state(isEnabled: Bool)
-    case preferences(Preferences)
-}
+import Vite_keystore
+import LocalAuthentication
 
 class SystemViewController: FormViewController {
+    fileprivate var viewModel: SystemViewModel
+    private var context: LAContext!
+
+    init() {
+        self.viewModel = SystemViewModel()
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     var navigationBarStyle = NavigationBarStyle.default
     var navigationTitleView: NavigationTitleView? {
         didSet {
@@ -43,11 +47,8 @@ class SystemViewController: FormViewController {
         NavigationBarStyle.configStyle(navigationBarStyle, viewController: self)
     }
 
-    var didChange: ((_ change: NotificationChanged) -> Void)?
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self._setupView()
     }
 
@@ -93,45 +94,52 @@ class SystemViewController: FormViewController {
             <<< ImageRow("systemPageCellChangeLanguage") {
                 $0.cell.titleLab.text = R.string.localizable.systemPageCellChangeLanguage.key.localized()
                 $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
-                $0.cell.downSeparatorLine.isHidden = false
+                $0.cell.bottomSeparatorLine.isHidden = false
             }.onCellSelection({ [unowned self] _, _  in
                 self.showChangeLanguageList(isSettingPage: true)
             })
 
             <<< SwitchRow("systemPageCellLoginPwd") {
                 $0.title = R.string.localizable.systemPageCellLoginPwd.key.localized()
-                $0.value = true
                 $0.cell.height = { 60 }
-               $0.cell.downSeparatorLine.isHidden = false
+                $0.cell.bottomSeparatorLine.isHidden = false
+                $0.value = self.viewModel.isSwitchPwdBehaviorRelay.value
             }.cellUpdate({ (cell, _) in
                     cell.textLabel?.textColor = Colors.cellTitleGray
                     cell.textLabel?.font = Fonts.descFont
-                }) .onChange { [unowned self] row in
-                    self.didChange?(.state(isEnabled: row.value ?? false))
+                }) .onChange { row  in
+                    guard let enabled = row.value else { return }
+                    let wallet =  WalletDataService.shareInstance.defaultWalletAccount ?? WalletAccount()
+                    wallet.isSwitchPwd = enabled
+                    WalletDataService.shareInstance.updateWallet(account: wallet )
             }
 
             <<< SwitchRow("systemPageCellLoginFaceId") {
                 $0.title = R.string.localizable.systemPageCellLoginFaceId.key.localized()
-                $0.value = true
+                $0.value = self.viewModel.isSwitchTouchIdBehaviorRelay.value
                 $0.cell.height = { 60 }
-               $0.cell.downSeparatorLine.isHidden = false
+               $0.cell.bottomSeparatorLine.isHidden = false
+                $0.hidden = "$systemPageCellLoginPwd == false"
             }.cellUpdate({ (cell, _) in
                     cell.textLabel?.textColor = Colors.cellTitleGray
                     cell.textLabel?.font = Fonts.descFont
                 }) .onChange { [unowned self] row in
-                    self.didChange?(.state(isEnabled: row.value ?? false))
+                    guard let enabled = row.value else { return }
+                    self.showBiometricAuth("systemPageCellLoginFaceId", value: enabled)
             }
 
             <<< SwitchRow("systemPageCellTransferFaceId") {
                 $0.title = R.string.localizable.systemPageCellTransferFaceId.key.localized()
-                $0.value = true
+                $0.value = self.viewModel.isSwitchTransferBehaviorRelay.value
                 $0.cell.height = { 60 }
-               $0.cell.downSeparatorLine.isHidden = false
+                $0.cell.bottomSeparatorLine.isHidden = false
             }.cellUpdate({ (cell, _) in
-                    cell.textLabel?.textColor = Colors.cellTitleGray
-                    cell.textLabel?.font = Fonts.descFont
+                   cell.textLabel?.textColor = Colors.cellTitleGray
+                   cell.textLabel?.font = Fonts.descFont
+                   cell.isHidden = self.viewModel.isSwitchTransferHideBehaviorRelay.value
                 }) .onChange { [unowned self] row in
-                    self.didChange?(.state(isEnabled: row.value ?? false))
+                    guard let enabled = row.value else { return }
+                    self.showBiometricAuth("systemPageCellTransferFaceId", value: enabled)
             }
 
         self.tableView.snp.makeConstraints { (make) in
@@ -139,7 +147,53 @@ class SystemViewController: FormViewController {
             make.left.right.bottom.equalTo(self.view)
         }
     }
+}
 
+extension SystemViewController {
+    private func showBiometricAuth(_ tag: String, value: Bool) {
+        self.context = LAContext()
+        self.touchValidation(tag, value: value)
+    }
+
+    private func canEvaluatePolicy() -> Bool {
+        var authError: NSError?
+        let result = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError)
+        if result == false {
+            self.view.showToast(str: authError?.localizedDescription ?? "")
+        }
+        return result
+    }
+    private func touchValidation(_ tag: String, value: Bool) {
+        guard canEvaluatePolicy() else {
+            self.changeSwitchRowValue(tag, value: false)
+            return
+        }
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "open switch") { [weak self] success, _ in
+            DispatchQueue.main.async {
+                guard let `self` = self else { return }
+                if success {
+                    let wallet =  WalletDataService.shareInstance.defaultWalletAccount ?? WalletAccount()
+                    if tag == "systemPageCellLoginFaceId" {
+                          wallet.isSwitchTouchId = value
+                    } else {
+                          wallet.isSwitchTransfer = value
+                    }
+                    WalletDataService.shareInstance.updateWallet(account: wallet )
+                } else {
+                     self.changeSwitchRowValue(tag, value: false)
+                }
+            }
+        }
+    }
+
+    func changeSwitchRowValue (_ tag: String, value: Bool) {
+        let row = self.form.rowBy(tag: tag) as! SwitchRow
+        row.value = value
+        row.updateCell()
+    }
+}
+
+extension SystemViewController {
     @objc func logoutBtnAction() {
         self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
         DispatchQueue.global().async {
