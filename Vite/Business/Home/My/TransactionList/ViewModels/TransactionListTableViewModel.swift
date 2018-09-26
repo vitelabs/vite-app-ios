@@ -24,7 +24,6 @@ final class TransactionListTableViewModel: TransactionListTableViewModelType {
     fileprivate let transactions: BehaviorRelay<[TransactionViewModelType]>
     fileprivate let address: Address
     fileprivate let disposeBag = DisposeBag()
-    fileprivate let accountProvider = AccountProvider(server: RPCServer.shared)
 
     fileprivate let viewModels = NSMutableArray()
     fileprivate var index = 0
@@ -64,32 +63,34 @@ final class TransactionListTableViewModel: TransactionListTableViewModelType {
     }
 
     private func getTransactions(completion: @escaping (Error?) -> Void) {
-        _ = accountProvider.getTransactions(address: address, hash: hash, count: 10).done({ [weak self] (transactions, hasMore) in
-            guard let `self` = self else { return }
 
-            self.getTokensIfNeeded(ids: transactions.map { $0.tokenId }, completion: { (error) in
-
-                if let error = error {
-                    self.loadingStatus = .no
-                    completion(error)
-                } else {
-                    self.hash = transactions.last?.hash
-                    self.viewModels.addObjects(from: transactions.map {
-                        TransactionViewModel(transaction: $0)
-                    })
-                    self.transactions.accept(self.viewModels as! [TransactionViewModelType])
-                    self.hasMore.accept(hasMore)
-                    self.loadingStatus = .no
-                    completion(nil)
-                }
-                print("end getTransactions")
-            })
-        }).catch({ [weak self] (error) in
+        Provider.instance.getTransactions(address: address, hash: hash, count: 10) { [weak self] result in
             guard let `self` = self else { return }
-            print("end getTransactions \(error)")
-            self.loadingStatus = .no
-            completion(error)
-        })
+            switch result {
+            case .success((let transactions, let hasMore)):
+                self.getTokensIfNeeded(ids: transactions.map { $0.tokenId }, completion: { (error) in
+
+                    if let error = error {
+                        self.loadingStatus = .no
+                        completion(error)
+                    } else {
+                        self.hash = transactions.last?.hash
+                        self.viewModels.addObjects(from: transactions.map {
+                            TransactionViewModel(transaction: $0)
+                        })
+                        self.transactions.accept(self.viewModels as! [TransactionViewModelType])
+                        self.hasMore.accept(hasMore)
+                        self.loadingStatus = .no
+                        completion(nil)
+                    }
+                    print("end getTransactions")
+                })
+            case .error(let error):
+                print("end getTransactions \(error)")
+                self.loadingStatus = .no
+                completion(error)
+            }
+        }
     }
 
     private func getTokensIfNeeded(ids: [String], completion: @escaping (Error?) -> Void) {
@@ -100,12 +101,16 @@ final class TransactionListTableViewModel: TransactionListTableViewModelType {
             if let _ = TokenCacheService.instance.tokenForId(id) {
                 getTokensIfNeeded(ids: tokenIds, completion: completion)
             } else {
-                _ = accountProvider.getTokenForId(id).done({ [weak self] token in
-                    TokenCacheService.instance.updateTokensIfNeeded([token])
-                    self?.getTokensIfNeeded(ids: tokenIds, completion: completion)
-                }).catch({ (error) in
-                    completion(error)
-                })
+                Provider.instance.getTokenForId(id) { [weak self] result in
+                    guard let `self` = self else { return }
+                    switch result {
+                    case .success(let token):
+                        TokenCacheService.instance.updateTokensIfNeeded([token])
+                        self.getTokensIfNeeded(ids: tokenIds, completion: completion)
+                    case .error(let error):
+                        completion(error)
+                    }
+                }
             }
         } else {
             completion(nil)

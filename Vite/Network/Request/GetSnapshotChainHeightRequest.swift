@@ -1,5 +1,5 @@
 //
-//  SnapshotChainHeightRequest.swift
+//  GetSnapshotChainHeightRequest.swift
 //  Vite
 //
 //  Created by Stone on 2018/9/6.
@@ -9,7 +9,7 @@
 import Foundation
 import JSONRPCKit
 
-struct SnapshotChainHeightRequest: JSONRPCKit.Request {
+struct GetSnapshotChainHeightRequest: JSONRPCKit.Request {
     typealias Response = String
 
     var method: String {

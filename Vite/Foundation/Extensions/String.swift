@@ -51,4 +51,16 @@ extension String {
     func pwdEncrypt() -> String {
         return self.md5().md5()
     }
+
+    func substring(to: Int) -> String {
+        return (self as NSString).substring(to: to) as String
+    }
+
+    func substring(from: Int) -> String {
+        return (self as NSString).substring(from: from) as String
+    }
+
+    func toHexString() -> String {
+        return hex2Bytes.toHexString()
+    }
 }

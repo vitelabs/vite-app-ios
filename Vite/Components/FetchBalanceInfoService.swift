@@ -20,7 +20,7 @@ final class FetchBalanceInfoService {
     fileprivate var balanceInfos: BehaviorRelay<[WalletHomeBalanceInfoViewModelType]>! = nil
 
     fileprivate let disposeBag = DisposeBag()
-    fileprivate let accountProvider = AccountProvider(server: RPCServer.shared)
+    fileprivate let provider = Provider(server: RPCServer.shared)
 
     fileprivate var address: Address! = nil
     fileprivate var fileHelper: FileHelper! = nil
@@ -53,8 +53,11 @@ final class FetchBalanceInfoService {
     func getchBalanceInfo() {
         guard HDWalletManager.instance.hasAccount else { return }
 
-        _ = accountProvider.getBalanceInfos(address: self.address)
-            .done({ [weak self] balanceInfos in
+        Provider.instance.getBalanceInfos(address: self.address) { [weak self] result in
+            guard let `self` = self else { return }
+
+            switch result {
+            case .success(let balanceInfos):
                 let allBalanceInfos = BalanceInfo.mergeBalanceInfos(balanceInfos)
 
                 let tokens = allBalanceInfos.map { $0.token }
@@ -62,22 +65,18 @@ final class FetchBalanceInfoService {
 
                 if let data = allBalanceInfos.toJSONString()?.data(using: .utf8) {
                     do {
-                        try self?.fileHelper.writeData(data, relativePath: FetchBalanceInfoService.saveKey)
+                        try self.fileHelper.writeData(data, relativePath: FetchBalanceInfoService.saveKey)
                     } catch let error {
                         assert(false, error.localizedDescription)
                     }
 
                 }
-                self?.balanceInfos.accept(allBalanceInfos.map { WalletHomeBalanceInfoViewModel(balanceInfo: $0) })
-                print("\((#file as NSString).lastPathComponent)[\(#line)], \(#function): \(self!.address.description)")
-            })
-            .catch({ (error) in
-                print("\((#file as NSString).lastPathComponent)[\(#line)], \(#function): 🤯\(error)")
-            })
-            .finally({ [weak self] in
-                if let `self` = self {
-                    GCD.delay(5) { self.getchBalanceInfo() }
-                }
-            })
+                self.balanceInfos.accept(allBalanceInfos.map { WalletHomeBalanceInfoViewModel(balanceInfo: $0) })
+            case .error:
+                break
+            }
+            print("\((#file as NSString).lastPathComponent)[\(#line)], \(#function): \(result)")
+            GCD.delay(5) { self.getchBalanceInfo() }
+        }
     }
 }
