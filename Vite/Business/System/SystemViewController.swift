@@ -20,6 +20,17 @@ enum NotificationChanged {
 }
 
 class SystemViewController: FormViewController {
+    fileprivate var viewModel: SystemViewModel
+
+    init() {
+        self.viewModel = SystemViewModel()
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     var navigationBarStyle = NavigationBarStyle.default
     var navigationTitleView: NavigationTitleView? {
         didSet {
@@ -38,12 +49,12 @@ class SystemViewController: FormViewController {
         }
     }
 
+    var didChange: ((_ change: NotificationChanged) -> Void)?
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NavigationBarStyle.configStyle(navigationBarStyle, viewController: self)
     }
-
-    var didChange: ((_ change: NotificationChanged) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,16 +104,16 @@ class SystemViewController: FormViewController {
             <<< ImageRow("systemPageCellChangeLanguage") {
                 $0.cell.titleLab.text = R.string.localizable.systemPageCellChangeLanguage.key.localized()
                 $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
-                $0.cell.downSeparatorLine.isHidden = false
+                $0.cell.bottomSeparatorLine.isHidden = false
             }.onCellSelection({ [unowned self] _, _  in
                 self.showChangeLanguageList(isSettingPage: true)
             })
 
             <<< SwitchRow("systemPageCellLoginPwd") {
                 $0.title = R.string.localizable.systemPageCellLoginPwd.key.localized()
-                $0.value = true
                 $0.cell.height = { 60 }
-               $0.cell.downSeparatorLine.isHidden = false
+                $0.cell.bottomSeparatorLine.isHidden = false
+                $0.value = self.viewModel.isSwitchPwdBehaviorRelay.value
             }.cellUpdate({ (cell, _) in
                     cell.textLabel?.textColor = Colors.cellTitleGray
                     cell.textLabel?.font = Fonts.descFont
@@ -112,9 +123,10 @@ class SystemViewController: FormViewController {
 
             <<< SwitchRow("systemPageCellLoginFaceId") {
                 $0.title = R.string.localizable.systemPageCellLoginFaceId.key.localized()
-                $0.value = true
+                $0.value = self.viewModel.isSwitchTouchIdBehaviorRelay.value
                 $0.cell.height = { 60 }
-               $0.cell.downSeparatorLine.isHidden = false
+               $0.cell.bottomSeparatorLine.isHidden = false
+                $0.hidden = "$systemPageCellLoginPwd == false"
             }.cellUpdate({ (cell, _) in
                     cell.textLabel?.textColor = Colors.cellTitleGray
                     cell.textLabel?.font = Fonts.descFont
@@ -124,9 +136,9 @@ class SystemViewController: FormViewController {
 
             <<< SwitchRow("systemPageCellTransferFaceId") {
                 $0.title = R.string.localizable.systemPageCellTransferFaceId.key.localized()
-                $0.value = true
+                $0.value = self.viewModel.isSwitchTransferBehaviorRelay.value
                 $0.cell.height = { 60 }
-               $0.cell.downSeparatorLine.isHidden = false
+                $0.cell.bottomSeparatorLine.isHidden = false
             }.cellUpdate({ (cell, _) in
                     cell.textLabel?.textColor = Colors.cellTitleGray
                     cell.textLabel?.font = Fonts.descFont
@@ -139,7 +151,9 @@ class SystemViewController: FormViewController {
             make.left.right.bottom.equalTo(self.view)
         }
     }
+}
 
+extension SystemViewController {
     @objc func logoutBtnAction() {
         self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
         DispatchQueue.global().async {

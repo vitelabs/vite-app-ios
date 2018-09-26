@@ -9,35 +9,35 @@
 import UIKit
 import SnapKit
 
-private var kdownSeparatorLineKey: UInt8 = 0
+private var kbottomSeparatorLineKey: UInt8 = 0
 extension UITableViewCell: CellSeparatorLine {
 
-    var downSeparatorLine: LineView {
+    var bottomSeparatorLine: LineView {
         get {
-            if let downSeparatorLine = objc_getAssociatedObject(self, &kdownSeparatorLineKey) as? LineView {
-                return downSeparatorLine
+            if let bottomSeparatorLine = objc_getAssociatedObject(self, &kbottomSeparatorLineKey) as? LineView {
+                return bottomSeparatorLine
             }
-            let downSeparatorLine = LineView.init(direction: .horizontal)
-            downSeparatorLine.isHidden = true
-            downSeparatorLine.backgroundColor = Colors.lineGray
-            downSeparatorLine.alpha = 1.0
-            self.addSubview(downSeparatorLine)
-            downSeparatorLine.snp.makeConstraints({ (make) in
+            let bottomSeparatorLine = LineView.init(direction: .horizontal)
+            bottomSeparatorLine.isHidden = true
+            bottomSeparatorLine.backgroundColor = Colors.lineGray
+            bottomSeparatorLine.alpha = 1.0
+            self.addSubview(bottomSeparatorLine)
+            bottomSeparatorLine.snp.makeConstraints({ (make) in
                 make.left.equalTo(self).offset(24)
                 make.right.equalTo(self).offset(-24)
                 make.bottom.equalTo(self).offset(-1)
                 make.height.equalTo(1)
             })
-            objc_setAssociatedObject(self, &kdownSeparatorLineKey, downSeparatorLine, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            return downSeparatorLine
+            objc_setAssociatedObject(self, &kbottomSeparatorLineKey, bottomSeparatorLine, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            return bottomSeparatorLine
         }
         set {
-            objc_setAssociatedObject(self, &kdownSeparatorLineKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &kbottomSeparatorLineKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 
 }
 
 protocol CellSeparatorLine: class {
-    var downSeparatorLine: LineView { get }
+    var bottomSeparatorLine: LineView { get }
 }

@@ -83,6 +83,7 @@ class LocalizationService {
         } else {
             return NSLocalizedString(key, comment: key)
         }
+
     }
 
     fileprivate func setLanguage(_ newLanguage: String) -> Bool {

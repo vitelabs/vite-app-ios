@@ -52,6 +52,8 @@
 		4CC4F451214CCB5B0068DA53 /* TitlePasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4F450214CCB5B0068DA53 /* TitlePasswordInputView.swift */; };
 		4CC75382215A2D740009CA0E /* CellSeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC75381215A2D740009CA0E /* CellSeparatorLine.swift */; };
 		4CC75386215A56950009CA0E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC75385215A56950009CA0E /* Constants.swift */; };
+		4CC75388215B3AAF0009CA0E /* TitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC75387215B3AAF0009CA0E /* TitleTextView.swift */; };
+		4CC7538B215B5C2D0009CA0E /* SystemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC7538A215B5C2D0009CA0E /* SystemViewModel.swift */; };
 		4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE42452124553B0080E92B /* AppDelegate.swift */; };
 		4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCE424C2124553C0080E92B /* Assets.xcassets */; };
 		4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE425A2124553C0080E92B /* ViteTests.swift */; };
@@ -227,6 +229,8 @@
 		4CC4F450214CCB5B0068DA53 /* TitlePasswordInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePasswordInputView.swift; sourceTree = "<group>"; };
 		4CC75381215A2D740009CA0E /* CellSeparatorLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSeparatorLine.swift; sourceTree = "<group>"; };
 		4CC75385215A56950009CA0E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4CC75387215B3AAF0009CA0E /* TitleTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextView.swift; sourceTree = "<group>"; };
+		4CC7538A215B5C2D0009CA0E /* SystemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemViewModel.swift; sourceTree = "<group>"; };
 		4CCE42422124553B0080E92B /* Vite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCE42452124553B0080E92B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CCE424C2124553C0080E92B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -430,6 +434,7 @@
 		4C2284B9214906D6003E9907 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				4CC75389215B5C090009CA0E /* VM */,
 				4C9AFD8A214FBB69005B12C2 /* View */,
 				4C2284BA214906F0003E9907 /* SystemViewController.swift */,
 				4C9AFD5B214F433C005B12C2 /* AboutUsViewController.swift */,
@@ -498,6 +503,7 @@
 				4C84D91B2145277C001B6EBD /* PasswordInputView.swift */,
 				4C2284B42148BB2A003E9907 /* ImageCell.swift */,
 				8EE468F5214A494800807D2C /* TitleTextFieldView.swift */,
+				4CC75387215B3AAF0009CA0E /* TitleTextView.swift */,
 				4C745493214D0A9D0070F7AB /* TitleBtnView.swift */,
 				4C9AFD55214E241F005B12C2 /* IconBtnView.swift */,
 				8EE468F7214A4E5300807D2C /* PrimaryButton.swift */,
@@ -653,6 +659,14 @@
 				4CFD6CC02154BF4C00437F33 /* FetchWelfareCardView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4CC75389215B5C090009CA0E /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				4CC7538A215B5C2D0009CA0E /* SystemViewModel.swift */,
+			);
+			path = VM;
 			sourceTree = "<group>";
 		};
 		4CCE42392124553B0080E92B = {
@@ -1360,6 +1374,7 @@
 				8EE468EE214A09CA00807D2C /* AddressManagerTableViewModel.swift in Sources */,
 				8E6F3E48214513EC003CDFC2 /* WalletHomeBalanceInfoTableViewModelType.swift in Sources */,
 				4C2A191D2151323400C51CE8 /* CreateNameAndPwdView.swift in Sources */,
+				4CC75388215B3AAF0009CA0E /* TitleTextView.swift in Sources */,
 				8E6F3E1F2142280F003CDFC2 /* BaseTableViewController.swift in Sources */,
 				8EE468F0214A277500807D2C /* AddressManageAddressCell.swift in Sources */,
 				4C84D94121452836001B6EBD /* BackupMnemonicVM.swift in Sources */,
@@ -1448,6 +1463,7 @@
 				4C2284C321493087003E9907 /* ExportMnemonicViewController.swift in Sources */,
 				4CC75386215A56950009CA0E /* Constants.swift in Sources */,
 				8EE468F2214A2AB000807D2C /* AddressManageGenerateAddressCell.swift in Sources */,
+				4CC7538B215B5C2D0009CA0E /* SystemViewModel.swift in Sources */,
 				8E56FC8521466C3200A68823 /* TransactionListViewController.swift in Sources */,
 				8EE46912214BCF2600807D2C /* GetUnconfirmedTransactionRequest.swift in Sources */,
 				8E6F3DFD2141012A003CDFC2 /* SnapshotChainProvider.swift in Sources */,
