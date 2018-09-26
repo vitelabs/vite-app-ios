@@ -8,6 +8,12 @@
 import Vite_keystore
 import CryptoSwift
 
+public enum loginType {
+    case none
+    case password
+    case biometry
+}
+
 public class WalletDataService: NSObject {
     static let shareInstance = WalletDataService()
 
@@ -25,6 +31,20 @@ public class WalletDataService: NSObject {
         defaultWalletAccount = walletStorage.walletAccounts.first
         // 为了保存新增的uuid，读取之后就先保存一下
         walletStorage.storeAllWallets()
+    }
+
+    public func isLockWallet() -> loginType {
+        let isSwitchPwd = self.defaultWalletAccount?.isSwitchPwd ?? false
+        let isSwitchTouchId =  self.defaultWalletAccount?.isSwitchTouchId ?? false
+        if  isSwitchPwd {
+            if isSwitchTouchId {
+                return .biometry
+            } else {
+                return .password
+            }
+        } else {
+            return .none
+        }
     }
 
     public func isExistWallet() -> Bool {

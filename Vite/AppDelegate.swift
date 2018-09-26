@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    lazy var lockWindow: UIWindow = {
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        return window
+    }()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         startBaiduMobileStat()
         handleNotification()
@@ -44,13 +49,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }.disposed(by: rx.disposeBag)
 
         //change language in setting page
-        NotificationCenter.default.rx
-            .notification(.languageChangedInSetting)
+        let languageChangedInSetting = NotificationCenter.default.rx.notification(.languageChangedInSetting)
+        let unlockDidSuccess = NotificationCenter.default.rx.notification(.unlockDidSuccess)
+
+        Observable.of(languageChangedInSetting, unlockDidSuccess)
+            .merge()
             .takeUntil(self.rx.deallocated)
-            .subscribe(onNext: { [weak self] (_) in
+            .subscribe {[weak self] (_) in
                 guard let `self` = self else { return }
                 self.goHomePage()
-            }).disposed(by: rx.disposeBag)
+            }.disposed(by: rx.disposeBag)
     }
 
     func handleRootVC() {
@@ -65,14 +73,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let nav = BaseNavigationController(rootViewController: rootVC)
             window?.rootViewController = nav
         } else {
-            self.goHomePage()
-            return
+            if WalletDataService.shareInstance.isLockWallet() == .none {
+                self.goHomePage()
+                return
+            } else {
+                self.goLockPage()
+                return
+            }
+
         }
         window?.makeKeyAndVisible()
     }
 
+    func goLockPage() {
+        
+        let rootVC: UIViewController
+        if WalletDataService.shareInstance.isLockWallet() == .password {
+            rootVC = LockPwdViewController()
+        } else {
+            rootVC = LockViewController()
+        }
+        let nav = BaseNavigationController(rootViewController: rootVC)
+        self.lockWindow.rootViewController = nav
+        self.lockWindow.makeKeyAndVisible()
+    }
+
     func goHomePage() {
-    HDWalletManager.instance.updateAccount(WalletDataService.shareInstance.defaultWalletAccount!)
+//    HDWalletManager.instance.updateAccount(WalletDataService.shareInstance.defaultWalletAccount!)
         let rootVC = HomeViewController()
         window?.rootViewController = rootVC
          window?.makeKeyAndVisible()

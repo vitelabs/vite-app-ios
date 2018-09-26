@@ -21,6 +21,10 @@
 "create.account" = "创建账户";
 "import.account" = "恢复账户";
 
+/* Lock */
+"lock.page.pwd.btn.title" = "使用密码登录";
+"lock.page.fingerprint.btn.title" = "再次唤起验证";
+
 /* create */
 "create.page.title" = "创建钱包账户";
 "create.page.tf.title" = "账户名";

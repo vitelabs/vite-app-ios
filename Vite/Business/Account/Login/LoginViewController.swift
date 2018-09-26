@@ -30,11 +30,6 @@ class LoginViewController: BaseViewController {
         super.viewDidLoad()
         kas_activateAutoScrollingForView(view)
         self._setupView()
-        self._bindViewModel()
-    }
-
-    private func _bindViewModel() {
-
     }
 
     lazy var logoImgView: UIImageView = {
