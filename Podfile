@@ -21,6 +21,9 @@ target 'Vite' do
   pod 'MJRefresh'
   pod 'KMNavigationBarTransition'
 
+  #request
+  pod 'SwiftyJSON'
+
   #statistics
   pod 'BaiduMobStat'
 

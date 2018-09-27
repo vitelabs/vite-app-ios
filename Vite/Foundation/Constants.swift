@@ -13,4 +13,6 @@ public struct Constants {
     public static let supportEmail = "info@vite.org"
     //baidu  statistics
     public static let baiduMobileStat = "e74c7f32c0"
+    //vite  centralized  host
+    public static let viteCentralizedHost = "http://132.232.138.139:8080"
 }

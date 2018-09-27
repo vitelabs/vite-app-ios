@@ -59,6 +59,7 @@ PODS:
   - SipHash (1.2.2)
   - SnapKit (4.0.1)
   - SwiftLint (0.27.0)
+  - SwiftyJSON (4.2.0)
   - Then (2.4.0)
   - Toast-Swift (3.0.1)
   - Vite-keystore (0.0.1):
@@ -93,6 +94,7 @@ DEPENDENCIES:
   - RxSwift (~> 4.0)
   - SnapKit (~> 4.0.0)
   - SwiftLint
+  - SwiftyJSON
   - Then
   - Toast-Swift (~> 3.0.1)
   - Vite-keystore (from `../vite-keystore-ios`)
@@ -129,6 +131,7 @@ SPEC REPOS:
     - SipHash
     - SnapKit
     - SwiftLint
+    - SwiftyJSON
     - Then
     - Toast-Swift
 
@@ -175,10 +178,11 @@ SPEC CHECKSUMS:
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   Vite-keystore: 1370cda4689863da3117174f318b14fb656ade55
 
-PODFILE CHECKSUM: 89522ad45336f0998d88dfe81cbf6a53e6527018
+PODFILE CHECKSUM: c9357fea2242880bb068c9109623d457e910d1a1
 
 COCOAPODS: 1.5.3
