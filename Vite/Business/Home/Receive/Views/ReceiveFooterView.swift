@@ -39,10 +39,17 @@ class ReceiveFooterView: UIView {
 
         noteTitleTextFieldView.textField.kas_setReturnAction(.done(block: {
             $0.resignFirstResponder()
-        }))
+        }), delegate: self)
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension ReceiveFooterView: UITextFieldDelegate {
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return InputLimitsHelper.allowText(textField.text ?? "", shouldChangeCharactersIn: range, replacementString: string, maxCount: 180)
     }
 }

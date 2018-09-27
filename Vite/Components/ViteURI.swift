@@ -10,8 +10,7 @@ import Foundation
 import BigInt
 
 enum ViteURI {
-    case address(address: Address)
-    case transfer(address: Address, tokenId: String?, amount: BigInt?, data: String?)
+    case transfer(address: Address, tokenId: String?, amountString: String?, decimalsString: String?, data: String?)
 }
 
 extension ViteURI {
@@ -24,13 +23,31 @@ extension ViteURI {
         case data = "data"
     }
 
+    func amountToBigInt() -> BigInt? {
+        switch self {
+        case .transfer(_, let tokenId, let  amountString, let decimalsString, _):
+            guard let amountString = amountString else { return nil }
+
+            let tokenId = tokenId ?? Token.Currency.vite.rawValue
+            guard let token = TokenCacheService.instance.tokenForId(tokenId) else { return nil }
+
+            var decimals = token.decimals
+            if let decimalsString = decimalsString {
+                guard let bigInt = type(of: self).scientificNotationStringToBigInt(decimalsString, decimals: 0), let d = Int(bigInt.description) else { return nil }
+                let e = Int(log10(Double(d)))
+                decimals = e
+            }
+
+            return type(of: self).scientificNotationStringToBigInt(amountString, decimals: decimals)
+
+        }
+    }
+
     func string() -> String {
         var string = Key.scheme.rawValue
 
         switch self {
-        case .address(let address):
-            string = "\(string)\(address.description)?"
-        case .transfer(let address, let tokenId, let amount, let data):
+        case .transfer(let address, let tokenId, let amountString, let decimalsString, let data):
 
             string = "\(string)\(address.description)?"
 
@@ -38,12 +55,26 @@ extension ViteURI {
                 string.append(key: Key.tokenId.rawValue, value: tokenId)
             }
 
-            if let amount = amount, amount != 0 {
-                string.append(key: Key.amount.rawValue, value: amount.description)
+            if let amountString = amountString {
+                string.append(key: Key.amount.rawValue, value: amountString)
             }
 
-            let custom = CharacterSet(charactersIn: ":-@/?&=\\\"").inverted
-            if let data = data, !data.isEmpty, let note = data.addingPercentEncoding(withAllowedCharacters: custom) {
+            if let decimalsString = decimalsString {
+                string.append(key: Key.decimals.rawValue, value: decimalsString)
+            }
+
+            if let data = data, !data.isEmpty {
+                var note = data
+                note = note.replacingOccurrences(of: "%", with: "%25")
+                note = note.replacingOccurrences(of: ":", with: "%3A")
+                note = note.replacingOccurrences(of: "-", with: "%2D")
+                note = note.replacingOccurrences(of: "@", with: "%40")
+                note = note.replacingOccurrences(of: "/", with: "%2F")
+                note = note.replacingOccurrences(of: "?", with: "%3F")
+                note = note.replacingOccurrences(of: "&", with: "%26")
+                note = note.replacingOccurrences(of: "=", with: "%3D")
+                note = note.replacingOccurrences(of: "\\", with: "%5C")
+                note = note.replacingOccurrences(of: "\"", with: "%22")
                 string.append(key: Key.data.rawValue, value: "\"\(note)\"")
             }
         }
@@ -59,65 +90,114 @@ extension ViteURI {
 
     static func parser(string: String) -> ViteURI? {
         guard string.hasPrefix(Key.scheme.rawValue) else { return nil }
-        let string = string.substring(range: NSRange(location: Key.scheme.rawValue.count, length: string.count - Key.scheme.rawValue.count))
+        let string = String(string.dropFirst(Key.scheme.rawValue.count))
         let array = string.components(separatedBy: "?")
 
         guard let addressString = array.first, Address.isValid(string: addressString) else { return nil }
-
         let address = Address(string: addressString)
-        guard let parameterString = array.last, !parameterString.isEmpty else { return ViteURI.address(address: address) }
 
-        let parameterArray = parameterString.components(separatedBy: "&")
+        var parameterString = ""
+        if array.count == 1 {
+            parameterString = ""
+        } else if array.count == 2 {
+            parameterString = array[1]
+        } else {
+            return nil
+        }
 
         var dic = [String: String]()
 
-        for parameter in parameterArray {
-            let array = parameter.components(separatedBy: "=")
-            guard array.count == 2, let key = array.first, let value = array.last else { return nil }
-            dic[key] = value
+        if !parameterString.isEmpty {
+            let parameterArray = parameterString.components(separatedBy: "&")
+            for parameter in parameterArray {
+                let array = parameter.components(separatedBy: "=")
+                guard array.count == 2, let key = array.first, let value = array.last else { return nil }
+                dic[key] = value
+            }
         }
 
         let tokenId = dic[Key.tokenId.rawValue] ?? Token.Currency.vite.rawValue
 
         let amountString = dic[Key.amount.rawValue]
-        var amount: BigInt?
         if let amountString = amountString {
-            guard let a = scientificNotationStringToBigInt(amountString) else { return nil }
-            amount = a
+            guard checkFormatScientificNotationString(amountString) else { return nil }
         }
 
-        guard let token = TokenCacheService.instance.tokenForId(tokenId) else { return nil }
         let decimalsString = dic[Key.decimals.rawValue]
-        var decimals = BigInt(10).power(token.decimals)
         if let decimalsString = decimalsString {
-            guard let a = scientificNotationStringToBigInt(decimalsString) else { return nil }
-            decimals = a
-        }
-
-        if let a = amount {
-            amount = a * decimals
+            guard checkFormatScientificNotationString(decimalsString) else { return nil }
         }
 
         var data: String?
         if let dataString = dic[Key.data.rawValue],
             !dataString.isEmpty,
             dataString.hasPrefix("\""),
-            dataString.hasSuffix("\""),
-            let s = dataString.removingPercentEncoding {
-            data = s.substring(range: NSRange(location: 1, length: s.count - 2))
+            dataString.hasSuffix("\"") {
+
+            var note = dataString
+            note = note.replacingOccurrences(of: "%25", with: "%")
+            note = note.replacingOccurrences(of: "%3A", with: ":")
+            note = note.replacingOccurrences(of: "%2D", with: "-")
+            note = note.replacingOccurrences(of: "%40", with: "@")
+            note = note.replacingOccurrences(of: "%2F", with: "/")
+            note = note.replacingOccurrences(of: "%3F", with: "?")
+            note = note.replacingOccurrences(of: "%26", with: "&")
+            note = note.replacingOccurrences(of: "%3D", with: "=")
+            note = note.replacingOccurrences(of: "%5C", with: "\\")
+            note = note.replacingOccurrences(of: "%22", with: "\"")
+            note = String(note.dropFirst())
+            data = String(note.dropLast())
         }
 
-        return ViteURI.transfer(address: address, tokenId: tokenId, amount: amount, data: data)
+        // check token
+        guard let _ = TokenCacheService.instance.tokenForId(tokenId) else { return nil }
+
+        return ViteURI.transfer(address: address, tokenId: tokenId, amountString: amountString, decimalsString: decimalsString, data: data)
     }
 
-    static func scientificNotationStringToBigInt(_ string: String) -> BigInt? {
+    static func checkFormatScientificNotationString(_ string: String) -> Bool {
+        var str = string
+
+        if str.hasPrefix("+") {
+            str = String(str.dropFirst())
+        } else if str.hasPrefix("-") {
+            str = String(str.dropFirst())
+        }
+
+        var front: String!
+
+        do {
+            let array = str.lowercased().components(separatedBy: "e")
+            if array.count == 1 {
+                front = array.first
+            } else if array.count == 2 {
+                front = array.first
+                guard let _ = Int(array.last!) else { return false }
+            } else {
+                return false
+            }
+        }
+
+        do {
+            let array = front.components(separatedBy: ".")
+            if array.count == 1 {
+                return array[0].isAllDigits
+            } else if array.count == 2 {
+                return array[0].isAllDigits && array[0].isAllDigits
+            } else {
+                return false
+            }
+        }
+    }
+
+    static func scientificNotationStringToBigInt(_ string: String, decimals: Int) -> BigInt? {
         var str = string
         var symbol = BigInt(1)
 
         if str.hasPrefix("+") {
-            str = str.substring(from: 1)
+            str = String(str.dropFirst())
         } else if str.hasPrefix("-") {
-            str = str.substring(from: 1)
+            str = String(str.dropFirst())
             symbol *= BigInt(-1)
         }
 
@@ -137,13 +217,27 @@ extension ViteURI {
             }
         }
 
-        guard let bigInt = front.toBigInt(decimals: exponent) else { return nil }
+        guard let bigInt = front.toBigInt(decimals: exponent + decimals) else { return nil }
         return symbol * bigInt
     }
 }
 
 extension String {
+
     fileprivate mutating func append(key: String, value: String) {
         self = "\(self)\(key)=\(value)&"
     }
+
+    fileprivate var isAllDigits: Bool {
+        var isAll = true
+        let numbers = Character("0")...Character("9")
+
+        for eachChar in self where !numbers.contains(eachChar) {
+            isAll = false
+            break
+        }
+
+        return isAll
+    }
+
 }

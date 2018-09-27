@@ -44,19 +44,8 @@ extension String {
         return version
     }
 
-    func substring(range: NSRange) -> String {
-        return (self as NSString).substring(with: range) as String
-    }
-
     func pwdEncrypt() -> String {
         return self.md5().md5()
     }
 
-    func substring(to: Int) -> String {
-        return (self as NSString).substring(to: to) as String
-    }
-
-    func substring(from: Int) -> String {
-        return (self as NSString).substring(from: from) as String
-    }
 }

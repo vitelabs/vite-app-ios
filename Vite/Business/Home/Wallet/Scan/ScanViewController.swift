@@ -165,10 +165,9 @@ class ScanViewController: BaseViewController {
         guard let result = result else { return }
         if let uri = ViteURI.parser(string: result) {
             switch uri {
-            case .address:
-                showAlert(string: result)
-            case .transfer(let address, let tokenId, let amount, let note):
+            case .transfer(let address, let tokenId, _, _, let note):
                 let tokenId = tokenId ?? Token.Currency.vite.rawValue
+                let amount = uri.amountToBigInt()
                 let sendViewController = SendViewController(tokenId: tokenId, address: address, amount: amount, note: note)
                 guard var viewControllers = navigationController?.viewControllers else { return }
                 _ = viewControllers.popLast()

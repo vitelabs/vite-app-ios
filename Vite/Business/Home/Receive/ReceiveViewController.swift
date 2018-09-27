@@ -30,7 +30,7 @@ class ReceiveViewController: BaseViewController {
     init(token: Token, style: Style) {
         self.token = token
         self.style = style
-        self.uriBehaviorRelay = BehaviorRelay(value: ViteURI.transfer(address: bag.address, tokenId: token.id, amount: nil, data: nil))
+        self.uriBehaviorRelay = BehaviorRelay(value: ViteURI.transfer(address: bag.address, tokenId: token.id, amountString: nil, decimalsString: nil, data: nil))
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -105,8 +105,6 @@ class ReceiveViewController: BaseViewController {
             m.bottom.lessThanOrEqualTo(view).offset(-24)
         }
 
-
-
         contentView.addSubview(headerView)
         contentView.addSubview(qrcodeView)
 
@@ -154,6 +152,7 @@ class ReceiveViewController: BaseViewController {
                                             alertController.addTextField(configurationHandler: { [weak self] in
                                                 $0.keyboardType = .decimalPad
                                                 $0.text = self?.amountBehaviorRelay.value
+                                                $0.delegate = self
                                             })
                     })
                 }.disposed(by: rx.disposeBag)
@@ -164,14 +163,14 @@ class ReceiveViewController: BaseViewController {
                     if let amount = $0 {
                         return "\(amount) \(self.token.symbol)"
                     } else {
-                        return R.string.localizable.receivePageTokenNameLabel(self.token.name)
+                        return R.string.localizable.receivePageTokenNameLabel(self.token.symbol)
                     }
                 }
-                .drive(middleView.tokenNameLabel.rx.text).disposed(by: rx.disposeBag)
+                .drive(middleView.tokenSymbolLabel.rx.text).disposed(by: rx.disposeBag)
 
             Observable.combineLatest(amountBehaviorRelay.asObservable(), footerView.noteTitleTextFieldView.textField.rx.text.asObservable())
                 .map {
-                    ViteURI.transfer(address: self.bag.address, tokenId: self.token.id, amount: BigInt($0 ?? ""), data: $1)
+                    ViteURI.transfer(address: self.bag.address, tokenId: self.token.id, amountString: $0, decimalsString: "1e\(self.token.decimals)", data: $1)
                 }
                 .bind(to: uriBehaviorRelay).disposed(by: rx.disposeBag)
         }
@@ -218,7 +217,7 @@ class ReceiveViewController: BaseViewController {
         let qrcodeView = UIImageView(image: self.qrcodeView.imageView.screenshot)
         let footerView = ReceiveShareFooterView(text: self.footerView.noteTitleTextFieldView.textField.text)
 
-        middleView.tokenNameLabel.text = self.middleView.tokenNameLabel.text
+        middleView.tokenSymbolLabel.text = self.middleView.tokenSymbolLabel.text
 
         contentView.addSubview(headerView)
         contentView.addSubview(qrcodeView)
@@ -262,5 +261,14 @@ class ReceiveViewController: BaseViewController {
         guard let image = backView.screenshot else { return }
         let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         present(activityViewController, animated: true)
+    }
+}
+
+extension ReceiveViewController: UITextFieldDelegate {
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let (ret, text) = InputLimitsHelper.allowDecimalPointWithDigitalText(textField.text ?? "", shouldChangeCharactersIn: range, replacementString: string, decimals: 8)
+        textField.text = text
+        return ret
     }
 }

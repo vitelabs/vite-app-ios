@@ -13,16 +13,16 @@ import RxCocoa
 final class WalletHomeBalanceInfoViewModel: WalletHomeBalanceInfoViewModelType {
 
     let token: Token
-    let name: String
-    let balance: String
-    let unconfirmed: String
+    let symbol: String
+    let balance: Balance
+    let unconfirmed: Balance
 //    let unconfirmedCount: Int
 
     init(balanceInfo: BalanceInfo) {
         self.token = balanceInfo.token
-        self.name = balanceInfo.token.name
-        self.balance = balanceInfo.balance.amountShort(decimals: balanceInfo.token.decimals)
-        self.unconfirmed = balanceInfo.unconfirmedBalance.amountShort(decimals: balanceInfo.token.decimals)
+        self.symbol = balanceInfo.token.symbol
+        self.balance = balanceInfo.balance
+        self.unconfirmed = balanceInfo.unconfirmedBalance
 //        self.unconfirmedCount = balanceInfo.unconfirmedCount
     }
 }

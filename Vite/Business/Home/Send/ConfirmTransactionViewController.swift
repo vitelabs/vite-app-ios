@@ -55,7 +55,7 @@ class ConfirmTransactionViewController: UIViewController {
 
         confirmView.confirmButton.rx.tap
             .bind { [weak self] in
-                BiometryAuthenticationManager.shared.authenticate(reason: "验证信息", completion: { (success, _) in
+                BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.confirmTransactionPageBiometryConfirmReason(), completion: { (success, _) in
                     guard success else { return }
                     self?.procese(success)
                 })
@@ -76,18 +76,21 @@ class ConfirmTransactionViewController: UIViewController {
             }).disposed(by: rx.disposeBag)
 
         confirmView.passwordTextField.rx.text
-            .filter({ (string) -> Bool in
-                return  string?.count == 6
-            })
-            .subscribe(onNext: { [weak self] (_) in
-                self?.procese(true)
-            }).disposed(by: rx.disposeBag)
+            .bind { [weak self] password in
+                if let password = password, password.count == 6 {
+                    self?.procese(WalletDataService.shareInstance.verifyWalletPassword(pwd: password))
+                }
+            }.disposed(by: rx.disposeBag)
     }
 
     func procese(_ result: Bool) {
-        self.dismiss(animated: false, completion: {
-            self.completion(result)
-        })
+        if result {
+            self.dismiss(animated: false, completion: {
+                self.completion(result)
+            })
+        } else {
+            Toast.show(R.string.localizable.confirmTransactionPageToastPasswordError())
+        }
     }
 
 }

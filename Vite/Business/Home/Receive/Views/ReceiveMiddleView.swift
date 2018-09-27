@@ -10,7 +10,7 @@ import UIKit
 
 class ReceiveMiddleView: UIView {
 
-    let tokenNameLabel = UILabel().then {
+    let tokenSymbolLabel = UILabel().then {
         $0.textAlignment = .center
         $0.font = UIFont.boldSystemFont(ofSize: 18)
         $0.textColor = UIColor(netHex: 0x24272B)
@@ -20,8 +20,8 @@ class ReceiveMiddleView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        addSubview(tokenNameLabel)
-        tokenNameLabel.snp.makeConstraints { (m) in
+        addSubview(tokenSymbolLabel)
+        tokenSymbolLabel.snp.makeConstraints { (m) in
             m.top.equalTo(self).offset(20)
             m.left.equalTo(self).offset(24)
             m.right.equalTo(self).offset(-24)

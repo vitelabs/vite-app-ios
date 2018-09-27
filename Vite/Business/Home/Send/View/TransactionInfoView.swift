@@ -13,7 +13,7 @@ import SnapKit
 final class TransactionInfoView: UIView {
 
     let titleLabel = UILabel().then {
-        $0.text = LocalizationStr("Address")
+        $0.text = R.string.localizable.confirmTransactionAddressTitle()
         $0.font = UIFont.systemFont(ofSize: 14)
         $0.textColor = UIColor.init(netHex: 0x3E4A59)
     }
@@ -34,6 +34,7 @@ final class TransactionInfoView: UIView {
     let amountLabel = UILabel().then {
         $0.font = UIFont.systemFont(ofSize: 48)
         $0.textColor = UIColor.init(netHex: 0x24272B)
+        $0.adjustsFontSizeToFitWidth = true
     }
 
     let tokenLabel = UILabel().then {
@@ -48,6 +49,9 @@ final class TransactionInfoView: UIView {
         addSubview(backgroundView)
         addSubview(amountLabel)
         addSubview(tokenLabel)
+
+        let layoutGuide = UILayoutGuide()
+        addLayoutGuide(layoutGuide)
 
         titleLabel.snp.makeConstraints { (make) in
             make.top.leading.equalTo(self)
@@ -66,16 +70,22 @@ final class TransactionInfoView: UIView {
             make.bottom.equalTo(self)
         }
 
-        amountLabel.snp.makeConstraints { (make) in
-            make.center.equalTo(backgroundView)
-            make.leading.greaterThanOrEqualTo(backgroundView.snp.leading).offset(10)
-            make.trailing.lessThanOrEqualTo(backgroundView.snp.trailing).offset(-10)
+        layoutGuide.snp.makeConstraints { (m) in
+            m.center.equalTo(backgroundView)
+            m.leading.greaterThanOrEqualTo(backgroundView.snp.leading).offset(10)
+            m.trailing.lessThanOrEqualTo(backgroundView.snp.trailing).offset(-10)
         }
 
+        amountLabel.snp.makeConstraints { (make) in
+            make.centerY.equalTo(layoutGuide)
+            make.leading.equalTo(layoutGuide.snp.leading)
+        }
+
+        tokenLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         tokenLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(amountLabel.snp.trailing)
             make.top.equalTo(amountLabel.snp.top)
-            make.trailing.lessThanOrEqualTo(backgroundView.snp.trailing)
+            make.trailing.equalTo(layoutGuide.snp.trailing)
         }
     }
 
