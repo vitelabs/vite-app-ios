@@ -36,11 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func handleNotification() {
-        let a = NotificationCenter.default.rx.notification(.createAccountSuccess)
         let b = NotificationCenter.default.rx.notification(.logoutDidFinish)
-        let c = NotificationCenter.default.rx.notification(.loginDidFinish)
-
-        Observable.of(a, b, c)
+        Observable.of(b)
             .merge()
             .takeUntil(self.rx.deallocated)
             .subscribe {[weak self] (_) in
@@ -48,11 +45,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.handleRootVC()
             }.disposed(by: rx.disposeBag)
 
-        //change language in setting page
+        let createAccountSuccess = NotificationCenter.default.rx.notification(.createAccountSuccess)
+        let loginDidFinish = NotificationCenter.default.rx.notification(.loginDidFinish)
         let languageChangedInSetting = NotificationCenter.default.rx.notification(.languageChangedInSetting)
         let unlockDidSuccess = NotificationCenter.default.rx.notification(.unlockDidSuccess)
 
-        Observable.of(languageChangedInSetting, unlockDidSuccess)
+        Observable.of(createAccountSuccess, loginDidFinish, languageChangedInSetting, unlockDidSuccess)
             .merge()
             .takeUntil(self.rx.deallocated)
             .subscribe {[weak self] (_) in
@@ -80,16 +78,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.goLockPage()
                 return
             }
-
         }
         window?.makeKeyAndVisible()
     }
 
     func goLockPage() {
-        
-        let rootVC: UIViewController
+        let rootVC: BaseViewController
         if WalletDataService.shareInstance.isLockWallet() == .password {
             rootVC = LockPwdViewController()
+            rootVC.automaticallyShowDismissButton = false
         } else {
             rootVC = LockViewController()
         }
@@ -99,7 +96,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func goHomePage() {
-//    HDWalletManager.instance.updateAccount(WalletDataService.shareInstance.defaultWalletAccount!)
         let rootVC = HomeViewController()
         window?.rootViewController = rootVC
          window?.makeKeyAndVisible()

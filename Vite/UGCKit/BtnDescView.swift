@@ -12,7 +12,7 @@ import SnapKit
 class BtnDescView: UIView {
 
     lazy var btn: UIButton = {
-        let btn = UIButton.init(style: .whiteWithoutShadow)
+        let btn = UIButton()
         return btn
     }()
 
@@ -35,7 +35,7 @@ class BtnDescView: UIView {
         }
 
         titleLabel.snp.makeConstraints { (m) in
-            m.top.equalTo(btn.snp.bottom).offset(20)
+            m.top.equalTo(btn.snp.bottom).offset(18)
             m.left.right.equalTo(self)
             m.height.equalTo(20)
         }
@@ -44,6 +44,4 @@ class BtnDescView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
-

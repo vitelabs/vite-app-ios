@@ -56,7 +56,7 @@ extension LockViewController {
         self.view.addSubview(self.logoImgView)
         self.logoImgView.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.view)
-            make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop).offset(80)
+            make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop).offset(10)
             make.width.height.equalTo(84)
         }
 
@@ -103,7 +103,6 @@ extension LockViewController {
         }
         context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "open switch") { [weak self] success, _ in
             DispatchQueue.main.async {
-                guard let `self` = self else { return }
                 if success {
                         NotificationCenter.default.post(name: .unlockDidSuccess, object: nil)
                 } else {
