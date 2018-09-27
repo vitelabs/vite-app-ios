@@ -60,9 +60,7 @@ extension UITextField {
         weak var textField: UITextField!
 
         override func forwardingTarget(for aSelector: Selector!) -> Any? {
-            if self.responds(to: aSelector) {
-                return self
-            } else if let delegate = self.delegate, delegate.responds(to: aSelector) {
+            if let delegate = self.delegate, delegate.responds(to: aSelector) {
                 return delegate
             } else {
                 return nil

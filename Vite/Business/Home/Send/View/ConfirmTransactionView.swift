@@ -20,14 +20,14 @@ class ConfirmTransactionView: UIView {
         didSet {
             var view: UIView!
             if type == .password {
-                titleLabel.text = "请输入支付密码"
+                titleLabel.text = R.string.localizable.confirmTransactionPageUsePasswordTitle()
                 confirmButton.removeFromSuperview()
                 self.addSubview(passwordTextField)
                 enterPasswordButton.isHidden = true
                 passwordTextField.becomeFirstResponder()
                 view = passwordTextField
             } else {
-                titleLabel.text = "支付"
+                titleLabel.text = R.string.localizable.confirmTransactionPageTitle()
                 passwordTextField.removeFromSuperview()
                 self.addSubview(confirmButton)
                 view = confirmButton
@@ -46,13 +46,13 @@ class ConfirmTransactionView: UIView {
     }
 
     let titleLabel = UILabel().then {
-        $0.text = "支付"
+        $0.text = R.string.localizable.confirmTransactionPageTitle()
         $0.font = UIFont.boldSystemFont(ofSize: 17)
     }
 
     let enterPasswordButton = UIButton().then {
         $0.setTitleColor(UIColor.init(netHex: 0x007AFF), for: .normal)
-        $0.setTitle("使用密码", for: .normal)
+        $0.setTitle(R.string.localizable.confirmTransactionPageUsePassword(), for: .normal)
         $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     }
 
@@ -72,7 +72,7 @@ class ConfirmTransactionView: UIView {
 
     let confirmButton = UIButton().then {
         $0.backgroundColor = UIColor.init(netHex: 0x007AFF)
-        $0.setTitle("确认支付", for: .normal)
+        $0.setTitle(R.string.localizable.confirmTransactionPageConfirmButton(), for: .normal)
         $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         $0.layer.cornerRadius = 2.0
     }

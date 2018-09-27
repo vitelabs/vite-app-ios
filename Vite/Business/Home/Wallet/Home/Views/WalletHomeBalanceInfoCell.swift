@@ -18,7 +18,7 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
     fileprivate let colorView = UIImageView()
     fileprivate let iconImageView = UIImageView()
 
-    fileprivate let nameLabel = UILabel().then {
+    fileprivate let symbolLabel = UILabel().then {
         $0.font = UIFont.boldSystemFont(ofSize: 16)
         $0.textColor = UIColor.white
     }
@@ -74,7 +74,7 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
         contentView.addSubview(highlightedMaskView)
 
         colorView.addSubview(iconImageView)
-        colorView.addSubview(nameLabel)
+        colorView.addSubview(symbolLabel)
         colorView.addSubview(arrowView)
 
         whiteView.addSubview(colorView)
@@ -111,7 +111,7 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
             m.size.equalTo(CGSize(width: 32, height: 32))
         }
 
-        nameLabel.snp.makeConstraints { (m) in
+        symbolLabel.snp.makeConstraints { (m) in
             m.centerY.equalTo(colorView)
             m.left.equalTo(iconImageView.snp.right).offset(10)
         }
@@ -120,7 +120,7 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
         arrowView.setContentCompressionResistancePriority(.required - 1, for: .horizontal)
         arrowView.snp.makeConstraints { (m) in
             m.centerY.equalTo(colorView)
-            m.left.equalTo(nameLabel.snp.right).offset(10)
+            m.left.equalTo(symbolLabel.snp.right).offset(10)
             m.right.equalTo(colorView).offset(-10)
         }
 
@@ -155,9 +155,9 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
     func bind(viewModel: WalletHomeBalanceInfoViewModelType) {
 
         viewModel.token.icon.putIn(iconImageView)
-        nameLabel.text = viewModel.name
-        balanceLabel.text = viewModel.balance
-        unconfirmedLabel.text = R.string.localizable.walletHomeUnconfirmedTitle(viewModel.unconfirmed)
+        symbolLabel.text = viewModel.symbol
+        balanceLabel.text = viewModel.balance.amountShort(decimals: viewModel.token.decimals)
+        unconfirmedLabel.text = R.string.localizable.walletHomeUnconfirmedTitle(viewModel.unconfirmed.amountShort(decimals: viewModel.token.decimals))
 
         DispatchQueue.main.async {
             self.colorView.backgroundColor = GradientColor(.leftToRight, frame: self.colorView.frame, colors: viewModel.token.backgroundColors)

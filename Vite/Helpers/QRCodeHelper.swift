@@ -12,7 +12,7 @@ struct QRCodeHelper {
     static func createQRCode(string: String, completion: @escaping (UIImage?) -> Void) {
         DispatchQueue.global().async {
             let context = CIContext()
-            let data = string.data(using: String.Encoding.ascii)
+            let data = string.data(using: .utf8)
             guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return }
             filter.setValue(data, forKey: "inputMessage")
             guard let output = filter.outputImage?.transformed(by: CGAffineTransform(scaleX: 7, y: 7)),
