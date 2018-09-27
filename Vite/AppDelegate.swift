@@ -99,10 +99,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func goHomePage() {
-//    HDWalletManager.instance.updateAccount(WalletDataService.shareInstance.defaultWalletAccount!)
+        HDWalletManager.instance.updateAccount(WalletDataService.shareInstance.defaultWalletAccount!)
         let rootVC = HomeViewController()
         window?.rootViewController = rootVC
-         window?.makeKeyAndVisible()
+        window?.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
