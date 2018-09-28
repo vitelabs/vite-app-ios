@@ -8,7 +8,6 @@
 
 import Foundation
 import Vite_keystore
-import libEd25519Blake2b
 
 struct Address: CustomStringConvertible {
 
