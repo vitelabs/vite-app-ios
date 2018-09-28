@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FetchBalanceInfoService.instance.start()
         //fetch app config
         AppConfigVM().fetchVersionInfo()
+        WXApi.registerApp(Constants.weixinAppID)
         return true
     }
 

@@ -15,4 +15,8 @@ public struct Constants {
     public static let baiduMobileStat = "e74c7f32c0"
     //vite  centralized  host
     public static let viteCentralizedHost = "http://132.232.138.139:8080"
+    //weixinAppID
+    public static let weixinAppID = "wx7e5f2476e871c244"
+    //weixin Official Accounts AppID
+    public static let officialAccountsAppID = "gh_50e071040bca"
 }

@@ -158,7 +158,15 @@ extension AboutUsTableBottomView: UICollectionViewDataSource {
 extension AboutUsTableBottomView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let dic = dataList[indexPath.row]
-        WebHandler.open(URL.init(string: dic["web"]!)!)
+        let name =  dic["img"]!
+        if name == "icon_button_wechat" {
+            let req = JumpToBizProfileReq()
+            req.username = Constants.officialAccountsAppID
+            req.profileType = Int32(WXBizProfileType_Normal.rawValue)
+            WXApi.send(req)
+        } else {
+            WebHandler.open(URL.init(string: dic["web"]!)!)
+        }
     }
 }
 

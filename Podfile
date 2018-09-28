@@ -21,6 +21,9 @@ target 'Vite' do
   pod 'MJRefresh'
   pod 'KMNavigationBarTransition'
 
+  #social
+  pod 'WechatOpenSDK'
+
   #request
   pod 'SwiftyJSON'
 

@@ -68,6 +68,7 @@ PODS:
     - KeychainSwift
     - ObjectMapper
     - TrezorCryptoEd25519WithBlake2b (~> 0.0.1)
+  - WechatOpenSDK (1.8.2)
 
 DEPENDENCIES:
   - Action
@@ -98,6 +99,7 @@ DEPENDENCIES:
   - Then
   - Toast-Swift (~> 3.0.1)
   - Vite-keystore (from `../vite-keystore-ios`)
+  - WechatOpenSDK
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -134,6 +136,7 @@ SPEC REPOS:
     - Then
     - Toast-Swift
     - TrezorCryptoEd25519WithBlake2b
+    - WechatOpenSDK
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -182,7 +185,8 @@ SPEC CHECKSUMS:
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
   Vite-keystore: 879526e1d8e9965ef6a696b98f8ff845d224dfdb
+  WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
 
-PODFILE CHECKSUM: c9357fea2242880bb068c9109623d457e910d1a1
+PODFILE CHECKSUM: 2075ba67c2e2708c28b1fd6e1ce08733b59c0b84
 
 COCOAPODS: 1.5.3
