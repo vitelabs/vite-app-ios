@@ -124,8 +124,19 @@
 "send.page.send.button.title" = "转账";
 "send.page.amount.toolbar.button.title" = "下一项";
 "send.page.toast.send.success" = "支付成功";
+"send.page.toast.address.error" = "收款地址格式错误";
+"send.page.toast.amount.error" = "账户余额不足";
 "send.page.not.enough.balance.alert.title" = "账户余额不足";
 "send.page.not.enough.balance.alert.button" = "取消交易";
+
+/* Confirm Transaction Page */
+"confirm.transaction.page.title" = "支付";
+"confirm.transaction.address.title" = "收款地址";
+"confirm.transaction.page.use.password" = "使用密码";
+"confirm.transaction.page.confirm.button" = "确认支付";
+"confirm.transaction.page.biometry.confirm.reason" = "验证信息";
+"confirm.transaction.page.use.password.title" = "请输入支付密码";
+"confirm.transaction.page.toast.password.error" = "密码错误";
 
 /* Receive Page */
 "Receive.page.title" = "收款";

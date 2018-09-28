@@ -58,7 +58,7 @@ final class KeyboardAutoScrollingObserver {
                 targetView.removeGestureRecognizer(keyboardTapGestureRecognizer)
             }
 
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTao(recognizer:)))
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap(recognizer:)))
             tapGesture.cancelsTouchesInView = false
             targetView.addGestureRecognizer(tapGesture)
             self.keyboardTapGestureRecognizer = tapGesture
@@ -116,7 +116,7 @@ final class KeyboardAutoScrollingObserver {
         }
     }
 
-    @objc func onTao(recognizer: UIGestureRecognizer) {
+    @objc func onTap(recognizer: UIGestureRecognizer) {
         guard let targetView = targetView else { return }
 
         if recognizer.state == UIGestureRecognizerState.ended {

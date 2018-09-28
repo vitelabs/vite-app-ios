@@ -18,6 +18,7 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
     let bag = HDWalletManager.instance.bag()
 
     var token: Token! = nil
+    var balance: Balance! = nil
 
     let tokenId: String
     let address: Address?
@@ -53,6 +54,11 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
         } else {
             getToken()
         }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        kas_activateAutoScrollingForView(contentView)
     }
 
     private func getToken() {
@@ -97,15 +103,14 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
     // headerView
     lazy var headerView = SendHeaderView(address: bag.address.description)
 
+    lazy var amountView = SendAmountView(amount: amount?.amountFull(decimals: token.decimals) ?? "", symbol: token.symbol)
+    lazy var noteView = SendNoteView(note: note ?? "", canEdit: noteCanEdit)
+
     private func setupView() {
 
         navigationTitleView = NavigationTitleView(title: R.string.localizable.sendPageTitle())
-        kas_activateAutoScrollingForView(contentView)
 
         let addressView = SendAddressView(address: address?.description ?? "")
-        let amountView = SendAmountView(amount: amount?.amountShort(decimals: token.decimals) ?? "", symbol: token.symbol)
-        let noteView = SendNoteView(note: note ?? "", canEdit: noteCanEdit)
-
         let sendButton = UIButton(style: .blue, title: R.string.localizable.sendPageSendButtonTitle())
 
         let shadowView = UIView().then {
@@ -173,26 +178,34 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
         let done: UIBarButtonItem = UIBarButtonItem(title: R.string.localizable.sendPageAmountToolbarButtonTitle(), style: .done, target: nil, action: nil)
         toolbar.items = [flexSpace, done]
         toolbar.sizeToFit()
-        done.rx.tap.bind { noteView.textField.becomeFirstResponder() }.disposed(by: rx.disposeBag)
+        done.rx.tap.bind { [weak self] in self?.noteView.textField.becomeFirstResponder() }.disposed(by: rx.disposeBag)
         amountView.textField.inputAccessoryView = toolbar
 
         addressView.textView.kas_setReturnAction(.next(responder: amountView.textField))
-        amountView.textField.kas_setReturnAction(.next(responder: noteView.textField))
+        amountView.textField.kas_setReturnAction(.next(responder: noteView.textField), delegate: self)
         noteView.textField.kas_setReturnAction(.done(block: {
             $0.resignFirstResponder()
-        }))
+        }), delegate: self)
 
         sendButton.rx.tap
             .bind { [weak self] in
                 guard let `self` = self else { return }
-                guard Address.isValid(string: addressView.textView.text ?? "") else { return }
-                guard let amountString = amountView.textField.text, let amount = amountString.toBigInt(decimals: self.token.decimals) else { return }
+                guard Address.isValid(string: addressView.textView.text ?? "") else {
+                    Toast.show(R.string.localizable.sendPageToastAddressError())
+                    return
+                }
+                guard let amountString = self.amountView.textField.text, let amount = amountString.toBigInt(decimals: self.token.decimals) else { return }
+                guard amount <= self.balance.value else {
+                    Toast.show(R.string.localizable.sendPageToastAmountError())
+                    return
+                }
+
                 let address = Address(string: addressView.textView.text!)
 
                 let confirmViewController = ConfirmTransactionViewController(confirmTypye: .biometry, address: address.description, token: self.token.symbol, amount: amountString, completion: { [weak self] (result) in
                     guard let `self` = self else { return }
                     if result {
-                        self.sendTransaction(bag: self.bag, toAddress: address, tokenId: self.tokenId, amount: amount, note: noteView.textField.text)
+                        self.sendTransaction(bag: self.bag, toAddress: address, tokenId: self.tokenId, amount: amount, note: self.noteView.textField.text)
                     }
                 })
                 self.present(confirmViewController, animated: false, completion: nil)
@@ -204,7 +217,8 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
         FetchBalanceInfoService.instance.balanceInfosDriver.drive(onNext: { [weak self] balanceInfos in
             guard let `self` = self else { return }
             for balanceInfo in balanceInfos where self.token.id == balanceInfo.token.id {
-                self.headerView.balanceLabel.text = balanceInfo.balance
+                self.balance = balanceInfo.balance
+                self.headerView.balanceLabel.text = balanceInfo.balance.amountFull(decimals: balanceInfo.token.decimals)
             }
         }).disposed(by: rx.disposeBag)
     }
@@ -227,6 +241,21 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
                     Toast.show(error.message)
                 }
             }
+        }
+    }
+}
+
+extension SendViewController: UITextFieldDelegate {
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == amountView.textField {
+            let (ret, text) = InputLimitsHelper.allowDecimalPointWithDigitalText(textField.text ?? "", shouldChangeCharactersIn: range, replacementString: string, decimals: 8)
+            textField.text = text
+            return ret
+        } else if textField == noteView.textField {
+            return InputLimitsHelper.allowText(textField.text ?? "", shouldChangeCharactersIn: range, replacementString: string, maxCount: 180)
+        } else {
+            return true
         }
     }
 }

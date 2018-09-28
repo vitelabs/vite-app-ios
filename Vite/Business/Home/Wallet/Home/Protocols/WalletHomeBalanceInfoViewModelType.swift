@@ -12,8 +12,8 @@ import UIKit
 protocol WalletHomeBalanceInfoViewModelType {
 
     var token: Token { get }
-    var name: String { get }
-    var balance: String { get }
-    var unconfirmed: String { get }
-    var unconfirmedCount: Int { get }
+    var symbol: String { get }
+    var balance: Balance { get }
+    var unconfirmed: Balance { get }
+//    var unconfirmedCount: Int { get }
 }
