@@ -26,17 +26,21 @@ class AppConfigVM: NSObject {
 
         let _ = viteAppServiceRequest.getAppSystemManageConfig().done { versions in
             guard let version = versions.first else { return }
-
             let dic = JSON.init(parseJSON: version)
 
-            let isOpen = dic["isOpen"].boolValue
-            if isOpen {
-                let isOpenFetchGift = dic["settingConfig"].dictionaryValue["isOpenFetchGift"]?.boolValue ?? true
-                UserDefaults.standard.set(isOpenFetchGift, forKey: UserDefaultsName.isOpenFetchGift)
+            if dic.dictionaryValue.isEmpty {
+                UserDefaults.standard.set(true, forKey: UserDefaultsName.isOpenFetchGift)
                 UserDefaults.standard.synchronize()
             } else {
-                UserDefaults.standard.set(false, forKey: UserDefaultsName.isOpenFetchGift)
-                UserDefaults.standard.synchronize()
+                let isOpen  = dic["isOpen"].boolValue
+                if isOpen {
+                    let isOpenFetchGift = dic["settingConfig"].dictionaryValue["isOpenFetchGift"]?.boolValue ?? true
+                    UserDefaults.standard.set(isOpenFetchGift, forKey: UserDefaultsName.isOpenFetchGift)
+                    UserDefaults.standard.synchronize()
+                } else {
+                    UserDefaults.standard.set(false, forKey: UserDefaultsName.isOpenFetchGift)
+                    UserDefaults.standard.synchronize()
+                }
             }
         }
         }

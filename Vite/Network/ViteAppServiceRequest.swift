@@ -48,7 +48,7 @@ final class ViteAppServiceRequest: NetworkProtocol {
                         let data = try? response.mapJSON()
                         let json = JSON(data!)
                         let dic = json.dictionaryValue["data"]
-                        seal.fulfill([ dic?.stringValue ?? "{}"])
+                        seal.fulfill([ dic?.stringValue ?? ""])
                     }
                 case .failure(let error):
                     seal.reject(error)
