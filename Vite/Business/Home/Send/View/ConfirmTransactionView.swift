@@ -11,24 +11,19 @@ import SnapKit
 
 class ConfirmTransactionView: UIView {
 
-    enum ConfirmType {
-        case password
-        case biometry
-    }
-
-    var type: ConfirmType = .password {
+    var type: ConfirmTransactionViewController.ConfirmTransactionType = .password {
         didSet {
             var view: UIView!
             if type == .password {
                 titleLabel.text = R.string.localizable.confirmTransactionPageUsePasswordTitle()
                 confirmButton.removeFromSuperview()
-                self.addSubview(passwordTextField)
+                self.addSubview(passwordView)
                 enterPasswordButton.isHidden = true
-                passwordTextField.becomeFirstResponder()
-                view = passwordTextField
+                _ = passwordView.becomeFirstResponder()
+                view = passwordView
             } else {
                 titleLabel.text = R.string.localizable.confirmTransactionPageTitle()
-                passwordTextField.removeFromSuperview()
+                passwordView.removeFromSuperview()
                 self.addSubview(confirmButton)
                 view = confirmButton
             }
@@ -77,9 +72,8 @@ class ConfirmTransactionView: UIView {
         $0.layer.cornerRadius = 2.0
     }
 
-    let passwordTextField = UITextField().then {
-        $0.backgroundColor = UIColor.init(netHex: 0xD3DFEF)
-        $0.keyboardType = .numberPad
+    let passwordView = PasswordInputView(type: .bordered).then {
+        $0.secretType = .point
     }
 
     override init(frame: CGRect) {

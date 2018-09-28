@@ -8,24 +8,36 @@
 
 import UIKit
 
-class ConfirmTransactionViewController: UIViewController {
+class ConfirmTransactionViewController: UIViewController, PasswordInputViewDelegate {
+
+    enum ConfirmTransactionType {
+        case password
+        case biometry
+    }
+
+    enum ConfirmTransactionResult {
+        case cancelled
+        case success
+        case biometryAuthFailed
+        case passwordAuthFailed
+    }
 
     let confirmView = ConfirmTransactionView()
 
-    let completion: (Bool) -> Void
+    let completion: (ConfirmTransactionResult) -> Void
 
-    init(confirmTypye: ConfirmTransactionView.ConfirmType,
+    init(confirmType: ConfirmTransactionType,
          address: String,
          token: String,
          amount: String,
-         completion:@escaping ((Bool) -> Void)) {
+         completion:@escaping ((ConfirmTransactionResult) -> Void)) {
         self.completion = completion
         super.init(nibName: nil, bundle: nil)
         self.modalPresentationStyle = .custom
         confirmView.tokenLabel.text = token
         confirmView.addressLabel.text = address
         confirmView.amountLabel.text = amount
-        confirmView.type = confirmTypye
+        confirmView.type = confirmType
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -41,6 +53,7 @@ class ConfirmTransactionViewController: UIViewController {
     func setupUI() {
         view.backgroundColor = UIColor.init(netHex: 0x000000, alpha: 0.4)
         view.addSubview(confirmView)
+        confirmView.passwordView.delegate = self
         confirmView.snp.makeConstraints { (m) in
             m.leading.trailing.bottom.equalToSuperview()
             m.height.equalTo(334)
@@ -50,14 +63,14 @@ class ConfirmTransactionViewController: UIViewController {
     func bind() {
         confirmView.closeButton.rx.tap
             .bind { [unowned self] in
-                self.procese(false)
+                self.procese(.cancelled)
             }.disposed(by: rx.disposeBag)
 
         confirmView.confirmButton.rx.tap
             .bind { [weak self] in
                 BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.confirmTransactionPageBiometryConfirmReason(), completion: { (success, _) in
                     guard success else { return }
-                    self?.procese(success)
+                    self?.procese(success ? .success : .biometryAuthFailed)
                 })
             }.disposed(by: rx.disposeBag)
 
@@ -67,6 +80,9 @@ class ConfirmTransactionViewController: UIViewController {
             }.disposed(by: rx.disposeBag)
 
         NotificationCenter.default.rx.notification(Notification.Name.UIKeyboardWillShow)
+            .filter { [weak self] _  in
+                return self?.confirmView.type == .password && self?.confirmView.transform == .identity
+            }
             .subscribe(onNext: {[weak self] (notification) in
                 let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25
                 let height =  (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
@@ -74,23 +90,17 @@ class ConfirmTransactionViewController: UIViewController {
                     self?.confirmView.transform = CGAffineTransform(translationX: 0, y: -height)
                 })
             }).disposed(by: rx.disposeBag)
-
-        confirmView.passwordTextField.rx.text
-            .bind { [weak self] password in
-                if let password = password, password.count == 6 {
-                    self?.procese(WalletDataService.shareInstance.verifyWalletPassword(pwd: password))
-                }
-            }.disposed(by: rx.disposeBag)
     }
 
-    func procese(_ result: Bool) {
-        if result {
-            self.dismiss(animated: false, completion: {
-                self.completion(result)
-            })
-        } else {
-            Toast.show(R.string.localizable.confirmTransactionPageToastPasswordError())
-        }
+    func inputFinish(passwordView: PasswordInputView, password: String) {
+        let result = WalletDataService.shareInstance.verifyWalletPassword(pwd: password)
+        self.procese(result ? .success : .passwordAuthFailed)
+    }
+
+    func procese(_ result: ConfirmTransactionResult) {
+        self.dismiss(animated: false, completion: {
+            self.completion(result)
+        })
     }
 
 }

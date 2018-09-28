@@ -39,7 +39,7 @@ final class TransactionInfoView: UIView {
 
     let tokenLabel = UILabel().then {
         $0.font = UIFont.systemFont(ofSize: 16)
-        $0.textColor = UIColor.init(netHex: 0x24272B)
+        $0.textColor = UIColor.init(netHex: 0x3E4A59)
     }
 
     override init(frame: CGRect) {
