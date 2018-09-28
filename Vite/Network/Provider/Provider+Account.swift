@@ -19,16 +19,7 @@ extension Provider {
             Session.send(request) { result in
                 switch result {
                 case .success(let (balanceInfos, unConfirmedInfos)):
-                    var ret = [BalanceInfo]()
-                    for balanceInfo in balanceInfos {
-                        var info = balanceInfo
-                        for unConfirmedInfo in unConfirmedInfos where balanceInfo.token.id == unConfirmedInfo.token.id {
-                            info.fill(unconfirmedBalance: unConfirmedInfo.unconfirmedBalance, unconfirmedCount: unConfirmedInfo.unconfirmedCount)
-                            break
-                        }
-                        ret.append(info)
-                    }
-                    seal.fulfill(ret)
+                    seal.fulfill(BalanceInfo.mergeBalanceInfos(balanceInfos, unConfirmedInfos: unConfirmedInfos))
                 case .failure(let error):
                     seal.reject(error)
                 }
@@ -118,6 +109,57 @@ extension Provider {
         getSnapshotChainHeight()
             .done({
                 completion(NetworkResult.success($0))
+            })
+            .catch({
+                completion(NetworkResult.wrapError($0))
+            })
+    }
+
+    func recoverAddresses(_ addresses: [Address], completion: @escaping (NetworkResult<Int>) -> Void) {
+        guard addresses.count == 10 else { fatalError() }
+
+        func makePromise(startIndex: Int) -> Promise<Int?> {
+            let start = startIndex
+            let mid = start + 1
+            let end = mid + 1
+            return Promise<Int?> { seal in
+                let request = ViteServiceRequest(for: server, batch: BatchFactory()
+                    .create(request1: GetBalanceInfosRequest(address: addresses[start].description),
+                            GetUnconfirmedInfosRequest(address: addresses[start].description),
+                            GetBalanceInfosRequest(address: addresses[mid].description),
+                            GetUnconfirmedInfosRequest(address: addresses[mid].description),
+                            GetBalanceInfosRequest(address: addresses[end].description),
+                            GetUnconfirmedInfosRequest(address: addresses[end].description)))
+                Session.send(request) { result in
+                    switch result {
+                    case .success(let (bStart, uStart, bMid, uMid, bEnd, uEnd)):
+                        let s = BalanceInfo.mergeBalanceInfos(bStart, unConfirmedInfos: uStart)
+                        let m = BalanceInfo.mergeBalanceInfos(bMid, unConfirmedInfos: uMid)
+                        let e = BalanceInfo.mergeBalanceInfos(bEnd, unConfirmedInfos: uEnd)
+                        if !e.isEmpty {
+                            seal.fulfill(end)
+                        } else if !m.isEmpty {
+                            seal.fulfill(mid)
+                        } else if !s.isEmpty {
+                            seal.fulfill(start)
+                        } else {
+                            seal.fulfill(nil)
+                        }
+                    case .failure(let error):
+                        seal.reject(error)
+                    }
+                }
+            }
+        }
+
+        let p123 = makePromise(startIndex: 1)
+        let p456 = makePromise(startIndex: 4)
+        let p789 = makePromise(startIndex: 7)
+
+        when(fulfilled: p123, p456, p789)
+            .done ({ (p1, p4, p7) in
+                let count = (p7 ?? p4 ?? p1 ?? 0) + 1
+                completion(NetworkResult.success(count))
             })
             .catch({
                 completion(NetworkResult.wrapError($0))

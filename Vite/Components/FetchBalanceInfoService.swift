@@ -22,6 +22,7 @@ final class FetchBalanceInfoService {
     fileprivate let disposeBag = DisposeBag()
     fileprivate let provider = Provider(server: RPCServer.shared)
 
+    fileprivate var uuid: String! = nil
     fileprivate var address: Address! = nil
     fileprivate var fileHelper: FileHelper! = nil
     fileprivate static let saveKey = "BalanceInfos"
@@ -30,7 +31,7 @@ final class FetchBalanceInfoService {
         HDWalletManager.instance.bagDriver.drive(onNext: { [weak self] in
             guard let `self` = self else { return }
             self.address = $0.address
-
+            self.uuid = UUID().uuidString
             self.fileHelper = FileHelper(.library, appending: "\(FileHelper.accountPathComponent)/\(self.address.description)")
 
             var oldBalanceInfos: [BalanceInfo]!
@@ -42,19 +43,28 @@ final class FetchBalanceInfoService {
                 oldBalanceInfos = BalanceInfo.mergeBalanceInfos([])
             }
 
-            self.balanceInfos = BehaviorRelay<[WalletHomeBalanceInfoViewModelType]>(value: oldBalanceInfos.map {
-                WalletHomeBalanceInfoViewModel(balanceInfo: $0)
-            })
-            self.getchBalanceInfo()
+            if self.balanceInfos == nil {
+                self.balanceInfos = BehaviorRelay<[WalletHomeBalanceInfoViewModelType]>(value: oldBalanceInfos.map {
+                    WalletHomeBalanceInfoViewModel(balanceInfo: $0)
+                })
+            } else {
+                self.balanceInfos.accept(oldBalanceInfos.map {
+                    WalletHomeBalanceInfoViewModel(balanceInfo: $0)
+                })
+            }
+
+            self.getchBalanceInfo(self.uuid)
         }).disposed(by: disposeBag)
 
     }
 
-    func getchBalanceInfo() {
+    func getchBalanceInfo(_ uuid: String) {
+        guard uuid == self.uuid else { return }
         guard HDWalletManager.instance.hasAccount else { return }
 
         Provider.instance.getBalanceInfos(address: self.address) { [weak self] result in
             guard let `self` = self else { return }
+            guard uuid == self.uuid else { return }
 
             switch result {
             case .success(let balanceInfos):
@@ -76,7 +86,7 @@ final class FetchBalanceInfoService {
                 break
             }
             print("\((#file as NSString).lastPathComponent)[\(#line)], \(#function): \(result)")
-            GCD.delay(5) { self.getchBalanceInfo() }
+            GCD.delay(5) { self.getchBalanceInfo(uuid) }
         }
     }
 }

@@ -66,4 +66,23 @@ extension BalanceInfo {
         ret.addObjects(from: infos as! [Any])
         return ret as! [BalanceInfo]
     }
+
+    static func mergeBalanceInfos(_ balanceInfos: [BalanceInfo], unConfirmedInfos: [UnConfirmedInfo]) -> [BalanceInfo] {
+        let infos = NSMutableArray(array: balanceInfos)
+        let ret = NSMutableArray()
+
+        for unConfirmedInfo in unConfirmedInfos {
+            if let index = (infos as Array).index(where: { ($0 as! BalanceInfo).token.id == unConfirmedInfo.token.id }) {
+                var info = infos[index] as! BalanceInfo
+                info.fill(unconfirmedBalance: unConfirmedInfo.unconfirmedBalance, unconfirmedCount: unConfirmedInfo.unconfirmedCount)
+                ret.add(info)
+                infos.removeObject(at: index)
+            } else {
+                let info = BalanceInfo(token: unConfirmedInfo.token, balance: Balance(value: BigInt(0)), unconfirmedBalance: unConfirmedInfo.unconfirmedBalance, unconfirmedCount: unConfirmedInfo.unconfirmedCount)
+                ret.add(info)
+            }
+        }
+        ret.addObjects(from: infos as! [Any])
+        return ret as! [BalanceInfo]
+    }
 }

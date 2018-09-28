@@ -50,6 +50,7 @@ final class HDWalletManager {
 
         pri_updateBags()
         pri_updateBag()
+        pri_recoverAddressesIfNeeded(accountBehaviorRelay.value.uuid)
     }
 
     func cleanAccount() {
@@ -103,8 +104,30 @@ final class HDWalletManager {
 // pri function
 extension HDWalletManager {
 
-    fileprivate func pri_updateWallet(index: Int, count: Int) {
-        walletBehaviorRelay.accept(Wallet(addressIndex: index, addressCount: count))
+    fileprivate func pri_recoverAddressesIfNeeded(_ uuid: String) {
+        guard uuid == self.accountBehaviorRelay.value.uuid else { return }
+        guard walletBehaviorRelay.value.needRecoverAddresses else { return }
+
+        pri_allAddresses { (addresses) in
+            Provider.instance.recoverAddresses(addresses, completion: { [weak self] (result) in
+                guard let `self` = self else { return }
+                guard uuid == self.accountBehaviorRelay.value.uuid else { return }
+                switch result {
+                case .success(let count):
+                    let current = self.walletBehaviorRelay.value.addressCount
+                    self.pri_updateWallet(index: self.walletBehaviorRelay.value.addressIndex, count: max(current, count), needRecoverAddresses: false)
+                    self.pri_updateBags()
+                    self.pri_updateBag()
+                case .error:
+                    GCD.delay(3, task: { self.pri_recoverAddressesIfNeeded(uuid) })
+                }
+            })
+        }
+    }
+
+    fileprivate func pri_updateWallet(index: Int, count: Int, needRecoverAddresses: Bool? = nil) {
+        let need = needRecoverAddresses ?? walletBehaviorRelay.value.needRecoverAddresses
+        walletBehaviorRelay.accept(Wallet(addressIndex: index, addressCount: count, needRecoverAddresses: need))
 
         if let data = walletBehaviorRelay.value.toJSONString()?.data(using: .utf8) {
             do {
@@ -121,6 +144,16 @@ extension HDWalletManager {
 
     fileprivate func pri_updateBag() {
         bagBehaviorRelay.accept(bagsBehaviorRelay.value[walletBehaviorRelay.value.addressIndex])
+    }
+
+    fileprivate func pri_allAddresses(completion: @escaping ([Address]) -> Void) {
+        DispatchQueue.global().async {
+            let address = self.pri_generateBags(mnemonic: self.accountBehaviorRelay.value.mnemonic,
+                                                count: Wallet.maxAddressCount).map { $0.address }
+            DispatchQueue.main.async {
+                completion(address)
+            }
+        }
     }
 
     private func pri_generateBags(mnemonic: String, count: Int) -> [Bag] {
@@ -170,10 +203,12 @@ extension HDWalletManager {
 
         fileprivate(set) var addressIndex: Int = 0
         fileprivate(set) var addressCount: Int = 1
+        fileprivate(set) var needRecoverAddresses: Bool = true
 
-        init(addressIndex: Int = 0, addressCount: Int = 1) {
+        init(addressIndex: Int = 0, addressCount: Int = 1, needRecoverAddresses: Bool = true) {
             self.addressIndex = addressIndex
             self.addressCount = addressCount
+            self.needRecoverAddresses = needRecoverAddresses
         }
 
         init?(map: Map) {}
@@ -181,6 +216,7 @@ extension HDWalletManager {
         mutating func mapping(map: Map) {
             addressIndex <- map["addressIndex"]
             addressCount <- map["addressCount"]
+            needRecoverAddresses <- map["needRecoverAddresses"]
         }
     }
 }

@@ -8,6 +8,9 @@
 import UIKit
 import Eureka
 import SnapKit
+import RxSwift
+import RxCocoa
+import NSObject_Rx
 import MessageUI
 import Vite_keystore
 
@@ -70,10 +73,10 @@ extension AboutUsViewController {
 
             <<< LabelRow("aboutUsPageCellBlockHeight") {
                 $0.title =  R.string.localizable.aboutUsPageCellBlockHeight.key.localized()
+                $0.value = R.string.localizable.aboutUsPageCellBlockHeightLoadingTip()
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
-            }.onCellSelection({ [unowned self] _, _  in
-//TODO  fetch data
+            }.onCellSelection({ _, _  in
                 })
 
             <<< LabelRow("aboutUsPageCellVersion") {
@@ -112,6 +115,23 @@ extension AboutUsViewController {
             make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop)
             make.left.right.bottom.equalTo(self.view)
         }
+
+        getSnapshotChainHeight()
+        Observable<Int>.interval(3, scheduler: MainScheduler.instance).bind { [weak self] _ in self?.getSnapshotChainHeight() }.disposed(by: rx.disposeBag)
+    }
+
+    func getSnapshotChainHeight() {
+        Provider.instance.getSnapshotChainHeight(completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            guard let cell = self.form.rowBy(tag: "aboutUsPageCellBlockHeight") as? LabelRow else { return }
+            switch result {
+            case .success(let string):
+                cell.value = string
+                cell.updateCell()
+            case .error:
+                break
+            }
+        })
     }
 
     func sendUsEmail() {

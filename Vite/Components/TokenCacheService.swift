@@ -18,8 +18,8 @@ class TokenCacheService {
     }
 
     let defaultTokens: [Token] = [Token(id: Token.Currency.vite.rawValue, name: "vite", symbol: "VITE", decimals: 18),
-                                  Token(id: Token.Currency.vcc.rawValue, name: "vcc", symbol: "VCC", decimals: 17),
-                                  Token(id: Token.Currency.vcandy.rawValue, name: "vcandy", symbol: "vcandy", decimals: 16),
+                                  Token(id: Token.Currency.vcp.rawValue, name: "Vite Community Point", symbol: "VCP", decimals: 0),
+                                  Token(id: Token.Currency.vv.rawValue, name: "Vite Voucher", symbol: "VV", decimals: 18),
                                   ]
     var tokenDic = [String: Token]()
 
@@ -81,11 +81,11 @@ extension TokenCacheService {
                         UIColor(netHex: 0x00C3FF),
                         UIColor(netHex: 0x00ECFF),
                 ]
-            case .vcc:
+            case .vcp:
                 return [ UIColor(netHex: 0xF76B1C),
                          UIColor(netHex: 0xFAD961),
                 ]
-            case .vcandy:
+            case .vv:
                 return [UIColor(netHex: 0x429321),
                         UIColor(netHex: 0xB4EC51),
                 ]
@@ -100,8 +100,8 @@ extension Token {
 
     enum Currency: String {
         case vite = "tti_000000000000000000004cfd"
-        case vcc = "tti_111000000000000000001111"
-        case vcandy = "tti_222000000000000000002222"
+        case vcp = "tti_12ea0c02170304090a5ac879"
+        case vv = "tti_b6187a150d175e5a165b1c5b"
     }
 
     enum Icon {

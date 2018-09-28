@@ -9,7 +9,7 @@
 import Foundation
 import Vite_keystore
 
-struct Address: CustomStringConvertible {
+struct Address: CustomStringConvertible, Equatable {
 
     static func isValid(string: String) -> Bool {
         guard string.count == 55 else { return false }
@@ -37,5 +37,9 @@ struct Address: CustomStringConvertible {
         guard address.count == 55 else { return "" }
         let string = (address as NSString).substring(with: NSRange(location: 5, length: 40)) as String
         return string
+    }
+
+    static func == (lhs: Address, rhs: Address) -> Bool {
+        return lhs.address == rhs.address
     }
 }
