@@ -19,7 +19,6 @@ PODS:
     - Result (~> 3.2.0)
   - KeychainSwift (12.0.0)
   - KMNavigationBarTransition (1.1.5)
-  - libEd25519Blake2b (0.0.6)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.15.7)
   - Moya (11.0.2):
@@ -62,12 +61,13 @@ PODS:
   - SwiftyJSON (4.2.0)
   - Then (2.4.0)
   - Toast-Swift (3.0.1)
+  - TrezorCryptoEd25519WithBlake2b (0.0.1)
   - Vite-keystore (0.0.1):
     - BigInt (~> 3.0)
     - CryptoSwift (~> 0.12.0)
     - KeychainSwift
-    - libEd25519Blake2b (~> 0.0.6)
     - ObjectMapper
+    - TrezorCryptoEd25519WithBlake2b (~> 0.0.1)
 
 DEPENDENCIES:
   - Action
@@ -113,7 +113,6 @@ SPEC REPOS:
     - JSONRPCKit
     - KeychainSwift
     - KMNavigationBarTransition
-    - libEd25519Blake2b
     - MBProgressHUD
     - MJRefresh
     - Moya
@@ -134,6 +133,7 @@ SPEC REPOS:
     - SwiftyJSON
     - Then
     - Toast-Swift
+    - TrezorCryptoEd25519WithBlake2b
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -160,7 +160,6 @@ SPEC CHECKSUMS:
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
   KeychainSwift: d5e776578587ee5958ce36601df22f168f65138a
   KMNavigationBarTransition: 7a52c9bc25b39b6e3343e980b453facee1591b82
-  libEd25519Blake2b: e73e268d598795e86d75094c6d7ed11c457cd067
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   Moya: a725035953bc1c0eb1be505ab903984501d82440
@@ -181,7 +180,8 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
-  Vite-keystore: 1370cda4689863da3117174f318b14fb656ade55
+  TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
+  Vite-keystore: 879526e1d8e9965ef6a696b98f8ff845d224dfdb
 
 PODFILE CHECKSUM: c9357fea2242880bb068c9109623d457e910d1a1
 
