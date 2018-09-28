@@ -201,11 +201,26 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
                 }
 
                 let address = Address(string: addressView.textView.text!)
+                let biometryAuthConfig = WalletDataService.shareInstance.defaultWalletAccount?.isSwitchTransfer ?? false
+                let confirmType: ConfirmTransactionViewController.ConfirmTransactionType =  biometryAuthConfig ? .biometry : .password
 
-                let confirmViewController = ConfirmTransactionViewController(confirmTypye: .biometry, address: address.description, token: self.token.symbol, amount: amountString, completion: { [weak self] (result) in
+                let confirmViewController = ConfirmTransactionViewController(confirmType: confirmType, address: address.description, token: self.token.symbol, amount: amountString, completion: { [weak self] (result) in
                     guard let `self` = self else { return }
-                    if result {
+                    switch result {
+                    case .success:
                         self.sendTransaction(bag: self.bag, toAddress: address, tokenId: self.tokenId, amount: amount, note: self.noteView.textField.text)
+                    case .cancelled:
+                        print("cancelled")
+                    case .biometryAuthFailed:
+                        Alert.show(into: self,
+                                   title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle(),
+                                   message: nil,
+                                   actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack()), nil)])
+                    case .passwordAuthFailed:
+                        Alert.show(into: self,
+                                   title: R.string.localizable.confirmTransactionPageToastPasswordError(),
+                                   message: nil,
+                                   actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry()), { [unowned sendButton] _ in sendButton.sendActions(for: .touchUpInside) }), (.cancel, nil)])
                     }
                 })
                 self.present(confirmViewController, animated: false, completion: nil)

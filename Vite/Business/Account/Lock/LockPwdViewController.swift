@@ -60,7 +60,6 @@ extension LockPwdViewController {
             make.width.height.equalTo(84)
         }
 
-
         self.view.addSubview(self.passwordTF)
         self.passwordTF.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.logoImgView.snp.bottom).offset(80)

@@ -16,6 +16,11 @@ enum SecretType {
     case asterisk, point, plaintext
 }
 
+enum PasswordInputViewStyle {
+    case plain
+    case bordered
+}
+
 protocol DeleteTextFieldDelegate: class {
     func textFieldBackKeyPressed(_ textField: UITextField)
 }
@@ -31,6 +36,8 @@ class DeleteTextField: UITextField {
 }
 
 public class PasswordInputView: UIView {
+
+    let type: PasswordInputViewStyle
     var totalCount = 6
     let textField = DeleteTextField(frame: .zero)
     var password = ""
@@ -41,8 +48,19 @@ public class PasswordInputView: UIView {
     var wordView: UIView?
     var secretLabels = [UILabel]()
     var secretViews = [UIView]()
+    var secretPointViews = [UIView]()
+    var backgroundViews = [UIView]()
     var secretType = SecretType.asterisk
     var initalized = false
+
+    init(type: PasswordInputViewStyle = .plain) {
+        self.type = type
+        super.init(frame: .zero)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override public func layoutSubviews() {
         super.layoutSubviews()
@@ -81,6 +99,7 @@ public class PasswordInputView: UIView {
         for i in 0..<totalCount {
             let x = CGFloat(i) * (labelW + partitionWidth*2)
             let y = CGFloat(0)
+            var contentView: UIView!
             if secretType == .asterisk {
                 let label = UILabel(frame: CGRect(x: x, y: y+5, width: labelW, height: labelH))
                 label.backgroundColor = UIColor.clear
@@ -89,11 +108,23 @@ public class PasswordInputView: UIView {
                 label.adjustsFontSizeToFitWidth = true
                 view.addSubview(label)
                 secretLabels.append(label)
+                contentView = label
             } else if secretType == .point {
                 let v = UIView(frame: CGRect(x: x, y: y, width: labelW, height: labelH))
-                v.backgroundColor = UIColor.white
+                v.backgroundColor = UIColor.clear
                 view.addSubview(v)
+                contentView = v
                 secretViews.append(v)
+                let size = v.bounds.size
+                let w = size.width
+                let point = UIView(frame: CGRect(origin: .zero, size: CGSize(width: w * 0.25, height: w * 0.25)))
+                point.center = CGPoint(x: w / 2.0, y: w / 2.0)
+                point.layer.cornerRadius = w / 8.0
+                point.clipsToBounds = true
+                point.backgroundColor = .black
+                v.addSubview(point)
+                secretPointViews.append(point)
+                point.isHidden = true
             } else {
                 let label = UILabel(frame: CGRect(x: x, y: y, width: labelW, height: labelH))
                 label.backgroundColor = UIColor.clear
@@ -102,12 +133,27 @@ public class PasswordInputView: UIView {
                 label.textColor = UIColor.black
                 label.adjustsFontSizeToFitWidth = true
                 view.addSubview(label)
+                contentView = label
                 secretLabels.append(label)
             }
-            let line  = UIView()
-            line.frame =  CGRect(x: x, y: labelH-1, width: labelW, height: 1)
-            line.backgroundColor = partitionColor
-            view.addSubview(line)
+
+            if type == .plain {
+                let line  = UIView()
+                line.frame =  CGRect(x: 0, y: labelH-1, width: labelW, height: 1)
+                line.backgroundColor = partitionColor
+                contentView.addSubview(line)
+                backgroundViews.append(line)
+            } else {
+                let backgroudView  = UIView()
+                backgroudView.frame =  CGRect(x: 0, y: 0, width: labelW, height: labelH)
+                backgroudView.backgroundColor = UIColor.init(netHex: 0xEFF0F4, alpha: 0.47)
+                backgroudView.layer.cornerRadius = 2
+                backgroudView.layer.borderWidth = 1
+                backgroudView.layer.borderColor = UIColor.init(netHex: 0xD3DFEF).cgColor
+                contentView.addSubview(backgroudView)
+                contentView.sendSubview(toBack: backgroudView)
+                backgroundViews.append(backgroudView)
+            }
         }
         return view
     }
@@ -147,20 +193,9 @@ public class PasswordInputView: UIView {
                 }
             }
         } else  if secretType == .point {
-            secretViews.forEach({ view in
-                view.subviews.forEach({ point in
-                    point.removeFromSuperview()
-                })
-            })
-            for i in 0..<secretViews.count {
-                    let view = secretViews[i]
-                    let size = view.bounds.size
-                    let w = size.width
-                    let point = UIView(frame: CGRect(origin: .zero, size: CGSize(width: w * 0.25, height: w * 0.25)))
-                    point.center = CGPoint(x: w / 2.0, y: w / 2.0)
-                    point.layer.cornerRadius = w / 8.0
-                    point.clipsToBounds = true
-                    view.addSubview(point)
+            for i in 0..<totalCount {
+                secretPointViews[i].isHidden = i >= text.count
+                backgroundViews[i].layer.borderColor = UIColor.init(netHex: i >= text.count ? 0xD3DFEF : 0x007AFF).cgColor
             }
         } else {
             for i in 0..<totalCount {

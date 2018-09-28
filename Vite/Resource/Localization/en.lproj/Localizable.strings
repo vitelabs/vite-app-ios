@@ -128,6 +128,10 @@
 "send.page.toast.amount.error" = "账户余额不足";
 "send.page.not.enough.balance.alert.title" = "账户余额不足";
 "send.page.not.enough.balance.alert.button" = "取消交易";
+"send.page.confirm.biometryAuthFailed.title" = "无法识别";
+"send.page.confirm.biometryAuthFailed.back" = "返回";
+"send.page.confirm.passwordAuthFailed.retry" = "重试";
+
 
 /* Confirm Transaction Page */
 "confirm.transaction.page.title" = "支付";

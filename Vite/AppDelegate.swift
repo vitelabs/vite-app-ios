@@ -86,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func goLockPage() {
-        
+
         let rootVC: UIViewController
         if WalletDataService.shareInstance.isLockWallet() == .password {
             rootVC = LockPwdViewController()
