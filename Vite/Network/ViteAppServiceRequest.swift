@@ -28,8 +28,10 @@ protocol NetworkProtocol: ViteNetworkProtocol {
 
 final class ViteAppServiceRequest: NetworkProtocol {
     let provider: MoyaProvider<ViteAPI>
-    let appBasicInfo = ["version": Bundle.main.buildNumber ?? "1.0",
-        "app":"iphone"]
+    let appBasicInfo = [
+        "version": Bundle.main.versionNumber ?? "1.0",
+        "app": "iphone",
+        "channel": "appstore", ]
 
     init(
         provider: MoyaProvider<ViteAPI>
@@ -43,15 +45,10 @@ final class ViteAppServiceRequest: NetworkProtocol {
                 switch result {
                 case .success(let response):
                     do {
-                        print("response =============\(response)")
-
                         let data = try? response.mapJSON()
                         let json = JSON(data!)
-                        let dic = json["data"].dictionaryValue
-
-                        seal.fulfill([dic["name"]?.stringValue ?? "" ])
-                    } catch {
-                        seal.reject(error)
+                        let dic = json.dictionaryValue["data"]
+                        seal.fulfill([ dic?.stringValue ?? "{}"])
                     }
                 case .failure(let error):
                     seal.reject(error)
@@ -66,12 +63,10 @@ final class ViteAppServiceRequest: NetworkProtocol {
                 switch result {
                 case .success(let response):
                     do {
-                        print("response \(response)")
-                        //                        let items = try response.map(ArrayResponse<TokenObjectList>.self).docs
-                        //                        let tokens = items.map { $0.contract }
-                        //                        seal.fulfill(tokens)
-                    } catch {
-                        seal.reject(error)
+                        let data = try? response.mapJSON()
+                        let json = JSON(data!)
+                        let dic = json.dictionaryValue["data"]
+                        seal.fulfill([ dic?.stringValue ?? "{}"])
                     }
                 case .failure(let error):
                     seal.reject(error)
@@ -79,12 +74,5 @@ final class ViteAppServiceRequest: NetworkProtocol {
             }
         }
     }
-
-
-
-
-
-
-
 
 }

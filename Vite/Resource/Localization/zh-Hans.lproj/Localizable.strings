@@ -16,6 +16,7 @@
 "Loading" = "加载中";
 "Confirm" = "确定";
 "Submit" = "提交";
+"Update.app" = "更新app";
 
 /* Login */
 "create.account" = "创建账户";
