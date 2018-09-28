@@ -14,8 +14,6 @@ import Vite_keystore
 import LocalAuthentication
 
 class LockViewController: BaseViewController {
-    private var context: LAContext!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self._setupView()
@@ -33,6 +31,8 @@ class LockViewController: BaseViewController {
     lazy var btnDescView: BtnDescView = {
         let btnDescView = BtnDescView.init(title: R.string.localizable.lockPageFingerprintBtnTitle.key.localized())
         btnDescView.btn.setImage(R.image.fingerprint(), for: .normal)
+        btnDescView.btn.setImage(R.image.fingerprint(), for: .highlighted)
+        btnDescView.btn.addTarget(self, action: #selector(confirmBtnAction), for: .touchUpInside)
         return btnDescView
     }()
 
@@ -56,7 +56,7 @@ extension LockViewController {
         self.view.addSubview(self.logoImgView)
         self.logoImgView.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.view)
-            make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop).offset(80)
+            make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop).offset(10)
             make.width.height.equalTo(84)
         }
 
@@ -71,7 +71,6 @@ extension LockViewController {
         self.loginPwdBtn.snp.makeConstraints { (make) -> Void in
             make.centerX.left.right.equalTo(self.view)
             make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-40)
-            make.height.equalTo(30)
         }
     }
 
@@ -79,37 +78,19 @@ extension LockViewController {
         let vc = LockPwdViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    @objc func confirmBtnAction() {
+        self.showBiometricAuth()
+    }
 }
 
 extension LockViewController {
     private func showBiometricAuth() {
-        self.context = LAContext()
         self.touchValidation()
     }
-
-    private func canEvaluatePolicy() -> Bool {
-        var authError: NSError?
-        let result = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError)
-        if result == false {
-            self.view.showToast(str: authError?.localizedDescription ?? "")
-        }
-        return result
-    }
     private func touchValidation() {
-        guard canEvaluatePolicy() else {
-
-            //
-            return
-        }
-        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "open switch") { [weak self] success, _ in
-            DispatchQueue.main.async {
-                guard let `self` = self else { return }
-                if success {
-                        NotificationCenter.default.post(name: .unlockDidSuccess, object: nil)
-                } else {
-
-                }
-            }
-        }
+        BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.lockPageFingerprintAlterTitle.key.localized(), completion: { (success, _) in
+            guard success else { return }
+            NotificationCenter.default.post(name: .unlockDidSuccess, object: nil)
+        })
     }
 }

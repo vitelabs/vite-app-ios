@@ -21,6 +21,12 @@ target 'Vite' do
   pod 'MJRefresh'
   pod 'KMNavigationBarTransition'
 
+  #social
+  pod 'WechatOpenSDK'
+
+  #request
+  pod 'SwiftyJSON'
+
   #statistics
   pod 'BaiduMobStat'
 
@@ -31,7 +37,7 @@ target 'Vite' do
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
   #table static form
-  pod 'Eureka', '4.2.0'
+  pod 'Eureka', '~> 4.2.0'
 
   #RX
   pod 'RxSwift', '~> 4.0'

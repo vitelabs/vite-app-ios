@@ -16,6 +16,12 @@
 		4C105EC5213FEFF800D483C6 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EC4213FEFF800D483C6 /* NotificationName.swift */; };
 		4C105EC7213FF3DC00D483C6 /* SettingDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EC6213FF3DC00D483C6 /* SettingDataService.swift */; };
 		4C105ED12141401100D483C6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105ED02141401100D483C6 /* String.swift */; };
+		4C181B06215CD5E000FB6CA8 /* AppUpdateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */; };
+		4C181B08215CED1A00FB6CA8 /* ViteAppServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B07215CED1A00FB6CA8 /* ViteAppServiceRequest.swift */; };
+		4C181B0E215CF62800FB6CA8 /* ViteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B0D215CF62800FB6CA8 /* ViteAPI.swift */; };
+		4C1BCF01215E0EE3008B2033 /* AppConfigVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1BCF00215E0EE3008B2033 /* AppConfigVM.swift */; };
+		4C1BCF03215E110B008B2033 /* UserDefaultsName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1BCF02215E110B008B2033 /* UserDefaultsName.swift */; };
+		4C1BCF05215E2291008B2033 /* AppDelegate+Weixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1BCF04215E2291008B2033 /* AppDelegate+Weixin.swift */; };
 		4C1FF4F0212A74730055067D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
 		4C2284B52148BB2A003E9907 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284B42148BB2A003E9907 /* ImageCell.swift */; };
 		4C2284B82148BC2B003E9907 /* MyHomeListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284B72148BC2B003E9907 /* MyHomeListHeaderView.swift */; };
@@ -195,6 +201,12 @@
 		4C105EC4213FEFF800D483C6 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		4C105EC6213FF3DC00D483C6 /* SettingDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDataService.swift; sourceTree = "<group>"; };
 		4C105ED02141401100D483C6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateVM.swift; sourceTree = "<group>"; };
+		4C181B07215CED1A00FB6CA8 /* ViteAppServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteAppServiceRequest.swift; sourceTree = "<group>"; };
+		4C181B0D215CF62800FB6CA8 /* ViteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteAPI.swift; sourceTree = "<group>"; };
+		4C1BCF00215E0EE3008B2033 /* AppConfigVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigVM.swift; sourceTree = "<group>"; };
+		4C1BCF02215E110B008B2033 /* UserDefaultsName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsName.swift; sourceTree = "<group>"; };
+		4C1BCF04215E2291008B2033 /* AppDelegate+Weixin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Weixin.swift"; sourceTree = "<group>"; };
 		4C1FF4F1212A74730055067D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4C1FF4F4212A76410055067D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4C2284B42148BB2A003E9907 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
@@ -431,6 +443,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		4C181B04215CD5C400FB6CA8 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */,
+				4C1BCF00215E0EE3008B2033 /* AppConfigVM.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		4C1FF4EC212A73FB0055067D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -503,6 +524,7 @@
 		4C4C9D65213E9629005542F8 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4C181B04215CD5C400FB6CA8 /* Config */,
 				4C2284B9214906D6003E9907 /* System */,
 				4C84D928214527F4001B6EBD /* Account */,
 				8E6F3E2321422A8F003CDFC2 /* Home */,
@@ -524,6 +546,7 @@
 				8EE4690C214BCE0700807D2C /* AutoGatheringService.swift */,
 				8E79261B21522BF1007FEBAB /* FetchBalanceInfoService.swift */,
 				8E792613215151E0007FEBAB /* ViteURI.swift */,
+				4C1BCF02215E110B008B2033 /* UserDefaultsName.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -746,6 +769,7 @@
 				8E6F3DF92140FEA5003CDFC2 /* Network */,
 				8E6F3E0821411664003CDFC2 /* Models */,
 				4CCE42452124553B0080E92B /* AppDelegate.swift */,
+				4C1BCF04215E2291008B2033 /* AppDelegate+Weixin.swift */,
 				4C0024E321258005001DF390 /* R.generated.swift */,
 				4C9AFD89214FB81C005B12C2 /* Vite-Bridging-Header.h */,
 				4CD8347C2150A6FE006537A2 /* Images.xcassets */,
@@ -917,6 +941,8 @@
 				8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */,
 				8E6F3E1121421A4F003CDFC2 /* JSONTransformer.swift */,
 				8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */,
+				4C181B07215CED1A00FB6CA8 /* ViteAppServiceRequest.swift */,
+				4C181B0D215CF62800FB6CA8 /* ViteAPI.swift */,
 				8E107ED12153670400B28DE2 /* Provider */,
 				8E107ED0215366EF00B28DE2 /* Request */,
 			);
@@ -1300,6 +1326,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/TrezorCryptoEd25519WithBlake2b/TrezorCryptoEd25519WithBlake2b.framework",
@@ -1334,6 +1361,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrezorCryptoEd25519WithBlake2b.framework",
@@ -1393,6 +1421,7 @@
 				8E7D636E215B76D1009617A0 /* ReceiveHeaderView.swift in Sources */,
 				4CFD6CC12154BF4C00437F33 /* FetchWelfareCardView.swift in Sources */,
 				4C105EBF213FCAD500D483C6 /* UIColor.swift in Sources */,
+				4C1BCF01215E0EE3008B2033 /* AppConfigVM.swift in Sources */,
 				8EE468F6214A494800807D2C /* TitleTextFieldView.swift in Sources */,
 				8EE46909214BA1BE00807D2C /* NavigationTitleView.swift in Sources */,
 				8EE468E6214A077D00807D2C /* AddressManagerTableViewModelType.swift in Sources */,
@@ -1416,12 +1445,14 @@
 				8E56FC8921466E8C00A68823 /* UnConfirmedInfo.swift in Sources */,
 				4C105EBC213FCA7400D483C6 /* Colors.swift in Sources */,
 				4C84D9332145280E001B6EBD /* ImportAccountViewController.swift in Sources */,
+				4C1BCF05215E2291008B2033 /* AppDelegate+Weixin.swift in Sources */,
 				8E6F3E102141263A003CDFC2 /* Balance.swift in Sources */,
 				8E6F3E2C2142644E003CDFC2 /* UITableView+Helper.swift in Sources */,
 				8EE468EE214A09CA00807D2C /* AddressManagerTableViewModel.swift in Sources */,
 				8E6F3E48214513EC003CDFC2 /* WalletHomeBalanceInfoTableViewModelType.swift in Sources */,
 				4C2A191D2151323400C51CE8 /* CreateNameAndPwdView.swift in Sources */,
 				4CC75388215B3AAF0009CA0E /* TitleTextView.swift in Sources */,
+				4C181B08215CED1A00FB6CA8 /* ViteAppServiceRequest.swift in Sources */,
 				8E6F3E1F2142280F003CDFC2 /* BaseTableViewController.swift in Sources */,
 				8EE468F0214A277500807D2C /* AddressManageAddressCell.swift in Sources */,
 				4C84D94121452836001B6EBD /* BackupMnemonicVM.swift in Sources */,
@@ -1445,6 +1476,7 @@
 				8E79C6EC214E5DCE00FAEEBC /* GetLatestSnapshotChainHashRequest.swift in Sources */,
 				8E56FC902147684200A68823 /* TransactionListTableViewModelType.swift in Sources */,
 				8E79261A21522085007FEBAB /* Alert.swift in Sources */,
+				4C181B06215CD5E000FB6CA8 /* AppUpdateVM.swift in Sources */,
 				8EE468E3214A047500807D2C /* AddressManageDefaultAddressCell.swift in Sources */,
 				8E6F3E16214227E7003CDFC2 /* WalletHomeViewController.swift in Sources */,
 				4CC75393215BAB460009CA0E /* BtnDescView.swift in Sources */,
@@ -1459,6 +1491,7 @@
 				8E7D637D215C756D009617A0 /* InputLimitsHelper.swift in Sources */,
 				8E7D6370215B7BB1009617A0 /* ReceiveMiddleView.swift in Sources */,
 				8E6F3E2821422BA1003CDFC2 /* MyHomeViewController.swift in Sources */,
+				4C181B0E215CF62800FB6CA8 /* ViteAPI.swift in Sources */,
 				4C0024E421258005001DF390 /* R.generated.swift in Sources */,
 				4C84D93F21452836001B6EBD /* BackupMnemonicViewController.swift in Sources */,
 				8E56FC7D214656A700A68823 /* UIView+Helper.swift in Sources */,
@@ -1527,6 +1560,7 @@
 				8E7D637B215BA857009617A0 /* ReceiveShareFooterView.swift in Sources */,
 				8ED4CECF2147C5910005A82D /* WebHandler.swift in Sources */,
 				4C84D93E21452836001B6EBD /* AffirmInputMnemonicViewController.swift in Sources */,
+				4C1BCF03215E110B008B2033 /* UserDefaultsName.swift in Sources */,
 				8E6F3E4A21451401003CDFC2 /* WalletHomeBalanceInfoTableViewModel.swift in Sources */,
 				8EE4690D214BCE0700807D2C /* AutoGatheringService.swift in Sources */,
 				8E6F3E1E2142280F003CDFC2 /* BaseTableViewCell.swift in Sources */,
@@ -1703,8 +1737,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7BMF8UG4WB;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1712,9 +1746,9 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = org.vite.wallet.xx;
+				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = com.vite.wallet.dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Vite/Vite-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1727,9 +1761,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7BMF8UG4WB;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1737,10 +1771,10 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = org.vite.wallet.xx;
+				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = net.vite.wallet.distribution;
 				SWIFT_OBJC_BRIDGING_HEADER = "Vite/Vite-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

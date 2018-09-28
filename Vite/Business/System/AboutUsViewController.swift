@@ -78,7 +78,7 @@ extension AboutUsViewController {
 
             <<< LabelRow("aboutUsPageCellVersion") {
                 $0.title =  R.string.localizable.aboutUsPageCellVersion.key.localized()
-                $0.value = String.getAppVersion()
+                $0.value = Bundle.main.fullVersion
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
             }.onCellSelection({ [unowned self] _, _  in
@@ -105,8 +105,7 @@ extension AboutUsViewController {
                 $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellShareUs.key.localized()
                 $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
             }.onCellSelection({ [unowned self] _, _  in
-                    let vc = FetchWelfareViewController()
-                    self.navigationController?.pushViewController(vc, animated: true)
+                //TODO:::  调面板，分享下载的url
                 })
 
         self.tableView.snp.makeConstraints { (make) in
@@ -128,8 +127,6 @@ extension AboutUsViewController {
     }
     private func emailTemplate() -> String {
         return   R.string.localizable.aboutUsPageEmailContent.key.localized(arguments: UIDevice.current.systemVersion, UIDevice.current.model, String.getAppVersion(), Locale.preferredLanguages.first ?? "")
-
-//            String.init(format:R.string.localizable.aboutUsPageEmailContent.key.localized(), UIDevice.current.systemVersion, UIDevice.current.model, String.getAppVersion(), Locale.preferredLanguages.first ?? "")
     }
 }
 

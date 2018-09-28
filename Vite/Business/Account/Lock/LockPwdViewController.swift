@@ -14,8 +14,6 @@ import Vite_keystore
 import LocalAuthentication
 
 class LockPwdViewController: BaseViewController {
-    private var context: LAContext!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         kas_activateAutoScrollingForView(view)
@@ -48,7 +46,6 @@ class LockPwdViewController: BaseViewController {
 extension LockPwdViewController {
     private func _setupView() {
         self.view.backgroundColor = .white
-        navigationBarStyle = .clear
         self._addViewConstraint()
     }
 
@@ -56,13 +53,13 @@ extension LockPwdViewController {
         self.view.addSubview(self.logoImgView)
         self.logoImgView.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.view)
-            make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop).offset(80)
+            make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop).offset(50)
             make.width.height.equalTo(84)
         }
 
         self.view.addSubview(self.passwordTF)
         self.passwordTF.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.logoImgView.snp.bottom).offset(80)
+            make.centerY.equalTo(self.view)
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
             make.height.equalTo(62)
@@ -73,7 +70,7 @@ extension LockPwdViewController {
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-80)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
         }
     }
 
