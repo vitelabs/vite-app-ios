@@ -9,8 +9,8 @@
 import UIKit
 import ObjectMapper
 import BigInt
-import libEd25519Blake2b
 import CryptoSwift
+import Vite_keystore
 
 struct AccountBlock: Mappable {
 

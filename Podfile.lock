@@ -1,7 +1,7 @@
 PODS:
-  - Action (3.6.0):
-    - RxCocoa (~> 4.2.0)
-    - RxSwift (~> 4.2.0)
+  - Action (3.8.0):
+    - RxCocoa (~> 4.3.0)
+    - RxSwift (~> 4.3.0)
   - ActionSheetPicker-3.0 (2.3.0)
   - Alamofire (4.7.3)
   - APIKit (3.2.1):
@@ -17,9 +17,8 @@ PODS:
   - Eureka (4.2.0)
   - JSONRPCKit (3.0.0):
     - Result (~> 3.2.0)
-  - KeychainSwift (11.0.0)
+  - KeychainSwift (12.0.0)
   - KMNavigationBarTransition (1.1.5)
-  - libEd25519Blake2b (0.0.6)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.15.7)
   - Moya (11.0.2):
@@ -27,17 +26,17 @@ PODS:
   - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
-  - "NSObject+Rx (4.3.0)":
-    - RxSwift (~> 4.0)
+  - "NSObject+Rx (4.4.1)":
+    - RxSwift (~> 4.3)
   - ObjectMapper (3.3.0)
-  - PromiseKit (6.4.0):
-    - PromiseKit/CorePromise (= 6.4.0)
-    - PromiseKit/Foundation (= 6.4.0)
-    - PromiseKit/UIKit (= 6.4.0)
-  - PromiseKit/CorePromise (6.4.0)
-  - PromiseKit/Foundation (6.4.0):
+  - PromiseKit (6.4.1):
+    - PromiseKit/CorePromise (= 6.4.1)
+    - PromiseKit/Foundation (= 6.4.1)
+    - PromiseKit/UIKit (= 6.4.1)
+  - PromiseKit/CorePromise (6.4.1)
+  - PromiseKit/Foundation (6.4.1):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.4.0):
+  - PromiseKit/UIKit (6.4.1):
     - PromiseKit/CorePromise
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
@@ -46,27 +45,28 @@ PODS:
   - ReusableKit (2.0.1):
     - ReusableKit/Core (= 2.0.1)
   - ReusableKit/Core (2.0.1)
-  - RxCocoa (4.2.0):
+  - RxCocoa (4.3.1):
     - RxSwift (~> 4.0)
   - RxDataSources (3.1.0):
     - Differentiator (~> 3.0)
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-  - RxGesture (1.2.1):
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxSwift (4.2.0)
+  - RxGesture (2.0.1):
+    - RxCocoa (~> 4.3.1)
+    - RxSwift (~> 4.3.1)
+  - RxSwift (4.3.1)
   - SipHash (1.2.2)
-  - SnapKit (4.0.0)
+  - SnapKit (4.0.1)
   - SwiftLint (0.27.0)
-  - Then (2.3.0)
+  - Then (2.4.0)
   - Toast-Swift (3.0.1)
+  - TrezorCryptoEd25519WithBlake2b (0.0.1)
   - Vite-keystore (0.0.1):
     - BigInt (~> 3.0)
     - CryptoSwift (~> 0.12.0)
     - KeychainSwift
-    - libEd25519Blake2b (~> 0.0.6)
     - ObjectMapper
+    - TrezorCryptoEd25519WithBlake2b (~> 0.0.1)
 
 DEPENDENCIES:
   - Action
@@ -75,7 +75,7 @@ DEPENDENCIES:
   - BaiduMobStat
   - BigInt (~> 3.0)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
-  - Eureka
+  - Eureka (= 4.2.0)
   - JSONRPCKit
   - KeychainSwift
   - KMNavigationBarTransition
@@ -111,7 +111,6 @@ SPEC REPOS:
     - JSONRPCKit
     - KeychainSwift
     - KMNavigationBarTransition
-    - libEd25519Blake2b
     - MBProgressHUD
     - MJRefresh
     - Moya
@@ -131,6 +130,7 @@ SPEC REPOS:
     - SwiftLint
     - Then
     - Toast-Swift
+    - TrezorCryptoEd25519WithBlake2b
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -144,7 +144,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
-  Action: 3d9486d3da02b572b0a034b6c49ac4c3fbcc8b63
+  Action: 2275d04a407ecaf46a58d58a304388a28155a0a1
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   APIKit: a39ff72ac44efc15513fd1b98800f63c525be61b
@@ -155,30 +155,30 @@ SPEC CHECKSUMS:
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
-  KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
+  KeychainSwift: d5e776578587ee5958ce36601df22f168f65138a
   KMNavigationBarTransition: 7a52c9bc25b39b6e3343e980b453facee1591b82
-  libEd25519Blake2b: e73e268d598795e86d75094c6d7ed11c457cd067
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   Moya: a725035953bc1c0eb1be505ab903984501d82440
-  "NSObject+Rx": 9a5eeff5e08156f849fa973514456f28eef08742
+  "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
-  PromiseKit: ae3616f45d7bb9bf4ff1e91abc9b7a8c48a340e0
+  PromiseKit: 4c76a6506638034e3d7bede97b2ff7743f7bd2dc
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   ReusableKit: 11b5bde14553a35bcf3979412dbfd1e690392f14
-  RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
+  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxGesture: c278eb05b187abd47e11e65464ae4de53ab71d95
-  RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
+  RxGesture: 26ede4ed13ffc6336d29dbd9a8dff229bdb72de7
+  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
-  Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
+  Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
-  Vite-keystore: 1370cda4689863da3117174f318b14fb656ade55
+  TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
+  Vite-keystore: 879526e1d8e9965ef6a696b98f8ff845d224dfdb
 
-PODFILE CHECKSUM: e2c05b48b99c2fdf447693b087ba22fd9160dd25
+PODFILE CHECKSUM: 454571cf994f6adf24525cf300f3ca2dc85ff262
 
 COCOAPODS: 1.5.3

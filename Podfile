@@ -31,7 +31,7 @@ target 'Vite' do
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
   #table static form
-  pod 'Eureka'
+  pod 'Eureka', '4.2.0'
 
   #RX
   pod 'RxSwift', '~> 4.0'
