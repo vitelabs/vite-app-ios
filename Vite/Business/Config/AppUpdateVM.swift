@@ -14,7 +14,7 @@ import Moya
 import SwiftyJSON
 
 class AppUpdateVM: NSObject {
-    public func fetchVersionInfo() {
+    public func fetchUpdateInfo() {
         let policies: [String: ServerTrustPolicy] = [:]
         let manager = Manager(
             configuration: URLSessionConfiguration.default,
@@ -24,7 +24,7 @@ class AppUpdateVM: NSObject {
 
         let viteAppServiceRequest = ViteAppServiceRequest.init(provider: provider)
 
-        let _ = viteAppServiceRequest.getAppSystemManageConfig().done { versions in
+        let _ = viteAppServiceRequest.getAppUpdate().done { versions in
             guard let version = versions.first else { return }
 
             let dic = JSON.init(parseJSON: version)

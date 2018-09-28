@@ -93,7 +93,7 @@ class LocalizationService {
 
         if loadDictionaryForLanguage(newLanguage) {
             // Update the setting. It only works when the application is restarted.
-            userDefaults.set([newLanguage], forKey: "AppleLanguages")
+            userDefaults.set([newLanguage], forKey: UserDefaultsName.AppCurrentLanguages)
             userDefaults.synchronize()
 
             // runtime

@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         AutoGatheringService.instance.start()
         FetchBalanceInfoService.instance.start()
+        //fetch app config
+        AppConfigVM().fetchVersionInfo()
         return true
     }
 

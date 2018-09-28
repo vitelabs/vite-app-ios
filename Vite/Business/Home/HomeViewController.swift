@@ -45,7 +45,7 @@ class HomeViewController: UITabBarController {
         // Do any additional setup after loading the view.
 
         //go to update app version
-        AppUpdateVM().fetchVersionInfo()
+        AppUpdateVM().fetchUpdateInfo()
     }
 
     override func didReceiveMemoryWarning() {

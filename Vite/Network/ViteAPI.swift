@@ -21,7 +21,7 @@ extension ViteAPI: TargetType {
     var path: String {
         switch self {
         case .getAppUpdate:
-            return "/test/api/version/config"
+            return "/test/api/version/update"
         case .getAppSystemManageConfig:
             return "/test/api/version/config"
         }

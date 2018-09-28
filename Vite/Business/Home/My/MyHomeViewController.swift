@@ -29,6 +29,8 @@ class MyHomeViewController: FormViewController {
         }
     }
 
+    let isOpenFetchGift = UserDefaults.standard.bool(forKey: UserDefaultsName.isOpenFetchGift)
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NavigationBarStyle.configStyle(navigationBarStyle, viewController: self)
@@ -80,15 +82,22 @@ class MyHomeViewController: FormViewController {
             <<< ImageRow("my.page.fetchMoney.cell.title") {
                 $0.cell.titleLab.text =  R.string.localizable.myPageFetchMoneyCellTitle.key.localized()
                 $0.cell.rightImageView.image = R.image.gift()
+                $0.hidden = showFetchMoneyCondition
             }.onCellSelection({ [unowned self] _, _  in
-                let vc = FetchWelfareViewController()
-                self.navigationController?.pushViewController(vc, animated: true)
-            })
+                    let vc = FetchWelfareViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                })
 
         self.tableView.snp.makeConstraints { (make) in
             make.top.equalTo((self.navigationTitleView?.snp.bottom)!).offset(-20)
             make.left.right.bottom.equalTo(self.view)
         }
+    }
+
+    private var showFetchMoneyCondition: Condition {
+       return Eureka.Condition.function([], {[weak self] _ in
+            return self?.isOpenFetchGift == false
+        })
     }
 }
 
