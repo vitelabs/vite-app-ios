@@ -168,6 +168,7 @@
 
 /* about us */
 "aboutUs.page.cell.blockHeight" = "当前区块高度";
+"aboutUs.page.cell.blockHeight.loading.tip" = "获取中";
 "aboutUs.page.cell.version" = "版本";
 "aboutUs.page.cell.contact" = "联系我们";
 "aboutUs.page.cell.shareUs" = "分享Vite APP";
