@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import RxCocoa
 import RxSwift
-import Vite_keystore
+import Vite_HDWalletKit
 import Toast_Swift
 import ActionSheetPicker_3_0
 
@@ -28,8 +28,12 @@ class LoginViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        kas_activateAutoScrollingForView(view)
         self._setupView()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        kas_activateAutoScrollingForView(view)
     }
 
     lazy var logoImgView: UIImageView = {

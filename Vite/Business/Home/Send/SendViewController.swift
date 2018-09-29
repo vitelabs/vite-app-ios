@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-import Vite_keystore
+import Vite_HDWalletKit
 import BigInt
 import PromiseKit
 import JSONRPCKit
@@ -175,14 +175,20 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
 
         let toolbar = UIToolbar()
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: R.string.localizable.sendPageAmountToolbarButtonTitle(), style: .done, target: nil, action: nil)
-        toolbar.items = [flexSpace, done]
+        let next: UIBarButtonItem = UIBarButtonItem(title: R.string.localizable.sendPageAmountToolbarButtonTitle(), style: .done, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+        if noteCanEdit {
+            toolbar.items = [flexSpace, next]
+        } else {
+            toolbar.items = [flexSpace, done]
+        }
         toolbar.sizeToFit()
-        done.rx.tap.bind { [weak self] in self?.noteView.textField.becomeFirstResponder() }.disposed(by: rx.disposeBag)
+        next.rx.tap.bind { [weak self] in self?.noteView.textField.becomeFirstResponder() }.disposed(by: rx.disposeBag)
+        done.rx.tap.bind { [weak self] in self?.amountView.textField.resignFirstResponder() }.disposed(by: rx.disposeBag)
         amountView.textField.inputAccessoryView = toolbar
 
         addressView.textView.kas_setReturnAction(.next(responder: amountView.textField))
-        amountView.textField.kas_setReturnAction(.next(responder: noteView.textField), delegate: self)
+        amountView.textField.delegate = self
         noteView.textField.kas_setReturnAction(.done(block: {
             $0.resignFirstResponder()
         }), delegate: self)
@@ -194,7 +200,16 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
                     Toast.show(R.string.localizable.sendPageToastAddressError())
                     return
                 }
-                guard let amountString = self.amountView.textField.text, let amount = amountString.toBigInt(decimals: self.token.decimals) else { return }
+                guard let amountString = self.amountView.textField.text, !amountString.isEmpty, let amount = amountString.toBigInt(decimals: self.token.decimals) else {
+                    Toast.show(R.string.localizable.sendPageToastAmountEmpty())
+                    return
+                }
+
+                guard amount > BigInt(0) else {
+                    Toast.show(R.string.localizable.sendPageToastAmountZero())
+                    return
+                }
+
                 guard amount <= self.balance.value else {
                     Toast.show(R.string.localizable.sendPageToastAmountError())
                     return
@@ -264,7 +279,7 @@ extension SendViewController: UITextFieldDelegate {
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == amountView.textField {
-            let (ret, text) = InputLimitsHelper.allowDecimalPointWithDigitalText(textField.text ?? "", shouldChangeCharactersIn: range, replacementString: string, decimals: 8)
+            let (ret, text) = InputLimitsHelper.allowDecimalPointWithDigitalText(textField.text ?? "", shouldChangeCharactersIn: range, replacementString: string, decimals: min(8, token.decimals))
             textField.text = text
             return ret
         } else if textField == noteView.textField {

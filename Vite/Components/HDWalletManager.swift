@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Vite_keystore
+import Vite_HDWalletKit
 import ObjectMapper
 import RxSwift
 import RxCocoa

@@ -50,7 +50,7 @@ class SendAddressView: UIView {
             textView.font = UIFont.systemFont(ofSize: 16, weight: .regular)
 
             let separatorLine = UIView()
-            separatorLine.backgroundColor = UIColor(netHex: 0xD3DFEF)
+            separatorLine.backgroundColor = Colors.lineGray
             addSubview(separatorLine)
             separatorLine.snp.makeConstraints { (m) in
                 m.height.equalTo(CGFloat.singleLineWidth)

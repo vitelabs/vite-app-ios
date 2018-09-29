@@ -8,7 +8,7 @@
 
 import UIKit
 import Eureka
-import Vite_keystore
+import Vite_HDWalletKit
 import LocalAuthentication
 
 class SystemViewController: FormViewController {
@@ -82,6 +82,10 @@ class SystemViewController: FormViewController {
             cell.preservesSuperviewLayoutMargins = false
             cell.layoutMargins.left = 24
             cell.layoutMargins.right = 24
+            cell.selectionStyle = .none
+        }
+        ImageRow.defaultCellSetup = { cell, row in
+            cell.selectionStyle = .none
         }
 
         form
@@ -105,7 +109,7 @@ class SystemViewController: FormViewController {
                 $0.value = self.viewModel.isSwitchPwdBehaviorRelay.value
             }.cellUpdate({ (cell, _) in
                     cell.textLabel?.textColor = Colors.cellTitleGray
-                    cell.textLabel?.font = Fonts.descFont
+                    cell.textLabel?.font = Fonts.light16
                 }) .onChange { row  in
                     guard let enabled = row.value else { return }
                     let wallet =  WalletDataService.shareInstance.defaultWalletAccount ?? WalletAccount()
@@ -117,11 +121,11 @@ class SystemViewController: FormViewController {
                 $0.title = R.string.localizable.systemPageCellLoginFaceId.key.localized()
                 $0.value = self.viewModel.isSwitchTouchIdBehaviorRelay.value
                 $0.cell.height = { 60 }
-               $0.cell.bottomSeparatorLine.isHidden = false
+                $0.cell.bottomSeparatorLine.isHidden = false
                 $0.hidden = "$systemPageCellLoginPwd == false"
             }.cellUpdate({ (cell, _) in
                     cell.textLabel?.textColor = Colors.cellTitleGray
-                    cell.textLabel?.font = Fonts.descFont
+                    cell.textLabel?.font = Fonts.light16
                 }) .onChange { [unowned self] row in
                     guard let enabled = row.value else { return }
                     self.showBiometricAuth("systemPageCellLoginFaceId", value: enabled)
@@ -134,7 +138,7 @@ class SystemViewController: FormViewController {
                 $0.cell.bottomSeparatorLine.isHidden = false
             }.cellUpdate({ (cell, _) in
                    cell.textLabel?.textColor = Colors.cellTitleGray
-                   cell.textLabel?.font = Fonts.descFont
+                   cell.textLabel?.font = Fonts.light16
                    cell.isHidden = self.viewModel.isSwitchTransferHideBehaviorRelay.value
                 }) .onChange { [unowned self] row in
                     guard let enabled = row.value else { return }

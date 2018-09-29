@@ -42,7 +42,8 @@ class HomeViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tabBar.shadowImage = R.image.tabber_shadow()?.resizable
+        tabBar.backgroundImage = UIImage.color(UIColor.white).resizable
 
         //go to update app version
         AppUpdateVM().fetchUpdateInfo()

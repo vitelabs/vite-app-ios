@@ -8,7 +8,7 @@
 
 import UIKit
 import Eureka
-import Vite_keystore
+import Vite_HDWalletKit
 import SafariServices
 
 class ManageWalletViewController: FormViewController {
@@ -46,6 +46,10 @@ class ManageWalletViewController: FormViewController {
     func setupTable() {
         self.tableView.backgroundColor = .white
         self.tableView.separatorStyle = .none
+
+        ImageRow.defaultCellSetup = { cell, row in
+            cell.selectionStyle = .none
+        }
 
         form +++
             Section {section in

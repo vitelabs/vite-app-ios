@@ -10,14 +10,18 @@ import UIKit
 import SnapKit
 import RxCocoa
 import RxSwift
-import Vite_keystore
+import Vite_HDWalletKit
 import LocalAuthentication
 
 class LockPwdViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        kas_activateAutoScrollingForView(view)
         self._setupView()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        kas_activateAutoScrollingForView(view)
     }
 
     lazy var logoImgView: UIImageView = {

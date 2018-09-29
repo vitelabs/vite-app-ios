@@ -11,7 +11,7 @@ import SnapKit
 import RxCocoa
 import RxSwift
 import NSObject_Rx
-import Vite_keystore
+import Vite_HDWalletKit
 
 extension ImportAccountViewController {
     private func _bindViewModel() {
@@ -43,6 +43,11 @@ class ImportAccountViewController: BaseViewController {
 
         self._setupView()
         self._bindViewModel()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        kas_activateAutoScrollingForView(view)
     }
 
     lazy var contentTextView: UITextView = {
@@ -77,12 +82,12 @@ class ImportAccountViewController: BaseViewController {
 extension ImportAccountViewController {
 
     private func _setupView() {
-        kas_activateAutoScrollingForView(view)
         self.view.backgroundColor = .white
         navigationTitleView = NavigationTitleView(title: R.string.localizable.importPageTitle.key.localized())
 
         self._addViewConstraint()
     }
+
     private func _addViewConstraint() {
         self.view.addSubview(self.contentTextView)
         self.contentTextView.snp.makeConstraints { (make) -> Void in

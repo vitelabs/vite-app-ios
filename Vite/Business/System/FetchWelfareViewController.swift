@@ -8,13 +8,18 @@
 import Then
 import UIKit
 import SnapKit
-import Vite_keystore
+import Vite_HDWalletKit
 
 class FetchWelfareViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self._setupView()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        kas_activateAutoScrollingForView(view)
     }
 
     lazy var scrollView: UIScrollView = {
@@ -31,10 +36,10 @@ class FetchWelfareViewController: BaseViewController {
 
     lazy var addressTF: TitleTextView = {
         let addressTF = TitleTextView(title: R.string.localizable.fetchWelfareInputEthereumAddressTitle.key.localized(), text: "")
-        addressTF.titleLabel.textColor = Colors.titleGray
-        addressTF.titleLabel.font = AppStyle.formHeader.font
-        addressTF.textView.font = AppStyle.inputDescWord.font
-        addressTF.textView.textColor = Colors.descGray
+        addressTF.titleLabel.textColor = UIColor(netHex: 0x77808A)
+        addressTF.titleLabel.font = Fonts.Font14_b
+        addressTF.textView.font = Fonts.descFont
+        addressTF.textView.textColor = Colors.cellTitleGray
         return addressTF
     }()
 }
@@ -43,7 +48,6 @@ extension FetchWelfareViewController {
 
     private func _setupView() {
         self.view.backgroundColor = .white
-        kas_activateAutoScrollingForView(view)
         navigationTitleView = NavigationTitleView(title: R.string.localizable.fetchWelfarePageTitle.key.localized())
 
         self._addViewConstraint()
@@ -52,7 +56,7 @@ extension FetchWelfareViewController {
         self.view.addSubview(self.scrollView)
         self.scrollView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(self.view)
-            make.top.equalTo((self.navigationTitleView?.snp.bottom)!).offset(10)
+            make.top.equalTo((self.navigationTitleView?.snp.bottom)!)
         }
 
         let contentView = UIView()
@@ -76,7 +80,7 @@ extension FetchWelfareViewController {
         let wayTitleLab = UILabel().then {
             $0.backgroundColor = .clear
             $0.font = Fonts.Font14_b
-            $0.textColor = Colors.titleGray
+            $0.textColor = UIColor(netHex: 0x77808A)
             $0.text = R.string.localizable.fetchWelfareParticipationTitle.key.localized()
         }
         contentView.addSubview(wayTitleLab)
@@ -94,7 +98,7 @@ extension FetchWelfareViewController {
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = 5
         let attributes = [NSAttributedStringKey.font: Fonts.Font14,
-                          NSAttributedStringKey.foregroundColor: Colors.titleGray,
+                          NSAttributedStringKey.foregroundColor: UIColor(netHex: 0x77808A),
                           NSAttributedStringKey.paragraphStyle: paragraph, ]
         wayContentLab.attributedText = NSAttributedString(string: R.string.localizable.fetchWelfareParticipationWays.key.localized(), attributes: attributes)
 
@@ -129,8 +133,11 @@ extension FetchWelfareViewController {
 
         if  EthereumAddress.isValid(string: address) {
             //TODO:::  go send
-            let sendViewController = SendViewController(tokenId: "", address: nil, amount: nil, note: nil)
-            self.navigationController?.pushViewController(sendViewController, animated: true)
+            let sendViewController = SendViewController(tokenId: Token.Currency.vv.rawValue, address: Address(string: "vite_aab205c8048a74dc54832285177d2bf983f265ce46fe04e23f"), amount: nil, note: "{\"address\":\"\(address)\"}", noteCanEdit: false)
+            guard var viewControllers = navigationController?.viewControllers else { return }
+            _ = viewControllers.popLast()
+            viewControllers.append(sendViewController)
+            self.navigationController?.setViewControllers(viewControllers, animated: true)
         } else {
             self.displayConfirmAlter(title: R.string.localizable.fetchWelfareInputEthereumAddressErrorTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
             })

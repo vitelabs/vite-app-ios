@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Vite_keystore
+import Vite_HDWalletKit
 
 class AddressManagerTableViewModel: AddressManagerTableViewModelType {
 
@@ -26,10 +26,6 @@ class AddressManagerTableViewModel: AddressManagerTableViewModelType {
             }
 
     var canGenerateAddress: Bool { return HDWalletManager.instance.canGenerateNextBag() }
-
-    deinit {
-        print("deinit AddressManagerTableViewModel")
-    }
 
     func generateAddress() {
         _ = HDWalletManager.instance.generateNextBag()

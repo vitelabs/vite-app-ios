@@ -9,7 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
-import Vite_keystore
+import Vite_HDWalletKit
 
 final class LoginViewModel: NSObject {
 

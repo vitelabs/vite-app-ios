@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 import NSObject_Rx
 import MessageUI
-import Vite_keystore
+import Vite_HDWalletKit
 
 class AboutUsViewController: FormViewController {
     var navigationBarStyle = NavigationBarStyle.default
@@ -50,6 +50,13 @@ extension AboutUsViewController {
             cell.preservesSuperviewLayoutMargins = false
             cell.layoutMargins.left = 24
             cell.layoutMargins.right = 24
+            cell.selectionStyle = .none
+        }
+
+        ImageRow.defaultCellSetup = { cell, row in
+            cell.selectionStyle = .none
+            cell.textLabel?.font = Fonts.light16
+            cell.textLabel?.textColor = Colors.cellTitleGray
         }
 
         let headerView = UIView(frame: CGRect.init(x: 0, y: 0, width: kScreenW, height: 176))
@@ -86,6 +93,7 @@ extension AboutUsViewController {
                 $0.cell.bottomSeparatorLine.isHidden = false
             }.onCellSelection({ [unowned self] _, _  in
 
+                #if DEBUG
                 self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
                 DispatchQueue.global().async {
                     HDWalletManager.instance.cleanAccount()
@@ -95,6 +103,8 @@ extension AboutUsViewController {
                         NotificationCenter.default.post(name: .logoutDidFinish, object: nil)
                     }
                 }
+                #endif
+
                 })
 
             <<< ImageRow("aboutUsPageCellContact") {
@@ -104,12 +114,12 @@ extension AboutUsViewController {
                 self.sendUsEmail()
                 })
 
-            <<< ImageRow("aboutUsPageCellShareUs") {
-                $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellShareUs.key.localized()
-                $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
-            }.onCellSelection({ [unowned self] _, _  in
-                //TODO:::  调面板，分享下载的url
-                })
+//            <<< ImageRow("aboutUsPageCellShareUs") {
+//                $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellShareUs.key.localized()
+//                $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
+//            }.onCellSelection({ [unowned self] _, _  in
+//                //TODO:::  调面板，分享下载的url
+//            })
 
         self.tableView.snp.makeConstraints { (make) in
             make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop)

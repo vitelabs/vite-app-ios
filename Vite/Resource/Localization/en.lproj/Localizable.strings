@@ -16,10 +16,16 @@
 "Loading" = "Loading";
 "Confirm" = "Confirm";
 "Submit" = "Submit";
+"Update.app" = "更新app";
 
 /* Login */
 "create.account" = "Create Account";
 "import.account" = "Import Account";
+
+/* Lock */
+"lock.page.pwd.btn.title" = "使用密码登录";
+"lock.page.fingerprint.btn.title" = "再次唤起验证";
+"lock.page.fingerprint.alter.title" = "请验证指纹，开启Touch Id";
 
 /* create */
 "create.page.title" = "Create Account";
@@ -48,7 +54,7 @@
 "mnemonic.backup.page.error.type.difference" = "Please enter the same password!";
 
 "mnemonic.affirm.page.title" = "Confirm your seed phrase";
-"mnemonic.affirm.page.tip.title" = "Orderly select seed phrase顺序选择助记词输入";
+"mnemonic.affirm.page.tip.title" = "Orderly select seed phrase";
 "mnemonic.affirm.alter.title" = "Back will regenerate seed phrase, ready to go back?";
 "mnemonic.affirm.alter.check.title" = "Wrong seed phrase!";
 "mnemonic.affirm.page.add.loading" = "Adding...";
@@ -171,6 +177,7 @@
 "aboutUs.page.cell.blog.website" = "Vite.blog";
 "aboutUs.page.email.title" = "Feedback";
 "aboutUs.page.email.content" = "\n\n\n\n\nThe advice comes from the using environment as below:\n1.System device: %@\n2.System version:%@\n3.APP version：%@\n4.Language:%@";
+
 
 /* fetch welfare */
 "fetch.welfare.page.title" = "Get Bonus";

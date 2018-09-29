@@ -75,11 +75,8 @@ extension TokenCacheService {
         if let type = Token.Currency(rawValue: id) {
             switch type {
             case .vite:
-                return [UIColor(netHex: 0x0B30E4),
-                        UIColor(netHex: 0x0D6CEF),
-                        UIColor(netHex: 0x0998F3),
+                return [UIColor(netHex: 0x0C3EE6),
                         UIColor(netHex: 0x00C3FF),
-                        UIColor(netHex: 0x00ECFF),
                 ]
             case .vcp:
                 return [ UIColor(netHex: 0xF76B1C),
