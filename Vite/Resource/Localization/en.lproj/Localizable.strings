@@ -59,29 +59,29 @@
 "import.page.submit.invalid.mnemonic" = "Something wrong with your seed phrase, please try again!";
 
 /* export mnemonic */
-"export.page.title" = "导出助记词";
-"export.page.alter.title" = "请输入密码";
-"export.page.alter.tf.placeholder" = "6位数字密码";
-"export.page.alter.password.error" = "密码错误";
+"export.page.title" = "Export Seed Phrase";
+"export.page.alter.title" = "Please input passowrd";
+"export.page.alter.tf.placeholder" = "6 digits numeric password";
+"export.page.alter.password.error" = "Wrong password!";
 
 /* login */
-"login.page.btn.chooseName" = "选择钱包账户";
-"login.page.btn.login" = "登录";
-"login.page.loading.title" = "登录中";
-"login.page.error.toast.title" = "密码错误，知道助记词可以导入";
+"login.page.btn.chooseName" = "Select Accounts";
+"login.page.btn.login" = "Login";
+"login.page.loading.title" = "Processing";
+"login.page.error.toast.title" = "Wrong password! Import seed phrase instead";
 
 /* Home */
-"tabbar.item.title.wallet" = "钱包";
-"tabbar.item.title.my" = "我";
+"tabbar.item.title.wallet" = "Wallet";
+"tabbar.item.title.my" = "Me";
 
 /* Wallet Home */
-"wallet.home.balance.title" = "账户余额";
-"wallet.home.unconfirmed.title" = "在途资金 %@";
-"wallet.home.toast.copy.address" = "地址已复制";
+"wallet.home.balance.title" = "Account Balance";
+"wallet.home.unconfirmed.title" = "Fund in Float %@";
+"wallet.home.toast.copy.address" = "Successfully copied!";
 
 /* Manage Wallet */
-"manage.wallet.page.title" = "管理钱包";
-"manage.wallet.page.name.cell.title" = "钱包名";
+"manage.wallet.page.title" = "Manage Wallet";
+"manage.wallet.page.name.cell.title" = "Wallet Name";
 "manage.wallet.page.addressManage.cell.title" = "地址管理";
 "manage.wallet.page.importMnemonic.cell.title" = "导出助记词";
 "manage.wallet.page.alter.changeName" = "修改钱包名";
