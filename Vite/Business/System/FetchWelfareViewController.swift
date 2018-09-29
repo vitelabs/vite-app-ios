@@ -17,6 +17,11 @@ class FetchWelfareViewController: BaseViewController {
         self._setupView()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        kas_activateAutoScrollingForView(view)
+    }
+
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         return scrollView
@@ -43,7 +48,6 @@ extension FetchWelfareViewController {
 
     private func _setupView() {
         self.view.backgroundColor = .white
-        kas_activateAutoScrollingForView(view)
         navigationTitleView = NavigationTitleView(title: R.string.localizable.fetchWelfarePageTitle.key.localized())
 
         self._addViewConstraint()
@@ -129,8 +133,11 @@ extension FetchWelfareViewController {
 
         if  EthereumAddress.isValid(string: address) {
             //TODO:::  go send
-            let sendViewController = SendViewController(tokenId: "", address: nil, amount: nil, note: nil)
-            self.navigationController?.pushViewController(sendViewController, animated: true)
+            let sendViewController = SendViewController(tokenId: Token.Currency.vv.rawValue, address: Address(string: "vite_aab205c8048a74dc54832285177d2bf983f265ce46fe04e23f"), amount: nil, note: "{\"address\":\"\(address)\"}", noteCanEdit: false)
+            guard var viewControllers = navigationController?.viewControllers else { return }
+            _ = viewControllers.popLast()
+            viewControllers.append(sendViewController)
+            self.navigationController?.setViewControllers(viewControllers, animated: true)
         } else {
             self.displayConfirmAlter(title: R.string.localizable.fetchWelfareInputEthereumAddressErrorTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
             })

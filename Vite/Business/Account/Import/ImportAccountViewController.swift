@@ -45,6 +45,11 @@ class ImportAccountViewController: BaseViewController {
         self._bindViewModel()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        kas_activateAutoScrollingForView(view)
+    }
+
     lazy var contentTextView: UITextView = {
         let contentTextView =  UITextView()
         contentTextView.font = Fonts.Font18
@@ -77,12 +82,12 @@ class ImportAccountViewController: BaseViewController {
 extension ImportAccountViewController {
 
     private func _setupView() {
-        kas_activateAutoScrollingForView(view)
         self.view.backgroundColor = .white
         navigationTitleView = NavigationTitleView(title: R.string.localizable.importPageTitle.key.localized())
 
         self._addViewConstraint()
     }
+
     private func _addViewConstraint() {
         self.view.addSubview(self.contentTextView)
         self.contentTextView.snp.makeConstraints { (make) -> Void in

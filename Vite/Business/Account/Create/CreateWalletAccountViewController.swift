@@ -70,10 +70,14 @@ extension CreateWalletAccountViewController {
 
     private func _setupView() {
         self.view.backgroundColor = .white
-        kas_activateAutoScrollingForView(view)
         navigationTitleView = NavigationTitleView(title: R.string.localizable.createPageTitle.key.localized())
 
         self._addViewConstraint()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        kas_activateAutoScrollingForView(view)
     }
 
     private func _addViewConstraint() {
