@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class IconBtnView: UIView {
+class IconBtnView: UIImageView {
 
     let  iconView = UIImageView().then {
         $0.backgroundColor = .clear
@@ -22,8 +22,9 @@ class IconBtnView: UIView {
 
     init(iconImg: UIImage, text: String = "") {
         super.init(frame: CGRect.zero)
-        self.backgroundColor = Colors.blueBg
-
+        self.isUserInteractionEnabled = true
+        self.image = R.image.background_button_blue()?.resizable
+        self.highlightedImage = R.image.background_button_blue()?.tintColor(UIColor(netHex: 0x006FEA)).resizable
         iconView.image =  iconImg
         btn.setTitle(text, for: .normal)
 
