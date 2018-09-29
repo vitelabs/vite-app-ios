@@ -24,6 +24,7 @@ extension UIViewController {
         }
         controller.addTextField { (textfield) in
             textfield.keyboardType = .numberPad
+            textfield.isSecureTextEntry = true
             textfield.placeholder = R.string.localizable.exportPageAlterTfPlaceholder.key.localized()
         }
         controller.addAction(cancelAction)

@@ -58,8 +58,13 @@ final class ViteAppServiceRequest: NetworkProtocol {
     }
 
     func getAppUpdate() -> Promise<[String]> {
+        let params = [
+            "version": Bundle.main.buildNumber ?? "1",
+            "app": "iphone",
+            "channel": "appstore", ]
+
         return Promise { seal in
-            provider.request(.getAppUpdate(appBasicInfo)) { result in
+            provider.request(.getAppUpdate(params)) { result in
                 switch result {
                 case .success(let response):
                     do {
