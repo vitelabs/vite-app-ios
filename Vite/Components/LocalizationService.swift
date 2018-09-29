@@ -53,6 +53,11 @@ class LocalizationService {
 
     static let  sharedInstance = LocalizationService()
 
+    init () {
+        let currentLanguage = userDefaults.string(forKey: UserDefaultsName.AppCurrentLanguages)
+       _ = self.loadDictionaryForLanguage(currentLanguage ?? "en")
+    }
+
     // MARK: - Public custom getter
     func getArrayAvailableLanguages() -> [String] {
         return availableLanguagesArray
