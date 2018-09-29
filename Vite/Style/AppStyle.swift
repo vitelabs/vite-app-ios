@@ -22,6 +22,7 @@ let iPhoneXTopH: CGFloat = 24.0
 
 struct Fonts {
     static let descFont = UIFont.systemFont(ofSize: 16, weight: .regular)
+    static let light16 = UIFont.systemFont(ofSize: 16, weight: .light)
     static let Font12 = UIFont.systemFont(ofSize: 12, weight: .semibold)
     static let Font14 = UIFont.systemFont(ofSize: 14, weight: .regular)
     static let Font14_b = UIFont.systemFont(ofSize: 14, weight: .semibold)
@@ -102,6 +103,5 @@ func DebugLog<T>(_ message: T, file: String = #file, funcName: String = #functio
 }
 
 extension CGFloat {
-    static var singleLineWidth: CGFloat { return 2.0 / UIScreen.main.scale }
-    static var singleLineWidthAdjustOffset: CGFloat { return 1.0 / UIScreen.main.scale / 2 }
+    static var singleLineWidth: CGFloat { return 1.0 / UIScreen.main.scale }
 }

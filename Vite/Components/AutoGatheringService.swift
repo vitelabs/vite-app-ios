@@ -33,11 +33,11 @@ final class AutoGatheringService {
         guard uuid == self.uuid else { return }
         guard HDWalletManager.instance.hasAccount else { return }
 
-        Provider.instance.receiveTransaction(bag: self.bag) { [weak self] in
+        Provider.instance.receiveTransaction(bag: self.bag) { [weak self] _ in
             guard let `self` = self else { return }
             guard uuid == self.uuid else { return }
 
-            print("\((#file as NSString).lastPathComponent)[\(#line)], \(#function): \($0)")
+//            print("\((#file as NSString).lastPathComponent)[\(#line)], \(#function): \($0)")
             GCD.delay(2) { self.getUnconfirmedTransaction(uuid) }
         }
     }

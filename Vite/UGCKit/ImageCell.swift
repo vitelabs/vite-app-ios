@@ -17,6 +17,7 @@ public class ImageCell: Cell<Bool>, CellType {
         titleLab.translatesAutoresizingMaskIntoConstraints = false
         titleLab.textAlignment = .left
         titleLab.textColor = Colors.cellTitleGray
+        titleLab.font = Fonts.light16
         return titleLab
     }()
 

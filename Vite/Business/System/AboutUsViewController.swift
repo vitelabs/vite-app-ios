@@ -55,6 +55,8 @@ extension AboutUsViewController {
 
         ImageRow.defaultCellSetup = { cell, row in
             cell.selectionStyle = .none
+            cell.textLabel?.font = Fonts.light16
+            cell.textLabel?.textColor = Colors.cellTitleGray
         }
 
         let headerView = UIView(frame: CGRect.init(x: 0, y: 0, width: kScreenW, height: 176))
@@ -112,12 +114,12 @@ extension AboutUsViewController {
                 self.sendUsEmail()
                 })
 
-            <<< ImageRow("aboutUsPageCellShareUs") {
-                $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellShareUs.key.localized()
-                $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
-            }.onCellSelection({ [unowned self] _, _  in
-                //TODO:::  调面板，分享下载的url
-            })
+//            <<< ImageRow("aboutUsPageCellShareUs") {
+//                $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellShareUs.key.localized()
+//                $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
+//            }.onCellSelection({ [unowned self] _, _  in
+//                //TODO:::  调面板，分享下载的url
+//            })
 
         self.tableView.snp.makeConstraints { (make) in
             make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop)

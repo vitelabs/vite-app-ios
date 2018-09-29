@@ -26,7 +26,7 @@ class SendAmountView: UIView {
     }
 
     let separatorLine = UIView().then {
-        $0.backgroundColor = UIColor(netHex: 0xD3DFEF)
+        $0.backgroundColor = Colors.lineGray
     }
 
     init(amount: String, symbol: String) {

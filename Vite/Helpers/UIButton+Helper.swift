@@ -29,11 +29,11 @@ extension UIButton {
         case .blue:
             setTitleColor(UIColor.white, for: .normal)
             setBackgroundImage(R.image.background_button_blue()?.resizable, for: .normal)
-            setBackgroundImage(R.image.background_button_blue()?.highlighted.resizable, for: .highlighted)
+            setBackgroundImage(R.image.background_button_blue()?.tintColor(UIColor(netHex: 0x006FEA)).resizable, for: .highlighted)
         case .white:
             setTitleColor(UIColor(netHex: 0x007AFF), for: .normal)
             setBackgroundImage(R.image.background_button_white()?.resizable, for: .normal)
-            setBackgroundImage(R.image.background_button_white()?.tintColor(UIColor(netHex: 0xf5f5f5)).resizable, for: .highlighted)
+            setBackgroundImage(R.image.background_button_white()?.tintColor(UIColor(netHex: 0xFAFAFA)).resizable, for: .highlighted)
             self.layer.shadowColor = UIColor.black.cgColor
             self.layer.shadowOpacity = 0.1
             self.layer.shadowRadius = 3
@@ -42,7 +42,7 @@ extension UIButton {
         case .whiteWithoutShadow:
             setTitleColor(UIColor(netHex: 0x007AFF), for: .normal)
             setBackgroundImage(R.image.background_button_white()?.resizable, for: .normal)
-            setBackgroundImage(R.image.background_button_white()?.tintColor(UIColor(netHex: 0xf5f5f5)).resizable, for: .highlighted)
+            setBackgroundImage(R.image.background_button_white()?.tintColor(UIColor(netHex: 0xFAFAFA)).resizable, for: .highlighted)
         }
     }
 
