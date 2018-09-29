@@ -37,7 +37,7 @@ class MyHomeViewController: FormViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationTitleView = NavigationTitleView(title: "我")
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.myPageTitle())
         self.view.backgroundColor = .white
 
         self.setupTableView()

@@ -94,6 +94,7 @@
 "manage.wallet.page.changeName.loading" = "修改中";
 
 /* my */
+"my.page.title" = "我";
 "my.page.mangeWallet.cell.title" = "管理钱包";
 "my.page.dealLog.cell.title" = "交易记录";
 "my.page.system.cell.title" = "系统设置";
@@ -102,6 +103,8 @@
 
 /* Transaction List */
 "transaction.list.page.title" = "交易记录";
+"transaction.list.page.empty" = "无记录";
+"transaction.list.page.network.error" = "刷新页面";
 
 /* BalanceInfo */
 "balance.info.detail.balance.title" = "账户余额";

@@ -22,6 +22,7 @@ let iPhoneXTopH: CGFloat = 24.0
 
 struct Fonts {
     static let descFont = UIFont.systemFont(ofSize: 16, weight: .regular)
+    static let light14 = UIFont.systemFont(ofSize: 14, weight: .light)
     static let light16 = UIFont.systemFont(ofSize: 16, weight: .light)
     static let Font12 = UIFont.systemFont(ofSize: 12, weight: .semibold)
     static let Font14 = UIFont.systemFont(ofSize: 14, weight: .regular)

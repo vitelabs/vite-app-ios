@@ -52,6 +52,8 @@ class CreateWalletAccountViewController: BaseViewController {
         self._bindViewModel()
     }
 
+    let contentView = UIView()
+
     lazy var createNameAndPwdView: CreateNameAndPwdView = {
         let createNameAndPwdView = CreateNameAndPwdView()
         return createNameAndPwdView
@@ -77,23 +79,27 @@ extension CreateWalletAccountViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        kas_activateAutoScrollingForView(view)
+        kas_activateAutoScrollingForView(contentView)
     }
 
     private func _addViewConstraint() {
-        self.view.addSubview(self.createNameAndPwdView)
+        view.insertSubview(contentView, at: 0)
+        contentView.snp.makeConstraints { (m) in
+            m.edges.equalTo(view)
+        }
+        contentView.addSubview(self.createNameAndPwdView)
         self.createNameAndPwdView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-            make.top.equalTo(self.view).offset(60)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
+            make.top.equalTo(contentView).offset(60)
         }
 
-        self.view.addSubview(self.submitBtn)
+        contentView.addSubview(self.submitBtn)
         self.submitBtn.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
+            make.bottom.equalTo(contentView.safeAreaLayoutGuideSnpBottom).offset(-24)
         }
     }
 
