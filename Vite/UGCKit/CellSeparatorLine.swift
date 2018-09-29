@@ -26,7 +26,7 @@ extension UITableViewCell: CellSeparatorLine {
                 make.left.equalTo(self).offset(24)
                 make.right.equalTo(self).offset(-24)
                 make.bottom.equalTo(self).offset(-1)
-                make.height.equalTo(1)
+                make.height.equalTo(CGFloat.singleLineWidth)
             })
             objc_setAssociatedObject(self, &kbottomSeparatorLineKey, bottomSeparatorLine, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             return bottomSeparatorLine

@@ -36,10 +36,10 @@ class FetchWelfareViewController: BaseViewController {
 
     lazy var addressTF: TitleTextView = {
         let addressTF = TitleTextView(title: R.string.localizable.fetchWelfareInputEthereumAddressTitle.key.localized(), text: "")
-        addressTF.titleLabel.textColor = Colors.titleGray
-        addressTF.titleLabel.font = AppStyle.formHeader.font
-        addressTF.textView.font = AppStyle.inputDescWord.font
-        addressTF.textView.textColor = Colors.descGray
+        addressTF.titleLabel.textColor = UIColor(netHex: 0x77808A)
+        addressTF.titleLabel.font = Fonts.Font14_b
+        addressTF.textView.font = Fonts.descFont
+        addressTF.textView.textColor = Colors.cellTitleGray
         return addressTF
     }()
 }
@@ -80,7 +80,7 @@ extension FetchWelfareViewController {
         let wayTitleLab = UILabel().then {
             $0.backgroundColor = .clear
             $0.font = Fonts.Font14_b
-            $0.textColor = Colors.titleGray
+            $0.textColor = UIColor(netHex: 0x77808A)
             $0.text = R.string.localizable.fetchWelfareParticipationTitle.key.localized()
         }
         contentView.addSubview(wayTitleLab)
@@ -98,7 +98,7 @@ extension FetchWelfareViewController {
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = 5
         let attributes = [NSAttributedStringKey.font: Fonts.Font14,
-                          NSAttributedStringKey.foregroundColor: Colors.titleGray,
+                          NSAttributedStringKey.foregroundColor: UIColor(netHex: 0x77808A),
                           NSAttributedStringKey.paragraphStyle: paragraph, ]
         wayContentLab.attributedText = NSAttributedString(string: R.string.localizable.fetchWelfareParticipationWays.key.localized(), attributes: attributes)
 

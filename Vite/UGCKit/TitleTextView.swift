@@ -22,7 +22,7 @@ class TitleTextView: UIView {
     }
 
     let separatorLine = UIView().then {
-        $0.backgroundColor = UIColor.blue
+        $0.backgroundColor = UIColor(netHex: 0xD3DFEF)
     }
 
     init(title: String, text: String = "") {
