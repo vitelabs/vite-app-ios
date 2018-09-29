@@ -18,6 +18,7 @@ class IconBtnView: UIImageView {
     let btn = UIButton().then {
         $0.setTitleColor(.white, for: .normal)
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        $0.titleLabel?.adjustsFontSizeToFitWidth = true
     }
 
     init(iconImg: UIImage, text: String = "") {
