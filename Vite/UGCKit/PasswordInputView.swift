@@ -160,6 +160,8 @@ public class PasswordInputView: UIView {
 
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.next?.touchesBegan(touches, with: event)
+        textField.text = ""
+        updateView(text: "")
         textField.becomeFirstResponder()
     }
 
