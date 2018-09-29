@@ -81,7 +81,7 @@ class TransactionCell: BaseTableViewCell {
         }
 
         let line = UIView().then {
-            $0.backgroundColor = UIColor(netHex: 0xD3DFEF)
+            $0.backgroundColor = Colors.lineGray
         }
 
         contentView.addSubview(line)

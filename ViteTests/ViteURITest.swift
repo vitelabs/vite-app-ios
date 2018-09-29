@@ -7,7 +7,6 @@
 //
 
 import XCTest
-
 @testable import Vite
 
 class ViteURITest: XCTestCase {
@@ -15,8 +14,9 @@ class ViteURITest: XCTestCase {
     func testExample() {
 
         let successCases = [
-            ("vite:vite_fa1d81d93bcc36f234f7bccf1403924a0834609f4b2e9856ad?tti=tti_000000000000000000004cfd&amount=10.12345678&decimals=1e18", "10123456780000000000"),
-            ("vite:vite_fa1d81d93bcc36f234f7bccf1403924a0834609f4b2e9856ad?tti=tti_000000000000000000004cfd&amount=10.12345678E7&decimals=1000", "101234567800"),
+            ("vite:vite_fa1d81d93bcc36f234f7bccf1403924a0834609f4b2e9856ad?tti=tti_000000000000000000004cfd&amount=10.12345678e8&decimals=0", "1012345678"),
+            ("vite:vite_fa1d81d93bcc36f234f7bccf1403924a0834609f4b2e9856ad?tti=tti_000000000000000000004cfd&amount=10.12345678&decimals=18", "10123456780000000000"),
+            ("vite:vite_fa1d81d93bcc36f234f7bccf1403924a0834609f4b2e9856ad?tti=tti_000000000000000000004cfd&amount=10.12345678E7&decimals=3", "101234567800"),
             ]
 
 

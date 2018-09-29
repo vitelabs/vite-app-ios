@@ -27,7 +27,6 @@ final class KeyboardAutoScrollingObserver {
     deinit {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        print("\(#file) \(#function)")
     }
 
     func set(viewController: UIViewController, targetView: UIView) {

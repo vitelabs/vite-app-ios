@@ -27,10 +27,6 @@ class AddressManagerTableViewModel: AddressManagerTableViewModelType {
 
     var canGenerateAddress: Bool { return HDWalletManager.instance.canGenerateNextBag() }
 
-    deinit {
-        print("deinit AddressManagerTableViewModel")
-    }
-
     func generateAddress() {
         _ = HDWalletManager.instance.generateNextBag()
     }
