@@ -107,12 +107,12 @@ extension AboutUsViewController {
                 self.sendUsEmail()
                 })
 
-            <<< ImageRow("aboutUsPageCellShareUs") {
-                $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellShareUs.key.localized()
-                $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
-            }.onCellSelection({ [unowned self] _, _  in
-                //TODO:::  调面板，分享下载的url
-            })
+//            <<< ImageRow("aboutUsPageCellShareUs") {
+//                $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellShareUs.key.localized()
+//                $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
+//            }.onCellSelection({ [unowned self] _, _  in
+//                //TODO:::  调面板，分享下载的url
+//            })
 
         self.tableView.snp.makeConstraints { (make) in
             make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop)
