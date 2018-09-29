@@ -50,6 +50,11 @@ extension AboutUsViewController {
             cell.preservesSuperviewLayoutMargins = false
             cell.layoutMargins.left = 24
             cell.layoutMargins.right = 24
+            cell.selectionStyle = .none
+        }
+
+        ImageRow.defaultCellSetup = { cell, row in
+            cell.selectionStyle = .none
             cell.textLabel?.font = Fonts.light16
             cell.textLabel?.textColor = Colors.cellTitleGray
         }

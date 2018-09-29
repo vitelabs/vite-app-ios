@@ -47,10 +47,8 @@ class MyHomeViewController: FormViewController {
         self.tableView.backgroundColor = .white
         self.tableView.separatorStyle = .none
 
-        SwitchRow.defaultCellSetup = { cell, row in
-            cell.preservesSuperviewLayoutMargins = false
-            cell.layoutMargins.left = 24
-            cell.layoutMargins.right = 24
+        ImageRow.defaultCellSetup = { cell, row in
+            cell.selectionStyle = .none
         }
 
         form +++

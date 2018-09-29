@@ -47,6 +47,10 @@ class ManageWalletViewController: FormViewController {
         self.tableView.backgroundColor = .white
         self.tableView.separatorStyle = .none
 
+        ImageRow.defaultCellSetup = { cell, row in
+            cell.selectionStyle = .none
+        }
+
         form +++
             Section {section in
                 var header = HeaderFooterView<ManageWalletHeaderView>(.class)

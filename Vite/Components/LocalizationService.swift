@@ -23,12 +23,13 @@ extension UIViewController {
         alertController.addAction(cancelAction)
         let languages: [Language] = SettingDataService.sharedInstance.getSupportedLanguages()
         for element in languages {
-            let action = UIAlertAction(title: element.displayName, style: .destructive, handler: {_ in
+            let action = UIAlertAction(title: element.displayName, style: .`default`, handler: {_ in
                 _ = SetLanguage(element.name)
                 if isSettingPage {
                     NotificationCenter.default.post(name: .languageChangedInSetting, object: nil)
                 }
             })
+            action.setValue(Colors.descGray, forKey: "titleTextColor")
             alertController.addAction(action)
         }
         self.present(alertController, animated: true, completion: nil)
