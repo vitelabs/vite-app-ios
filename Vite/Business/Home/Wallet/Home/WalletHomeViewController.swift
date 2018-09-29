@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import NSObject_Rx
 import RxDataSources
-import Vite_keystore
+import Vite_HDWalletKit
 
 class WalletHomeViewController: BaseTableViewController {
 

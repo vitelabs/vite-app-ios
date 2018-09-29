@@ -10,7 +10,7 @@ import UIKit
 import Action
 import RxCocoa
 import RxSwift
-import Vite_keystore
+import Vite_HDWalletKit
 
 final class BackupMnemonicVM: NSObject {
     var mnemonicWordsStr  =  BehaviorRelay(value: Mnemonic.randomGenerator(strength: .strong, language: .english))

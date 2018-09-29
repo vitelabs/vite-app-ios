@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import RxCocoa
 import RxSwift
-import Vite_keystore
+import Vite_HDWalletKit
 import LocalAuthentication
 
 class LockPwdViewController: BaseViewController {

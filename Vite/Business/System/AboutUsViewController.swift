@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 import NSObject_Rx
 import MessageUI
-import Vite_keystore
+import Vite_HDWalletKit
 
 class AboutUsViewController: FormViewController {
     var navigationBarStyle = NavigationBarStyle.default

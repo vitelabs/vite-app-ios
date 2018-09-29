@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Vite_keystore
+import Vite_HDWalletKit
 
 struct Address: CustomStringConvertible, Equatable {
 

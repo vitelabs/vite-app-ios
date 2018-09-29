@@ -10,7 +10,7 @@ import UIKit
 import Action
 import RxCocoa
 import RxSwift
-import Vite_keystore
+import Vite_HDWalletKit
 
 final class SystemViewModel: NSObject {
     var isSwitchPwdBehaviorRelay =  BehaviorRelay<Bool>(value: WalletDataService.shareInstance.defaultWalletAccount?.isSwitchPwd ?? false)

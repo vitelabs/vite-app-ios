@@ -10,7 +10,7 @@ import UIKit
 import ObjectMapper
 import BigInt
 import CryptoSwift
-import Vite_keystore
+import Vite_HDWalletKit
 
 struct AccountBlock: Mappable {
 

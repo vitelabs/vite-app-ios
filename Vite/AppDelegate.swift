@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 import NSObject_Rx
-import Vite_keystore
+import Vite_HDWalletKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

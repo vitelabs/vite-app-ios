@@ -8,7 +8,7 @@
 
 import UIKit
 import Eureka
-import Vite_keystore
+import Vite_HDWalletKit
 import SafariServices
 
 class ManageWalletViewController: FormViewController {

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import RxCocoa
 import RxSwift
-import Vite_keystore
+import Vite_HDWalletKit
 import Toast_Swift
 import ActionSheetPicker_3_0
 
