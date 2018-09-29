@@ -30,9 +30,18 @@ struct InputLimitsHelper {
             let numbers = Character("0")...Character("9")
             if numbers.contains(single) || single == "." {
 
+                if decimals == 0 {
+                    if single == "." {
+                        return (false, text)
+                    }
+
+                    if replacedText.isEmpty && single == "0" {
+                        return (false, text)
+                    }
+                }
+
                 if replacedText.isEmpty {
                     if single == "." {
-                        (text as NSString).replacingCharacters(in: range, with: "")
                         return (false, text)
                     }
                 } else if replacedText.count == 1 {
@@ -44,7 +53,6 @@ struct InputLimitsHelper {
                 if single == "." {
 
                     if isHaveDian {
-                        (text as NSString).replacingCharacters(in: range, with: "")
                         return (false, text)
                     } else {
                         isHaveDian = true
@@ -67,7 +75,6 @@ struct InputLimitsHelper {
                 }
 
             } else {
-                (text as NSString).replacingCharacters(in: range, with: "")
                 return (false, text)
             }
         } else {
