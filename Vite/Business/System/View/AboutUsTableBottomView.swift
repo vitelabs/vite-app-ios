@@ -27,7 +27,6 @@ class AboutUsTableBottomView: UIView {
                 ["img": "icon_button_twitter", "web": "https://twitter.com/vitelabs"],
                 ["img": "icon_button_telegram", "web": "https://t.me/vite_en"],
                 ["img": "icon_button_reddit", "web": "https://www.reddit.com/r/vitelabs"],
-                ["img": "icon_button_wechat", "web": "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU0NDgxMjU0Ng==&scene=124#wechat_redirect"],
                 ["img": "icon_button_facebook", "web": "https://www.facebook.com/vitelabs/"],
                 ["img": "icon_button_medium", "web": "https://discordapp.com/invite/CsVY76q"],
                 ["img": "icon_button_youtube", "web": "https://www.youtube.com/channel/UC8qft2rEzBnP9yJOGdsJBVg"],
@@ -158,15 +157,7 @@ extension AboutUsTableBottomView: UICollectionViewDataSource {
 extension AboutUsTableBottomView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let dic = dataList[indexPath.row]
-        let name =  dic["img"]!
-        if name == "icon_button_wechat" {
-            let req = JumpToBizProfileReq()
-            req.username = Constants.officialAccountsAppID
-            req.profileType = Int32(WXBizProfileType_Normal.rawValue)
-            WXApi.send(req)
-        } else {
-            WebHandler.open(URL.init(string: dic["web"]!)!)
-        }
+        WebHandler.open(URL.init(string: dic["web"]!)!)
     }
 }
 

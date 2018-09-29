@@ -40,7 +40,7 @@
 
 /* mnemonic */
 "mnemonic.backup.page.title" = "Backup Seed Phrase";
-"mnemonic.backup.page.tip.title" = "Mnemonic seed phrase is the only way to restore your wallet, please keep it safe or you won't have access to your account for good";
+"mnemonic.backup.page.tip.title" = "Mnemonic seed phrase is the only way to restore your wallet, please keep it safe or you won't have access to your account for good.";
 "mnemonic.backup.page.tip.lab.title" = "Seed Phrase";
 "mnemonic.backup.page.tip.anewBtn.title" = "Regenerate Seed Phrase";
 "mnemonic.backup.page.tip.nextBtn.title" = "Successfully backuped your seed phrase!";
