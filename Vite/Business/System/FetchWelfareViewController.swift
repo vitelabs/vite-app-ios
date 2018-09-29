@@ -56,7 +56,7 @@ extension FetchWelfareViewController {
         self.view.addSubview(self.scrollView)
         self.scrollView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(self.view)
-            make.top.equalTo((self.navigationTitleView?.snp.bottom)!).offset(10)
+            make.top.equalTo((self.navigationTitleView?.snp.bottom)!)
         }
 
         let contentView = UIView()

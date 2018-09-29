@@ -85,7 +85,7 @@ final class FetchBalanceInfoService {
             case .error:
                 break
             }
-            print("\((#file as NSString).lastPathComponent)[\(#line)], \(#function): \(result)")
+//            print("\((#file as NSString).lastPathComponent)[\(#line)], \(#function): \(result)")
             GCD.delay(5) { self.getchBalanceInfo(uuid) }
         }
     }

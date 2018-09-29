@@ -34,8 +34,7 @@ extension ViteURI {
             var decimals = token.decimals
             if let decimalsString = decimalsString {
                 guard let bigInt = type(of: self).scientificNotationStringToBigInt(decimalsString, decimals: 0), let d = Int(bigInt.description) else { return nil }
-                let e = Int(log10(Double(d)))
-                decimals = e
+                decimals = d
             }
 
             return type(of: self).scientificNotationStringToBigInt(amountString, decimals: decimals)
