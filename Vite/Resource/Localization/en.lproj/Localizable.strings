@@ -3,85 +3,85 @@
   Vite
 
   Created by Water on 2018/8/20.
-  Copyright © 2018年 vite labs. All rights reserved.
+  Copyright © 2018 vite labs. All rights reserved.
  */
 
 /* App */
-"Cancel" = "取消";
-"Finish" = "完成";
+"Cancel" = "Cancel";
+"Finish" = "Done";
 "Delete" = "删除";
-"Hint" = "提示";
-"Yes" = "是";
-"No" = "否";
-"Loading" = "加载中";
-"Confirm" = "确定";
-"Submit" = "提交";
+"Hint" = "Prompt";
+"Yes" = "Yes";
+"No" = "No";
+"Loading" = "Loading";
+"Confirm" = "Confirm";
+"Submit" = "Submit";
 
 /* Login */
-"create.account" = "create account";
-"import.account" = "import account";
+"create.account" = "Create Account";
+"import.account" = "Import Account";
 
 /* create */
-"create.page.title" = "创建钱包账户";
-"create.page.tf.title" = "账户名";
-"create.page.pw.title" = "请输入6位数字密码";
-"create.page.pw.repeate.title" = "重复输入密码";
-"create.page.submit.btn.title" = "创建";
+"create.page.title" = "Create Account";
+"create.page.tf.title" = "Account Name";
+"create.page.pw.title" = "Please input 6 digits password";
+"create.page.pw.repeate.title" = "Please input your password again";
+"create.page.submit.btn.title" = "Create";
 
-"create.page.tip.title" = "备份钱包账户";
-"create.page.tip.content" = "请备份助记词，没有妥善备份就无法保障您的资产安全。更换手机或删除app后，您需要通过备份助记词来恢复钱包。";
-"create.page.tip.nextBtn" = "备份助记词";
+"create.page.tip.title" = "Back up Wallet Account";
+"create.page.tip.content" = "Mnemonic seed phrase is used to restore your wallet when switching devices or deleting app, better write it down and keep it in a safe place where only you can access, otherwise your assets will be at tremendous risks";
+"create.page.tip.nextBtn" = "Backup Seed Phrase";
 
 /* mnemonic */
-"mnemonic.backup.page.title" = "备份助记词";
-"mnemonic.backup.page.tip.title" = "您只有通过助记词来恢复您的账户，如助记词丢失，您的数字资产将无法找回";
-"mnemonic.backup.page.tip.lab.title" = "助记词";
-"mnemonic.backup.page.tip.anewBtn.title" = "重新生成助记词";
-"mnemonic.backup.page.tip.nextBtn.title" = "助记词已备份";
-"mnemonic.backup.page.alter.title" = "截图保存助记词是不安全的方式，建议您用纸笔记录并存放在安全的地方";
-"mnemonic.backup.page.alter.message" = "是否重新生成助记词？";
-"mnemonic.backup.page.alter.cancel" = "不了";
-"mnemonic.backup.page.alter.confirm" = "好的";
-"mnemonic.backup.page.error.type.name" = "请输入用户名或密码";
-"mnemonic.backup.page.error.type.nameValid" = "账户名仅支持中英文字符及下划线";
-"mnemonic.backup.page.error.type.validWalletNameCount" = "账户名超出字符限制";
-"mnemonic.backup.page.error.type.difference" = "两次输入密码不同";
+"mnemonic.backup.page.title" = "Backup Seed Phrase";
+"mnemonic.backup.page.tip.title" = "Mnemonic seed phrase is the only way to restore your wallet, please keep it safe or you won't have access to your account for good";
+"mnemonic.backup.page.tip.lab.title" = "Seed Phrase";
+"mnemonic.backup.page.tip.anewBtn.title" = "Regenerate Seed Phrase";
+"mnemonic.backup.page.tip.nextBtn.title" = "Successfully backuped your seed phrase!";
+"mnemonic.backup.page.alter.title" = "It isn't a safe way to keep your seed phrase by screenshot. We suggest that you'd better write it down and keep it in a safe place.";
+"mnemonic.backup.page.alter.message" = "Regenerate seed phrase？";
+"mnemonic.backup.page.alter.cancel" = "No";
+"mnemonic.backup.page.alter.confirm" = "Yes";
+"mnemonic.backup.page.error.type.name" = "Please input account name or password";
+"mnemonic.backup.page.error.type.nameValid" = "Account name only supports Chinese and English characters as well as unserscores.";
+"mnemonic.backup.page.error.type.validWalletNameCount" = "Account name exceeds the limit!";
+"mnemonic.backup.page.error.type.difference" = "Please enter the same password!";
 
-"mnemonic.affirm.page.title" = "确认输入助记词";
-"mnemonic.affirm.page.tip.title" = "按顺序选择助记词输入";
-"mnemonic.affirm.alter.title" = "返回会重新生成助记词，是否返回";
-"mnemonic.affirm.alter.check.title" = "助记词输入错误";
-"mnemonic.affirm.page.add.loading" = "添加中...";
+"mnemonic.affirm.page.title" = "Confirm your seed phrase";
+"mnemonic.affirm.page.tip.title" = "Orderly select seed phrase顺序选择助记词输入";
+"mnemonic.affirm.alter.title" = "Back will regenerate seed phrase, ready to go back?";
+"mnemonic.affirm.alter.check.title" = "Wrong seed phrase!";
+"mnemonic.affirm.page.add.loading" = "Adding...";
 
 /* import mnemonic*/
-"import.page.title" = "输入您的助记词";
-"import.page.submit.btn" = "恢复账户";
-"import.page.submit.invalid.mnemonic" = "助记词输入有误，请重新输入。";
+"import.page.title" = "Please input your seed phrase";
+"import.page.submit.btn" = "Restore Account";
+"import.page.submit.invalid.mnemonic" = "Something wrong with your seed phrase, please try again!";
 
 /* export mnemonic */
-"export.page.title" = "导出助记词";
-"export.page.alter.title" = "请输入密码";
-"export.page.alter.tf.placeholder" = "6位数字密码";
-"export.page.alter.password.error" = "密码错误";
+"export.page.title" = "Export Seed Phrase";
+"export.page.alter.title" = "Please input passowrd";
+"export.page.alter.tf.placeholder" = "6 digits numeric password";
+"export.page.alter.password.error" = "Wrong password!";
 
 /* login */
-"login.page.btn.chooseName" = "选择钱包账户";
-"login.page.btn.login" = "登录";
-"login.page.loading.title" = "登录中";
-"login.page.error.toast.title" = "密码错误，知道助记词可以导入";
+"login.page.btn.chooseName" = "Select Accounts";
+"login.page.btn.login" = "Login";
+"login.page.loading.title" = "Processing";
+"login.page.error.toast.title" = "Wrong password! Import seed phrase instead";
 
 /* Home */
-"tabbar.item.title.wallet" = "钱包";
-"tabbar.item.title.my" = "我";
+"tabbar.item.title.wallet" = "Wallet";
+"tabbar.item.title.my" = "Me";
 
 /* Wallet Home */
-"wallet.home.balance.title" = "账户余额";
-"wallet.home.unconfirmed.title" = "在途资金 %@";
-"wallet.home.toast.copy.address" = "地址已复制";
+"wallet.home.balance.title" = "Account Balance";
+"wallet.home.unconfirmed.title" = "Fund in Float %@";
+"wallet.home.toast.copy.address" = "Successfully copied!";
 
 /* Manage Wallet */
-"manage.wallet.page.title" = "管理钱包";
-"manage.wallet.page.name.cell.title" = "钱包名";
+"manage.wallet.page.title" = "Manage Wallet";
+"manage.wallet.page.name.cell.title" = "Wallet Name";
 "manage.wallet.page.addressManage.cell.title" = "地址管理";
 "manage.wallet.page.importMnemonic.cell.title" = "导出助记词";
 "manage.wallet.page.alter.changeName" = "修改钱包名";
