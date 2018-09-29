@@ -81,110 +81,109 @@
 "tabbar.item.title.my" = "Me";
 
 /* Wallet Home */
-"wallet.home.balance.title" = "Account Balance";
+"wallet.home.balance.title" = "Balance";
 "wallet.home.unconfirmed.title" = "Fund in Float %@";
 "wallet.home.toast.copy.address" = "Successfully copied!";
 
 /* Manage Wallet */
-"manage.wallet.page.title" = "Manage Wallet";
+"manage.wallet.page.title" = "Wallet Management";
 "manage.wallet.page.name.cell.title" = "Wallet Name";
-"manage.wallet.page.addressManage.cell.title" = "地址管理";
-"manage.wallet.page.importMnemonic.cell.title" = "导出助记词";
-"manage.wallet.page.alter.changeName" = "修改钱包名";
-"manage.wallet.page.changeName.loading" = "修改中";
+"manage.wallet.page.addressManage.cell.title" = "Address Management";
+"manage.wallet.page.importMnemonic.cell.title" = "Export Seed Phrase";
+"manage.wallet.page.alter.changeName" = "Edit Wallet Name";
+"manage.wallet.page.changeName.loading" = "Editing";
 
 /* my */
-"my.page.mangeWallet.cell.title" = "管理钱包";
-"my.page.dealLog.cell.title" = "交易记录";
-"my.page.system.cell.title" = "系统设置";
-"my.page.aboutUs.cell.title" = "关于我们";
-"my.page.fetchMoney.cell.title" = "领福利";
+"my.page.mangeWallet.cell.title" = "Wallet Management";
+"my.page.dealLog.cell.title" = "Transaction Records";
+"my.page.system.cell.title" = "System Settings";
+"my.page.aboutUs.cell.title" = "About us";
+"my.page.fetchMoney.cell.title" = "Get Bonus";
 
 /* Transaction List */
-"transaction.list.page.title" = "交易记录";
+"transaction.list.page.title" = "Transaction History";
 
 /* BalanceInfo */
-"balance.info.detail.balance.title" = "账户余额";
-"balance.info.detail.unconfirmed.title" = "在途资金";
-"balance.info.detail.unconfirmed.count.title" = "%@笔待确认";
-"balance.info.detail.show.transactions.button.title" = "查看交易记录";
-"balance.info.detail.reveice.button.title" = "收款";
-"balance.info.detail.send.button.title" = "转账";
+"balance.info.detail.balance.title" = "Balance";
+"balance.info.detail.unconfirmed.title" = "Fund in Float";
+"balance.info.detail.unconfirmed.count.title" = "%@ unconfirmed";
+"balance.info.detail.show.transactions.button.title" = "View Transaction History";
+"balance.info.detail.reveice.button.title" = "Receive";
+"balance.info.detail.send.button.title" = "Transfer";
 
 /* Address Manage Page */
-"address.manage.page.title" = "地址管理";
-"address.manage.default.address.cell.title" = "默认收款地址";
-"address.manage.address.header.title" = "地址列表";
-"address.manage.address.generate.button.title" = "添加地址";
-"address.manage.address.generate.button.toast" = "最多只能添加10个地址";
-"address.manage.tip.alert.message" = "账户生成上限：10；恢复账户时1号地址和有交易的地址会显示，无交易地址隐藏，可重新生成再次使用。";
-"address.manage.tip.alert.ok" = "我知道了";
+"address.manage.page.title" = "Address Management";
+"address.manage.default.address.cell.title" = "Default Receiving Address";
+"address.manage.address.header.title" = "Address List";
+"address.manage.address.generate.button.title" = "Add List";
+"address.manage.address.generate.button.toast" = "Add up to maximum 10 addresses!";
+"address.manage.tip.alert.message" = "At most 10 accounts. The first address and addresses that have transaction records will be shown when resotring account, and addresses with no record will be hidden, these can be regenerated and reused.";
+"address.manage.tip.alert.ok" = "I know";
 
 /* Send Page */
-"send.page.title" = "转账";
-"send.page.my.address.title" = "转出账户地址";
-"send.page.my.balance.title" = "转出账户余额";
-"send.page.to.address.title" = "收款地址";
-"send.page.amount.title" = "金额";
-"send.page.remark.title" = "备注";
-"send.page.send.button.title" = "转账";
-"send.page.amount.toolbar.button.title" = "下一项";
-"send.page.toast.send.success" = "支付成功";
-"send.page.toast.address.error" = "收款地址格式错误";
-"send.page.toast.amount.error" = "账户余额不足";
-"send.page.toast.amount.empty" = "请填写金额";
-"send.page.toast.amount.zero" = "金额必须大于0";
-"send.page.not.enough.balance.alert.title" = "账户余额不足";
-"send.page.not.enough.balance.alert.button" = "取消交易";
-"send.page.confirm.biometryAuthFailed.title" = "无法识别";
-"send.page.confirm.biometryAuthFailed.back" = "返回";
-"send.page.confirm.passwordAuthFailed.retry" = "重试";
+"send.page.title" = "Transfer";
+"send.page.my.address.title" = "From Address";
+"send.page.my.balance.title" = "Balance";
+"send.page.to.address.title" = "Recipient";
+"send.page.amount.title" = "Amount";
+"send.page.remark.title" = "Comment";
+"send.page.send.button.title" = "Send";
+"send.page.amount.toolbar.button.title" = "Next";
+"send.page.toast.send.success" = "Successful";
+"send.page.toast.address.error" = "Wrong recipient format!";
+"send.page.toast.amount.error" = "Insufficient Balance";
+"send.page.not.enough.balance.alert.title" = "Insufficient Balance";
+"send.page.not.enough.balance.alert.button" = "Cancel";
+"send.page.confirm.biometryAuthFailed.title" = "Cannot be identified";
+"send.page.confirm.biometryAuthFailed.back" = "Back";
+"send.page.confirm.passwordAuthFailed.retry" = "Retry";
 
 
 /* Confirm Transaction Page */
-"confirm.transaction.page.title" = "支付";
-"confirm.transaction.address.title" = "收款地址";
-"confirm.transaction.page.use.password" = "使用密码";
-"confirm.transaction.page.confirm.button" = "确认支付";
-"confirm.transaction.page.biometry.confirm.reason" = "验证信息";
-"confirm.transaction.page.use.password.title" = "请输入支付密码";
-"confirm.transaction.page.toast.password.error" = "密码错误";
+"confirm.transaction.page.title" = "Payment";
+"confirm.transaction.address.title" = "Recipient";
+"confirm.transaction.page.use.password" = "Use password";
+"confirm.transaction.page.confirm.button" = "Confirm";
+"confirm.transaction.page.biometry.confirm.reason" = "Verify";
+"confirm.transaction.page.use.password.title" = "Please";
+"confirm.transaction.page.toast.password.error" = "Wrong password!";
 
 /* Receive Page */
-"Receive.page.title" = "收款";
-"Receive.page.token.name.label" = "请转入 %@";
-"Receive.page.token.amount.button.title" = "指定金额";
-"Receive.page.token.note.label" = "备注";
-"Receive.page.token.amount.alert.title" = "输入金额";
+"Receive.page.title" = "Receive";
+"Receive.page.token.name.label" = "please send %@";
+"Receive.page.token.amount.button.title" = "Specific amount";
+"Receive.page.token.note.label" = "Comment";
+"Receive.page.token.amount.alert.title" = "Input Amount";
 
 /* Scan Page */
-"Scan.page.title" = "扫码";
+"Scan.page.title" = "Scan";
 
 /* System */
-"system.page.logout.loading" = "退出中";
-"system.page.cell.change.language" = "语言选择";
-"system.page.cell.login.pwd" = "输入密码唤起APP";
-"system.page.cell.login.faceId" = "支持指纹/面部识别";
-"system.page.cell.transfer.faceId" = "转账开启指纹/面部识别";
-"system.page.cell.logout.title" = "退出并切换钱包";
+"system.page.logout.loading" = "Logout";
+"system.page.cell.change.language" = "Language";
+"system.page.cell.login.pwd" = "Input password to arouse APP";
+"system.page.cell.login.faceId" = "Support fingerprint/faceId";
+"system.page.cell.transfer.faceId" = "Allow fingerprint/faceId when tranfering";
+"system.page.cell.logout.title" = "Logout and switch wallet";
 
 /* about us */
-"aboutUs.page.cell.blockHeight" = "当前区块高度";
-"aboutUs.page.cell.blockHeight.loading.tip" = "获取中";
-"aboutUs.page.cell.version" = "版本";
-"aboutUs.page.cell.contact" = "联系我们";
-"aboutUs.page.cell.shareUs" = "分享Vite APP";
-"aboutUs.page.cell.official.website" = "Vite 官网";
-"aboutUs.page.cell.portal.website" = "Vite 门户网站";
+"aboutUs.page.cell.blockHeight" = "Current Height";
+"aboutUs.page.cell.blockHeight.loading.tip" = "Loading";
+"aboutUs.page.cell.version" = "Version";
+"aboutUs.page.cell.contact" = "Contact us";
+"aboutUs.page.cell.shareUs" = "Share Vite APP";
+"aboutUs.page.cell.official.website" = "Vite.org";
+"aboutUs.page.cell.portal.website" = "Vite.net";
 "aboutUs.page.cell.blog.website" = "Vite.blog";
-"aboutUs.page.email.title" = "意见反馈";
-"aboutUs.page.email.content" = "\n\n\n\n\n意见来自以下使用环境：\n1.设备系统：%@\n2.系统版本:%@\n3.APP版本：%@\n4.语言环境：%@";
+"aboutUs.page.email.title" = "Feedback";
+"aboutUs.page.email.content" = "\n\n\n\n\nThe advice comes from the using environment as below:\n1.System device: %@\n2.System version:%@\n3.APP version：%@\n4.Language:%@";
+
 
 /* fetch welfare */
-"fetch.welfare.page.title" = "领福利";
-"fetch.welfare.content.title" = "第一期福利";
-"fetch.welfare.content.desc" = "针对路印社区的用户的空投正在进行中\n后续不定期推出各项福利，\n敬请关注！";
-"fetch.welfare.participation.title" = "参与方式:";
-"fetch.welfare.participation.ways" = "1、在路印社区提交您的Vite地址；\n2、系统对Vite地址进行特定代币-VV的空投；\n3、在本页面请填写您的以太坊地址，确认提交，会发起一笔转给特定账户的交易，输入任意金额。\n4、特定账户收到VV后，会转给您以太坊地址等量的Vite在以太坊的ERC20的代币。";
-"fetch.welfare.inputEthereumAddress.title" = "请填写您的以太坊地址:";
-"fetch.welfare.inputEthereumAddress.error.title" = "格式错误";
+"fetch.welfare.page.title" = "Get Bonus";
+"fetch.welfare.content.title" = "Bonus in the first stage";
+"fetch.welfare.content.desc" = "The airdrop aiming at Loopring community is now processing!\nThe following beneficial activities will be conducted gradually,\n please stay tuned!";
+"fetch.welfare.participation.title" = "How to participate:";
+"fetch.welfare.participation.ways" = "1. Submit your Vite address in Loopring community. \n2. System will airdrop specific token - VV token. \n3. Please fill in address of Ethereum in this page, confirm and submit, then a transaction to special account will be generated, input any amount.\n4. The special account will send equal amount of Vite tokens in Ethereum ERC20 after receiving VV token.";
+"fetch.welfare.inputEthereumAddress.title" = "Please input your address of Ethereum:";
+"fetch.welfare.inputEthereumAddress.error.title" = "Wrong Format!";
