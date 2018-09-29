@@ -33,8 +33,10 @@ class LoginViewController: BaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        kas_activateAutoScrollingForView(view)
+        kas_activateAutoScrollingForView(contentView)
     }
+
+    let contentView = UIView()
 
     lazy var logoImgView: UIImageView = {
         let logoImgView = UIImageView()
@@ -98,61 +100,65 @@ extension LoginViewController {
     }
 
     private func _addViewConstraint() {
-        self.view.addSubview(self.logoImgView)
+        view.addSubview(contentView)
+        contentView.snp.makeConstraints { (m) in
+            m.edges.equalTo(view)
+        }
+        contentView.addSubview(self.logoImgView)
         self.logoImgView.snp.makeConstraints { (make) -> Void in
-            make.centerX.equalTo(self.view)
-            make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop).offset(80)
+            make.centerX.equalTo(contentView)
+            make.top.equalTo(contentView.safeAreaLayoutGuideSnpTop).offset(80)
             make.width.height.equalTo(84)
         }
 
-        self.view.addSubview(self.userNameBtn)
+        contentView.addSubview(self.userNameBtn)
         self.userNameBtn.snp.makeConstraints { (make) -> Void in
-            make.centerY.equalTo(self.view)
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
+            make.centerY.equalTo(contentView)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
             make.height.equalTo(60)
         }
 
-        self.view.addSubview(self.passwordTF)
+        contentView.addSubview(self.passwordTF)
         self.passwordTF.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.userNameBtn.snp.bottom).offset(40)
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
             make.height.equalTo(62)
         }
 
-        self.view.addSubview(self.loginBtn)
+        contentView.addSubview(self.loginBtn)
         self.loginBtn.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-80)
+            make.bottom.equalTo(contentView.safeAreaLayoutGuideSnpBottom).offset(-80)
         }
 
-        self.view.addSubview(self.createAccountBtn)
+        contentView.addSubview(self.createAccountBtn)
         self.createAccountBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view.snp.centerX).offset(-2)
+            make.bottom.equalTo(contentView.safeAreaLayoutGuideSnpBottom).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView.snp.centerX).offset(-2)
         }
 
         let line = UIView()
         line.backgroundColor = Colors.lineGray
-        self.view.addSubview(line)
+        contentView.addSubview(line)
         line.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(16)
             make.width.equalTo(1)
             make.centerY.equalTo(self.createAccountBtn)
-            make.centerX.equalTo(self.view)
+            make.centerX.equalTo(contentView)
         }
 
-        self.view.addSubview(self.importAccountBtn)
+        contentView.addSubview(self.importAccountBtn)
         self.importAccountBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
-            make.right.equalTo(self.view).offset(-24)
-            make.left.equalTo(self.view.snp.centerX).offset(2)
+            make.bottom.equalTo(contentView.safeAreaLayoutGuideSnpBottom).offset(-24)
+            make.right.equalTo(contentView).offset(-24)
+            make.left.equalTo(contentView.snp.centerX).offset(2)
         }
     }
 

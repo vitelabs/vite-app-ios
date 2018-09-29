@@ -102,6 +102,8 @@
 
 /* Transaction List */
 "transaction.list.page.title" = "Transaction History";
+"transaction.list.page.empty" = "Empty";
+"transaction.list.page.network.error" = "Refresh";
 
 /* BalanceInfo */
 "balance.info.detail.balance.title" = "Balance";

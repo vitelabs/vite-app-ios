@@ -102,6 +102,8 @@
 
 /* Transaction List */
 "transaction.list.page.title" = "交易记录";
+"transaction.list.page.empty" = "无记录";
+"transaction.list.page.network.error" = "刷新页面";
 
 /* BalanceInfo */
 "balance.info.detail.balance.title" = "账户余额";

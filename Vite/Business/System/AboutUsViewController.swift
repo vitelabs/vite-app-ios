@@ -79,6 +79,8 @@ extension AboutUsViewController {
             }
 
             <<< LabelRow("aboutUsPageCellBlockHeight") {
+                $0.cell.textLabel?.textColor = Colors.cellTitleGray
+                $0.cell.textLabel?.font = Fonts.light16
                 $0.title =  R.string.localizable.aboutUsPageCellBlockHeight.key.localized()
                 $0.value = R.string.localizable.aboutUsPageCellBlockHeightLoadingTip()
                 $0.cell.height = { 60 }
@@ -87,6 +89,8 @@ extension AboutUsViewController {
                 })
 
             <<< LabelRow("aboutUsPageCellVersion") {
+                $0.cell.textLabel?.textColor = Colors.cellTitleGray
+                $0.cell.textLabel?.font = Fonts.light16
                 $0.title =  R.string.localizable.aboutUsPageCellVersion.key.localized()
                 $0.value = Bundle.main.fullVersion
                 $0.cell.height = { 60 }

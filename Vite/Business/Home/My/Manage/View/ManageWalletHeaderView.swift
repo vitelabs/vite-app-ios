@@ -29,7 +29,7 @@ class ManageWalletHeaderView: UIView {
         self.addSubview(self.nameLab)
         self.addSubview(self.rightImageView)
         self.rightImageView.snp.makeConstraints {  (make) -> Void in
-            make.right.equalTo(self).offset(-30)
+            make.right.equalTo(self).offset(-20)
             make.centerY.equalTo(self.nameLab)
         }
 
@@ -45,7 +45,7 @@ class ManageWalletHeaderView: UIView {
             make.left.equalTo(self).offset(24)
             make.right.equalTo(self).offset(-24)
             make.bottom.equalTo(self).offset(-1)
-            make.height.equalTo(1)
+            make.height.equalTo(CGFloat.singleLineWidth)
         }
 
         let gesture = UITapGestureRecognizer()
@@ -59,6 +59,7 @@ class ManageWalletHeaderView: UIView {
         nameTitleLab.textAlignment = .left
         nameTitleLab.textColor =  Colors.titleGray
         nameTitleLab.adjustsFontSizeToFitWidth = true
+        nameTitleLab.font = Fonts.light14
         return nameTitleLab
     }()
 
@@ -68,6 +69,7 @@ class ManageWalletHeaderView: UIView {
         nameLab.textAlignment = .left
         nameLab.adjustsFontSizeToFitWidth = true
         nameLab.textColor = Colors.cellTitleGray
+        nameLab.font = Fonts.light16
         return nameLab
     }()
 
