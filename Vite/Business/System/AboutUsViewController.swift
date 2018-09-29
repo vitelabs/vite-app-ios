@@ -50,6 +50,11 @@ extension AboutUsViewController {
             cell.preservesSuperviewLayoutMargins = false
             cell.layoutMargins.left = 24
             cell.layoutMargins.right = 24
+            cell.selectionStyle = .none
+        }
+
+        ImageRow.defaultCellSetup = { cell, row in
+            cell.selectionStyle = .none
         }
 
         let headerView = UIView(frame: CGRect.init(x: 0, y: 0, width: kScreenW, height: 176))
