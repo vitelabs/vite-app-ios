@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Vite_keystore
+import Vite_HDWalletKit
 
 class AddressManagerTableViewModel: AddressManagerTableViewModelType {
 

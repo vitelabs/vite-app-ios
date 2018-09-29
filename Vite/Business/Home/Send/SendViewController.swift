@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-import Vite_keystore
+import Vite_HDWalletKit
 import BigInt
 import PromiseKit
 import JSONRPCKit

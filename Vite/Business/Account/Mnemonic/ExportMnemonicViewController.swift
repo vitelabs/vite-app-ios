@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-import Vite_keystore
+import Vite_HDWalletKit
 
 extension UIViewController {
     func verifyWalletPassword(callback: @escaping () -> Void) {
@@ -24,6 +24,7 @@ extension UIViewController {
         }
         controller.addTextField { (textfield) in
             textfield.keyboardType = .numberPad
+            textfield.isSecureTextEntry = true
             textfield.placeholder = R.string.localizable.exportPageAlterTfPlaceholder.key.localized()
         }
         controller.addAction(cancelAction)

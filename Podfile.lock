@@ -62,7 +62,7 @@ PODS:
   - Then (2.4.0)
   - Toast-Swift (3.0.1)
   - TrezorCryptoEd25519WithBlake2b (0.0.1)
-  - Vite-keystore (0.0.1):
+  - Vite_HDWalletKit (1.0.0):
     - BigInt (~> 3.0)
     - CryptoSwift (~> 0.12.0)
     - KeychainSwift
@@ -98,7 +98,7 @@ DEPENDENCIES:
   - SwiftyJSON
   - Then
   - Toast-Swift (~> 3.0.1)
-  - Vite-keystore (from `../vite-keystore-ios`)
+  - Vite_HDWalletKit (~> 1.0.0)
   - WechatOpenSDK
 
 SPEC REPOS:
@@ -136,13 +136,12 @@ SPEC REPOS:
     - Then
     - Toast-Swift
     - TrezorCryptoEd25519WithBlake2b
+    - Vite_HDWalletKit
     - WechatOpenSDK
 
 EXTERNAL SOURCES:
   ChameleonFramework:
     :git: https://github.com/ViccAlexander/Chameleon.git
-  Vite-keystore:
-    :path: "../vite-keystore-ios"
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
@@ -184,9 +183,9 @@ SPEC CHECKSUMS:
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
-  Vite-keystore: 879526e1d8e9965ef6a696b98f8ff845d224dfdb
+  Vite_HDWalletKit: 29d5c3bf2c6d229fd6d44ee9c7951d9717b95ccf
   WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
 
-PODFILE CHECKSUM: 2075ba67c2e2708c28b1fd6e1ce08733b59c0b84
+PODFILE CHECKSUM: 6efcc74da948534689dcb0f159d59cfd9ad0f117
 
 COCOAPODS: 1.5.3

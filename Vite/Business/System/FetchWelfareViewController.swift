@@ -8,7 +8,7 @@
 import Then
 import UIKit
 import SnapKit
-import Vite_keystore
+import Vite_HDWalletKit
 
 class FetchWelfareViewController: BaseViewController {
     override func viewDidLoad() {
