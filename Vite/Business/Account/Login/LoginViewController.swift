@@ -28,8 +28,12 @@ class LoginViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        kas_activateAutoScrollingForView(view)
         self._setupView()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        kas_activateAutoScrollingForView(view)
     }
 
     lazy var logoImgView: UIImageView = {
