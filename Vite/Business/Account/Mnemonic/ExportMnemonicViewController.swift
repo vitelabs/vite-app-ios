@@ -45,12 +45,13 @@ class ExportMnemonicViewController: BaseViewController {
         contentTextView.font = Fonts.Font18
         contentTextView.backgroundColor = Colors.bgGray
         contentTextView.textColor = Colors.descGray
-        contentTextView.text = WalletDataService.shareInstance.defaultWalletAccount?.mnemonic
         contentTextView.layer.masksToBounds = true
         contentTextView.layer.cornerRadius = 2
+        contentTextView.clipsToBounds = false
         contentTextView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         contentTextView.isEditable = false
         contentTextView.isScrollEnabled = false
+        contentTextView.text = WalletDataService.shareInstance.defaultWalletAccount?.mnemonic
         return contentTextView
     }()
 
