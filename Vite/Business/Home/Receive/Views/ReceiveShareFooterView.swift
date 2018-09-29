@@ -13,7 +13,7 @@ class ReceiveShareFooterView: UIView {
     let titleLabel = UILabel().then {
         $0.textColor = Colors.titleGray
         $0.font = AppStyle.formHeader.font
-        $0.text = R.string.localizable.receivePageTokenNoteLabel()
+        $0.text = R.string.localizable.receivePageTokenNoteLabel.key.localized()
     }
 
     let textLabel = UILabel().then {

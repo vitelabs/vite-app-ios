@@ -82,7 +82,7 @@ class ReceiveHeaderView: UIView {
         copyButton.rx.tap
             .bind {
                 UIPasteboard.general.string = address
-                Toast.show(R.string.localizable.walletHomeToastCopyAddress(), duration: 1.0)
+                Toast.show(R.string.localizable.walletHomeToastCopyAddress.key.localized(), duration: 1.0)
             }.disposed(by: rx.disposeBag)
 
     }

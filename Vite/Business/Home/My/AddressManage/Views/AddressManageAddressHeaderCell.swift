@@ -11,7 +11,7 @@ import UIKit
 class AddressManageAddressHeaderCell: BaseTableViewCell {
 
     let titleLabel = UILabel().then {
-        $0.text = R.string.localizable.addressManageAddressHeaderTitle()
+        $0.text = R.string.localizable.addressManageAddressHeaderTitle.key.localized()
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

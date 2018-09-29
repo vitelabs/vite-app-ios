@@ -16,7 +16,7 @@
 "Loading" = "Loading";
 "Confirm" = "Confirm";
 "Submit" = "Submit";
-"Update.app" = "更新app";
+"Update.app" = "Update App";
 
 /* Login */
 "create.account" = "Create Account";
@@ -136,6 +136,7 @@
 "send.page.toast.address.error" = "Wrong recipient format!";
 "send.page.toast.amount.error" = "Insufficient Balance";
 "send.page.toast.amount.empty" = "Please input balance";
+"send.page.toast.amount.zero" = "The amount must be greater than 0";
 "send.page.not.enough.balance.alert.title" = "Insufficient Balance";
 "send.page.not.enough.balance.alert.button" = "Cancel";
 "send.page.confirm.biometryAuthFailed.title" = "Cannot be identified";
