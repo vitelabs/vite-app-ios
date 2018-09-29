@@ -94,8 +94,9 @@
 "manage.wallet.page.changeName.loading" = "Editing";
 
 /* my */
-"my.page.mangeWallet.cell.title" = "Wallet Management";
-"my.page.dealLog.cell.title" = "Transaction Records";
+"my.page.title" = "Me";
+"my.page.mangeWallet.cell.title" = "Wallet";
+"my.page.dealLog.cell.title" = "Transaction";
 "my.page.system.cell.title" = "System Settings";
 "my.page.aboutUs.cell.title" = "About us";
 "my.page.fetchMoney.cell.title" = "Get Bonus";
@@ -134,6 +135,7 @@
 "send.page.toast.send.success" = "Successful";
 "send.page.toast.address.error" = "Wrong recipient format!";
 "send.page.toast.amount.error" = "Insufficient Balance";
+"send.page.toast.amount.empty" = "Please input balance";
 "send.page.not.enough.balance.alert.title" = "Insufficient Balance";
 "send.page.not.enough.balance.alert.button" = "Cancel";
 "send.page.confirm.biometryAuthFailed.title" = "Cannot be identified";

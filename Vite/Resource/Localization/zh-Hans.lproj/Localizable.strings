@@ -94,6 +94,7 @@
 "manage.wallet.page.changeName.loading" = "修改中";
 
 /* my */
+"my.page.title" = "我";
 "my.page.mangeWallet.cell.title" = "管理钱包";
 "my.page.dealLog.cell.title" = "交易记录";
 "my.page.system.cell.title" = "系统设置";
