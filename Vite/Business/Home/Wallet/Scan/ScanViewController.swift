@@ -13,6 +13,8 @@ import SnapKit
 
 class ScanViewController: BaseViewController {
 
+    let scanViewWidth: CGFloat = 262.0
+    let scanViewCenterYOffset: CGFloat = 70.0
     let captureSession = AVCaptureSession()
 
     override func viewDidLoad() {
@@ -41,20 +43,28 @@ class ScanViewController: BaseViewController {
 
     func setupAVComponents() {
         guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else { return }
-        do {
-            let videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            videoPreviewLayer.frame = view.bounds
-            view.layer.addSublayer(videoPreviewLayer)
-            let input = try AVCaptureDeviceInput(device: captureDevice)
-            captureSession.addInput(input)
-            let captureMetadataOutput = AVCaptureMetadataOutput()
-            captureSession.addOutput(captureMetadataOutput)
-            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
-            captureSession.startRunning()
-        } catch {
-            print(error)
+        let videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        videoPreviewLayer.backgroundColor = UIColor(netHex: 0x24272B).cgColor
+        videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        videoPreviewLayer.frame = view.bounds
+        view.layer.addSublayer(videoPreviewLayer)
+        DispatchQueue.global(qos: .userInteractive).async {
+            do {
+                let input = try AVCaptureDeviceInput(device: captureDevice)
+                self.captureSession.addInput(input)
+                let captureMetadataOutput = AVCaptureMetadataOutput()
+                self.captureSession.addOutput(captureMetadataOutput)
+                captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+                captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
+                let scanRect = CGRect(x: (videoPreviewLayer.bounds.size.width - self.scanViewWidth)/2,
+                                      y: (videoPreviewLayer.bounds.size.height - kNavibarH - self.scanViewWidth)/2 - self.scanViewCenterYOffset,
+                                      width: self.scanViewWidth,
+                                      height: self.scanViewWidth)
+                let rectOfInterest = videoPreviewLayer.metadataOutputRectConverted(fromLayerRect: scanRect)
+                captureMetadataOutput.rectOfInterest = rectOfInterest
+            } catch {
+                print(error)
+            }
         }
     }
 
@@ -103,8 +113,8 @@ class ScanViewController: BaseViewController {
 
             clearView.snp.makeConstraints { (m) in
                 m.centerX.equalTo(view)
-                m.centerY.equalTo(view).offset(-70)
-                m.size.equalTo(CGSize(width: 262, height: 262))
+                m.centerY.equalTo(view).offset(-scanViewCenterYOffset)
+                m.size.equalTo(CGSize(width: scanViewWidth, height: scanViewWidth))
             }
 
             topBackgroundView.snp.makeConstraints { (m) in
