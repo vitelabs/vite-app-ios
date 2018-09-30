@@ -35,7 +35,7 @@ class SendAmountView: UIView {
         let canEdit = amount.isEmpty
         isUserInteractionEnabled = canEdit
 
-        titleLabel.text = R.string.localizable.sendPageAmountTitle()
+        titleLabel.text = R.string.localizable.sendPageAmountTitle.key.localized()
         textField.text = amount
         symbolLabel.text = symbol
 

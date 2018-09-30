@@ -54,5 +54,29 @@ class ViteURITest: XCTestCase {
 
     }
 
+    func testtoBigInt() {
+
+        let successCases = [
+            ("00120.3400", "12034"),
+            ("001.00", "100"),
+            ("00101.", "10100"),
+            ("0.12", "12"),
+            ("0.0", "0"),
+            ("0", "0"),
+            ("10", "1000"),
+            ]
+
+        for c in successCases {
+            let string = c.0
+            let ans = c.1
+
+            guard let ret = string.toBigInt(decimals: 2) else {
+                XCTAssert(false)
+                return
+            }
+            XCTAssertEqual(ret.description, ans)
+        }
+    }
+
 
 }

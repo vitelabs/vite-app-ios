@@ -28,7 +28,7 @@ class SendNoteView: UIView {
     init(note: String, canEdit: Bool = true) {
         super.init(frame: CGRect.zero)
 
-        titleLabel.text = R.string.localizable.sendPageRemarkTitle()
+        titleLabel.text = R.string.localizable.sendPageRemarkTitle.key.localized()
         textField.text = note
         textField.isUserInteractionEnabled = canEdit
 

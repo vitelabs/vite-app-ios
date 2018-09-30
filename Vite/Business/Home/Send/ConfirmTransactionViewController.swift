@@ -68,7 +68,7 @@ class ConfirmTransactionViewController: UIViewController, PasswordInputViewDeleg
 
         confirmView.confirmButton.rx.tap
             .bind { [weak self] in
-                BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.confirmTransactionPageBiometryConfirmReason(), completion: { (success, _) in
+                BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.confirmTransactionPageBiometryConfirmReason.key.localized(), completion: { (success, _) in
                     guard success else { return }
                     self?.procese(success ? .success : .biometryAuthFailed)
                 })
