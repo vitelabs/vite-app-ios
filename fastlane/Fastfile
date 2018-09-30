@@ -24,5 +24,13 @@ platform :ios do
   end
 end
 
+platform :ios do
+  desc "Push a new beta build to TestFlight"
+  lane :package do
+    increment_build_number
+    build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
+  end
+end
+
 
 
