@@ -9,7 +9,7 @@
 /* App */
 "Cancel" = "Cancel";
 "Finish" = "Done";
-"Delete" = "删除";
+"Delete" = "Delete";
 "Hint" = "Prompt";
 "Yes" = "Yes";
 "No" = "No";
@@ -23,9 +23,9 @@
 "import.account" = "Import Account";
 
 /* Lock */
-"lock.page.pwd.btn.title" = "使用密码登录";
-"lock.page.fingerprint.btn.title" = "再次唤起验证";
-"lock.page.fingerprint.alter.title" = "请验证指纹，开启Touch Id";
+"lock.page.pwd.btn.title" = "Login via password";
+"lock.page.fingerprint.btn.title" = "Arouse verify again";
+"lock.page.fingerprint.alter.title" = "Verify fingerprint to activate Touch ID";
 
 /* create */
 "create.page.title" = "Create Account";
@@ -135,7 +135,7 @@
 "send.page.remark.title" = "Comment";
 "send.page.send.button.title" = "Send";
 "send.page.amount.toolbar.button.title" = "Next";
-"send.page.toast.send.success" = "Successful";
+"send.page.toast.send.success" = "Success";
 "send.page.toast.address.error" = "Wrong recipient format!";
 "send.page.toast.amount.error" = "Insufficient Balance";
 "send.page.toast.amount.empty" = "Please input balance";
@@ -170,15 +170,15 @@
 "system.page.logout.loading" = "Logout";
 "system.page.cell.change.language" = "Language";
 "system.page.cell.login.pwd" = "Input password to arouse APP";
-"system.page.cell.login.faceId" = "Support fingerprint/faceId";
-"system.page.cell.transfer.faceId" = "Allow fingerprint/faceId when tranfering";
-"system.page.cell.logout.title" = "Logout and switch wallet";
+"system.page.cell.login.faceId" = "Support Fingerprint/Face ID";
+"system.page.cell.transfer.faceId" = "Pay by Fingerprint/Face ID";
+"system.page.cell.logout.title" = "Logout/switch wallet";
 
 /* about us */
 "aboutUs.page.cell.blockHeight" = "Current Height";
 "aboutUs.page.cell.blockHeight.loading.tip" = "Loading";
 "aboutUs.page.cell.version" = "Version";
-"aboutUs.page.cell.contact" = "Contact us";
+"aboutUs.page.cell.contact" = "Contact Us";
 "aboutUs.page.cell.shareUs" = "Share Vite APP";
 "aboutUs.page.cell.official.website" = "Vite.org";
 "aboutUs.page.cell.portal.website" = "Vite.net";
@@ -193,5 +193,5 @@
 "fetch.welfare.content.desc" = "The airdrop aiming at Loopring community is now processing!\nThe following beneficial activities will be conducted gradually,\n please stay tuned!";
 "fetch.welfare.participation.title" = "How to participate:";
 "fetch.welfare.participation.ways" = "1. Submit your Vite address in Loopring community. \n2. System will airdrop specific token - VV token. \n3. Please fill in address of Ethereum in this page, confirm and submit, then a transaction to special account will be generated, input any amount.\n4. The special account will send equal amount of Vite tokens in Ethereum ERC20 after receiving VV token.";
-"fetch.welfare.inputEthereumAddress.title" = "Please input your address of Ethereum:";
+"fetch.welfare.inputEthereumAddress.title" = "Please input Ethereum address:";
 "fetch.welfare.inputEthereumAddress.error.title" = "Wrong Format!";
