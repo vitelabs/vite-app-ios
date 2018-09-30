@@ -29,7 +29,7 @@ class AppConfigVM: NSObject {
             let dic = JSON.init(parseJSON: version)
 
             if dic.dictionaryValue.isEmpty {
-                UserDefaults.standard.set(true, forKey: UserDefaultsName.isOpenFetchGift)
+                UserDefaults.standard.set(false, forKey: UserDefaultsName.isOpenFetchGift)
                 UserDefaults.standard.synchronize()
             } else {
                 let isOpen  = dic["isOpen"].boolValue

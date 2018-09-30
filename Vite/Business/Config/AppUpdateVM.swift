@@ -43,11 +43,14 @@ class AppUpdateVM: NSObject {
                 }
                 if isForce {
                     top.displayConfirmAlter(title: message, done: R.string.localizable.updateApp.key.localized(), doneHandler: {
-                            WebHandler.open(URL.init(string: url)!)
+                        UIApplication.shared.open(URL.init(string: url)!, options: [:], completionHandler: nil)
+                        top.displayConfirmAlter(title: message, done: R.string.localizable.updateApp.key.localized(), doneHandler: {
+                              UIApplication.shared.open(URL.init(string: url)!, options: [:], completionHandler: nil)
+                        })
                     })
                 } else {
                     top.displayAlter(title: message, message: "", cancel: R.string.localizable.cancel.key.localized(), done: R.string.localizable.updateApp.key.localized(), doneHandler: {
-                            WebHandler.open(URL.init(string: url)!)
+                        UIApplication.shared.open(URL.init(string: url)!, options: [:], completionHandler: nil)
                     })
                 }
             }

@@ -29,7 +29,7 @@ class MyHomeViewController: FormViewController {
         }
     }
 
-    let isOpenFetchGift = UserDefaults.standard.bool(forKey: UserDefaultsName.isOpenFetchGift)
+    let isOpenFetchGift = UserDefaults.standard.bool(forKey: UserDefaultsName.isOpenFetchGift) 
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
