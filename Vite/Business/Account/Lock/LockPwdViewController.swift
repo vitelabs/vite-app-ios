@@ -35,6 +35,7 @@ class LockPwdViewController: BaseViewController {
         let passwordTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwTitle.key.localized())
         passwordTF.titleLabel.textColor = Colors.titleGray
         passwordTF.titleLabel.font = AppStyle.formHeader.font
+        passwordTF.passwordInputView.delegate = self
         return passwordTF
     }()
 
@@ -93,6 +94,15 @@ extension LockPwdViewController {
         } else {
             self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
             })
+        }
+    }
+}
+
+extension LockPwdViewController: PasswordInputViewDelegate {
+    func inputFinish(passwordView: PasswordInputView, password: String) {
+        if passwordView ==  self.passwordTF.passwordInputView {
+            _ = self.passwordTF.passwordInputView.resignFirstResponder()
+            self.loginBtnAction()
         }
     }
 }

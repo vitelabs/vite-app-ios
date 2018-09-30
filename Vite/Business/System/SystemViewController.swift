@@ -83,6 +83,7 @@ class SystemViewController: FormViewController {
             cell.layoutMargins.left = 24
             cell.layoutMargins.right = 24
             cell.selectionStyle = .none
+            cell.textLabel?.adjustsFontSizeToFitWidth = true
         }
         ImageRow.defaultCellSetup = { cell, row in
             cell.selectionStyle = .none

@@ -65,7 +65,7 @@ extension AboutUsViewController {
             make.top.equalTo(headerView).offset(30)
             make.centerX.equalTo(headerView)
             make.width.equalTo(82)
-            make.width.height.equalTo(116)
+            make.height.equalTo(116)
         }
         self.tableView.tableHeaderView = headerView
 
