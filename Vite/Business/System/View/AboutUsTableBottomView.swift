@@ -46,7 +46,7 @@ class AboutUsTableBottomView: UIView {
         }
 
         self.addSubview(self.officialWebsiteBtn)
-        self.officialWebsiteBtn.snp.makeConstraints {  (make) -> Void in
+        self.officialWebsiteBtn.snp.remakeConstraints {  (make) -> Void in
             make.left.equalTo(self).offset(padding)
             make.top.equalTo(collectionView.snp.bottom).offset(30)
             make.width.equalTo(63)
@@ -63,7 +63,7 @@ class AboutUsTableBottomView: UIView {
         }
 
         self.addSubview(portalWebsiteBtn)
-        self.portalWebsiteBtn.snp.makeConstraints {  (make) -> Void in
+        self.portalWebsiteBtn.snp.remakeConstraints {  (make) -> Void in
             make.left.equalTo(paddingView.snp.right)
             make.top.equalTo(collectionView.snp.bottom).offset(30)
             make.width.equalTo(93)
@@ -81,7 +81,7 @@ class AboutUsTableBottomView: UIView {
         }
 
         self.addSubview(blogWebsiteBtn)
-        self.blogWebsiteBtn.snp.makeConstraints {  (make) -> Void in
+        self.blogWebsiteBtn.snp.remakeConstraints {  (make) -> Void in
             make.left.equalTo(paddingView1.snp.right)
             make.right.equalTo(self).offset(-padding)
             make.top.equalTo(collectionView.snp.bottom).offset(30)
