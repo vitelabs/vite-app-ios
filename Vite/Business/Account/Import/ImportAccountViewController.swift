@@ -105,7 +105,7 @@ extension ImportAccountViewController {
 
         self.scrollView.addSubview(contentView)
         contentView.snp.makeConstraints { (make) in
-            make.top.bottom.equalTo(scrollView)
+            make.top.equalTo(scrollView)
             make.left.right.equalTo(view)
         }
 
@@ -130,7 +130,8 @@ extension ImportAccountViewController {
             make.left.equalTo(contentView).offset(24)
             make.right.equalTo(contentView).offset(-24)
             make.top.greaterThanOrEqualTo(createNameAndPwdView.snp.bottom).offset(20)
-            make.bottom.equalToSuperview().offset(-24)
+            make.bottom.equalTo(self.view).offset(-50).priority(250)
+            make.bottom.equalTo(contentView)
         }
     }
 
@@ -138,7 +139,9 @@ extension ImportAccountViewController {
         let wallet = WalletAccount()
         wallet.name  = self.createNameAndPwdView.walletNameTF.textField.text!.trimmingCharacters(in: .whitespaces)
         wallet.password = self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text!.pwdEncrypt()
-        wallet.mnemonic = self.contentTextView.text
+
+        let mnemonicContent = self.contentTextView.text.filterWhitespacesAndNewlines()
+        wallet.mnemonic = mnemonicContent
         self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading.key.localized(), animated: true)
         DispatchQueue.global().async {
 
