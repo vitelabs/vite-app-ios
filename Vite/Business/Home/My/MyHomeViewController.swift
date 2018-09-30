@@ -39,6 +39,7 @@ class MyHomeViewController: FormViewController {
         super.viewDidLoad()
         navigationTitleView = NavigationTitleView(title: R.string.localizable.myPageTitle.key.localized())
         self.view.backgroundColor = .white
+        self.automaticallyAdjustsScrollViewInsets = false
 
         self.setupTableView()
     }
