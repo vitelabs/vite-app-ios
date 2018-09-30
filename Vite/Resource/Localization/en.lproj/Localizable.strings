@@ -9,23 +9,23 @@
 /* App */
 "Cancel" = "Cancel";
 "Finish" = "Done";
-"Delete" = "删除";
+"Delete" = "Delete";
 "Hint" = "Prompt";
 "Yes" = "Yes";
 "No" = "No";
 "Loading" = "Loading";
 "Confirm" = "Confirm";
 "Submit" = "Submit";
-"Update.app" = "更新app";
+"Update.app" = "Update App";
 
 /* Login */
 "create.account" = "Create Account";
 "import.account" = "Import Account";
 
 /* Lock */
-"lock.page.pwd.btn.title" = "使用密码登录";
-"lock.page.fingerprint.btn.title" = "再次唤起验证";
-"lock.page.fingerprint.alter.title" = "请验证指纹，开启Touch Id";
+"lock.page.pwd.btn.title" = "Login via password";
+"lock.page.fingerprint.btn.title" = "Arouse verify again";
+"lock.page.fingerprint.alter.title" = "Verify fingerprint to activate Touch ID";
 
 /* create */
 "create.page.title" = "Create Account";
