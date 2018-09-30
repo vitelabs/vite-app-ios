@@ -69,7 +69,7 @@ class ScanViewController: BaseViewController {
     }
 
     func setupUIComponents() {
-        navigationItem.title = R.string.localizable.scanPageTitle()
+        navigationItem.title = R.string.localizable.scanPageTitle.key.localized()
         navigationBarStyle = .custom(tintColor: UIColor.white, backgroundColor: UIColor(netHex: 0x24272B))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.icon_nav_photo_black(), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self.pickeImage(_:)))
 

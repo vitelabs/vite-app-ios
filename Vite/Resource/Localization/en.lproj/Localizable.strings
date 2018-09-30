@@ -16,7 +16,7 @@
 "Loading" = "Loading";
 "Confirm" = "Confirm";
 "Submit" = "Submit";
-"Update.app" = "更新app";
+"Update.app" = "Update App";
 
 /* Login */
 "create.account" = "Create Account";
@@ -82,7 +82,7 @@
 
 /* Wallet Home */
 "wallet.home.balance.title" = "Balance";
-"wallet.home.unconfirmed.title" = "Fund in Float %@";
+"wallet.home.unconfirmed.title" = "Unreceived %@";
 "wallet.home.toast.copy.address" = "Successfully copied!";
 
 /* Manage Wallet */
@@ -105,10 +105,13 @@
 "transaction.list.page.title" = "Transaction History";
 "transaction.list.page.empty" = "Empty";
 "transaction.list.page.network.error" = "Refresh";
+"transaction.list.page.header.refresh.idle" = "Pull down to refresh";
+"transaction.list.page.header.refresh.pulling" = "Release to refresh";
+"transaction.list.page.header.refresh.refreshing" = "Loading...";
 
 /* BalanceInfo */
 "balance.info.detail.balance.title" = "Balance";
-"balance.info.detail.unconfirmed.title" = "Fund in Float";
+"balance.info.detail.unconfirmed.title" = "Unreceived";
 "balance.info.detail.unconfirmed.count.title" = "%@ unconfirmed";
 "balance.info.detail.show.transactions.button.title" = "View Transaction History";
 "balance.info.detail.reveice.button.title" = "Receive";
@@ -136,6 +139,7 @@
 "send.page.toast.address.error" = "Wrong recipient format!";
 "send.page.toast.amount.error" = "Insufficient Balance";
 "send.page.toast.amount.empty" = "Please input balance";
+"send.page.toast.amount.zero" = "The amount has to be positive";
 "send.page.not.enough.balance.alert.title" = "Insufficient Balance";
 "send.page.not.enough.balance.alert.button" = "Cancel";
 "send.page.confirm.biometryAuthFailed.title" = "Cannot be identified";

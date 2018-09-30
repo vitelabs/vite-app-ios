@@ -82,7 +82,7 @@ extension AboutUsViewController {
                 $0.cell.textLabel?.textColor = Colors.cellTitleGray
                 $0.cell.textLabel?.font = Fonts.light16
                 $0.title =  R.string.localizable.aboutUsPageCellBlockHeight.key.localized()
-                $0.value = R.string.localizable.aboutUsPageCellBlockHeightLoadingTip()
+                $0.value = R.string.localizable.aboutUsPageCellBlockHeightLoadingTip.key.localized()
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
             }.onCellSelection({ _, _  in

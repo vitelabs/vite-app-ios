@@ -16,7 +16,7 @@
 "Loading" = "加载中";
 "Confirm" = "确定";
 "Submit" = "提交";
-"Update.app" = "更新app";
+"Update.app" = "更新 App";
 
 /* Login */
 "create.account" = "创建账户";
@@ -82,7 +82,7 @@
 
 /* Wallet Home */
 "wallet.home.balance.title" = "账户余额";
-"wallet.home.unconfirmed.title" = "在途资金 %@";
+"wallet.home.unconfirmed.title" = "待接收 %@";
 "wallet.home.toast.copy.address" = "地址已复制";
 
 /* Manage Wallet */
@@ -105,10 +105,13 @@
 "transaction.list.page.title" = "交易记录";
 "transaction.list.page.empty" = "无记录";
 "transaction.list.page.network.error" = "刷新页面";
+"transaction.list.page.header.refresh.idle" = "下拉刷新";
+"transaction.list.page.header.refresh.pulling" = "松开立即刷新";
+"transaction.list.page.header.refresh.refreshing" = "正在刷新中...";
 
 /* BalanceInfo */
 "balance.info.detail.balance.title" = "账户余额";
-"balance.info.detail.unconfirmed.title" = "在途资金";
+"balance.info.detail.unconfirmed.title" = "待接收";
 "balance.info.detail.unconfirmed.count.title" = "%@笔待确认";
 "balance.info.detail.show.transactions.button.title" = "查看交易记录";
 "balance.info.detail.reveice.button.title" = "收款";

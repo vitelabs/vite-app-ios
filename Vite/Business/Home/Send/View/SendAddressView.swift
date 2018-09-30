@@ -25,7 +25,7 @@ class SendAddressView: UIView {
         let canEdit = address.isEmpty
         isUserInteractionEnabled = canEdit
 
-        titleLabel.text = R.string.localizable.sendPageToAddressTitle()
+        titleLabel.text = R.string.localizable.sendPageToAddressTitle.key.localized()
         textView.text = address
 
         addSubview(titleLabel)

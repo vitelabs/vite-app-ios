@@ -29,16 +29,18 @@ class TransactionListViewController: BaseTableViewController {
 
     fileprivate func setupView() {
 
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.transactionListPageTitle())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.transactionListPageTitle.key.localized())
 
         tableView.separatorStyle = .none
         tableView.rowHeight = TransactionCell.cellHeight
         tableView.estimatedRowHeight = TransactionCell.cellHeight
-        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
+        let header = RefreshHeader(refreshingBlock: { [weak self] in
             self?.refreshList(finished: { [weak self] in
                 self?.tableView.mj_header.endRefreshing()
             })
         })
+
+        tableView.mj_header = header
     }
 
     let dataSource = DataSource(configureCell: { (_, tableView, indexPath, item) -> UITableViewCell in
@@ -137,7 +139,7 @@ extension TransactionListViewController: ViewControllerDataStatusable {
             $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
             $0.setTitleColor(UIColor(netHex: 0x007AFF), for: .normal)
             $0.setTitleColor(UIColor(netHex: 0x007AFF).highlighted, for: .highlighted)
-            $0.setTitle(R.string.localizable.transactionListPageNetworkError(), for: .normal)
+            $0.setTitle(R.string.localizable.transactionListPageNetworkError.key.localized(), for: .normal)
         }
 
         view.addLayoutGuide(layoutGuide)
@@ -181,7 +183,7 @@ extension TransactionListViewController: ViewControllerDataStatusable {
             $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
             $0.setTitleColor(UIColor(netHex: 0x007AFF), for: .normal)
             $0.setTitleColor(UIColor(netHex: 0x007AFF).highlighted, for: .highlighted)
-            $0.setTitle(R.string.localizable.transactionListPageEmpty(), for: .normal)
+            $0.setTitle(R.string.localizable.transactionListPageEmpty.key.localized(), for: .normal)
         }
 
         view.addLayoutGuide(layoutGuide)
