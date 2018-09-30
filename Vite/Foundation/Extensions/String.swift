@@ -39,9 +39,11 @@ extension String {
         return String(self[startIndex..<endIndex])
     }
 
-    static  func getAppVersion() -> String {
-        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        return version
+    func filterWhitespacesAndNewlines() -> String {
+        var temp = self.trimmingCharacters(in: .whitespacesAndNewlines)
+        temp = temp.replacingOccurrences(of: "\n", with: "")
+        temp = temp.replacingOccurrences(of: "\r", with: "")
+        return temp
     }
 
     func pwdEncrypt() -> String {

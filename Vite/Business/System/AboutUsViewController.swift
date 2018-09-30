@@ -160,7 +160,8 @@ extension AboutUsViewController {
         }
     }
     private func emailTemplate() -> String {
-        return   R.string.localizable.aboutUsPageEmailContent.key.localized(arguments: UIDevice.current.systemVersion, UIDevice.current.model, String.getAppVersion(), Locale.preferredLanguages.first ?? "")
+
+        return   R.string.localizable.aboutUsPageEmailContent.key.localized(arguments: UIDevice.current.systemVersion, UIDevice.current.model, Bundle.main.fullVersion, Locale.preferredLanguages.first ?? "")
     }
 }
 
