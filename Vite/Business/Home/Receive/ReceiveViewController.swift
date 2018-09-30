@@ -164,14 +164,13 @@ class ReceiveViewController: BaseViewController {
                         return "\(amount) \(self.token.symbol)"
                     } else {
                         return R.string.localizable.receivePageTokenNameLabel(self.token.symbol)
-                        333
                     }
                 }
                 .drive(middleView.tokenSymbolLabel.rx.text).disposed(by: rx.disposeBag)
 
             Observable.combineLatest(amountBehaviorRelay.asObservable(), footerView.noteTitleTextFieldView.textField.rx.text.asObservable())
                 .map {
-                    ViteURI.transfer(address: self.bag.address, tokenId: self.token.id, amountString: $0, decimalsString: "1e\(self.token.decimals)", data: $1)
+                    ViteURI.transfer(address: self.bag.address, tokenId: self.token.id, amountString: $0, decimalsString: "\(self.token.decimals)", data: $1)
                 }
                 .bind(to: uriBehaviorRelay).disposed(by: rx.disposeBag)
         }
