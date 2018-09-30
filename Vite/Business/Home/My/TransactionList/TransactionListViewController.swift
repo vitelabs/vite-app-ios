@@ -34,11 +34,13 @@ class TransactionListViewController: BaseTableViewController {
         tableView.separatorStyle = .none
         tableView.rowHeight = TransactionCell.cellHeight
         tableView.estimatedRowHeight = TransactionCell.cellHeight
-        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
+        let header = RefreshHeader(refreshingBlock: { [weak self] in
             self?.refreshList(finished: { [weak self] in
                 self?.tableView.mj_header.endRefreshing()
             })
         })
+
+        tableView.mj_header = header
     }
 
     let dataSource = DataSource(configureCell: { (_, tableView, indexPath, item) -> UITableViewCell in
