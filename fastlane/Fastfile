@@ -41,11 +41,13 @@ git_add(path: ".")
 
 #  git commit -m 'message'
 
-git_commit(path: ".", message: "Jenkins Version Bump")
+dd = get_build_number
+
+git_commit(path: ".", message: "Jenkins Version Bump"+ dd)
 
 #  git push origin master
 
-push_to_git_remote
+#push_to_git_remote
 
   end
 end

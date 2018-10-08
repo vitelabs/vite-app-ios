@@ -26,6 +26,11 @@ Push a new beta build to TestFlight
 fastlane ios package
 ```
 Push a new beta build to TestFlight
+### ios git
+```
+fastlane ios git
+```
+Push a new beta build to TestFlight
 
 ----
 
