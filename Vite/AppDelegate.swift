@@ -7,20 +7,101 @@
 //
 
 import UIKit
+import RxSwift
+import NSObject_Rx
+import Vite_HDWalletKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let rootVC = HomeViewController()
-        window = UIWindow.init(frame:UIScreen.main.bounds)
-        let nav = UINavigationController.init(rootViewController: rootVC)
+    lazy var lockWindow: UIWindow = {
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        return window
+    }()
 
-        window?.rootViewController = nav
-        window?.makeKeyAndVisible()
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        startBaiduMobileStat()
+        handleNotification()
+        _ = SettingDataService.sharedInstance.getCurrentLanguage()
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+        handleRootVC()
+
+        AutoGatheringService.instance.start()
+        FetchBalanceInfoService.instance.start()
+        //fetch app config
+        AppConfigVM().fetchVersionInfo()
+        WXApi.registerApp(Constants.weixinAppID)
         return true
+    }
+
+    func handleNotification() {
+        let b = NotificationCenter.default.rx.notification(.logoutDidFinish)
+        Observable.of(b)
+            .merge()
+            .takeUntil(self.rx.deallocated)
+            .subscribe {[weak self] (_) in
+                guard let `self` = self else { return }
+                self.handleRootVC()
+            }.disposed(by: rx.disposeBag)
+
+        let createAccountSuccess = NotificationCenter.default.rx.notification(.createAccountSuccess)
+        let loginDidFinish = NotificationCenter.default.rx.notification(.loginDidFinish)
+        let languageChangedInSetting = NotificationCenter.default.rx.notification(.languageChangedInSetting)
+        let unlockDidSuccess = NotificationCenter.default.rx.notification(.unlockDidSuccess)
+
+        Observable.of(createAccountSuccess, loginDidFinish, languageChangedInSetting, unlockDidSuccess)
+            .merge()
+            .takeUntil(self.rx.deallocated)
+            .subscribe {[weak self] (_) in
+                guard let `self` = self else { return }
+                self.goHomePage()
+            }.disposed(by: rx.disposeBag)
+    }
+
+    func handleRootVC() {
+        if  WalletDataService.shareInstance.isExistWallet() {
+            let rootVC = CreateAccountHomeViewController()
+            rootVC.automaticallyShowDismissButton = false
+            let nav = BaseNavigationController(rootViewController: rootVC)
+            window?.rootViewController = nav
+        } else if WalletDataService.shareInstance.existWalletAndLogout() {
+            let rootVC = LoginViewController()
+            rootVC.automaticallyShowDismissButton = false
+            let nav = BaseNavigationController(rootViewController: rootVC)
+            window?.rootViewController = nav
+        } else {
+            if WalletDataService.shareInstance.isLockWallet() == .none {
+                self.goHomePage()
+                return
+            } else {
+                self.goLockPage()
+                return
+            }
+        }
+        window?.makeKeyAndVisible()
+    }
+
+    func goLockPage() {
+        let rootVC: BaseViewController
+        if WalletDataService.shareInstance.isLockWallet() == .password {
+            rootVC = LockPwdViewController()
+            rootVC.automaticallyShowDismissButton = false
+        } else {
+            rootVC = LockViewController()
+        }
+        let nav = BaseNavigationController(rootViewController: rootVC)
+        self.lockWindow.rootViewController = nav
+        self.lockWindow.makeKeyAndVisible()
+    }
+
+    func goHomePage() {
+        HDWalletManager.instance.updateAccount(WalletDataService.shareInstance.defaultWalletAccount!)
+        let rootVC = HomeViewController()
+        window?.rootViewController = rootVC
+        window?.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -42,4 +123,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
 
     }
+
+    func startBaiduMobileStat() {
+        let statTracker: BaiduMobStat = BaiduMobStat.default()
+        statTracker.shortAppVersion  =  Bundle.main.fullVersion
+        statTracker.start(withAppId: Constants.baiduMobileStat)
+    }
+
 }

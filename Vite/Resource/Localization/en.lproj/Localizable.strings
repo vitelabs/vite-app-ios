@@ -1,7 +1,197 @@
-/* 
+/*
   Localizable.strings
   Vite
 
   Created by Water on 2018/8/20.
-  Copyright © 2018年 vite labs. All rights reserved.
-*/
+  Copyright © 2018 vite labs. All rights reserved.
+ */
+
+/* App */
+"Cancel" = "Cancel";
+"Finish" = "Done";
+"Delete" = "Delete";
+"Hint" = "Prompt";
+"Yes" = "Yes";
+"No" = "No";
+"Loading" = "Loading";
+"Confirm" = "Confirm";
+"Submit" = "Submit";
+"Update.app" = "Update App";
+
+/* Login */
+"create.account" = "Create Account";
+"import.account" = "Import Account";
+
+/* Lock */
+"lock.page.pwd.btn.title" = "Login via password";
+"lock.page.fingerprint.btn.title" = "Arouse verify again";
+"lock.page.fingerprint.alter.title" = "Verify fingerprint to activate Touch ID";
+
+/* create */
+"create.page.title" = "Create Account";
+"create.page.tf.title" = "Account Name";
+"create.page.pw.title" = "Please input 6 digits password";
+"create.page.pw.repeate.title" = "Please input your password again";
+"create.page.submit.btn.title" = "Create";
+
+"create.page.tip.title" = "Back up Wallet Account";
+"create.page.tip.content" = "Mnemonic seed phrase is used to restore your wallet when switching devices or deleting app, better write it down and keep it in a safe place where only you can access, otherwise your assets will be at tremendous risks";
+"create.page.tip.nextBtn" = "Backup Seed Phrase";
+
+/* mnemonic */
+"mnemonic.backup.page.title" = "Backup Seed Phrase";
+"mnemonic.backup.page.tip.title" = "Mnemonic seed phrase is the only way to restore your wallet, please keep it safe or you won't have access to your account for good.";
+"mnemonic.backup.page.tip.lab.title" = "Seed Phrase";
+"mnemonic.backup.page.tip.anewBtn.title" = "Regenerate Seed Phrase";
+"mnemonic.backup.page.tip.nextBtn.title" = "Successfully backuped your seed phrase!";
+"mnemonic.backup.page.alter.title" = "It isn't a safe way to keep your seed phrase by screenshot. We suggest that you'd better write it down and keep it in a safe place.";
+"mnemonic.backup.page.alter.message" = "Regenerate seed phrase？";
+"mnemonic.backup.page.alter.cancel" = "No";
+"mnemonic.backup.page.alter.confirm" = "Yes";
+"mnemonic.backup.page.error.type.name" = "Please input account name or password";
+"mnemonic.backup.page.error.type.nameValid" = "Account name only supports Chinese and English characters as well as unserscores.";
+"mnemonic.backup.page.error.type.validWalletNameCount" = "Account name exceeds the limit!";
+"mnemonic.backup.page.error.type.difference" = "Please enter the same password!";
+
+"mnemonic.affirm.page.title" = "Confirm your seed phrase";
+"mnemonic.affirm.page.tip.title" = "Orderly select seed phrase";
+"mnemonic.affirm.alter.title" = "Back will regenerate seed phrase, ready to go back?";
+"mnemonic.affirm.alter.check.title" = "Wrong seed phrase!";
+"mnemonic.affirm.page.add.loading" = "Adding...";
+
+/* import mnemonic*/
+"import.page.title" = "Please input your seed phrase";
+"import.page.submit.btn" = "Restore Account";
+"import.page.submit.invalid.mnemonic" = "Something wrong with your seed phrase, please try again!";
+
+/* export mnemonic */
+"export.page.title" = "Export Seed Phrase";
+"export.page.alter.title" = "Please input passowrd";
+"export.page.alter.tf.placeholder" = "6 digits numeric password";
+"export.page.alter.password.error" = "Wrong password!";
+
+/* login */
+"login.page.btn.chooseName" = "Select Accounts";
+"login.page.btn.login" = "Login";
+"login.page.loading.title" = "Processing";
+"login.page.error.toast.title" = "Wrong password! Import seed phrase instead";
+
+/* Home */
+"tabbar.item.title.wallet" = "Wallet";
+"tabbar.item.title.my" = "Me";
+
+/* Wallet Home */
+"wallet.home.balance.title" = "Balance";
+"wallet.home.unconfirmed.title" = "Unreceived %@";
+"wallet.home.toast.copy.address" = "Successfully copied!";
+
+/* Manage Wallet */
+"manage.wallet.page.title" = "Wallet Management";
+"manage.wallet.page.name.cell.title" = "Wallet Name";
+"manage.wallet.page.addressManage.cell.title" = "Address Management";
+"manage.wallet.page.importMnemonic.cell.title" = "Export Seed Phrase";
+"manage.wallet.page.alter.changeName" = "Edit Wallet Name";
+"manage.wallet.page.changeName.loading" = "Editing";
+
+/* my */
+"my.page.title" = "Me";
+"my.page.mangeWallet.cell.title" = "Wallet";
+"my.page.dealLog.cell.title" = "Transaction";
+"my.page.system.cell.title" = "System Settings";
+"my.page.aboutUs.cell.title" = "About us";
+"my.page.fetchMoney.cell.title" = "Get Bonus";
+
+/* Transaction List */
+"transaction.list.page.title" = "Transaction History";
+"transaction.list.page.empty" = "Empty";
+"transaction.list.page.network.error" = "Refresh";
+"transaction.list.page.header.refresh.idle" = "Pull down to refresh";
+"transaction.list.page.header.refresh.pulling" = "Release to refresh";
+"transaction.list.page.header.refresh.refreshing" = "Loading...";
+
+/* BalanceInfo */
+"balance.info.detail.balance.title" = "Balance";
+"balance.info.detail.unconfirmed.title" = "Unreceived";
+"balance.info.detail.unconfirmed.count.title" = "%@ unconfirmed";
+"balance.info.detail.show.transactions.button.title" = "View Transaction History";
+"balance.info.detail.reveice.button.title" = "Receive";
+"balance.info.detail.send.button.title" = "Transfer";
+
+/* Address Manage Page */
+"address.manage.page.title" = "Address Management";
+"address.manage.default.address.cell.title" = "Default Receiving Address";
+"address.manage.address.header.title" = "Address List";
+"address.manage.address.generate.button.title" = "Add List";
+"address.manage.address.generate.button.toast" = "Add up to maximum 10 addresses!";
+"address.manage.tip.alert.message" = "At most 10 accounts. The first address and addresses that have transaction records will be shown when resotring account, and addresses with no record will be hidden, these can be regenerated and reused.";
+"address.manage.tip.alert.ok" = "I know";
+
+/* Send Page */
+"send.page.title" = "Transfer";
+"send.page.my.address.title" = "From Address";
+"send.page.my.balance.title" = "Balance";
+"send.page.to.address.title" = "Recipient";
+"send.page.amount.title" = "Amount";
+"send.page.remark.title" = "Comment";
+"send.page.send.button.title" = "Send";
+"send.page.amount.toolbar.button.title" = "Next";
+"send.page.toast.send.success" = "Success";
+"send.page.toast.address.error" = "Wrong recipient format!";
+"send.page.toast.amount.error" = "Insufficient Balance";
+"send.page.toast.amount.empty" = "Please input balance";
+"send.page.toast.amount.zero" = "The amount has to be positive";
+"send.page.not.enough.balance.alert.title" = "Insufficient Balance";
+"send.page.not.enough.balance.alert.button" = "Cancel";
+"send.page.confirm.biometryAuthFailed.title" = "Cannot be identified";
+"send.page.confirm.biometryAuthFailed.back" = "Back";
+"send.page.confirm.passwordAuthFailed.retry" = "Retry";
+
+
+/* Confirm Transaction Page */
+"confirm.transaction.page.title" = "Payment";
+"confirm.transaction.address.title" = "Recipient";
+"confirm.transaction.page.use.password" = "Use password";
+"confirm.transaction.page.confirm.button" = "Confirm";
+"confirm.transaction.page.biometry.confirm.reason" = "Verify";
+"confirm.transaction.page.use.password.title" = "Please";
+"confirm.transaction.page.toast.password.error" = "Wrong password!";
+
+/* Receive Page */
+"Receive.page.title" = "Receive";
+"Receive.page.token.name.label" = "please send %@";
+"Receive.page.token.amount.button.title" = "Specific amount";
+"Receive.page.token.note.label" = "Comment";
+"Receive.page.token.amount.alert.title" = "Input Amount";
+
+/* Scan Page */
+"Scan.page.title" = "Scan";
+
+/* System */
+"system.page.logout.loading" = "Logout";
+"system.page.cell.change.language" = "Language";
+"system.page.cell.login.pwd" = "Input password to arouse APP";
+"system.page.cell.login.faceId" = "Support Fingerprint/Face ID";
+"system.page.cell.transfer.faceId" = "Pay by Fingerprint/Face ID";
+"system.page.cell.logout.title" = "Logout/switch wallet";
+
+/* about us */
+"aboutUs.page.cell.blockHeight" = "Current Height";
+"aboutUs.page.cell.blockHeight.loading.tip" = "Loading";
+"aboutUs.page.cell.version" = "Version";
+"aboutUs.page.cell.contact" = "Contact Us";
+"aboutUs.page.cell.shareUs" = "Share Vite APP";
+"aboutUs.page.cell.official.website" = "Vite.org";
+"aboutUs.page.cell.portal.website" = "Vite.net";
+"aboutUs.page.cell.blog.website" = "Vite.blog";
+"aboutUs.page.email.title" = "Feedback";
+"aboutUs.page.email.content" = "\n\n\n\n\nThe advice comes from the using environment as below:\n1.System device: %@\n2.System version:%@\n3.APP version：%@\n4.Language:%@";
+
+
+/* fetch welfare */
+"fetch.welfare.page.title" = "Get Bonus";
+"fetch.welfare.content.title" = "Bonus in the first stage";
+"fetch.welfare.content.desc" = "The airdrop aiming at Loopring community is now processing!\nThe following beneficial activities will be conducted gradually,\n please stay tuned!";
+"fetch.welfare.participation.title" = "How to participate:";
+"fetch.welfare.participation.ways" = "1. Submit your Vite address in Loopring community. \n2. System will airdrop specific token - VV token. \n3. Please fill in address of Ethereum in this page, confirm and submit, then a transaction to special account will be generated, input any amount.\n4. The special account will send equal amount of Vite tokens in Ethereum ERC20 after receiving VV token.";
+"fetch.welfare.inputEthereumAddress.title" = "Please input Ethereum address:";
+"fetch.welfare.inputEthereumAddress.error.title" = "Wrong Format!";
