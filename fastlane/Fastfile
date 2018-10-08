@@ -19,8 +19,8 @@ platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
     increment_build_number
-    build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
-    upload_to_testflight
+   # build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
+   # upload_to_testflight
     push_git
   end
 end
