@@ -80,7 +80,7 @@ extension AboutUsViewController {
 
             <<< LabelRow("aboutUsPageCellBlockHeight") {
                 $0.title =  R.string.localizable.aboutUsPageCellBlockHeight.key.localized()
-                $0.value = R.string.localizable.aboutUsPageCellBlockHeightLoadingTip()
+                $0.value = R.string.localizable.aboutUsPageCellBlockHeightLoadingTip.key.localized()
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
             }.onCellSelection({ _, _  in

@@ -102,8 +102,8 @@ class BalanceInfoDetailView: UIView {
 //            m.centerY.equalTo(unconfirmedLabel)
 //        }
 
-        balanceTitleLabel.text = R.string.localizable.balanceInfoDetailBalanceTitle()
-        unconfirmedTitleLabel.text = R.string.localizable.balanceInfoDetailUnconfirmedTitle()
+        balanceTitleLabel.text = R.string.localizable.balanceInfoDetailBalanceTitle.key.localized()
+        unconfirmedTitleLabel.text = R.string.localizable.balanceInfoDetailUnconfirmedTitle.key.localized()
     }
 
     required init?(coder aDecoder: NSCoder) {

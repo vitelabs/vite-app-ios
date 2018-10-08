@@ -64,7 +64,7 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
         let balanceTitleView = UILabel().then {
             $0.font = UIFont.systemFont(ofSize: 14)
             $0.textColor = UIColor(netHex: 0x3E4A59)
-            $0.text = R.string.localizable.walletHomeBalanceTitle()
+            $0.text = R.string.localizable.walletHomeBalanceTitle.key.localized()
         }
 
         backgroundColor = UIColor.clear

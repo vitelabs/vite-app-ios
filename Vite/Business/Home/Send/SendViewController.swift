@@ -108,10 +108,10 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
 
     private func setupView() {
 
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.sendPageTitle())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.sendPageTitle.key.localized())
 
         let addressView = SendAddressView(address: address?.description ?? "")
-        let sendButton = UIButton(style: .blue, title: R.string.localizable.sendPageSendButtonTitle())
+        let sendButton = UIButton(style: .blue, title: R.string.localizable.sendPageSendButtonTitle.key.localized())
 
         let shadowView = UIView().then {
             $0.backgroundColor = UIColor.white
@@ -175,7 +175,7 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
 
         let toolbar = UIToolbar()
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let next: UIBarButtonItem = UIBarButtonItem(title: R.string.localizable.sendPageAmountToolbarButtonTitle(), style: .done, target: nil, action: nil)
+        let next: UIBarButtonItem = UIBarButtonItem(title: R.string.localizable.sendPageAmountToolbarButtonTitle.key.localized(), style: .done, target: nil, action: nil)
         let done: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
         if noteCanEdit {
             toolbar.items = [flexSpace, next]
@@ -197,21 +197,21 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
             .bind { [weak self] in
                 guard let `self` = self else { return }
                 guard Address.isValid(string: addressView.textView.text ?? "") else {
-                    Toast.show(R.string.localizable.sendPageToastAddressError())
+                    Toast.show(R.string.localizable.sendPageToastAddressError.key.localized())
                     return
                 }
                 guard let amountString = self.amountView.textField.text, !amountString.isEmpty, let amount = amountString.toBigInt(decimals: self.token.decimals) else {
-                    Toast.show(R.string.localizable.sendPageToastAmountEmpty())
+                    Toast.show(R.string.localizable.sendPageToastAmountEmpty.key.localized())
                     return
                 }
 
                 guard amount > BigInt(0) else {
-                    Toast.show(R.string.localizable.sendPageToastAmountZero())
+                    Toast.show(R.string.localizable.sendPageToastAmountZero.key.localized())
                     return
                 }
 
                 guard amount <= self.balance.value else {
-                    Toast.show(R.string.localizable.sendPageToastAmountError())
+                    Toast.show(R.string.localizable.sendPageToastAmountError.key.localized())
                     return
                 }
 
@@ -228,14 +228,14 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
                         print("cancelled")
                     case .biometryAuthFailed:
                         Alert.show(into: self,
-                                   title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle(),
+                                   title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle.key.localized(),
                                    message: nil,
-                                   actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack()), nil)])
+                                   actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack.key.localized()), nil)])
                     case .passwordAuthFailed:
                         Alert.show(into: self,
-                                   title: R.string.localizable.confirmTransactionPageToastPasswordError(),
+                                   title: R.string.localizable.confirmTransactionPageToastPasswordError.key.localized(),
                                    message: nil,
-                                   actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry()), { [unowned sendButton] _ in sendButton.sendActions(for: .touchUpInside) }), (.cancel, nil)])
+                                   actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned sendButton] _ in sendButton.sendActions(for: .touchUpInside) }), (.cancel, nil)])
                     }
                 })
                 self.present(confirmViewController, animated: false, completion: nil)
@@ -259,14 +259,14 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
             guard let `self` = self else { return }
             switch result {
             case .success:
-                Toast.show(R.string.localizable.sendPageToastSendSuccess())
+                Toast.show(R.string.localizable.sendPageToastSendSuccess.key.localized())
                 GCD.delay(0.5) { self.dismiss() }
             case .error(let error):
                 if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
                     Alert.show(into: self,
-                               title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
+                               title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
                                message: nil,
-                               actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
+                               actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
                 } else {
                     Toast.show(error.message)
                 }

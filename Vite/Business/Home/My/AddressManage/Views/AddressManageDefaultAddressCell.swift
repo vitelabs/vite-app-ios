@@ -12,7 +12,7 @@ import SnapKit
 class AddressManageDefaultAddressCell: BaseTableViewCell {
 
     let titleLabel = UILabel().then {
-        $0.text = R.string.localizable.addressManageDefaultAddressCellTitle()
+        $0.text = R.string.localizable.addressManageDefaultAddressCellTitle.key.localized()
     }
 
     let addressLabel = UILabel().then {

@@ -85,7 +85,7 @@ class ReceiveViewController: BaseViewController {
 
         navigationBarStyle = .clear
         if case .token = style {
-            navigationItem.title = R.string.localizable.receivePageTitle()
+            navigationItem.title = R.string.localizable.receivePageTitle.key.localized()
         }
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.icon_nav_share_black(), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(onShare))
         view.backgroundColor = GradientColor(.topToBottom, frame: view.frame, colors: token.backgroundColors)
@@ -141,10 +141,10 @@ class ReceiveViewController: BaseViewController {
             footerView.amountButton.rx.tap
                 .bind {
                     Alert.show(into: self,
-                               title: R.string.localizable.receivePageTokenAmountAlertTitle(),
+                               title: R.string.localizable.receivePageTokenAmountAlertTitle.key.localized(),
                                message: nil,
                                actions: [(.cancel, nil),
-                                         (.default(title: R.string.localizable.confirm()), {[weak self] alertController in
+                                         (.default(title: R.string.localizable.confirm.key.localized()), {[weak self] alertController in
                                             guard let textField = alertController.textFields?.first else { fatalError() }
                                             self?.amountBehaviorRelay.accept(textField.text)
                                          }),
