@@ -32,5 +32,25 @@ platform :ios do
   end
 end
 
+platform :ios do
+  desc "Push a new beta build to TestFlight"
+  lane :git do
+# 3、git add .
+
+git_add(path: ".")
+
+#  git commit -m 'message'
+
+git_commit(path: ".", message: "Jenkins Version Bump")
+
+#  git push origin master
+
+push_to_git_remote
+
+  end
+end
+
+
+
 
 
