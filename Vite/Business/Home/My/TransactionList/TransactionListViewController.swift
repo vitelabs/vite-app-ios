@@ -71,17 +71,26 @@ class TransactionListViewController: BaseTableViewController {
             }
             .disposed(by: rx.disposeBag)
 
-        tableView.rx.didScroll.asObservable().bind { [weak self] in
-            guard let `self` = self else { return }
-            guard let footerView = self.tableView.tableFooterView else { return }
-
-            let triggerOffset = self.tableView.frame.height / 2
-            let frame = footerView.superview!.convert(footerView.frame, to: self.view)
-            if frame.origin.y < self.view.frame.height + triggerOffset {
+        let endScroll = Observable.merge(tableView.rx.didEndDragging.filter { !$0 }.map { _ in Swift.Void() }.asObservable(),
+                                         tableView.rx.didEndDecelerating.asObservable())
+        endScroll
+            .filter { [unowned self] in
+                guard let footerView = self.tableView.tableFooterView else { return false }
+                let triggerOffset = self.tableView.frame.height / 2
+                let frame = footerView.superview!.convert(footerView.frame, to: self.view)
+                return frame.origin.y < self.view.frame.height + triggerOffset
+            }
+            .bind { [unowned self] in
                 self.getMore()
             }
+            .disposed(by: rx.disposeBag)
 
-        }.disposed(by: rx.disposeBag)
+        footerView.retry.throttle(0.5, scheduler: MainScheduler.instance)
+            .bind { [unowned self] in
+                self.getMore()
+                self.footerView.status = .loading
+            }
+            .disposed(by: rx.disposeBag)
 
         dataStatus = .loading
         refreshList()
@@ -90,6 +99,7 @@ class TransactionListViewController: BaseTableViewController {
     private func getMore(finished: (() -> Void)? = nil) {
         self.tableViewModel.getMore { error in
             if let error = error {
+                self.footerView.status = .failed
                 print(error)
             }
         }
