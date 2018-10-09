@@ -34,11 +34,13 @@ class TransactionListViewController: BaseTableViewController {
         tableView.separatorStyle = .none
         tableView.rowHeight = TransactionCell.cellHeight
         tableView.estimatedRowHeight = TransactionCell.cellHeight
-        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
+        let header = RefreshHeader(refreshingBlock: { [weak self] in
             self?.refreshList(finished: { [weak self] in
                 self?.tableView.mj_header.endRefreshing()
             })
         })
+
+        tableView.mj_header = header
     }
 
     let dataSource = DataSource(configureCell: { (_, tableView, indexPath, item) -> UITableViewCell in
@@ -116,7 +118,13 @@ class TransactionListViewController: BaseTableViewController {
                     self?.refreshList()
                 })
             } else {
-                self?.dataStatus = .normal
+                guard let `self` = self else { return }
+                if self.tableView.numberOfRows(inSection: 0) > 0 {
+                    self.dataStatus = .normal
+                } else {
+                    self.dataStatus = .empty
+                }
+
             }
         }
     }
@@ -125,13 +133,86 @@ class TransactionListViewController: BaseTableViewController {
 extension TransactionListViewController: ViewControllerDataStatusable {
 
     func networkErrorView(error: Error, retry: @escaping () -> Void) -> UIView {
-        let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.red
-        button.setTitle(error.localizedDescription, for: .normal)
+
+        let view = UIView()
+        let layoutGuide = UILayoutGuide()
+        let imageView = UIImageView(image: R.image.network_error())
+        let label = UILabel().then {
+            $0.textColor = UIColor(netHex: 0x3E4A59).withAlphaComponent(0.45)
+            $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+            $0.text = error.localizedDescription
+            $0.numberOfLines = 0
+            $0.textAlignment = .center
+        }
+
+        let button = UIButton(type: .system).then {
+            $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+            $0.setTitleColor(UIColor(netHex: 0x007AFF), for: .normal)
+            $0.setTitleColor(UIColor(netHex: 0x007AFF).highlighted, for: .highlighted)
+            $0.setTitle(R.string.localizable.transactionListPageNetworkError.key.localized(), for: .normal)
+        }
+
+        view.addLayoutGuide(layoutGuide)
+        view.addSubview(imageView)
+        view.addSubview(label)
+        view.addSubview(button)
+
+        layoutGuide.snp.makeConstraints { (m) in
+            m.centerY.equalTo(view)
+            m.left.equalTo(view).offset(24)
+            m.right.equalTo(view).offset(-24)
+        }
+
+        imageView.snp.makeConstraints { (m) in
+            m.top.centerX.equalTo(layoutGuide)
+        }
+
+        label.snp.makeConstraints { (m) in
+            m.top.equalTo(imageView.snp.bottom).offset(20)
+            m.left.right.equalTo(layoutGuide)
+        }
+
+        button.snp.makeConstraints { (m) in
+            m.top.equalTo(label.snp.bottom).offset(20)
+            m.left.right.bottom.equalTo(layoutGuide)
+        }
+
         button.rx.tap.bind { [weak self] in
             self?.dataStatus = .loading
             retry()
         }.disposed(by: rx.disposeBag)
-        return button
+        return view
+    }
+
+    func emptyView() -> UIView {
+        let view = UIView()
+        let layoutGuide = UILayoutGuide()
+        let imageView = UIImageView(image: R.image.empty())
+        let button = UIButton(type: .system).then {
+            $0.isUserInteractionEnabled = false
+            $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+            $0.setTitleColor(UIColor(netHex: 0x007AFF), for: .normal)
+            $0.setTitleColor(UIColor(netHex: 0x007AFF).highlighted, for: .highlighted)
+            $0.setTitle(R.string.localizable.transactionListPageEmpty.key.localized(), for: .normal)
+        }
+
+        view.addLayoutGuide(layoutGuide)
+        view.addSubview(imageView)
+        view.addSubview(button)
+
+        layoutGuide.snp.makeConstraints { (m) in
+            m.center.equalTo(view)
+        }
+
+        imageView.snp.makeConstraints { (m) in
+            m.top.left.right.equalTo(layoutGuide)
+        }
+
+        button.snp.makeConstraints { (m) in
+            m.top.equalTo(imageView.snp.bottom).offset(20)
+            m.left.right.bottom.equalTo(layoutGuide)
+        }
+
+        return view
     }
 }

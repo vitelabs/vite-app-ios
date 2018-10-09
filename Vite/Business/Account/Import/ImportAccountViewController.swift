@@ -47,7 +47,7 @@ class ImportAccountViewController: BaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        kas_activateAutoScrollingForView(view)
+        kas_activateAutoScrollingForView(self.contentView)
     }
 
     lazy var contentTextView: UITextView = {
@@ -77,6 +77,14 @@ class ImportAccountViewController: BaseViewController {
         return confirmBtn
     }()
 
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        return scrollView
+    }()
+    lazy var contentView: UIView = {
+        let contentView = UIView()
+        return contentView
+    }()
 }
 
 extension ImportAccountViewController {
@@ -89,27 +97,41 @@ extension ImportAccountViewController {
     }
 
     private func _addViewConstraint() {
-        self.view.addSubview(self.contentTextView)
-        self.contentTextView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-            make.height.equalTo(142)
-            make.top.equalTo((self.navigationTitleView?.snp.bottom)!).offset(10)
+        self.view.addSubview(self.scrollView)
+        self.scrollView.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalTo(self.view)
+            make.top.equalTo((self.navigationTitleView?.snp.bottom)!)
         }
 
-        self.view.addSubview(self.createNameAndPwdView)
+        self.scrollView.addSubview(contentView)
+        contentView.snp.makeConstraints { (make) in
+            make.top.equalTo(scrollView)
+            make.left.right.equalTo(view)
+        }
+
+        contentView.addSubview(self.contentTextView)
+        self.contentTextView.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
+            make.height.equalTo(142)
+            make.top.equalTo(contentView)
+        }
+
+        contentView.addSubview(self.createNameAndPwdView)
         self.createNameAndPwdView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
             make.top.equalTo(self.contentTextView.snp.bottom).offset(20)
         }
 
-        self.view.addSubview(self.confirmBtn)
+        contentView.addSubview(self.confirmBtn)
         self.confirmBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
+            make.top.greaterThanOrEqualTo(createNameAndPwdView.snp.bottom).offset(20)
+            make.bottom.equalTo(self.view).offset(-50).priority(250)
+            make.bottom.equalTo(contentView)
         }
     }
 
@@ -117,7 +139,9 @@ extension ImportAccountViewController {
         let wallet = WalletAccount()
         wallet.name  = self.createNameAndPwdView.walletNameTF.textField.text!.trimmingCharacters(in: .whitespaces)
         wallet.password = self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text!.pwdEncrypt()
-        wallet.mnemonic = self.contentTextView.text
+
+        let mnemonicContent = self.contentTextView.text.filterWhitespacesAndNewlines()
+        wallet.mnemonic = mnemonicContent
         self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading.key.localized(), animated: true)
         DispatchQueue.global().async {
 

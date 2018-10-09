@@ -62,6 +62,7 @@ class SystemViewController: FormViewController {
     private func _setupView() {
         navigationTitleView = NavigationTitleView(title: R.string.localizable.myPageSystemCellTitle.key.localized())
         self.view.backgroundColor = .white
+        self.automaticallyAdjustsScrollViewInsets = false
 
         self.setupTableView()
 
@@ -83,6 +84,7 @@ class SystemViewController: FormViewController {
             cell.layoutMargins.left = 24
             cell.layoutMargins.right = 24
             cell.selectionStyle = .none
+            cell.textLabel?.adjustsFontSizeToFitWidth = true
         }
         ImageRow.defaultCellSetup = { cell, row in
             cell.selectionStyle = .none
@@ -92,7 +94,7 @@ class SystemViewController: FormViewController {
             +++
             Section {
                 $0.header = HeaderFooterView<UIView>(.class)
-                $0.header?.height = { 0.0 }
+                $0.header?.height = { 0.01 }
             }
             <<< ImageRow("systemPageCellChangeLanguage") {
                 $0.cell.titleLab.text = R.string.localizable.systemPageCellChangeLanguage.key.localized()

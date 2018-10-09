@@ -20,6 +20,7 @@ class NavigationTitleView: UIView {
     let titleLabel = UILabel().then {
         $0.font = UIFont.systemFont(ofSize: 24)
         $0.numberOfLines = 1
+        $0.adjustsFontSizeToFitWidth = true
     }
 
     init(title: String?, style: Style = .default) {

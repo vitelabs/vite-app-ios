@@ -29,7 +29,8 @@ final class ImportAccountVM {
             return Observable.just(.empty(message:R.string.localizable.mnemonicBackupPageErrorTypeDifference.key.localized()))
         }
 
-        if !Mnemonic.mnemonic_check(content) {
+        var contentMnemonic = content.filterWhitespacesAndNewlines()
+        if !Mnemonic.mnemonic_check(contentMnemonic) {
             return Observable.just(.empty(message:R.string.localizable.importPageSubmitInvalidMnemonic.key.localized()))
         }
 

@@ -117,7 +117,7 @@ class BalanceInfoDetailView: UIView {
             self.symbolLabel.text = $0.symbol
             self.balanceLabel.text = $0.balance.amountFull(decimals: $0.token.decimals)
             self.unconfirmedLabel.text = $0.unconfirmed.amountFull(decimals: $0.token.decimals)
-//            self.unconfirmedCountLabel.text = R.string.localizable.balanceInfoDetailUnconfirmedCountTitle(String($0.unconfirmedCount))
+//            self.unconfirmedCountLabel.text = R.string.localizable.balanceInfoDetailUnconfirmedCountTitle.key.localized(arguments: String($0.unconfirmedCount))
             self.backgroundColors = $0.token.backgroundColors
             DispatchQueue.main.async {
                 self.backgroundColor = GradientColor(.leftToRight, frame: self.frame, colors: self.backgroundColors)

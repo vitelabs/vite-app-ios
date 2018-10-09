@@ -16,11 +16,15 @@ class FetchWelfareViewController: BaseViewController {
 
         self._setupView()
     }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        kas_activateAutoScrollingForView(view)
+        kas_activateAutoScrollingForView(contentView)
     }
+
+    lazy var contentView: UIView = {
+        let contentView = UIView()
+        return contentView
+    }()
 
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -59,7 +63,6 @@ extension FetchWelfareViewController {
             make.top.equalTo((self.navigationTitleView?.snp.bottom)!)
         }
 
-        let contentView = UIView()
         self.scrollView.addSubview(contentView)
         contentView.snp.makeConstraints { (make) in
             make.top.bottom.equalTo(scrollView)

@@ -176,7 +176,7 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
         let toolbar = UIToolbar()
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let next: UIBarButtonItem = UIBarButtonItem(title: R.string.localizable.sendPageAmountToolbarButtonTitle.key.localized(), style: .done, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: R.string.localizable.finish.key.localized(), style: .done, target: nil, action: nil)
         if noteCanEdit {
             toolbar.items = [flexSpace, next]
         } else {

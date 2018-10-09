@@ -157,8 +157,7 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
         viewModel.token.icon.putIn(iconImageView)
         symbolLabel.text = viewModel.symbol
         balanceLabel.text = viewModel.balance.amountShort(decimals: viewModel.token.decimals)
-        unconfirmedLabel.text = R.string.localizable.walletHomeUnconfirmedTitle(viewModel.unconfirmed.amountShort(decimals: viewModel.token.decimals))
-
+        unconfirmedLabel.text = R.string.localizable.walletHomeUnconfirmedTitle.key.localized(arguments: viewModel.unconfirmed.amountShort(decimals: viewModel.token.decimals))
         DispatchQueue.main.async {
             self.colorView.backgroundColor = GradientColor(.leftToRight, frame: self.colorView.frame, colors: viewModel.token.backgroundColors)
         }

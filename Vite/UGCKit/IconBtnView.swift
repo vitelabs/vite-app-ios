@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class IconBtnView: UIView {
+class IconBtnView: UIImageView {
 
     let  iconView = UIImageView().then {
         $0.backgroundColor = .clear
@@ -18,12 +18,14 @@ class IconBtnView: UIView {
     let btn = UIButton().then {
         $0.setTitleColor(.white, for: .normal)
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        $0.titleLabel?.adjustsFontSizeToFitWidth = true
     }
 
     init(iconImg: UIImage, text: String = "") {
         super.init(frame: CGRect.zero)
-        self.backgroundColor = Colors.blueBg
-
+        self.isUserInteractionEnabled = true
+        self.image = R.image.background_button_blue()?.resizable
+        self.highlightedImage = R.image.background_button_blue()?.tintColor(UIColor(netHex: 0x006FEA)).resizable
         iconView.image =  iconImg
         btn.setTitle(text, for: .normal)
 

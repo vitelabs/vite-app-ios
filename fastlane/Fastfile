@@ -1,0 +1,52 @@
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    increment_build_number
+    build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
+    upload_to_testflight
+    push_git
+  end
+
+  desc "Push a new beta build to TestFlight"
+  lane :package do
+    increment_build_number
+    build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
+    push_git
+  end
+
+  desc "push git local code"
+  lane :push_git do
+
+  git_add(path: ".")
+  build_number = get_build_number
+  git_commit(path: ".", message: "Jenkins Version Bump  "+ build_number)
+  push_to_git_remote
+
+  end
+
+  desc "create new pr in github argument base is base branch"
+  lane :pr do |options|
+
+  create_pull_request(
+    api_token: nil,   
+    repo: "vitelabs/vite-app-ios",
+    title: "[pr] merge new feature",
+    head: nil,
+    base: options[:base], 
+    body: "Please pull this in! and find some bugs",       
+    api_url: nil
+  )
+  end
+end
+
+
+
+
+
+
+

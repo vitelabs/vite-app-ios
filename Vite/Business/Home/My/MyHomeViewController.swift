@@ -29,7 +29,7 @@ class MyHomeViewController: FormViewController {
         }
     }
 
-    let isOpenFetchGift = UserDefaults.standard.bool(forKey: UserDefaultsName.isOpenFetchGift)
+    let isOpenFetchGift = UserDefaults.standard.bool(forKey: UserDefaultsName.isOpenFetchGift) 
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -37,8 +37,9 @@ class MyHomeViewController: FormViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationTitleView = NavigationTitleView(title: "我")
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.myPageTitle.key.localized())
         self.view.backgroundColor = .white
+        self.automaticallyAdjustsScrollViewInsets = false
 
         self.setupTableView()
     }
