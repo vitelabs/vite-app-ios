@@ -157,7 +157,10 @@ extension AboutUsTableBottomView: UICollectionViewDataSource {
 extension AboutUsTableBottomView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let dic = dataList[indexPath.row]
-        WebHandler.open(URL.init(string: dic["web"]!)!)
+        let url = URL.init(string: dic["web"]!)!
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
 }
 
