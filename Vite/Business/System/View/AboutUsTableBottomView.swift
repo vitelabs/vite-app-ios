@@ -165,7 +165,10 @@ extension AboutUsTableBottomView: UICollectionViewDelegate {
             req.profileType = Int32(WXBizProfileType_Normal.rawValue)
             WXApi.send(req)
         } else {
-            WebHandler.open(URL.init(string: dic["web"]!)!)
+            let url = URL.init(string: dic["web"]!)!
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
         }
     }
 }
