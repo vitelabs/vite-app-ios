@@ -26,6 +26,16 @@ Push a new beta build to TestFlight
 fastlane ios package
 ```
 Push a new beta build to TestFlight
+### ios push_git
+```
+fastlane ios push_git
+```
+push git local code
+### ios pr
+```
+fastlane ios pr
+```
+create new pr in github
 
 ----
 
