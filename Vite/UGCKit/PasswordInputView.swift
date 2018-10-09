@@ -78,6 +78,7 @@ public class PasswordInputView: UIView {
         textField.textColor = UIColor.clear
         textField.tintColor =  UIColor.clear
         textField.keyboardType = .numberPad
+        textField.isSecureTextEntry = true
         textField.delegate = self
         textField.addTarget(self, action: #selector(textFieldChange(sender:)), for: .editingChanged)
         addSubview(textField)

@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         startBaiduMobileStat()
         handleNotification()
-        _ = SettingDataService.sharedInstance.getCurrentLanguage()
+        _ = LocalizationService.sharedInstance
 
         window = UIWindow(frame: UIScreen.main.bounds)
         handleRootVC()
