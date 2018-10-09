@@ -32,6 +32,18 @@ class ViteInputValidTest: XCTestCase {
         let name4 = "fsdfdf___asdf您好您好您好您好您好asdfs您好df_12121#11@"
         XCTAssertEqual(ViteInputValidator.isValidWalletName(str: name4), false)
 
+        let pw1 = "12122&"
+        XCTAssertEqual(ViteInputValidator.isValidWalletPassword(str: pw1), false)
+
+        let pw2 = "121225"
+        XCTAssertEqual(ViteInputValidator.isValidWalletPassword(str: pw2), true)
+
+        let pw3 = "12122a"
+        XCTAssertEqual(ViteInputValidator.isValidWalletPassword(str: pw3), false)
+
+        let pw4 = "121"
+        XCTAssertEqual(ViteInputValidator.isValidWalletPassword(str: pw4), false)
+
     }
 
 }
