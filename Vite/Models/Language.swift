@@ -16,7 +16,7 @@ class Language: Equatable {
     // This function will be called many times.
     init(name: String) {
         self.name = name
-        if let displayName = LocalizationService.map[name] {
+        if let displayName = LocalizationService.availableLocalization[name] {
             self.displayName = displayName
         } else {
             self.displayName = "Undefined"

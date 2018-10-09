@@ -11,20 +11,6 @@ import Foundation
 class SettingDataService {
     static let sharedInstance = SettingDataService()
 
-    // MARK: Language
-    func getSupportedLanguages() -> [Language] {
-        let languageNames = Bundle.main.localizations
-        let languages = languageNames.filter ({ (languageName) -> Bool in
-            return languageName != "Base"
-        }).map ({ (name) -> Language in
-            return Language(name: name)
-        }).sorted { (a, b) -> Bool in
-            return a.name < b.name
-        }
-
-        return languages
-    }
-
     func getCurrentLanguage() -> Language {
         if LocalizationService.sharedInstance.updatedLanguage != nil {
             return Language(name: LocalizationService.sharedInstance.updatedLanguage!)

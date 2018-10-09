@@ -21,10 +21,10 @@ extension UIViewController {
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
-        let languages: [Language] = SettingDataService.sharedInstance.getSupportedLanguages()
+        let languages: [String: String] = LocalizationService.availableLocalization
         for element in languages {
-            let action = UIAlertAction(title: element.displayName, style: .`default`, handler: {_ in
-                _ = SetLanguage(element.name)
+            let action = UIAlertAction(title: element.value, style: .`default`, handler: {_ in
+                _ = SetLanguage(element.key)
                 if isSettingPage {
                     NotificationCenter.default.post(name: .languageChangedInSetting, object: nil)
                 }
@@ -32,7 +32,9 @@ extension UIViewController {
             action.setValue(Colors.descGray, forKey: "titleTextColor")
             alertController.addAction(action)
         }
-        self.present(alertController, animated: true, completion: nil)
+        DispatchQueue.main.async {
+             self.present(alertController, animated: true, completion: nil)
+        }
     }
 }
 
@@ -41,8 +43,8 @@ class LocalizationService {
     private var localizationDic: NSDictionary?
 
     // Supported Languages
-    private var availableLanguagesArray = ["DeviceLanguage", "en", "zh-Hans"]
-    static let map = [
+    private var availableLanguagesArray = ["en", "zh-Hans"]
+    static let availableLocalization = [
         "en": "English",
         "zh-Hans": "中文",
     ]
