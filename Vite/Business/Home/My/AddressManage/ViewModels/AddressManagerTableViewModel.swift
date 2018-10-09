@@ -19,13 +19,13 @@ class AddressManagerTableViewModel: AddressManagerTableViewModelType {
             .map { (bags, _) -> [AddressManageAddressViewModelType] in
                 var number = 0
                 return bags.map { bag -> AddressManageAddressViewModelType in
-                    let isSelected = number == HDWalletManager.instance.selectBagIndex()
+                    let isSelected = number == HDWalletManager.instance.selectBagIndex
                     number += 1
                     return AddressManageAddressViewModel(number: number, address: bag.address.description, isSelected: isSelected)
                 }
             }
 
-    var canGenerateAddress: Bool { return HDWalletManager.instance.canGenerateNextBag() }
+    var canGenerateAddress: Bool { return HDWalletManager.instance.canGenerateNextBag }
 
     func generateAddress() {
         _ = HDWalletManager.instance.generateNextBag()

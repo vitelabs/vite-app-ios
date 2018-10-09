@@ -46,7 +46,8 @@ class LoginViewController: BaseViewController {
     }()
 
     lazy var userNameBtn: TitleBtnView = {
-        let userNameBtn = TitleBtnView(title: R.string.localizable.loginPageBtnChooseName.key.localized(), text: self.viewModel.chooseWalletAccount.name)
+        let name = HDWalletManager.instance.wallets.first?.name ?? ""
+        let userNameBtn = TitleBtnView(title: R.string.localizable.loginPageBtnChooseName.key.localized(), text: name)
         userNameBtn.btn.addTarget(self, action: #selector(userNameBtnAction), for: .touchUpInside)
         return userNameBtn
     }()
@@ -64,6 +65,7 @@ class LoginViewController: BaseViewController {
         let passwordTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwTitle.key.localized())
         passwordTF.titleLabel.textColor = Colors.titleGray
         passwordTF.titleLabel.font = AppStyle.formHeader.font
+        passwordTF.passwordInputView.delegate = self
         return passwordTF
     }()
 
@@ -173,33 +175,42 @@ extension LoginViewController {
     }
 
     @objc func userNameBtnAction() {
-        let pickData = self.viewModel.walletStorage.walletAccounts.map { (account) -> String in
-             return account.name
+        let pickData = HDWalletManager.instance.wallets.map { (wallet) -> String in
+             return wallet.name
         }
 
         _ =  ActionSheetStringPicker.show(withTitle: "选择钱包账户", rows: pickData, initialSelection: 0, doneBlock: {_, index, _ in
-            self.viewModel.chooseWalletAccount = self.viewModel.walletStorage.walletAccounts[index]
-            self.userNameBtn.btn.setTitle(self.viewModel.chooseWalletAccount.name, for: .normal)
+            let wallet = HDWalletManager.instance.wallets[index]
+            self.viewModel.chooseUuid = wallet.uuid
+            self.userNameBtn.btn.setTitle(wallet.name, for: .normal)
             return
         }, cancel: { _ in return }, origin: self.view)
 
     }
 
     @objc func loginBtnAction() {
-        let password = self.passwordTF.passwordInputView.textField.text
-
-        if self.viewModel.chooseWalletAccount.password == password?.pwdEncrypt() {
-                self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
-                DispatchQueue.global().async {
-                    WalletDataService.shareInstance.loginWallet(account: self.viewModel.chooseWalletAccount)
-                    DispatchQueue.main.async {
-                        self.view.hideLoading()
-                        NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
-                    }
+        let encryptKey = (self.passwordTF.passwordInputView.textField.text ?? "").toEncryptKey()
+        self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
+        DispatchQueue.global().async {
+            if HDWalletManager.instance.loginWithUuid(self.viewModel.chooseUuid, encryptKey: encryptKey) {
+                KeychainService.instance.setCurrentWallet(uuid: self.viewModel.chooseUuid, encryptKey: encryptKey)
+                DispatchQueue.main.async {
+                    self.view.hideLoading()
+                    NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
                 }
-        } else {
-            self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
-            })
+            } else {
+                DispatchQueue.main.async {
+                    self.view.hideLoading()
+                    self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
+                    })
+                }
+            }
         }
+    }
+}
+
+extension LoginViewController: PasswordInputViewDelegate {
+    func inputFinish(passwordView: PasswordInputView, password: String) {
+        _ = passwordView.resignFirstResponder()
     }
 }

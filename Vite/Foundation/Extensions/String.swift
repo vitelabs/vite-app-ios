@@ -46,7 +46,7 @@ extension String {
         return temp
     }
 
-    func pwdEncrypt() -> String {
+    func toEncryptKey() -> String {
         return self.md5().md5()
     }
 

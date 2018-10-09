@@ -65,7 +65,7 @@ class ManageWalletHeaderView: UIView {
 
     lazy var nameLab: UILabel = {
         let nameLab =  UILabel()
-        nameLab.text = WalletDataService.shareInstance.defaultWalletAccount?.name
+        nameLab.text = HDWalletManager.instance.wallet?.name
         nameLab.textAlignment = .left
         nameLab.adjustsFontSizeToFitWidth = true
         nameLab.textColor = Colors.cellTitleGray

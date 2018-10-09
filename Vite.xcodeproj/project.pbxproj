@@ -69,7 +69,6 @@
 		4CD8347D2150A6FE006537A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CD8347C2150A6FE006537A2 /* Images.xcassets */; };
 		4CE4E13D214794D000A6CD7E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4E13C214794D000A6CD7E /* UIImage.swift */; };
 		4CE4E14521479EAF00A6CD7E /*  CreateWalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4E14421479EAF00A6CD7E /*  CreateWalletService.swift */; };
-		4CE4E1472147AC0100A6CD7E /* WalletDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4E1462147AC0100A6CD7E /* WalletDataService.swift */; };
 		4CE83DDE21511E2000AB1DAD /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE83DDD21511E2000AB1DAD /* UIViewController+Loading.swift */; };
 		4CEB2926214B968000E5F7F4 /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */; };
 		4CEB292B214BBD2400E5F7F4 /* ViteInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */; };
@@ -81,6 +80,9 @@
 		740C3E50214BD6A9005FCD24 /* ConfirmTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4F214BD6A9005FCD24 /* ConfirmTransactionViewController.swift */; };
 		740C3E52214CB832005FCD24 /* ConfirmTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E51214CB832005FCD24 /* ConfirmTransactionView.swift */; };
 		8E0FB693216074F4001525EB /* RefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB692216074F4001525EB /* RefreshHeader.swift */; };
+		8E0FB695216B4082001525EB /* HDWalletStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB694216B4082001525EB /* HDWalletStorage.swift */; };
+		8E0FB697216B5B95001525EB /* ViteCryptoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB696216B5B95001525EB /* ViteCryptoTest.swift */; };
+		8E0FB699216C8957001525EB /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB698216C8957001525EB /* KeychainService.swift */; };
 		8E107ECD2153656C00B28DE2 /* Provider+Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107ECC2153656C00B28DE2 /* Provider+Transaction.swift */; };
 		8E107ECF215365F000B28DE2 /* Provider+Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107ECE215365F000B28DE2 /* Provider+Account.swift */; };
 		8E107ED5215A1D7900B28DE2 /* QRCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107ED4215A1D7900B28DE2 /* QRCodeHelper.swift */; };
@@ -273,7 +275,6 @@
 		4CD8347C2150A6FE006537A2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4CE4E13C214794D000A6CD7E /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		4CE4E14421479EAF00A6CD7E /*  CreateWalletService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CreateWalletService.swift"; sourceTree = "<group>"; };
-		4CE4E1462147AC0100A6CD7E /* WalletDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDataService.swift; sourceTree = "<group>"; };
 		4CE83DDD21511E2000AB1DAD /* UIViewController+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Loading.swift"; sourceTree = "<group>"; };
 		4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loading.swift"; sourceTree = "<group>"; };
 		4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidator.swift; sourceTree = "<group>"; };
@@ -287,6 +288,9 @@
 		7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C959221E3DAE4FAF07176D1 /* Pods-Vite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.debug.xcconfig"; sourceTree = "<group>"; };
 		8E0FB692216074F4001525EB /* RefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHeader.swift; sourceTree = "<group>"; };
+		8E0FB694216B4082001525EB /* HDWalletStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWalletStorage.swift; sourceTree = "<group>"; };
+		8E0FB696216B5B95001525EB /* ViteCryptoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteCryptoTest.swift; sourceTree = "<group>"; };
+		8E0FB698216C8957001525EB /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		8E107ECC2153656C00B28DE2 /* Provider+Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+Transaction.swift"; sourceTree = "<group>"; };
 		8E107ECE215365F000B28DE2 /* Provider+Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+Account.swift"; sourceTree = "<group>"; };
 		8E107ED4215A1D7900B28DE2 /* QRCodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeHelper.swift; sourceTree = "<group>"; };
@@ -540,10 +544,11 @@
 				4C105EC2213FE73A00D483C6 /* LocalizationService.swift */,
 				4C105EC4213FEFF800D483C6 /* NotificationName.swift */,
 				4C105EC6213FF3DC00D483C6 /* SettingDataService.swift */,
-				4CE4E1462147AC0100A6CD7E /* WalletDataService.swift */,
+				8E0FB698216C8957001525EB /* KeychainService.swift */,
 				4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */,
 				740C3E4A214B6425005FCD24 /* AuthenticationManager.swift */,
 				8E79C6ED214E71E300FAEEBC /* HDWalletManager.swift */,
+				8E0FB694216B4082001525EB /* HDWalletStorage.swift */,
 				8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */,
 				8EE4690C214BCE0700807D2C /* AutoGatheringService.swift */,
 				8E79261B21522BF1007FEBAB /* FetchBalanceInfoService.swift */,
@@ -790,6 +795,7 @@
 				8E6F3E13214220DF003CDFC2 /* ViteNetworkTests.swift */,
 				4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */,
 				8E79261521515D3A007FEBAB /* ViteURITest.swift */,
+				8E0FB696216B5B95001525EB /* ViteCryptoTest.swift */,
 				4CCE425C2124553C0080E92B /* Info.plist */,
 			);
 			path = ViteTests;
@@ -1326,6 +1332,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -1361,6 +1368,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -1552,7 +1560,6 @@
 				8EE46907214B9AC800807D2C /* NavigationBarStyle.swift in Sources */,
 				8E6F3E2221422A83003CDFC2 /* HomeViewController.swift in Sources */,
 				4CC7538F215B924F0009CA0E /* LockPwdViewController.swift in Sources */,
-				4CE4E1472147AC0100A6CD7E /* WalletDataService.swift in Sources */,
 				8E6F3E422144CA49003CDFC2 /* WalletHomeAddressViewModel.swift in Sources */,
 				8E56FC7A21464A8500A68823 /* BalanceInfoDetailView.swift in Sources */,
 				4C2284C321493087003E9907 /* ExportMnemonicViewController.swift in Sources */,
@@ -1568,6 +1575,7 @@
 				8E6F3E4A21451401003CDFC2 /* WalletHomeBalanceInfoTableViewModel.swift in Sources */,
 				8EE4690D214BCE0700807D2C /* AutoGatheringService.swift in Sources */,
 				8E6F3E1E2142280F003CDFC2 /* BaseTableViewCell.swift in Sources */,
+				8E0FB695216B4082001525EB /* HDWalletStorage.swift in Sources */,
 				8E7D6379215BA7ED009617A0 /* ReceiveShareHeaderView.swift in Sources */,
 				8EE468EB214A098B00807D2C /* AddressManageAddressViewModel.swift in Sources */,
 				8EE468FD214A574600807D2C /* UIViewController+KeyboardAutoScrolling.swift in Sources */,
@@ -1575,6 +1583,7 @@
 				4C2284BB214906F0003E9907 /* SystemViewController.swift in Sources */,
 				8E6F3E1D2142280F003CDFC2 /* BaseViewController.swift in Sources */,
 				4C9AFD5E214F4370005B12C2 /* FetchWelfareViewController.swift in Sources */,
+				8E0FB699216C8957001525EB /* KeychainService.swift in Sources */,
 				4CC75382215A2D740009CA0E /* CellSeparatorLine.swift in Sources */,
 				8EE4691C214CAD6600807D2C /* CreateTransactionRequest.swift in Sources */,
 				4C9AFD59214E2FF2005B12C2 /* ManageWalletHeaderView.swift in Sources */,
@@ -1589,6 +1598,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E79261621515D3A007FEBAB /* ViteURITest.swift in Sources */,
+				8E0FB697216B5B95001525EB /* ViteCryptoTest.swift in Sources */,
 				4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */,
 				8E6F3E14214220DF003CDFC2 /* ViteNetworkTests.swift in Sources */,
 				4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */,

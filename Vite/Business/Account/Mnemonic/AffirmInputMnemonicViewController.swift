@@ -130,17 +130,17 @@ extension AffirmInputMnemonicViewController {
     }
 
     @objc func submitBtnAction() {
-         let chooseStr = self.viewModel.hasChooseMnemonicWordsList.value.joined(separator: " ")
-        if chooseStr != CreateWalletService.sharedInstance.walletAccount.mnemonic {
+        let chooseStr = self.viewModel.hasChooseMnemonicWordsList.value.joined(separator: " ")
+        if chooseStr != CreateWalletService.sharedInstance.mnemonic {
             self.displayConfirmAlter(title: R.string.localizable.mnemonicAffirmAlterCheckTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
 
             })
         } else {
-            let walletAccount = CreateWalletService.sharedInstance.walletAccount
             self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading.key.localized(), animated: true)
             DispatchQueue.global().async {
-                WalletDataService.shareInstance.addWallet(account: walletAccount)
-                WalletDataService.shareInstance.loginWallet(account: walletAccount)
+                let uuid = UUID().uuidString
+                KeychainService.instance.setCurrentWallet(uuid: uuid, encryptKey: CreateWalletService.sharedInstance.encryptKey)
+                HDWalletManager.instance.addAddLoginWallet(uuid: uuid, name: CreateWalletService.sharedInstance.name, mnemonic: CreateWalletService.sharedInstance.mnemonic, encryptKey: CreateWalletService.sharedInstance.encryptKey)
                 DispatchQueue.main.async {
                     self.view.hideLoading()
                     NotificationCenter.default.post(name: .createAccountSuccess, object: nil)

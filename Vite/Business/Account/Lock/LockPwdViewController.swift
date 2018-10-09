@@ -80,20 +80,22 @@ extension LockPwdViewController {
     }
 
     @objc func loginBtnAction() {
-        let password = self.passwordTF.passwordInputView.textField.text
+        let encryptKey = (self.passwordTF.passwordInputView.textField.text ?? "").toEncryptKey()
 
-        if WalletDataService.shareInstance.defaultWalletAccount?.password == password?.pwdEncrypt() {
-            self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
-            DispatchQueue.global().async {
-                WalletDataService.shareInstance.loginWallet(account: WalletDataService.shareInstance.defaultWalletAccount ?? WalletAccount())
+        self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
+        DispatchQueue.global().async {
+            if HDWalletManager.instance.loginCurrent(encryptKey: encryptKey) {
                 DispatchQueue.main.async {
                     self.view.hideLoading()
                     NotificationCenter.default.post(name: .unlockDidSuccess, object: nil)
                 }
+            } else {
+                DispatchQueue.main.async {
+                    self.view.hideLoading()
+                    self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
+                    })
+                }
             }
-        } else {
-            self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
-            })
         }
     }
 }
