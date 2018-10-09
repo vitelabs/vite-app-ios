@@ -104,8 +104,8 @@ extension CreateWalletAccountViewController {
     }
 
     func goNextVC() {
-        CreateWalletService.sharedInstance.walletAccount.name = self.createNameAndPwdView.walletNameTF.textField.text!.trimmingCharacters(in: .whitespaces)
-        CreateWalletService.sharedInstance.walletAccount.password = self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text!.pwdEncrypt()
+        CreateWalletService.sharedInstance.name = self.createNameAndPwdView.walletNameTF.textField.text!.trimmingCharacters(in: .whitespaces)
+        CreateWalletService.sharedInstance.encryptKey = self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text!.toEncryptKey()
         let vc = CreateWalletTipViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }

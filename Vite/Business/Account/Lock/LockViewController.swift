@@ -90,7 +90,24 @@ extension LockViewController {
     private func touchValidation() {
         BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.lockPageFingerprintAlterTitle.key.localized(), completion: { (success, _) in
             guard success else { return }
-            NotificationCenter.default.post(name: .unlockDidSuccess, object: nil)
+
+            self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
+
+            DispatchQueue.global().async {
+                if let wallet = KeychainService.instance.currentWallet,
+                    wallet.uuid == HDWalletManager.instance.wallet?.uuid,
+                    HDWalletManager.instance.loginCurrent(encryptKey: wallet.encryptKey) {
+                    DispatchQueue.main.async {
+                        self.view.hideLoading()
+                        NotificationCenter.default.post(name: .unlockDidSuccess, object: nil)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.view.hideLoading()
+                        Toast.show(R.string.localizable.toastErrorLogin.key.localized())
+                    }
+                }
+            }
         })
     }
 }

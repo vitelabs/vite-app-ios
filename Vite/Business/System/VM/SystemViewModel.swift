@@ -10,21 +10,29 @@ import UIKit
 import Action
 import RxCocoa
 import RxSwift
+import NSObject_Rx
 import Vite_HDWalletKit
 
 final class SystemViewModel: NSObject {
-    var isSwitchPwdBehaviorRelay =  BehaviorRelay<Bool>(value: WalletDataService.shareInstance.defaultWalletAccount?.isSwitchPwd ?? false)
-    var isSwitchTouchIdBehaviorRelay =  BehaviorRelay<Bool>(value: WalletDataService.shareInstance.defaultWalletAccount?.isSwitchTouchId ?? false)
-    var isSwitchTransferBehaviorRelay =  BehaviorRelay<Bool>(value: WalletDataService.shareInstance.defaultWalletAccount?.isSwitchTransfer ?? true)
-    var isSwitchTransferHideBehaviorRelay =  BehaviorRelay<Bool>(value: WalletDataService.shareInstance.defaultWalletAccount?.isSwitchTransfer ?? true)
+    var isRequireAuthentication =  false
+    var isAuthenticatedByBiometry =  false
+    var isTransferByBiometry = false
+    var isTransferByBiometryHide = true
 
     override init() {
         super.init()
+        HDWalletManager.instance.walletDriver.drive(onNext: { [weak self] (wallet) in
+            guard let `self` = self else { return }
+            self.isRequireAuthentication = wallet.isRequireAuthentication
+            self.isAuthenticatedByBiometry = wallet.isAuthenticatedByBiometry
+            self.isTransferByBiometry = wallet.isTransferByBiometry
+
+        }).disposed(by: rx.disposeBag)
 
         if BiometryAuthenticationType.current == .none {
-            isSwitchTransferHideBehaviorRelay.accept(true)
+            isTransferByBiometryHide = true
         } else {
-            isSwitchTransferHideBehaviorRelay.accept(false)
+            isTransferByBiometryHide = false
         }
     }
 

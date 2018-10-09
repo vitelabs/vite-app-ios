@@ -6,7 +6,7 @@ target 'Vite' do
  use_frameworks!
 
   #vite kit
-  pod 'Vite_HDWalletKit', '~> 1.0.0'
+  pod 'Vite_HDWalletKit', '~> 1.1.0'
 
   pod 'SnapKit', '~> 4.0.0'
   pod 'BigInt', '~> 3.0'
@@ -44,6 +44,7 @@ target 'Vite' do
   pod 'RxCocoa'
   pod 'RxDataSources', '~> 3.0'
   pod 'NSObject+Rx'
+  pod 'RxOptional'
   pod 'RxGesture'
   pod 'Then'
   pod 'Action'

@@ -26,7 +26,7 @@ public class FileHelper: NSObject {
     public fileprivate(set) var rootPath: String
     var fileManager: FileManager
 
-    public init(_ pathType: PathType = .library, appending pathComponent: String? = nil, createFDSDirectory: Bool = true) {
+    public init(_ pathType: PathType = .library, appending pathComponent: String? = nil, createDirectory: Bool = true) {
         switch pathType {
         case .documents:
             rootPath = FileHelper.documentsPath
@@ -40,7 +40,7 @@ public class FileHelper: NSObject {
             rootPath = (FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: identifier)?.path)!
         }
 
-        if createFDSDirectory {
+        if createDirectory {
             rootPath = (rootPath as NSString).appendingPathComponent(Bundle.main.bundleIdentifier ?? "FileHelper") as String
         }
 

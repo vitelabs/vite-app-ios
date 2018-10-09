@@ -136,17 +136,15 @@ extension ImportAccountViewController {
     }
 
     func goNextVC() {
-        let wallet = WalletAccount()
-        wallet.name  = self.createNameAndPwdView.walletNameTF.textField.text!.trimmingCharacters(in: .whitespaces)
-        wallet.password = self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text!.pwdEncrypt()
+        let uuid = UUID().uuidString
+        let name  = self.createNameAndPwdView.walletNameTF.textField.text!.trimmingCharacters(in: .whitespaces)
+        let encryptKey = self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text!.toEncryptKey()
+        let mnemonic = self.contentTextView.text.filterWhitespacesAndNewlines()
 
-        let mnemonicContent = self.contentTextView.text.filterWhitespacesAndNewlines()
-        wallet.mnemonic = mnemonicContent
         self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading.key.localized(), animated: true)
         DispatchQueue.global().async {
-
-            WalletDataService.shareInstance.updateWallet(account: wallet)
-            WalletDataService.shareInstance.loginWallet(account: wallet)
+            KeychainService.instance.setCurrentWallet(uuid: uuid, encryptKey: encryptKey)
+            HDWalletManager.instance.importAddLoginWallet(uuid: uuid, name: name, mnemonic: mnemonic, encryptKey: encryptKey)
             DispatchQueue.main.async {
                 self.view.hideLoading()
                 NotificationCenter.default.post(name: .createAccountSuccess, object: nil)

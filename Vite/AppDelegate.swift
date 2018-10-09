@@ -62,18 +62,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func handleRootVC() {
-        if  WalletDataService.shareInstance.isExistWallet() {
-            let rootVC = CreateAccountHomeViewController()
-            rootVC.automaticallyShowDismissButton = false
-            let nav = BaseNavigationController(rootViewController: rootVC)
-            window?.rootViewController = nav
-        } else if WalletDataService.shareInstance.existWalletAndLogout() {
-            let rootVC = LoginViewController()
-            rootVC.automaticallyShowDismissButton = false
-            let nav = BaseNavigationController(rootViewController: rootVC)
-            window?.rootViewController = nav
-        } else {
-            if WalletDataService.shareInstance.isLockWallet() == .none {
+
+        if HDWalletManager.instance.canLock {
+            if !HDWalletManager.instance.isRequireAuthentication,
+                let wallet = KeychainService.instance.currentWallet,
+                wallet.uuid == HDWalletManager.instance.wallet?.uuid,
+                HDWalletManager.instance.loginCurrent(encryptKey: wallet.encryptKey) {
                 self.goHomePage()
                 return
             } else {
@@ -81,16 +75,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return
             }
         }
-        window?.makeKeyAndVisible()
+
+        if HDWalletManager.instance.isEmpty {
+            let rootVC = CreateAccountHomeViewController()
+            rootVC.automaticallyShowDismissButton = false
+            let nav = BaseNavigationController(rootViewController: rootVC)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+        } else {
+            let rootVC = LoginViewController()
+            rootVC.automaticallyShowDismissButton = false
+            let nav = BaseNavigationController(rootViewController: rootVC)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+        }
     }
 
     func goLockPage() {
         let rootVC: BaseViewController
-        if WalletDataService.shareInstance.isLockWallet() == .password {
+        if HDWalletManager.instance.isAuthenticatedByBiometry {
+            rootVC = LockViewController()
+        } else {
             rootVC = LockPwdViewController()
             rootVC.automaticallyShowDismissButton = false
-        } else {
-            rootVC = LockViewController()
         }
         let nav = BaseNavigationController(rootViewController: rootVC)
         self.lockWindow.rootViewController = nav
@@ -98,7 +105,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func goHomePage() {
-        HDWalletManager.instance.updateAccount(WalletDataService.shareInstance.defaultWalletAccount!)
         let rootVC = HomeViewController()
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
