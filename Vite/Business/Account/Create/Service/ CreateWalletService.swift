@@ -10,9 +10,13 @@ import Vite_HDWalletKit
 class CreateWalletService {
     static let sharedInstance = CreateWalletService()
 
-    public var walletAccount = WalletAccount()
+    var name: String = ""
+    var mnemonic: String = ""
+    var encryptKey: String = ""
 
     func clearData() {
-        walletAccount = WalletAccount()
+        name = ""
+        mnemonic = ""
+        encryptKey = ""
     }
 }

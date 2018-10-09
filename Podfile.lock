@@ -54,6 +54,9 @@ PODS:
   - RxGesture (2.0.1):
     - RxCocoa (~> 4.3.1)
     - RxSwift (~> 4.3.1)
+  - RxOptional (3.5.0):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxSwift (4.3.1)
   - SipHash (1.2.2)
   - SnapKit (4.0.1)
@@ -62,11 +65,9 @@ PODS:
   - Then (2.4.0)
   - Toast-Swift (3.0.1)
   - TrezorCryptoEd25519WithBlake2b (0.0.1)
-  - Vite_HDWalletKit (1.0.0):
+  - Vite_HDWalletKit (1.1.0):
     - BigInt (~> 3.0)
     - CryptoSwift (~> 0.12.0)
-    - KeychainSwift
-    - ObjectMapper
     - TrezorCryptoEd25519WithBlake2b (~> 0.0.1)
   - WechatOpenSDK (1.8.2)
 
@@ -92,13 +93,14 @@ DEPENDENCIES:
   - RxCocoa
   - RxDataSources (~> 3.0)
   - RxGesture
+  - RxOptional
   - RxSwift (~> 4.0)
   - SnapKit (~> 4.0.0)
   - SwiftLint
   - SwiftyJSON
   - Then
   - Toast-Swift (~> 3.0.1)
-  - Vite_HDWalletKit (~> 1.0.0)
+  - Vite_HDWalletKit (~> 1.1.0)
   - WechatOpenSDK
 
 SPEC REPOS:
@@ -128,6 +130,7 @@ SPEC REPOS:
     - RxCocoa
     - RxDataSources
     - RxGesture
+    - RxOptional
     - RxSwift
     - SipHash
     - SnapKit
@@ -175,6 +178,7 @@ SPEC CHECKSUMS:
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxGesture: 26ede4ed13ffc6336d29dbd9a8dff229bdb72de7
+  RxOptional: bd32ff8ca9df4177683d56ffeb618a9d4d5d5cad
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
@@ -183,9 +187,9 @@ SPEC CHECKSUMS:
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
-  Vite_HDWalletKit: 29d5c3bf2c6d229fd6d44ee9c7951d9717b95ccf
+  Vite_HDWalletKit: 90bf90b7092cc483ae9eda3385e96ed5be3aca22
   WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
 
-PODFILE CHECKSUM: 6efcc74da948534689dcb0f159d59cfd9ad0f117
+PODFILE CHECKSUM: 192de509c53cd7b2f807987c6af891bfbda18798
 
 COCOAPODS: 1.5.3

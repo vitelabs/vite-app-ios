@@ -23,7 +23,7 @@ class WalletHomeViewController: BaseTableViewController {
         bind()
     }
 
-    let accountDriver = HDWalletManager.instance.accountDriver
+    let walletDriver = HDWalletManager.instance.walletDriver
     let addressView = WalletHomeAddressView()
     var addressViewModel: WalletHomeAddressViewModel!
     var tableViewModel: WalletHomeBalanceInfoTableViewModel!
@@ -85,7 +85,7 @@ class WalletHomeViewController: BaseTableViewController {
 
     fileprivate func bind() {
 
-        accountDriver.map({ $0.name }).drive(navigationTitleView!.titleLabel.rx.text).disposed(by: rx.disposeBag)
+        walletDriver.map({ $0.name }).drive(navigationTitleView!.titleLabel.rx.text).disposed(by: rx.disposeBag)
         addressViewModel = WalletHomeAddressViewModel()
         tableViewModel = WalletHomeBalanceInfoTableViewModel()
 

@@ -12,18 +12,24 @@ import RxSwift
 import Vite_HDWalletKit
 
 final class AffirmInputMnemonicVM: NSObject {
-    var mnemonicWordsStr: String?
-    var mnemonicWordsList: [String]?
+    var mnemonicWordsList: [String]
 
     var hasChooseMnemonicWordsList =  BehaviorRelay<[String]>(value: [])
     var hasLeftMnemonicWordsList =  BehaviorRelay<[String]>(value: [])
 
     init(mnemonicWordsStr: String) {
 
-        super.init()
-        self.mnemonicWordsStr = mnemonicWordsStr
         self.mnemonicWordsList = mnemonicWordsStr.components(separatedBy: " ")
-        self.hasLeftMnemonicWordsList.accept(self.mnemonicWordsList?.shuffled() ?? [])
+        self.hasLeftMnemonicWordsList.accept(self.mnemonicWordsList.shuffled())
+
+        #if DEBUG
+        self.hasChooseMnemonicWordsList.accept(self.mnemonicWordsList)
+        self.hasLeftMnemonicWordsList.accept([])
+        UIPasteboard.general.string = mnemonicWordsStr
+        #endif
+
+        super.init()
+
     }
 
     func selectedWord(isHasSelected: Bool, dataIndex: Int, word: String) {

@@ -13,8 +13,7 @@ import Vite_HDWalletKit
 
 final class LoginViewModel: NSObject {
 
-    public var chooseWalletAccount: WalletAccount = WalletDataService.shareInstance.defaultWalletAccount!
-    public var walletStorage = WalletStorage()
+    public var chooseUuid: String = HDWalletManager.instance.wallets[0].uuid
 
     override init() {
         super.init()

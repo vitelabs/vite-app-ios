@@ -20,8 +20,9 @@ class ReceiveViewController: BaseViewController {
         case token
     }
 
-    let bag = HDWalletManager.instance.bag()
     let token: Token
+    let wallet: HDWalletStorage.Wallet
+    let bag: HDWalletManager.Bag
     let style: Style
 
     let amountBehaviorRelay: BehaviorRelay<String?> = BehaviorRelay(value: nil)
@@ -29,6 +30,9 @@ class ReceiveViewController: BaseViewController {
 
     init(token: Token, style: Style) {
         self.token = token
+        // FIXME: Optional
+        self.wallet = HDWalletManager.instance.wallet!
+        self.bag = HDWalletManager.instance.bag!
         self.style = style
         self.uriBehaviorRelay = BehaviorRelay(value: ViteURI.transfer(address: bag.address, tokenId: token.id, amountString: nil, decimalsString: nil, data: nil))
         super.init(nibName: nil, bundle: nil)
@@ -76,7 +80,7 @@ class ReceiveViewController: BaseViewController {
         }
     }
 
-    lazy var headerView = ReceiveHeaderView(name: HDWalletManager.instance.account().name, address: bag.address.description)
+    lazy var headerView = ReceiveHeaderView(name: self.wallet.name, address: bag.address.description)
     let middleView = ReceiveMiddleView()
     let qrcodeView = ReceiveQRCodeView()
     let footerView = ReceiveFooterView()
@@ -163,7 +167,7 @@ class ReceiveViewController: BaseViewController {
                     if let amount = $0 {
                         return "\(amount) \(self.token.symbol)"
                     } else {
-                        return R.string.localizable.receivePageTokenNameLabel(self.token.symbol)
+                        return R.string.localizable.receivePageTokenNameLabel.key.localized(arguments: self.token.symbol)
                     }
                 }
                 .drive(middleView.tokenSymbolLabel.rx.text).disposed(by: rx.disposeBag)
@@ -212,7 +216,7 @@ class ReceiveViewController: BaseViewController {
             m.bottom.equalTo(backView).offset(-70)
         }
 
-        let headerView = ReceiveShareHeaderView(name: HDWalletManager.instance.account().name, address: bag.address.description)
+        let headerView = ReceiveShareHeaderView(name: self.wallet.name, address: bag.address.description)
         let middleView = ReceiveMiddleView()
         let qrcodeView = UIImageView(image: self.qrcodeView.imageView.screenshot)
         let footerView = ReceiveShareFooterView(text: self.footerView.noteTitleTextFieldView.textField.text)

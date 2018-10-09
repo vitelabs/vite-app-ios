@@ -35,7 +35,7 @@ push git local code
 ```
 fastlane ios pr
 ```
-create new pr in github
+create new pr in github argument base is base branch
 
 ----
 

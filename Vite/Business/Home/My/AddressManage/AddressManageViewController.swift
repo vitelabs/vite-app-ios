@@ -63,7 +63,7 @@ class AddressManageViewController: BaseTableViewController {
         return cell
     })
 
-    let accountDriver = HDWalletManager.instance.accountDriver
+    let walletDriver = HDWalletManager.instance.walletDriver
     var tableViewModel: AddressManagerTableViewModel!
 
     fileprivate func bind() {

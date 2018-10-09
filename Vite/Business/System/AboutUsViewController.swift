@@ -100,8 +100,8 @@ extension AboutUsViewController {
                 #if DEBUG
                 self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
                 DispatchQueue.global().async {
-                    HDWalletManager.instance.cleanAccount()
-                    WalletDataService.shareInstance.delAllWalletData()
+                    HDWalletManager.instance.deleteAllWallets()
+                    KeychainService.instance.clearCurrentWallet()
                     DispatchQueue.main.async {
                         self.view.hideLoading()
                         NotificationCenter.default.post(name: .logoutDidFinish, object: nil)

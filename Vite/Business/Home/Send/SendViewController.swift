@@ -15,7 +15,8 @@ import JSONRPCKit
 
 class SendViewController: BaseViewController, ViewControllerDataStatusable {
 
-    let bag = HDWalletManager.instance.bag()
+    // FIXME: Optional
+    let bag = HDWalletManager.instance.bag!
 
     var token: Token! = nil
     var balance: Balance! = nil
@@ -216,7 +217,7 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
                 }
 
                 let address = Address(string: addressView.textView.text!)
-                let biometryAuthConfig = WalletDataService.shareInstance.defaultWalletAccount?.isSwitchTransfer ?? false
+                let biometryAuthConfig = HDWalletManager.instance.isTransferByBiometry
                 let confirmType: ConfirmTransactionViewController.ConfirmTransactionType =  biometryAuthConfig ? .biometry : .password
 
                 let confirmViewController = ConfirmTransactionViewController(confirmType: confirmType, address: address.description, token: self.token.symbol, amount: amountString, completion: { [weak self] (result) in
