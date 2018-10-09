@@ -51,14 +51,31 @@ class LocalizationService {
 
     private let kSaveLanguageDefaultKey = "kSaveLanguageDefaultKey"
 
-    // MARK: - Public properties
-    var updatedLanguage: String?
+    var currentLanguageName: String?
 
     static let  sharedInstance = LocalizationService()
 
     init () {
-        let currentLanguage = userDefaults.string(forKey: UserDefaultsName.AppCurrentLanguages)
-       _ = self.loadDictionaryForLanguage(currentLanguage ?? "en")
+        var currentLanguage = userDefaults.string(forKey: UserDefaultsName.AppCurrentLanguages)
+        if currentLanguage == nil {
+            let languageName = self.systemLanguage()
+            _ = self.setLanguage(languageName)
+            currentLanguage = languageName
+        }
+        _ = self.loadDictionaryForLanguage(currentLanguage ?? "en")
+    }
+
+    fileprivate func systemLanguage() -> String {
+       let languageCode = userDefaults.array(forKey: "AppleLanguages")?[0] as! String
+         // special china language
+        if languageCode.hasPrefix("zh-Hans") || languageCode.hasPrefix("zh-Hant") || languageCode.hasPrefix("zh") {
+            return "zh-Hans"
+        } else if languageCode.hasPrefix("en") {
+            return "en"
+        } else {
+            // Default Priority Language
+            return "en"
+        }
     }
 
     // MARK: - Public custom getter
@@ -72,7 +89,7 @@ class LocalizationService {
         for ext in arrayExt {
             if let path = Bundle(for: object_getClass(self)!).url(forResource: "Localizable", withExtension: "strings", subdirectory: nil, localization: ext)?.path {
                 if FileManager.default.fileExists(atPath: path) {
-                    updatedLanguage = newLanguage
+                    currentLanguageName = LocalizationService.availableLocalization[newLanguage]
                     localizationDic = NSDictionary(contentsOfFile: path)
                     return true
                 }
@@ -95,7 +112,7 @@ class LocalizationService {
     }
 
     fileprivate func setLanguage(_ newLanguage: String) -> Bool {
-        if (newLanguage == updatedLanguage) || !availableLanguagesArray.contains(newLanguage) {
+        if (newLanguage == currentLanguageName) || !availableLanguagesArray.contains(newLanguage) {
             return false
         }
 
