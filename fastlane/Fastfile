@@ -5,7 +5,7 @@ default_platform(:ios)
 
 platform :ios do
   desc "Push a new beta build to TestFlight"
-  lane :beta do
+  lane :beta do 
     increment_build_number
     build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
     upload_to_testflight
@@ -13,18 +13,17 @@ platform :ios do
   end
 
   desc "Push a new beta build to TestFlight"
-  lane :package do
+  lane :package do 
     increment_build_number
     build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
     push_git
   end
 
   desc "push git local code"
-  lane :push_git do
-
+  lane :push_git do 
   git_add(path: ".")
   build_number = get_build_number
-  git_commit(path: ".", message: "Jenkins Version Bump  "+ build_number)
+  git_commit(path: ".", message: "Jenkins Version Bump "+ build_number)
   push_to_git_remote
 
   end
