@@ -189,7 +189,7 @@ extension LoginViewController {
     }
 
     @objc func loginBtnAction() {
-        let encryptKey = (self.passwordTF.passwordInputView.textField.text ?? "").toEncryptKey()
+        let encryptKey = (self.passwordTF.passwordInputView.textField.text ?? "").toEncryptKey(salt: self.viewModel.chooseUuid)
         self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
         DispatchQueue.global().async {
             if HDWalletManager.instance.loginWithUuid(self.viewModel.chooseUuid, encryptKey: encryptKey) {

@@ -16,7 +16,7 @@ extension UIViewController {
         let cancelAction = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: R.string.localizable.confirm.key.localized(), style: UIAlertActionStyle.default) { (_) in
             let textField = (controller.textFields?.first)! as UITextField
-            if HDWalletManager.instance.verifyEncryptKey((textField.text ?? "").toEncryptKey()) {
+            if HDWalletManager.instance.verifyPassword(textField.text ?? "") {
                 callback()
             } else {
                 self.view.showToast(str: R.string.localizable.exportPageAlterPasswordError.key.localized())

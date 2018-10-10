@@ -155,7 +155,9 @@ extension HDWalletManager {
         bagBehaviorRelay.accept(nil)
     }
 
-    func verifyEncryptKey(_ encryptKey: String) -> Bool {
+    func verifyPassword(_ password: String) -> Bool {
+        guard let uuid = storage.currentWalletUuid else { return false }
+        let encryptKey = password.toEncryptKey(salt: uuid)
         return encryptKey == self.encryptKey
     }
 

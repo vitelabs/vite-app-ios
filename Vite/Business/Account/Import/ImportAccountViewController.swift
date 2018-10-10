@@ -138,7 +138,8 @@ extension ImportAccountViewController {
     func goNextVC() {
         let uuid = UUID().uuidString
         let name  = self.createNameAndPwdView.walletNameTF.textField.text!.trimmingCharacters(in: .whitespaces)
-        let encryptKey = self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text!.toEncryptKey()
+        let password = self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text ?? ""
+        let encryptKey = password.toEncryptKey(salt: uuid)
         let mnemonic = self.contentTextView.text.filterWhitespacesAndNewlines()
 
         self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading.key.localized(), animated: true)

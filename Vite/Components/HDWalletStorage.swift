@@ -16,7 +16,7 @@ final class HDWalletStorage: Mappable {
     fileprivate var fileHelper = FileHelper(.library, appending: FileHelper.appPathComponent)
     fileprivate static let saveKey = "HDWallet"
     fileprivate(set) var wallets = [Wallet]()
-    fileprivate var currentWalletUuid: String?
+    fileprivate(set) var currentWalletUuid: String?
 
     init() {
         if let data = fileHelper.contentsAtRelativePath(type(of: self).saveKey),
