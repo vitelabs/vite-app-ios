@@ -24,7 +24,7 @@ platform :ios do
 
   git_add(path: ".")
   build_number = get_build_number
-  git_commit(path: ".", message: "Jenkins Version Bump  "+ build_number)
+  git_commit(path: ".", message: "Jenkins Version Bump "+ build_number)
   push_to_git_remote
 
   end
