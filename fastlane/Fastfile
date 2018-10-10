@@ -21,7 +21,8 @@ platform :ios do
 
   desc "push git local code"
   lane :push_git do
-
+  increment_build_number
+  
   git_add(path: ".")
   build_number = get_build_number
   git_commit(path: ".", message: "Jenkins Version Bump "+ build_number)
