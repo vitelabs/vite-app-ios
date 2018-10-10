@@ -93,7 +93,7 @@ class ConfirmTransactionViewController: UIViewController, PasswordInputViewDeleg
     }
 
     func inputFinish(passwordView: PasswordInputView, password: String) {
-        let result = HDWalletManager.instance.verifyEncryptKey(password.toEncryptKey())
+        let result = HDWalletManager.instance.verifyPassword(password)
         self.procese(result ? .success : .passwordAuthFailed)
     }
 

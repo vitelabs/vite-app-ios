@@ -12,11 +12,11 @@ class CreateWalletService {
 
     var name: String = ""
     var mnemonic: String = ""
-    var encryptKey: String = ""
+    var password: String = ""
 
     func clearData() {
         name = ""
         mnemonic = ""
-        encryptKey = ""
+        password = ""
     }
 }
