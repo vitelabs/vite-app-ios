@@ -539,7 +539,6 @@
 			children = (
 				4C105EC2213FE73A00D483C6 /* LocalizationService.swift */,
 				4C105EC4213FEFF800D483C6 /* NotificationName.swift */,
-				4C105EC6213FF3DC00D483C6 /* SettingDataService.swift */,
 				8E0FB698216C8957001525EB /* KeychainService.swift */,
 				4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */,
 				740C3E4A214B6425005FCD24 /* AuthenticationManager.swift */,
