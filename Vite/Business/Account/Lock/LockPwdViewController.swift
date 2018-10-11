@@ -82,8 +82,8 @@ extension LockPwdViewController {
     @objc func loginBtnAction() {
 
         self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
+        let password = self.passwordTF.passwordInputView.textField.text ?? ""
         DispatchQueue.global().async {
-            let password = self.passwordTF.passwordInputView.textField.text ?? ""
             if let wallet = KeychainService.instance.currentWallet,
                 wallet.uuid == HDWalletManager.instance.wallet?.uuid,
                 wallet.encryptKey == password.toEncryptKey(salt: wallet.uuid),
