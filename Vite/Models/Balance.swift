@@ -18,21 +18,28 @@ struct Balance: BalanceType {
     }
 
     func amountShort(decimals: Int) -> String {
-        let denominator = BigInt(10).power(decimals)
-        let integer = (value/denominator).description
-        var decimal = (value%denominator).description
-        if decimal.count > 4 {
-            decimal = (decimal as NSString).substring(to: 4) as String
-        }
-        return "\(integer).\(decimal)"
+        return pri_amount(decimals: decimals, count: 4)
     }
 
     func amountFull(decimals: Int) -> String {
+        return pri_amount(decimals: decimals, count: 8)
+    }
+
+    fileprivate func pri_amount(decimals: Int, count: Int) -> String {
         let denominator = BigInt(10).power(decimals)
         let integer = (value/denominator).description
         var decimal = (value%denominator).description
-        if decimal.count > 4 {
-            decimal = (decimal as NSString).substring(to: 8) as String
+
+        if decimal.count < decimals {
+            for _ in decimal.count..<decimals {
+                decimal = "0" + decimal
+            }
+        }
+        if decimal.count > count {
+            decimal = (decimal as NSString).substring(to: count) as String
+        }
+        while decimal.count > 1 && decimal.hasSuffix("0") {
+            decimal = String(decimal.dropLast())
         }
         return "\(integer).\(decimal)"
     }

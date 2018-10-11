@@ -161,7 +161,7 @@ extension HDWalletManager {
         return encryptKey == self.encryptKey
     }
 
-    var canLock: Bool {
+    var canUnLock: Bool {
         return storage.currentWallet != nil
     }
 

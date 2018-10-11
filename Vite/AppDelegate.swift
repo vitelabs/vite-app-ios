@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func handleRootVC() {
 
-        if HDWalletManager.instance.canLock {
+        if HDWalletManager.instance.canUnLock {
             if !HDWalletManager.instance.isRequireAuthentication,
                 let wallet = KeychainService.instance.currentWallet,
                 wallet.uuid == HDWalletManager.instance.wallet?.uuid,
