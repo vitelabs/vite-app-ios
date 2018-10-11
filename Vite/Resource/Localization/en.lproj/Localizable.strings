@@ -169,9 +169,11 @@
 /* System */
 "system.page.logout.loading" = "Logout";
 "system.page.cell.change.language" = "Language";
-"system.page.cell.login.pwd" = "Input password to arouse APP";
-"system.page.cell.login.faceId" = "Support Fingerprint/Face ID";
-"system.page.cell.transfer.faceId" = "Pay by Fingerprint/Face ID";
+"system.page.cell.login.pwd" = "Unlock By Password";
+"system.page.cell.login.faceId" = "Unlock By Face ID";
+"system.page.cell.login.touchId" = "Unlock By Touch ID";
+"system.page.cell.transfer.faceId" = "Use Face ID For Transaction";
+"system.page.cell.transfer.touchId" = "Use Touch ID For Transaction";
 "system.page.cell.logout.title" = "Logout/switch wallet";
 
 /* about us */

@@ -169,9 +169,11 @@
 /* System */
 "system.page.logout.loading" = "退出中";
 "system.page.cell.change.language" = "语言选择";
-"system.page.cell.login.pwd" = "输入密码唤起APP";
-"system.page.cell.login.faceId" = "支持指纹/面部识别";
-"system.page.cell.transfer.faceId" = "转账开启指纹/面部识别";
+"system.page.cell.login.pwd" = "密码解锁";
+"system.page.cell.login.faceId" = "FaceID解锁";
+"system.page.cell.login.touchId" = "TouchID解锁";
+"system.page.cell.transfer.faceId" = "使用FaceID转账";
+"system.page.cell.transfer.touchId" = "使用TouchID转账";
 "system.page.cell.logout.title" = "退出并切换钱包";
 
 /* about us */

@@ -118,7 +118,9 @@ class SystemViewController: FormViewController {
             }
 
             <<< SwitchRow("systemPageCellLoginFaceId") {
-                $0.title = R.string.localizable.systemPageCellLoginFaceId.key.localized()
+                let authType = BiometryAuthenticationType.current
+                let title = authType == .faceID ? R.string.localizable.systemPageCellLoginFaceId.key.localized() : R.string.localizable.systemPageCellLoginTouchId.key.localized()
+                $0.title = title
                 $0.value = self.viewModel.isAuthenticatedByBiometry
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
@@ -132,7 +134,9 @@ class SystemViewController: FormViewController {
             }
 
             <<< SwitchRow("systemPageCellTransferFaceId") {
-                $0.title = R.string.localizable.systemPageCellTransferFaceId.key.localized()
+                let authType = BiometryAuthenticationType.current
+                let title = authType == .faceID ? R.string.localizable.systemPageCellTransferFaceId.key.localized() : R.string.localizable.systemPageCellTransferTouchId.key.localized()
+                $0.title = title
                 $0.value = self.viewModel.isTransferByBiometry
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
