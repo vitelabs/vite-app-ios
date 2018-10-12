@@ -60,7 +60,7 @@ final class FetchBalanceInfoService {
     func getchBalanceInfo(_ uuid: String) {
         guard uuid == self.uuid else { return }
         guard let address = HDWalletManager.instance.bag?.address else { return }
-
+        plog(level: .debug, log: address.description, tag: .transaction)
         Provider.instance.getBalanceInfos(address: address) { [weak self] result in
             guard let `self` = self else { return }
             guard uuid == self.uuid else { return }
@@ -84,7 +84,6 @@ final class FetchBalanceInfoService {
             case .error:
                 break
             }
-//            print("\((#file as NSString).lastPathComponent)[\(#line)], \(#function): \(result)")
             GCD.delay(5) { self.getchBalanceInfo(uuid) }
         }
     }

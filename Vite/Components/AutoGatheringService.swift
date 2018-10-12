@@ -29,12 +29,10 @@ final class AutoGatheringService {
     func getUnconfirmedTransaction(_ uuid: String) {
         guard uuid == self.uuid else { return }
         guard let bag = HDWalletManager.instance.bag else { return }
-
+        plog(level: .debug, log: bag.address.description, tag: .transaction)
         Provider.instance.receiveTransaction(bag: bag) { [weak self] _ in
             guard let `self` = self else { return }
             guard uuid == self.uuid else { return }
-
-//            print("\((#file as NSString).lastPathComponent)[\(#line)], \(#function)")
             GCD.delay(2) { self.getUnconfirmedTransaction(uuid) }
         }
     }

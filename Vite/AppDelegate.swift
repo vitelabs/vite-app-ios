@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        plog(level: .info, log: "DidFinishLaunching", tag: .life)
+
         startBaiduMobileStat()
         handleNotification()
         _ = LocalizationService.sharedInstance

@@ -91,18 +91,6 @@ enum AppStyle {
     }
 }
 
-// MARK: - 自定义打印方法
-func DebugLog<T>(_ message: T, file: String = #file, funcName: String = #function, lineNum: Int = #line) {
-
-    #if DEBUG
-
-    let fileName = (file as NSString).lastPathComponent
-
-    print("\(fileName):(\(lineNum))-\(message)")
-
-    #endif
-}
-
 extension CGFloat {
     static var singleLineWidth: CGFloat { return 1.0 / UIScreen.main.scale }
 }

@@ -95,20 +95,7 @@ extension AboutUsViewController {
                 $0.value = Bundle.main.fullVersion
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
-            }.onCellSelection({ [unowned self] _, _  in
-
-                #if DEBUG
-                self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
-                DispatchQueue.global().async {
-                    HDWalletManager.instance.deleteAllWallets()
-                    KeychainService.instance.clearCurrentWallet()
-                    DispatchQueue.main.async {
-                        self.view.hideLoading()
-                        NotificationCenter.default.post(name: .logoutDidFinish, object: nil)
-                    }
-                }
-                #endif
-
+            }.onCellSelection({ _, _  in
                 })
 
             <<< ImageRow("aboutUsPageCellContact") {
