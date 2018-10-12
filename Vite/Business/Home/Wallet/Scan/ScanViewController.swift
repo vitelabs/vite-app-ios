@@ -63,7 +63,7 @@ class ScanViewController: BaseViewController {
                 let rectOfInterest = videoPreviewLayer.metadataOutputRectConverted(fromLayerRect: scanRect)
                 captureMetadataOutput.rectOfInterest = rectOfInterest
             } catch {
-                print(error)
+                plog(level: .severe, log: "Init AVCaptureDeviceInput error")
             }
         }
     }

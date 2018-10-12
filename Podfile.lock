@@ -28,6 +28,9 @@ PODS:
     - Result (~> 3.0)
   - "NSObject+Rx (4.4.1)":
     - RxSwift (~> 4.3)
+  - ObjcExceptionBridging (1.0.1):
+    - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
+  - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - ObjectMapper (3.3.0)
   - PromiseKit (6.4.1):
     - PromiseKit/CorePromise (= 6.4.1)
@@ -70,6 +73,10 @@ PODS:
     - CryptoSwift (~> 0.12.0)
     - TrezorCryptoEd25519WithBlake2b (~> 0.0.1)
   - WechatOpenSDK (1.8.2)
+  - XCGLogger (6.1.0):
+    - XCGLogger/Core (= 6.1.0)
+  - XCGLogger/Core (6.1.0):
+    - ObjcExceptionBridging
 
 DEPENDENCIES:
   - Action
@@ -102,6 +109,7 @@ DEPENDENCIES:
   - Toast-Swift (~> 3.0.1)
   - Vite_HDWalletKit (~> 1.1.0)
   - WechatOpenSDK
+  - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -121,6 +129,7 @@ SPEC REPOS:
     - MJRefresh
     - Moya
     - "NSObject+Rx"
+    - ObjcExceptionBridging
     - ObjectMapper
     - PromiseKit
     - R.swift
@@ -141,6 +150,7 @@ SPEC REPOS:
     - TrezorCryptoEd25519WithBlake2b
     - Vite_HDWalletKit
     - WechatOpenSDK
+    - XCGLogger
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -169,6 +179,7 @@ SPEC CHECKSUMS:
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
+  ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   PromiseKit: 4c76a6506638034e3d7bede97b2ff7743f7bd2dc
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
@@ -189,7 +200,8 @@ SPEC CHECKSUMS:
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
   Vite_HDWalletKit: 90bf90b7092cc483ae9eda3385e96ed5be3aca22
   WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
+  XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 192de509c53cd7b2f807987c6af891bfbda18798
+PODFILE CHECKSUM: 2fa6803971f0712f3a69d22868f232f5d19cfc13
 
 COCOAPODS: 1.5.3

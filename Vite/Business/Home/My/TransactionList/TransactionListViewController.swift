@@ -102,7 +102,6 @@ class TransactionListViewController: BaseTableViewController {
         self.tableViewModel.getMore { error in
             if let error = error {
                 self.footerView.status = .failed
-                print(error)
             }
         }
     }

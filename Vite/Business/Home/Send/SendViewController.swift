@@ -226,7 +226,7 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
                     case .success:
                         self.sendTransaction(bag: self.bag, toAddress: address, tokenId: self.tokenId, amount: amount, note: self.noteView.textField.text)
                     case .cancelled:
-                        print("cancelled")
+                        plog(level: .info, log: "Confirm cancelled", tag: .transaction)
                     case .biometryAuthFailed:
                         Alert.show(into: self,
                                    title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle.key.localized(),

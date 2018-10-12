@@ -20,6 +20,7 @@ target 'Vite' do
   pod 'Moya'
   pod 'MJRefresh'
   pod 'KMNavigationBarTransition'
+  pod 'XCGLogger', '~> 6.1.0'
 
   #social
   pod 'WechatOpenSDK'
