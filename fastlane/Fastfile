@@ -31,7 +31,7 @@ platform :ios do
   git_add(path: ".")
   build_number = get_build_number
   git_commit(path: ".", message: "Jenkins Version Bump "+ build_number)
-  push_to_git_remote(remote_branch: "feature/travis",force: true)
+  push_to_git_remote(remote_branch: "release",force: true)
   end
 
   desc "create new pr in github argument base is base branch"
