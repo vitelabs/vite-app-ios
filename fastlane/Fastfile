@@ -23,7 +23,7 @@ platform :ios do
   lane :package do 
     increment_build_number
     #build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
-    #push_git
+    push_git
   end
 
   desc "push git local code"
