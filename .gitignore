@@ -67,6 +67,11 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 fastlane/.env
+match_version.txt
 
 #R.swift
 *.generated.swift
+
+#Travis
+.bundle/
+vendor/

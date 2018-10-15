@@ -21,6 +21,11 @@ or alternatively using `brew cask install fastlane`
 fastlane ios match_profile
 ```
 Push a new beta build to TestFlight
+### ios increment_build_number_and_push_git
+```
+fastlane ios increment_build_number_and_push_git
+```
+
 ### ios beta
 ```
 fastlane ios beta
