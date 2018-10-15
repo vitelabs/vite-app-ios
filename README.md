@@ -1,56 +1,46 @@
-## [fastlane match](https://docs.fastlane.tools/actions/match/)
+# Vite App for iOS
 
-This repository contains all your certificates and provisioning profiles needed to build and sign your applications. They are encrypted using OpenSSL via a passphrase.
+<hr />
+<div align="center">
+    <img src="https://github.com/vitelabs/doc.vite.org/blob/master/docs/.vuepress/public/logo_black.svg" alt="Logo" width='300px' height='auto'/>
+</div>
+<hr />
 
-**Important:** Make sure this repository is set to private and only your team members have access to this repo.
+[![Build Status](https://travis-ci.org/vitelabs/vite-app-ios.svg?branch=release)](https://travis-ci.org/vitelabs/vite-app-ios)
 
-Do not modify this file, as it gets overwritten every time you run _match_.
+## What is Vite?
 
-### Installation
+---
 
-Make sure you have the latest version of the Xcode command line tools installed:
+Vite is a next-generation Reactive Blockchain that adopts a _message-driven, asynchronous architecture and a DAG-based ledger_. The goal for Vite’s design is to _provide a reliable public platform for industrial dApps_, with features of ultra-high throughput and scalability.
 
-```
-xcode-select --install
-```
 
-Install _fastlane_ using
+---
 
-```
-[sudo] gem install fastlane -NV
-```
+## Guides & Documentation
+   * [White Paper](https://www.vite.org/whitepaper/vite_en.pdf)
+   * [Documentation](https://doc.vite.org/)
+   * [Techblog](https://vite.blog/)
+   
+## Product
+   * [Desktop Wallet](https://github.com/vitelabs/vite-wallet)
+   * [Testnet Explorer](https://testnet.vite.net/)
+   * [Vite.net](https://vite.net/)
+   
+## Links & Resources
+   * [Website](https://www.vite.org/)
+   * [Twitter](https://twitter.com/vitelabs)
+   * [Telegram](https://t.me/vite_en)
+   * [Telegram Announcement](https://t.me/vite_ann)
+   * [Reddit](https://www.reddit.com/r/vitelabs)
+   * [Discord](https://discordapp.com/invite/CsVY76q)
+   * [Youtube](https://www.youtube.com/channel/UC8qft2rEzBnP9yJOGdsJBVg)
 
-or alternatively using `brew cask install fastlane`
-
-### Usage
-
-Navigate to your project folder and run
-
-```
-fastlane match appstore
-```
-```
-fastlane match adhoc
-```
-```
-fastlane match development
-```
-```
-fastlane match enterprise
-```
-
-For more information open [fastlane match git repo](https://docs.fastlane.tools/actions/match/)
-
-### Content
-
-#### certs
-
-This directory contains all your certificates with their private keys
-
-#### profiles
-
-This directory contains all provisioning profiles
-
-------------------------------------
-
-For more information open [fastlane match git repo](https://docs.fastlane.tools/actions/match/)
+## Build
+1. [Download](https://developer.apple.com/xcode/download/) the Xcode
+2. Clone this repository.
+3. Enter vite-app-ios folder
+4. bundle install
+5. pod install
+6. Open Vite.xcworkspace
+7. Run
