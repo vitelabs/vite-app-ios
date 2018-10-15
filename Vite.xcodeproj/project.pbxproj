@@ -1293,10 +1293,11 @@
 			);
 			name = "Run R.Swift";
 			outputPaths = (
+				"$(SRCROOT)/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
 		};
 		4C0024DB21257868001DF390 /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1768,7 +1769,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1040;
+				CURRENT_PROJECT_VERSION = 1051;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1795,7 +1796,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1040;
+				CURRENT_PROJECT_VERSION = 1051;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1807,7 +1808,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = net.vite.wallet.distribution;
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore net.vite.wallet";
 				SWIFT_OBJC_BRIDGING_HEADER = "Vite/Vite-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

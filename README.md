@@ -6,6 +6,8 @@
 </div>
 <hr />
 
+[![Build Status](https://travis-ci.org/vitelabs/vite-app-ios.svg?branch=release)](https://travis-ci.org/vitelabs/vite-app-ios)
+
 ## What is Vite?
 
 ---

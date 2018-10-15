@@ -1,0 +1,7 @@
+git_url("https://github.com/vitelabs/vite-app-ios.git")
+git_branch("feature/travis")
+type("appstore") # The default type, can be: appstore, adhoc, enterprise or development
+username("caoliang@vite.org") # Your Apple Developer Portal username
+
+# For all available options run `fastlane match --help`
+# Remove the # in the beginning of the line to enable the other options
