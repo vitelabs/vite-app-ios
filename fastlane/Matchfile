@@ -1,5 +1,5 @@
 git_url("https://github.com/vitelabs/vite-app-ios.git")
-git_branch("feature/travis")
+git_branch("travis")
 type("appstore") # The default type, can be: appstore, adhoc, enterprise or development
 username("caoliang@vite.org") # Your Apple Developer Portal username
 

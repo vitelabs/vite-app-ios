@@ -9,7 +9,7 @@ platform :ios do
   desc "Push a new beta build to TestFlight"
 
   lane :match_profile do 
-    match(type: "appstore", app_identifier: "net.vite.wallet",  clone_branch_directly: false)
+    match(type: "appstore", app_identifier: "net.vite.wallet",  clone_branch_directly: true)
   end
 
   lane :beta do 
@@ -22,8 +22,8 @@ platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :package do 
     increment_build_number
-    build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
-    push_git
+    #build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
+    #push_git
   end
 
   desc "push git local code"
