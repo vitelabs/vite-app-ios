@@ -88,9 +88,7 @@ class ReceiveViewController: BaseViewController {
     func setupView() {
 
         navigationBarStyle = .clear
-        if case .token = style {
-            navigationItem.title = R.string.localizable.receivePageTitle.key.localized()
-        }
+        navigationItem.title = .token == style ? R.string.localizable.receivePageTokenTitle.key.localized() : R.string.localizable.receivePageMineTitle.key.localized()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.icon_nav_share_black(), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(onShare))
         view.backgroundColor = GradientColor(.topToBottom, frame: view.frame, colors: token.backgroundColors)
 

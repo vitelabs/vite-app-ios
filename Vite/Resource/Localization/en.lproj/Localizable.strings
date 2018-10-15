@@ -157,7 +157,8 @@
 "confirm.transaction.page.toast.password.error" = "Wrong password!";
 
 /* Receive Page */
-"Receive.page.title" = "Receive";
+"Receive.page.token.title" = "Receive";
+"Receive.page.mine.title" = "My QRCode";
 "Receive.page.token.name.label" = "Please send %@";
 "Receive.page.token.amount.button.title" = "Specific amount";
 "Receive.page.token.note.label" = "Comment";
@@ -165,6 +166,7 @@
 
 /* Scan Page */
 "Scan.page.title" = "Scan";
+"Scan.page.qccode.not.identifiable" = "QRCode cannot be identified";
 
 /* System */
 "system.page.logout.loading" = "Logout";

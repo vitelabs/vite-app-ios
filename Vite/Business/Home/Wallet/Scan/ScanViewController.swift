@@ -174,6 +174,7 @@ class ScanViewController: BaseViewController {
     func handleQRResult(_ result: String?) {
         guard let result = result else { return }
         if let uri = ViteURI.parser(string: result) {
+            captureSession.stopRunning()
             switch uri {
             case .transfer(let address, let tokenId, _, _, let note):
                 let tokenId = tokenId ?? Token.Currency.vite.rawValue
@@ -185,18 +186,8 @@ class ScanViewController: BaseViewController {
                 self.navigationController?.setViewControllers(viewControllers, animated: true)
             }
         } else {
-            showAlert(string: result)
+            Toast.show(R.string.localizable.scanPageQccodeNotIdentifiable.key.localized())
         }
-    }
-
-    func showAlert(string: String) {
-        let alertController = UIAlertController.init()
-        let action = UIAlertAction.init(title: LocalizationStr("OK"), style: .default) { [weak self](_) in
-            self?.navigationController?.popViewController(animated: true)
-        }
-        alertController.addAction(action)
-        alertController.title = string
-        present(alertController, animated: true, completion: nil)
     }
 
     func detectQRCode(_ image: UIImage?) -> [CIFeature]? {
@@ -220,7 +211,6 @@ class ScanViewController: BaseViewController {
 extension ScanViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVCaptureMetadataOutputObjectsDelegate {
 
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        captureSession.stopRunning()
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
@@ -241,7 +231,6 @@ extension ScanViewController: UIImagePickerControllerDelegate, UINavigationContr
 
         dismiss(animated: true) {
             if stringValue != nil {
-                self.captureSession.stopRunning()
                 AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
                 self.handleQRResult(stringValue)
             }

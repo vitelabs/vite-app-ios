@@ -157,7 +157,8 @@
 "confirm.transaction.page.toast.password.error" = "密码错误";
 
 /* Receive Page */
-"Receive.page.title" = "收款";
+"Receive.page.token.title" = "收款";
+"Receive.page.mine.title" = "我的二维码";
 "Receive.page.token.name.label" = "请转入 %@";
 "Receive.page.token.amount.button.title" = "指定金额";
 "Receive.page.token.note.label" = "备注";
@@ -165,6 +166,7 @@
 
 /* Scan Page */
 "Scan.page.title" = "扫码";
+"Scan.page.qccode.not.identifiable" = "二维码不可识别";
 
 /* System */
 "system.page.logout.loading" = "退出中";
