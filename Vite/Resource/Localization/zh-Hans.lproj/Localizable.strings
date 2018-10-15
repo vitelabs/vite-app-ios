@@ -92,6 +92,7 @@
 "manage.wallet.page.importMnemonic.cell.title" = "导出助记词";
 "manage.wallet.page.alter.changeName" = "修改钱包名";
 "manage.wallet.page.changeName.loading" = "修改中";
+"manage.wallet.page.error.type.name" = "用户名不能为空";
 
 /* my */
 "my.page.title" = "我";

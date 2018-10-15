@@ -96,7 +96,7 @@ class ManageWalletViewController: FormViewController {
             let name = textField.text ?? ""
 
             if name.isEmpty {
-                self.view.showToast(str: R.string.localizable.mnemonicBackupPageErrorTypeName.key.localized())
+                self.view.showToast(str: R.string.localizable.manageWalletPageErrorTypeName.key.localized())
                 return
             }
             if !ViteInputValidator.isValidWalletName(str: name  ) {

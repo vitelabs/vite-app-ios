@@ -92,6 +92,7 @@
 "manage.wallet.page.importMnemonic.cell.title" = "Export Seed Phrase";
 "manage.wallet.page.alter.changeName" = "Edit Wallet Name";
 "manage.wallet.page.changeName.loading" = "Editing";
+"manage.wallet.page.error.type.name" = "Wallet name can not be empty";
 
 /* my */
 "my.page.title" = "Me";
