@@ -177,13 +177,24 @@ class ScanViewController: BaseViewController {
             captureSession.stopRunning()
             switch uri {
             case .transfer(let address, let tokenId, _, _, let note):
+
+                self.view.displayLoading(text: "")
                 let tokenId = tokenId ?? Token.Currency.vite.rawValue
-                let amount = uri.amountToBigInt()
-                let sendViewController = SendViewController(tokenId: tokenId, address: address, amount: amount, note: note)
-                guard var viewControllers = navigationController?.viewControllers else { return }
-                _ = viewControllers.popLast()
-                viewControllers.append(sendViewController)
-                self.navigationController?.setViewControllers(viewControllers, animated: true)
+                TokenCacheService.instance.tokenForId(tokenId) { [weak self] (result) in
+                    guard let `self` = self else { return }
+                    self.view.hideLoading()
+                    switch result {
+                    case .success:
+                        let amount = uri.amountToBigInt()
+                        let sendViewController = SendViewController(tokenId: tokenId, address: address, amount: amount, note: note)
+                        guard var viewControllers = self.navigationController?.viewControllers else { return }
+                        _ = viewControllers.popLast()
+                        viewControllers.append(sendViewController)
+                        self.navigationController?.setViewControllers(viewControllers, animated: true)
+                    case .failure(let error):
+                        Toast.show(error.localizedDescription)
+                    }
+                }
             }
         } else {
             Toast.show(R.string.localizable.scanPageQccodeNotIdentifiable.key.localized())

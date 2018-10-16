@@ -15,13 +15,13 @@ struct BalanceInfo: Mappable {
     fileprivate(set) var token = Token()
     fileprivate(set) var balance = Balance()
     fileprivate(set) var unconfirmedBalance = Balance()
-    fileprivate(set) var unconfirmedCount: Int = 0
+    fileprivate(set) var unconfirmedCount: UInt64 = 0
 
     init?(map: Map) {
 
     }
 
-    init(token: Token, balance: Balance, unconfirmedBalance: Balance, unconfirmedCount: Int) {
+    init(token: Token, balance: Balance, unconfirmedBalance: Balance, unconfirmedCount: UInt64) {
         self.token = token
         self.balance = balance
         self.unconfirmedBalance = unconfirmedBalance
@@ -33,7 +33,7 @@ struct BalanceInfo: Mappable {
         balance <- (map["totalAmount"], JSONTransformer.balance)
     }
 
-    mutating func fill(unconfirmedBalance: Balance, unconfirmedCount: Int) {
+    mutating func fill(unconfirmedBalance: Balance, unconfirmedCount: UInt64) {
         self.unconfirmedBalance = unconfirmedBalance
         self.unconfirmedCount = unconfirmedCount
     }

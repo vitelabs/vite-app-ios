@@ -255,9 +255,10 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
     }
 
     private func sendTransaction(bag: HDWalletManager.Bag, toAddress: Address, tokenId: String, amount: BigInt, note: String?) {
-
+        self.view.displayLoading(text: "")
         Provider.instance.sendTransaction(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, note: note) { [weak self] result in
             guard let `self` = self else { return }
+            self.view.hideLoading()
             switch result {
             case .success:
                 Toast.show(R.string.localizable.sendPageToastSendSuccess.key.localized())
