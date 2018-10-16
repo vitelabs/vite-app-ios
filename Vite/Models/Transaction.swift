@@ -16,44 +16,44 @@ struct Transaction: Equatable, Mappable {
         return lhs.hash == rhs.hash
     }
 
-    enum Status: Int {
-        case error = 0
-        case waitResponse = 1
-        case finished = 2
-    }
-
     enum TransactionType: Int {
         case request
         case response
     }
 
+    fileprivate var blockType: AccountBlock.BlockType?
     fileprivate(set) var timestamp = Date(timeIntervalSince1970: 0)
     fileprivate(set) var fromAddress = Address()
     fileprivate(set) var toAddress = Address()
     fileprivate(set) var hash = ""
-    fileprivate(set) var balance = Balance()
     fileprivate(set) var amount = Balance()
-    fileprivate(set) var tokenId = ""
-
-    var token: Token {
-        return TokenCacheService.instance.tokenForId(tokenId) ?? Token()
-    }
+    fileprivate(set) var token = Token()
 
     var type: TransactionType {
-        return toAddress.isValid ? .request : .response
+        guard let blockType = blockType else {
+            return .request
+        }
+        switch blockType {
+        case .createSend, .send, .rewardSend:
+            return .request
+        case .receive, .receiveError:
+            return .response
+        }
     }
 
     init?(map: Map) {
-
+        guard let type = map.JSON["blockType"] as? Int, let _ = AccountBlock.BlockType(rawValue: type) else {
+            return nil
+        }
     }
 
     mutating func mapping(map: Map) {
+        blockType <- map["blockType"]
         timestamp <- (map["timestamp"], JSONTransformer.timestamp)
-        fromAddress <- (map["from"], JSONTransformer.address)
-        toAddress <- (map["to"], JSONTransformer.address)
+        fromAddress <- (map["fromAddress"], JSONTransformer.address)
+        toAddress <- (map["toAddress"], JSONTransformer.address)
         hash <- map["hash"]
-        balance <- (map["balance"], JSONTransformer.balance)
         amount <- (map["amount"], JSONTransformer.balance)
-        tokenId <- map["tokenId"]
+        token <- map["tokenInfo"]
     }
 }

@@ -58,50 +58,18 @@ final class TransactionListTableViewModel: TransactionListTableViewModelType {
             guard let `self` = self else { return }
             switch result {
             case .success((let transactions, let hasMore)):
-                self.getTokensIfNeeded(ids: transactions.map { $0.tokenId }, completion: { (error) in
-
-                    if let error = error {
-                        self.loadingStatus = .no
-                        completion(error)
-                    } else {
-                        self.hash = transactions.last?.hash
-                        self.viewModels.addObjects(from: transactions.map {
-                            TransactionViewModel(transaction: $0)
-                        })
-                        self.transactions.accept(self.viewModels as! [TransactionViewModelType])
-                        self.hasMore.accept(hasMore)
-                        self.loadingStatus = .no
-                        completion(nil)
-                    }
+                self.hash = transactions.last?.hash
+                self.viewModels.addObjects(from: transactions.map {
+                    TransactionViewModel(transaction: $0)
                 })
+                self.transactions.accept(self.viewModels as! [TransactionViewModelType])
+                self.hasMore.accept(hasMore)
+                self.loadingStatus = .no
+                completion(nil)
             case .error(let error):
                 self.loadingStatus = .no
                 completion(error)
             }
-        }
-    }
-
-    private func getTokensIfNeeded(ids: [String], completion: @escaping (Error?) -> Void) {
-
-        var tokenIds = ids
-        if let id = tokenIds.first {
-            tokenIds.removeFirst()
-            if let _ = TokenCacheService.instance.tokenForId(id) {
-                getTokensIfNeeded(ids: tokenIds, completion: completion)
-            } else {
-                Provider.instance.getTokenForId(id) { [weak self] result in
-                    guard let `self` = self else { return }
-                    switch result {
-                    case .success(let token):
-                        TokenCacheService.instance.updateTokensIfNeeded([token])
-                        self.getTokensIfNeeded(ids: tokenIds, completion: completion)
-                    case .error(let error):
-                        completion(error)
-                    }
-                }
-            }
-        } else {
-            completion(nil)
         }
     }
 }

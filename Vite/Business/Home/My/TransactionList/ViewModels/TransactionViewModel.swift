@@ -21,6 +21,6 @@ final class TransactionViewModel: TransactionViewModelType {
         self.hash = transaction.hash
         let symbol = transaction.type == .request ? "-" : "+"
         self.balanceString = "\(symbol)\(transaction.amount.amountShort(decimals: transaction.token.decimals))"
-        self.symbolString = TokenCacheService.instance.tokenForId(transaction.tokenId)?.symbol ?? ""
+        self.symbolString = TokenCacheService.instance.tokenForId(transaction.token.id)?.symbol ?? ""
     }
 }

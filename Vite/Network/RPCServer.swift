@@ -12,5 +12,5 @@ final class RPCServer {
     static let shared = RPCServer()
     private init() {}
 
-    var rpcURL = URL(string: "https://test.vitewallet.com/ios")!
+    var rpcURL = URL(string: "http://150.109.120.109:48132")!
 }
