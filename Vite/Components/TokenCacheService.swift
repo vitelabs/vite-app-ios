@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class TokenCacheService {
     static let instance = TokenCacheService()
@@ -59,6 +60,23 @@ class TokenCacheService {
 
 extension TokenCacheService {
 
+    func tokenForId(_ id: String, completion: @escaping (Alamofire.Result<Token>) -> Void) {
+
+        if let token = tokenForId(id) {
+            completion(Result.success(token))
+        } else {
+            Provider.instance.getTokenForId(id) { result in
+                switch result {
+                case .success(let token):
+                    TokenCacheService.instance.updateTokensIfNeeded([token])
+                    completion(Result.success(token))
+                case .error(let error):
+                    completion(Result.failure(error))
+                }
+            }
+        }
+    }
+
     func tokenForId(_ id: String) -> Token? {
         return tokenDic[id]
     }
@@ -96,7 +114,7 @@ extension TokenCacheService {
 extension Token {
 
     enum Currency: String {
-        case vite = "tti_000000000000000000004cfd"
+        case vite = "tti_5649544520544f4b454e6e40"
         case vcp = "tti_12ea0c02170304090a5ac879"
         case vv = "tti_b6187a150d175e5a165b1c5b"
     }

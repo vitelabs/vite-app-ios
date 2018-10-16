@@ -29,8 +29,8 @@ struct BalanceInfo: Mappable {
     }
 
     mutating func mapping(map: Map) {
-        token <- map["mintage"]
-        balance <- (map["balance"], JSONTransformer.balance)
+        token <- map["tokenInfo"]
+        balance <- (map["totalAmount"], JSONTransformer.balance)
     }
 
     mutating func fill(unconfirmedBalance: Balance, unconfirmedCount: Int) {

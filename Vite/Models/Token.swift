@@ -30,9 +30,9 @@ struct Token: Mappable {
     }
 
     mutating func mapping(map: Map) {
-        id <- map["id"]
-        name <- map["name"]
-        symbol <- map["symbol"]
+        id <- map["tokenId"]
+        name <- map["tokenName"]
+        symbol <- map["tokenSymbol"]
         decimals <- map["decimals"]
     }
 }

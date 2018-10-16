@@ -100,7 +100,7 @@ class TransactionListViewController: BaseTableViewController {
 
     private func getMore(finished: (() -> Void)? = nil) {
         self.tableViewModel.getMore { error in
-            if let error = error {
+            if let _ = error {
                 self.footerView.status = .failed
             }
         }

@@ -15,7 +15,7 @@ struct GetUnconfirmedTransactionRequest: JSONRPCKit.Request {
     let address: String
 
     var method: String {
-        return "ledger_getUnconfirmedBlocksByAccAddr"
+        return "onroad_getOnroadBlocksByAddress"
     }
 
     var parameters: Any? {
