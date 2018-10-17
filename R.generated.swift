@@ -445,7 +445,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 148 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 149 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1039,6 +1039,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let yes = Rswift.StringResource(key: "Yes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: import...
+      /// 
+      /// Locales: en, zh-Hans
+      static let importPageSubmitLoading = Rswift.StringResource(key: "import.page.submit.loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -2074,6 +2078,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func yes(_: Void = ()) -> String {
         return NSLocalizedString("Yes", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: import...
+      /// 
+      /// Locales: en, zh-Hans
+      static func importPageSubmitLoading(_: Void = ()) -> String {
+        return NSLocalizedString("import.page.submit.loading", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
