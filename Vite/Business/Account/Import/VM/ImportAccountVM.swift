@@ -20,7 +20,7 @@ final class ImportAccountVM {
             return Observable.just(.empty(message:         R.string.localizable.mnemonicBackupPageErrorTypeName.key.localized()))
         }
 
-        var contentMnemonic = content.filterWhitespacesAndNewlines()
+        var contentMnemonic =  ViteInputValidator.handleMnemonicStrSpacing(content)
         if !Mnemonic.mnemonic_check(contentMnemonic) {
             return Observable.just(.empty(message:R.string.localizable.importPageSubmitInvalidMnemonic.key.localized()))
         }

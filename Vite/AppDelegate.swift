@@ -102,6 +102,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             rootVC.automaticallyShowDismissButton = false
         }
         let nav = BaseNavigationController(rootViewController: rootVC)
+        //fix magnifying glass fluoroscopy bug
+        lockWindow.isHidden = false
         self.lockWindow.rootViewController = nav
         self.lockWindow.makeKeyAndVisible()
     }
@@ -110,6 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootVC = HomeViewController()
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
+        lockWindow.isHidden = true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
