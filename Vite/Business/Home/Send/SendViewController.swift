@@ -13,7 +13,7 @@ import BigInt
 import PromiseKit
 import JSONRPCKit
 
-class SendViewController: BaseViewController, ViewControllerDataStatusable {
+class SendViewController: BaseViewController {
 
     // FIXME: Optional
     let bag = HDWalletManager.instance.bag!
@@ -47,39 +47,19 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.sendPageTitle.key.localized())
         if let token = TokenCacheService.instance.tokenForId(tokenId) {
             self.token = token
             setupView()
             bind()
         } else {
-            getToken()
+            self.dataStatus = .custom("")
         }
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         kas_activateAutoScrollingForView(contentView)
-    }
-
-    private func getToken() {
-        self.dataStatus = .loading
-        Provider.instance.getTokenForId(tokenId) { [weak self] result in
-            guard let `self` = self else { return }
-            switch result {
-            case .success(let token):
-                TokenCacheService.instance.updateTokensIfNeeded([token])
-                self.token = token
-                self.dataStatus = .normal
-                self.setupView()
-                self.bind()
-            case .error(let error):
-                self.dataStatus = .networkError(error, { [weak self] in
-                    self?.dataStatus = .loading
-                    self?.getToken()
-                })
-            }
-        }
     }
 
     // View
@@ -108,8 +88,6 @@ class SendViewController: BaseViewController, ViewControllerDataStatusable {
     lazy var noteView = SendNoteView(note: note ?? "", canEdit: noteCanEdit)
 
     private func setupView() {
-
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.sendPageTitle.key.localized())
 
         let addressView = SendAddressView(address: address?.description ?? "")
         let sendButton = UIButton(style: .blue, title: R.string.localizable.sendPageSendButtonTitle.key.localized())
@@ -289,5 +267,11 @@ extension SendViewController: UITextFieldDelegate {
         } else {
             return true
         }
+    }
+}
+
+extension SendViewController: ViewControllerDataStatusable {
+    func customView(message: String) -> UIView {
+        return UIView.defaultPlaceholderView(text: R.string.localizable.sendPageTokenInfoError.key.localized())
     }
 }

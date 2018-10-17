@@ -147,6 +147,7 @@
 "send.page.confirm.biometryAuthFailed.title" = "Cannot be identified";
 "send.page.confirm.biometryAuthFailed.back" = "Back";
 "send.page.confirm.passwordAuthFailed.retry" = "Retry";
+"send.page.token.info.error" = "Token Info Error";
 
 
 /* Confirm Transaction Page */
