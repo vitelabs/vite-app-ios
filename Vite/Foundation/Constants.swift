@@ -19,4 +19,11 @@ public struct Constants {
     public static let weixinAppID = "wx7e5f2476e871c244"
     //weixin Official Accounts AppID
     public static let officialAccountsAppID = "gh_50e071040bca"
+    //app channel
+    #if RELEASE_INHOUSE_FOR_DISTRIBUTE
+    public static let appDownloadChannel = "enterprise"
+    #else
+    public static let appDownloadChannel = "appstore"
+    #endif
+
 }
