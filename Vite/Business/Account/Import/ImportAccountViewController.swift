@@ -140,6 +140,9 @@ extension ImportAccountViewController {
             DispatchQueue.main.async {
                 self.view.hideLoading()
                 NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
+                DispatchQueue.main.async {
+                    Toast.show(R.string.localizable.importPageSubmitSuccess.key.localized())
+                }
             }
         }
     }
