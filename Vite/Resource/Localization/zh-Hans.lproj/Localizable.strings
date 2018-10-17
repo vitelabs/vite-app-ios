@@ -168,7 +168,7 @@
 "Receive.page.token.amount.alert.title" = "输入金额";
 
 /* Scan Page */
-"Scan.page.title" = "扫码";
+"Scan.page.title" = "扫一扫";
 "Scan.page.qccode.not.identifiable" = "二维码不可识别";
 
 /* System */
