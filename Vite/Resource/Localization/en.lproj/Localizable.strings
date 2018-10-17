@@ -64,6 +64,7 @@
 "import.page.submit.btn" = "Restore Account";
 "import.page.submit.invalid.mnemonic" = "Something wrong with your seed phrase, please try again!";
 "import.page.submit.loading" = "import...";
+"import.page.submit.success" = "import success";
 
 /* export mnemonic */
 "export.page.title" = "Export Seed Phrase";

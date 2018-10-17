@@ -64,6 +64,7 @@
 "import.page.submit.btn" = "恢复账户";
 "import.page.submit.invalid.mnemonic" = "助记词输入有误，请重新输入。";
 "import.page.submit.loading" = "账户恢复中...";
+"import.page.submit.success" = "恢复成功";
 
 /* export mnemonic */
 "export.page.title" = "导出助记词";
