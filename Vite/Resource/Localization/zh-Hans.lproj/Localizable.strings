@@ -148,7 +148,7 @@
 "send.page.confirm.biometryAuthFailed.title" = "无法识别";
 "send.page.confirm.biometryAuthFailed.back" = "返回";
 "send.page.confirm.passwordAuthFailed.retry" = "重试";
-
+"send.page.token.info.error" = "代币信息错误";
 
 /* Confirm Transaction Page */
 "confirm.transaction.page.title" = "支付";

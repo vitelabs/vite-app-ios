@@ -907,6 +907,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageToastAmountZero = Rswift.StringResource(key: "send.page.toast.amount.zero", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Token Info Error
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageTokenInfoError = Rswift.StringResource(key: "send.page.token.info.error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Transaction
       /// 
       /// Locales: en, zh-Hans
@@ -1851,6 +1855,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func sendPageToastAmountZero(_: Void = ()) -> String {
         return NSLocalizedString("send.page.toast.amount.zero", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Token Info Error
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageTokenInfoError(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.token.info.error", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Transaction

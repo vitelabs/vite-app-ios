@@ -148,9 +148,6 @@ extension ViteURI {
             data = String(note.dropLast())
         }
 
-        // check token
-        guard let _ = TokenCacheService.instance.tokenForId(tokenId) else { return nil }
-
         return ViteURI.transfer(address: address, tokenId: tokenId, amountString: amountString, decimalsString: decimalsString, data: data)
     }
 
