@@ -15,7 +15,7 @@ import Vite_HDWalletKit
 
 extension ImportAccountViewController {
     private func _bindViewModel() {
-        self.importAccountVM = ImportAccountVM.init(input: (self.contentTextView, self.createNameAndPwdView.walletNameTF.textField, self.createNameAndPwdView.passwordTF.passwordInputView.textField, self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField))
+        self.importAccountVM = ImportAccountVM.init(input: (self.contentTextView.contentTextView, self.createNameAndPwdView.walletNameTF.textField, self.createNameAndPwdView.passwordTF.passwordInputView.textField, self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField))
 
         self.importAccountVM?.submitBtnEnable.drive(onNext: { (isEnabled) in
                 self.confirmBtn.isEnabled = isEnabled
@@ -50,17 +50,8 @@ class ImportAccountViewController: BaseViewController {
         kas_activateAutoScrollingForView(self.contentView)
     }
 
-    lazy var contentTextView: UITextView = {
-        let contentTextView =  UITextView()
-        contentTextView.font = Fonts.Font18
-        contentTextView.backgroundColor = Colors.bgGray
-        contentTextView.textColor = Colors.descGray
-        contentTextView.text = ""
-        contentTextView.layer.masksToBounds = true
-        contentTextView.layer.cornerRadius = 2
-        contentTextView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        contentTextView.isEditable = true
-        contentTextView.isScrollEnabled = true
+    lazy var contentTextView: MnemonicTextView = {
+        let contentTextView =  MnemonicTextView(isEditable: true)
         return contentTextView
     }()
 
@@ -140,7 +131,7 @@ extension ImportAccountViewController {
         let name  = self.createNameAndPwdView.walletNameTF.textField.text!.trimmingCharacters(in: .whitespaces)
         let password = self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text ?? ""
         let encryptKey = password.toEncryptKey(salt: uuid)
-        let mnemonic = self.contentTextView.text.filterWhitespacesAndNewlines()
+        let mnemonic = ViteInputValidator.handleMnemonicStrSpacing(self.contentTextView.text)
 
         self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading.key.localized(), animated: true)
         DispatchQueue.global().async {

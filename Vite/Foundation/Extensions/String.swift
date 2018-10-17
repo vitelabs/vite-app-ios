@@ -39,13 +39,6 @@ extension String {
         return String(self[startIndex..<endIndex])
     }
 
-    func filterWhitespacesAndNewlines() -> String {
-        var temp = self.trimmingCharacters(in: .whitespacesAndNewlines)
-        temp = temp.replacingOccurrences(of: "\n", with: "")
-        temp = temp.replacingOccurrences(of: "\r", with: "")
-        return temp
-    }
-
     func toEncryptKey(salt: String) -> String {
         let index = salt.count / 2
         let first = (salt as NSString).substring(to: index) as String

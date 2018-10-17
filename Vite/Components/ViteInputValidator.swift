@@ -10,6 +10,11 @@ import UIKit
 
 class ViteInputValidator: NSObject {
 
+    class func handleMnemonicStrSpacing(_ str: String) -> String {
+        let components = str.components(separatedBy: .whitespacesAndNewlines)
+        return components.filter { !$0.isEmpty }.joined(separator: " ")
+    }
+
    class func isValidWalletName(str: String) -> Bool {
         let temp = str.trimmingCharacters(in: .whitespaces)
         // chinese english _
