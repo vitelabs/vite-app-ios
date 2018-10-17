@@ -170,7 +170,7 @@ extension HDWalletManager {
     }
 
     func verifyPassword(_ password: String) -> Bool {
-        guard let uuid = storage.currentWalletUuid else { return false }
+        guard let uuid = storage.currentWallet?.uuid else { return false }
         let encryptKey = password.toEncryptKey(salt: uuid)
         return encryptKey == self.encryptKey
     }
@@ -181,6 +181,10 @@ extension HDWalletManager {
 
     var isEmpty: Bool {
         return storage.wallets.isEmpty
+    }
+
+    var currentWalletIndex: Int? {
+        return storage.currentWalletIndex
     }
 }
 

@@ -46,7 +46,8 @@ class LoginViewController: BaseViewController {
     }()
 
     lazy var userNameBtn: TitleBtnView = {
-        let name = HDWalletManager.instance.wallets.first?.name ?? ""
+        let index = HDWalletManager.instance.currentWalletIndex ?? 0
+        let name = HDWalletManager.instance.wallets[index].name
         let userNameBtn = TitleBtnView(title: R.string.localizable.loginPageBtnChooseName.key.localized(), text: name)
         userNameBtn.btn.addTarget(self, action: #selector(userNameBtnAction), for: .touchUpInside)
         return userNameBtn
@@ -179,7 +180,8 @@ extension LoginViewController {
              return wallet.name
         }
 
-        _ =  ActionSheetStringPicker.show(withTitle: "选择钱包账户", rows: pickData, initialSelection: 0, doneBlock: {_, index, _ in
+        let index = HDWalletManager.instance.currentWalletIndex ?? 0
+        _ =  ActionSheetStringPicker.show(withTitle: "选择钱包账户", rows: pickData, initialSelection: index, doneBlock: {_, index, _ in
             let wallet = HDWalletManager.instance.wallets[index]
             self.viewModel.chooseUuid = wallet.uuid
             self.userNameBtn.btn.setTitle(wallet.name, for: .normal)
