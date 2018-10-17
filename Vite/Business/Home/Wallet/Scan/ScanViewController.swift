@@ -197,8 +197,19 @@ class ScanViewController: BaseViewController {
                 }
             }
         } else {
-            Toast.show(R.string.localizable.scanPageQccodeNotIdentifiable.key.localized())
+            self.showAlert(string: result)
         }
+    }
+
+    func showAlert(string: String) {
+        self.captureSession.stopRunning()
+        let alertController = UIAlertController.init()
+        let action = UIAlertAction.init(title: LocalizationStr("OK"), style: .default) { [weak self](_) in
+            self?.captureSession.startRunning()
+        }
+        alertController.addAction(action)
+        alertController.title = string
+        present(alertController, animated: true, completion: nil)
     }
 
     func detectQRCode(_ image: UIImage?) -> [CIFeature]? {
