@@ -37,6 +37,12 @@ class DebugViewController: FormViewController {
                     }
                 }
             })
+            <<< LabelRow("resetCurrentWalletBagCount") {
+                $0.title =  "Reset Current Wallet Bag Count"
+            }.onCellSelection({ _, _  in
+                HDWalletManager.instance.resetBagCount()
+                Toast.show("Operation complete")
+            })
     }
 
     @objc fileprivate func _onCancel() {
