@@ -133,7 +133,7 @@ extension ImportAccountViewController {
         let encryptKey = password.toEncryptKey(salt: uuid)
         let mnemonic = ViteInputValidator.handleMnemonicStrSpacing(self.contentTextView.text)
 
-        self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading.key.localized(), animated: true)
+        self.view.displayLoading(text: R.string.localizable.importPageSubmitLoading.key.localized(), animated: true)
         DispatchQueue.global().async {
             KeychainService.instance.setCurrentWallet(uuid: uuid, encryptKey: encryptKey)
             HDWalletManager.instance.importAddLoginWallet(uuid: uuid, name: name, mnemonic: mnemonic, encryptKey: encryptKey)
