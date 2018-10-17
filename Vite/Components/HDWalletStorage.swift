@@ -16,7 +16,8 @@ final class HDWalletStorage: Mappable {
     fileprivate var fileHelper = FileHelper(.library, appending: FileHelper.appPathComponent)
     fileprivate static let saveKey = "HDWallet"
     fileprivate(set) var wallets = [Wallet]()
-    fileprivate(set) var currentWalletUuid: String?
+    fileprivate var currentWalletUuid: String?
+    fileprivate var isLogin: Bool = false
 
     init() {
         if let data = fileHelper.contentsAtRelativePath(type(of: self).saveKey),
@@ -24,6 +25,7 @@ final class HDWalletStorage: Mappable {
             let storage = HDWalletStorage(JSONString: jsonString) {
             self.wallets = storage.wallets
             self.currentWalletUuid = storage.currentWalletUuid
+            self.isLogin = storage.isLogin
         }
     }
 
@@ -32,15 +34,26 @@ final class HDWalletStorage: Mappable {
     func mapping(map: Map) {
         wallets <- map["wallets"]
         currentWalletUuid <- map["currentWalletUuid"]
+        isLogin <- map["isLogin"]
     }
 
     var currentWallet: Wallet? {
+        guard isLogin else { return nil }
         if let uuid = currentWalletUuid,
             let (_, wallet) = pri_walletAndIndexForUuid(uuid) {
             return wallet
         } else {
             return nil
         }
+    }
+
+    var currentWalletIndex: Int? {
+        guard let uuid = currentWalletUuid else { return nil }
+        for (index, wallet) in wallets.enumerated() where wallet.uuid == uuid {
+            return index
+        }
+
+        return nil
     }
 }
 
@@ -51,6 +64,7 @@ extension HDWalletStorage {
         let wallet = Wallet(uuid: uuid, name: name, mnemonic: mnemonic, encryptKey: encryptKey, needRecoverAddresses: needRecoverAddresses)
         wallets.append(wallet)
         currentWalletUuid = uuid
+        isLogin = true
         pri_save()
         return wallet
     }
@@ -59,6 +73,7 @@ extension HDWalletStorage {
         let uuid = uuid ?? self.currentWalletUuid ?? ""
         guard let (_, wallet) = pri_walletAndIndexForUuid(uuid) else { return nil }
         currentWalletUuid = wallet.uuid
+        isLogin = true
         pri_save()
 
         if let mnemonic = wallet.mnemonic(encryptKey: encryptKey) {
@@ -69,12 +84,13 @@ extension HDWalletStorage {
     }
 
     func logout() {
-        currentWalletUuid = nil
+        isLogin = false
         pri_save()
     }
 
     func deleteAllWallets() {
         currentWalletUuid = nil
+        isLogin = false
         wallets = [Wallet]()
         pri_save()
     }
