@@ -89,6 +89,7 @@ class AddressManageViewController: BaseTableViewController {
             guard let `self` = self else { return }
             if self.tableViewModel.canGenerateAddress {
                 self.tableViewModel.generateAddress()
+                self.tableView.scrollToRow(at: IndexPath(row: self.tableView.numberOfRows(inSection: 0) - 1, section: 0), at: .bottom, animated: true)
             } else {
                 Toast.show(R.string.localizable.addressManageAddressGenerateButtonToast.key.localized())
             }
