@@ -99,7 +99,7 @@ class ManageWalletViewController: FormViewController {
                 self.view.showToast(str: R.string.localizable.manageWalletPageErrorTypeName.key.localized())
                 return
             }
-            if !ViteInputValidator.isValidWalletName(str: name  ) {
+            if !ViteInputValidator.isValidWalletName(str: name ) {
                 self.view.showToast(str: R.string.localizable.mnemonicBackupPageErrorTypeNameValid.key.localized())
 
                 return
