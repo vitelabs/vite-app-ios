@@ -445,7 +445,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 149 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 150 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -907,6 +907,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageToastAmountZero = Rswift.StringResource(key: "send.page.toast.amount.zero", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Token Info Error
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageTokenInfoError = Rswift.StringResource(key: "send.page.token.info.error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Transaction
       /// 
       /// Locales: en, zh-Hans
@@ -1847,6 +1851,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func sendPageToastAmountZero(_: Void = ()) -> String {
         return NSLocalizedString("send.page.toast.amount.zero", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Token Info Error
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageTokenInfoError(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.token.info.error", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Transaction
