@@ -17,6 +17,7 @@
 "Confirm" = "确定";
 "Submit" = "提交";
 "Update.app" = "更新 App";
+"NetWorkError" = "加载失败，请刷新重试";
 
 /* Login */
 "create.account" = "创建账户";
@@ -50,7 +51,7 @@
 "mnemonic.backup.page.alter.confirm" = "好的";
 "mnemonic.backup.page.error.type.name" = "请输入用户名或密码";
 "mnemonic.backup.page.error.type.nameValid" = "账户名仅支持中英文字符及下划线";
-"mnemonic.backup.page.error.type.validWalletNameCount" = "账户名超出字符限制";
+"mnemonic.backup.page.error.type.validWalletNameCount" = "用户名仅支持32个字符";
 "mnemonic.backup.page.error.type.difference" = "两次输入密码不同";
 
 "mnemonic.affirm.page.title" = "确认输入助记词";
@@ -89,7 +90,7 @@
 
 /* Manage Wallet */
 "manage.wallet.page.title" = "管理钱包";
-"manage.wallet.page.name.cell.title" = "钱包名";
+"manage.wallet.page.name.cell.title" = "账户名";
 "manage.wallet.page.addressManage.cell.title" = "地址管理";
 "manage.wallet.page.importMnemonic.cell.title" = "导出助记词";
 "manage.wallet.page.alter.changeName" = "修改钱包名";
@@ -131,14 +132,15 @@
 
 /* Send Page */
 "send.page.title" = "转账";
-"send.page.my.address.title" = "转出账户地址";
-"send.page.my.balance.title" = "转出账户余额";
+"send.page.my.address.title" = "我的账户地址";
+"send.page.my.balance.title" = "我的账户余额 ";
 "send.page.to.address.title" = "收款地址";
 "send.page.amount.title" = "金额";
 "send.page.remark.title" = "备注";
 "send.page.send.button.title" = "转账";
 "send.page.amount.toolbar.button.title" = "下一项";
 "send.page.toast.send.success" = "支付成功";
+"send.page.toast.send.failed" = "转账失败，请稍后重试";
 "send.page.toast.address.error" = "收款地址格式错误";
 "send.page.toast.amount.error" = "账户余额不足";
 "send.page.toast.amount.empty" = "请填写金额";
@@ -162,14 +164,15 @@
 /* Receive Page */
 "Receive.page.token.title" = "收款";
 "Receive.page.mine.title" = "我的二维码";
-"Receive.page.token.name.label" = "请转入 %@";
-"Receive.page.token.amount.button.title" = "指定金额";
+"Receive.page.token.name.label" = "扫二维码向我转入 %@";
+"Receive.page.token.amount.button.title" = "设置金额";
 "Receive.page.token.note.label" = "备注";
 "Receive.page.token.amount.alert.title" = "输入金额";
 
 /* Scan Page */
 "Scan.page.title" = "扫一扫";
 "Scan.page.qccode.not.identifiable" = "二维码不可识别";
+"Scan.page.qccode.not.found" = "未发现二维码";
 
 /* System */
 "system.page.logout.loading" = "退出中";

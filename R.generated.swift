@@ -445,7 +445,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 151 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 154 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -471,10 +471,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPageTfTitle = Rswift.StringResource(key: "create.page.tf.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Account name exceeds the limit!
+      /// en translation: Account Name
       /// 
       /// Locales: en, zh-Hans
-      static let mnemonicBackupPageErrorTypeValidWalletNameCount = Rswift.StringResource(key: "mnemonic.backup.page.error.type.validWalletNameCount", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      static let manageWalletPageNameCellTitle = Rswift.StringResource(key: "manage.wallet.page.name.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Account name only supports Chinese and English characters as well as unserscores.
       /// 
       /// Locales: en, zh-Hans
@@ -639,10 +639,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let aboutUsPageEmailTitle = Rswift.StringResource(key: "aboutUs.page.email.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: From Address
-      /// 
-      /// Locales: en, zh-Hans
-      static let sendPageMyAddressTitle = Rswift.StringResource(key: "send.page.my.address.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Get Bonus
       /// 
       /// Locales: en, zh-Hans
@@ -667,6 +663,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let receivePageTokenAmountAlertTitle = Rswift.StringResource(key: "Receive.page.token.amount.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Input Amount
+      /// 
+      /// Locales: en, zh-Hans
+      static let receivePageTokenAmountButtonTitle = Rswift.StringResource(key: "Receive.page.token.amount.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Insufficient Balance
       /// 
       /// Locales: en, zh-Hans
@@ -691,6 +691,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let loading = Rswift.StringResource(key: "Loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Loading failed, please refresh
+      /// 
+      /// Locales: en, zh-Hans
+      static let netWorkError = Rswift.StringResource(key: "NetWorkError", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Loading...
       /// 
       /// Locales: en, zh-Hans
@@ -731,6 +735,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPageTipContent = Rswift.StringResource(key: "create.page.tip.content", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: My Address
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageMyAddressTitle = Rswift.StringResource(key: "send.page.my.address.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: My QRCode
       /// 
       /// Locales: en, zh-Hans
@@ -747,6 +755,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let no = Rswift.StringResource(key: "No", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: No QR code found
+      /// 
+      /// Locales: en, zh-Hans
+      static let scanPageQccodeNotFound = Rswift.StringResource(key: "Scan.page.qccode.not.found", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Orderly select seed phrase
       /// 
       /// Locales: en, zh-Hans
@@ -791,10 +803,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageTitle = Rswift.StringResource(key: "import.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Please send %@
-      /// 
-      /// Locales: en, zh-Hans
-      static let receivePageTokenNameLabel = Rswift.StringResource(key: "Receive.page.token.name.label", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Processing
       /// 
       /// Locales: en, zh-Hans
@@ -855,6 +863,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let scanPageTitle = Rswift.StringResource(key: "Scan.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Scan and transfer %@
+      /// 
+      /// Locales: en, zh-Hans
+      static let receivePageTokenNameLabel = Rswift.StringResource(key: "Receive.page.token.name.label", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Seed Phrase
       /// 
       /// Locales: en, zh-Hans
@@ -875,10 +887,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageSubmitInvalidMnemonic = Rswift.StringResource(key: "import.page.submit.invalid.mnemonic", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Specific amount
-      /// 
-      /// Locales: en, zh-Hans
-      static let receivePageTokenAmountButtonTitle = Rswift.StringResource(key: "Receive.page.token.amount.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Submit
       /// 
       /// Locales: en, zh-Hans
@@ -927,6 +935,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageTitle = Rswift.StringResource(key: "send.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Transfer failed, please try again later
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageToastSendFailed = Rswift.StringResource(key: "send.page.toast.send.failed", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Unlock By Face ID
       /// 
       /// Locales: en, zh-Hans
@@ -963,6 +975,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let confirmTransactionPageUsePassword = Rswift.StringResource(key: "confirm.transaction.page.use.password", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Username only supports less than 32 characters
+      /// 
+      /// Locales: en, zh-Hans
+      static let mnemonicBackupPageErrorTypeValidWalletNameCount = Rswift.StringResource(key: "mnemonic.backup.page.error.type.validWalletNameCount", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Verify
       /// 
       /// Locales: en, zh-Hans
@@ -1003,10 +1019,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let manageWalletPageTitle = Rswift.StringResource(key: "manage.wallet.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Wallet Name
-      /// 
-      /// Locales: en, zh-Hans
-      static let manageWalletPageNameCellTitle = Rswift.StringResource(key: "manage.wallet.page.name.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Wallet name can not be empty
       /// 
       /// Locales: en, zh-Hans
@@ -1094,11 +1106,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("create.page.tf.title", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Account name exceeds the limit!
+      /// en translation: Account Name
       /// 
       /// Locales: en, zh-Hans
-      static func mnemonicBackupPageErrorTypeValidWalletNameCount(_: Void = ()) -> String {
-        return NSLocalizedString("mnemonic.backup.page.error.type.validWalletNameCount", bundle: R.hostingBundle, comment: "")
+      static func manageWalletPageNameCellTitle(_: Void = ()) -> String {
+        return NSLocalizedString("manage.wallet.page.name.cell.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Account name only supports Chinese and English characters as well as unserscores.
@@ -1388,13 +1400,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("aboutUs.page.email.title", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: From Address
-      /// 
-      /// Locales: en, zh-Hans
-      static func sendPageMyAddressTitle(_: Void = ()) -> String {
-        return NSLocalizedString("send.page.my.address.title", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: Get Bonus
       /// 
       /// Locales: en, zh-Hans
@@ -1437,6 +1442,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Receive.page.token.amount.alert.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Input Amount
+      /// 
+      /// Locales: en, zh-Hans
+      static func receivePageTokenAmountButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("Receive.page.token.amount.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Insufficient Balance
       /// 
       /// Locales: en, zh-Hans
@@ -1477,6 +1489,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func loading(_: Void = ()) -> String {
         return NSLocalizedString("Loading", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Loading failed, please refresh
+      /// 
+      /// Locales: en, zh-Hans
+      static func netWorkError(_: Void = ()) -> String {
+        return NSLocalizedString("NetWorkError", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Loading...
@@ -1549,6 +1568,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("create.page.tip.content", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: My Address
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageMyAddressTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.my.address.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: My QRCode
       /// 
       /// Locales: en, zh-Hans
@@ -1575,6 +1601,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func no(_: Void = ()) -> String {
         return NSLocalizedString("No", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: No QR code found
+      /// 
+      /// Locales: en, zh-Hans
+      static func scanPageQccodeNotFound(_: Void = ()) -> String {
+        return NSLocalizedString("Scan.page.qccode.not.found", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Orderly select seed phrase
@@ -1652,13 +1685,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func importPageTitle(_: Void = ()) -> String {
         return NSLocalizedString("import.page.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Please send %@
-      /// 
-      /// Locales: en, zh-Hans
-      static func receivePageTokenNameLabel(_ value1: String) -> String {
-        return String(format: NSLocalizedString("Receive.page.token.name.label", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       /// en translation: Processing
@@ -1766,6 +1792,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Scan.page.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Scan and transfer %@
+      /// 
+      /// Locales: en, zh-Hans
+      static func receivePageTokenNameLabel(_ value1: String) -> String {
+        return String(format: NSLocalizedString("Receive.page.token.name.label", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
       /// en translation: Seed Phrase
       /// 
       /// Locales: en, zh-Hans
@@ -1799,13 +1832,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func importPageSubmitInvalidMnemonic(_: Void = ()) -> String {
         return NSLocalizedString("import.page.submit.invalid.mnemonic", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Specific amount
-      /// 
-      /// Locales: en, zh-Hans
-      static func receivePageTokenAmountButtonTitle(_: Void = ()) -> String {
-        return NSLocalizedString("Receive.page.token.amount.button.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Submit
@@ -1892,6 +1918,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send.page.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Transfer failed, please try again later
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageToastSendFailed(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.toast.send.failed", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Unlock By Face ID
       /// 
       /// Locales: en, zh-Hans
@@ -1953,6 +1986,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func confirmTransactionPageUsePassword(_: Void = ()) -> String {
         return NSLocalizedString("confirm.transaction.page.use.password", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Username only supports less than 32 characters
+      /// 
+      /// Locales: en, zh-Hans
+      static func mnemonicBackupPageErrorTypeValidWalletNameCount(_: Void = ()) -> String {
+        return NSLocalizedString("mnemonic.backup.page.error.type.validWalletNameCount", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Verify
@@ -2023,13 +2063,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func manageWalletPageTitle(_: Void = ()) -> String {
         return NSLocalizedString("manage.wallet.page.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Wallet Name
-      /// 
-      /// Locales: en, zh-Hans
-      static func manageWalletPageNameCellTitle(_: Void = ()) -> String {
-        return NSLocalizedString("manage.wallet.page.name.cell.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Wallet name can not be empty

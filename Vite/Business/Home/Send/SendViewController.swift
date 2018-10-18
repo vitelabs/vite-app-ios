@@ -248,7 +248,7 @@ class SendViewController: BaseViewController {
                                message: nil,
                                actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
                 } else {
-                    Toast.show(error.message)
+                    Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
                 }
             }
         }

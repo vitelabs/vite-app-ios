@@ -255,6 +255,8 @@ extension ScanViewController: UIImagePickerControllerDelegate, UINavigationContr
             if stringValue != nil {
                 AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
                 self.handleQRResult(stringValue)
+            } else {
+                Toast.show(R.string.localizable.scanPageQccodeNotFound.key.localized())
             }
         }
     }
