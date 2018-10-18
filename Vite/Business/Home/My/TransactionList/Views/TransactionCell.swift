@@ -99,7 +99,7 @@ class TransactionCell: BaseTableViewCell {
 
     func bind(viewModel: TransactionViewModelType, index: Int) {
         typeImageView.image = viewModel.typeImage
-        hashLabel.text = viewModel.hash
+        hashLabel.text = viewModel.address
         timeLabel.text = viewModel.timeString
         balanceLabel.text = viewModel.balanceString
         symbolLabel.text = viewModel.symbolString

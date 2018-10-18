@@ -13,6 +13,7 @@ protocol TransactionViewModelType {
     var typeImage: UIImage { get }
     var timeString: String { get }
     var hash: String { get }
+    var address: String { get }
     var balanceString: String { get }
     var symbolString: String { get }
 }
