@@ -29,19 +29,19 @@ class AppConfigVM: NSObject {
             let dic = JSON.init(parseJSON: version)
 
             if dic.dictionaryValue.isEmpty {
-                UserDefaults.standard.set(false, forKey: UserDefaultsName.isOpenFetchGift)
+                UserDefaults.standard.set("", forKey: UserDefaultsName.FetchGiftToken)
                 UserDefaults.standard.synchronize()
             } else {
                 let isOpen  = dic["isOpen"].boolValue
                 if isOpen {
-                    let isOpenFetchGift = dic["settingConfig"].dictionaryValue["isOpenFetchGift"]?.boolValue ?? true
-                    UserDefaults.standard.set(isOpenFetchGift, forKey: UserDefaultsName.isOpenFetchGift)
+                    let fetchGiftToken = dic["settingConfig"].dictionaryValue["fetchGiftToken"]?.rawString() ?? ""
+                    UserDefaults.standard.set(fetchGiftToken, forKey: UserDefaultsName.FetchGiftToken)
                     UserDefaults.standard.synchronize()
                 } else {
-                    UserDefaults.standard.set(false, forKey: UserDefaultsName.isOpenFetchGift)
+                    UserDefaults.standard.set("", forKey: UserDefaultsName.FetchGiftToken)
                     UserDefaults.standard.synchronize()
                 }
             }
         }
-        }
+    }
 }

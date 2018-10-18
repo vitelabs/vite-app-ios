@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         handleRootVC()
 
+        TokenCacheService.instance.start()
         AutoGatheringService.instance.start()
         FetchBalanceInfoService.instance.start()
         //fetch app config

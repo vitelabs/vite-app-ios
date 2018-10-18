@@ -242,6 +242,7 @@ extension HDWalletManager {
 }
 
 // MARK: - DEBUG function
+#if DEBUG
 extension HDWalletManager {
 
     func deleteAllWallets() {
@@ -256,6 +257,7 @@ extension HDWalletManager {
         pri_update(addressIndex: 0, addressCount: 1)
     }
 }
+#endif
 
 // MARK: - Bag
 extension HDWalletManager {

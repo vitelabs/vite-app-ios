@@ -28,7 +28,7 @@ extension ViteURI {
         case .transfer(_, let tokenId, let  amountString, let decimalsString, _):
             guard let amountString = amountString else { return nil }
 
-            let tokenId = tokenId ?? Token.Currency.vite.rawValue
+            let tokenId = tokenId ?? TokenCacheService.instance.viteToken.id
             guard let token = TokenCacheService.instance.tokenForId(tokenId) else { return nil }
 
             var decimals = token.decimals
@@ -115,7 +115,7 @@ extension ViteURI {
             }
         }
 
-        let tokenId = dic[Key.tokenId.rawValue] ?? Token.Currency.vite.rawValue
+        let tokenId = dic[Key.tokenId.rawValue] ?? TokenCacheService.instance.viteToken.id
 
         let amountString = dic[Key.amount.rawValue]
         if let amountString = amountString {

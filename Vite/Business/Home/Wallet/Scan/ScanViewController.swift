@@ -179,14 +179,14 @@ class ScanViewController: BaseViewController {
             case .transfer(let address, let tokenId, _, _, let note):
 
                 self.view.displayLoading(text: "")
-                let tokenId = tokenId ?? Token.Currency.vite.rawValue
+                let tokenId = tokenId ?? TokenCacheService.instance.viteToken.id
                 TokenCacheService.instance.tokenForId(tokenId) { [weak self] (result) in
                     guard let `self` = self else { return }
                     self.view.hideLoading()
                     switch result {
-                    case .success:
+                    case .success(let token):
                         let amount = uri.amountToBigInt()
-                        let sendViewController = SendViewController(tokenId: tokenId, address: address, amount: amount, note: note)
+                        let sendViewController = SendViewController(token: token, address: address, amount: amount, note: note)
                         guard var viewControllers = self.navigationController?.viewControllers else { return }
                         _ = viewControllers.popLast()
                         viewControllers.append(sendViewController)

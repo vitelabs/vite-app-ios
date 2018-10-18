@@ -9,6 +9,6 @@
 import Foundation
 
 struct UserDefaultsName {
-    static let isOpenFetchGift = "isOpenFetchGift"
+    static let FetchGiftToken = "FetchGiftToken"
     static let AppCurrentLanguages = "AppCurrentLanguages"
 }

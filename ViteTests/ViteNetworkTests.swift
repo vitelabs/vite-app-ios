@@ -10,6 +10,9 @@ import XCTest
 import PromiseKit
 import BigInt
 import ObjectMapper
+import Alamofire
+import Moya
+import SwiftyJSON
 @testable import Vite
 
 class ViteNetworkTests: XCTestCase {
@@ -108,6 +111,22 @@ class ViteNetworkTests: XCTestCase {
                 case .error(let error):
                     print("🤯🤯🤯🤯🤯🤯\(error)")
                 }
+                completion()
+            })
+        }
+    }
+
+    func testGetDefaultTokens() {
+        async { (completion) in
+            let manager = Manager(configuration: URLSessionConfiguration.default,
+                                  serverTrustPolicyManager: ServerTrustPolicyManager(policies: [:]))
+            let provider =  MoyaProvider<ViteAPI>(manager: manager)
+            let viteAppServiceRequest = ViteAppServiceRequest(provider: provider)
+            viteAppServiceRequest.getDefaultTokens().done { string in
+                print(string)
+                completion()
+            }.catch({ (error) in
+                print(error)
                 completion()
             })
         }

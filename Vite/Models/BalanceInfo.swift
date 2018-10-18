@@ -47,15 +47,17 @@ extension BalanceInfo: Equatable {
 
 extension BalanceInfo {
 
-    static let defaultBalanceInfos: [BalanceInfo] = TokenCacheService.instance.defaultTokens.map {
-        BalanceInfo(token: $0, balance: Balance(), unconfirmedBalance: Balance(), unconfirmedCount: 0)
+    static func defaultBalanceInfos() -> [BalanceInfo] {
+        return TokenCacheService.instance.defaultTokens.map {
+            BalanceInfo(token: $0, balance: Balance(), unconfirmedBalance: Balance(), unconfirmedCount: 0)
+        }
     }
 
     static func mergeBalanceInfos(_ balanceInfos: [BalanceInfo]) -> [BalanceInfo] {
         let infos = NSMutableArray(array: balanceInfos)
         let ret = NSMutableArray()
 
-        for defaultBalanceInfo in defaultBalanceInfos {
+        for defaultBalanceInfo in defaultBalanceInfos() {
             if let index = (infos as Array).index(where: { ($0 as! BalanceInfo).token.id == defaultBalanceInfo.token.id }) {
                 ret.add(infos[index])
                 infos.removeObject(at: index)
