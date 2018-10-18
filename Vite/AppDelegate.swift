@@ -137,6 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func startBaiduMobileStat() {
         let statTracker: BaiduMobStat = BaiduMobStat.default()
+        statTracker.channelId = Constants.appDownloadChannel
         statTracker.shortAppVersion  =  Bundle.main.fullVersion
         statTracker.start(withAppId: Constants.baiduMobileStat)
     }
