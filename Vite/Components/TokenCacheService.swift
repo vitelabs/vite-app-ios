@@ -115,7 +115,7 @@ extension TokenCacheService {
 
     var viteToken: Token { return defaultTokens[0] }
 
-    func tokenForId(_ id: String, completion: @escaping (Alamofire.Result<Token>) -> Void) {
+    func tokenForId(_ id: String, completion: @escaping (Alamofire.Result<Token?>) -> Void) {
 
         if let token = tokenForId(id) {
             completion(Result.success(token))
@@ -123,7 +123,9 @@ extension TokenCacheService {
             Provider.instance.getTokenForId(id) { result in
                 switch result {
                 case .success(let token):
-                    TokenCacheService.instance.updateTokensIfNeeded([token])
+                    if let t = token {
+                        TokenCacheService.instance.updateTokensIfNeeded([t])
+                    }
                     completion(Result.success(token))
                 case .error(let error):
                     completion(Result.failure(error))
