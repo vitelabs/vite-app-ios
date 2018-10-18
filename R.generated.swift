@@ -443,8 +443,58 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 2 localization tables.
   struct string {
+    /// This `R.string.infoPlist` struct is generated, and contains static references to 4 localization keys.
+    struct infoPlist {
+      /// en translation: This app can unlock with Face ID
+      /// 
+      /// Locales: en, zh-Hans
+      static let nsFaceIDUsageDescription = Rswift.StringResource(key: "NSFaceIDUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: This app uses the album to import QR codes
+      /// 
+      /// Locales: en, zh-Hans
+      static let nsPhotoLibraryAddUsageDescription = Rswift.StringResource(key: "NSPhotoLibraryAddUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: This app uses the album to import QR codes
+      /// 
+      /// Locales: en, zh-Hans
+      static let nsPhotoLibraryUsageDescription = Rswift.StringResource(key: "NSPhotoLibraryUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: This app uses the camera to read QR codes
+      /// 
+      /// Locales: en, zh-Hans
+      static let nsCameraUsageDescription = Rswift.StringResource(key: "NSCameraUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      
+      /// en translation: This app can unlock with Face ID
+      /// 
+      /// Locales: en, zh-Hans
+      static func nsFaceIDUsageDescription(_: Void = ()) -> String {
+        return NSLocalizedString("NSFaceIDUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: This app uses the album to import QR codes
+      /// 
+      /// Locales: en, zh-Hans
+      static func nsPhotoLibraryAddUsageDescription(_: Void = ()) -> String {
+        return NSLocalizedString("NSPhotoLibraryAddUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: This app uses the album to import QR codes
+      /// 
+      /// Locales: en, zh-Hans
+      static func nsPhotoLibraryUsageDescription(_: Void = ()) -> String {
+        return NSLocalizedString("NSPhotoLibraryUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: This app uses the camera to read QR codes
+      /// 
+      /// Locales: en, zh-Hans
+      static func nsCameraUsageDescription(_: Void = ()) -> String {
+        return NSLocalizedString("NSCameraUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
     /// This `R.string.localizable` struct is generated, and contains static references to 151 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
