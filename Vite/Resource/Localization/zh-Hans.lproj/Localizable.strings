@@ -144,7 +144,7 @@
 "send.page.toast.address.error" = "收款地址格式错误";
 "send.page.toast.amount.error" = "账户余额不足";
 "send.page.toast.amount.empty" = "请填写金额";
-"send.page.toast.amount.zero" = "金额必须大于0";
+"send.page.toast.amount.zero" = "转账金额不能为0";
 "send.page.not.enough.balance.alert.title" = "账户余额不足";
 "send.page.not.enough.balance.alert.button" = "取消交易";
 "send.page.confirm.biometryAuthFailed.title" = "无法识别";
