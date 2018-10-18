@@ -38,10 +38,10 @@ class TokenCacheService {
         }
     }
 
-    func updateTokensIfNeeded(_ tokens: [Token]) {
+    func updateTokensIfNeeded(_ tokens: [Token?]) {
         var neededSave = false
 
-        for token in tokens where tokenDic[token.id] == nil {
+        for token in tokens.compactMap({ $0 }) where tokenDic[token.id] == nil {
             tokenDic[token.id] = token
             neededSave = true
         }
@@ -60,7 +60,7 @@ class TokenCacheService {
 
 extension TokenCacheService {
 
-    func tokenForId(_ id: String, completion: @escaping (Alamofire.Result<Token>) -> Void) {
+    func tokenForId(_ id: String, completion: @escaping (Alamofire.Result<Token?>) -> Void) {
 
         if let token = tokenForId(id) {
             completion(Result.success(token))

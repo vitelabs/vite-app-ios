@@ -41,7 +41,7 @@ extension Provider {
         }
     }
 
-    fileprivate func getTokenForId(_ id: String) -> Promise<Token> {
+    fileprivate func getTokenForId(_ id: String) -> Promise<Token?> {
         return Promise { seal in
             let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetTokenInfoRequest(tokenId: id)))
             Session.send(request) { result in
@@ -95,7 +95,7 @@ extension Provider {
             })
     }
 
-    func getTokenForId(_ id: String, completion: @escaping (NetworkResult<Token>) -> Void) {
+    func getTokenForId(_ id: String, completion: @escaping (NetworkResult<Token?>) -> Void) {
         getTokenForId(id)
             .done({
                 completion(NetworkResult.success($0))
