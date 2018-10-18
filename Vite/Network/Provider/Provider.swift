@@ -18,41 +18,25 @@ final class Provider {
         self.server = server
     }
 
-    struct NetworkError: Error {
-        let code: Int?
-        let message: String
-        let rawError: Error
-
-        init(code: Int?, message: String, rawError: Error) {
-            self.code = code
-            self.message = message
-            self.rawError = rawError
-        }
-    }
-
     enum NetworkResult<T> {
         case success(T)
-        case error(NetworkError)
+        case error(Error)
 
         static func wrapError(_ error: Error) -> NetworkResult {
-            if let (code, message, error) = isJSONRPCErrorResponseError(error) {
-                return NetworkResult.error(NetworkError(code: code, message: "\(message)(\(code))", rawError: error))
-            } else {
-                return NetworkResult.error(NetworkError(code: nil, message: error.localizedDescription, rawError: error))
-            }
-        }
-
-        static func isJSONRPCErrorResponseError(_ error: Error) -> (code: Int, message: String, error: Error)? {
             if let error = error as? APIKit.SessionTaskError {
-                if case .responseError(let error) = error {
-                    if let error = error as? JSONRPCError {
-                        if case .responseError(let code, let message, _) = error {
-                            return (code, message, error)
-                        }
-                    }
+                switch error {
+                case .connectionError(let e):
+                    var userInfo = e.userInfo
+                    userInfo[NSLocalizedDescriptionKey] = R.string.localizable.netWorkError.key.localized()
+                    let error = NSError.init(domain: e.domain, code: e.code, userInfo: userInfo)
+                    return NetworkResult.error(error)
+                case .requestError(let e):
+                    return NetworkResult.error(e)
+                case .responseError(let e):
+                    return NetworkResult.error(e)
                 }
             }
-            return nil
+            return NetworkResult.error(error)
         }
     }
 }

@@ -184,21 +184,32 @@ class ScanViewController: BaseViewController {
                     guard let `self` = self else { return }
                     self.view.hideLoading()
                     switch result {
-                    case .success:
-                        let amount = uri.amountToBigInt()
-                        let sendViewController = SendViewController(tokenId: tokenId, address: address, amount: amount, note: note)
-                        guard var viewControllers = self.navigationController?.viewControllers else { return }
-                        _ = viewControllers.popLast()
-                        viewControllers.append(sendViewController)
-                        self.navigationController?.setViewControllers(viewControllers, animated: true)
+                    case .success(let token):
+                        if token != nil {
+                            let amount = uri.amountToBigInt()
+                            let sendViewController = SendViewController(tokenId: tokenId, address: address, amount: amount, note: note)
+                            guard var viewControllers = self.navigationController?.viewControllers else { return }
+                            _ = viewControllers.popLast()
+                            viewControllers.append(sendViewController)
+                            self.navigationController?.setViewControllers(viewControllers, animated: true)
+                        } else {
+                            self.showScanError(string: R.string.localizable.sendPageTokenInfoError.key.localized())
+                        }
                     case .failure(let error):
-                        Toast.show(error.localizedDescription)
+                        self.showScanError(string: error.localizedDescription)
                     }
                 }
             }
         } else {
             self.showAlert(string: result)
         }
+    }
+
+    func showScanError(string: String) {
+        Toast.show(string)
+        GCD.delay(2, task: { [weak self] in
+            self?.captureSession.startRunning()
+        })
     }
 
     func showAlert(string: String) {
@@ -255,6 +266,8 @@ extension ScanViewController: UIImagePickerControllerDelegate, UINavigationContr
             if stringValue != nil {
                 AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
                 self.handleQRResult(stringValue)
+            } else {
+                Toast.show(R.string.localizable.scanPageQccodeNotFound.key.localized())
             }
         }
     }

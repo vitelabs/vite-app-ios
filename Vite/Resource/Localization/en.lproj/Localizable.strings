@@ -17,6 +17,7 @@
 "Confirm" = "Confirm";
 "Submit" = "Submit";
 "Update.app" = "Update App";
+"NetWorkError" = "Loading failed, please refresh";
 
 /* Login */
 "create.account" = "Create Account";
@@ -50,7 +51,7 @@
 "mnemonic.backup.page.alter.confirm" = "Yes";
 "mnemonic.backup.page.error.type.name" = "Please input account name or password";
 "mnemonic.backup.page.error.type.nameValid" = "Account name only supports Chinese and English characters as well as unserscores.";
-"mnemonic.backup.page.error.type.validWalletNameCount" = "Account name exceeds the limit!";
+"mnemonic.backup.page.error.type.validWalletNameCount" = "Username only supports less than 32 characters";
 "mnemonic.backup.page.error.type.difference" = "Please enter the same password!";
 
 "mnemonic.affirm.page.title" = "Confirm your seed phrase";
@@ -89,7 +90,7 @@
 
 /* Manage Wallet */
 "manage.wallet.page.title" = "Wallet Management";
-"manage.wallet.page.name.cell.title" = "Wallet Name";
+"manage.wallet.page.name.cell.title" = "Account Name";
 "manage.wallet.page.addressManage.cell.title" = "Address Management";
 "manage.wallet.page.importMnemonic.cell.title" = "Export Seed Phrase";
 "manage.wallet.page.alter.changeName" = "Edit Wallet Name";
@@ -131,7 +132,7 @@
 
 /* Send Page */
 "send.page.title" = "Transfer";
-"send.page.my.address.title" = "From Address";
+"send.page.my.address.title" = "My Address";
 "send.page.my.balance.title" = "Balance";
 "send.page.to.address.title" = "Recipient";
 "send.page.amount.title" = "Amount";
@@ -139,6 +140,7 @@
 "send.page.send.button.title" = "Send";
 "send.page.amount.toolbar.button.title" = "Next";
 "send.page.toast.send.success" = "Success";
+"send.page.toast.send.failed" = "Transfer failed, please try again later";
 "send.page.toast.address.error" = "Wrong recipient format!";
 "send.page.toast.amount.error" = "Insufficient Balance";
 "send.page.toast.amount.empty" = "Please input balance";
@@ -163,14 +165,15 @@
 /* Receive Page */
 "Receive.page.token.title" = "Receive";
 "Receive.page.mine.title" = "My QRCode";
-"Receive.page.token.name.label" = "Please send %@";
-"Receive.page.token.amount.button.title" = "Specific amount";
+"Receive.page.token.name.label" = "Scan and transfer %@";
+"Receive.page.token.amount.button.title" = "Input Amount";
 "Receive.page.token.note.label" = "Comment";
 "Receive.page.token.amount.alert.title" = "Input Amount";
 
 /* Scan Page */
 "Scan.page.title" = "Scan";
 "Scan.page.qccode.not.identifiable" = "QRCode cannot be identified";
+"Scan.page.qccode.not.found" = "No QR code found";
 
 /* System */
 "system.page.logout.loading" = "Logout";
