@@ -18,6 +18,7 @@ class DebugViewController: FormViewController {
 
     func setupView() {
 
+        #if DEBUG
         navigationItem.title = "Debug"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.icon_nav_back_black(), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(_onCancel))
 
@@ -39,10 +40,17 @@ class DebugViewController: FormViewController {
             })
             <<< LabelRow("resetCurrentWalletBagCount") {
                 $0.title =  "Reset Current Wallet Bag Count"
-            }.onCellSelection({ _, _  in
-                HDWalletManager.instance.resetBagCount()
-                Toast.show("Operation complete")
-            })
+                }.onCellSelection({ _, _  in
+                    HDWalletManager.instance.resetBagCount()
+                    Toast.show("Operation complete")
+                })
+            <<< LabelRow("deleteTokenCache") {
+                $0.title =  "Delete Token Cache"
+                }.onCellSelection({ _, _  in
+                    TokenCacheService.instance.deleteCache()
+                    Toast.show("Operation complete")
+                })
+        #endif
     }
 
     @objc fileprivate func _onCancel() {

@@ -1,0 +1,12 @@
+/* 
+  InfoPlist.strings
+  Vite
+
+  Created by Stone on 2018/10/18.
+  Copyright © 2018年 vite labs. All rights reserved.
+*/
+
+NSCameraUsageDescription = "App 可以通过相机扫描二维码地址";
+NSFaceIDUsageDescription = "App 可以通过 Face ID 进行解锁";
+NSPhotoLibraryAddUsageDescription = "App 可以通过相册识别二维码地址";
+NSPhotoLibraryUsageDescription = "App 可以通过相册识别二维码地址";

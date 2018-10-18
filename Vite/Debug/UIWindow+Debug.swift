@@ -36,6 +36,10 @@ extension UIWindow {
             top = presentedViewController
         }
 
+        if let n = top as? UINavigationController, n.viewControllers.first is DebugViewController {
+            return
+        }
+
         top.present(nav, animated: true, completion: nil)
     }
 }

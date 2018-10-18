@@ -18,19 +18,19 @@ class SendViewController: BaseViewController {
     // FIXME: Optional
     let bag = HDWalletManager.instance.bag!
 
-    var token: Token! = nil
-    var balance: Balance! = nil
+    var token: Token
+    var balance: Balance
 
-    let tokenId: String
     let address: Address?
     let amount: Balance?
     let note: String?
 
     let noteCanEdit: Bool
 
-    init(tokenId: String, address: Address?, amount: BigInt?, note: String?, noteCanEdit: Bool = true) {
-        self.tokenId = tokenId
+    init(token: Token, address: Address?, amount: BigInt?, note: String?, noteCanEdit: Bool = true) {
+        self.token = token
         self.address = address
+        self.balance = Balance(value: BigInt(0))
         if let amount = amount {
             self.amount = Balance(value: amount)
         } else {
@@ -47,14 +47,8 @@ class SendViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.sendPageTitle.key.localized())
-        if let token = TokenCacheService.instance.tokenForId(tokenId) {
-            self.token = token
-            setupView()
-            bind()
-        } else {
-            self.dataStatus = .custom("")
-        }
+        setupView()
+        bind()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -88,7 +82,7 @@ class SendViewController: BaseViewController {
     lazy var noteView = SendNoteView(note: note ?? "", canEdit: noteCanEdit)
 
     private func setupView() {
-
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.sendPageTitle.key.localized())
         let addressView = SendAddressView(address: address?.description ?? "")
         let sendButton = UIButton(style: .blue, title: R.string.localizable.sendPageSendButtonTitle.key.localized())
 
@@ -202,7 +196,7 @@ class SendViewController: BaseViewController {
                     guard let `self` = self else { return }
                     switch result {
                     case .success:
-                        self.sendTransaction(bag: self.bag, toAddress: address, tokenId: self.tokenId, amount: amount, note: self.noteView.textField.text)
+                        self.sendTransaction(bag: self.bag, toAddress: address, tokenId: self.token.id, amount: amount, note: self.noteView.textField.text)
                     case .cancelled:
                         plog(level: .info, log: "Confirm cancelled", tag: .transaction)
                     case .biometryAuthFailed:
@@ -228,7 +222,11 @@ class SendViewController: BaseViewController {
             for balanceInfo in balanceInfos where self.token.id == balanceInfo.token.id {
                 self.balance = balanceInfo.balance
                 self.headerView.balanceLabel.text = balanceInfo.balance.amountFull(decimals: balanceInfo.token.decimals)
+                return
             }
+
+            // no balanceInfo, set 0.0
+            self.headerView.balanceLabel.text = "0.0"
         }).disposed(by: rx.disposeBag)
     }
 
@@ -267,11 +265,5 @@ extension SendViewController: UITextFieldDelegate {
         } else {
             return true
         }
-    }
-}
-
-extension SendViewController: ViewControllerDataStatusable {
-    func customView(message: String) -> UIView {
-        return UIView.defaultPlaceholderView(text: R.string.localizable.sendPageTokenInfoError.key.localized())
     }
 }

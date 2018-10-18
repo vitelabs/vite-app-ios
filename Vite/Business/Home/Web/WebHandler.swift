@@ -22,7 +22,7 @@ struct WebHandler {
     }
 
     static func openTranscationDetailPage(hash: String) {
-        var host = "http://132.232.134.168:8080"
+        var host = "https://testnet.vite.net"
         if LocalizationService.sharedInstance.currentLanguageName != "English" {
             host = "\(host)/zh"
         }

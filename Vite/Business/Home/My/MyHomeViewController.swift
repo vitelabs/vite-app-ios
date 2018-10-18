@@ -29,7 +29,14 @@ class MyHomeViewController: FormViewController {
         }
     }
 
-    let isOpenFetchGift = UserDefaults.standard.bool(forKey: UserDefaultsName.isOpenFetchGift)
+    let fetchGiftToken: Token? = {
+        if let string = UserDefaults.standard.string(forKey: UserDefaultsName.FetchGiftToken),
+            let token = Token(JSONString: string) {
+            return token
+        } else {
+            return nil
+        }
+    }()
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -83,7 +90,8 @@ class MyHomeViewController: FormViewController {
                 $0.cell.rightImageView.image = R.image.gift()
                 $0.hidden = showFetchMoneyCondition
             }.onCellSelection({ [unowned self] _, _  in
-                    let vc = FetchWelfareViewController()
+                    guard let token = self.fetchGiftToken else { return }
+                    let vc = FetchWelfareViewController(token: token)
                     self.navigationController?.pushViewController(vc, animated: true)
                 })
 
@@ -95,7 +103,7 @@ class MyHomeViewController: FormViewController {
 
     private var showFetchMoneyCondition: Condition {
        return Eureka.Condition.function([], {[weak self] _ in
-            return self?.isOpenFetchGift == false
+            return self?.fetchGiftToken == nil
         })
     }
 }
