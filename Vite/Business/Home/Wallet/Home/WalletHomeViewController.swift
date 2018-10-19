@@ -73,7 +73,9 @@ class WalletHomeViewController: BaseTableViewController {
         }.disposed(by: rx.disposeBag)
 
         scanItem.rx.tap.bind {  [weak self] _ in
-            self?.navigationController?.pushViewController(ScanViewController(), animated: true)
+            let scanViewController = ScanViewController()
+            scanViewController.reactor = ScanViewReactor()
+            self?.navigationController?.pushViewController(scanViewController, animated: true)
         }.disposed(by: rx.disposeBag)
     }
 
