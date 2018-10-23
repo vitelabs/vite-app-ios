@@ -31,11 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         handleRootVC()
 
+        AppUpdateVM.checkUpdate()
+        AppSettingsService.instance.start()
         TokenCacheService.instance.start()
         AutoGatheringService.instance.start()
         FetchBalanceInfoService.instance.start()
-        //fetch app config
-        AppConfigVM().fetchVersionInfo()
         WXApi.registerApp(Constants.weixinAppID)
         return true
     }

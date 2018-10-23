@@ -238,7 +238,7 @@ class ScanViewController: BaseViewController, View {
     func showAlertMessage(_ alertMessage: String) {
         self.captureSession.stopRunning()
         let alertController = UIAlertController.init()
-        let action = UIAlertAction.init(title: LocalizationStr("OK"), style: .default) { (_) in
+        let action = UIAlertAction.init(title: R.string.localizable.finish.key.localized(), style: .default) { (_) in
             self.captureSession.startRunning()
         }
         alertController.addAction(action)

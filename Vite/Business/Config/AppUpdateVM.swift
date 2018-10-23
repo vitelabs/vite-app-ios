@@ -14,47 +14,41 @@ import Moya
 import SwiftyJSON
 
 class AppUpdateVM: NSObject {
-    public func fetchUpdateInfo() {
-        let policies: [String: ServerTrustPolicy] = [:]
-        let manager = Manager(
-            configuration: URLSessionConfiguration.default,
-            serverTrustPolicyManager: ServerTrustPolicyManager(policies: policies)
-        )
-        let provider =  MoyaProvider<ViteAPI>(manager: manager)
 
-        let viteAppServiceRequest = ViteAppServiceRequest.init(provider: provider)
-
-        let _ = viteAppServiceRequest.getAppUpdate().done { versions in
-            guard let version = versions.first else { return }
-
-            let dic = JSON.init(parseJSON: version)
-
-            let isOpen = dic["isOpen"].boolValue
-            if isOpen {
-                let isForce = dic["version"].dictionaryValue["isForce"]?.boolValue ?? true
-                let message = dic["version"].dictionaryValue["message"]?.stringValue ?? ""
-                let url = dic["version"].dictionaryValue["url"]?.stringValue ?? ""
-
+    static func checkUpdate() {
+        ServerProvider.instance.getAppUpdate { (result) in
+            switch result {
+            case .success(let i):
+                plog(level: .debug, log: "check app update finished", tag: .getConfig)
+                guard let info = i else { return }
+                guard info.isOpen else { return }
                 guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
                 guard let rootVC = appDelegate.window?.rootViewController else { return }
                 var top = rootVC
                 while let presentedViewController = top.presentedViewController {
                     top = presentedViewController
                 }
-                if isForce {
-                    top.displayConfirmAlter(title: message, done: R.string.localizable.updateApp.key.localized(), doneHandler: {
-                        UIApplication.shared.open(URL.init(string: url)!, options: [:], completionHandler: nil)
-                        top.displayConfirmAlter(title: message, done: R.string.localizable.updateApp.key.localized(), doneHandler: {
-                              UIApplication.shared.open(URL.init(string: url)!, options: [:], completionHandler: nil)
+
+                if info.isForce {
+                    func showAlert() {
+                        top.displayConfirmAlter(title: info.title, message: info.message, done: R.string.localizable.updateApp.key.localized(), doneHandler: {
+                            UIApplication.shared.open(info.url, options: [:], completionHandler: nil)
+                            showAlert()
                         })
-                    })
+                    }
+                    showAlert()
                 } else {
-                    top.displayAlter(title: message, message: "", cancel: R.string.localizable.cancel.key.localized(), done: R.string.localizable.updateApp.key.localized(), doneHandler: {
-                        UIApplication.shared.open(URL.init(string: url)!, options: [:], completionHandler: nil)
+                    top.displayAlter(title: info.title, message: info.message, cancel: R.string.localizable.cancel.key.localized(), done: R.string.localizable.updateApp.key.localized(), doneHandler: {
+                        UIApplication.shared.open(info.url, options: [:], completionHandler: nil)
                     })
                 }
+
+            case .error(let error):
+                plog(level: .warning, log: error.localizedDescription, tag: .getConfig)
+                GCD.delay(2, task: {
+                    checkUpdate()
+                })
             }
         }
-
     }
 }
