@@ -13,6 +13,7 @@ enum Tag: String {
     case life
     case transaction
     case server
+    case web
 }
 
 func plog(level: XCGLogger.Level, log: @escaping @autoclosure () -> Any?, tag: Tag, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
