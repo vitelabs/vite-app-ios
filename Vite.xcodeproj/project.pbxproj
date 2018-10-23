@@ -87,6 +87,9 @@
 		740C3E50214BD6A9005FCD24 /* ConfirmTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4F214BD6A9005FCD24 /* ConfirmTransactionViewController.swift */; };
 		740C3E52214CB832005FCD24 /* ConfirmTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E51214CB832005FCD24 /* ConfirmTransactionView.swift */; };
 		744CC4602178684E00F55A52 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744CC45F2178684E00F55A52 /* Error.swift */; };
+		74B3F8782176DF11002FA14F /* ScanViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3F8772176DF11002FA14F /* ScanViewReactor.swift */; };
+		74B3F87A2176E92D002FA14F /* UIImagePickerController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3F8792176E92D002FA14F /* UIImagePickerController+Rx.swift */; };
+		74B3F87C217708B0002FA14F /* AVCaptureMetadataOutput+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3F87B217708B0002FA14F /* AVCaptureMetadataOutput+Rx.swift */; };
 		8E0FB693216074F4001525EB /* RefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB692216074F4001525EB /* RefreshHeader.swift */; };
 		8E0FB695216B4082001525EB /* HDWalletStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB694216B4082001525EB /* HDWalletStorage.swift */; };
 		8E0FB697216B5B95001525EB /* ViteCryptoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB696216B5B95001525EB /* ViteCryptoTest.swift */; };
@@ -307,6 +310,9 @@
 		740C3E4F214BD6A9005FCD24 /* ConfirmTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionViewController.swift; sourceTree = "<group>"; };
 		740C3E51214CB832005FCD24 /* ConfirmTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionView.swift; sourceTree = "<group>"; };
 		744CC45F2178684E00F55A52 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		74B3F8772176DF11002FA14F /* ScanViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewReactor.swift; sourceTree = "<group>"; };
+		74B3F8792176E92D002FA14F /* UIImagePickerController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Rx.swift"; sourceTree = "<group>"; };
+		74B3F87B217708B0002FA14F /* AVCaptureMetadataOutput+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureMetadataOutput+Rx.swift"; sourceTree = "<group>"; };
 		7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C959221E3DAE4FAF07176D1 /* Pods-Vite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.debug.xcconfig"; sourceTree = "<group>"; };
 		8E0FB692216074F4001525EB /* RefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHeader.swift; sourceTree = "<group>"; };
@@ -1104,6 +1110,8 @@
 				8E79261921522085007FEBAB /* Alert.swift */,
 				8E107ED4215A1D7900B28DE2 /* QRCodeHelper.swift */,
 				8E7D637C215C756D009617A0 /* InputLimitsHelper.swift */,
+				74B3F8792176E92D002FA14F /* UIImagePickerController+Rx.swift */,
+				74B3F87B217708B0002FA14F /* AVCaptureMetadataOutput+Rx.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1123,6 +1131,7 @@
 			isa = PBXGroup;
 			children = (
 				8E6F3E322142768B003CDFC2 /* ScanViewController.swift */,
+				74B3F8772176DF11002FA14F /* ScanViewReactor.swift */,
 			);
 			path = Scan;
 			sourceTree = "<group>";
@@ -1397,6 +1406,7 @@
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -1435,6 +1445,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -1604,6 +1615,7 @@
 				4C84D94221452836001B6EBD /* AffirmInputMnemonicVM.swift in Sources */,
 				8EE4690B214BBE0B00807D2C /* UIButton+Helper.swift in Sources */,
 				4C3E323F215492AC009936E3 /* Bundle.swift in Sources */,
+				74B3F87C217708B0002FA14F /* AVCaptureMetadataOutput+Rx.swift in Sources */,
 				4C84D951214654BD001B6EBD /* LoginViewController.swift in Sources */,
 				8E6F3DF82140FE99003CDFC2 /* RPCServer.swift in Sources */,
 				4C84D94021452836001B6EBD /* WordCollectionViewCell.swift in Sources */,
@@ -1614,6 +1626,7 @@
 				4C2A1920215137EF00C51CE8 /* CreateNameAndPwdVM.swift in Sources */,
 				4CE4E14521479EAF00A6CD7E /*  CreateWalletService.swift in Sources */,
 				8E56FC8221466BF500A68823 /* SendViewController.swift in Sources */,
+				74B3F8782176DF11002FA14F /* ScanViewReactor.swift in Sources */,
 				4CFD6CC32154CAF800437F33 /* LineView.swift in Sources */,
 				8EE4691A214CA8E800807D2C /* GCD+Helper.swift in Sources */,
 				8EE4690F214BCEC100807D2C /* Provider.swift in Sources */,
@@ -1648,6 +1661,7 @@
 				4CC75386215A56950009CA0E /* Constants.swift in Sources */,
 				8EE468F2214A2AB000807D2C /* AddressManageGenerateAddressCell.swift in Sources */,
 				4CC7538B215B5C2D0009CA0E /* SystemViewModel.swift in Sources */,
+				74B3F87A2176E92D002FA14F /* UIImagePickerController+Rx.swift in Sources */,
 				8E56FC8521466C3200A68823 /* TransactionListViewController.swift in Sources */,
 				4C32E1F5217F0E3400007E9F /* WebBridgeManager.swift in Sources */,
 				4C32E1F1217DAB8F00007E9F /* WKWebViewController.swift in Sources */,
