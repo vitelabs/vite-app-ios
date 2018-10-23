@@ -50,9 +50,10 @@ final class BiometryAuthenticationManager {
 
     func authenticate(reason: String, completion: @escaping (_ success: Bool, _ error: Error?) -> Void) {
         let context = LAContext()
+        context.localizedFallbackTitle = ""
         var authError: NSError?
-        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &authError) {
-            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, error in
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, error in
                 DispatchQueue.main.async {
                     completion(success, error)
                 }

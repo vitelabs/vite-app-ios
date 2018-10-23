@@ -102,15 +102,6 @@ extension BackupMnemonicViewController {
             make.right.equalTo(self.view).offset(-24)
             make.height.equalTo(48)
         }
-
-        self.view.addSubview(self.mnemonicCollectionView)
-        self.mnemonicCollectionView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-            make.centerY.equalTo(self.view)
-            make.height.equalTo(kScreenH * (186.0/667.0))
-        }
-
         self.view.addSubview(self.afreshMnemonicBtn)
         self.afreshMnemonicBtn.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(self.view).offset(24)
@@ -126,10 +117,26 @@ extension BackupMnemonicViewController {
             make.height.equalTo(50)
             make.bottom.equalTo(self.afreshMnemonicBtn.snp.top).offset(-24)
         }
+
+        let contentView = UIView()
+        self.view.addSubview(contentView)
+        contentView.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.top.equalTo(self.tipTitleLab.snp.bottom)
+            make.bottom.equalTo(self.nextMnemonicBtn.snp.top)
+        }
+        self.view.addSubview(self.mnemonicCollectionView)
+        self.mnemonicCollectionView.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.centerY.equalTo(contentView)
+            make.height.equalTo(kScreenH * (186.0/667.0))
+        }
     }
 
     @objc func nextMnemonicBtnAction() {
-        CreateWalletService.sharedInstance.walletAccount.mnemonic = self.viewModel.mnemonicWordsStr.value
+        CreateWalletService.sharedInstance.mnemonic = self.viewModel.mnemonicWordsStr.value
         let vc = AffirmInputMnemonicViewController.init(mnemonicWordsStr: self.viewModel.mnemonicWordsStr.value)
         self.navigationController?.pushViewController(vc, animated: true)
     }

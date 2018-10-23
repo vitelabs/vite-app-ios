@@ -64,7 +64,7 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
         let balanceTitleView = UILabel().then {
             $0.font = UIFont.systemFont(ofSize: 14)
             $0.textColor = UIColor(netHex: 0x3E4A59)
-            $0.text = R.string.localizable.walletHomeBalanceTitle()
+            $0.text = R.string.localizable.walletHomeBalanceTitle.key.localized()
         }
 
         backgroundColor = UIColor.clear
@@ -157,8 +157,7 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
         viewModel.token.icon.putIn(iconImageView)
         symbolLabel.text = viewModel.symbol
         balanceLabel.text = viewModel.balance.amountShort(decimals: viewModel.token.decimals)
-        unconfirmedLabel.text = R.string.localizable.walletHomeUnconfirmedTitle(viewModel.unconfirmed.amountShort(decimals: viewModel.token.decimals))
-
+        unconfirmedLabel.text = R.string.localizable.walletHomeUnconfirmedTitle.key.localized(arguments: viewModel.unconfirmed.amountShort(decimals: viewModel.token.decimals))
         DispatchQueue.main.async {
             self.colorView.backgroundColor = GradientColor(.leftToRight, frame: self.colorView.frame, colors: viewModel.token.backgroundColors)
         }

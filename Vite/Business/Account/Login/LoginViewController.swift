@@ -33,8 +33,10 @@ class LoginViewController: BaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        kas_activateAutoScrollingForView(view)
+        kas_activateAutoScrollingForView(contentView)
     }
+
+    let contentView = UIView()
 
     lazy var logoImgView: UIImageView = {
         let logoImgView = UIImageView()
@@ -44,7 +46,9 @@ class LoginViewController: BaseViewController {
     }()
 
     lazy var userNameBtn: TitleBtnView = {
-        let userNameBtn = TitleBtnView(title: R.string.localizable.loginPageBtnChooseName.key.localized(), text: self.viewModel.chooseWalletAccount.name)
+        let index = HDWalletManager.instance.currentWalletIndex ?? 0
+        let name = HDWalletManager.instance.wallets[index].name
+        let userNameBtn = TitleBtnView(title: R.string.localizable.loginPageBtnChooseName.key.localized(), text: name)
         userNameBtn.btn.addTarget(self, action: #selector(userNameBtnAction), for: .touchUpInside)
         return userNameBtn
     }()
@@ -62,6 +66,7 @@ class LoginViewController: BaseViewController {
         let passwordTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwTitle.key.localized())
         passwordTF.titleLabel.textColor = Colors.titleGray
         passwordTF.titleLabel.font = AppStyle.formHeader.font
+        passwordTF.passwordInputView.delegate = self
         return passwordTF
     }()
 
@@ -98,61 +103,65 @@ extension LoginViewController {
     }
 
     private func _addViewConstraint() {
-        self.view.addSubview(self.logoImgView)
+        view.addSubview(contentView)
+        contentView.snp.makeConstraints { (m) in
+            m.edges.equalTo(view)
+        }
+        contentView.addSubview(self.logoImgView)
         self.logoImgView.snp.makeConstraints { (make) -> Void in
-            make.centerX.equalTo(self.view)
-            make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop).offset(80)
+            make.centerX.equalTo(contentView)
+            make.top.equalTo(contentView.safeAreaLayoutGuideSnpTop).offset(80)
             make.width.height.equalTo(84)
         }
 
-        self.view.addSubview(self.userNameBtn)
+        contentView.addSubview(self.userNameBtn)
         self.userNameBtn.snp.makeConstraints { (make) -> Void in
-            make.centerY.equalTo(self.view)
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
+            make.centerY.equalTo(contentView)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
             make.height.equalTo(60)
         }
 
-        self.view.addSubview(self.passwordTF)
+        contentView.addSubview(self.passwordTF)
         self.passwordTF.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.userNameBtn.snp.bottom).offset(40)
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
             make.height.equalTo(62)
         }
 
-        self.view.addSubview(self.loginBtn)
+        contentView.addSubview(self.loginBtn)
         self.loginBtn.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-80)
+            make.bottom.equalTo(contentView.safeAreaLayoutGuideSnpBottom).offset(-80)
         }
 
-        self.view.addSubview(self.createAccountBtn)
+        contentView.addSubview(self.createAccountBtn)
         self.createAccountBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view.snp.centerX).offset(-2)
+            make.bottom.equalTo(contentView.safeAreaLayoutGuideSnpBottom).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView.snp.centerX).offset(-2)
         }
 
         let line = UIView()
         line.backgroundColor = Colors.lineGray
-        self.view.addSubview(line)
+        contentView.addSubview(line)
         line.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(16)
             make.width.equalTo(1)
             make.centerY.equalTo(self.createAccountBtn)
-            make.centerX.equalTo(self.view)
+            make.centerX.equalTo(contentView)
         }
 
-        self.view.addSubview(self.importAccountBtn)
+        contentView.addSubview(self.importAccountBtn)
         self.importAccountBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
-            make.right.equalTo(self.view).offset(-24)
-            make.left.equalTo(self.view.snp.centerX).offset(2)
+            make.bottom.equalTo(contentView.safeAreaLayoutGuideSnpBottom).offset(-24)
+            make.right.equalTo(contentView).offset(-24)
+            make.left.equalTo(contentView.snp.centerX).offset(2)
         }
     }
 
@@ -167,33 +176,43 @@ extension LoginViewController {
     }
 
     @objc func userNameBtnAction() {
-        let pickData = self.viewModel.walletStorage.walletAccounts.map { (account) -> String in
-             return account.name
+        let pickData = HDWalletManager.instance.wallets.map { (wallet) -> String in
+             return wallet.name
         }
 
-        _ =  ActionSheetStringPicker.show(withTitle: "选择钱包账户", rows: pickData, initialSelection: 0, doneBlock: {_, index, _ in
-            self.viewModel.chooseWalletAccount = self.viewModel.walletStorage.walletAccounts[index]
-            self.userNameBtn.btn.setTitle(self.viewModel.chooseWalletAccount.name, for: .normal)
+        let index = HDWalletManager.instance.currentWalletIndex ?? 0
+        _ =  ActionSheetStringPicker.show(withTitle: "选择钱包账户", rows: pickData, initialSelection: index, doneBlock: {_, index, _ in
+            let wallet = HDWalletManager.instance.wallets[index]
+            self.viewModel.chooseUuid = wallet.uuid
+            self.userNameBtn.btn.setTitle(wallet.name, for: .normal)
             return
         }, cancel: { _ in return }, origin: self.view)
 
     }
 
     @objc func loginBtnAction() {
-        let password = self.passwordTF.passwordInputView.textField.text
-
-        if self.viewModel.chooseWalletAccount.password == password?.pwdEncrypt() {
-                self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
-                DispatchQueue.global().async {
-                    WalletDataService.shareInstance.loginWallet(account: self.viewModel.chooseWalletAccount)
-                    DispatchQueue.main.async {
-                        self.view.hideLoading()
-                        NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
-                    }
+        let encryptKey = (self.passwordTF.passwordInputView.textField.text ?? "").toEncryptKey(salt: self.viewModel.chooseUuid)
+        self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
+        DispatchQueue.global().async {
+            if HDWalletManager.instance.loginWithUuid(self.viewModel.chooseUuid, encryptKey: encryptKey) {
+                KeychainService.instance.setCurrentWallet(uuid: self.viewModel.chooseUuid, encryptKey: encryptKey)
+                DispatchQueue.main.async {
+                    self.view.hideLoading()
+                    NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
                 }
-        } else {
-            self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
-            })
+            } else {
+                DispatchQueue.main.async {
+                    self.view.hideLoading()
+                    self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
+                    })
+                }
+            }
         }
+    }
+}
+
+extension LoginViewController: PasswordInputViewDelegate {
+    func inputFinish(passwordView: PasswordInputView, password: String) {
+        _ = passwordView.resignFirstResponder()
     }
 }

@@ -62,6 +62,7 @@ class SystemViewController: FormViewController {
     private func _setupView() {
         navigationTitleView = NavigationTitleView(title: R.string.localizable.myPageSystemCellTitle.key.localized())
         self.view.backgroundColor = .white
+        self.automaticallyAdjustsScrollViewInsets = false
 
         self.setupTableView()
 
@@ -83,6 +84,7 @@ class SystemViewController: FormViewController {
             cell.layoutMargins.left = 24
             cell.layoutMargins.right = 24
             cell.selectionStyle = .none
+            cell.textLabel?.adjustsFontSizeToFitWidth = true
         }
         ImageRow.defaultCellSetup = { cell, row in
             cell.selectionStyle = .none
@@ -92,7 +94,7 @@ class SystemViewController: FormViewController {
             +++
             Section {
                 $0.header = HeaderFooterView<UIView>(.class)
-                $0.header?.height = { 0.0 }
+                $0.header?.height = { 0.01 }
             }
             <<< ImageRow("systemPageCellChangeLanguage") {
                 $0.cell.titleLab.text = R.string.localizable.systemPageCellChangeLanguage.key.localized()
@@ -106,23 +108,23 @@ class SystemViewController: FormViewController {
                 $0.title = R.string.localizable.systemPageCellLoginPwd.key.localized()
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
-                $0.value = self.viewModel.isSwitchPwdBehaviorRelay.value
+                $0.value = self.viewModel.isRequireAuthentication
             }.cellUpdate({ (cell, _) in
                     cell.textLabel?.textColor = Colors.cellTitleGray
                     cell.textLabel?.font = Fonts.light16
                 }) .onChange { row  in
                     guard let enabled = row.value else { return }
-                    let wallet =  WalletDataService.shareInstance.defaultWalletAccount ?? WalletAccount()
-                    wallet.isSwitchPwd = enabled
-                    WalletDataService.shareInstance.updateWallet(account: wallet )
+                    HDWalletManager.instance.setIsRequireAuthentication(enabled)
             }
 
             <<< SwitchRow("systemPageCellLoginFaceId") {
-                $0.title = R.string.localizable.systemPageCellLoginFaceId.key.localized()
-                $0.value = self.viewModel.isSwitchTouchIdBehaviorRelay.value
+                let authType = BiometryAuthenticationType.current
+                let title = authType == .faceID ? R.string.localizable.systemPageCellLoginFaceId.key.localized() : R.string.localizable.systemPageCellLoginTouchId.key.localized()
+                $0.title = title
+                $0.value = self.viewModel.isAuthenticatedByBiometry
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
-                $0.hidden = "$systemPageCellLoginPwd == false"
+                $0.hidden = self.viewModel.isTransferByBiometryHide ? "TRUEPREDICATE" :"$systemPageCellLoginPwd == false"
             }.cellUpdate({ (cell, _) in
                     cell.textLabel?.textColor = Colors.cellTitleGray
                     cell.textLabel?.font = Fonts.light16
@@ -132,14 +134,16 @@ class SystemViewController: FormViewController {
             }
 
             <<< SwitchRow("systemPageCellTransferFaceId") {
-                $0.title = R.string.localizable.systemPageCellTransferFaceId.key.localized()
-                $0.value = self.viewModel.isSwitchTransferBehaviorRelay.value
+                let authType = BiometryAuthenticationType.current
+                let title = authType == .faceID ? R.string.localizable.systemPageCellTransferFaceId.key.localized() : R.string.localizable.systemPageCellTransferTouchId.key.localized()
+                $0.title = title
+                $0.value = self.viewModel.isTransferByBiometry
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
             }.cellUpdate({ (cell, _) in
                    cell.textLabel?.textColor = Colors.cellTitleGray
                    cell.textLabel?.font = Fonts.light16
-                   cell.isHidden = self.viewModel.isSwitchTransferHideBehaviorRelay.value
+                   cell.isHidden = self.viewModel.isTransferByBiometryHide
                 }) .onChange { [unowned self] row in
                     guard let enabled = row.value else { return }
                     self.showBiometricAuth("systemPageCellTransferFaceId", value: enabled)
@@ -163,13 +167,11 @@ extension SystemViewController {
                 self.changeSwitchRowValue(tag, value: false)
                 return
             }
-            let wallet =  WalletDataService.shareInstance.defaultWalletAccount ?? WalletAccount()
             if tag == "systemPageCellLoginFaceId" {
-                wallet.isSwitchTouchId = value
+                HDWalletManager.instance.setIsAuthenticatedByBiometry(value)
             } else {
-                wallet.isSwitchTransfer = value
+                HDWalletManager.instance.setIsTransferByBiometry(value)
             }
-            WalletDataService.shareInstance.updateWallet(account: wallet )
         })
     }
 
@@ -184,8 +186,8 @@ extension SystemViewController {
     @objc func logoutBtnAction() {
         self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
         DispatchQueue.global().async {
-            HDWalletManager.instance.cleanAccount()
-            WalletDataService.shareInstance.logoutCurrentWallet()
+            HDWalletManager.instance.logout()
+            KeychainService.instance.clearCurrentWallet()
             DispatchQueue.main.async {
                 self.view.hideLoading()
                 NotificationCenter.default.post(name: .logoutDidFinish, object: nil)

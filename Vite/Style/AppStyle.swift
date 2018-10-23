@@ -22,6 +22,7 @@ let iPhoneXTopH: CGFloat = 24.0
 
 struct Fonts {
     static let descFont = UIFont.systemFont(ofSize: 16, weight: .regular)
+    static let light14 = UIFont.systemFont(ofSize: 14, weight: .light)
     static let light16 = UIFont.systemFont(ofSize: 16, weight: .light)
     static let Font12 = UIFont.systemFont(ofSize: 12, weight: .semibold)
     static let Font14 = UIFont.systemFont(ofSize: 14, weight: .regular)
@@ -88,18 +89,6 @@ enum AppStyle {
             return Colors.titleGray
         }
     }
-}
-
-// MARK: - 自定义打印方法
-func DebugLog<T>(_ message: T, file: String = #file, funcName: String = #function, lineNum: Int = #line) {
-
-    #if DEBUG
-
-    let fileName = (file as NSString).lastPathComponent
-
-    print("\(fileName):(\(lineNum))-\(message)")
-
-    #endif
 }
 
 extension CGFloat {

@@ -10,6 +10,7 @@ import UIKit
 import PromiseKit
 import RxSwift
 import RxCocoa
+import RxOptional
 
 final class FetchBalanceInfoService {
 
@@ -23,16 +24,14 @@ final class FetchBalanceInfoService {
     fileprivate let provider = Provider(server: RPCServer.shared)
 
     fileprivate var uuid: String! = nil
-    fileprivate var address: Address! = nil
     fileprivate var fileHelper: FileHelper! = nil
     fileprivate static let saveKey = "BalanceInfos"
 
     func start() {
         HDWalletManager.instance.bagDriver.drive(onNext: { [weak self] in
             guard let `self` = self else { return }
-            self.address = $0.address
             self.uuid = UUID().uuidString
-            self.fileHelper = FileHelper(.library, appending: "\(FileHelper.accountPathComponent)/\(self.address.description)")
+            self.fileHelper = FileHelper(.library, appending: "\(FileHelper.accountPathComponent)/\($0.address.description)")
 
             var oldBalanceInfos: [BalanceInfo]!
             if let data = self.fileHelper.contentsAtRelativePath(type(of: self).saveKey),
@@ -60,9 +59,9 @@ final class FetchBalanceInfoService {
 
     func getchBalanceInfo(_ uuid: String) {
         guard uuid == self.uuid else { return }
-        guard HDWalletManager.instance.hasAccount else { return }
-
-        Provider.instance.getBalanceInfos(address: self.address) { [weak self] result in
+        guard let address = HDWalletManager.instance.bag?.address else { return }
+        plog(level: .debug, log: address.description, tag: .transaction)
+        Provider.instance.getBalanceInfos(address: address) { [weak self] result in
             guard let `self` = self else { return }
             guard uuid == self.uuid else { return }
 
@@ -85,7 +84,6 @@ final class FetchBalanceInfoService {
             case .error:
                 break
             }
-//            print("\((#file as NSString).lastPathComponent)[\(#line)], \(#function): \(result)")
             GCD.delay(5) { self.getchBalanceInfo(uuid) }
         }
     }

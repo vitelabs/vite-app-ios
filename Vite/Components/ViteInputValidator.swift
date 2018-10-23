@@ -10,7 +10,12 @@ import UIKit
 
 class ViteInputValidator: NSObject {
 
-   class func isValidWalletName(str: String) -> Bool {
+    static func handleMnemonicStrSpacing(_ str: String) -> String {
+        let components = str.components(separatedBy: .whitespacesAndNewlines)
+        return components.filter { !$0.isEmpty }.joined(separator: " ")
+    }
+
+   static func isValidWalletName(str: String) -> Bool {
         let temp = str.trimmingCharacters(in: .whitespaces)
         // chinese english _
         let pattern1 = "^[a-zA-Z0-9_\u{4e00}-\u{9fa5}]+$"
@@ -20,11 +25,16 @@ class ViteInputValidator: NSObject {
         return !matches.isEmpty
     }
 
-    class func isValidWalletNameCount(str: String) -> Bool {
-        return str.utf8.count <= 32
+    static func isValidWalletNameCount(str: String) -> Bool {
+        return str.count <= 32
     }
 
-    class func isValidWalletPasswordCount(str: String) -> Bool {
-        return str.count == 6
+    static func isValidWalletPassword(str: String) -> Bool {
+        let temp = str.trimmingCharacters(in: .whitespaces)
+        let pattern1 = "^[0-9]{6}"
+        let regex1 = try! NSRegularExpression(pattern: pattern1, options: NSRegularExpression.Options.caseInsensitive)
+        let matches = regex1.matches(in: temp, options: NSRegularExpression.MatchingOptions.init(rawValue: 0), range: NSRange(location: 0, length: temp.count))
+
+        return !matches.isEmpty
     }
 }

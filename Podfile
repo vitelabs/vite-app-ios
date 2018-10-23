@@ -6,12 +6,12 @@ target 'Vite' do
  use_frameworks!
 
   #vite kit
-  pod 'Vite_HDWalletKit', '~> 1.0.0'
+  pod 'Vite_HDWalletKit', '~> 1.1.0'
 
   pod 'SnapKit', '~> 4.0.0'
   pod 'BigInt', '~> 3.0'
   pod 'R.swift'
-  pod 'JSONRPCKit' #, :git=> 'https://github.com/bricklife/JSONRPCKit.git'
+  pod 'JSONRPCKit'
   pod 'PromiseKit', '~> 6.0'
   pod 'APIKit'
   pod 'ObjectMapper'
@@ -20,6 +20,7 @@ target 'Vite' do
   pod 'Moya'
   pod 'MJRefresh'
   pod 'KMNavigationBarTransition'
+  pod 'XCGLogger', '~> 6.1.0'
 
   #social
   pod 'WechatOpenSDK'
@@ -44,6 +45,7 @@ target 'Vite' do
   pod 'RxCocoa'
   pod 'RxDataSources', '~> 3.0'
   pod 'NSObject+Rx'
+  pod 'RxOptional'
   pod 'RxGesture'
   pod 'Then'
   pod 'Action'

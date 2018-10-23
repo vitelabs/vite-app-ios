@@ -35,6 +35,7 @@ class LockPwdViewController: BaseViewController {
         let passwordTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwTitle.key.localized())
         passwordTF.titleLabel.textColor = Colors.titleGray
         passwordTF.titleLabel.font = AppStyle.formHeader.font
+        passwordTF.passwordInputView.delegate = self
         return passwordTF
     }()
 
@@ -79,20 +80,34 @@ extension LockPwdViewController {
     }
 
     @objc func loginBtnAction() {
-        let password = self.passwordTF.passwordInputView.textField.text
 
-        if WalletDataService.shareInstance.defaultWalletAccount?.password == password?.pwdEncrypt() {
-            self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
-            DispatchQueue.global().async {
-                WalletDataService.shareInstance.loginWallet(account: WalletDataService.shareInstance.defaultWalletAccount ?? WalletAccount())
+        self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
+        let password = self.passwordTF.passwordInputView.textField.text ?? ""
+        DispatchQueue.global().async {
+            if let wallet = KeychainService.instance.currentWallet,
+                wallet.uuid == HDWalletManager.instance.wallet?.uuid,
+                wallet.encryptKey == password.toEncryptKey(salt: wallet.uuid),
+                HDWalletManager.instance.loginCurrent(encryptKey: wallet.encryptKey) {
                 DispatchQueue.main.async {
                     self.view.hideLoading()
                     NotificationCenter.default.post(name: .unlockDidSuccess, object: nil)
                 }
+            } else {
+                DispatchQueue.main.async {
+                    self.view.hideLoading()
+                    self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
+                    })
+                }
             }
-        } else {
-            self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
-            })
+        }
+    }
+}
+
+extension LockPwdViewController: PasswordInputViewDelegate {
+    func inputFinish(passwordView: PasswordInputView, password: String) {
+        if passwordView ==  self.passwordTF.passwordInputView {
+            _ = self.passwordTF.passwordInputView.resignFirstResponder()
+            self.loginBtnAction()
         }
     }
 }

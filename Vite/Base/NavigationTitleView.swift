@@ -20,6 +20,7 @@ class NavigationTitleView: UIView {
     let titleLabel = UILabel().then {
         $0.font = UIFont.systemFont(ofSize: 24)
         $0.numberOfLines = 1
+        $0.adjustsFontSizeToFitWidth = true
     }
 
     init(title: String?, style: Style = .default) {
@@ -31,7 +32,7 @@ class NavigationTitleView: UIView {
             m.left.equalTo(self).offset(24)
             m.right.equalTo(self).offset(-24)
             m.bottom.equalTo(self).offset(-20)
-//            m.height.equalTo(28)
+            m.height.equalTo(29)
         }
 
         switch style {

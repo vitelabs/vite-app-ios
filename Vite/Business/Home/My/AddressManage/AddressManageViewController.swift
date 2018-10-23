@@ -24,7 +24,7 @@ class AddressManageViewController: BaseTableViewController {
 
     let headerView = AddressManageHeaderView()
     let generateButton = UIButton().then {
-        $0.setTitle(R.string.localizable.addressManageAddressGenerateButtonTitle(), for: .normal)
+        $0.setTitle(R.string.localizable.addressManageAddressGenerateButtonTitle.key.localized(), for: .normal)
         $0.setImage(R.image.icon_button_add(), for: .normal)
         $0.setImage(R.image.icon_button_add(), for: .highlighted)
         $0.setTitleColor(UIColor(netHex: 0x007AFF), for: .normal)
@@ -41,7 +41,7 @@ class AddressManageViewController: BaseTableViewController {
     }
 
     fileprivate func setupView() {
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.addressManagePageTitle())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.addressManagePageTitle.key.localized())
         customHeaderView = headerView
 
         tableView.rowHeight = AddressManageAddressCell.cellHeight()
@@ -63,7 +63,7 @@ class AddressManageViewController: BaseTableViewController {
         return cell
     })
 
-    let accountDriver = HDWalletManager.instance.accountDriver
+    let walletDriver = HDWalletManager.instance.walletDriver
     var tableViewModel: AddressManagerTableViewModel!
 
     fileprivate func bind() {
@@ -89,16 +89,17 @@ class AddressManageViewController: BaseTableViewController {
             guard let `self` = self else { return }
             if self.tableViewModel.canGenerateAddress {
                 self.tableViewModel.generateAddress()
+                self.tableView.scrollToRow(at: IndexPath(row: self.tableView.numberOfRows(inSection: 0) - 1, section: 0), at: .bottom, animated: true)
             } else {
-                Toast.show(R.string.localizable.addressManageAddressGenerateButtonToast())
+                Toast.show(R.string.localizable.addressManageAddressGenerateButtonToast.key.localized())
             }
         }.disposed(by: rx.disposeBag)
 
         headerView.tipButton.rx.tap.bind { [weak self] in
             guard let `self` = self else { return }
-            Alert.show(into: self, title: R.string.localizable.hint(),
-                       message: R.string.localizable.addressManageTipAlertMessage(),
-                       actions: [(Alert.UIAlertControllerAletrActionTitle.default(title: R.string.localizable.addressManageTipAlertOk()), nil)])
+            Alert.show(into: self, title: R.string.localizable.hint.key.localized(),
+                       message: R.string.localizable.addressManageTipAlertMessage.key.localized(),
+                       actions: [(Alert.UIAlertControllerAletrActionTitle.default(title: R.string.localizable.addressManageTipAlertOk.key.localized()), nil)])
         }.disposed(by: rx.disposeBag)
     }
 }

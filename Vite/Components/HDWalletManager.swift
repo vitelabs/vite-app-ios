@@ -14,146 +14,218 @@ import RxCocoa
 
 final class HDWalletManager {
     static let instance = HDWalletManager()
-    private init() {}
 
-    lazy var accountDriver: Driver<Account> = self.accountBehaviorRelay.asDriver()
-    lazy var walletDriver: Driver<Wallet> = self.walletBehaviorRelay.asDriver()
+    private let disposeBag = DisposeBag()
+    private init() {
+
+        walletBehaviorRelay.asDriver().map {
+            $0?.addressCount
+        }.drive(onNext: { [weak self] addressCount in
+            guard let `self` = self else { return }
+            if let count = addressCount {
+                self.bagsBehaviorRelay.accept(Array(self.bags[..<count]))
+            } else {
+                self.bagsBehaviorRelay.accept(Array([Bag]()))
+            }
+        }).disposed(by: disposeBag)
+
+        walletBehaviorRelay.asDriver().map {
+            $0?.addressIndex
+        }.drive(onNext: { [weak self] addressIndex in
+            guard let `self` = self else { return }
+            if let index = addressIndex {
+                self.bagBehaviorRelay.accept(self.bagsBehaviorRelay.value[index])
+            } else {
+                self.bagBehaviorRelay.accept(nil)
+            }
+        }).disposed(by: disposeBag)
+    }
+
+    lazy var walletDriver: Driver<HDWalletStorage.Wallet> = self.walletBehaviorRelay.asDriver().filterNil()
     lazy var bagsDriver: Driver<[Bag]> = self.bagsBehaviorRelay.asDriver()
-    lazy var bagDriver: Driver<Bag> = self.bagBehaviorRelay.asDriver()
+    lazy var bagDriver: Driver<Bag> = self.bagBehaviorRelay.asDriver().filterNil()
 
-    fileprivate var accountBehaviorRelay = BehaviorRelay(value: Account(uuid: "nil", mnemonic: "nil", passwordHash: "nil", name: "nil"))
-    fileprivate var walletBehaviorRelay = BehaviorRelay(value: Wallet())
+    fileprivate var walletBehaviorRelay: BehaviorRelay<HDWalletStorage.Wallet?> = BehaviorRelay(value: nil)
     fileprivate var bagsBehaviorRelay = BehaviorRelay(value: [Bag]())
-    fileprivate var bagBehaviorRelay = BehaviorRelay(value: Bag())
+    fileprivate var bagBehaviorRelay: BehaviorRelay<Bag?> = BehaviorRelay(value: nil)
+    fileprivate var bags = [Bag]()
 
-    fileprivate(set) var hasAccount = false
+    fileprivate let storage = HDWalletStorage()
+    fileprivate(set) var mnemonic: String?
+    fileprivate var encryptKey: String?
 
-    fileprivate var fileHelper: FileHelper!
-    fileprivate static let saveKey = "HDWallet"
+    fileprivate static let maxAddressCount = 10
 
-    func updateAccount(_ walletAccount: WalletAccount) {
-        hasAccount = true
-        accountBehaviorRelay.accept(Account(uuid: walletAccount.uuid,
-                                            mnemonic: walletAccount.mnemonic,
-                                            passwordHash: walletAccount.password,
-                                            name: walletAccount.name))
-
-        fileHelper = FileHelper(.library, appending: FileHelper.accountPathComponent)
-
-        if let data = fileHelper.contentsAtRelativePath(type(of: self).saveKey),
-            let jsonString = String(data: data, encoding: .utf8),
-            let w = Wallet(JSONString: jsonString) {
-            walletBehaviorRelay.accept(w)
-        } else {
-            walletBehaviorRelay.accept(Wallet())
-        }
-
-        pri_updateBags()
-        pri_updateBag()
-        pri_recoverAddressesIfNeeded(accountBehaviorRelay.value.uuid)
-    }
-
-    func cleanAccount() {
-        hasAccount = false
-        accountBehaviorRelay.accept(Account(uuid: "nil", mnemonic: "nil", passwordHash: "nil", name: "nil"))
-        fileHelper = nil
-        walletBehaviorRelay.accept(Wallet())
-        bagsBehaviorRelay.accept([Bag]())
-        bagBehaviorRelay.accept(Bag())
-    }
-
-    func updateAccountName(name: String) {
-        accountBehaviorRelay.accept(Account(uuid: accountBehaviorRelay.value.uuid,
-                                            mnemonic: accountBehaviorRelay.value.mnemonic,
-                                            passwordHash: accountBehaviorRelay.value.passwordHash,
-                                            name: name))
+    func updateName(name: String) {
+        guard let wallet = storage.updateCurrentWalletName(name) else { return }
+        walletBehaviorRelay.accept(wallet)
     }
 
     func generateNextBag() -> Bool {
-        guard walletBehaviorRelay.value.addressCount < Wallet.maxAddressCount else { return false }
-        pri_updateWallet(index: walletBehaviorRelay.value.addressIndex, count: walletBehaviorRelay.value.addressCount + 1)
-        pri_updateBags()
+        guard let wallet = walletBehaviorRelay.value else { return false }
+        guard wallet.addressCount < type(of: self).maxAddressCount else { return false }
+        pri_update(addressIndex: wallet.addressIndex, addressCount: wallet.addressCount + 1)
         return true
     }
 
     func selectBag(index: Int) -> Bool {
-        guard index < walletBehaviorRelay.value.addressCount else { return false }
-        guard index != walletBehaviorRelay.value.addressIndex else { return true }
-        pri_updateWallet(index: index, count: walletBehaviorRelay.value.addressCount)
-        pri_updateBag()
+        guard let wallet = walletBehaviorRelay.value else { return false }
+        guard index < wallet.addressCount else { return false }
+        guard index != wallet.addressIndex else { return true }
+        pri_update(addressIndex: index, addressCount: wallet.addressCount)
         return true
     }
 
-    func account() -> Account {
-        return accountBehaviorRelay.value
+    var wallets: [HDWalletStorage.Wallet] {
+        return storage.wallets
     }
 
-    func bag() -> Bag {
+    var wallet: HDWalletStorage.Wallet? {
+        return storage.currentWallet
+    }
+
+    var bag: Bag? {
         return bagBehaviorRelay.value
     }
 
-    func selectBagIndex() -> Int {
-        return walletBehaviorRelay.value.addressIndex
+    var selectBagIndex: Int {
+        return walletBehaviorRelay.value?.addressIndex ?? 0
     }
 
-    func canGenerateNextBag() -> Bool {
-        return walletBehaviorRelay.value.addressCount < Wallet.maxAddressCount
+    var canGenerateNextBag: Bool {
+        guard let wallet = walletBehaviorRelay.value else { return false }
+        return wallet.addressCount < type(of: self).maxAddressCount
     }
 }
 
-// pri function
+// MARK: - Settings
+extension HDWalletManager {
+    func setIsRequireAuthentication(_ isRequireAuthentication: Bool) {
+        guard let wallet = storage.updateCurrentWallet(isRequireAuthentication: isRequireAuthentication) else { return }
+        walletBehaviorRelay.accept(wallet)
+    }
+
+    func setIsAuthenticatedByBiometry(_ isAuthenticatedByBiometry: Bool) {
+        guard let wallet = storage.updateCurrentWallet(isAuthenticatedByBiometry: isAuthenticatedByBiometry) else { return }
+        walletBehaviorRelay.accept(wallet)
+    }
+
+    func setIsTransferByBiometry(_ isTransferByBiometry: Bool) {
+        guard let wallet = storage.updateCurrentWallet(isTransferByBiometry: isTransferByBiometry) else { return }
+        walletBehaviorRelay.accept(wallet)
+    }
+
+    var isRequireAuthentication: Bool {
+        return storage.currentWallet?.isRequireAuthentication ?? false
+    }
+
+    var isAuthenticatedByBiometry: Bool {
+        return storage.currentWallet?.isAuthenticatedByBiometry ?? false
+    }
+
+    var isTransferByBiometry: Bool {
+        return storage.currentWallet?.isTransferByBiometry ?? false
+    }
+}
+
+// MARK: - login & logout
 extension HDWalletManager {
 
+    func addAddLoginWallet(uuid: String, name: String, mnemonic: String, encryptKey: String) {
+        let wallet = storage.addAddLoginWallet(uuid: uuid, name: name, mnemonic: mnemonic, encryptKey: encryptKey, needRecoverAddresses: false)
+        self.mnemonic = mnemonic
+        self.encryptKey = encryptKey
+        pri_updateWallet(wallet)
+    }
+
+    func importAddLoginWallet(uuid: String, name: String, mnemonic: String, encryptKey: String) {
+        let wallet = storage.addAddLoginWallet(uuid: uuid, name: name, mnemonic: mnemonic, encryptKey: encryptKey, needRecoverAddresses: true)
+        self.mnemonic = mnemonic
+        self.encryptKey = encryptKey
+        pri_updateWallet(wallet)
+    }
+
+    func loginWithUuid(_ uuid: String, encryptKey: String) -> Bool {
+        guard let (wallet, mnemonic) = storage.login(encryptKey: encryptKey, uuid: uuid) else { return false }
+        self.mnemonic = mnemonic
+        self.encryptKey = encryptKey
+        pri_updateWallet(wallet)
+        return true
+    }
+
+    func loginCurrent(encryptKey: String) -> Bool {
+        guard let (wallet, mnemonic) = storage.login(encryptKey: encryptKey) else { return false }
+        self.mnemonic = mnemonic
+        self.encryptKey = encryptKey
+        pri_updateWallet(wallet)
+        return true
+    }
+
+    func logout() {
+        storage.logout()
+        mnemonic = nil
+        encryptKey = nil
+        bags = [Bag]()
+        walletBehaviorRelay.accept(nil)
+    }
+
+    func verifyPassword(_ password: String) -> Bool {
+        guard let uuid = storage.currentWallet?.uuid else { return false }
+        let encryptKey = password.toEncryptKey(salt: uuid)
+        return encryptKey == self.encryptKey
+    }
+
+    var canUnLock: Bool {
+        return storage.currentWallet != nil
+    }
+
+    var isEmpty: Bool {
+        return storage.wallets.isEmpty
+    }
+
+    var currentWalletIndex: Int? {
+        return storage.currentWalletIndex
+    }
+}
+
+// MARK: - private function
+extension HDWalletManager {
+
+    fileprivate func pri_updateWallet(_ wallet: HDWalletStorage.Wallet) {
+        pri_generateAllBags()
+        walletBehaviorRelay.accept(wallet)
+        pri_recoverAddressesIfNeeded(wallet.uuid)
+    }
+
     fileprivate func pri_recoverAddressesIfNeeded(_ uuid: String) {
-        guard uuid == self.accountBehaviorRelay.value.uuid else { return }
-        guard walletBehaviorRelay.value.needRecoverAddresses else { return }
-
-        pri_allAddresses { (addresses) in
-            Provider.instance.recoverAddresses(addresses, completion: { [weak self] (result) in
-                guard let `self` = self else { return }
-                guard uuid == self.accountBehaviorRelay.value.uuid else { return }
-                switch result {
-                case .success(let count):
-                    let current = self.walletBehaviorRelay.value.addressCount
-                    self.pri_updateWallet(index: self.walletBehaviorRelay.value.addressIndex, count: max(current, count), needRecoverAddresses: false)
-                    self.pri_updateBags()
-                    self.pri_updateBag()
-                case .error:
-                    GCD.delay(3, task: { self.pri_recoverAddressesIfNeeded(uuid) })
-                }
-            })
-        }
-    }
-
-    fileprivate func pri_updateWallet(index: Int, count: Int, needRecoverAddresses: Bool? = nil) {
-        let need = needRecoverAddresses ?? walletBehaviorRelay.value.needRecoverAddresses
-        walletBehaviorRelay.accept(Wallet(addressIndex: index, addressCount: count, needRecoverAddresses: need))
-
-        if let data = walletBehaviorRelay.value.toJSONString()?.data(using: .utf8) {
-            do {
-                try fileHelper.writeData(data, relativePath: type(of: self).saveKey)
-            } catch let error {
-                assert(false, error.localizedDescription)
+        guard let wallet = self.walletBehaviorRelay.value else { return }
+        guard uuid == wallet.uuid else { return }
+        guard wallet.needRecoverAddresses else { return }
+        let addresses = bags.map { $0.address }
+        Provider.instance.recoverAddresses(addresses, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            guard let wallet = self.walletBehaviorRelay.value else { return }
+            guard uuid == wallet.uuid else { return }
+            switch result {
+            case .success(let count):
+                let current = wallet.addressCount
+                self.pri_update(addressIndex: wallet.addressIndex, addressCount: max(current, count), needRecoverAddresses: false)
+            case .error:
+                GCD.delay(3, task: { self.pri_recoverAddressesIfNeeded(uuid) })
             }
-        }
+        })
     }
 
-    fileprivate func pri_updateBags() {
-        bagsBehaviorRelay.accept(pri_generateBags(mnemonic: accountBehaviorRelay.value.mnemonic, count: walletBehaviorRelay.value.addressCount))
+    fileprivate func pri_update(addressIndex: Int, addressCount: Int, needRecoverAddresses: Bool? = nil) {
+        guard let wallet = storage.updateCurrentWallet(addressIndex: addressIndex,
+                                                       addressCount: addressCount,
+                                                       needRecoverAddresses: needRecoverAddresses) else { return }
+        walletBehaviorRelay.accept(wallet)
     }
 
-    fileprivate func pri_updateBag() {
-        bagBehaviorRelay.accept(bagsBehaviorRelay.value[walletBehaviorRelay.value.addressIndex])
-    }
-
-    fileprivate func pri_allAddresses(completion: @escaping ([Address]) -> Void) {
-        DispatchQueue.global().async {
-            let address = self.pri_generateBags(mnemonic: self.accountBehaviorRelay.value.mnemonic,
-                                                count: Wallet.maxAddressCount).map { $0.address }
-            DispatchQueue.main.async {
-                completion(address)
-            }
-        }
+    fileprivate func pri_generateAllBags() {
+        guard let mnemonic = mnemonic else { return }
+        bags = pri_generateBags(mnemonic: mnemonic, count: type(of: self).maxAddressCount)
     }
 
     private func pri_generateBags(mnemonic: String, count: Int) -> [Bag] {
@@ -169,21 +241,26 @@ extension HDWalletManager {
     }
 }
 
+// MARK: - DEBUG function
+#if DEBUG
 extension HDWalletManager {
 
-    struct Account {
-        let uuid: String
-        let mnemonic: String
-        let passwordHash: String
-        fileprivate(set) var name: String
-
-        init(uuid: String, mnemonic: String, passwordHash: String, name: String) {
-            self.uuid = uuid
-            self.mnemonic = mnemonic
-            self.passwordHash = passwordHash
-            self.name = name
-        }
+    func deleteAllWallets() {
+        storage.deleteAllWallets()
+        mnemonic = nil
+        encryptKey = nil
+        bags = [Bag]()
+        walletBehaviorRelay.accept(nil)
     }
+
+    func resetBagCount() {
+        pri_update(addressIndex: 0, addressCount: 1)
+    }
+}
+#endif
+
+// MARK: - Bag
+extension HDWalletManager {
 
     struct Bag {
         let secretKey: String
@@ -196,34 +273,11 @@ extension HDWalletManager {
             self.address = address
         }
     }
-
-    struct Wallet: Mappable {
-
-        static let maxAddressCount = 10
-
-        fileprivate(set) var addressIndex: Int = 0
-        fileprivate(set) var addressCount: Int = 1
-        fileprivate(set) var needRecoverAddresses: Bool = true
-
-        init(addressIndex: Int = 0, addressCount: Int = 1, needRecoverAddresses: Bool = true) {
-            self.addressIndex = addressIndex
-            self.addressCount = addressCount
-            self.needRecoverAddresses = needRecoverAddresses
-        }
-
-        init?(map: Map) {}
-
-        mutating func mapping(map: Map) {
-            addressIndex <- map["addressIndex"]
-            addressCount <- map["addressCount"]
-            needRecoverAddresses <- map["needRecoverAddresses"]
-        }
-    }
 }
 
 extension FileHelper {
     static var appPathComponent = "app"
     static var accountPathComponent: String {
-        return HDWalletManager.instance.accountBehaviorRelay.value.uuid
+        return HDWalletManager.instance.walletBehaviorRelay.value?.uuid ?? "uuid"
     }
 }

@@ -15,7 +15,7 @@ struct CreateTransactionRequest: JSONRPCKit.Request {
     let accountBlock: AccountBlock
 
     var method: String {
-        return "ledger_sendTx"
+        return "tx_sendRawTx"
     }
 
     var parameters: Any? {

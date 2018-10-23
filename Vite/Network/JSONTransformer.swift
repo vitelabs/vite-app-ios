@@ -35,6 +35,30 @@ struct JSONTransformer {
         return String(bigint)
     })
 
+    static let hexTobase64 = TransformOf<String, String>(fromJSON: { (base64) -> String? in
+        guard let base64 = base64, let string = Data(base64Encoded: base64)?.toHexString() else { return nil }
+        return string
+    }, toJSON: { (string) -> String? in
+        guard let string = string else { return nil }
+        return Data(bytes: string.hex2Bytes).base64EncodedString()
+    })
+
+    static let stringToBase64 = TransformOf<String, String>(fromJSON: { (base64) -> String? in
+        guard let base64 = base64, let data = Data(base64Encoded: base64), let string = String(bytes: data, encoding: .utf8) else { return nil }
+        return string
+    }, toJSON: { (string) -> String? in
+        guard let string = string else { return nil }
+        return string.bytes.toBase64()
+    })
+
+    static let uint64 = TransformOf<UInt64, String>(fromJSON: { (string) -> UInt64? in
+        guard let string = string, let num = UInt64(string) else { return nil }
+        return num
+    }, toJSON: { (num) -> String? in
+        guard let num = num else { return nil }
+        return String(num)
+    })
+
     static let balance = TransformOf<Balance, String>(fromJSON: { (string) -> Balance? in
         guard let string = string, let bigInt = BigInt(string) else { return nil }
         return Balance(value: bigInt)

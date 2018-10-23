@@ -65,7 +65,7 @@ extension AboutUsViewController {
             make.top.equalTo(headerView).offset(30)
             make.centerX.equalTo(headerView)
             make.width.equalTo(82)
-            make.width.height.equalTo(116)
+            make.height.equalTo(116)
         }
         self.tableView.tableHeaderView = headerView
 
@@ -79,32 +79,23 @@ extension AboutUsViewController {
             }
 
             <<< LabelRow("aboutUsPageCellBlockHeight") {
+                $0.cell.textLabel?.textColor = Colors.cellTitleGray
+                $0.cell.textLabel?.font = Fonts.light16
                 $0.title =  R.string.localizable.aboutUsPageCellBlockHeight.key.localized()
-                $0.value = R.string.localizable.aboutUsPageCellBlockHeightLoadingTip()
+                $0.value = R.string.localizable.aboutUsPageCellBlockHeightLoadingTip.key.localized()
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
             }.onCellSelection({ _, _  in
                 })
 
             <<< LabelRow("aboutUsPageCellVersion") {
+                $0.cell.textLabel?.textColor = Colors.cellTitleGray
+                $0.cell.textLabel?.font = Fonts.light16
                 $0.title =  R.string.localizable.aboutUsPageCellVersion.key.localized()
                 $0.value = Bundle.main.fullVersion
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
-            }.onCellSelection({ [unowned self] _, _  in
-
-                #if DEBUG
-                self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
-                DispatchQueue.global().async {
-                    HDWalletManager.instance.cleanAccount()
-                    WalletDataService.shareInstance.delAllWalletData()
-                    DispatchQueue.main.async {
-                        self.view.hideLoading()
-                        NotificationCenter.default.post(name: .logoutDidFinish, object: nil)
-                    }
-                }
-                #endif
-
+            }.onCellSelection({ _, _  in
                 })
 
             <<< ImageRow("aboutUsPageCellContact") {
@@ -156,7 +147,8 @@ extension AboutUsViewController {
         }
     }
     private func emailTemplate() -> String {
-        return   R.string.localizable.aboutUsPageEmailContent.key.localized(arguments: UIDevice.current.systemVersion, UIDevice.current.model, String.getAppVersion(), Locale.preferredLanguages.first ?? "")
+
+        return   R.string.localizable.aboutUsPageEmailContent.key.localized(arguments: UIDevice.current.systemVersion, UIDevice.current.model, Bundle.main.fullVersion, Locale.preferredLanguages.first ?? "")
     }
 }
 

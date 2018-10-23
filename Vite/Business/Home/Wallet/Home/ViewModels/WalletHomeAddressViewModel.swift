@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxOptional
 
 final class WalletHomeAddressViewModel: WalletHomeAddressViewModelType {
 
@@ -25,6 +26,6 @@ final class WalletHomeAddressViewModel: WalletHomeAddressViewModelType {
 
     func copy() {
         UIPasteboard.general.string = address
-        Toast.show(R.string.localizable.walletHomeToastCopyAddress(), duration: 1.0)
+        Toast.show(R.string.localizable.walletHomeToastCopyAddress.key.localized(), duration: 1.0)
     }
 }

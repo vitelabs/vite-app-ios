@@ -25,7 +25,7 @@ class TitleBtnView: UIView {
     }
 
     let separatorLine = UIView().then {
-        $0.backgroundColor = UIColor.blue
+        $0.backgroundColor = Colors.lineGray
     }
 
     init(title: String, text: String = "") {

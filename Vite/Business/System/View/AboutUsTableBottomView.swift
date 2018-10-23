@@ -23,11 +23,10 @@ class AboutUsTableBottomView: UIView {
     override init(frame: CGRect) {
         self.dataList =
              [
-                ["img": "icon_button_github", "web": "https://github.com/vitelabs"],
+                ["img": "icon_button_github", "web": "https://github.com/vitelabs/vite-app-ios"],
                 ["img": "icon_button_twitter", "web": "https://twitter.com/vitelabs"],
                 ["img": "icon_button_telegram", "web": "https://t.me/vite_en"],
                 ["img": "icon_button_reddit", "web": "https://www.reddit.com/r/vitelabs"],
-                ["img": "icon_button_wechat", "web": "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU0NDgxMjU0Ng==&scene=124#wechat_redirect"],
                 ["img": "icon_button_facebook", "web": "https://www.facebook.com/vitelabs/"],
                 ["img": "icon_button_medium", "web": "https://discordapp.com/invite/CsVY76q"],
                 ["img": "icon_button_youtube", "web": "https://www.youtube.com/channel/UC8qft2rEzBnP9yJOGdsJBVg"],
@@ -47,7 +46,7 @@ class AboutUsTableBottomView: UIView {
         }
 
         self.addSubview(self.officialWebsiteBtn)
-        self.officialWebsiteBtn.snp.makeConstraints {  (make) -> Void in
+        self.officialWebsiteBtn.snp.remakeConstraints {  (make) -> Void in
             make.left.equalTo(self).offset(padding)
             make.top.equalTo(collectionView.snp.bottom).offset(30)
             make.width.equalTo(63)
@@ -64,7 +63,7 @@ class AboutUsTableBottomView: UIView {
         }
 
         self.addSubview(portalWebsiteBtn)
-        self.portalWebsiteBtn.snp.makeConstraints {  (make) -> Void in
+        self.portalWebsiteBtn.snp.remakeConstraints {  (make) -> Void in
             make.left.equalTo(paddingView.snp.right)
             make.top.equalTo(collectionView.snp.bottom).offset(30)
             make.width.equalTo(93)
@@ -82,7 +81,7 @@ class AboutUsTableBottomView: UIView {
         }
 
         self.addSubview(blogWebsiteBtn)
-        self.blogWebsiteBtn.snp.makeConstraints {  (make) -> Void in
+        self.blogWebsiteBtn.snp.remakeConstraints {  (make) -> Void in
             make.left.equalTo(paddingView1.snp.right)
             make.right.equalTo(self).offset(-padding)
             make.top.equalTo(collectionView.snp.bottom).offset(30)
@@ -158,14 +157,9 @@ extension AboutUsTableBottomView: UICollectionViewDataSource {
 extension AboutUsTableBottomView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let dic = dataList[indexPath.row]
-        let name =  dic["img"]!
-        if name == "icon_button_wechat" {
-            let req = JumpToBizProfileReq()
-            req.username = Constants.officialAccountsAppID
-            req.profileType = Int32(WXBizProfileType_Normal.rawValue)
-            WXApi.send(req)
-        } else {
-            WebHandler.open(URL.init(string: dic["web"]!)!)
+        let url = URL.init(string: dic["web"]!)!
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
 }

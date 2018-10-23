@@ -59,10 +59,11 @@ final class CreateNameAndPwdVM {
             return Observable.just(false)
         }
 
-        if !ViteInputValidator.isValidWalletPasswordCount(str: pwd) ||
-            !ViteInputValidator.isValidWalletPasswordCount(str: rePwd) {
+        if !ViteInputValidator.isValidWalletPassword(str: pwd) ||
+            !ViteInputValidator.isValidWalletPassword(str: rePwd) {
             return Observable.just(false)
         }
+
         return Observable.just(true)
     }
 }

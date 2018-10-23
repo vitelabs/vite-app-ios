@@ -24,6 +24,7 @@ enum ViteAppServiceProtocolError: LocalizedError {
 protocol NetworkProtocol: ViteNetworkProtocol {
     func getAppSystemManageConfig() -> Promise<[String]>
     func getAppUpdate() -> Promise<[String]>
+    func getDefaultTokens() -> Promise<String>
 }
 
 final class ViteAppServiceRequest: NetworkProtocol {
@@ -31,7 +32,7 @@ final class ViteAppServiceRequest: NetworkProtocol {
     let appBasicInfo = [
         "version": Bundle.main.versionNumber ?? "1.0",
         "app": "iphone",
-        "channel": "appstore", ]
+        "channel": Constants.appDownloadChannel, ]
 
     init(
         provider: MoyaProvider<ViteAPI>
@@ -61,7 +62,7 @@ final class ViteAppServiceRequest: NetworkProtocol {
         let params = [
             "version": Bundle.main.buildNumber ?? "1",
             "app": "iphone",
-            "channel": "appstore", ]
+            "channel": Constants.appDownloadChannel, ]
 
         return Promise { seal in
             provider.request(.getAppUpdate(params)) { result in
@@ -72,6 +73,28 @@ final class ViteAppServiceRequest: NetworkProtocol {
                         let json = JSON(data!)
                         let dic = json.dictionaryValue["data"]
                         seal.fulfill([ dic?.stringValue ?? "{}"])
+                    }
+                case .failure(let error):
+                    seal.reject(error)
+                }
+            }
+        }
+    }
+
+    func getDefaultTokens() -> Promise<String> {
+        let params = [
+            "version": "default",
+            "app": "iphone",
+            "channel": "token", ]
+        return Promise { seal in
+            provider.request(.getAppDefaultTokens(params)) { result in
+                switch result {
+                case .success(let response):
+                    do {
+                        let data = try? response.mapJSON()
+                        let json = JSON(data!)
+                        let string = json.dictionaryValue["data"]?.stringValue ?? ""
+                        seal.fulfill(string)
                     }
                 case .failure(let error):
                     seal.reject(error)

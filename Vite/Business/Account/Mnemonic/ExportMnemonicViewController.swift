@@ -16,7 +16,7 @@ extension UIViewController {
         let cancelAction = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: R.string.localizable.confirm.key.localized(), style: UIAlertActionStyle.default) { (_) in
             let textField = (controller.textFields?.first)! as UITextField
-            if WalletDataService.shareInstance.verifyWalletPassword(pwd: textField.text!) {
+            if HDWalletManager.instance.verifyPassword(textField.text ?? "") {
                 callback()
             } else {
                 self.view.showToast(str: R.string.localizable.exportPageAlterPasswordError.key.localized())
@@ -51,7 +51,7 @@ class ExportMnemonicViewController: BaseViewController {
         contentTextView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         contentTextView.isEditable = false
         contentTextView.isScrollEnabled = false
-        contentTextView.text = WalletDataService.shareInstance.defaultWalletAccount?.mnemonic
+        contentTextView.text = HDWalletManager.instance.mnemonic ?? ""
         return contentTextView
     }()
 

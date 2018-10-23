@@ -19,6 +19,12 @@ final class ImportAccountVM {
         if content.isEmpty || name.isEmpty || pwd.isEmpty || rePwd.isEmpty {
             return Observable.just(.empty(message:         R.string.localizable.mnemonicBackupPageErrorTypeName.key.localized()))
         }
+
+        var contentMnemonic =  ViteInputValidator.handleMnemonicStrSpacing(content)
+        if !Mnemonic.mnemonic_check(contentMnemonic) {
+            return Observable.just(.empty(message:R.string.localizable.importPageSubmitInvalidMnemonic.key.localized()))
+        }
+
         if  !ViteInputValidator.isValidWalletName(str: name  ) {
             return Observable.just(.failed(message:         R.string.localizable.mnemonicBackupPageErrorTypeNameValid.key.localized()))
         }
@@ -27,10 +33,6 @@ final class ImportAccountVM {
         }
         if  pwd != rePwd {
             return Observable.just(.empty(message:R.string.localizable.mnemonicBackupPageErrorTypeDifference.key.localized()))
-        }
-
-        if !Mnemonic.mnemonic_check(content) {
-            return Observable.just(.empty(message:R.string.localizable.importPageSubmitInvalidMnemonic.key.localized()))
         }
 
         return Observable.just(.ok(message:""))
@@ -65,10 +67,11 @@ final class ImportAccountVM {
             return Observable.just(false)
         }
 
-        if !ViteInputValidator.isValidWalletPasswordCount(str: pwd) ||
-            !ViteInputValidator.isValidWalletPasswordCount(str: rePwd) {
+        if !ViteInputValidator.isValidWalletPassword(str: pwd) ||
+            !ViteInputValidator.isValidWalletPassword(str: rePwd) {
             return Observable.just(false)
         }
+
         return Observable.just(true)
     }
 }

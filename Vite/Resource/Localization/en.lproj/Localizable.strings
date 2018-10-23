@@ -17,6 +17,7 @@
 "Confirm" = "Confirm";
 "Submit" = "Submit";
 "Update.app" = "Update App";
+"NetWorkError" = "Loading failed, please refresh";
 
 /* Login */
 "create.account" = "Create Account";
@@ -40,7 +41,7 @@
 
 /* mnemonic */
 "mnemonic.backup.page.title" = "Backup Seed Phrase";
-"mnemonic.backup.page.tip.title" = "Mnemonic seed phrase is the only way to restore your wallet, please keep it safe or you won't have access to your account for good";
+"mnemonic.backup.page.tip.title" = "Mnemonic seed phrase is the only way to restore your wallet, please keep it safe or you won't have access to your account for good.";
 "mnemonic.backup.page.tip.lab.title" = "Seed Phrase";
 "mnemonic.backup.page.tip.anewBtn.title" = "Regenerate Seed Phrase";
 "mnemonic.backup.page.tip.nextBtn.title" = "Successfully backuped your seed phrase!";
@@ -50,7 +51,7 @@
 "mnemonic.backup.page.alter.confirm" = "Yes";
 "mnemonic.backup.page.error.type.name" = "Please input account name or password";
 "mnemonic.backup.page.error.type.nameValid" = "Account name only supports Chinese and English characters as well as unserscores.";
-"mnemonic.backup.page.error.type.validWalletNameCount" = "Account name exceeds the limit!";
+"mnemonic.backup.page.error.type.validWalletNameCount" = "Username only supports less than 32 characters";
 "mnemonic.backup.page.error.type.difference" = "Please enter the same password!";
 
 "mnemonic.affirm.page.title" = "Confirm your seed phrase";
@@ -63,6 +64,8 @@
 "import.page.title" = "Please input your seed phrase";
 "import.page.submit.btn" = "Restore Account";
 "import.page.submit.invalid.mnemonic" = "Something wrong with your seed phrase, please try again!";
+"import.page.submit.loading" = "import...";
+"import.page.submit.success" = "import success";
 
 /* export mnemonic */
 "export.page.title" = "Export Seed Phrase";
@@ -87,21 +90,28 @@
 
 /* Manage Wallet */
 "manage.wallet.page.title" = "Wallet Management";
-"manage.wallet.page.name.cell.title" = "Wallet Name";
+"manage.wallet.page.name.cell.title" = "Account Name";
 "manage.wallet.page.addressManage.cell.title" = "Address Management";
 "manage.wallet.page.importMnemonic.cell.title" = "Export Seed Phrase";
 "manage.wallet.page.alter.changeName" = "Edit Wallet Name";
 "manage.wallet.page.changeName.loading" = "Editing";
+"manage.wallet.page.error.type.name" = "Wallet name can not be empty";
 
 /* my */
-"my.page.mangeWallet.cell.title" = "Wallet Management";
-"my.page.dealLog.cell.title" = "Transaction Records";
+"my.page.title" = "Me";
+"my.page.mangeWallet.cell.title" = "Wallet";
+"my.page.dealLog.cell.title" = "Transaction";
 "my.page.system.cell.title" = "System Settings";
 "my.page.aboutUs.cell.title" = "About us";
 "my.page.fetchMoney.cell.title" = "Get Bonus";
 
 /* Transaction List */
 "transaction.list.page.title" = "Transaction History";
+"transaction.list.page.empty" = "Empty";
+"transaction.list.page.network.error" = "Refresh";
+"transaction.list.page.header.refresh.idle" = "Pull down to refresh";
+"transaction.list.page.header.refresh.pulling" = "Release to refresh";
+"transaction.list.page.header.refresh.refreshing" = "Loading...";
 
 /* BalanceInfo */
 "balance.info.detail.balance.title" = "Balance";
@@ -122,7 +132,7 @@
 
 /* Send Page */
 "send.page.title" = "Transfer";
-"send.page.my.address.title" = "From Address";
+"send.page.my.address.title" = "My Address";
 "send.page.my.balance.title" = "Balance";
 "send.page.to.address.title" = "Recipient";
 "send.page.amount.title" = "Amount";
@@ -130,13 +140,17 @@
 "send.page.send.button.title" = "Send";
 "send.page.amount.toolbar.button.title" = "Next";
 "send.page.toast.send.success" = "Success";
+"send.page.toast.send.failed" = "Transfer failed, please try again later";
 "send.page.toast.address.error" = "Wrong recipient format!";
 "send.page.toast.amount.error" = "Insufficient Balance";
+"send.page.toast.amount.empty" = "Please input balance";
+"send.page.toast.amount.zero" = "The amount has to be positive";
 "send.page.not.enough.balance.alert.title" = "Insufficient Balance";
 "send.page.not.enough.balance.alert.button" = "Cancel";
 "send.page.confirm.biometryAuthFailed.title" = "Cannot be identified";
 "send.page.confirm.biometryAuthFailed.back" = "Back";
 "send.page.confirm.passwordAuthFailed.retry" = "Retry";
+"send.page.token.info.error" = "Token Info Error";
 
 
 /* Confirm Transaction Page */
@@ -149,21 +163,26 @@
 "confirm.transaction.page.toast.password.error" = "Wrong password!";
 
 /* Receive Page */
-"Receive.page.title" = "Receive";
-"Receive.page.token.name.label" = "please send %@";
-"Receive.page.token.amount.button.title" = "Specific amount";
+"Receive.page.token.title" = "Receive";
+"Receive.page.mine.title" = "My QRCode";
+"Receive.page.token.name.label" = "Scan and transfer %@";
+"Receive.page.token.amount.button.title" = "Input Amount";
 "Receive.page.token.note.label" = "Comment";
 "Receive.page.token.amount.alert.title" = "Input Amount";
 
 /* Scan Page */
 "Scan.page.title" = "Scan";
+"Scan.page.qccode.not.identifiable" = "QRCode cannot be identified";
+"Scan.page.qccode.not.found" = "No QR code found";
 
 /* System */
 "system.page.logout.loading" = "Logout";
 "system.page.cell.change.language" = "Language";
-"system.page.cell.login.pwd" = "Input password to arouse APP";
-"system.page.cell.login.faceId" = "Support Fingerprint/Face ID";
-"system.page.cell.transfer.faceId" = "Pay by Fingerprint/Face ID";
+"system.page.cell.login.pwd" = "Unlock By Password";
+"system.page.cell.login.faceId" = "Unlock By Face ID";
+"system.page.cell.login.touchId" = "Unlock By Touch ID";
+"system.page.cell.transfer.faceId" = "Use Face ID For Transaction";
+"system.page.cell.transfer.touchId" = "Use Touch ID For Transaction";
 "system.page.cell.logout.title" = "Logout/switch wallet";
 
 /* about us */
@@ -187,3 +206,6 @@
 "fetch.welfare.participation.ways" = "1. Submit your Vite address in Loopring community. \n2. System will airdrop specific token - VV token. \n3. Please fill in address of Ethereum in this page, confirm and submit, then a transaction to special account will be generated, input any amount.\n4. The special account will send equal amount of Vite tokens in Ethereum ERC20 after receiving VV token.";
 "fetch.welfare.inputEthereumAddress.title" = "Please input Ethereum address:";
 "fetch.welfare.inputEthereumAddress.error.title" = "Wrong Format!";
+
+/* toast error */
+"toast.error.login" = "Login Error";

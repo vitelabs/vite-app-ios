@@ -16,13 +16,13 @@ final class WalletHomeBalanceInfoViewModel: WalletHomeBalanceInfoViewModelType {
     let symbol: String
     let balance: Balance
     let unconfirmed: Balance
-//    let unconfirmedCount: Int
+    let unconfirmedCount: UInt64
 
     init(balanceInfo: BalanceInfo) {
         self.token = balanceInfo.token
         self.symbol = balanceInfo.token.symbol
         self.balance = balanceInfo.balance
         self.unconfirmed = balanceInfo.unconfirmedBalance
-//        self.unconfirmedCount = balanceInfo.unconfirmedCount
+        self.unconfirmedCount = balanceInfo.unconfirmedCount
     }
 }

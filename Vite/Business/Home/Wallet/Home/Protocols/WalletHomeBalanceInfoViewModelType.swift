@@ -15,5 +15,5 @@ protocol WalletHomeBalanceInfoViewModelType {
     var symbol: String { get }
     var balance: Balance { get }
     var unconfirmed: Balance { get }
-//    var unconfirmedCount: Int { get }
+    var unconfirmedCount: UInt64 { get }
 }

@@ -63,13 +63,13 @@ class ScanViewController: BaseViewController {
                 let rectOfInterest = videoPreviewLayer.metadataOutputRectConverted(fromLayerRect: scanRect)
                 captureMetadataOutput.rectOfInterest = rectOfInterest
             } catch {
-                print(error)
+                plog(level: .severe, log: "Init AVCaptureDeviceInput error")
             }
         }
     }
 
     func setupUIComponents() {
-        navigationItem.title = R.string.localizable.scanPageTitle()
+        navigationItem.title = R.string.localizable.scanPageTitle.key.localized()
         navigationBarStyle = .custom(tintColor: UIColor.white, backgroundColor: UIColor(netHex: 0x24272B))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.icon_nav_photo_black(), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self.pickeImage(_:)))
 
@@ -174,25 +174,49 @@ class ScanViewController: BaseViewController {
     func handleQRResult(_ result: String?) {
         guard let result = result else { return }
         if let uri = ViteURI.parser(string: result) {
+            captureSession.stopRunning()
             switch uri {
             case .transfer(let address, let tokenId, _, _, let note):
-                let tokenId = tokenId ?? Token.Currency.vite.rawValue
-                let amount = uri.amountToBigInt()
-                let sendViewController = SendViewController(tokenId: tokenId, address: address, amount: amount, note: note)
-                guard var viewControllers = navigationController?.viewControllers else { return }
-                _ = viewControllers.popLast()
-                viewControllers.append(sendViewController)
-                self.navigationController?.setViewControllers(viewControllers, animated: true)
+
+                self.view.displayLoading(text: "")
+                let tokenId = tokenId ?? TokenCacheService.instance.viteToken.id
+                TokenCacheService.instance.tokenForId(tokenId) { [weak self] (result) in
+                    guard let `self` = self else { return }
+                    self.view.hideLoading()
+                    switch result {
+                    case .success(let token):
+                        if let token = token {
+                            let amount = uri.amountToBigInt()
+                            let sendViewController = SendViewController(token: token, address: address, amount: amount, note: note)
+                            guard var viewControllers = self.navigationController?.viewControllers else { return }
+                            _ = viewControllers.popLast()
+                            viewControllers.append(sendViewController)
+                            self.navigationController?.setViewControllers(viewControllers, animated: true)
+                        } else {
+                            self.showScanError(string: R.string.localizable.sendPageTokenInfoError.key.localized())
+                        }
+                    case .failure(let error):
+                        self.showScanError(string: error.localizedDescription)
+                    }
+                }
             }
         } else {
-            showAlert(string: result)
+            self.showAlert(string: result)
         }
     }
 
+    func showScanError(string: String) {
+        Toast.show(string)
+        GCD.delay(2, task: { [weak self] in
+            self?.captureSession.startRunning()
+        })
+    }
+
     func showAlert(string: String) {
+        self.captureSession.stopRunning()
         let alertController = UIAlertController.init()
         let action = UIAlertAction.init(title: LocalizationStr("OK"), style: .default) { [weak self](_) in
-            self?.navigationController?.popViewController(animated: true)
+            self?.captureSession.startRunning()
         }
         alertController.addAction(action)
         alertController.title = string
@@ -220,7 +244,6 @@ class ScanViewController: BaseViewController {
 extension ScanViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVCaptureMetadataOutputObjectsDelegate {
 
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        captureSession.stopRunning()
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
@@ -241,9 +264,10 @@ extension ScanViewController: UIImagePickerControllerDelegate, UINavigationContr
 
         dismiss(animated: true) {
             if stringValue != nil {
-                self.captureSession.stopRunning()
                 AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
                 self.handleQRResult(stringValue)
+            } else {
+                Toast.show(R.string.localizable.scanPageQccodeNotFound.key.localized())
             }
         }
     }

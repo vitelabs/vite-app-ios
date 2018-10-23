@@ -28,12 +28,17 @@ class GetBalanceInfosRequest: JSONRPCKit.Request {
 
     func response(from resultObject: Any) throws -> [BalanceInfo] {
 
+        if let _ = resultObject as? NSNull {
+            return []
+        }
+
         guard let response = resultObject as? [String: Any] else {
             throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: [BalanceInfo].self)
         }
 
         var balanceInfoArray = [[String: Any]]()
-        if let array = response["balanceInfos"] as?  [[String: Any]] {
+        if let map = response["tokenBalanceInfoMap"] as?  [String: Any],
+            let array = Array(map.values) as? [[String: Any]] {
             balanceInfoArray = array
         }
 

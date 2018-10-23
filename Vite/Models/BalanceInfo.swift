@@ -15,13 +15,13 @@ struct BalanceInfo: Mappable {
     fileprivate(set) var token = Token()
     fileprivate(set) var balance = Balance()
     fileprivate(set) var unconfirmedBalance = Balance()
-    fileprivate(set) var unconfirmedCount: Int = 0
+    fileprivate(set) var unconfirmedCount: UInt64 = 0
 
     init?(map: Map) {
 
     }
 
-    init(token: Token, balance: Balance, unconfirmedBalance: Balance, unconfirmedCount: Int) {
+    init(token: Token, balance: Balance, unconfirmedBalance: Balance, unconfirmedCount: UInt64) {
         self.token = token
         self.balance = balance
         self.unconfirmedBalance = unconfirmedBalance
@@ -29,11 +29,11 @@ struct BalanceInfo: Mappable {
     }
 
     mutating func mapping(map: Map) {
-        token <- map["mintage"]
-        balance <- (map["balance"], JSONTransformer.balance)
+        token <- map["tokenInfo"]
+        balance <- (map["totalAmount"], JSONTransformer.balance)
     }
 
-    mutating func fill(unconfirmedBalance: Balance, unconfirmedCount: Int) {
+    mutating func fill(unconfirmedBalance: Balance, unconfirmedCount: UInt64) {
         self.unconfirmedBalance = unconfirmedBalance
         self.unconfirmedCount = unconfirmedCount
     }
@@ -47,15 +47,17 @@ extension BalanceInfo: Equatable {
 
 extension BalanceInfo {
 
-    static let defaultBalanceInfos: [BalanceInfo] = TokenCacheService.instance.defaultTokens.map {
-        BalanceInfo(token: $0, balance: Balance(), unconfirmedBalance: Balance(), unconfirmedCount: 0)
+    static func defaultBalanceInfos() -> [BalanceInfo] {
+        return TokenCacheService.instance.defaultTokens.map {
+            BalanceInfo(token: $0, balance: Balance(), unconfirmedBalance: Balance(), unconfirmedCount: 0)
+        }
     }
 
     static func mergeBalanceInfos(_ balanceInfos: [BalanceInfo]) -> [BalanceInfo] {
         let infos = NSMutableArray(array: balanceInfos)
         let ret = NSMutableArray()
 
-        for defaultBalanceInfo in defaultBalanceInfos {
+        for defaultBalanceInfo in defaultBalanceInfos() {
             if let index = (infos as Array).index(where: { ($0 as! BalanceInfo).token.id == defaultBalanceInfo.token.id }) {
                 ret.add(infos[index])
                 infos.removeObject(at: index)

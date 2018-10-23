@@ -22,13 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        plog(level: .info, log: "DidFinishLaunching", tag: .life)
+
         startBaiduMobileStat()
         handleNotification()
-        _ = SettingDataService.sharedInstance.getCurrentLanguage()
+        _ = LocalizationService.sharedInstance
 
         window = UIWindow(frame: UIScreen.main.bounds)
         handleRootVC()
 
+        TokenCacheService.instance.start()
         AutoGatheringService.instance.start()
         FetchBalanceInfoService.instance.start()
         //fetch app config
@@ -62,18 +65,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func handleRootVC() {
-        if  WalletDataService.shareInstance.isExistWallet() {
-            let rootVC = CreateAccountHomeViewController()
-            rootVC.automaticallyShowDismissButton = false
-            let nav = BaseNavigationController(rootViewController: rootVC)
-            window?.rootViewController = nav
-        } else if WalletDataService.shareInstance.existWalletAndLogout() {
-            let rootVC = LoginViewController()
-            rootVC.automaticallyShowDismissButton = false
-            let nav = BaseNavigationController(rootViewController: rootVC)
-            window?.rootViewController = nav
-        } else {
-            if WalletDataService.shareInstance.isLockWallet() == .none {
+
+        if HDWalletManager.instance.canUnLock {
+            if !HDWalletManager.instance.isRequireAuthentication,
+                let wallet = KeychainService.instance.currentWallet,
+                wallet.uuid == HDWalletManager.instance.wallet?.uuid,
+                HDWalletManager.instance.loginCurrent(encryptKey: wallet.encryptKey) {
                 self.goHomePage()
                 return
             } else {
@@ -81,27 +78,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return
             }
         }
-        window?.makeKeyAndVisible()
+
+        if HDWalletManager.instance.isEmpty {
+            let rootVC = CreateAccountHomeViewController()
+            rootVC.automaticallyShowDismissButton = false
+            let nav = BaseNavigationController(rootViewController: rootVC)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+        } else {
+            let rootVC = LoginViewController()
+            rootVC.automaticallyShowDismissButton = false
+            let nav = BaseNavigationController(rootViewController: rootVC)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+        }
     }
 
     func goLockPage() {
         let rootVC: BaseViewController
-        if WalletDataService.shareInstance.isLockWallet() == .password {
+        if HDWalletManager.instance.isAuthenticatedByBiometry {
+            rootVC = LockViewController()
+        } else {
             rootVC = LockPwdViewController()
             rootVC.automaticallyShowDismissButton = false
-        } else {
-            rootVC = LockViewController()
         }
         let nav = BaseNavigationController(rootViewController: rootVC)
+        //fix magnifying glass fluoroscopy bug
+        lockWindow.isHidden = false
         self.lockWindow.rootViewController = nav
         self.lockWindow.makeKeyAndVisible()
     }
 
     func goHomePage() {
-        HDWalletManager.instance.updateAccount(WalletDataService.shareInstance.defaultWalletAccount!)
         let rootVC = HomeViewController()
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
+        lockWindow.isHidden = true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -126,6 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func startBaiduMobileStat() {
         let statTracker: BaiduMobStat = BaiduMobStat.default()
+        statTracker.channelId = Constants.appDownloadChannel
         statTracker.shortAppVersion  =  Bundle.main.fullVersion
         statTracker.start(withAppId: Constants.baiduMobileStat)
     }

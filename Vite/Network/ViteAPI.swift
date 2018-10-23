@@ -12,6 +12,7 @@ import Moya
 enum ViteAPI {
     case getAppUpdate([String: String])
     case getAppSystemManageConfig([String: String])
+    case getAppDefaultTokens([String: String])
 }
 
 extension ViteAPI: TargetType {
@@ -24,6 +25,8 @@ extension ViteAPI: TargetType {
             return "/api/version/update"
         case .getAppSystemManageConfig:
             return "/api/version/config"
+        case .getAppDefaultTokens:
+            return "/api/version/config"
         }
     }
 
@@ -31,6 +34,7 @@ extension ViteAPI: TargetType {
         switch self {
         case .getAppUpdate: return .get
         case .getAppSystemManageConfig: return .get
+        case .getAppDefaultTokens: return .get
         }
     }
 
@@ -39,7 +43,9 @@ extension ViteAPI: TargetType {
         case .getAppUpdate(let value):
            return .requestParameters(parameters: value, encoding: URLEncoding())
         case .getAppSystemManageConfig((let value)):
-           return .requestParameters(parameters: value, encoding: URLEncoding())
+            return .requestParameters(parameters: value, encoding: URLEncoding())
+        case .getAppDefaultTokens((let value)):
+            return .requestParameters(parameters: value, encoding: URLEncoding())
         }
     }
 

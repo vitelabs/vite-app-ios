@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
@@ -34,7 +36,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1024</string>
+	<string>1074</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -43,13 +45,13 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>QR Scan</string>
+	<string>This app uses the camera to read QR codes</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Access your wallet</string>
+	<string>This app can unlock with Face ID</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Sending QR Code to your contacts</string>
+	<string>This app uses the album to import QR codes</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Sending QR Code to your contacts</string>
+	<string>This app uses the album to import QR codes</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>

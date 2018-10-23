@@ -10,7 +10,7 @@ import UIKit
 import JSONRPCKit
 
 class GetTokenInfoRequest: JSONRPCKit.Request {
-    typealias Response = Token
+    typealias Response = Token?
 
     let tokenId: String
 
@@ -33,6 +33,8 @@ class GetTokenInfoRequest: JSONRPCKit.Request {
             } else {
                 throw JSONError.jsonData
             }
+        } else if resultObject is NSNull {
+            return nil
         } else {
             throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: Response.self)
         }

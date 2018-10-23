@@ -44,11 +44,11 @@ class BalanceInfoDetailViewController: BaseViewController {
             $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
             $0.setTitleColor(UIColor(netHex: 0x007AFF), for: .normal)
             $0.setTitleColor(UIColor(netHex: 0x007AFF).highlighted, for: .highlighted)
-            $0.setTitle(R.string.localizable.balanceInfoDetailShowTransactionsButtonTitle(), for: .normal)
+            $0.setTitle(R.string.localizable.balanceInfoDetailShowTransactionsButtonTitle.key.localized(), for: .normal)
         }
 
-        let receiveButton = UIButton(style: .blue, title: R.string.localizable.balanceInfoDetailReveiceButtonTitle())
-        let sendButton = UIButton(style: .white, title: R.string.localizable.balanceInfoDetailSendButtonTitle())
+        let receiveButton = UIButton(style: .blue, title: R.string.localizable.balanceInfoDetailReveiceButtonTitle.key.localized())
+        let sendButton = UIButton(style: .white, title: R.string.localizable.balanceInfoDetailSendButtonTitle.key.localized())
 
         view.addSubview(detailView)
         view.addSubview(imageView)
@@ -113,7 +113,7 @@ class BalanceInfoDetailViewController: BaseViewController {
 
         sendButton.rx.tap.bind { [weak self] in
             guard let `self` = self else { return }
-            let sendViewController = SendViewController(tokenId: self.viewModelBehaviorRelay.value.token.id, address: nil, amount: nil, note: nil)
+            let sendViewController = SendViewController(token: self.viewModelBehaviorRelay.value.token, address: nil, amount: nil, note: nil)
             self.navigationController?.pushViewController(sendViewController, animated: true)
         }.disposed(by: rx.disposeBag)
 

@@ -56,7 +56,7 @@ class ManageWalletViewController: FormViewController {
                 var header = HeaderFooterView<ManageWalletHeaderView>(.class)
                 header.onSetupView = { view, section in
                     view.delegate = self
-                    view.nameLab.text = WalletDataService.shareInstance.defaultWalletAccount?.name
+                    view.nameLab.text = HDWalletManager.instance.wallet?.name
                 }
                 header.height = { 68.0 }
                 section.header = header
@@ -96,10 +96,10 @@ class ManageWalletViewController: FormViewController {
             let name = textField.text ?? ""
 
             if name.isEmpty {
-                self.view.showToast(str: R.string.localizable.mnemonicBackupPageErrorTypeName.key.localized())
+                self.view.showToast(str: R.string.localizable.manageWalletPageErrorTypeName.key.localized())
                 return
             }
-            if !ViteInputValidator.isValidWalletName(str: name  ) {
+            if !ViteInputValidator.isValidWalletName(str: name ) {
                 self.view.showToast(str: R.string.localizable.mnemonicBackupPageErrorTypeNameValid.key.localized())
 
                 return
@@ -111,9 +111,7 @@ class ManageWalletViewController: FormViewController {
 
             self.view.displayLoading(text: R.string.localizable.manageWalletPageChangeNameLoading.key.localized(), animated: true)
             DispatchQueue.global().async {
-                let wallet =  WalletDataService.shareInstance.defaultWalletAccount ?? WalletAccount()
-                wallet.name = name
-                WalletDataService.shareInstance.updateWallet(account: wallet )
+                HDWalletManager.instance.updateName(name: name)
                 DispatchQueue.main.async {
                     self.view.hideLoading()
                     let section = self.form.sectionBy(tag: "ManageWalletHeaderView")
@@ -122,7 +120,7 @@ class ManageWalletViewController: FormViewController {
             }
         }
         controller.addTextField { (textfield) in
-            textfield.text = WalletDataService.shareInstance.defaultWalletAccount?.name
+            textfield.text = HDWalletManager.instance.wallet?.name
         }
         controller.addAction(cancelAction)
         controller.addAction(okAction)

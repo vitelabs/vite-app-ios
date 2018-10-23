@@ -16,7 +16,8 @@
 "Loading" = "加载中";
 "Confirm" = "确定";
 "Submit" = "提交";
-"Update.app" = "更新app";
+"Update.app" = "更新 App";
+"NetWorkError" = "加载失败，请刷新重试";
 
 /* Login */
 "create.account" = "创建账户";
@@ -25,7 +26,7 @@
 /* Lock */
 "lock.page.pwd.btn.title" = "使用密码登录";
 "lock.page.fingerprint.btn.title" = "再次唤起验证";
-"lock.page.fingerprint.alter.title" = "请验证指纹，开启Touch Id";
+"lock.page.fingerprint.alter.title" = "请验证指纹，开启 Touch ID";
 
 /* create */
 "create.page.title" = "创建钱包账户";
@@ -35,12 +36,12 @@
 "create.page.submit.btn.title" = "创建";
 
 "create.page.tip.title" = "备份钱包账户";
-"create.page.tip.content" = "请备份助记词，没有妥善备份就无法保障您的资产安全。更换手机或删除app后，您需要通过备份助记词来恢复钱包。";
+"create.page.tip.content" = "请备份助记词，没有妥善备份就无法保障您的资产安全。更换手机或删除 App 后，您需要通过备份助记词来恢复钱包。";
 "create.page.tip.nextBtn" = "备份助记词";
 
 /* mnemonic */
 "mnemonic.backup.page.title" = "备份助记词";
-"mnemonic.backup.page.tip.title" = "您只有通过助记词来恢复您的账户，如助记词丢失，您的数字资产将无法找回";
+"mnemonic.backup.page.tip.title" = "您只有通过助记词来恢复您的账户，如助记词丢失，您的数字资产将无法找回。";
 "mnemonic.backup.page.tip.lab.title" = "助记词";
 "mnemonic.backup.page.tip.anewBtn.title" = "重新生成助记词";
 "mnemonic.backup.page.tip.nextBtn.title" = "助记词已备份";
@@ -48,9 +49,9 @@
 "mnemonic.backup.page.alter.message" = "是否重新生成助记词？";
 "mnemonic.backup.page.alter.cancel" = "不了";
 "mnemonic.backup.page.alter.confirm" = "好的";
-"mnemonic.backup.page.error.type.name" = "请输入用户名或密码";
+"mnemonic.backup.page.error.type.name" = "请输入账户名或密码";
 "mnemonic.backup.page.error.type.nameValid" = "账户名仅支持中英文字符及下划线";
-"mnemonic.backup.page.error.type.validWalletNameCount" = "账户名超出字符限制";
+"mnemonic.backup.page.error.type.validWalletNameCount" = "账户名仅支持32个字符";
 "mnemonic.backup.page.error.type.difference" = "两次输入密码不同";
 
 "mnemonic.affirm.page.title" = "确认输入助记词";
@@ -63,6 +64,8 @@
 "import.page.title" = "输入您的助记词";
 "import.page.submit.btn" = "恢复账户";
 "import.page.submit.invalid.mnemonic" = "助记词输入有误，请重新输入。";
+"import.page.submit.loading" = "账户恢复中...";
+"import.page.submit.success" = "恢复成功";
 
 /* export mnemonic */
 "export.page.title" = "导出助记词";
@@ -82,18 +85,20 @@
 
 /* Wallet Home */
 "wallet.home.balance.title" = "账户余额";
-"wallet.home.unconfirmed.title" = "在途资金 %@";
+"wallet.home.unconfirmed.title" = "待接收 %@";
 "wallet.home.toast.copy.address" = "地址已复制";
 
 /* Manage Wallet */
 "manage.wallet.page.title" = "管理钱包";
-"manage.wallet.page.name.cell.title" = "钱包名";
+"manage.wallet.page.name.cell.title" = "账户名";
 "manage.wallet.page.addressManage.cell.title" = "地址管理";
 "manage.wallet.page.importMnemonic.cell.title" = "导出助记词";
 "manage.wallet.page.alter.changeName" = "修改钱包名";
 "manage.wallet.page.changeName.loading" = "修改中";
+"manage.wallet.page.error.type.name" = "账户名不能为空";
 
 /* my */
+"my.page.title" = "我";
 "my.page.mangeWallet.cell.title" = "管理钱包";
 "my.page.dealLog.cell.title" = "交易记录";
 "my.page.system.cell.title" = "系统设置";
@@ -102,10 +107,15 @@
 
 /* Transaction List */
 "transaction.list.page.title" = "交易记录";
+"transaction.list.page.empty" = "无记录";
+"transaction.list.page.network.error" = "刷新页面";
+"transaction.list.page.header.refresh.idle" = "下拉刷新";
+"transaction.list.page.header.refresh.pulling" = "松开立即刷新";
+"transaction.list.page.header.refresh.refreshing" = "正在刷新中...";
 
 /* BalanceInfo */
 "balance.info.detail.balance.title" = "账户余额";
-"balance.info.detail.unconfirmed.title" = "在途资金";
+"balance.info.detail.unconfirmed.title" = "待接收";
 "balance.info.detail.unconfirmed.count.title" = "%@笔待确认";
 "balance.info.detail.show.transactions.button.title" = "查看交易记录";
 "balance.info.detail.reveice.button.title" = "收款";
@@ -122,24 +132,25 @@
 
 /* Send Page */
 "send.page.title" = "转账";
-"send.page.my.address.title" = "转出账户地址";
-"send.page.my.balance.title" = "转出账户余额";
+"send.page.my.address.title" = "我的账户地址";
+"send.page.my.balance.title" = "我的账户余额 ";
 "send.page.to.address.title" = "收款地址";
 "send.page.amount.title" = "金额";
 "send.page.remark.title" = "备注";
 "send.page.send.button.title" = "转账";
 "send.page.amount.toolbar.button.title" = "下一项";
 "send.page.toast.send.success" = "支付成功";
+"send.page.toast.send.failed" = "转账失败，请稍后重试";
 "send.page.toast.address.error" = "收款地址格式错误";
 "send.page.toast.amount.error" = "账户余额不足";
 "send.page.toast.amount.empty" = "请填写金额";
-"send.page.toast.amount.zero" = "金额必须大于0";
+"send.page.toast.amount.zero" = "转账金额不能为0";
 "send.page.not.enough.balance.alert.title" = "账户余额不足";
 "send.page.not.enough.balance.alert.button" = "取消交易";
 "send.page.confirm.biometryAuthFailed.title" = "无法识别";
 "send.page.confirm.biometryAuthFailed.back" = "返回";
 "send.page.confirm.passwordAuthFailed.retry" = "重试";
-
+"send.page.token.info.error" = "代币信息错误";
 
 /* Confirm Transaction Page */
 "confirm.transaction.page.title" = "支付";
@@ -151,21 +162,26 @@
 "confirm.transaction.page.toast.password.error" = "密码错误";
 
 /* Receive Page */
-"Receive.page.title" = "收款";
-"Receive.page.token.name.label" = "请转入 %@";
-"Receive.page.token.amount.button.title" = "指定金额";
+"Receive.page.token.title" = "收款";
+"Receive.page.mine.title" = "我的二维码";
+"Receive.page.token.name.label" = "扫二维码向我转入 %@";
+"Receive.page.token.amount.button.title" = "设置金额";
 "Receive.page.token.note.label" = "备注";
 "Receive.page.token.amount.alert.title" = "输入金额";
 
 /* Scan Page */
-"Scan.page.title" = "扫码";
+"Scan.page.title" = "扫一扫";
+"Scan.page.qccode.not.identifiable" = "二维码不可识别";
+"Scan.page.qccode.not.found" = "未发现二维码";
 
 /* System */
 "system.page.logout.loading" = "退出中";
 "system.page.cell.change.language" = "语言选择";
-"system.page.cell.login.pwd" = "输入密码唤起APP";
-"system.page.cell.login.faceId" = "支持指纹/面部识别";
-"system.page.cell.transfer.faceId" = "转账开启指纹/面部识别";
+"system.page.cell.login.pwd" = "密码解锁";
+"system.page.cell.login.faceId" = "Face ID 解锁";
+"system.page.cell.login.touchId" = "Touch ID 解锁";
+"system.page.cell.transfer.faceId" = "使用 Face ID 转账";
+"system.page.cell.transfer.touchId" = "使用 Touch ID 转账";
 "system.page.cell.logout.title" = "退出并切换钱包";
 
 /* about us */
@@ -173,18 +189,21 @@
 "aboutUs.page.cell.blockHeight.loading.tip" = "获取中";
 "aboutUs.page.cell.version" = "版本";
 "aboutUs.page.cell.contact" = "联系我们";
-"aboutUs.page.cell.shareUs" = "分享Vite APP";
+"aboutUs.page.cell.shareUs" = "分享 Vite APP";
 "aboutUs.page.cell.official.website" = "Vite 官网";
 "aboutUs.page.cell.portal.website" = "Vite 门户网站";
 "aboutUs.page.cell.blog.website" = "Vite.blog";
 "aboutUs.page.email.title" = "意见反馈";
-"aboutUs.page.email.content" = "\n\n\n\n\n意见来自以下使用环境：\n1.设备系统：%@\n2.系统版本:%@\n3.APP版本：%@\n4.语言环境：%@";
+"aboutUs.page.email.content" = "\n\n\n\n\n意见来自以下使用环境：\n1.设备系统：%@\n2.系统版本:%@\n3.APP 版本：%@\n4.语言环境：%@";
 
 /* fetch welfare */
 "fetch.welfare.page.title" = "领福利";
 "fetch.welfare.content.title" = "第一期福利";
 "fetch.welfare.content.desc" = "针对路印社区的用户的空投正在进行中\n后续不定期推出各项福利，\n敬请关注！";
 "fetch.welfare.participation.title" = "参与方式:";
-"fetch.welfare.participation.ways" = "1、在路印社区提交您的Vite地址；\n2、系统对Vite地址进行特定代币-VV的空投；\n3、在本页面请填写您的以太坊地址，确认提交，会发起一笔转给特定账户的交易，输入任意金额。\n4、特定账户收到VV后，会转给您以太坊地址等量的Vite在以太坊的ERC20的代币。";
+"fetch.welfare.participation.ways" = "1、在路印社区提交您的 Vite 地址；\n2、系统对 Vite 地址进行特定代币 VV 的空投；\n3、在本页面请填写您的以太坊地址，确认提交，会发起一笔转给特定账户的交易，输入任意金额。\n4、特定账户收到 VV 后，会转给您以太坊地址等量的 Vite 在以太坊的 ERC20 的代币。";
 "fetch.welfare.inputEthereumAddress.title" = "请填写您的以太坊地址:";
 "fetch.welfare.inputEthereumAddress.error.title" = "格式错误";
+
+/* toast error */
+"toast.error.login" = "解锁失败";

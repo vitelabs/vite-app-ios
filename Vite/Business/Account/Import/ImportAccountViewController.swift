@@ -15,7 +15,7 @@ import Vite_HDWalletKit
 
 extension ImportAccountViewController {
     private func _bindViewModel() {
-        self.importAccountVM = ImportAccountVM.init(input: (self.contentTextView, self.createNameAndPwdView.walletNameTF.textField, self.createNameAndPwdView.passwordTF.passwordInputView.textField, self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField))
+        self.importAccountVM = ImportAccountVM.init(input: (self.contentTextView.contentTextView, self.createNameAndPwdView.walletNameTF.textField, self.createNameAndPwdView.passwordTF.passwordInputView.textField, self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField))
 
         self.importAccountVM?.submitBtnEnable.drive(onNext: { (isEnabled) in
                 self.confirmBtn.isEnabled = isEnabled
@@ -47,20 +47,11 @@ class ImportAccountViewController: BaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        kas_activateAutoScrollingForView(view)
+        kas_activateAutoScrollingForView(self.contentView)
     }
 
-    lazy var contentTextView: UITextView = {
-        let contentTextView =  UITextView()
-        contentTextView.font = Fonts.Font18
-        contentTextView.backgroundColor = Colors.bgGray
-        contentTextView.textColor = Colors.descGray
-        contentTextView.text = ""
-        contentTextView.layer.masksToBounds = true
-        contentTextView.layer.cornerRadius = 2
-        contentTextView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        contentTextView.isEditable = true
-        contentTextView.isScrollEnabled = true
+    lazy var contentTextView: MnemonicTextView = {
+        let contentTextView =  MnemonicTextView(isEditable: true)
         return contentTextView
     }()
 
@@ -77,6 +68,14 @@ class ImportAccountViewController: BaseViewController {
         return confirmBtn
     }()
 
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        return scrollView
+    }()
+    lazy var contentView: UIView = {
+        let contentView = UIView()
+        return contentView
+    }()
 }
 
 extension ImportAccountViewController {
@@ -89,43 +88,61 @@ extension ImportAccountViewController {
     }
 
     private func _addViewConstraint() {
-        self.view.addSubview(self.contentTextView)
-        self.contentTextView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-            make.height.equalTo(142)
-            make.top.equalTo((self.navigationTitleView?.snp.bottom)!).offset(10)
+        self.view.addSubview(self.scrollView)
+        self.scrollView.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalTo(self.view)
+            make.top.equalTo((self.navigationTitleView?.snp.bottom)!)
         }
 
-        self.view.addSubview(self.createNameAndPwdView)
+        self.scrollView.addSubview(contentView)
+        contentView.snp.makeConstraints { (make) in
+            make.top.equalTo(scrollView)
+            make.left.right.equalTo(view)
+        }
+
+        contentView.addSubview(self.contentTextView)
+        self.contentTextView.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
+            make.height.equalTo(142)
+            make.top.equalTo(contentView)
+        }
+
+        contentView.addSubview(self.createNameAndPwdView)
         self.createNameAndPwdView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
             make.top.equalTo(self.contentTextView.snp.bottom).offset(20)
         }
 
-        self.view.addSubview(self.confirmBtn)
+        contentView.addSubview(self.confirmBtn)
         self.confirmBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
+            make.top.greaterThanOrEqualTo(createNameAndPwdView.snp.bottom).offset(20)
+            make.bottom.equalTo(self.view).offset(-50).priority(250)
+            make.bottom.equalTo(contentView)
         }
     }
 
     func goNextVC() {
-        let wallet = WalletAccount()
-        wallet.name  = self.createNameAndPwdView.walletNameTF.textField.text!.trimmingCharacters(in: .whitespaces)
-        wallet.password = self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text!.pwdEncrypt()
-        wallet.mnemonic = self.contentTextView.text
-        self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading.key.localized(), animated: true)
-        DispatchQueue.global().async {
+        let uuid = UUID().uuidString
+        let name  = self.createNameAndPwdView.walletNameTF.textField.text!.trimmingCharacters(in: .whitespaces)
+        let password = self.createNameAndPwdView.passwordRepeateTF.passwordInputView.textField.text ?? ""
+        let encryptKey = password.toEncryptKey(salt: uuid)
+        let mnemonic = ViteInputValidator.handleMnemonicStrSpacing(self.contentTextView.text)
 
-            WalletDataService.shareInstance.updateWallet(account: wallet)
-            WalletDataService.shareInstance.loginWallet(account: wallet)
+        self.view.displayLoading(text: R.string.localizable.importPageSubmitLoading.key.localized(), animated: true)
+        DispatchQueue.global().async {
+            KeychainService.instance.setCurrentWallet(uuid: uuid, encryptKey: encryptKey)
+            HDWalletManager.instance.importAddLoginWallet(uuid: uuid, name: name, mnemonic: mnemonic, encryptKey: encryptKey)
             DispatchQueue.main.async {
                 self.view.hideLoading()
                 NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
+                DispatchQueue.main.async {
+                    Toast.show(R.string.localizable.importPageSubmitSuccess.key.localized())
+                }
             }
         }
     }

@@ -39,13 +39,10 @@ extension String {
         return String(self[startIndex..<endIndex])
     }
 
-    static  func getAppVersion() -> String {
-        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        return version
+    func toEncryptKey(salt: String) -> String {
+        let index = salt.count / 2
+        let first = (salt as NSString).substring(to: index) as String
+        let second = (salt as NSString).substring(from: index) as String
+        return ((self + first).sha1() + second).sha1()
     }
-
-    func pwdEncrypt() -> String {
-        return self.md5().md5()
-    }
-
 }
