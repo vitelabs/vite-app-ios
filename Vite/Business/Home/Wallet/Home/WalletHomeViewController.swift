@@ -31,6 +31,7 @@ class WalletHomeViewController: BaseTableViewController {
 
     fileprivate func setupView() {
 
+        statisticsPageName = Statistics.Page.WalletHome.name
         let qrcodeItem = UIBarButtonItem(image: R.image.icon_nav_qrcode_black(), style: .plain, target: nil, action: nil)
         let scanItem = UIBarButtonItem(image: R.image.icon_nav_scan_black(), style: .plain, target: nil, action: nil)
         navigationItem.leftBarButtonItem = qrcodeItem

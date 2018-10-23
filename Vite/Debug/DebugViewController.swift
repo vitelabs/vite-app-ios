@@ -24,7 +24,9 @@ class DebugViewController: FormViewController {
 
         form
             +++
-            Section { _ in }
+            Section {
+                $0.header = HeaderFooterView(title: "Wallet")
+            }
             <<< LabelRow("deleteAllWallets") {
                 $0.title =  "Delete All Wallets"
             }.onCellSelection({ [unowned self]  _, _  in
@@ -40,20 +42,53 @@ class DebugViewController: FormViewController {
             })
             <<< LabelRow("resetCurrentWalletBagCount") {
                 $0.title =  "Reset Current Wallet Bag Count"
-                }.onCellSelection({ _, _  in
-                    HDWalletManager.instance.resetBagCount()
-                    Toast.show("Operation complete")
-                })
+            }.onCellSelection({ _, _  in
+                HDWalletManager.instance.resetBagCount()
+                Toast.show("Operation complete")
+            })
             <<< LabelRow("deleteTokenCache") {
                 $0.title =  "Delete Token Cache"
-                }.onCellSelection({ _, _  in
-                    TokenCacheService.instance.deleteCache()
-                    Toast.show("Operation complete")
-                })
+            }.onCellSelection({ _, _  in
+                TokenCacheService.instance.deleteCache()
+                Toast.show("Operation complete")
+            })
+            +++
+            Section {
+                $0.header = HeaderFooterView(title: "Statistics")
+            }
+            <<< LabelRow("testStatistics") {
+                $0.title =  "Test Statistics"
+            }.onCellSelection({ _, _  in
+                Statistics.log(eventId: Statistics.Page.Debug.test.rawValue)
+            })
+            <<< SwitchRow("showStatisticsToast") {
+                $0.title = "Show Statistics Toast"
+                $0.value = DebugService.instance.showStatisticsToast
+            }.onChange { row in
+                guard let ret = row.value else { return }
+                DebugService.instance.showStatisticsToast = ret
+            }
+            <<< SwitchRow("reportEventInDebug") {
+                $0.title = "Report Event In Debug"
+                $0.value = DebugService.instance.reportEventInDebug
+            }.onChange { row in
+                guard let ret = row.value else { return }
+                DebugService.instance.reportEventInDebug = ret
+            }
         #endif
     }
 
     @objc fileprivate func _onCancel() {
         dismiss(animated: true, completion: nil)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Statistics.pageviewStart(with: Statistics.Page.Debug.name)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        Statistics.pageviewEnd(with: Statistics.Page.Debug.name)
     }
 }

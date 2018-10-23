@@ -13,7 +13,6 @@ import RxOptional
 
 class AppSettingsService {
     static let instance = AppSettingsService()
-    fileprivate static let saveKey = "AppSettings"
 
     let giftTokenBehaviorRelay: BehaviorRelay<Token?> = BehaviorRelay(value: nil)
 
