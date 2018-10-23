@@ -50,6 +50,7 @@ target 'Vite' do
   pod 'Then'
   pod 'Action'
   pod 'ReusableKit'
+  pod 'ReactorKit'
 
   #code review
   pod 'SwiftLint'
