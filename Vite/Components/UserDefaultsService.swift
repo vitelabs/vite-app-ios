@@ -22,7 +22,7 @@ class UserDefaultsService {
         }
     }
 
-    func setObject(_ object: Any, forKey key: String, inCollection collection: String = "default") {
+    func setObject(_ object: Any, forKey key: String, inCollection collection: String) {
 
         var collectionDic = DictionaryType()
         if let dic = dic[collection] as? DictionaryType {
@@ -36,7 +36,7 @@ class UserDefaultsService {
         UserDefaults.standard.synchronize()
     }
 
-    func objectForKey(_ key: String, inCollection collection: String = "default") -> Any? {
+    func objectForKey(_ key: String, inCollection collection: String) -> Any? {
 
         var collectionDic = DictionaryType()
         if let dic = dic[collection] as? DictionaryType {

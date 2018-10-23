@@ -29,14 +29,7 @@ class MyHomeViewController: FormViewController {
         }
     }
 
-    let fetchGiftToken: Token? = {
-        if let string = UserDefaults.standard.string(forKey: UserDefaultsName.FetchGiftToken),
-            let token = Token(JSONString: string) {
-            return token
-        } else {
-            return nil
-        }
-    }()
+    let fetchGiftToken: Token? = AppSettingsService.instance.giftTokenBehaviorRelay.value
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

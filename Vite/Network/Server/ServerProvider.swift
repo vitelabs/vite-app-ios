@@ -32,7 +32,7 @@ class ServerProvider: MoyaProvider<ViteAPI> {
 }
 
 extension ServerProvider {
-    func getAppUpdate(completion: @escaping (NetworkResult<AppUpdateInfo>) -> Void) {
+    func getAppUpdate(completion: @escaping (NetworkResult<AppUpdateInfo?>) -> Void) {
         request(.getAppUpdate) { (result) in
             switch result {
             case .success(let response):
@@ -40,7 +40,7 @@ extension ServerProvider {
                     let info = AppUpdateInfo(JSONString: string) {
                     completion(NetworkResult.success(info))
                 } else {
-                    completion(NetworkResult.wrapError(JSONError.jsonData))
+                    completion(NetworkResult.success(nil))
                 }
             case .failure(let error):
                 completion(NetworkResult.wrapError(error))
@@ -63,7 +63,7 @@ extension ServerProvider {
         }
     }
 
-    func getAppSettingsConfig(completion: @escaping (NetworkResult<AppConfig>) -> Void) {
+    func getAppSettingsConfig(completion: @escaping (NetworkResult<AppConfig?>) -> Void) {
         request(.getAppSettingsConfig) { (result) in
             switch result {
             case .success(let response):
@@ -71,7 +71,7 @@ extension ServerProvider {
                     let appConfig = AppConfig(JSONString: string) {
                     completion(NetworkResult.success(appConfig))
                 } else {
-                    completion(NetworkResult.wrapError(JSONError.jsonData))
+                    completion(NetworkResult.success(nil))
                 }
             case .failure(let error):
                 completion(NetworkResult.wrapError(error))
@@ -122,8 +122,8 @@ extension ServerProvider {
             en_title <- map["version.en.title"]
             en_message <- map["version.en.message"]
 
-            cn_title <- map["version.cn.title"]
-            cn_message <- map["version.cn.message"]
+            cn_title <- map["version.zh-Hans.title"]
+            cn_message <- map["version.zh-Hans.message"]
         }
 
         var url: URL {
@@ -131,11 +131,11 @@ extension ServerProvider {
         }
 
         var title: String {
-            return LocalizationService.sharedInstance.currentLanguageName != "中文" ? en_title : cn_title
+            return LocalizationService.sharedInstance.currentLanguage == .chinese ? cn_title : en_title
         }
 
         var message: String {
-            return LocalizationService.sharedInstance.currentLanguageName != "中文" ? en_message : cn_message
+            return LocalizationService.sharedInstance.currentLanguage == .chinese ? cn_message : en_message
         }
     }
 

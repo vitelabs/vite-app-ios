@@ -48,24 +48,40 @@ extension ViteAPI: TargetType {
                 "channel": Constants.appDownloadChannel, ]
             #else
             let value = [
-                "version": Bundle.main.buildNumber ?? "1",
+                "version": Bundle.main.buildNumber,
                 "app": "iphone",
                 "channel": Constants.appDownloadChannel, ]
             #endif
            return .requestParameters(parameters: value, encoding: URLEncoding())
         case .getAppDefaultTokens:
+            #if DEBUG
+            let value = [
+                "version": "test",
+                "app": "iphone",
+                "channel": "token",
+                ]
+            #else
             let value = [
                 "version": "default",
                 "app": "iphone",
                 "channel": "token",
                 ]
+            #endif
             return .requestParameters(parameters: value, encoding: URLEncoding())
         case .getAppSettingsConfig:
+            #if DEBUG
             let value = [
-                "version": Bundle.main.versionNumber ?? "1.0",
+                "version": "test",
                 "app": "iphone",
                 "channel": Constants.appDownloadChannel,
                 ]
+            #else
+            let value = [
+                "version": Bundle.main.versionNumber,
+                "app": "iphone",
+                "channel": Constants.appDownloadChannel,
+                ]
+            #endif
             return .requestParameters(parameters: value, encoding: URLEncoding())
         }
     }
@@ -78,7 +94,7 @@ extension ViteAPI: TargetType {
         return [
             "Content-type": "application/json",
             "client": Bundle.main.bundleIdentifier ?? "",
-            "client-build": Bundle.main.buildNumber ?? "",
+            "client-build": Bundle.main.buildNumber,
         ]
     }
 }

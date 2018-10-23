@@ -18,8 +18,8 @@ enum BiometryAuthenticationType: CustomStringConvertible {
     var description: String {
         switch self {
         case .none: return "None"
-        case .touchID: return LocalizationStr("Touch ID")
-        case .faceID: return LocalizationStr("Face ID")
+        case .touchID: return "Touch ID"
+        case .faceID: return "Face ID"
         }
     }
 

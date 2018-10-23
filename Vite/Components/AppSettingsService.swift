@@ -19,7 +19,7 @@ class AppSettingsService {
 
     fileprivate enum Key: String {
         case collection = "AppSettings"
-        case giftToken = "giftToken"
+        case giftToken = "GiftToken"
     }
 
     private init() {
@@ -36,11 +36,13 @@ class AppSettingsService {
     fileprivate func getAppSettingsConfig() {
         ServerProvider.instance.getAppSettingsConfig { (result) in
             switch result {
-            case .success(let config):
+            case .success(let c):
                 plog(level: .debug, log: "get app settings config finished", tag: .getConfig)
-                guard config.isOpen else { return }
-                self.giftTokenBehaviorRelay.accept(config.giftToken)
-                UserDefaultsService.instance.setObject(config.giftToken?.toJSONString() ?? "", forKey: Key.giftToken.rawValue, inCollection: Key.collection.rawValue)
+                guard let config = c else { return }
+                var token = config.giftToken
+                if !config.isOpen { token = nil }
+                self.giftTokenBehaviorRelay.accept(token)
+                UserDefaultsService.instance.setObject(token?.toJSONString() ?? "", forKey: Key.giftToken.rawValue, inCollection: Key.collection.rawValue)
             case .error(let error):
                 plog(level: .warning, log: error.localizedDescription, tag: .getConfig)
                 GCD.delay(2, task: {
@@ -48,12 +50,5 @@ class AppSettingsService {
                 })
             }
         }
-    }
-}
-
-// MARK: Compatible With Ver 1.0.0
-extension AppSettingsService {
-    fileprivate func compatibleWithVer1_0_0() {
-
     }
 }

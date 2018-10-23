@@ -18,8 +18,9 @@ class AppUpdateVM: NSObject {
     static func checkUpdate() {
         ServerProvider.instance.getAppUpdate { (result) in
             switch result {
-            case .success(let info):
+            case .success(let i):
                 plog(level: .debug, log: "check app update finished", tag: .getConfig)
+                guard let info = i else { return }
                 guard info.isOpen else { return }
                 guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
                 guard let rootVC = appDelegate.window?.rootViewController else { return }

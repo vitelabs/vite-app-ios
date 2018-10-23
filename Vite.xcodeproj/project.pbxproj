@@ -17,7 +17,6 @@
 		4C105ED12141401100D483C6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105ED02141401100D483C6 /* String.swift */; };
 		4C181B06215CD5E000FB6CA8 /* AppUpdateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */; };
 		4C181B0E215CF62800FB6CA8 /* ViteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B0D215CF62800FB6CA8 /* ViteAPI.swift */; };
-		4C1BCF03215E110B008B2033 /* UserDefaultsName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1BCF02215E110B008B2033 /* UserDefaultsName.swift */; };
 		4C1BCF05215E2291008B2033 /* AppDelegate+Weixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1BCF04215E2291008B2033 /* AppDelegate+Weixin.swift */; };
 		4C1FF4F0212A74730055067D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
 		4C2284B52148BB2A003E9907 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284B42148BB2A003E9907 /* ImageCell.swift */; };
@@ -216,7 +215,6 @@
 		4C105ED02141401100D483C6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateVM.swift; sourceTree = "<group>"; };
 		4C181B0D215CF62800FB6CA8 /* ViteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteAPI.swift; sourceTree = "<group>"; };
-		4C1BCF02215E110B008B2033 /* UserDefaultsName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsName.swift; sourceTree = "<group>"; };
 		4C1BCF04215E2291008B2033 /* AppDelegate+Weixin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Weixin.swift"; sourceTree = "<group>"; };
 		4C1FF4F1212A74730055067D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4C1FF4F4212A76410055067D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -579,7 +577,6 @@
 				8EE4690C214BCE0700807D2C /* AutoGatheringService.swift */,
 				8E79261B21522BF1007FEBAB /* FetchBalanceInfoService.swift */,
 				8E792613215151E0007FEBAB /* ViteURI.swift */,
-				4C1BCF02215E110B008B2033 /* UserDefaultsName.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1645,7 +1642,6 @@
 				8E7D637B215BA857009617A0 /* ReceiveShareFooterView.swift in Sources */,
 				8ED4CECF2147C5910005A82D /* WebHandler.swift in Sources */,
 				4C84D93E21452836001B6EBD /* AffirmInputMnemonicViewController.swift in Sources */,
-				4C1BCF03215E110B008B2033 /* UserDefaultsName.swift in Sources */,
 				8E6F3E4A21451401003CDFC2 /* WalletHomeBalanceInfoTableViewModel.swift in Sources */,
 				8EE4690D214BCE0700807D2C /* AutoGatheringService.swift in Sources */,
 				8E6F3E1E2142280F003CDFC2 /* BaseTableViewCell.swift in Sources */,

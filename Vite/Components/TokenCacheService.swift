@@ -75,10 +75,13 @@ extension TokenCacheService {
             guard let `self` = self else { return }
             switch result {
             case .success(let string):
+                plog(level: .debug, log: "update default tokens finished", tag: .getConfig)
                 let json = JSON(parseJSON: string)
                 let array = json["defaults"].arrayValue
+                let tokens = array.map { $0.dictionaryObject }.compactMap { $0 }.map { Token(JSON: $0) }.compactMap { $0 }
+                guard !tokens.isEmpty else { return }
 
-                self.defaultTokens = array.map { $0.dictionaryObject }.compactMap { $0 }.map { Token(JSON: $0) }.compactMap { $0 }
+                self.defaultTokens = tokens
                 for tokenJson in array {
                     if let dic = tokenJson.dictionaryObject,
                         let id = dic["tokenId"] as? String,
@@ -87,7 +90,6 @@ extension TokenCacheService {
                     }
                 }
                 self.pri_save()
-                plog(level: .debug, log: "update default tokens finished", tag: .getConfig)
             case .error(let error):
                 plog(level: .warning, log: error.localizedDescription, tag: .getConfig)
                 GCD.delay(2, task: {
