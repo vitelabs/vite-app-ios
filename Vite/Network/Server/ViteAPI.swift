@@ -10,9 +10,9 @@ import Foundation
 import Moya
 
 enum ViteAPI {
-    case getAppUpdate([String: String])
-    case getAppSystemManageConfig([String: String])
-    case getAppDefaultTokens([String: String])
+    case getAppUpdate
+    case getAppDefaultTokens
+    case getAppSettingsConfig
 }
 
 extension ViteAPI: TargetType {
@@ -23,9 +23,9 @@ extension ViteAPI: TargetType {
         switch self {
         case .getAppUpdate:
             return "/api/version/update"
-        case .getAppSystemManageConfig:
-            return "/api/version/config"
         case .getAppDefaultTokens:
+            return "/api/version/config"
+        case .getAppSettingsConfig:
             return "/api/version/config"
         }
     }
@@ -33,18 +33,39 @@ extension ViteAPI: TargetType {
     var method: Moya.Method {
         switch self {
         case .getAppUpdate: return .get
-        case .getAppSystemManageConfig: return .get
         case .getAppDefaultTokens: return .get
+        case .getAppSettingsConfig: return .get
         }
     }
 
     var task: Task {
         switch self {
-        case .getAppUpdate(let value):
+        case .getAppUpdate:
+            #if DEBUG
+            let value = [
+                "version": "test",
+                "app": "iphone",
+                "channel": Constants.appDownloadChannel, ]
+            #else
+            let value = [
+                "version": Bundle.main.buildNumber ?? "1",
+                "app": "iphone",
+                "channel": Constants.appDownloadChannel, ]
+            #endif
            return .requestParameters(parameters: value, encoding: URLEncoding())
-        case .getAppSystemManageConfig((let value)):
+        case .getAppDefaultTokens:
+            let value = [
+                "version": "default",
+                "app": "iphone",
+                "channel": "token",
+                ]
             return .requestParameters(parameters: value, encoding: URLEncoding())
-        case .getAppDefaultTokens((let value)):
+        case .getAppSettingsConfig:
+            let value = [
+                "version": Bundle.main.versionNumber ?? "1.0",
+                "app": "iphone",
+                "channel": Constants.appDownloadChannel,
+                ]
             return .requestParameters(parameters: value, encoding: URLEncoding())
         }
     }
