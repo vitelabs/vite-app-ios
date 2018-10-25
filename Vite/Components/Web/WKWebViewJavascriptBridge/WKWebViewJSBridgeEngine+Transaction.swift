@@ -9,7 +9,7 @@
 import SwiftyJSON
 
 public extension WKWebViewJSBridgeEngine {
-    @objc func jsapi_sendTransaction(parameters: Dictionary<String, String>) {
+    @objc func jsapi_sendTransaction(parameters: [String: String], callbackID: String) {
 
         let str = parameters["data"]
         let json = JSON(parseJSON: str ?? "{}").dictionaryValue

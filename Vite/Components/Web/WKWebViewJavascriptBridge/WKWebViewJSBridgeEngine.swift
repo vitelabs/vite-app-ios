@@ -12,20 +12,6 @@ protocol WKWebViewJSBridgeEngineDelegate: AnyObject {
     func evaluateJavascript(javascript: String)
 }
 
-protocol TargetAction {
-    func performAction()
-}
-struct TargetActionWrapper<T: AnyObject> : TargetAction {
-    weak var target: T?
-    let action: (T) -> () -> Void
-
-    func performAction() {
-        if let t = target {
-            action(t)()
-        }
-    }
-}
-
 @available(iOS 9.0, *)
 public class WKWebViewJSBridgeEngine: NSObject {
     public typealias Callback = (_ responseData: Any?) -> Void
@@ -62,6 +48,10 @@ public class WKWebViewJSBridgeEngine: NSObject {
         queue(message: message)
     }
 
+    func sendResponds(_ message: Message) {
+        self.queue(message: message)
+    }
+
     func flush(messageQueueString: String) {
         guard let messages = deserialize(messageJSON: messageQueueString) else {
             plog(level: .debug, log: messageQueueString, tag: .web)
@@ -76,7 +66,7 @@ public class WKWebViewJSBridgeEngine: NSObject {
                 callback(message["responseData"])
                 responseCallbacks.removeValue(forKey: responseID)
             } else {
-                var callback: Callback?
+                var  callback: Callback?
                 if let callbackID = message["callbackID"] {
                     callback = { (_ responseData: Any?) -> Void in
                         let msg = ["responseID": callbackID, "responseData": responseData ?? NSNull()] as Message
@@ -86,14 +76,15 @@ public class WKWebViewJSBridgeEngine: NSObject {
                     callback = { (_ responseData: Any?) -> Void in
                         // no logic
                     }
+                    return
                 }
 
                 guard let handlerName = message["handlerName"] as? String else { return }
 
-                let aSel: Selector = NSSelectorFromString("jsapi_" + handlerName+("WithParameters:"))
+                let aSel: Selector = NSSelectorFromString("jsapi_" + handlerName+("WithParameters:callbackID:"))//
                 let isResponds = self.responds(to: aSel)
                 if isResponds {
-                    self.perform(aSel, with: message["data"] as? [String: Any])
+                    self.perform(aSel, with: message["data"] as? [String: Any], with: message["callbackID"])
                 } else {
                     guard let handler = messageHandlers[handlerName] else {
                         plog(level: .debug, log: "NoHandlerException, No handler for message from JS: \(message)", tag: .web)
@@ -103,23 +94,10 @@ public class WKWebViewJSBridgeEngine: NSObject {
                 }
             }
         }
-
     }
 
-//    @objc func jsapi_sendTransaction(parameters: Dictionary<String, String>) {
-        //        let sendViewController = SendViewController.init(token: token!, address: Address.init(string: address), amount: amount?.toBigInt(decimals: 2), note: note)
-        //        self.navigationController?.pushViewController(sendViewController, animated: true)
-        //
-        //        let sendViewController = SendViewController(token: token, address: Address(string: "vite_aab205c8048a74dc54832285177d2bf983f265ce46fe04e23f"), amount: nil, note: "{\"address\":\"\(address)\"}", noteCanEdit: false)
-        //        guard var viewControllers = navigationController?.viewControllers else { return }
-        //        _ = viewControllers.popLast()
-        //        viewControllers.append(sendViewController)
-        //        self.navigationController?.setViewControllers(viewControllers, animated: true)
-
-//    }
-
     func injectJavascriptFile() {
-        let js = InjectJavascriptBridgeJS
+        let js = InjectJSBridgeJS
         delegate?.evaluateJavascript(javascript: js)
     }
 
@@ -132,6 +110,7 @@ public class WKWebViewJSBridgeEngine: NSObject {
         }
     }
 
+    // MARK: - Private
     private func dispatch(message: Message) {
         guard var messageJSON = serialize(message: message, pretty: false) else { return }
 
@@ -166,7 +145,7 @@ public class WKWebViewJSBridgeEngine: NSObject {
         return result
     }
 
-    private func deserialize(messageJSON: String) -> [Message]? {
+  private func deserialize(messageJSON: String) -> [Message]? {
         var result = [Message]()
         guard let data = messageJSON.data(using: .utf8) else { return nil }
         do {

@@ -16,12 +16,14 @@ public class WKWebViewJSBridge: NSObject {
 
     private weak var webView: WKWebView?
     private var base: WKWebViewJSBridgeEngine!
+    private var publish: WKWebViewJSBridgePublish!
 
     public init(webView: WKWebView) {
         super.init()
         self.webView = webView
         base = WKWebViewJSBridgeEngine()
         base.delegate = self
+        publish = WKWebViewJSBridgePublish.init(bridge: self)
         addScriptMessageHandlers()
     }
 

@@ -33,10 +33,12 @@
 		4C32E1ED217DA52F00007E9F /* WKWebViewJSBridgeEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E1EC217DA52F00007E9F /* WKWebViewJSBridgeEngine.swift */; };
 		4C32E1EF217DAA4500007E9F /* InjectJSBridgeJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E1EE217DAA4500007E9F /* InjectJSBridgeJS.swift */; };
 		4C32E1F1217DAB8F00007E9F /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E1F0217DAB8F00007E9F /* WKWebViewController.swift */; };
-		4C32E1F5217F0E3400007E9F /* WebBridgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E1F4217F0E3400007E9F /* WebBridgeManager.swift */; };
 		4C32E1F7217F126B00007E9F /* WKWebViewJSBridgeEngine+Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E1F6217F126B00007E9F /* WKWebViewJSBridgeEngine+Account.swift */; };
 		4C32E1F9217F12B900007E9F /* WKWebViewJSBridgeEngine+Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E1F8217F12B900007E9F /* WKWebViewJSBridgeEngine+Transaction.swift */; };
 		4C32E1FB217F2DF500007E9F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E1FA217F2DF500007E9F /* Route.swift */; };
+		4C32E1FF2180520B00007E9F /* WKWebViewJSBridgeEngine+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E1FE2180520B00007E9F /* WKWebViewJSBridgeEngine+App.swift */; };
+		4C32E2012180661900007E9F /* WebToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E2002180661900007E9F /* WebToolBarView.swift */; };
+		4C32E20321806C5200007E9F /* WKWebViewJSBridgePublish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E20221806C5200007E9F /* WKWebViewJSBridgePublish.swift */; };
 		4C3E323F215492AC009936E3 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E323E215492AC009936E3 /* Bundle.swift */; };
 		4C3F3F6E217731900022A8CC /* MnemonicTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F3F6D217731900022A8CC /* MnemonicTextView.swift */; };
 		4C745494214D0A9D0070F7AB /* TitleBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C745493214D0A9D0070F7AB /* TitleBtnView.swift */; };
@@ -239,10 +241,12 @@
 		4C32E1EC217DA52F00007E9F /* WKWebViewJSBridgeEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewJSBridgeEngine.swift; sourceTree = "<group>"; };
 		4C32E1EE217DAA4500007E9F /* InjectJSBridgeJS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectJSBridgeJS.swift; sourceTree = "<group>"; };
 		4C32E1F0217DAB8F00007E9F /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
-		4C32E1F4217F0E3400007E9F /* WebBridgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBridgeManager.swift; sourceTree = "<group>"; };
 		4C32E1F6217F126B00007E9F /* WKWebViewJSBridgeEngine+Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebViewJSBridgeEngine+Account.swift"; sourceTree = "<group>"; };
 		4C32E1F8217F12B900007E9F /* WKWebViewJSBridgeEngine+Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebViewJSBridgeEngine+Transaction.swift"; sourceTree = "<group>"; };
 		4C32E1FA217F2DF500007E9F /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		4C32E1FE2180520B00007E9F /* WKWebViewJSBridgeEngine+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebViewJSBridgeEngine+App.swift"; sourceTree = "<group>"; };
+		4C32E2002180661900007E9F /* WebToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebToolBarView.swift; sourceTree = "<group>"; };
+		4C32E20221806C5200007E9F /* WKWebViewJSBridgePublish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewJSBridgePublish.swift; sourceTree = "<group>"; };
 		4C3E323E215492AC009936E3 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		4C3F3F6D217731900022A8CC /* MnemonicTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicTextView.swift; sourceTree = "<group>"; };
 		4C745493214D0A9D0070F7AB /* TitleBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBtnView.swift; sourceTree = "<group>"; };
@@ -570,7 +574,7 @@
 			children = (
 				4C32E1E9217DA4AC00007E9F /* WKWebViewJavascriptBridge */,
 				4C32E1F0217DAB8F00007E9F /* WKWebViewController.swift */,
-				4C32E1F4217F0E3400007E9F /* WebBridgeManager.swift */,
+				4C32E2002180661900007E9F /* WebToolBarView.swift */,
 			);
 			path = Web;
 			sourceTree = "<group>";
@@ -580,8 +584,10 @@
 			children = (
 				4C32E1EA217DA4E700007E9F /* WKWebViewJSBridge.swift */,
 				4C32E1EC217DA52F00007E9F /* WKWebViewJSBridgeEngine.swift */,
+				4C32E1FE2180520B00007E9F /* WKWebViewJSBridgeEngine+App.swift */,
 				4C32E1F6217F126B00007E9F /* WKWebViewJSBridgeEngine+Account.swift */,
 				4C32E1F8217F12B900007E9F /* WKWebViewJSBridgeEngine+Transaction.swift */,
+				4C32E20221806C5200007E9F /* WKWebViewJSBridgePublish.swift */,
 				4C32E1EE217DAA4500007E9F /* InjectJSBridgeJS.swift */,
 			);
 			path = WKWebViewJavascriptBridge;
@@ -1513,6 +1519,7 @@
 				8E6F3DFF2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift in Sources */,
 				8E107EDB215A589200B28DE2 /* SendAddressView.swift in Sources */,
 				8EE46916214BD1AF00807D2C /* AccountBlock.swift in Sources */,
+				4C32E2012180661900007E9F /* WebToolBarView.swift in Sources */,
 				8E7D636E215B76D1009617A0 /* ReceiveHeaderView.swift in Sources */,
 				4CFD6CC12154BF4C00437F33 /* FetchWelfareCardView.swift in Sources */,
 				4C105EBF213FCAD500D483C6 /* UIColor.swift in Sources */,
@@ -1540,6 +1547,7 @@
 				8EE468F4214A2BAD00807D2C /* AddressManageAddressHeaderCell.swift in Sources */,
 				8E107ED5215A1D7900B28DE2 /* QRCodeHelper.swift in Sources */,
 				8E6F3E202142280F003CDFC2 /* BaseNavigationController.swift in Sources */,
+				4C32E1FF2180520B00007E9F /* WKWebViewJSBridgeEngine+App.swift in Sources */,
 				4C84D949214528D4001B6EBD /* CreateAccountHomeVM.swift in Sources */,
 				8E56FC8921466E8C00A68823 /* UnConfirmedInfo.swift in Sources */,
 				4C105EBC213FCA7400D483C6 /* Colors.swift in Sources */,
@@ -1648,6 +1656,7 @@
 				8E107EDF215B27F500B28DE2 /* SendNoteView.swift in Sources */,
 				8E107ECD2153656C00B28DE2 /* Provider+Transaction.swift in Sources */,
 				4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */,
+				4C32E20321806C5200007E9F /* WKWebViewJSBridgePublish.swift in Sources */,
 				4CC4F451214CCB5B0068DA53 /* TitlePasswordInputView.swift in Sources */,
 				4C84D95C21466C1B001B6EBD /* AccountLoginResult.swift in Sources */,
 				8E7D6374215B7FBB009617A0 /* ReceiveFooterView.swift in Sources */,
@@ -1663,7 +1672,6 @@
 				4CC7538B215B5C2D0009CA0E /* SystemViewModel.swift in Sources */,
 				74B3F87A2176E92D002FA14F /* UIImagePickerController+Rx.swift in Sources */,
 				8E56FC8521466C3200A68823 /* TransactionListViewController.swift in Sources */,
-				4C32E1F5217F0E3400007E9F /* WebBridgeManager.swift in Sources */,
 				4C32E1F1217DAB8F00007E9F /* WKWebViewController.swift in Sources */,
 				8EE46912214BCF2600807D2C /* GetUnconfirmedTransactionRequest.swift in Sources */,
 				8E7D637B215BA857009617A0 /* ReceiveShareFooterView.swift in Sources */,

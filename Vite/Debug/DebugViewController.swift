@@ -60,7 +60,7 @@ class DebugViewController: FormViewController {
             <<< LabelRow("webBridge") {
                 $0.title =  "web Bridge"
             }.onCellSelection({ _, _  in
-                let url = URL.init(string: "http://127.0.0.1/test.html")!
+                let url = URL.init(string: "http://192.168.31.224/test.html")!
                 let web = WKWebViewController.init(url: url)
                     self.navigationController?.pushViewController(web, animated: true)
                 })

@@ -32,14 +32,14 @@ PODS:
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - ObjectMapper (3.3.0)
-  - PromiseKit (6.4.1):
-    - PromiseKit/CorePromise (= 6.4.1)
-    - PromiseKit/Foundation (= 6.4.1)
-    - PromiseKit/UIKit (= 6.4.1)
-  - PromiseKit/CorePromise (6.4.1)
-  - PromiseKit/Foundation (6.4.1):
+  - PromiseKit (6.5.2):
+    - PromiseKit/CorePromise (= 6.5.2)
+    - PromiseKit/Foundation (= 6.5.2)
+    - PromiseKit/UIKit (= 6.5.2)
+  - PromiseKit/CorePromise (6.5.2)
+  - PromiseKit/Foundation (6.5.2):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.4.1):
+  - PromiseKit/UIKit (6.5.2):
     - PromiseKit/CorePromise
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
@@ -74,7 +74,7 @@ PODS:
     - BigInt (~> 3.0)
     - CryptoSwift (~> 0.12.0)
     - TrezorCryptoEd25519WithBlake2b (~> 0.0.1)
-  - WechatOpenSDK (1.8.2)
+  - WechatOpenSDK (1.8.3)
   - XCGLogger (6.1.0):
     - XCGLogger/Core (= 6.1.0)
   - XCGLogger/Core (6.1.0):
@@ -185,7 +185,7 @@ SPEC CHECKSUMS:
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
-  PromiseKit: 4c76a6506638034e3d7bede97b2ff7743f7bd2dc
+  PromiseKit: 27c1601bfb73405871b805bcb8cf7e55c4dad3db
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   ReactorKit: 18ca466f1e77fef1827addeb921fba8ae14edd63
@@ -204,7 +204,7 @@ SPEC CHECKSUMS:
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
   Vite_HDWalletKit: 90bf90b7092cc483ae9eda3385e96ed5be3aca22
-  WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
+  WechatOpenSDK: 3117412f8aafde4758cac1e8d20b93c67cafcfef
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
 PODFILE CHECKSUM: a43a9782f05e140b15b6ffc7b672492387bcf237
