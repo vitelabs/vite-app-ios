@@ -85,11 +85,11 @@ class WKWebViewController: UIViewController, WKNavigationDelegate {
     }
 
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("webViewDidStartLoad")
+        plog(level: .debug, log: "webViewDidStartLoad: \(String(describing: webView.url?.absoluteString))", tag: .web)
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("webViewDidFinishLoad")
+        plog(level: .debug, log: "webViewDidFinishLoad: \(String(describing: webView.url?.absoluteString))", tag: .web)
     }
 }
 extension WKWebViewController {

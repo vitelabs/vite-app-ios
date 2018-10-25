@@ -23,7 +23,7 @@ struct WebHandler {
 
     static func openTranscationDetailPage(hash: String) {
         var host = "https://testnet.vite.net"
-        if LocalizationService.sharedInstance.currentLanguageName != "English" {
+        if LocalizationService.sharedInstance.currentLanguage == .chinese {
             host = "\(host)/zh"
         }
         let url = URL(string: "\(host)/transaction/\(hash)")!

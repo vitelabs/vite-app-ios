@@ -12,6 +12,7 @@ import RxSwift
 
 class BaseViewController: UIViewController {
 
+    var statisticsPageName: String?
     var automaticallyShowDismissButton: Bool = true
     var navigationBarStyle = NavigationBarStyle.default
     var navigationTitleView: NavigationTitleView? {
@@ -101,5 +102,19 @@ class BaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NavigationBarStyle.configStyle(navigationBarStyle, viewController: self)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let name = statisticsPageName {
+            Statistics.pageviewStart(with: name)
+        }
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let name = statisticsPageName {
+            Statistics.pageviewEnd(with: name)
+        }
     }
 }

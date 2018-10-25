@@ -12,11 +12,8 @@ struct Route {
         var window = UIApplication.shared.keyWindow
         if window?.windowLevel != UIWindowLevelNormal {
             let windows = UIApplication.shared.windows
-            for  windowTemp in windows {
-                if windowTemp.windowLevel == UIWindowLevelNormal {
+            for  windowTemp in windows where windowTemp.windowLevel == UIWindowLevelNormal {
                     window = windowTemp
-                    break
-                }
             }
         }
 

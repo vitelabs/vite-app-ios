@@ -107,7 +107,39 @@ class ViteNetworkTests: XCTestCase {
             Provider.instance.getTokenForId("tti_000000000000000000004cfd", completion: { result in
                 switch result {
                 case .success(let token):
-                    print("🏆\(token)")
+                    if let token = token {
+                        print("🏆\(token)")
+                    } else {
+                        print("🏆 token not found")
+                    }
+                case .error(let error):
+                    print("🤯🤯🤯🤯🤯🤯\(error)")
+                }
+                completion()
+            })
+        }
+    }
+
+    func testGetAppUpdate() {
+        async { (completion) in
+            ServerProvider.instance.getAppUpdate(completion: { (result) in
+                switch result {
+                case .success(let info):
+                    print("🏆\(info)")
+                case .error(let error):
+                    print("🤯🤯🤯🤯🤯🤯\(error)")
+                }
+                completion()
+            })
+        }
+    }
+
+    func testGetAppSettingsConfig() {
+        async { (completion) in
+            ServerProvider.instance.getAppSettingsConfig(completion: { (result) in
+                switch result {
+                case .success(let config):
+                    print("🏆\(config)")
                 case .error(let error):
                     print("🤯🤯🤯🤯🤯🤯\(error)")
                 }
@@ -118,15 +150,13 @@ class ViteNetworkTests: XCTestCase {
 
     func testGetDefaultTokens() {
         async { (completion) in
-            let manager = Manager(configuration: URLSessionConfiguration.default,
-                                  serverTrustPolicyManager: ServerTrustPolicyManager(policies: [:]))
-            let provider =  MoyaProvider<ViteAPI>(manager: manager)
-            let viteAppServiceRequest = ViteAppServiceRequest(provider: provider)
-            viteAppServiceRequest.getDefaultTokens().done { string in
-                print(string)
-                completion()
-            }.catch({ (error) in
-                print(error)
+            ServerProvider.instance.getAppDefaultTokens(completion: { (result) in
+                switch result {
+                case .success(let string):
+                    print("🏆\(string)")
+                case .error(let error):
+                    print("🤯🤯🤯🤯🤯🤯\(error)")
+                }
                 completion()
             })
         }
