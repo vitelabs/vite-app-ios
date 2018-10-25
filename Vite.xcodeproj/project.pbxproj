@@ -103,6 +103,9 @@
 		8E548540217F2778009C528B /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54853F217F2778009C528B /* Statistics.swift */; };
 		8E548543217F33B0009C528B /* Statistics+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E548542217F33B0009C528B /* Statistics+Event.swift */; };
 		8E548545217F51D3009C528B /* DebugService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E548544217F51D3009C528B /* DebugService.swift */; };
+		8E54854721804D65009C528B /* GetPledgeDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54854621804D65009C528B /* GetPledgeDataRequest.swift */; };
+		8E54854A21805185009C528B /* GetPledgeQuotaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54854921805185009C528B /* GetPledgeQuotaRequest.swift */; };
+		8E54854E21816C55009C528B /* QuotaManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54854D21816C55009C528B /* QuotaManageViewController.swift */; };
 		8E56FC78214643B300A68823 /* WalletHomeBalanceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */; };
 		8E56FC7A21464A8500A68823 /* BalanceInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC7921464A8500A68823 /* BalanceInfoDetailView.swift */; };
 		8E56FC7D214656A700A68823 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC7C214656A700A68823 /* UIView+Helper.swift */; };
@@ -163,6 +166,8 @@
 		8E7D6379215BA7ED009617A0 /* ReceiveShareHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D6378215BA7ED009617A0 /* ReceiveShareHeaderView.swift */; };
 		8E7D637B215BA857009617A0 /* ReceiveShareFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D637A215BA857009617A0 /* ReceiveShareFooterView.swift */; };
 		8E7D637D215C756D009617A0 /* InputLimitsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D637C215C756D009617A0 /* InputLimitsHelper.swift */; };
+		8E8318132181C1CB002CB07F /* GetPledgesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8318122181C1CB002CB07F /* GetPledgesRequest.swift */; };
+		8E8318152181C1F3002CB07F /* Pledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8318142181C1F3002CB07F /* Pledge.swift */; };
 		8E93C255217747DF00185FDE /* ViewControllerDataStatusable+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E93C254217747DF00185FDE /* ViewControllerDataStatusable+Style.swift */; };
 		8E93C26821782DB700185FDE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E93C26A21782DB700185FDE /* InfoPlist.strings */; };
 		8EBDD8022150F4AB00D65BCD /* GetTokenInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBDD8012150F4AB00D65BCD /* GetTokenInfoRequest.swift */; };
@@ -324,6 +329,9 @@
 		8E54853F217F2778009C528B /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		8E548542217F33B0009C528B /* Statistics+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Statistics+Event.swift"; sourceTree = "<group>"; };
 		8E548544217F51D3009C528B /* DebugService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugService.swift; sourceTree = "<group>"; };
+		8E54854621804D65009C528B /* GetPledgeDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPledgeDataRequest.swift; sourceTree = "<group>"; };
+		8E54854921805185009C528B /* GetPledgeQuotaRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPledgeQuotaRequest.swift; sourceTree = "<group>"; };
+		8E54854D21816C55009C528B /* QuotaManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotaManageViewController.swift; sourceTree = "<group>"; };
 		8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletHomeBalanceInfoCell.swift; sourceTree = "<group>"; };
 		8E56FC7921464A8500A68823 /* BalanceInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceInfoDetailView.swift; sourceTree = "<group>"; };
 		8E56FC7C214656A700A68823 /* UIView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helper.swift"; sourceTree = "<group>"; };
@@ -384,6 +392,8 @@
 		8E7D6378215BA7ED009617A0 /* ReceiveShareHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveShareHeaderView.swift; sourceTree = "<group>"; };
 		8E7D637A215BA857009617A0 /* ReceiveShareFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveShareFooterView.swift; sourceTree = "<group>"; };
 		8E7D637C215C756D009617A0 /* InputLimitsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputLimitsHelper.swift; sourceTree = "<group>"; };
+		8E8318122181C1CB002CB07F /* GetPledgesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPledgesRequest.swift; sourceTree = "<group>"; };
+		8E8318142181C1F3002CB07F /* Pledge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pledge.swift; sourceTree = "<group>"; };
 		8E93C254217747DF00185FDE /* ViewControllerDataStatusable+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewControllerDataStatusable+Style.swift"; sourceTree = "<group>"; };
 		8E93C26921782DB700185FDE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8E93C26B21782DB900185FDE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -503,13 +513,6 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
-		4C2284B32148BAF5003E9907 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		4C2284B62148BC0A003E9907 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,13 +533,13 @@
 			path = System;
 			sourceTree = "<group>";
 		};
-		4C2284BC21490E63003E9907 /* Manage */ = {
+		4C2284BC21490E63003E9907 /* ManageWallet */ = {
 			isa = PBXGroup;
 			children = (
 				4C9AFD57214E2FF2005B12C2 /* View */,
 				4C2284BD21490E79003E9907 /* ManageWalletViewController.swift */,
 			);
-			path = Manage;
+			path = ManageWallet;
 			sourceTree = "<group>";
 		};
 		4C2A191B2151321300C51CE8 /* View */ = {
@@ -906,8 +909,9 @@
 				8E79C6EB214E5DCE00FAEEBC /* GetLatestSnapshotHashRequest.swift */,
 				8EE46921214D017200807D2C /* GetLatestAccountBlockRequest.swift */,
 				8E0FB6A1217468AE001525EB /* GetPowNonceRequest.swift */,
-				8EE4691B214CAD6600807D2C /* CreateTransactionRequest.swift */,
 				8EBDD8012150F4AB00D65BCD /* GetTokenInfoRequest.swift */,
+				8EE4691B214CAD6600807D2C /* CreateTransactionRequest.swift */,
+				8E54854821804D7D009C528B /* Pledge */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -916,8 +920,8 @@
 			isa = PBXGroup;
 			children = (
 				8EE4690E214BCEC100807D2C /* Provider.swift */,
-				8E107ECC2153656C00B28DE2 /* Provider+Transaction.swift */,
 				8E107ECE215365F000B28DE2 /* Provider+Account.swift */,
+				8E107ECC2153656C00B28DE2 /* Provider+Transaction.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -951,6 +955,33 @@
 				8E548542217F33B0009C528B /* Statistics+Event.swift */,
 			);
 			path = Statistics;
+			sourceTree = "<group>";
+		};
+		8E54854821804D7D009C528B /* Pledge */ = {
+			isa = PBXGroup;
+			children = (
+				8E54854621804D65009C528B /* GetPledgeDataRequest.swift */,
+				8E54854921805185009C528B /* GetPledgeQuotaRequest.swift */,
+				8E8318122181C1CB002CB07F /* GetPledgesRequest.swift */,
+			);
+			path = Pledge;
+			sourceTree = "<group>";
+		};
+		8E54854F21816C64009C528B /* QuotaManage */ = {
+			isa = PBXGroup;
+			children = (
+				8E54854D21816C55009C528B /* QuotaManageViewController.swift */,
+			);
+			path = QuotaManage;
+			sourceTree = "<group>";
+		};
+		8E54855021817314009C528B /* MyHome */ = {
+			isa = PBXGroup;
+			children = (
+				8E6F3E2721422BA1003CDFC2 /* MyHomeViewController.swift */,
+				4C2284B62148BC0A003E9907 /* View */,
+			);
+			path = MyHome;
 			sourceTree = "<group>";
 		};
 		8E56FC7B21464A8B00A68823 /* Views */ = {
@@ -1035,6 +1066,7 @@
 				8EE46915214BD1AF00807D2C /* AccountBlock.swift */,
 				8E6F3E0D2141244F003CDFC2 /* BalanceType.swift */,
 				8E6F3E0621411650003CDFC2 /* Transaction.swift */,
+				8E8318142181C1F3002CB07F /* Pledge.swift */,
 				8E6F3E4B214516B0003CDFC2 /* Token.swift */,
 				8E6F3E4D21451806003CDFC2 /* BalanceInfo.swift */,
 				8E56FC8821466E8C00A68823 /* UnConfirmedInfo.swift */,
@@ -1085,12 +1117,11 @@
 		8E6F3E2621422AEE003CDFC2 /* My */ = {
 			isa = PBXGroup;
 			children = (
-				4C2284BC21490E63003E9907 /* Manage */,
-				4C2284B62148BC0A003E9907 /* View */,
-				4C2284B32148BAF5003E9907 /* Cell */,
-				8E6F3E2721422BA1003CDFC2 /* MyHomeViewController.swift */,
+				8E54855021817314009C528B /* MyHome */,
+				4C2284BC21490E63003E9907 /* ManageWallet */,
 				8E56FC8E2147639F00A68823 /* TransactionList */,
 				8EE468E121493A8E00807D2C /* AddressManage */,
+				8E54854F21816C64009C528B /* QuotaManage */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -1518,6 +1549,7 @@
 				8EE468E6214A077D00807D2C /* AddressManagerTableViewModelType.swift in Sources */,
 				8E6F3E3A2144C3B5003CDFC2 /* BalanceInfoDetailViewController.swift in Sources */,
 				8E548534217DA62B009C528B /* UserDefaultsService.swift in Sources */,
+				8E54854E21816C55009C528B /* QuotaManageViewController.swift in Sources */,
 				740C3E52214CB832005FCD24 /* ConfirmTransactionView.swift in Sources */,
 				8ED4CED7214900240005A82D /* UIViewControllerExtension.swift in Sources */,
 				8EBDD8022150F4AB00D65BCD /* GetTokenInfoRequest.swift in Sources */,
@@ -1531,6 +1563,7 @@
 				8ED4CECC2147C4A60005A82D /* SafariViewController.swift in Sources */,
 				8E79261C21522BF1007FEBAB /* FetchBalanceInfoService.swift in Sources */,
 				8E56FC9C2147A9CE00A68823 /* DateExtension.swift in Sources */,
+				8E54854721804D65009C528B /* GetPledgeDataRequest.swift in Sources */,
 				8E0FB69F217053D6001525EB /* DebugViewController.swift in Sources */,
 				8EE468F4214A2BAD00807D2C /* AddressManageAddressHeaderCell.swift in Sources */,
 				8E107ED5215A1D7900B28DE2 /* QRCodeHelper.swift in Sources */,
@@ -1580,6 +1613,7 @@
 				8E79C6E8214D392900FAEEBC /* FileHelper.swift in Sources */,
 				8E54853A217DB936009C528B /* ServerProvider.swift in Sources */,
 				4C84D96421469FFA001B6EBD /* ImportAccountVM.swift in Sources */,
+				8E8318132181C1CB002CB07F /* GetPledgesRequest.swift in Sources */,
 				8E6F3E5221453333003CDFC2 /* WalletHomeBalanceInfoViewModelType.swift in Sources */,
 				8E6F3E5021451F29003CDFC2 /* GetBalanceInfosRequest.swift in Sources */,
 				8E6F3E0E2141244F003CDFC2 /* BalanceType.swift in Sources */,
@@ -1651,6 +1685,7 @@
 				8E6F3E2221422A83003CDFC2 /* HomeViewController.swift in Sources */,
 				4CC7538F215B924F0009CA0E /* LockPwdViewController.swift in Sources */,
 				8E6F3E422144CA49003CDFC2 /* WalletHomeAddressViewModel.swift in Sources */,
+				8E8318152181C1F3002CB07F /* Pledge.swift in Sources */,
 				8E56FC7A21464A8500A68823 /* BalanceInfoDetailView.swift in Sources */,
 				4C2284C321493087003E9907 /* ExportMnemonicViewController.swift in Sources */,
 				4CC75386215A56950009CA0E /* Constants.swift in Sources */,
@@ -1679,6 +1714,7 @@
 				8EE4691C214CAD6600807D2C /* CreateTransactionRequest.swift in Sources */,
 				4C9AFD59214E2FF2005B12C2 /* ManageWalletHeaderView.swift in Sources */,
 				8E56FC932147686700A68823 /* TransactionListTableViewModel.swift in Sources */,
+				8E54854A21805185009C528B /* GetPledgeQuotaRequest.swift in Sources */,
 				8E107EDD215A61B500B28DE2 /* SendAmountView.swift in Sources */,
 				4CEB2926214B968000E5F7F4 /* UIView+Loading.swift in Sources */,
 			);

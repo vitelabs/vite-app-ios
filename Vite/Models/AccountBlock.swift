@@ -70,7 +70,7 @@ struct AccountBlock: Mappable {
         fromHash <- map["fromBlockHash"]
         tokenId <- map["tokenId"]
         snapshotHash <- map["snapshotHash"]
-        data <- (map["data"], JSONTransformer.stringToBase64)
+        data <- map["data"]
         timestamp <- map["timestamp"]
         logHash <- map["logHash"]
         nonce <- (map["nonce"], JSONTransformer.hexTobase64)
@@ -93,7 +93,7 @@ extension AccountBlock {
                                      tokenId: String,
                                      amount: BigInt,
                                      data: String?,
-                                     nonce: String) -> AccountBlock {
+                                     nonce: String?) -> AccountBlock {
         var block = makeBaseAccountBlock(latest: latest, bag: bag, snapshotHash: snapshotHash, nonce: nonce)
 
         block.type = .send
@@ -134,7 +134,7 @@ extension AccountBlock {
     fileprivate static func makeBaseAccountBlock(latest: AccountBlock,
                                                  bag: HDWalletManager.Bag,
                                                  snapshotHash: String,
-                                                 nonce: String) -> AccountBlock {
+                                                 nonce: String?) -> AccountBlock {
         var block = AccountBlock()
         block.prevHash = latest.hash ?? "0000000000000000000000000000000000000000000000000000000000000000"
 
@@ -209,8 +209,8 @@ extension AccountBlock {
             source.append(contentsOf: snapshotHash.hex2Bytes)
         }
 
-        if let data = accountBlock.data {
-            source.append(contentsOf: data.bytes)
+        if let data = accountBlock.data, let ret = Data(base64Encoded: data) {
+            source.append(contentsOf: ret)
         }
 
         if let timestamp = accountBlock.timestamp {

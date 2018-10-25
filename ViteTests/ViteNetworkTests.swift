@@ -119,7 +119,9 @@ class ViteNetworkTests: XCTestCase {
             })
         }
     }
+}
 
+extension ViteNetworkTests {
     func testGetAppUpdate() {
         async { (completion) in
             ServerProvider.instance.getAppUpdate(completion: { (result) in
@@ -139,7 +141,7 @@ class ViteNetworkTests: XCTestCase {
             ServerProvider.instance.getAppSettingsConfig(completion: { (result) in
                 switch result {
                 case .success(let config):
-                    print("🏆\(config)")
+                    print("🏆\(String(describing: config))")
                 case .error(let error):
                     print("🤯🤯🤯🤯🤯🤯\(error)")
                 }
@@ -154,6 +156,22 @@ class ViteNetworkTests: XCTestCase {
                 switch result {
                 case .success(let string):
                     print("🏆\(string)")
+                case .error(let error):
+                    print("🤯🤯🤯🤯🤯🤯\(error)")
+                }
+                completion()
+            })
+        }
+    }
+}
+
+extension ViteNetworkTests {
+    func testGetPledgest() {
+        async { (completion) in
+            Provider.instance.getPledges(address: Address(string: "vite_847e1672c9a775ca0f3c3a2d3bf389ca466e5501cbecdb7107"), index: 0, count: 50, completion: { (result) in
+                switch result {
+                case .success(let pledges):
+                    print("🏆\(pledges)")
                 case .error(let error):
                     print("🤯🤯🤯🤯🤯🤯\(error)")
                 }

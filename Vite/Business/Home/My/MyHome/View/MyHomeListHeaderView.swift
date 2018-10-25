@@ -12,6 +12,7 @@ import SnapKit
 protocol MyHomeListHeaderViewDelegate: class {
     func transactionLogBtnAction()
     func manageWalletBtnAction()
+    func manageQuotaBtnAction()
 }
 
 class MyHomeListHeaderView: UIView {
@@ -26,15 +27,23 @@ class MyHomeListHeaderView: UIView {
             make.left.equalTo(self).offset(24)
             make.top.equalTo(self).offset(24)
             make.height.equalTo(40)
-            make.right.equalTo(self.snp.centerX).offset(-10)
         }
 
         self.addSubview(transactionLogBtn)
         self.transactionLogBtn.snp.makeConstraints {  (make) -> Void in
-            make.right.equalTo(self).offset(-24)
+            make.left.equalTo(manageWalletBtn.snp.right).offset(24)
             make.top.equalTo(self).offset(24)
             make.height.equalTo(40)
-            make.left.equalTo(self.snp.centerX).offset(20)
+            make.width.equalTo(manageWalletBtn)
+        }
+
+        self.addSubview(manageQuotaBtn)
+        self.manageQuotaBtn.snp.makeConstraints { (make) in
+            make.left.equalTo(transactionLogBtn.snp.right).offset(24)
+            make.top.equalTo(self).offset(24)
+            make.height.equalTo(40)
+            make.right.equalTo(self).offset(-24)
+            make.width.equalTo(manageWalletBtn)
         }
     }
 
@@ -50,12 +59,22 @@ class MyHomeListHeaderView: UIView {
         return transactionLogBtn
     }()
 
+    lazy var manageQuotaBtn: IconBtnView = {
+        let manageQuotaBtn = IconBtnView.init(iconImg: R.image.icon_transrecord()!, text: R.string.localizable.myPageQuotaCellTitle.key.localized())
+        manageQuotaBtn.btn.addTarget(self, action: #selector(manageQuotaBtnAction), for: .touchUpInside)
+        return manageQuotaBtn
+    }()
+
     @objc func transactionLogBtnAction() {
         self.delegate?.transactionLogBtnAction()
     }
 
     @objc func manageWalletBtnAction() {
         self.delegate?.manageWalletBtnAction()
+    }
+
+    @objc func manageQuotaBtnAction() {
+        self.delegate?.manageQuotaBtnAction()
     }
 
     required init?(coder aDecoder: NSCoder) {
