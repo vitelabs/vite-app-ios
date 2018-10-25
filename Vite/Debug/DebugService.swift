@@ -14,13 +14,22 @@ class DebugService: Mappable {
     fileprivate let fileHelper = FileHelper(.library, appending: FileHelper.appPathComponent)
     fileprivate static let saveKey = "DebugService"
 
+
+    var rpcUseHTTP = false {
+        didSet {
+            guard rpcUseHTTP != oldValue else { return }
+            pri_save()
+        }
+    }
+
+
     var showStatisticsToast = false {
         didSet {
             guard showStatisticsToast != oldValue else { return }
             pri_save()
         }
     }
-    
+
     var reportEventInDebug = false {
         didSet {
             guard reportEventInDebug != oldValue else { return }
@@ -31,6 +40,7 @@ class DebugService: Mappable {
     required init?(map: Map) {}
 
     func mapping(map: Map) {
+        rpcUseHTTP <- map["rpcUseHTTP"]
         showStatisticsToast <- map["showStatisticsToast"]
         reportEventInDebug <- map["reportEventInDebug"]
     }
@@ -40,6 +50,7 @@ class DebugService: Mappable {
         if let data = self.fileHelper.contentsAtRelativePath(type(of: self).saveKey),
             let jsonString = String(data: data, encoding: .utf8),
             let d = DebugService(JSONString: jsonString) {
+            self.rpcUseHTTP = d.rpcUseHTTP
             self.showStatisticsToast = d.showStatisticsToast
             self.reportEventInDebug = d.reportEventInDebug
         }

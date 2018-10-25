@@ -110,4 +110,9 @@ extension MyHomeViewController: MyHomeListHeaderViewDelegate {
         let vc = ManageWalletViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+
+    func manageQuotaBtnAction() {
+        let vc = QuotaManageViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

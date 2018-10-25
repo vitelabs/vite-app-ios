@@ -30,7 +30,7 @@ final class AutoGatheringService {
         guard uuid == self.uuid else { return }
         guard let bag = HDWalletManager.instance.bag else { return }
         plog(level: .debug, log: bag.address.description, tag: .transaction)
-        Provider.instance.receiveTransaction(bag: bag) { [weak self] _ in
+        Provider.instance.receiveTransactionWithGetPow(bag: bag) { [weak self] _ in
             guard let `self` = self else { return }
             guard uuid == self.uuid else { return }
             GCD.delay(2) { self.getUnconfirmedTransaction(uuid) }

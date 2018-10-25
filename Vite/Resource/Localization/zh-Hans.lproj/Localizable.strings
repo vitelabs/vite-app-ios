@@ -101,6 +101,7 @@
 "my.page.title" = "我";
 "my.page.mangeWallet.cell.title" = "管理钱包";
 "my.page.dealLog.cell.title" = "交易记录";
+"my.page.quota.cell.title" = "配额管理";
 "my.page.system.cell.title" = "系统设置";
 "my.page.aboutUs.cell.title" = "关于我们";
 "my.page.fetchMoney.cell.title" = "领福利";

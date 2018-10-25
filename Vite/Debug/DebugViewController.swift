@@ -54,6 +54,17 @@ class DebugViewController: FormViewController {
             })
             +++
             Section {
+                $0.header = HeaderFooterView(title: "Network")
+            }
+            <<< SwitchRow("rpcUseHttp") {
+                $0.title = "RPC Use HTTP"
+                $0.value = DebugService.instance.rpcUseHTTP
+                }.onChange { row in
+                    guard let ret = row.value else { return }
+                    DebugService.instance.rpcUseHTTP = ret
+            }
+            +++
+            Section {
                 $0.header = HeaderFooterView(title: "Statistics")
             }
             <<< LabelRow("testStatistics") {

@@ -18,6 +18,15 @@ extension Error {
             return (self as NSError).code
         }
     }
+
+    var message: String {
+        if let rpcError = self as? JSONRPCError {
+            return rpcError.message
+        } else {
+            return (self as NSError).localizedDescription
+        }
+    }
+
     var domain: String { return (self as NSError).domain }
     var userInfo: [String: Any] { return (self as NSError).userInfo }
 }
@@ -37,6 +46,23 @@ extension JSONRPCError {
              .missingBothResultAndError,
              .nonArrayResponse:
             return (self as NSError).code
+        }
+    }
+
+    var message: String {
+        switch self {
+        case .responseError(code: _, message: let m, data: _):
+            return m
+        case .resultObjectParseError(let e):
+            return e.localizedDescription
+        case .errorObjectParseError(let e):
+            return e.localizedDescription
+        case .responseNotFound(requestId: _, object: _),
+             .unsupportedVersion,
+             .unexpectedTypeObject,
+             .missingBothResultAndError,
+             .nonArrayResponse:
+            return (self as NSError).localizedDescription
         }
     }
 }
