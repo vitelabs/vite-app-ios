@@ -10,7 +10,7 @@ import Foundation
 import JSONRPCKit
 
 class GetPledgeQuotaRequest: JSONRPCKit.Request {
-    typealias Response = (UInt64, UInt64)
+    typealias Response = (String, String)
 
     let address: String
 
@@ -32,11 +32,9 @@ class GetPledgeQuotaRequest: JSONRPCKit.Request {
             throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: [String: Any].self)
         }
 
-        if let quotaString = response["quota"] as? String,
-            let maxTxCountString = response["txNum"] as? String,
-            let quota = UInt64(quotaString),
-            let maxTxcount = UInt64(maxTxCountString) {
-            return (quota, maxTxcount)
+        if let quota = response["quota"] as? String,
+            let maxTxCount = response["txNum"] as? String {
+            return (quota, maxTxCount)
         } else {
             throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: Response.self)
         }

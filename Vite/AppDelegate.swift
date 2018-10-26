@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TokenCacheService.instance.start()
         AutoGatheringService.instance.start()
         FetchBalanceInfoService.instance.start()
+        FetchQuotaService.instance.start()
         return true
     }
 

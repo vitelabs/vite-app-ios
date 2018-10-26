@@ -101,6 +101,9 @@ class BaseViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let navigationTitleView = navigationTitleView {
+            view.bringSubview(toFront: navigationTitleView)
+        }
         NavigationBarStyle.configStyle(navigationBarStyle, viewController: self)
     }
 

@@ -134,7 +134,12 @@
 /* Send Page */
 "send.page.title" = "转账";
 "send.page.my.address.title" = "我的账户地址";
-"send.page.my.balance.title" = "我的账户余额 ";
+"send.page.my.balance.title" = "我的账户余额";
+"send.page.my.quota.title" = "我的配额";
+"send.page.my.max.tx.count.title" = "最大交易量";
+"send.page.my.max.tx.count.unit.title" = "笔/秒";
+"send.page.add.current.address.button.title" = "地址";
+"send.page.scan.address.button.title" = "扫码";
 "send.page.to.address.title" = "收款地址";
 "send.page.amount.title" = "金额";
 "send.page.remark.title" = "备注";
@@ -225,3 +230,10 @@
 "quota.submit.pop.desc" = "确认是否抵押%@获取配额，抵押生效3天之后可撤销";
 "quota.submit.pop.submit.btn.title" = "确认抵押";
 "quota.submit.pop.cancel.btn.title" = "再等会儿";
+
+/* quota alert */
+"quota.alert.title" = "配额不足";
+"quota.alert.pow.and.quota.message" = "当前配额不足，无法进行转账，您需要运行 POW 或抵押配额才可以继续转账";
+"quota.alert.pow.button.title" = "运行 POW";
+"quota.alert.quota.button.title" = "抵押配额";
+

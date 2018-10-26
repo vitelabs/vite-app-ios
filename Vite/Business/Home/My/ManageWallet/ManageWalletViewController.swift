@@ -10,8 +10,11 @@ import UIKit
 import Eureka
 import Vite_HDWalletKit
 import SafariServices
+import RxCocoa
+import RxSwift
 
 class ManageWalletViewController: FormViewController {
+
     var navigationBarStyle = NavigationBarStyle.default
     var navigationTitleView: NavigationTitleView? {
         didSet {
@@ -43,6 +46,9 @@ class ManageWalletViewController: FormViewController {
         setupTable()
     }
 
+    private var subscription: Disposable?
+    private var nameTextField: UITextField?
+
     func setupTable() {
         self.tableView.backgroundColor = .white
         self.tableView.separatorStyle = .none
@@ -54,10 +60,21 @@ class ManageWalletViewController: FormViewController {
         form +++
             Section {section in
                 var header = HeaderFooterView<ManageWalletHeaderView>(.class)
-                header.onSetupView = { view, section in
-                    view.delegate = self
-                    view.nameLab.text = HDWalletManager.instance.wallet?.name
+                header.onSetupView = { [unowned self] view, section in
+                    view.nameTextField.text = HDWalletManager.instance.wallet?.name
+                    self.subscription?.dispose()
+                    self.subscription = Observable.merge([
+                        view.nameTextField.rx.methodInvoked(#selector(UIResponder.resignFirstResponder)).map { _ in () },
+                        view.nameTextField.rx.controlEvent(.editingDidEndOnExit).map { () }
+                        ])
+                    .debounce(0.5, scheduler: MainScheduler.instance)
+                    .bind(onNext: { (_) in
+                        self.changeWalletName(name: view.nameTextField.text)
+                    })
+                    self.subscription?.disposed(by: self.rx.disposeBag)
+                    self.nameTextField = view.nameTextField
                 }
+
                 header.height = { 68.0 }
                 section.header = header
                 section.tag = "ManageWalletHeaderView"
@@ -87,51 +104,40 @@ class ManageWalletViewController: FormViewController {
         }
     }
 
-    func changeWalletName(callback: @escaping () -> Void) {
-        let controller = UIAlertController(title: nil, message: R.string.localizable.manageWalletPageAlterChangeName.key.localized(), preferredStyle: UIAlertControllerStyle.alert)
+    func changeWalletName(name: String?) {
 
-        let cancelAction = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: .cancel, handler: nil)
-        let okAction = UIAlertAction(title: R.string.localizable.confirm.key.localized(), style: UIAlertActionStyle.default) { (_) in
-            let textField = (controller.textFields?.first)! as UITextField
-            let name = textField.text ?? ""
+        let name = name ?? ""
+        var changed = false
 
-            if name.isEmpty {
-                self.view.showToast(str: R.string.localizable.manageWalletPageErrorTypeName.key.localized())
-                return
-            }
-            if !ViteInputValidator.isValidWalletName(str: name ) {
-                self.view.showToast(str: R.string.localizable.mnemonicBackupPageErrorTypeNameValid.key.localized())
-
-                return
-            }
-            if !ViteInputValidator.isValidWalletNameCount(str: name  ) {
-                self.view.showToast(str: R.string.localizable.mnemonicBackupPageErrorTypeValidWalletNameCount.key.localized())
-                return
-            }
-
-            self.view.displayLoading(text: R.string.localizable.manageWalletPageChangeNameLoading.key.localized(), animated: true)
-            DispatchQueue.global().async {
-                HDWalletManager.instance.updateName(name: name)
-                DispatchQueue.main.async {
-                    self.view.hideLoading()
-                    let section = self.form.sectionBy(tag: "ManageWalletHeaderView")
-                    section?.reload()
-                }
+        defer {
+            if !changed {
+                self.nameTextField?.text = HDWalletManager.instance.wallet?.name
             }
         }
-        controller.addTextField { (textfield) in
-            textfield.text = HDWalletManager.instance.wallet?.name
+
+        if name.isEmpty {
+            self.view.showToast(str: R.string.localizable.manageWalletPageErrorTypeName.key.localized())
+            return
         }
-        controller.addAction(cancelAction)
-        controller.addAction(okAction)
-        self.present(controller, animated: true, completion: nil)
+        if !ViteInputValidator.isValidWalletName(str: name ) {
+            self.view.showToast(str: R.string.localizable.mnemonicBackupPageErrorTypeNameValid.key.localized())
+            return
+        }
+        if !ViteInputValidator.isValidWalletNameCount(str: name  ) {
+            self.view.showToast(str: R.string.localizable.mnemonicBackupPageErrorTypeValidWalletNameCount.key.localized())
+            return
+        }
+        changed = true
+        self.view.displayLoading(text: R.string.localizable.manageWalletPageChangeNameLoading.key.localized(), animated: true)
+        DispatchQueue.global().async {
+            HDWalletManager.instance.updateName(name: name)
+            DispatchQueue.main.async {
+                self.view.hideLoading()
+                let section = self.form.sectionBy(tag: "ManageWalletHeaderView")
+                section?.reload()
+            }
+        }
+
     }
-}
 
-extension ManageWalletViewController: ManageWalletHeaderViewDelegate {
-    func changeNameAction() {
-        self.changeWalletName {
-
-        }
-    }
 }

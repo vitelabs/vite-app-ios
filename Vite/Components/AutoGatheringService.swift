@@ -26,13 +26,19 @@ final class AutoGatheringService {
         }).disposed(by: disposeBag)
     }
 
-    func getUnconfirmedTransaction(_ uuid: String) {
+    fileprivate func getUnconfirmedTransaction(_ uuid: String) {
         guard uuid == self.uuid else { return }
         guard let bag = HDWalletManager.instance.bag else { return }
         plog(level: .debug, log: bag.address.description, tag: .transaction)
-        Provider.instance.receiveTransactionWithGetPow(bag: bag) { [weak self] _ in
+        Provider.instance.receiveTransactionWithGetPow(bag: bag, difficulty: AccountBlock.Const.difficulty) { [weak self] result in
             guard let `self` = self else { return }
             guard uuid == self.uuid else { return }
+            switch result {
+            case .success:
+                break
+            case .error(let error):
+                plog(level: .warning, log: bag.address.description + ": " + error.message, tag: .transaction)
+            }
             GCD.delay(2) { self.getUnconfirmedTransaction(uuid) }
         }
     }

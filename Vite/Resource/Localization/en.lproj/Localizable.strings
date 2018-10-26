@@ -135,6 +135,11 @@
 "send.page.title" = "Transfer";
 "send.page.my.address.title" = "My Address";
 "send.page.my.balance.title" = "Balance";
+"send.page.my.quota.title" = "我的配额";
+"send.page.my.max.tx.count.title" = "最大交易量";
+"send.page.my.max.tx.count.unit.title" = "笔/秒";
+"send.page.add.current.address.button.title" = "地址";
+"send.page.scan.address.button.title" = "扫码";
 "send.page.to.address.title" = "Recipient";
 "send.page.amount.title" = "Amount";
 "send.page.remark.title" = "Comment";
@@ -210,3 +215,10 @@
 
 /* toast error */
 "toast.error.login" = "Login Error";
+
+/* quota alert */
+"quota.alert.title" = "配额不足";
+"quota.alert.pow.and.quota.message" = "当前配额不足，无法进行转账，您需要运行 POW 或抵押配额才可以继续转账";
+"quota.alert.pow.button.title" = "运行 POW";
+"quota.alert.quota.button.title" = "抵押配额";
+

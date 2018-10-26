@@ -70,7 +70,7 @@ final class ScanViewReactor: Reactor {
 
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
-        newState.toastMessage = nil; newState.alertMessage = nil
+        newState.toastMessage = nil; newState.alertMessage = nil; newState.confirmedToken = nil
         switch mutation {
         case let .processImage(pickedImage):
             (newState.resultString, newState.toastMessage) = self.processImage(pickedImage)
@@ -150,7 +150,7 @@ final class ScanViewReactor: Reactor {
                 toastString = R.string.localizable.sendPageTokenInfoError.key.localized()
             }
         case .failure(let error):
-            toastString = error.localizedDescription
+            toastString = error.message
         }
         return (confirmedToken, toastString)
     }

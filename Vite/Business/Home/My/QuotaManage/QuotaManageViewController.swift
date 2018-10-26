@@ -240,7 +240,7 @@ extension QuotaManageViewController {
     //run pow request service
     func pledgeAndGainQuotaWithGetPow(beneficialAddress: Address, amount: BigInt) {
         self.view.displayLoading(text: "获取pow")
-        Provider.instance.pledgeAndGainQuotaWithGetPow(bag: bag, beneficialAddress: beneficialAddress, tokenId: TokenCacheService.instance.viteToken.id, amount: amount) { [weak self] (result) in
+        Provider.instance.pledgeAndGainQuotaWithGetPow(bag: bag, beneficialAddress: beneficialAddress, tokenId: TokenCacheService.instance.viteToken.id, amount: amount, difficulty: AccountBlock.Const.difficulty) { [weak self] (result) in
             guard let `self` = self else { return }
             self.view.hideLoading()
             switch result {

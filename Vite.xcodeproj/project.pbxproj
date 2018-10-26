@@ -124,6 +124,12 @@
 		8E56FC98214768D000A68823 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC97214768D000A68823 /* TransactionViewModel.swift */; };
 		8E56FC9A21479A7D00A68823 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC9921479A7D00A68823 /* TransactionCell.swift */; };
 		8E56FC9C2147A9CE00A68823 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC9B2147A9CE00A68823 /* DateExtension.swift */; };
+		8E68C4802181F27F00475133 /* AddressLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E68C47F2181F27F00475133 /* AddressLabelView.swift */; };
+		8E68C4822181F29900475133 /* AddressTextViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E68C4812181F29900475133 /* AddressTextViewView.swift */; };
+		8E68C4842182BFBE00475133 /* FetchQuotaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E68C4832182BFBE00475133 /* FetchQuotaService.swift */; };
+		8E68C4862182E55500475133 /* VisualEffectAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E68C4852182E55500475133 /* VisualEffectAnimationView.swift */; };
+		8E68C4882182E65F00475133 /* AddAddressFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E68C4872182E65F00475133 /* AddAddressFloatView.swift */; };
+		8E68C48A2182FB3B00475133 /* GetPowFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E68C4892182FB3B00475133 /* GetPowFloatView.swift */; };
 		8E6F3DF82140FE99003CDFC2 /* RPCServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */; };
 		8E6F3DFB2140FFEC003CDFC2 /* ViteServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */; };
 		8E6F3DFF2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DFE2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift */; };
@@ -354,6 +360,12 @@
 		8E56FC97214768D000A68823 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		8E56FC9921479A7D00A68823 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		8E56FC9B2147A9CE00A68823 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		8E68C47F2181F27F00475133 /* AddressLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressLabelView.swift; sourceTree = "<group>"; };
+		8E68C4812181F29900475133 /* AddressTextViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTextViewView.swift; sourceTree = "<group>"; };
+		8E68C4832182BFBE00475133 /* FetchQuotaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchQuotaService.swift; sourceTree = "<group>"; };
+		8E68C4852182E55500475133 /* VisualEffectAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectAnimationView.swift; sourceTree = "<group>"; };
+		8E68C4872182E65F00475133 /* AddAddressFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressFloatView.swift; sourceTree = "<group>"; };
+		8E68C4892182FB3B00475133 /* GetPowFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPowFloatView.swift; sourceTree = "<group>"; };
 		8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCServer.swift; sourceTree = "<group>"; };
 		8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteServiceRequest.swift; sourceTree = "<group>"; };
 		8E6F3DFE2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSnapshotChainHeightRequest.swift; sourceTree = "<group>"; };
@@ -601,6 +613,7 @@
 				8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */,
 				8EE4690C214BCE0700807D2C /* AutoGatheringService.swift */,
 				8E79261B21522BF1007FEBAB /* FetchBalanceInfoService.swift */,
+				8E68C4832182BFBE00475133 /* FetchQuotaService.swift */,
 				8E792613215151E0007FEBAB /* ViteURI.swift */,
 			);
 			path = Components;
@@ -898,10 +911,14 @@
 			children = (
 				8E107ED8215A57B200B28DE2 /* SendHeaderView.swift */,
 				8E107EDA215A589200B28DE2 /* SendAddressView.swift */,
+				8E68C47F2181F27F00475133 /* AddressLabelView.swift */,
+				8E68C4812181F29900475133 /* AddressTextViewView.swift */,
 				8E107EDC215A61B500B28DE2 /* SendAmountView.swift */,
 				8E107EDE215B27F500B28DE2 /* SendNoteView.swift */,
 				740C3E4D214B9CC2005FCD24 /* TransactionInfoView.swift */,
 				740C3E51214CB832005FCD24 /* ConfirmTransactionView.swift */,
+				8E68C4872182E65F00475133 /* AddAddressFloatView.swift */,
+				8E68C4892182FB3B00475133 /* GetPowFloatView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1116,6 +1133,7 @@
 				8E6F3E1B2142280F003CDFC2 /* BaseTableViewController.swift */,
 				8E6F3E1C2142280F003CDFC2 /* BaseNavigationController.swift */,
 				8E93C254217747DF00185FDE /* ViewControllerDataStatusable+Style.swift */,
+				8E68C4852182E55500475133 /* VisualEffectAnimationView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1469,6 +1487,7 @@
 				"${BUILT_PRODUCTS_DIR}/TrezorCryptoEd25519WithBlake2b/TrezorCryptoEd25519WithBlake2b.framework",
 				"${BUILT_PRODUCTS_DIR}/Vite_HDWalletKit/Vite_HDWalletKit.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1508,6 +1527,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrezorCryptoEd25519WithBlake2b.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vite_HDWalletKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1558,9 +1578,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E6F3DFF2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift in Sources */,
+				8E68C4822181F29900475133 /* AddressTextViewView.swift in Sources */,
 				8E107EDB215A589200B28DE2 /* SendAddressView.swift in Sources */,
 				8EE46916214BD1AF00807D2C /* AccountBlock.swift in Sources */,
 				8E7D636E215B76D1009617A0 /* ReceiveHeaderView.swift in Sources */,
+				8E68C4882182E65F00475133 /* AddAddressFloatView.swift in Sources */,
 				4CFD6CC12154BF4C00437F33 /* FetchWelfareCardView.swift in Sources */,
 				4C105EBF213FCAD500D483C6 /* UIColor.swift in Sources */,
 				8EE468F6214A494800807D2C /* TitleTextFieldView.swift in Sources */,
@@ -1615,10 +1637,12 @@
 				8E6F3E332142768B003CDFC2 /* ScanViewController.swift in Sources */,
 				8ED4CED32148AF630005A82D /* GetMoreLoadingView.swift in Sources */,
 				8EE468E021493A7E00807D2C /* AddressManageViewController.swift in Sources */,
+				8E68C4802181F27F00475133 /* AddressLabelView.swift in Sources */,
 				4C84D9312145280E001B6EBD /* CreateWalletTipViewController.swift in Sources */,
 				8E107ECF215365F000B28DE2 /* Provider+Account.swift in Sources */,
 				4C32E20E2182FC6600007E9F /* StyleActionSheetTranstion.swift in Sources */,
 				8E548543217F33B0009C528B /* Statistics+Event.swift in Sources */,
+				8E68C4862182E55500475133 /* VisualEffectAnimationView.swift in Sources */,
 				8E56FC9A21479A7D00A68823 /* TransactionCell.swift in Sources */,
 				8E7926182151D1E7007FEBAB /* AddressManageHeaderView.swift in Sources */,
 				4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */,
@@ -1668,6 +1692,7 @@
 				4C3E323F215492AC009936E3 /* Bundle.swift in Sources */,
 				4C32E2052182B86A00007E9F /* TitleMoneyInputView.swift in Sources */,
 				74B3F87C217708B0002FA14F /* AVCaptureMetadataOutput+Rx.swift in Sources */,
+				8E68C4842182BFBE00475133 /* FetchQuotaService.swift in Sources */,
 				4C84D951214654BD001B6EBD /* LoginViewController.swift in Sources */,
 				8E548545217F51D3009C528B /* DebugService.swift in Sources */,
 				8E6F3DF82140FE99003CDFC2 /* RPCServer.swift in Sources */,
@@ -1701,6 +1726,7 @@
 				8E107EDF215B27F500B28DE2 /* SendNoteView.swift in Sources */,
 				8E107ECD2153656C00B28DE2 /* Provider+Transaction.swift in Sources */,
 				4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */,
+				8E68C48A2182FB3B00475133 /* GetPowFloatView.swift in Sources */,
 				4CC4F451214CCB5B0068DA53 /* TitlePasswordInputView.swift in Sources */,
 				4C84D95C21466C1B001B6EBD /* AccountLoginResult.swift in Sources */,
 				8E7D6374215B7FBB009617A0 /* ReceiveFooterView.swift in Sources */,
