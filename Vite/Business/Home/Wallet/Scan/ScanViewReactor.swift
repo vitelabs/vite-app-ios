@@ -70,7 +70,7 @@ final class ScanViewReactor: Reactor {
 
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
-        newState.toastMessage = nil; newState.alertMessage = nil
+        newState.toastMessage = nil; newState.alertMessage = nil; newState.confirmedToken = nil
         switch mutation {
         case let .processImage(pickedImage):
             (newState.resultString, newState.toastMessage) = self.processImage(pickedImage)
