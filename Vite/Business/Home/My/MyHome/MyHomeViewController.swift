@@ -58,7 +58,7 @@ class MyHomeViewController: FormViewController {
                 header.onSetupView = { view, section in
                     view.delegate = self
                 }
-                header.height = { 100.0 }
+                header.height = { 136.0 }
                 section.header = header
             }
 

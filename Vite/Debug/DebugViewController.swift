@@ -59,7 +59,7 @@ class DebugViewController: FormViewController {
             <<< SwitchRow("rpcUseHttp") {
                 $0.title = "RPC Use HTTP"
                 $0.value = DebugService.instance.rpcUseHTTP
-                }.onChange { row in
+            }.onChange { row in
                     guard let ret = row.value else { return }
                     DebugService.instance.rpcUseHTTP = ret
             }

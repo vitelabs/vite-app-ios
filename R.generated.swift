@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 54 images.
+  /// This `R.image` struct is generated, and contains static references to 56 images.
   struct image {
     /// Image `aboutus_logo`.
     static let aboutus_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "aboutus_logo")
@@ -55,6 +55,8 @@ struct R: Rswift.Validatable {
     static let fingerprint = Rswift.ImageResource(bundle: R.hostingBundle, name: "fingerprint")
     /// Image `gift`.
     static let gift = Rswift.ImageResource(bundle: R.hostingBundle, name: "gift")
+    /// Image `icon_background`.
+    static let icon_background = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_background")
     /// Image `icon_button_add`.
     static let icon_button_add = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_button_add")
     /// Image `icon_button_facebook`.
@@ -101,6 +103,8 @@ struct R: Rswift.Validatable {
     static let icon_nav_scan_black = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_nav_scan_black")
     /// Image `icon_nav_share_black`.
     static let icon_nav_share_black = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_nav_share_black")
+    /// Image `icon_quota`.
+    static let icon_quota = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_quota")
     /// Image `icon_right_white`.
     static let icon_right_white = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_right_white")
     /// Image `icon_setting`.
@@ -195,6 +199,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "gift", bundle: ..., traitCollection: ...)`
     static func gift(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.gift, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_background", bundle: ..., traitCollection: ...)`
+    static func icon_background(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_background, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "icon_button_add", bundle: ..., traitCollection: ...)`
@@ -310,6 +319,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "icon_nav_share_black", bundle: ..., traitCollection: ...)`
     static func icon_nav_share_black(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.icon_nav_share_black, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_quota", bundle: ..., traitCollection: ...)`
+    static func icon_quota(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_quota, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "icon_right_white", bundle: ..., traitCollection: ...)`

@@ -9,12 +9,7 @@
 import UIKit
 import SnapKit
 
-protocol ManageWalletHeaderViewDelegate: class {
-    func changeNameAction()
-}
-
 class ManageWalletHeaderView: UIView {
-    weak var delegate: ManageWalletHeaderViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,14 +21,14 @@ class ManageWalletHeaderView: UIView {
             make.height.equalTo(20)
         }
 
-        self.addSubview(self.nameLab)
+        self.addSubview(self.nameTextField)
         self.addSubview(self.rightImageView)
         self.rightImageView.snp.makeConstraints {  (make) -> Void in
             make.right.equalTo(self).offset(-20)
-            make.centerY.equalTo(self.nameLab)
+            make.centerY.equalTo(self.nameTextField)
         }
 
-        self.nameLab.snp.makeConstraints {  (make) -> Void in
+        self.nameTextField.snp.makeConstraints {  (make) -> Void in
             make.left.equalTo(self).offset(24)
             make.right.equalTo(self).offset(-50)
             make.bottom.equalTo(self).offset(-19)
@@ -47,10 +42,6 @@ class ManageWalletHeaderView: UIView {
             make.bottom.equalTo(self).offset(-1)
             make.height.equalTo(CGFloat.singleLineWidth)
         }
-
-        let gesture = UITapGestureRecognizer()
-        gesture.addTarget(self, action: #selector(tapAction))
-        self.addGestureRecognizer(gesture)
     }
 
     lazy var nameTitleLab: UILabel = {
@@ -63,14 +54,15 @@ class ManageWalletHeaderView: UIView {
         return nameTitleLab
     }()
 
-    lazy var nameLab: UILabel = {
-        let nameLab =  UILabel()
-        nameLab.text = HDWalletManager.instance.wallet?.name
-        nameLab.textAlignment = .left
-        nameLab.adjustsFontSizeToFitWidth = true
-        nameLab.textColor = Colors.cellTitleGray
-        nameLab.font = Fonts.light16
-        return nameLab
+    lazy var nameTextField: UITextField = {
+        let nameTextField =  UITextField()
+        nameTextField.text = HDWalletManager.instance.wallet?.name
+        nameTextField.textAlignment = .left
+        nameTextField.adjustsFontSizeToFitWidth = true
+        nameTextField.textColor = Colors.cellTitleGray
+        nameTextField.font = Fonts.light16
+        nameTextField.returnKeyType = .done
+        return nameTextField
     }()
 
     lazy var rightImageView: UIImageView = {
@@ -92,7 +84,4 @@ class ManageWalletHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @objc func tapAction() {
-        self.delegate?.changeNameAction()
-    }
 }

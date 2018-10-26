@@ -25,25 +25,25 @@ class MyHomeListHeaderView: UIView {
         self.addSubview(self.manageWalletBtn)
         self.manageWalletBtn.snp.makeConstraints {  (make) -> Void in
             make.left.equalTo(self).offset(24)
-            make.top.equalTo(self).offset(24)
-            make.height.equalTo(40)
+            make.top.equalTo(self).offset(32)
+            make.height.equalTo(78)
+            make.width.equalTo(100)
         }
 
         self.addSubview(transactionLogBtn)
         self.transactionLogBtn.snp.makeConstraints {  (make) -> Void in
-            make.left.equalTo(manageWalletBtn.snp.right).offset(24)
-            make.top.equalTo(self).offset(24)
-            make.height.equalTo(40)
-            make.width.equalTo(manageWalletBtn)
+            make.top.equalTo(self).offset(32)
+            make.height.equalTo(78)
+            make.width.equalTo(100)
+            make.centerX.equalTo(self)
         }
 
         self.addSubview(manageQuotaBtn)
         self.manageQuotaBtn.snp.makeConstraints { (make) in
-            make.left.equalTo(transactionLogBtn.snp.right).offset(24)
-            make.top.equalTo(self).offset(24)
-            make.height.equalTo(40)
+            make.top.equalTo(self).offset(32)
+            make.height.equalTo(78)
             make.right.equalTo(self).offset(-24)
-            make.width.equalTo(manageWalletBtn)
+            make.width.equalTo(100)
         }
     }
 
@@ -60,7 +60,7 @@ class MyHomeListHeaderView: UIView {
     }()
 
     lazy var manageQuotaBtn: IconBtnView = {
-        let manageQuotaBtn = IconBtnView.init(iconImg: R.image.icon_transrecord()!, text: R.string.localizable.myPageQuotaCellTitle.key.localized())
+        let manageQuotaBtn = IconBtnView.init(iconImg: R.image.icon_quota()!, text: R.string.localizable.myPageQuotaCellTitle.key.localized())
         manageQuotaBtn.btn.addTarget(self, action: #selector(manageQuotaBtnAction), for: .touchUpInside)
         return manageQuotaBtn
     }()
