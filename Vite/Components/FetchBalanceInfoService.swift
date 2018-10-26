@@ -57,7 +57,7 @@ final class FetchBalanceInfoService {
 
     }
 
-    func getchBalanceInfo(_ uuid: String) {
+    fileprivate func getchBalanceInfo(_ uuid: String) {
         guard uuid == self.uuid else { return }
         guard let address = HDWalletManager.instance.bag?.address else { return }
         plog(level: .debug, log: address.description, tag: .transaction)
@@ -81,8 +81,8 @@ final class FetchBalanceInfoService {
 
                 }
                 self.balanceInfos.accept(allBalanceInfos.map { WalletHomeBalanceInfoViewModel(balanceInfo: $0) })
-            case .error:
-                break
+            case .error(let error):
+                plog(level: .warning, log: address.description + ": " + error.message, tag: .transaction)
             }
             GCD.delay(5) { self.getchBalanceInfo(uuid) }
         }

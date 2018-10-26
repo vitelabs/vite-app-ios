@@ -150,7 +150,7 @@ final class ScanViewReactor: Reactor {
                 toastString = R.string.localizable.sendPageTokenInfoError.key.localized()
             }
         case .failure(let error):
-            toastString = error.localizedDescription
+            toastString = error.message
         }
         return (confirmedToken, toastString)
     }

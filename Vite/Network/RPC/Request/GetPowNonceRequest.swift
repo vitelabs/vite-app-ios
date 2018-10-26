@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import BigInt
 import JSONRPCKit
 import Vite_HDWalletKit
 
 struct GetPowNonceRequest: JSONRPCKit.Request {
     typealias Response = String
 
-    let difficulty: String = ""
+    let difficulty: BigInt
     let address: Address
     let preHash: String?
 
@@ -22,15 +23,16 @@ struct GetPowNonceRequest: JSONRPCKit.Request {
     }
 
     var parameters: Any? {
-        let preHash = self.preHash ?? "0000000000000000000000000000000000000000000000000000000000000000"
+        let preHash = self.preHash ?? AccountBlock.Const.defaultHash
         let text = address.raw + preHash
         let data: String = Blake2b.hash(outLength: 32, in: text.bytes)?.toHexString() ?? ""
-        return [difficulty, data]
+        return [String(difficulty), data]
     }
 
-    init(address: Address, preHash: String?) {
+    init(address: Address, preHash: String?, difficulty: BigInt) {
         self.address = address
         self.preHash = preHash
+        self.difficulty = difficulty
     }
 
     func response(from resultObject: Any) throws -> Response {
