@@ -27,6 +27,9 @@
 		4C2A1920215137EF00C51CE8 /* CreateNameAndPwdVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A191F215137EF00C51CE8 /* CreateNameAndPwdVM.swift */; };
 		4C32E2052182B86A00007E9F /* TitleMoneyInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E2042182B86A00007E9F /* TitleMoneyInputView.swift */; };
 		4C32E2072182C65900007E9F /* TitleDescView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E2062182C65900007E9F /* TitleDescView.swift */; };
+		4C32E2092182E5B300007E9F /* CardBgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E2082182E5B300007E9F /* CardBgView.swift */; };
+		4C32E20B2182E89500007E9F /* QuotaSubmitPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E20A2182E89500007E9F /* QuotaSubmitPopViewController.swift */; };
+		4C32E20E2182FC6600007E9F /* StyleActionSheetTranstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E20D2182FC6600007E9F /* StyleActionSheetTranstion.swift */; };
 		4C3E323F215492AC009936E3 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E323E215492AC009936E3 /* Bundle.swift */; };
 		4C3F3F6E217731900022A8CC /* MnemonicTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F3F6D217731900022A8CC /* MnemonicTextView.swift */; };
 		4C745494214D0A9D0070F7AB /* TitleBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C745493214D0A9D0070F7AB /* TitleBtnView.swift */; };
@@ -235,6 +238,9 @@
 		4C2A191F215137EF00C51CE8 /* CreateNameAndPwdVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNameAndPwdVM.swift; sourceTree = "<group>"; };
 		4C32E2042182B86A00007E9F /* TitleMoneyInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleMoneyInputView.swift; sourceTree = "<group>"; };
 		4C32E2062182C65900007E9F /* TitleDescView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDescView.swift; sourceTree = "<group>"; };
+		4C32E2082182E5B300007E9F /* CardBgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBgView.swift; sourceTree = "<group>"; };
+		4C32E20A2182E89500007E9F /* QuotaSubmitPopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotaSubmitPopViewController.swift; sourceTree = "<group>"; };
+		4C32E20D2182FC6600007E9F /* StyleActionSheetTranstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleActionSheetTranstion.swift; sourceTree = "<group>"; };
 		4C3E323E215492AC009936E3 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		4C3F3F6D217731900022A8CC /* MnemonicTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicTextView.swift; sourceTree = "<group>"; };
 		4C745493214D0A9D0070F7AB /* TitleBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBtnView.swift; sourceTree = "<group>"; };
@@ -561,6 +567,14 @@
 			path = VM;
 			sourceTree = "<group>";
 		};
+		4C32E20C2182FC4100007E9F /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				4C32E20D2182FC6600007E9F /* StyleActionSheetTranstion.swift */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
 		4C4C9D65213E9629005542F8 /* Business */ = {
 			isa = PBXGroup;
 			children = (
@@ -608,6 +622,8 @@
 				4C3F3F6D217731900022A8CC /* MnemonicTextView.swift */,
 				4C32E2042182B86A00007E9F /* TitleMoneyInputView.swift */,
 				4C32E2062182C65900007E9F /* TitleDescView.swift */,
+				4C32E2082182E5B300007E9F /* CardBgView.swift */,
+				4C32E20C2182FC4100007E9F /* Transition */,
 			);
 			path = UGCKit;
 			sourceTree = "<group>";
@@ -974,6 +990,7 @@
 			isa = PBXGroup;
 			children = (
 				8E54854D21816C55009C528B /* QuotaManageViewController.swift */,
+				4C32E20A2182E89500007E9F /* QuotaSubmitPopViewController.swift */,
 			);
 			path = QuotaManage;
 			sourceTree = "<group>";
@@ -1589,6 +1606,7 @@
 				4C105EC5213FEFF800D483C6 /* NotificationName.swift in Sources */,
 				740C3E4E214B9CC2005FCD24 /* TransactionInfoView.swift in Sources */,
 				4C105EC1213FCB3700D483C6 /* AppStyle.swift in Sources */,
+				4C32E2092182E5B300007E9F /* CardBgView.swift in Sources */,
 				4C84D96121469E8D001B6EBD /* CreateAccountHomeViewController.swift in Sources */,
 				4C9AFD56214E241F005B12C2 /* IconBtnView.swift in Sources */,
 				8E56FC96214768BD00A68823 /* TransactionViewModelType.swift in Sources */,
@@ -1599,6 +1617,7 @@
 				8EE468E021493A7E00807D2C /* AddressManageViewController.swift in Sources */,
 				4C84D9312145280E001B6EBD /* CreateWalletTipViewController.swift in Sources */,
 				8E107ECF215365F000B28DE2 /* Provider+Account.swift in Sources */,
+				4C32E20E2182FC6600007E9F /* StyleActionSheetTranstion.swift in Sources */,
 				8E548543217F33B0009C528B /* Statistics+Event.swift in Sources */,
 				8E56FC9A21479A7D00A68823 /* TransactionCell.swift in Sources */,
 				8E7926182151D1E7007FEBAB /* AddressManageHeaderView.swift in Sources */,
@@ -1638,6 +1657,7 @@
 				8EE4691E214CE03F00807D2C /* WalletHomeAddressView.swift in Sources */,
 				8E6F3E0121410424003CDFC2 /* RPCError.swift in Sources */,
 				8E107EE1215B2BE700B28DE2 /* UITextView+FDSKeyboardAutoScrolling.swift in Sources */,
+				4C32E20B2182E89500007E9F /* QuotaSubmitPopViewController.swift in Sources */,
 				4CEB292B214BBD2400E5F7F4 /* ViteInputValidator.swift in Sources */,
 				4C84D94321452836001B6EBD /* MnemonicCollectionView.swift in Sources */,
 				4CC75391215B926B0009CA0E /* LockViewController.swift in Sources */,

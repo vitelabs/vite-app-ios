@@ -158,10 +158,10 @@ class QuotaManageViewController: BaseViewController {
             .bind { [weak self] in
                 let address = Address(string: addressView.textView.text ?? "")
                 guard let `self` = self else { return }
-                guard address.isValid else {
-                    Toast.show(R.string.localizable.sendPageToastAddressError.key.localized())
-                    return
-                }
+//                guard address.isValid else {
+//                    Toast.show(R.string.localizable.sendPageToastAddressError.key.localized())
+//                    return
+//                }
                 guard let amountString = self.amountView.textField.text,
                     !amountString.isEmpty,
                     let amount = amountString.toBigInt(decimals: TokenCacheService.instance.viteToken.decimals) else {
@@ -174,20 +174,27 @@ class QuotaManageViewController: BaseViewController {
                     return
                 }
 
-                guard amount <= self.balance.value else {
-                    Toast.show(R.string.localizable.sendPageToastAmountError.key.localized())
-                    return
-                }
+//                guard amount <= self.balance.value else {
+//                    Toast.show(R.string.localizable.sendPageToastAmountError.key.localized())
+//                    return
+//                }
 
-               self.pledgeAndGainQuotaWithoutGetPow(beneficialAddress: self.bag.address, amount: BigInt("10000000000000000000"))
+                let vc = QuotaSubmitPopViewController(money: String.init(format: "%f %@", amountString, TokenCacheService.instance.viteToken.symbol))
+                vc.modalPresentationStyle = .overCurrentContext
+                let delegate =  StyleActionSheetTranstionDelegate()
+                vc.transitioningDelegate = delegate
+                self.present(vc, animated: true, completion: nil)
+
+//               self.pledgeAndGainQuotaWithoutGetPow(beneficialAddress: self.bag.address, amount: BigInt("10000000000000000000"))
             }
             .disposed(by: rx.disposeBag)
 
         checkQuotaListBtn.rx.tap
             .bind { [weak self] in
+                //TODO:::
                 let vc = TransactionListViewController()
                 self?.navigationController?.pushViewController(vc, animated: true)
-        }.disposed(by: rx.disposeBag)
+            }.disposed(by: rx.disposeBag)
     }
 }
 
