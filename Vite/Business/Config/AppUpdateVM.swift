@@ -44,7 +44,7 @@ class AppUpdateVM: NSObject {
                 }
 
             case .error(let error):
-                plog(level: .warning, log: error.localizedDescription, tag: .getConfig)
+                plog(level: .warning, log: error.message, tag: .getConfig)
                 GCD.delay(2, task: {
                     checkUpdate()
                 })

@@ -48,9 +48,9 @@ extension Provider {
         }
     }
 
-    fileprivate func getPowNonce(address: Address, preHash: String?) -> Promise<String> {
+    fileprivate func getPowNonce(address: Address, preHash: String?, difficulty: BigInt) -> Promise<String> {
         return Promise { seal in
-            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetPowNonceRequest(address: address, preHash: preHash)))
+            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetPowNonceRequest(address: address, preHash: preHash, difficulty: difficulty)))
             Session.send(request) { result in
                 switch result {
                 case .success(let nonce):
@@ -84,11 +84,11 @@ extension Provider {
         case notEnoughQuota = -35002
     }
 
-    func receiveTransactionWithGetPow(bag: HDWalletManager.Bag, completion: @escaping (NetworkResult<Void>) -> Void) {
+    func receiveTransactionWithGetPow(bag: HDWalletManager.Bag, difficulty: BigInt, completion: @escaping (NetworkResult<Void>) -> Void) {
         getUnconfirmedTransaction(address: bag.address)
             .then({ [unowned self] (accountBlocks, latestAccountBlock, latestSnapshotHash) -> Promise<(accountBlock: AccountBlock, latestAccountBlock: AccountBlock, latestSnapshotHash: String, nonce: String)?> in
                 if let accountBlock = accountBlocks.first {
-                    return self.getPowNonce(address: bag.address, preHash: latestAccountBlock.hash).then({ nonce in
+                    return self.getPowNonce(address: bag.address, preHash: latestAccountBlock.hash, difficulty: difficulty).then({ nonce in
                         return Promise { seal in seal.fulfill((accountBlock, latestAccountBlock, latestSnapshotHash, nonce)) }
                     })
                 } else {
@@ -101,7 +101,8 @@ extension Provider {
                                                                        latest: latestAccountBlock,
                                                                        bag: bag,
                                                                        snapshotHash: latestSnapshotHash,
-                                                                       nonce: nonce)
+                                                                       nonce: nonce,
+                                                                       difficulty: difficulty)
                     return self.createTransaction(accountBlock: receive)
                 } else {
                     return Promise { $0.fulfill(Void()) }
@@ -131,7 +132,8 @@ extension Provider {
                                                              tokenId: tokenId,
                                                              amount: amount,
                                                              data: data,
-                                                             nonce: nil)
+                                                             nonce: nil,
+                                                             difficulty: nil)
                 return self.createTransaction(accountBlock: send)
             })
             .done ({
@@ -147,11 +149,12 @@ extension Provider {
                                    tokenId: String,
                                    amount: BigInt,
                                    data: String?,
+                                   difficulty: BigInt,
                                    completion: @escaping (NetworkResult<Void>) -> Void) {
 
         getLatestAccountBlockAndSnapshotHash(address: bag.address)
             .then({ [unowned self] (latestAccountBlock, latestSnapshotHash) -> Promise<(latestAccountBlock: AccountBlock, latestSnapshotHash: String, nonce: String)> in
-                return self.getPowNonce(address: bag.address, preHash: latestAccountBlock.hash).then({ nonce in
+                return self.getPowNonce(address: bag.address, preHash: latestAccountBlock.hash, difficulty: difficulty).then({ nonce in
                     return Promise { seal in seal.fulfill((latestAccountBlock, latestSnapshotHash, nonce)) }
                 })
             })
@@ -163,7 +166,8 @@ extension Provider {
                                                              tokenId: tokenId,
                                                              amount: amount,
                                                              data: data,
-                                                             nonce: nonce)
+                                                             nonce: nonce,
+                                                             difficulty: difficulty)
                 return self.createTransaction(accountBlock: send)
             })
             .done ({
@@ -183,6 +187,20 @@ extension Provider {
 
         var address: Address {
             return Address(string: self.rawValue)
+        }
+    }
+
+    fileprivate func getPledgeQuota(address: Address) -> Promise<(quota: String, maxTxCount: String)> {
+        return Promise { seal in
+            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetPledgeQuotaRequest(address: address.description)))
+            Session.send(request) { result in
+                switch result {
+                case .success((let quota, let maxTxCount)):
+                    seal.fulfill((quota, maxTxCount))
+                case .failure(let error):
+                    seal.reject(error)
+                }
+            }
         }
     }
 
@@ -217,6 +235,16 @@ extension Provider {
 
 extension Provider {
 
+    func getPledgeQuota(address: Address, completion: @escaping (NetworkResult<(quota: String, maxTxCount: String)>) -> Void) {
+        getPledgeQuota(address: address)
+            .done ({
+                completion(NetworkResult.success($0))
+            })
+            .catch({
+                completion(NetworkResult.wrapError($0))
+            })
+    }
+
     func getPledges(address: Address, index: Int, count: Int, completion: @escaping (NetworkResult<[Pledge]>) -> Void) {
         getPledges(address: address, index: index, count: count)
             .done ({
@@ -246,7 +274,8 @@ extension Provider {
                                                              tokenId: tokenId,
                                                              amount: amount,
                                                              data: data,
-                                                             nonce: nil)
+                                                             nonce: nil,
+                                                             difficulty: nil)
                 return self.createTransaction(accountBlock: send)
             })
             .done ({
@@ -261,6 +290,7 @@ extension Provider {
                                       beneficialAddress: Address,
                                       tokenId: String,
                                       amount: BigInt,
+                                      difficulty: BigInt,
                                       completion: @escaping (NetworkResult<Void>) -> Void) {
         getPledgeData(beneficialAddress: beneficialAddress)
             .then({ [unowned self] (data) -> Promise<(latestAccountBlock: AccountBlock, latestSnapshotHash: String, data: String)> in
@@ -269,7 +299,7 @@ extension Provider {
                 })
             })
             .then({ [unowned self] (latestAccountBlock, latestSnapshotHash, data) -> Promise<(latestAccountBlock: AccountBlock, latestSnapshotHash: String, data: String, nonce: String)> in
-                return self.getPowNonce(address: bag.address, preHash: latestAccountBlock.hash).then({ nonce in
+                return self.getPowNonce(address: bag.address, preHash: latestAccountBlock.hash, difficulty: difficulty).then({ nonce in
                     return Promise { seal in seal.fulfill((latestAccountBlock, latestSnapshotHash, data, nonce)) }
                 })
             })
@@ -281,7 +311,8 @@ extension Provider {
                                                              tokenId: tokenId,
                                                              amount: amount,
                                                              data: data,
-                                                             nonce: nonce)
+                                                             nonce: nonce,
+                                                             difficulty: difficulty)
                 return self.createTransaction(accountBlock: send)
             })
             .done ({

@@ -31,12 +31,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 56 images.
+  /// This `R.image` struct is generated, and contains static references to 59 images.
   struct image {
     /// Image `aboutus_logo`.
     static let aboutus_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "aboutus_logo")
     /// Image `background_add_button_white`.
     static let background_add_button_white = Rswift.ImageResource(bundle: R.hostingBundle, name: "background_add_button_white")
+    /// Image `background_address_add_button_white`.
+    static let background_address_add_button_white = Rswift.ImageResource(bundle: R.hostingBundle, name: "background_address_add_button_white")
     /// Image `background_button_blue`.
     static let background_button_blue = Rswift.ImageResource(bundle: R.hostingBundle, name: "background_button_blue")
     /// Image `background_button_white`.
@@ -59,6 +61,10 @@ struct R: Rswift.Validatable {
     static let icon_background = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_background")
     /// Image `icon_button_add`.
     static let icon_button_add = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_button_add")
+    /// Image `icon_button_address_add`.
+    static let icon_button_address_add = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_button_address_add")
+    /// Image `icon_button_address_scan`.
+    static let icon_button_address_scan = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_button_address_scan")
     /// Image `icon_button_facebook`.
     static let icon_button_facebook = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_button_facebook")
     /// Image `icon_button_github`.
@@ -156,6 +162,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.background_add_button_white, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "background_address_add_button_white", bundle: ..., traitCollection: ...)`
+    static func background_address_add_button_white(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.background_address_add_button_white, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "background_button_blue", bundle: ..., traitCollection: ...)`
     static func background_button_blue(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.background_button_blue, compatibleWith: traitCollection)
@@ -209,6 +220,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "icon_button_add", bundle: ..., traitCollection: ...)`
     static func icon_button_add(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.icon_button_add, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_button_address_add", bundle: ..., traitCollection: ...)`
+    static func icon_button_address_add(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_button_address_add, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_button_address_scan", bundle: ..., traitCollection: ...)`
+    static func icon_button_address_scan(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_button_address_scan, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "icon_button_facebook", bundle: ..., traitCollection: ...)`
@@ -509,7 +530,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 155 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 164 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1131,6 +1152,42 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageSubmitLoading = Rswift.StringResource(key: "import.page.submit.loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 地址
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageAddCurrentAddressButtonTitle = Rswift.StringResource(key: "send.page.add.current.address.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 当前配额不足，无法进行转账，您需要运行 POW 或抵押配额才可以继续转账
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaAlertPowAndQuotaMessage = Rswift.StringResource(key: "quota.alert.pow.and.quota.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 我的配额
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageMyQuotaTitle = Rswift.StringResource(key: "send.page.my.quota.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 扫码
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageScanAddressButtonTitle = Rswift.StringResource(key: "send.page.scan.address.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 抵押配额
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaAlertQuotaButtonTitle = Rswift.StringResource(key: "quota.alert.quota.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 最大交易量
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageMyMaxTxCountTitle = Rswift.StringResource(key: "send.page.my.max.tx.count.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 笔/秒
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageMyMaxTxCountUnitTitle = Rswift.StringResource(key: "send.page.my.max.tx.count.unit.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 运行 POW
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaAlertPowButtonTitle = Rswift.StringResource(key: "quota.alert.pow.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 配额不足
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaAlertTitle = Rswift.StringResource(key: "quota.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -2215,6 +2272,69 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func importPageSubmitLoading(_: Void = ()) -> String {
         return NSLocalizedString("import.page.submit.loading", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 地址
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageAddCurrentAddressButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.add.current.address.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 当前配额不足，无法进行转账，您需要运行 POW 或抵押配额才可以继续转账
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaAlertPowAndQuotaMessage(_: Void = ()) -> String {
+        return NSLocalizedString("quota.alert.pow.and.quota.message", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 我的配额
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageMyQuotaTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.my.quota.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 扫码
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageScanAddressButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.scan.address.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 抵押配额
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaAlertQuotaButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.alert.quota.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 最大交易量
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageMyMaxTxCountTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.my.max.tx.count.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 笔/秒
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageMyMaxTxCountUnitTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.my.max.tx.count.unit.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 运行 POW
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaAlertPowButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.alert.pow.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 配额不足
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaAlertTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.alert.title", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

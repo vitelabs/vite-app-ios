@@ -54,6 +54,12 @@ class SendViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         kas_activateAutoScrollingForView(contentView)
+        FetchQuotaService.instance.retainQuota()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        FetchQuotaService.instance.releaseQuota()
     }
 
     // View
@@ -83,7 +89,8 @@ class SendViewController: BaseViewController {
 
     private func setupView() {
         navigationTitleView = NavigationTitleView(title: R.string.localizable.sendPageTitle.key.localized())
-        let addressView = SendAddressView(address: address?.description ?? "")
+        let addressView: SendAddressViewType = address != nil ? AddressLabelView(address: address!.description) : AddressTextViewView(currentAddress: "vite_b9e1077dbc7cc9ca0cc00603966d34665675f3b5410b92e25e")
+//        let addressView: SendAddressViewType = address != nil ? AddressLabelView(address: address!.description) : AddressTextViewView()
         let sendButton = UIButton(style: .blue, title: R.string.localizable.sendPageSendButtonTitle.key.localized())
 
         let shadowView = UIView().then {
@@ -91,7 +98,7 @@ class SendViewController: BaseViewController {
             $0.layer.shadowColor = UIColor(netHex: 0x000000).cgColor
             $0.layer.shadowOpacity = 0.1
             $0.layer.shadowOffset = CGSize(width: 0, height: 5)
-            $0.layer.shadowRadius = 20
+            $0.layer.shadowRadius = 9
         }
 
         view.addSubview(scrollView)
@@ -113,7 +120,7 @@ class SendViewController: BaseViewController {
         }
 
         headerView.snp.makeConstraints { (m) in
-            m.top.equalTo(contentView)
+            m.top.equalTo(contentView).offset(10)
             m.left.equalTo(contentView).offset(24)
             m.right.equalTo(contentView).offset(-24)
         }
@@ -207,6 +214,8 @@ class SendViewController: BaseViewController {
             // no balanceInfo, set 0.0
             self.headerView.balanceLabel.text = "0.0"
         }).disposed(by: rx.disposeBag)
+        FetchQuotaService.instance.quotaDriver.drive(headerView.quotaLabel.rx.text).disposed(by: rx.disposeBag)
+        FetchQuotaService.instance.maxTxCountDriver.drive(headerView.maxTxCountLabel.rx.text).disposed(by: rx.disposeBag)
     }
 
     private func showConfirmTransactionViewController(address: Address, amountString: String, amount: BigInt) {
@@ -253,12 +262,13 @@ class SendViewController: BaseViewController {
                                message: nil,
                                actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
                 } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
-                    Alert.show(into: self, title: "没配额", message: nil, actions: [
-                        (.default(title: "获取pow"), { _ in
+                    Alert.show(into: self, title: R.string.localizable.quotaAlertTitle.key.localized(), message: R.string.localizable.quotaAlertPowAndQuotaMessage.key.localized(), actions: [
+                        (.default(title: R.string.localizable.quotaAlertPowButtonTitle.key.localized()), { _ in
                             self.sendTransactionWithGetPow(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, note: note)
                         }),
-                        (.default(title: "抵押"), { _ in
-                            print("抵押")
+                        (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle.key.localized()), { [weak self] _ in
+                            let vc = QuotaManageViewController()
+                            self?.navigationController?.pushViewController(vc, animated: true)
                         }),
                         (.cancel, nil),
                         ])
@@ -269,9 +279,13 @@ class SendViewController: BaseViewController {
         }
     }
 
+    var getPowFloatView: GetPowFloatView!
+
     private func sendTransactionWithGetPow(bag: HDWalletManager.Bag, toAddress: Address, tokenId: String, amount: BigInt, note: String?) {
-        self.view.displayLoading(text: "获取pow")
-        Provider.instance.sendTransactionWithGetPow(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, data: note?.bytes.toBase64(), completion: { [weak self] (result) in
+//        self.view.displayLoading(text: "获取pow")
+        getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!)
+        getPowFloatView.show()
+        Provider.instance.sendTransactionWithGetPow(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, data: note?.bytes.toBase64(), difficulty: AccountBlock.Const.difficulty, completion: { [weak self] (result) in
             guard let `self` = self else { return }
             self.view.hideLoading()
             switch result {
