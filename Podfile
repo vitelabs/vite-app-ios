@@ -22,9 +22,6 @@ target 'Vite' do
   pod 'KMNavigationBarTransition'
   pod 'XCGLogger', '~> 6.1.0'
 
-  #social
-  pod 'WechatOpenSDK'
-
   #request
   pod 'SwiftyJSON'
 

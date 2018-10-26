@@ -14,14 +14,12 @@ class DebugService: Mappable {
     fileprivate let fileHelper = FileHelper(.library, appending: FileHelper.appPathComponent)
     fileprivate static let saveKey = "DebugService"
 
-
     var rpcUseHTTP = false {
         didSet {
             guard rpcUseHTTP != oldValue else { return }
             pri_save()
         }
     }
-
 
     var showStatisticsToast = false {
         didSet {
