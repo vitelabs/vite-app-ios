@@ -20,10 +20,6 @@ class PopViewController: BaseViewController {
     init(url: URL) {
         self.url = url
         super.init(nibName: nil, bundle: nil)
-
-        setupView()
-        initBinds()
-        self.webView.load(URLRequest.init(url: self.url))
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -32,6 +28,9 @@ class PopViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        initBinds()
+        self.webView.load(URLRequest.init(url: self.url))
     }
 
     override func viewWillAppear(_ animated: Bool) {
