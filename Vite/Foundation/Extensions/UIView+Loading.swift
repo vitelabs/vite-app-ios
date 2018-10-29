@@ -39,7 +39,7 @@ extension UIView {
 
 extension UIView {
     func  setupShadow (_ shadowOffset: CGSize) {
-        self.layer.shadowColor = UIColor.red.cgColor
+        self.layer.shadowColor = UIColor(netHex: 0x000000).cgColor
         self.layer.shadowOpacity = 0.1
         self.layer.shadowOffset = shadowOffset
         self.layer.shadowRadius = 9
