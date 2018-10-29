@@ -53,7 +53,10 @@ class QuotaManageViewController: BaseViewController {
     lazy var contentView = UIView()
 
     // headerView
-    lazy var headerView = SendHeaderView(address: bag.address.description)
+    lazy var headerView = SendHeaderView(address: bag.address.description).then {
+         $0.addressTitleLabel.text = R.string.localizable.quotaManagePageAddressTitle.key.localized()
+         $0.balanceTitleLabel.text = R.string.localizable.quotaManagePageBalanceTitle.key.localized()
+    }
 
     // money
     lazy var amountView = TitleMoneyInputView(title: R.string.localizable.quotaManagePageQuotaMoneyTitle.key.localized(), placeholder: R.string.localizable.quotaManagePageQuotaMoneyPlaceholder.key.localized(), content: "", desc: TokenCacheService.instance.viteToken.symbol)
@@ -61,14 +64,27 @@ class QuotaManageViewController: BaseViewController {
     //snapshoot height
     lazy var snapshootHeightLab = TitleDescView(title: R.string.localizable.quotaManagePageQuotaSnapshootHeightTitle.key.localized(), desc: R.string.localizable.quotaManagePageQuotaSnapshootHeightDesc.key.localized())
 
-    lazy var addressView = SendAddressView(address: address?.description ?? "")
-    lazy var sendButton = UIButton(style: .blue, title: R.string.localizable.quotaManagePageSubmitBtnTitle.key.localized())
-    lazy var checkQuotaListBtn = UIButton(style: .whiteWithoutShadow, title: R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized())
+    lazy var addressView = SendAddressView(address: address?.description ?? "").then {
+        $0.titleLabel.text = R.string.localizable.quotaManagePageAddressTitle.key.localized()
+       
+    }
 
+    lazy var sendButton = UIButton(style: .blue, title: R.string.localizable.quotaManagePageSubmitBtnTitle.key.localized())
+
+    lazy var checkQuotaListBtn = UIButton(style: .whiteWithoutShadow).then {
+    $0.setTitle(R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized(), for: .normal)
+        $0.titleLabel?.font = Fonts.Font14_b
+    }
     private func setupView() {
         navigationTitleView = NavigationTitleView(title: R.string.localizable.quotaManagePageTitle.key.localized())
-        checkQuotaListBtn.titleLabel?.font = Fonts.Font14_b
-        headerView.setupShadow(CGSize(width: 0, height: 5))
+
+        let shadowView = UIView().then {
+            $0.backgroundColor = UIColor.white
+            $0.layer.shadowColor = UIColor(netHex: 0x000000).cgColor
+            $0.layer.shadowOpacity = 0.1
+            $0.layer.shadowOffset = CGSize(width: 0, height: 5)
+            $0.layer.shadowRadius = 9
+        }
 
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { (m) in
@@ -82,6 +98,7 @@ class QuotaManageViewController: BaseViewController {
             m.left.right.equalTo(view)
         }
 
+        contentView.addSubview(shadowView)
         contentView.addSubview(headerView)
         contentView.addSubview(addressView)
         contentView.addSubview(amountView)
@@ -89,8 +106,11 @@ class QuotaManageViewController: BaseViewController {
         contentView.addSubview(sendButton)
         contentView.addSubview(checkQuotaListBtn)
 
+        shadowView.snp.makeConstraints { (m) in
+            m.edges.equalTo(headerView)
+        }
         headerView.snp.makeConstraints { (m) in
-            m.top.equalTo(contentView)
+            m.top.equalTo(contentView).offset(3)
             m.left.equalTo(contentView).offset(24)
             m.right.equalTo(contentView).offset(-24)
         }

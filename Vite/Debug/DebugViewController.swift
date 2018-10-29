@@ -55,7 +55,7 @@ class DebugViewController: FormViewController {
             <<< SwitchRow("useBigDifficulty") {
                 $0.title = "Use Big Difficulty"
                 $0.value = DebugService.instance.useBigDifficulty
-                }.onChange { row in
+            }.onChange { row in
                     guard let ret = row.value else { return }
                     DebugService.instance.useBigDifficulty = ret
             }
