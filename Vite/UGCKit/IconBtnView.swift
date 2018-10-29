@@ -39,12 +39,12 @@ class IconBtnView: UIImageView {
             m.centerX.equalTo(self)
             m.width.equalTo(32)
             m.height.equalTo(32)
-            m.top.equalTo(self).offset(10)
+            m.top.equalTo(self).offset(15)
         }
 
         titleLabel.snp.makeConstraints { (m) in
             m.centerX.right.equalTo(self)
-            m.top.equalTo(iconView.snp.bottom)
+            m.top.equalTo(iconView.snp.bottom).offset(4)
         }
 
         btn.snp.makeConstraints { (m) in

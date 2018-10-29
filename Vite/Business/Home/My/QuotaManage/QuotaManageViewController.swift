@@ -178,15 +178,9 @@ class QuotaManageViewController: BaseViewController {
 
         checkQuotaListBtn.rx.tap
             .bind { [weak self] in
-                //TODO:::
-
-                let url  = R.file.quotaDefinitionHtml()!
-                let vc = PopViewController(url: url)
-                vc.modalPresentationStyle = .overCurrentContext
-                let delegate =  StyleActionSheetTranstionDelegate()
-                vc.transitioningDelegate = delegate
-                self?.present(vc, animated: true, completion: nil)
-//                self?.navigationController?.pushViewController(vc, animated: true)
+                let pledgeHistoryVC = PledgeHistoryViewController()
+                pledgeHistoryVC.reactor = PledgeHistoryViewReactor()
+                self?.navigationController?.pushViewController(pledgeHistoryVC, animated: true)
             }.disposed(by: rx.disposeBag)
     }
 }
