@@ -22,7 +22,7 @@ enum ScanResult {
 
 extension Reactive where Base: ScanViewController {
     var result: Observable<ScanResult> {
-        return base.result.asObservable()
+        return base.result.asObservable().share()
     }
 }
 
