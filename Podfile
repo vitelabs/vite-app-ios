@@ -24,9 +24,6 @@ target 'Vite' do
   pod 'pop', '~> 1.0'
   pod 'DACircularProgress', '2.3.1'
 
-  #social
-  pod 'WechatOpenSDK'
-
   #request
   pod 'SwiftyJSON'
 

@@ -16,6 +16,7 @@
 "Loading" = "Loading";
 "Confirm" = "Confirm";
 "Submit" = "Submit";
+"Close" = "关闭";
 "Update.app" = "Update App";
 "NetWorkError" = "Loading failed, please refresh";
 
@@ -217,9 +218,27 @@
 /* toast error */
 "toast.error.login" = "Login Error";
 
+/* quota manage */
+"quota.manage.page.title" = "获取配额";
+"quota.manage.page.address.title" = "抵押配额扣除地址";
+"quota.manage.page.balance.title" = "转出账户余额";
+"quota.manage.page.my.quota.title" = "我的配额";
+"quota.manage.page.max.volume.title" = "最大交易量";
+"quota.manage.page.input.address.title" = "请输入获取配额地址";
+"quota.manage.page.quota.money.title" = "抵押金额";
+"quota.manage.page.quota.money.placeholder" = "请输入抵押金额，最小10 vite";
+"quota.manage.page.quota.snapshoot.height.title" = "抵押快照高度";
+"quota.manage.page.quota.snapshoot.height.desc" = "约3天";
+"quota.manage.page.submit.btn.title" = "提交抵押";
+"quota.manage.page.check.quotaList.btn.title" = "查看抵押列表";
+"quota.submit.pop.desc" = "确认是否抵押%@获取配额，抵押生效3天之后可撤销";
+"quota.submit.pop.submit.btn.title" = "确认抵押";
+"quota.submit.pop.cancel.btn.title" = "再等会儿";
+
 /* quota alert */
 "quota.alert.title" = "配额不足";
 "quota.alert.pow.and.quota.message" = "无法进行交易，您需要删除备注文字并运行 PoW 或抵押配额才可以继续转账";
 "quota.alert.pow.button.title" = "运行 PoW";
 "quota.alert.quota.button.title" = "抵押 VITE";
 "quota.float.view.title" = "运行 PoW";
+

@@ -37,6 +37,15 @@ extension UIView {
     }
 }
 
+extension UIView {
+    func  setupShadow (_ shadowOffset: CGSize) {
+        self.layer.shadowColor = UIColor(netHex: 0x000000).cgColor
+        self.layer.shadowOpacity = 0.1
+        self.layer.shadowOffset = shadowOffset
+        self.layer.shadowRadius = 20
+    }
+}
+
 struct Toast {
     static func show(_ string: String, duration: TimeInterval = 2.0, position: ToastPosition = .center) {
         guard let window = UIApplication.shared.keyWindow else { return }

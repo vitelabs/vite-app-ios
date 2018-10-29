@@ -37,7 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AutoGatheringService.instance.start()
         FetchBalanceInfoService.instance.start()
         FetchQuotaService.instance.start()
-        WXApi.registerApp(Constants.weixinAppID)
         return true
     }
 
