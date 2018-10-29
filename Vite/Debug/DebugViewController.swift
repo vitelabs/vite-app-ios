@@ -52,6 +52,13 @@ class DebugViewController: FormViewController {
                 TokenCacheService.instance.deleteCache()
                 Toast.show("Operation complete")
             })
+            <<< SwitchRow("useBigDifficulty") {
+                $0.title = "Use Big Difficulty"
+                $0.value = DebugService.instance.useBigDifficulty
+                }.onChange { row in
+                    guard let ret = row.value else { return }
+                    DebugService.instance.useBigDifficulty = ret
+            }
             +++
             Section {
                 $0.header = HeaderFooterView(title: "Network")

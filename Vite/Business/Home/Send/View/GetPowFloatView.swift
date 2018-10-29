@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import NSObject_Rx
+import DACircularProgress
 
 class GetPowFloatView: VisualEffectAnimationView {
 
@@ -22,9 +23,15 @@ class GetPowFloatView: VisualEffectAnimationView {
     fileprivate let titleLabel = UILabel().then {
         $0.textColor = UIColor(netHex: 0x007AFF)
         $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        $0.text = R.string.localizable.quotaFloatViewTitle.key.localized()
     }
 
-    fileprivate let progressView = ProgressView()
+    fileprivate let progressView = DACircularProgressView().then {
+        $0.trackTintColor = UIColor(netHex: 0xefefef)
+        $0.progressTintColor = UIColor(netHex: 0x007AFF)
+        $0.thicknessRatio = 0.04
+        $0.roundedCorners = 1
+    }
 
     fileprivate let progressLabel = UILabel().then {
         $0.textColor = UIColor(netHex: 0x007AFF)
@@ -76,6 +83,7 @@ class GetPowFloatView: VisualEffectAnimationView {
         cancelButton.snp.makeConstraints { (m) in
             m.bottom.equalTo(containerView).offset(-15)
             m.centerX.equalTo(containerView)
+            m.height.equalTo(40)
         }
     }
 
@@ -86,10 +94,10 @@ class GetPowFloatView: VisualEffectAnimationView {
     var progress = 0
     override func show(animations: (() -> Void)? = nil, completion: (() -> Void)? = nil) {
         super.show(animations: animations, completion: completion)
-        Observable<Int>.interval(1, scheduler: MainScheduler.instance).bind { [weak self] in
+        Observable<Int>.interval(1, scheduler: MainScheduler.instance).bind { [weak self] _ in
             guard let `self` = self else { return }
-            self.progress = $0
-            print($0)
+            self.progress = min(self.progress + 1, 99)
+            self.updateProgress()
         }.disposed(by: rx.disposeBag)
     }
 
@@ -97,18 +105,16 @@ class GetPowFloatView: VisualEffectAnimationView {
         super.hide(animations: animations, completion: completion)
         removeFromSuperview()
     }
-}
 
-extension GetPowFloatView {
+    func updateProgress(_ animated: Bool = true) {
+        self.progressLabel.text = String(self.progress) + "%"
+        self.progressView.setProgress(CGFloat(self.progress) / 100.0, animated: animated)
+    }
 
-    class ProgressView: UIView {
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            backgroundColor = .red
-        }
-
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
+    func finish(completion: @escaping () -> Void) {
+        self.cancelButton.isUserInteractionEnabled = false
+        self.progress = 100
+        updateProgress(false)
+        GCD.delay(0.25) { self.hide(animations: nil, completion: completion) }
     }
 }

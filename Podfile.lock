@@ -13,6 +13,7 @@ PODS:
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
   - CryptoSwift (0.12.0)
+  - DACircularProgress (2.3.1)
   - Differentiator (3.1.0)
   - Eureka (4.2.0)
   - JSONRPCKit (3.0.0):
@@ -88,6 +89,7 @@ DEPENDENCIES:
   - BaiduMobStat
   - BigInt (~> 3.0)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - DACircularProgress (= 2.3.1)
   - Eureka (~> 4.2.0)
   - JSONRPCKit
   - KeychainSwift
@@ -125,6 +127,7 @@ SPEC REPOS:
     - BaiduMobStat
     - BigInt
     - CryptoSwift
+    - DACircularProgress
     - Differentiator
     - Eureka
     - JSONRPCKit
@@ -177,6 +180,7 @@ SPEC CHECKSUMS:
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
@@ -211,6 +215,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 36f375349a8e980f51890eb7177676be01dcbfb6
+PODFILE CHECKSUM: 4518116c8b09d46f25a961abde731433db06f0d8
 
 COCOAPODS: 1.5.3

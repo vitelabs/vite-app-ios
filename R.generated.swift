@@ -530,7 +530,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 164 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 166 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -888,6 +888,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageTitle = Rswift.StringResource(key: "import.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: PoW 获取的配额不足，建议您进行抵押 VITE 获取配额
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageToastSendPowFailed = Rswift.StringResource(key: "send.page.toast.send.pow.failed", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Processing
       /// 
       /// Locales: en, zh-Hans
@@ -1156,10 +1160,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageAddCurrentAddressButtonTitle = Rswift.StringResource(key: "send.page.add.current.address.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 当前配额不足，无法进行转账，您需要运行 POW 或抵押配额才可以继续转账
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaAlertPowAndQuotaMessage = Rswift.StringResource(key: "quota.alert.pow.and.quota.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 我的配额
       /// 
       /// Locales: en, zh-Hans
@@ -1168,10 +1168,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageScanAddressButtonTitle = Rswift.StringResource(key: "send.page.scan.address.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 抵押配额
+      /// en translation: 抵押 VITE
       /// 
       /// Locales: en, zh-Hans
       static let quotaAlertQuotaButtonTitle = Rswift.StringResource(key: "quota.alert.quota.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 无法进行交易，您需要删除备注文字并运行 PoW 或抵押配额才可以继续转账
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaAlertPowAndQuotaMessage = Rswift.StringResource(key: "quota.alert.pow.and.quota.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 最大交易量
       /// 
       /// Locales: en, zh-Hans
@@ -1180,10 +1184,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageMyMaxTxCountUnitTitle = Rswift.StringResource(key: "send.page.my.max.tx.count.unit.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 运行 POW
+      /// en translation: 运行 PoW
       /// 
       /// Locales: en, zh-Hans
       static let quotaAlertPowButtonTitle = Rswift.StringResource(key: "quota.alert.pow.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 运行 PoW
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaFloatViewTitle = Rswift.StringResource(key: "quota.float.view.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 配额不足
       /// 
       /// Locales: en, zh-Hans
@@ -1812,6 +1820,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("import.page.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: PoW 获取的配额不足，建议您进行抵押 VITE 获取配额
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageToastSendPowFailed(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.toast.send.pow.failed", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Processing
       /// 
       /// Locales: en, zh-Hans
@@ -2281,13 +2296,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send.page.add.current.address.button.title", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: 当前配额不足，无法进行转账，您需要运行 POW 或抵押配额才可以继续转账
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaAlertPowAndQuotaMessage(_: Void = ()) -> String {
-        return NSLocalizedString("quota.alert.pow.and.quota.message", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: 我的配额
       /// 
       /// Locales: en, zh-Hans
@@ -2302,11 +2310,18 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send.page.scan.address.button.title", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: 抵押配额
+      /// en translation: 抵押 VITE
       /// 
       /// Locales: en, zh-Hans
       static func quotaAlertQuotaButtonTitle(_: Void = ()) -> String {
         return NSLocalizedString("quota.alert.quota.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 无法进行交易，您需要删除备注文字并运行 PoW 或抵押配额才可以继续转账
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaAlertPowAndQuotaMessage(_: Void = ()) -> String {
+        return NSLocalizedString("quota.alert.pow.and.quota.message", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 最大交易量
@@ -2323,11 +2338,18 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send.page.my.max.tx.count.unit.title", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: 运行 POW
+      /// en translation: 运行 PoW
       /// 
       /// Locales: en, zh-Hans
       static func quotaAlertPowButtonTitle(_: Void = ()) -> String {
         return NSLocalizedString("quota.alert.pow.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 运行 PoW
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaFloatViewTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.float.view.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 配额不足
