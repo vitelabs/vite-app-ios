@@ -40,7 +40,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 59 images.
+  /// This `R.image` struct is generated, and contains static references to 60 images.
   struct image {
     /// Image `aboutus_logo`.
     static let aboutus_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "aboutus_logo")
@@ -152,6 +152,8 @@ struct R: Rswift.Validatable {
     static let login_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "login_logo")
     /// Image `network_error`.
     static let network_error = Rswift.ImageResource(bundle: R.hostingBundle, name: "network_error")
+    /// Image `quota_bell`.
+    static let quota_bell = Rswift.ImageResource(bundle: R.hostingBundle, name: "quota_bell")
     /// Image `splash_slogen`.
     static let splash_slogen = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash_slogen")
     /// Image `success`.
@@ -436,6 +438,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.network_error, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "quota_bell", bundle: ..., traitCollection: ...)`
+    static func quota_bell(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.quota_bell, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "splash_slogen", bundle: ..., traitCollection: ...)`
     static func splash_slogen(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.splash_slogen, compatibleWith: traitCollection)
@@ -539,7 +546,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 182 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 185 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1173,10 +1180,22 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let quotaSubmitPopCancelBtnTitle = Rswift.StringResource(key: "quota.submit.pop.cancel.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 到期
+      /// 
+      /// Locales: en, zh-Hans
+      static let peldgeDeadline = Rswift.StringResource(key: "peldge.deadline", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 地址
       /// 
       /// Locales: en, zh-Hans
       static let sendPageAddCurrentAddressButtonTitle = Rswift.StringResource(key: "send.page.add.current.address.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 当前app仅支持查看抵押列表，如需要取回到期抵押VITE，请前往web钱包操作
+      /// 
+      /// Locales: en, zh-Hans
+      static let peldgeMessage = Rswift.StringResource(key: "peldge.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 我的质押列表
+      /// 
+      /// Locales: en, zh-Hans
+      static let peldgeTitle = Rswift.StringResource(key: "peldge.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 我的配额
       /// 
       /// Locales: en, zh-Hans
@@ -2376,11 +2395,32 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("quota.submit.pop.cancel.btn.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 到期
+      /// 
+      /// Locales: en, zh-Hans
+      static func peldgeDeadline(_: Void = ()) -> String {
+        return NSLocalizedString("peldge.deadline", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 地址
       /// 
       /// Locales: en, zh-Hans
       static func sendPageAddCurrentAddressButtonTitle(_: Void = ()) -> String {
         return NSLocalizedString("send.page.add.current.address.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 当前app仅支持查看抵押列表，如需要取回到期抵押VITE，请前往web钱包操作
+      /// 
+      /// Locales: en, zh-Hans
+      static func peldgeMessage(_: Void = ()) -> String {
+        return NSLocalizedString("peldge.message", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 我的质押列表
+      /// 
+      /// Locales: en, zh-Hans
+      static func peldgeTitle(_: Void = ()) -> String {
+        return NSLocalizedString("peldge.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 我的配额

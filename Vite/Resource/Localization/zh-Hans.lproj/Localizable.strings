@@ -239,3 +239,9 @@
 "quota.alert.pow.button.title" = "运行 PoW";
 "quota.alert.quota.button.title" = "抵押 VITE";
 "quota.float.view.title" = "运行 PoW";
+
+/* Peldge History */
+"peldge.message" = "当前app仅支持查看抵押列表，如需要取回到期抵押VITE，请前往web钱包操作";
+"peldge.deadline" = "到期";
+"peldge.title" = "我的质押列表";
+
