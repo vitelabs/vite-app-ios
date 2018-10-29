@@ -13,8 +13,13 @@ import RxCocoa
 import NSObject_Rx
 import BigInt
 
+protocol  QuotaSubmitPopViewControllerDelegate: class {
+    func confirmAction()
+}
+
 class QuotaSubmitPopViewController: BaseViewController {
     let money: String
+    weak var delegate: QuotaSubmitPopViewControllerDelegate?
 
     init(money: String) {
         self.money = money
@@ -61,11 +66,6 @@ class QuotaSubmitPopViewController: BaseViewController {
         cardBgView.addSubview(submitBtn)
         cardBgView.addSubview(cancelBtn)
 
-        cardBgView.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalTo(view)
-            make.top.equalTo(view.safeAreaLayoutGuideSnpBottom).offset(-279)
-        }
-
         descLab.snp.makeConstraints { (make) in
             make.left.equalTo(cardBgView).offset(24)
             make.right.equalTo(cardBgView).offset(-24)
@@ -89,7 +89,15 @@ class QuotaSubmitPopViewController: BaseViewController {
     }
 
     func initBinds() {
+        self.cancelBtn.rx.tap
+            .bind { [weak self] in
+                self?.dismiss()
+            }.disposed(by: rx.disposeBag)
 
+        self.submitBtn.rx.tap
+            .bind { [weak self] in
+                self?.delegate?.confirmAction()
+                self?.dismiss()
+            }.disposed(by: rx.disposeBag)
     }
-
 }

@@ -32,6 +32,8 @@
 		4C32E20E2182FC6600007E9F /* StyleActionSheetTranstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E20D2182FC6600007E9F /* StyleActionSheetTranstion.swift */; };
 		4C3E323F215492AC009936E3 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E323E215492AC009936E3 /* Bundle.swift */; };
 		4C3F3F6E217731900022A8CC /* MnemonicTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F3F6D217731900022A8CC /* MnemonicTextView.swift */; };
+		4C56E03F2186B164003550BC /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C56E03E2186B164003550BC /* PopViewController.swift */; };
+		4C56E0422186B93F003550BC /* QuotaDefinition.html in Resources */ = {isa = PBXBuildFile; fileRef = 4C56E0412186B93F003550BC /* QuotaDefinition.html */; };
 		4C745494214D0A9D0070F7AB /* TitleBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C745493214D0A9D0070F7AB /* TitleBtnView.swift */; };
 		4C84D91C2145277C001B6EBD /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D91B2145277C001B6EBD /* PasswordInputView.swift */; };
 		4C84D9312145280E001B6EBD /* CreateWalletTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D92C2145280E001B6EBD /* CreateWalletTipViewController.swift */; };
@@ -249,6 +251,8 @@
 		4C32E20D2182FC6600007E9F /* StyleActionSheetTranstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleActionSheetTranstion.swift; sourceTree = "<group>"; };
 		4C3E323E215492AC009936E3 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		4C3F3F6D217731900022A8CC /* MnemonicTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicTextView.swift; sourceTree = "<group>"; };
+		4C56E03E2186B164003550BC /* PopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
+		4C56E0412186B93F003550BC /* QuotaDefinition.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = QuotaDefinition.html; sourceTree = "<group>"; };
 		4C745493214D0A9D0070F7AB /* TitleBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBtnView.swift; sourceTree = "<group>"; };
 		4C84D91B2145277C001B6EBD /* PasswordInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordInputView.swift; sourceTree = "<group>"; };
 		4C84D92C2145280E001B6EBD /* CreateWalletTipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWalletTipViewController.swift; sourceTree = "<group>"; };
@@ -520,6 +524,7 @@
 		4C1FF4EC212A73FB0055067D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				4C56E0402186B7BC003550BC /* Files */,
 				4C1FF4ED212A73FB0055067D /* Localization */,
 			);
 			path = Resource;
@@ -636,6 +641,7 @@
 				4C32E2042182B86A00007E9F /* TitleMoneyInputView.swift */,
 				4C32E2062182C65900007E9F /* TitleDescView.swift */,
 				4C32E2082182E5B300007E9F /* CardBgView.swift */,
+				4C56E03E2186B164003550BC /* PopViewController.swift */,
 				4C32E20C2182FC4100007E9F /* Transition */,
 			);
 			path = UGCKit;
@@ -664,6 +670,14 @@
 			children = (
 			);
 			path = Vendors;
+			sourceTree = "<group>";
+		};
+		4C56E0402186B7BC003550BC /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				4C56E0412186B93F003550BC /* QuotaDefinition.html */,
+			);
+			path = Files;
 			sourceTree = "<group>";
 		};
 		4C84D928214527F4001B6EBD /* Account */ = {
@@ -1402,6 +1416,7 @@
 				4CD8347D2150A6FE006537A2 /* Images.xcassets in Resources */,
 				4C1FF4F0212A74730055067D /* Localizable.strings in Resources */,
 				4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */,
+				4C56E0422186B93F003550BC /* QuotaDefinition.html in Resources */,
 				8E93C26821782DB700185FDE /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1642,6 +1657,7 @@
 				8E107ECF215365F000B28DE2 /* Provider+Account.swift in Sources */,
 				4C32E20E2182FC6600007E9F /* StyleActionSheetTranstion.swift in Sources */,
 				8E548543217F33B0009C528B /* Statistics+Event.swift in Sources */,
+				4C56E03F2186B164003550BC /* PopViewController.swift in Sources */,
 				8E68C4862182E55500475133 /* VisualEffectAnimationView.swift in Sources */,
 				8E56FC9A21479A7D00A68823 /* TransactionCell.swift in Sources */,
 				8E7926182151D1E7007FEBAB /* AddressManageHeaderView.swift in Sources */,

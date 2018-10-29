@@ -61,6 +61,7 @@ class QuotaManageViewController: BaseViewController {
 
     // headerView
     lazy var headerView = SendHeaderView(address: bag.address.description)
+
     // money
     lazy var amountView = TitleMoneyInputView(title: R.string.localizable.quotaManagePageQuotaMoneyTitle.key.localized(), placeholder: R.string.localizable.quotaManagePageQuotaMoneyPlaceholder.key.localized(), content: "", desc: TokenCacheService.instance.viteToken.symbol)
 
@@ -73,14 +74,7 @@ class QuotaManageViewController: BaseViewController {
         let sendButton = UIButton(style: .blue, title: R.string.localizable.quotaManagePageSubmitBtnTitle.key.localized())
         let checkQuotaListBtn = UIButton(style: .whiteWithoutShadow, title: R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized())
         checkQuotaListBtn.titleLabel?.font = Fonts.Font14_b
-
-        let shadowView = UIView().then {
-            $0.backgroundColor = UIColor.white
-            $0.layer.shadowColor = UIColor(netHex: 0x000000).cgColor
-            $0.layer.shadowOpacity = 0.1
-            $0.layer.shadowOffset = CGSize(width: 0, height: 5)
-            $0.layer.shadowRadius = 20
-        }
+        headerView.setupShadow(CGSize(width: 0, height: 5))
 
         view.addSubview(scrollView)
         view.addSubview(sendButton)
@@ -91,15 +85,10 @@ class QuotaManageViewController: BaseViewController {
             m.left.right.equalTo(view)
         }
 
-        contentView.addSubview(shadowView)
         contentView.addSubview(headerView)
         contentView.addSubview(addressView)
         contentView.addSubview(amountView)
         contentView.addSubview(snapshootHeightLab)
-
-        shadowView.snp.makeConstraints { (m) in
-            m.edges.equalTo(headerView)
-        }
 
         headerView.snp.makeConstraints { (m) in
             m.top.equalTo(contentView)
@@ -179,21 +168,27 @@ class QuotaManageViewController: BaseViewController {
 //                    return
 //                }
 
-                let vc = QuotaSubmitPopViewController(money: String.init(format: "%f %@", amountString, TokenCacheService.instance.viteToken.symbol))
+                let vc = QuotaSubmitPopViewController(money: String.init(format: "%@ %@ ", amountString, TokenCacheService.instance.viteToken.symbol))
+                vc.delegate = self
                 vc.modalPresentationStyle = .overCurrentContext
                 let delegate =  StyleActionSheetTranstionDelegate()
                 vc.transitioningDelegate = delegate
                 self.present(vc, animated: true, completion: nil)
 
-//               self.pledgeAndGainQuotaWithoutGetPow(beneficialAddress: self.bag.address, amount: BigInt("10000000000000000000"))
             }
             .disposed(by: rx.disposeBag)
 
         checkQuotaListBtn.rx.tap
             .bind { [weak self] in
                 //TODO:::
-                let vc = TransactionListViewController()
-                self?.navigationController?.pushViewController(vc, animated: true)
+
+                let url  = R.file.quotaDefinitionHtml()!
+                let vc = PopViewController(url: url)
+                vc.modalPresentationStyle = .overCurrentContext
+                let delegate =  StyleActionSheetTranstionDelegate()
+                vc.transitioningDelegate = delegate
+                self?.present(vc, animated: true, completion: nil)
+//                self?.navigationController?.pushViewController(vc, animated: true)
             }.disposed(by: rx.disposeBag)
     }
 }
@@ -260,6 +255,12 @@ extension QuotaManageViewController {
                 }
             }
         }
+    }
+}
+
+extension QuotaManageViewController: QuotaSubmitPopViewControllerDelegate {
+    func confirmAction() {
+           self.pledgeAndGainQuotaWithoutGetPow(beneficialAddress: self.bag.address, amount: BigInt("10000000000000000000"))
     }
 }
 

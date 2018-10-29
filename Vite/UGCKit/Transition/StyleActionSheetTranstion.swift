@@ -66,11 +66,11 @@ class StyleActionSheetAnimatedTransitioning: NSObject, UIViewControllerAnimatedT
             })
         } else if self.type ==  .dismiss {
             toView.frame = finalFrame
-            UIView.animate(withDuration: duration, animations: {
+            UIView.animate(withDuration: duration/2.0, animations: {
                 fromView.frame = CGRect(x: 0, y: kScreenH, width: finalFrame.size.width, height: finalFrame.size.height)
-                self.backgroundView.removeFromSuperview()
+                self.backgroundView.alpha = 0
             }, completion: { _ in
-               self.backgroundView.alpha = 0
+                self.backgroundView.removeFromSuperview()
                 transitionContext.completeTransition(true)
             })
         }
