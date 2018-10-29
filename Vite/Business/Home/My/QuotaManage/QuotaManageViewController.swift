@@ -264,7 +264,7 @@ extension QuotaManageViewController {
             }.disposed(by: rx.disposeBag)
     }
 
-    func refreshDataBySuccess()  {
+    func refreshDataBySuccess() {
         self.addressView.textView.text = ""
         self.amountView.textField.text = ""
     }
@@ -289,6 +289,7 @@ extension QuotaManageViewController {
 //service
 extension QuotaManageViewController {
     //no run pow request service
+    //auto run pledgeAndGainQuotaWithGetPow with error
     func pledgeAndGainQuotaWithoutGetPow(beneficialAddress: Address, amount: BigInt) {
         HUD.show()
         Provider.instance.pledgeAndGainQuotaWithoutGetPow(bag: bag, beneficialAddress: beneficialAddress, tokenId: TokenCacheService.instance.viteToken.id, amount: amount) { [weak self] (result) in
