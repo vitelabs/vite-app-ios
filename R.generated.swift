@@ -546,7 +546,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 186 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 187 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1216,6 +1216,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let quotaManagePageQuotaMoneyTitle = Rswift.StringResource(key: "quota.manage.page.quota.money.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 抵押金额必须大于10 vite
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageToastMoneyError = Rswift.StringResource(key: "quota.manage.page.toast.money.error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 抵押锁定时长
       /// 
       /// Locales: en, zh-Hans
@@ -2460,6 +2464,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func quotaManagePageQuotaMoneyTitle(_: Void = ()) -> String {
         return NSLocalizedString("quota.manage.page.quota.money.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 抵押金额必须大于10 vite
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageToastMoneyError(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.toast.money.error", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 抵押锁定时长

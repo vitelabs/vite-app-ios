@@ -77,4 +77,3 @@ class TitleMoneyInputView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-

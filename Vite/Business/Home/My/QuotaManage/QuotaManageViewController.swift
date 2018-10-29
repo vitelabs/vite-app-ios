@@ -241,6 +241,11 @@ extension QuotaManageViewController {
                     return
                 }
 
+                guard amount > 10 else {
+                    Toast.show(R.string.localizable.quotaManagePageToastMoneyError.key.localized())
+                    return
+                }
+
                 let vc = QuotaSubmitPopViewController(money: String.init(format: "%@ %@ ", amountString, TokenCacheService.instance.viteToken.symbol), beneficialAddress: address, amount: amount)
                 vc.delegate = self
                 vc.modalPresentationStyle = .overCurrentContext
@@ -257,6 +262,11 @@ extension QuotaManageViewController {
                 pledgeHistoryVC.reactor = PledgeHistoryViewReactor()
                 self?.navigationController?.pushViewController(pledgeHistoryVC, animated: true)
             }.disposed(by: rx.disposeBag)
+    }
+
+    func refreshDataBySuccess()  {
+        self.addressView.textView.text = ""
+        self.amountView.textField.text = ""
     }
 
     func initBinds() {
@@ -286,6 +296,7 @@ extension QuotaManageViewController {
             HUD.hide()
             switch result {
             case .success:
+                self.refreshDataBySuccess()
                 Toast.show(R.string.localizable.submitSuccess.key.localized())
             case .error(let error):
                 if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
@@ -324,7 +335,8 @@ extension QuotaManageViewController {
                         guard let `self` = self else { return }
                         switch result {
                         case .success:
-                         Toast.show(R.string.localizable.submitSuccess.key.localized())
+                              self.refreshDataBySuccess()
+                              Toast.show(R.string.localizable.submitSuccess.key.localized())
                         case .error(let error):
                             if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
                                 Alert.show(into: self,
