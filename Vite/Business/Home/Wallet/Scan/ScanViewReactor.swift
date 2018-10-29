@@ -23,15 +23,11 @@ final class ScanViewReactor: Reactor {
         case processAVMetadata(AVMetadataObject?)
         case processImage(UIImage?)
         case creatURI
-        case setLoading(Bool)
-        case confirmTokenInfo(Alamofire.Result<Token?>)
     }
 
     struct State {
         var resultString: String?
-        var viteURI: ViteURI?
-        var confirmedToken: Token?
-        var isLoading: Bool
+        var result: ScanResult?
         var toastMessage: String?
         var alertMessage: String?
     }
@@ -39,12 +35,11 @@ final class ScanViewReactor: Reactor {
     var initialState: State
 
     init() {
-        self.initialState = State(resultString: nil,
-                                  viteURI: nil,
-                                  confirmedToken: nil,
-                                  isLoading: false,
-                                  toastMessage: nil,
-                                  alertMessage: nil)
+        self.initialState = State(
+            resultString: nil,
+            result: nil,
+            toastMessage: nil,
+            alertMessage: nil)
     }
 
     func mutate(action: Action) -> Observable<Mutation> {
@@ -53,35 +48,25 @@ final class ScanViewReactor: Reactor {
             return Observable.concat([
                 Observable.just(Mutation.processImage(pickedImage)),
                 Observable.just(Mutation.creatURI),
-                Observable.just(Mutation.setLoading(true)),
-                self.fetchTokenInfo().map { Mutation.confirmTokenInfo($0) },
-                Observable.just(Mutation.setLoading(false)),
             ])
         case let .scanQRCode(metadataObject):
             return Observable.concat([
                 Observable.just(Mutation.processAVMetadata(metadataObject)),
                 Observable.just(Mutation.creatURI),
-                Observable.just(Mutation.setLoading(true)),
-                self.fetchTokenInfo().map { Mutation.confirmTokenInfo($0) },
-                Observable.just(Mutation.setLoading(false)),
                 ])
         }
     }
 
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
-        newState.toastMessage = nil; newState.alertMessage = nil; newState.confirmedToken = nil
+        newState.toastMessage = nil; newState.alertMessage = nil
         switch mutation {
         case let .processImage(pickedImage):
             (newState.resultString, newState.toastMessage) = self.processImage(pickedImage)
         case let .processAVMetadata(metadata):
             newState.resultString = self.processAVMetadata(metadata)
         case .creatURI:
-            (newState.viteURI, newState.alertMessage ) = self.creatURI(newState.resultString)
-        case let .setLoading(isLoading):
-            newState.isLoading = isLoading
-        case let .confirmTokenInfo(result):
-            (newState.confirmedToken, newState.toastMessage) = self.confirmTokenInfo(result: result)
+            (newState.result, newState.alertMessage ) = self.creatURI(newState.resultString)
         }
         return newState
     }
@@ -119,58 +104,16 @@ final class ScanViewReactor: Reactor {
         return readableObject.stringValue
     }
 
-    func creatURI(_ string: String?) -> (viteURI: ViteURI?, alertString: String?) {
-        var viteURI: ViteURI?
+    func creatURI(_ string: String?) -> (result: ScanResult?, alertString: String?) {
+        var scanResult: ScanResult
         var alertString: String?
-        guard let resultString = string else {
-            return (viteURI, alertString)
-        }
-        if let uri = ViteURI.parser(string: resultString) {
-            switch uri {
-            case .transfer:
-                viteURI = uri
-            }
+        if let string = string, let uri = ViteURI.parser(string: string) {
+            scanResult = .viteURI(uri)
         } else {
-            alertString = resultString
+            scanResult = .otherString(string)
+            alertString = string
         }
-        return (viteURI, alertString)
-    }
-
-    func confirmTokenInfo(result: Result<Token?>?) -> (token: Token?, toastString: String?) {
-        var confirmedToken: Token?
-        var toastString: String?
-        guard let result = result else {
-            return (confirmedToken, toastString)
-        }
-        switch result {
-        case .success(let token):
-            if token != nil {
-                confirmedToken = token
-            } else {
-                toastString = R.string.localizable.sendPageTokenInfoError.key.localized()
-            }
-        case .failure(let error):
-            toastString = error.message
-        }
-        return (confirmedToken, toastString)
-    }
-
-    func fetchTokenInfo() -> Observable<Alamofire.Result<Token?>> {
-        return Observable<Alamofire.Result<Token?>>.create({ [weak self] (observer) -> Disposable in
-            if let uri = self?.currentState.viteURI {
-                switch uri {
-                case .transfer(_, let tokenId, _, _, _):
-                    let tokenId = tokenId ?? TokenCacheService.instance.viteToken.id
-                    TokenCacheService.instance.tokenForId(tokenId) {(result) in
-                        observer.onNext(result)
-                        observer.onCompleted()
-                    }
-                }
-            } else {
-                observer.onCompleted()
-            }
-            return Disposables.create()
-        })
+        return (scanResult, alertString)
     }
 
 }
