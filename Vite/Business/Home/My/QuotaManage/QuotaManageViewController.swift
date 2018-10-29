@@ -53,35 +53,42 @@ class QuotaManageViewController: BaseViewController {
     lazy var contentView = UIView()
 
     // headerView
-    lazy var headerView = SendHeaderView(address: bag.address.description)
+    lazy var headerView = SendHeaderView(address: bag.address.description).then {
+         $0.addressTitleLabel.text = R.string.localizable.quotaManagePageAddressTitle.key.localized()
+         $0.balanceTitleLabel.text = R.string.localizable.quotaManagePageBalanceTitle.key.localized()
+    }
 
     // money
-    lazy var amountView = TitleMoneyInputView(title: R.string.localizable.quotaManagePageQuotaMoneyTitle.key.localized(), placeholder: R.string.localizable.quotaManagePageQuotaMoneyPlaceholder.key.localized(), content: "", desc: TokenCacheService.instance.viteToken.symbol)
+    lazy var amountView = TitleMoneyInputView(title: R.string.localizable.quotaManagePageQuotaMoneyTitle.key.localized(), placeholder: R.string.localizable.quotaManagePageQuotaMoneyPlaceholder.key.localized(), content: "", desc: TokenCacheService.instance.viteToken.symbol).then {
+        $0.textField.keyboardType = .decimalPad
+    }
 
     //snapshoot height
     lazy var snapshootHeightLab = TitleDescView(title: R.string.localizable.quotaManagePageQuotaSnapshootHeightTitle.key.localized(), desc: R.string.localizable.quotaManagePageQuotaSnapshootHeightDesc.key.localized())
 
-    lazy var addressView = AddressTextViewView(currentAddress: self.bag.address.description)
+    lazy var addressView = AddressTextViewView(currentAddress: self.bag.address.description).then {
+        $0.titleLabel.text = R.string.localizable.quotaManagePageAddressTitle.key.localized()
+        $0.textView.keyboardType = .default
+    }
+
     lazy var sendButton = UIButton(style: .blue, title: R.string.localizable.quotaManagePageSubmitBtnTitle.key.localized())
-    lazy var checkQuotaListBtn = UIButton(style: .whiteWithoutShadow, title: R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized())
 
+    lazy var shadowView = UIView().then {
+        $0.backgroundColor = UIColor.white
+        $0.layer.shadowColor = UIColor(netHex: 0x000000).cgColor
+        $0.layer.shadowOpacity = 0.1
+        $0.layer.shadowOffset = CGSize(width: 0, height: 5)
+        $0.layer.shadowRadius = 9
+    }
+
+    lazy var checkQuotaListBtn = UIButton(style: .whiteWithoutShadow).then {
+    $0.setTitle(R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized(), for: .normal)
+        $0.titleLabel?.font = Fonts.Font14_b
+    }
     private func setupView() {
-
         navigationTitleView = createNavigationTitleView()
 
-        checkQuotaListBtn.titleLabel?.font = Fonts.Font14_b
-        headerView.setupShadow(CGSize(width: 0, height: 5))
-
-        let shadowView = UIView().then {
-            $0.backgroundColor = UIColor.white
-            $0.layer.shadowColor = UIColor(netHex: 0x000000).cgColor
-            $0.layer.shadowOpacity = 0.1
-            $0.layer.shadowOffset = CGSize(width: 0, height: 5)
-            $0.layer.shadowRadius = 9
-        }
-
         view.addSubview(scrollView)
-
         scrollView.snp.makeConstraints { (m) in
             m.top.equalTo(navigationTitleView!.snp.bottom)
             m.left.right.bottom.equalTo(view)
@@ -143,9 +150,6 @@ class QuotaManageViewController: BaseViewController {
             m.bottom.equalToSuperview().offset(-50)
         }
 
-        addressView.textView.keyboardType = .default
-        amountView.textField.keyboardType = .decimalPad
-
         let toolbar = UIToolbar()
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let done: UIBarButtonItem = UIBarButtonItem(title: R.string.localizable.finish.key.localized(), style: .done, target: nil, action: nil)
@@ -157,49 +161,7 @@ class QuotaManageViewController: BaseViewController {
         addressView.textView.kas_setReturnAction(.next(responder: amountView.textField))
         amountView.textField.delegate = self
 
-        sendButton.rx.tap
-            .bind { [weak self] in
-                guard let `self` = self else { return }
-                let address = Address(string: self.addressView.textView.text ?? "")
-
-                guard address.isValid else {
-                    Toast.show(R.string.localizable.sendPageToastAddressError.key.localized())
-                    return
-                }
-
-                guard let amountString = self.amountView.textField.text,
-                    !amountString.isEmpty,
-                    let amount = amountString.toBigInt(decimals: TokenCacheService.instance.viteToken.decimals) else {
-                        Toast.show(R.string.localizable.sendPageToastAmountEmpty.key.localized())
-                        return
-                }
-
-                guard amount > BigInt(0) else {
-                    Toast.show(R.string.localizable.sendPageToastAmountZero.key.localized())
-                    return
-                }
-
-                guard amount <= self.balance.value else {
-                    Toast.show(R.string.localizable.sendPageToastAmountError.key.localized())
-                    return
-                }
-
-                let vc = QuotaSubmitPopViewController(money: String.init(format: "%@ %@ ", amountString, TokenCacheService.instance.viteToken.symbol), beneficialAddress: address, amount: amount)
-                vc.delegate = self
-                vc.modalPresentationStyle = .overCurrentContext
-                let delegate =  StyleActionSheetTranstionDelegate()
-                vc.transitioningDelegate = delegate
-                self.present(vc, animated: true, completion: nil)
-
-            }
-            .disposed(by: rx.disposeBag)
-
-        checkQuotaListBtn.rx.tap
-            .bind { [weak self] in
-                let pledgeHistoryVC = PledgeHistoryViewController()
-                pledgeHistoryVC.reactor = PledgeHistoryViewReactor()
-                self?.navigationController?.pushViewController(pledgeHistoryVC, animated: true)
-            }.disposed(by: rx.disposeBag)
+        self.initBtnAction()
     }
 
     func createNavigationTitleView() -> UIView {
@@ -250,6 +212,63 @@ class QuotaManageViewController: BaseViewController {
 
 //bind
 extension QuotaManageViewController {
+
+    func initBtnAction() {
+        sendButton.rx.tap
+            .bind { [weak self] in
+                guard let `self` = self else { return }
+                let address = Address(string: self.addressView.textView.text ?? "")
+
+                guard address.isValid else {
+                    Toast.show(R.string.localizable.sendPageToastAddressError.key.localized())
+                    return
+                }
+
+                guard let amountString = self.amountView.textField.text,
+                    !amountString.isEmpty,
+                    let amount = amountString.toBigInt(decimals: TokenCacheService.instance.viteToken.decimals) else {
+                        Toast.show(R.string.localizable.sendPageToastAmountEmpty.key.localized())
+                        return
+                }
+
+                guard amount > BigInt(0) else {
+                    Toast.show(R.string.localizable.sendPageToastAmountZero.key.localized())
+                    return
+                }
+
+                guard amount <= self.balance.value else {
+                    Toast.show(R.string.localizable.sendPageToastAmountError.key.localized())
+                    return
+                }
+
+                guard amount > 10 else {
+                    Toast.show(R.string.localizable.quotaManagePageToastMoneyError.key.localized())
+                    return
+                }
+
+                let vc = QuotaSubmitPopViewController(money: String.init(format: "%@ %@ ", amountString, TokenCacheService.instance.viteToken.symbol), beneficialAddress: address, amount: amount)
+                vc.delegate = self
+                vc.modalPresentationStyle = .overCurrentContext
+                let delegate =  StyleActionSheetTranstionDelegate()
+                vc.transitioningDelegate = delegate
+                self.present(vc, animated: true, completion: nil)
+
+            }
+            .disposed(by: rx.disposeBag)
+
+        checkQuotaListBtn.rx.tap
+            .bind { [weak self] in
+                let pledgeHistoryVC = PledgeHistoryViewController()
+                pledgeHistoryVC.reactor = PledgeHistoryViewReactor()
+                self?.navigationController?.pushViewController(pledgeHistoryVC, animated: true)
+            }.disposed(by: rx.disposeBag)
+    }
+
+    func refreshDataBySuccess() {
+        self.addressView.textView.text = ""
+        self.amountView.textField.text = ""
+    }
+
     func initBinds() {
         FetchBalanceInfoService.instance.balanceInfosDriver.drive(onNext: { [weak self] balanceInfos in
             guard let `self` = self else { return }
@@ -270,6 +289,7 @@ extension QuotaManageViewController {
 //service
 extension QuotaManageViewController {
     //no run pow request service
+    //auto run pledgeAndGainQuotaWithGetPow with error
     func pledgeAndGainQuotaWithoutGetPow(beneficialAddress: Address, amount: BigInt) {
         HUD.show()
         Provider.instance.pledgeAndGainQuotaWithoutGetPow(bag: bag, beneficialAddress: beneficialAddress, tokenId: TokenCacheService.instance.viteToken.id, amount: amount) { [weak self] (result) in
@@ -277,7 +297,8 @@ extension QuotaManageViewController {
             HUD.hide()
             switch result {
             case .success:
-                Toast.show("success")
+                self.refreshDataBySuccess()
+                Toast.show(R.string.localizable.submitSuccess.key.localized())
             case .error(let error):
                 if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
                     Alert.show(into: self,
@@ -315,7 +336,8 @@ extension QuotaManageViewController {
                         guard let `self` = self else { return }
                         switch result {
                         case .success:
-                            Toast.show("success")
+                              self.refreshDataBySuccess()
+                              Toast.show(R.string.localizable.submitSuccess.key.localized())
                         case .error(let error):
                             if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
                                 Alert.show(into: self,
@@ -350,6 +372,17 @@ extension QuotaManageViewController: UITextFieldDelegate {
             return ret
         } else {
             return true
+        }
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == amountView.textField {
+            amountView.symbolLabel.isHidden = false
+        }
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == amountView.textField {
+            amountView.symbolLabel.isHidden = textField.text?.isEmpty ?? true
         }
     }
 }

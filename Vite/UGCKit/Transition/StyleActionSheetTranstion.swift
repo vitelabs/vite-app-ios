@@ -8,15 +8,6 @@
 
 import Foundation
 
-protocol QCSPresentParentAnimationProtocal {
-
-    func presentAnimation()
-
-    func appearAnimation()
-
-    func showSheetMaskView()
-}
-
 enum  StyleActionSheetTranstionDelegateType {
     case present
     case dismiss
@@ -51,18 +42,18 @@ class StyleActionSheetAnimatedTransitioning: NSObject, UIViewControllerAnimatedT
             containerView.addSubview(self.backgroundView)
 
             containerView.addSubview(toView)
-            UIView.animate(withDuration: duration/2.0) {
+            UIView.animate(withDuration: duration, animations: {
                 self.backgroundView.alpha = 0.4
                 toView.frame = finalFrame
-            }
-
-            let backgroundColor = toView.backgroundColor
-            toView.backgroundColor = toView.backgroundColor?.withAlphaComponent(0)
-
-            UIView.animate(withDuration: duration, animations: {
-                toView.backgroundColor = backgroundColor
             }, completion: { _ in
-                transitionContext.completeTransition(true)
+                let backgroundColor = toView.backgroundColor
+                toView.backgroundColor = toView.backgroundColor?.withAlphaComponent(0)
+
+                UIView.animate(withDuration: duration, animations: {
+                    toView.backgroundColor = backgroundColor
+                }, completion: { _ in
+                    transitionContext.completeTransition(true)
+                })
             })
         } else if self.type ==  .dismiss {
             toView.frame = finalFrame

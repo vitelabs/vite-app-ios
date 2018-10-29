@@ -60,9 +60,11 @@ class TitleMoneyInputView: UIView {
 
         symbolLabel.snp.makeConstraints { (m) in
             m.left.equalTo(textField.snp.right).offset(10)
-            m.right.equalTo(titleLabel)
+            m.right.equalTo(self)
+            m.width.equalTo(50)
             m.centerY.equalTo(textField)
         }
+        symbolLabel.isHidden = true
 
         separatorLine.snp.makeConstraints { (m) in
             m.top.equalTo(textField.snp.bottom).offset(10)
