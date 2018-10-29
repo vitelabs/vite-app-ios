@@ -43,3 +43,16 @@ struct Toast {
         window.makeToast(string, duration: duration, position: position)
     }
 }
+
+struct HUD {
+    static func show(_ string: String? = nil) {
+        guard let window = UIApplication.shared.keyWindow else { return }
+        let hud = MBProgressHUD.showAdded(to: window, animated: true)
+        hud.label.text = string
+    }
+
+    static func hide() {
+        guard let window = UIApplication.shared.keyWindow else { return }
+        MBProgressHUD.hide(for: window, animated: true)
+    }
+}

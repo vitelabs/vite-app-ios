@@ -89,8 +89,7 @@ class SendViewController: BaseViewController {
 
     private func setupView() {
         navigationTitleView = NavigationTitleView(title: R.string.localizable.sendPageTitle.key.localized())
-        let addressView: SendAddressViewType = address != nil ? AddressLabelView(address: address!.description) : AddressTextViewView(currentAddress: "vite_b9e1077dbc7cc9ca0cc00603966d34665675f3b5410b92e25e")
-//        let addressView: SendAddressViewType = address != nil ? AddressLabelView(address: address!.description) : AddressTextViewView()
+        let addressView: SendAddressViewType = address != nil ? AddressLabelView(address: address!.description) : AddressTextViewView()
         let sendButton = UIButton(style: .blue, title: R.string.localizable.sendPageSendButtonTitle.key.localized())
 
         let shadowView = UIView().then {
@@ -279,27 +278,26 @@ class SendViewController: BaseViewController {
         }
     }
 
-    var getPowFloatView: GetPowFloatView!
-
     private func sendTransactionWithGetPow(bag: HDWalletManager.Bag, toAddress: Address, tokenId: String, amount: BigInt, note: String?) {
-//        self.view.displayLoading(text: "获取pow")
-        getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!)
+        let getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!)
         getPowFloatView.show()
         Provider.instance.sendTransactionWithGetPow(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, data: note?.bytes.toBase64(), difficulty: AccountBlock.Const.difficulty, completion: { [weak self] (result) in
             guard let `self` = self else { return }
-            self.view.hideLoading()
             switch result {
             case .success:
-                Toast.show(R.string.localizable.sendPageToastSendSuccess.key.localized())
-                GCD.delay(0.5) { self.dismiss() }
+                getPowFloatView.finish {
+                    Toast.show(R.string.localizable.sendPageToastSendSuccess.key.localized())
+                    GCD.delay(0.5) { self.dismiss() }
+                }
             case .error(let error):
+                getPowFloatView.hide()
                 if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
                     Alert.show(into: self,
                                title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
                                message: nil,
                                actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
                 } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
-                    Toast.show("获取pow转账也失败了")
+                    Toast.show(R.string.localizable.sendPageToastSendPowFailed.key.localized())
                 } else {
                     Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
                 }
