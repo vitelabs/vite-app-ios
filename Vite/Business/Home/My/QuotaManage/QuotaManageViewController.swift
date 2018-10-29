@@ -50,14 +50,7 @@ class QuotaManageViewController: BaseViewController {
         }
     }
 
-    lazy var contentView = UIView().then { view in
-        view.layer.masksToBounds = false
-        scrollView.addSubview(view)
-        view.snp.makeConstraints { (m) in
-            m.edges.equalTo(scrollView)
-            m.width.equalTo(scrollView)
-        }
-    }
+    lazy var contentView = UIView()
 
     // headerView
     lazy var headerView = SendHeaderView(address: bag.address.description)
@@ -68,20 +61,24 @@ class QuotaManageViewController: BaseViewController {
     //snapshoot height
     lazy var snapshootHeightLab = TitleDescView(title: R.string.localizable.quotaManagePageQuotaSnapshootHeightTitle.key.localized(), desc: R.string.localizable.quotaManagePageQuotaSnapshootHeightDesc.key.localized())
 
+    lazy var addressView = SendAddressView(address: address?.description ?? "")
+    lazy var sendButton = UIButton(style: .blue, title: R.string.localizable.quotaManagePageSubmitBtnTitle.key.localized())
+    lazy var checkQuotaListBtn = UIButton(style: .whiteWithoutShadow, title: R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized())
+
     private func setupView() {
         navigationTitleView = NavigationTitleView(title: R.string.localizable.quotaManagePageTitle.key.localized())
-        let addressView = SendAddressView(address: address?.description ?? "")
-        let sendButton = UIButton(style: .blue, title: R.string.localizable.quotaManagePageSubmitBtnTitle.key.localized())
-        let checkQuotaListBtn = UIButton(style: .whiteWithoutShadow, title: R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized())
         checkQuotaListBtn.titleLabel?.font = Fonts.Font14_b
         headerView.setupShadow(CGSize(width: 0, height: 5))
 
         view.addSubview(scrollView)
-        view.addSubview(sendButton)
-        view.addSubview(checkQuotaListBtn)
-
         scrollView.snp.makeConstraints { (m) in
             m.top.equalTo(navigationTitleView!.snp.bottom)
+            m.left.right.bottom.equalTo(view)
+        }
+
+        scrollView.addSubview(contentView)
+        contentView.snp.makeConstraints { (m) in
+            m.top.bottom.equalTo(scrollView)
             m.left.right.equalTo(view)
         }
 
@@ -89,6 +86,8 @@ class QuotaManageViewController: BaseViewController {
         contentView.addSubview(addressView)
         contentView.addSubview(amountView)
         contentView.addSubview(snapshootHeightLab)
+        contentView.addSubview(sendButton)
+        contentView.addSubview(checkQuotaListBtn)
 
         headerView.snp.makeConstraints { (m) in
             m.top.equalTo(contentView)
@@ -102,31 +101,30 @@ class QuotaManageViewController: BaseViewController {
         }
 
         amountView.snp.makeConstraints { (m) in
-            m.left.equalTo(view).offset(24)
-            m.right.equalTo(view).offset(-24)
-            m.top.equalTo(addressView.snp.bottom)
+            m.left.equalTo(contentView).offset(24)
+            m.right.equalTo(contentView).offset(-24)
+            m.top.equalTo(addressView.snp.bottom).offset(30)
         }
 
         snapshootHeightLab.snp.makeConstraints { (m) in
-            m.left.equalTo(view).offset(24)
-            m.right.equalTo(view).offset(-24)
+            m.left.equalTo(contentView).offset(24)
+            m.right.equalTo(contentView).offset(-24)
             m.top.equalTo(amountView.snp.bottom).offset(40)
-            m.bottom.equalTo(contentView).offset(-30)
         }
 
         sendButton.snp.makeConstraints { (m) in
-            m.top.greaterThanOrEqualTo(scrollView.snp.bottom).offset(10)
-            m.left.equalTo(view).offset(24)
-            m.right.equalTo(view).offset(-24)
+            m.left.equalTo(contentView).offset(24)
+            m.right.equalTo(contentView).offset(-24)
+            m.top.equalTo(snapshootHeightLab.snp.bottom).offset(37)
             m.height.equalTo(50)
         }
 
         checkQuotaListBtn.snp.makeConstraints { (m) in
             m.top.equalTo(sendButton.snp.bottom).offset(16)
-            m.left.equalTo(view).offset(24)
-            m.right.equalTo(view).offset(-24)
-            m.bottom.equalTo(view.safeAreaLayoutGuideSnpBottom).offset(-24)
+            m.left.equalTo(contentView).offset(24)
+            m.right.equalTo(contentView).offset(-24)
             m.height.equalTo(20)
+            m.bottom.equalToSuperview().offset(-50)
         }
 
         addressView.textView.keyboardType = .default
@@ -145,7 +143,7 @@ class QuotaManageViewController: BaseViewController {
 
         sendButton.rx.tap
             .bind { [weak self] in
-                let address = Address(string: addressView.textView.text ?? "")
+                let address = Address(string: self?.addressView.textView.text ?? "")
                 guard let `self` = self else { return }
 //                guard address.isValid else {
 //                    Toast.show(R.string.localizable.sendPageToastAddressError.key.localized())
