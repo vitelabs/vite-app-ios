@@ -13,6 +13,7 @@ PODS:
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
   - CryptoSwift (0.12.0)
+  - DACircularProgress (2.3.1)
   - Differentiator (3.1.0)
   - Eureka (4.2.0)
   - JSONRPCKit (3.0.0):
@@ -45,7 +46,7 @@ PODS:
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
-  - ReactorKit (1.2.0):
+  - ReactorKit (1.2.1):
     - RxSwift (>= 4.0.0)
   - Result (3.2.4)
   - ReusableKit (2.0.1):
@@ -87,6 +88,7 @@ DEPENDENCIES:
   - BaiduMobStat
   - BigInt (~> 3.0)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - DACircularProgress (= 2.3.1)
   - Eureka (~> 4.2.0)
   - JSONRPCKit
   - KeychainSwift
@@ -123,6 +125,7 @@ SPEC REPOS:
     - BaiduMobStat
     - BigInt
     - CryptoSwift
+    - DACircularProgress
     - Differentiator
     - Eureka
     - JSONRPCKit
@@ -174,6 +177,7 @@ SPEC CHECKSUMS:
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
@@ -189,7 +193,7 @@ SPEC CHECKSUMS:
   PromiseKit: 27c1601bfb73405871b805bcb8cf7e55c4dad3db
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
-  ReactorKit: 18ca466f1e77fef1827addeb921fba8ae14edd63
+  ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   ReusableKit: 11b5bde14553a35bcf3979412dbfd1e690392f14
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
@@ -207,6 +211,6 @@ SPEC CHECKSUMS:
   Vite_HDWalletKit: 90bf90b7092cc483ae9eda3385e96ed5be3aca22
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 92f3c6b16991532014ddf6a23af65fc9fab6d92a
+PODFILE CHECKSUM: 57ee9758bad8df848bcdf38a8dd5b9251595ccc2
 
 COCOAPODS: 1.5.3

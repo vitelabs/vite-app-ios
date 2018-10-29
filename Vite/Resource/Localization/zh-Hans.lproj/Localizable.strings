@@ -147,7 +147,8 @@
 "send.page.send.button.title" = "转账";
 "send.page.amount.toolbar.button.title" = "下一项";
 "send.page.toast.send.success" = "支付成功";
-"send.page.toast.send.failed" = "转账失败，请稍后重试";
+"send.page.toast.send.failed" = "转账发生错误，请重新发起转账";
+"send.page.toast.send.pow.failed" = "PoW 获取的配额不足，建议您进行抵押 VITE 获取配额";
 "send.page.toast.address.error" = "收款地址格式错误";
 "send.page.toast.amount.error" = "账户余额不足";
 "send.page.toast.amount.empty" = "请填写金额";
@@ -234,7 +235,7 @@
 
 /* quota alert */
 "quota.alert.title" = "配额不足";
-"quota.alert.pow.and.quota.message" = "当前配额不足，无法进行转账，您需要运行 POW 或抵押配额才可以继续转账";
-"quota.alert.pow.button.title" = "运行 POW";
-"quota.alert.quota.button.title" = "抵押配额";
-
+"quota.alert.pow.and.quota.message" = "无法进行交易，您需要删除备注文字并运行 PoW 或抵押配额才可以继续转账";
+"quota.alert.pow.button.title" = "运行 PoW";
+"quota.alert.quota.button.title" = "抵押 VITE";
+"quota.float.view.title" = "运行 PoW";

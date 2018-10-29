@@ -22,6 +22,7 @@ target 'Vite' do
   pod 'KMNavigationBarTransition'
   pod 'XCGLogger', '~> 6.1.0'
   pod 'pop', '~> 1.0'
+  pod 'DACircularProgress', '2.3.1'
 
   #request
   pod 'SwiftyJSON'
