@@ -36,6 +36,7 @@ class GetPowFloatView: VisualEffectAnimationView {
     fileprivate let progressLabel = UILabel().then {
         $0.textColor = UIColor(netHex: 0x007AFF)
         $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        $0.text = "0%"
     }
 
     let cancelButton = UIButton().then {
@@ -49,7 +50,7 @@ class GetPowFloatView: VisualEffectAnimationView {
         $0.contentEdgeInsets = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
     }
 
-    init(superview: UIView) {
+    init(superview: UIView, cancelClick: @escaping () -> Void) {
         super.init(superview: superview)
 
         isEnableTapDismiss = false
@@ -85,6 +86,11 @@ class GetPowFloatView: VisualEffectAnimationView {
             m.centerX.equalTo(containerView)
             m.height.equalTo(40)
         }
+
+        cancelButton.rx.tap.bind { [weak self] in
+            self?.hide()
+            cancelClick()
+        }.disposed(by: rx.disposeBag)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -94,8 +100,9 @@ class GetPowFloatView: VisualEffectAnimationView {
     var progress = 0
     override func show(animations: (() -> Void)? = nil, completion: (() -> Void)? = nil) {
         super.show(animations: animations, completion: completion)
-        Observable<Int>.interval(1, scheduler: MainScheduler.instance).bind { [weak self] _ in
+        Observable<Int>.interval(0.6, scheduler: MainScheduler.instance).bind { [weak self] _ in
             guard let `self` = self else { return }
+            guard self.progress < 100 else { return }
             self.progress = min(self.progress + 1, 99)
             self.updateProgress()
         }.disposed(by: rx.disposeBag)

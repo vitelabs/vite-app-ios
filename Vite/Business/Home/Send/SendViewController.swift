@@ -246,10 +246,10 @@ class SendViewController: BaseViewController {
     }
 
     private func sendTransactionWithoutGetPow(bag: HDWalletManager.Bag, toAddress: Address, tokenId: String, amount: BigInt, note: String?) {
-        self.view.displayLoading(text: "")
+        HUD.show()
         Provider.instance.sendTransactionWithoutGetPow(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, data: note?.bytes.toBase64()) { [weak self] result in
             guard let `self` = self else { return }
-            self.view.hideLoading()
+            HUD.hide()
             switch result {
             case .success:
                 Toast.show(R.string.localizable.sendPageToastSendSuccess.key.localized())
@@ -279,28 +279,45 @@ class SendViewController: BaseViewController {
     }
 
     private func sendTransactionWithGetPow(bag: HDWalletManager.Bag, toAddress: Address, tokenId: String, amount: BigInt, note: String?) {
-        let getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!)
+        var cancelPow = false
+        let getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!) {
+            cancelPow = true
+        }
+
         getPowFloatView.show()
         Provider.instance.sendTransactionWithGetPow(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, data: note?.bytes.toBase64(), difficulty: AccountBlock.Const.difficulty, completion: { [weak self] (result) in
+
+            guard cancelPow == false else { return }
             guard let `self` = self else { return }
             switch result {
-            case .success:
+            case .success(let context):
+
                 getPowFloatView.finish {
-                    Toast.show(R.string.localizable.sendPageToastSendSuccess.key.localized())
-                    GCD.delay(0.5) { self.dismiss() }
+                    HUD.show()
+                    Provider.instance.sendTransactionWithContext(context, completion: { [weak self] (result) in
+                        HUD.hide()
+                        guard let `self` = self else { return }
+                        switch result {
+                        case .success:
+                            Toast.show(R.string.localizable.sendPageToastSendSuccess.key.localized())
+                            GCD.delay(0.5) { self.dismiss() }
+                        case .error(let error):
+                            if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
+                                Alert.show(into: self,
+                                           title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
+                                           message: nil,
+                                           actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
+                            } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
+                                Toast.show(R.string.localizable.sendPageToastSendPowFailed.key.localized())
+                            } else {
+                                Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
+                            }
+                        }
+                    })
                 }
-            case .error(let error):
+            case .error:
                 getPowFloatView.hide()
-                if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
-                    Alert.show(into: self,
-                               title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
-                               message: nil,
-                               actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
-                } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
-                    Toast.show(R.string.localizable.sendPageToastSendPowFailed.key.localized())
-                } else {
-                    Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
-                }
+                Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
             }
         })
     }

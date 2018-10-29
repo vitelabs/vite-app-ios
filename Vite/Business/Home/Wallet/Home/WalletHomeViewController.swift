@@ -88,7 +88,10 @@ class WalletHomeViewController: BaseTableViewController {
 
     fileprivate func bind() {
 
-        walletDriver.map({ $0.name }).drive(navigationTitleView!.titleLabel.rx.text).disposed(by: rx.disposeBag)
+        if let navigationTitleView = navigationTitleView as? NavigationTitleView {
+            walletDriver.map({ $0.name }).drive(navigationTitleView.titleLabel.rx.text).disposed(by: rx.disposeBag)
+        }
+
         addressViewModel = WalletHomeAddressViewModel()
         tableViewModel = WalletHomeBalanceInfoTableViewModel()
 

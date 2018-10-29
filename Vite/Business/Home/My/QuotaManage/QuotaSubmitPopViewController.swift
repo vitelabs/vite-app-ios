@@ -14,15 +14,19 @@ import NSObject_Rx
 import BigInt
 
 protocol  QuotaSubmitPopViewControllerDelegate: class {
-    func confirmAction()
+    func confirmAction(beneficialAddress: Address, amount: BigInt)
 }
 
 class QuotaSubmitPopViewController: BaseViewController {
     let money: String
+    let beneficialAddress: Address
+    let amount: BigInt
     weak var delegate: QuotaSubmitPopViewControllerDelegate?
 
-    init(money: String) {
+    init(money: String, beneficialAddress: Address, amount: BigInt) {
         self.money = money
+        self.beneficialAddress = beneficialAddress
+        self.amount = amount
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -96,8 +100,9 @@ class QuotaSubmitPopViewController: BaseViewController {
 
         self.submitBtn.rx.tap
             .bind { [weak self] in
-                self?.delegate?.confirmAction()
-                self?.dismiss()
+                guard let `self` = self else { return }
+                self.delegate?.confirmAction(beneficialAddress: self.beneficialAddress, amount: self.amount)
+                self.dismiss()
             }.disposed(by: rx.disposeBag)
     }
 }

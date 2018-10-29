@@ -81,6 +81,10 @@
 		740C3E4E214B9CC2005FCD24 /* TransactionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4D214B9CC2005FCD24 /* TransactionInfoView.swift */; };
 		740C3E50214BD6A9005FCD24 /* ConfirmTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4F214BD6A9005FCD24 /* ConfirmTransactionViewController.swift */; };
 		740C3E52214CB832005FCD24 /* ConfirmTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E51214CB832005FCD24 /* ConfirmTransactionView.swift */; };
+		741414D72186FA39007DDD01 /* PledgeHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414D52186FA39007DDD01 /* PledgeHistoryViewController.swift */; };
+		741414D82186FA39007DDD01 /* PledgeHistoryViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414D62186FA39007DDD01 /* PledgeHistoryViewReactor.swift */; };
+		741414DB2186FA71007DDD01 /* PledgeHistoryDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414DA2186FA71007DDD01 /* PledgeHistoryDescriptionView.swift */; };
+		741414DD2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414DC2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift */; };
 		744CC4602178684E00F55A52 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744CC45F2178684E00F55A52 /* Error.swift */; };
 		74B3F8782176DF11002FA14F /* ScanViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3F8772176DF11002FA14F /* ScanViewReactor.swift */; };
 		74B3F87A2176E92D002FA14F /* UIImagePickerController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3F8792176E92D002FA14F /* UIImagePickerController+Rx.swift */; };
@@ -317,6 +321,10 @@
 		740C3E4D214B9CC2005FCD24 /* TransactionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionInfoView.swift; sourceTree = "<group>"; };
 		740C3E4F214BD6A9005FCD24 /* ConfirmTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionViewController.swift; sourceTree = "<group>"; };
 		740C3E51214CB832005FCD24 /* ConfirmTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionView.swift; sourceTree = "<group>"; };
+		741414D52186FA39007DDD01 /* PledgeHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PledgeHistoryViewController.swift; sourceTree = "<group>"; };
+		741414D62186FA39007DDD01 /* PledgeHistoryViewReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PledgeHistoryViewReactor.swift; sourceTree = "<group>"; };
+		741414DA2186FA71007DDD01 /* PledgeHistoryDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeHistoryDescriptionView.swift; sourceTree = "<group>"; };
+		741414DC2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeHistoryCellTableViewCell.swift; sourceTree = "<group>"; };
 		744CC45F2178684E00F55A52 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		74B3F8772176DF11002FA14F /* ScanViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewReactor.swift; sourceTree = "<group>"; };
 		74B3F8792176E92D002FA14F /* UIImagePickerController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Rx.swift"; sourceTree = "<group>"; };
@@ -937,6 +945,25 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		741414D42186FA39007DDD01 /* PledgeHistory */ = {
+			isa = PBXGroup;
+			children = (
+				741414D52186FA39007DDD01 /* PledgeHistoryViewController.swift */,
+				741414D62186FA39007DDD01 /* PledgeHistoryViewReactor.swift */,
+				741414D92186FA56007DDD01 /* View */,
+			);
+			path = PledgeHistory;
+			sourceTree = "<group>";
+		};
+		741414D92186FA56007DDD01 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				741414DA2186FA71007DDD01 /* PledgeHistoryDescriptionView.swift */,
+				741414DC2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8E0FB6A0217053F0001525EB /* Debug */ = {
 			isa = PBXGroup;
 			children = (
@@ -1022,6 +1049,7 @@
 			children = (
 				8E54854D21816C55009C528B /* QuotaManageViewController.swift */,
 				4C32E20A2182E89500007E9F /* QuotaSubmitPopViewController.swift */,
+				741414D42186FA39007DDD01 /* PledgeHistory */,
 			);
 			path = QuotaManage;
 			sourceTree = "<group>";
@@ -1653,6 +1681,7 @@
 				4C32E2072182C65900007E9F /* TitleDescView.swift in Sources */,
 				8E6F3E332142768B003CDFC2 /* ScanViewController.swift in Sources */,
 				8ED4CED32148AF630005A82D /* GetMoreLoadingView.swift in Sources */,
+				741414D72186FA39007DDD01 /* PledgeHistoryViewController.swift in Sources */,
 				8EE468E021493A7E00807D2C /* AddressManageViewController.swift in Sources */,
 				8E68C4802181F27F00475133 /* AddressLabelView.swift in Sources */,
 				4C84D9312145280E001B6EBD /* CreateWalletTipViewController.swift in Sources */,
@@ -1695,6 +1724,7 @@
 				4C2284B52148BB2A003E9907 /* ImageCell.swift in Sources */,
 				4CE83DDE21511E2000AB1DAD /* UIViewController+Loading.swift in Sources */,
 				4C84D91C2145277C001B6EBD /* PasswordInputView.swift in Sources */,
+				741414D82186FA39007DDD01 /* PledgeHistoryViewReactor.swift in Sources */,
 				8E56FC78214643B300A68823 /* WalletHomeBalanceInfoCell.swift in Sources */,
 				8EE4691E214CE03F00807D2C /* WalletHomeAddressView.swift in Sources */,
 				8E6F3E0121410424003CDFC2 /* RPCError.swift in Sources */,
@@ -1713,6 +1743,7 @@
 				8E68C4842182BFBE00475133 /* FetchQuotaService.swift in Sources */,
 				4C84D951214654BD001B6EBD /* LoginViewController.swift in Sources */,
 				8E548545217F51D3009C528B /* DebugService.swift in Sources */,
+				741414DB2186FA71007DDD01 /* PledgeHistoryDescriptionView.swift in Sources */,
 				8E6F3DF82140FE99003CDFC2 /* RPCServer.swift in Sources */,
 				4C84D94021452836001B6EBD /* WordCollectionViewCell.swift in Sources */,
 				8E79C6EE214E71E300FAEEBC /* HDWalletManager.swift in Sources */,
@@ -1776,6 +1807,7 @@
 				8E107ED7215A22CC00B28DE2 /* ScrollableView.swift in Sources */,
 				4C2284BB214906F0003E9907 /* SystemViewController.swift in Sources */,
 				8E6F3E1D2142280F003CDFC2 /* BaseViewController.swift in Sources */,
+				741414DD2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift in Sources */,
 				4C9AFD5E214F4370005B12C2 /* FetchWelfareViewController.swift in Sources */,
 				8E0FB699216C8957001525EB /* KeychainService.swift in Sources */,
 				4CC75382215A2D740009CA0E /* CellSeparatorLine.swift in Sources */,

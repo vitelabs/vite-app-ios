@@ -129,8 +129,8 @@ extension AccountBlock {
                                         latest: AccountBlock,
                                         bag: HDWalletManager.Bag,
                                         snapshotHash: String,
-                                        nonce: String,
-                                        difficulty: BigInt) -> AccountBlock {
+                                        nonce: String?,
+                                        difficulty: BigInt?) -> AccountBlock {
         var block = makeBaseAccountBlock(latest: latest, bag: bag, snapshotHash: snapshotHash, nonce: nonce, difficulty: difficulty)
 
         block.type = .receive
