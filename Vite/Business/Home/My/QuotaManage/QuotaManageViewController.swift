@@ -61,16 +61,27 @@ class QuotaManageViewController: BaseViewController {
     //snapshoot height
     lazy var snapshootHeightLab = TitleDescView(title: R.string.localizable.quotaManagePageQuotaSnapshootHeightTitle.key.localized(), desc: R.string.localizable.quotaManagePageQuotaSnapshootHeightDesc.key.localized())
 
-    lazy var addressView = SendAddressView(address: address?.description ?? "")
+    lazy var addressView = AddressTextViewView(currentAddress: self.bag.address.description)
     lazy var sendButton = UIButton(style: .blue, title: R.string.localizable.quotaManagePageSubmitBtnTitle.key.localized())
     lazy var checkQuotaListBtn = UIButton(style: .whiteWithoutShadow, title: R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized())
 
     private func setupView() {
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.quotaManagePageTitle.key.localized())
+
+        navigationTitleView = createNavigationTitleView()
+
         checkQuotaListBtn.titleLabel?.font = Fonts.Font14_b
         headerView.setupShadow(CGSize(width: 0, height: 5))
 
+        let shadowView = UIView().then {
+            $0.backgroundColor = UIColor.white
+            $0.layer.shadowColor = UIColor(netHex: 0x000000).cgColor
+            $0.layer.shadowOpacity = 0.1
+            $0.layer.shadowOffset = CGSize(width: 0, height: 5)
+            $0.layer.shadowRadius = 9
+        }
+
         view.addSubview(scrollView)
+
         scrollView.snp.makeConstraints { (m) in
             m.top.equalTo(navigationTitleView!.snp.bottom)
             m.left.right.bottom.equalTo(view)
@@ -82,6 +93,7 @@ class QuotaManageViewController: BaseViewController {
             m.left.right.equalTo(view)
         }
 
+        contentView.addSubview(shadowView)
         contentView.addSubview(headerView)
         contentView.addSubview(addressView)
         contentView.addSubview(amountView)
@@ -89,8 +101,12 @@ class QuotaManageViewController: BaseViewController {
         contentView.addSubview(sendButton)
         contentView.addSubview(checkQuotaListBtn)
 
+        shadowView.snp.makeConstraints { (m) in
+            m.edges.equalTo(headerView)
+        }
+
         headerView.snp.makeConstraints { (m) in
-            m.top.equalTo(contentView)
+            m.top.equalTo(contentView).offset(10)
             m.left.equalTo(contentView).offset(24)
             m.right.equalTo(contentView).offset(-24)
         }
@@ -143,12 +159,14 @@ class QuotaManageViewController: BaseViewController {
 
         sendButton.rx.tap
             .bind { [weak self] in
-                let address = Address(string: self?.addressView.textView.text ?? "")
                 guard let `self` = self else { return }
-//                guard address.isValid else {
-//                    Toast.show(R.string.localizable.sendPageToastAddressError.key.localized())
-//                    return
-//                }
+                let address = Address(string: self.addressView.textView.text ?? "")
+
+                guard address.isValid else {
+                    Toast.show(R.string.localizable.sendPageToastAddressError.key.localized())
+                    return
+                }
+
                 guard let amountString = self.amountView.textField.text,
                     !amountString.isEmpty,
                     let amount = amountString.toBigInt(decimals: TokenCacheService.instance.viteToken.decimals) else {
@@ -161,12 +179,12 @@ class QuotaManageViewController: BaseViewController {
                     return
                 }
 
-//                guard amount <= self.balance.value else {
-//                    Toast.show(R.string.localizable.sendPageToastAmountError.key.localized())
-//                    return
-//                }
+                guard amount <= self.balance.value else {
+                    Toast.show(R.string.localizable.sendPageToastAmountError.key.localized())
+                    return
+                }
 
-                let vc = QuotaSubmitPopViewController(money: String.init(format: "%@ %@ ", amountString, TokenCacheService.instance.viteToken.symbol))
+                let vc = QuotaSubmitPopViewController(money: String.init(format: "%@ %@ ", amountString, TokenCacheService.instance.viteToken.symbol), beneficialAddress: address, amount: amount)
                 vc.delegate = self
                 vc.modalPresentationStyle = .overCurrentContext
                 let delegate =  StyleActionSheetTranstionDelegate()
@@ -183,12 +201,69 @@ class QuotaManageViewController: BaseViewController {
                 self?.navigationController?.pushViewController(pledgeHistoryVC, animated: true)
             }.disposed(by: rx.disposeBag)
     }
+
+    func createNavigationTitleView() -> UIView {
+        let view = UIView().then {
+            $0.backgroundColor = UIColor.white
+        }
+
+        let titleLabel = UILabel().then {
+            $0.font = UIFont.systemFont(ofSize: 24)
+            $0.numberOfLines = 1
+            $0.adjustsFontSizeToFitWidth = true
+            $0.textColor = UIColor(netHex: 0x24272B)
+            $0.text = R.string.localizable.quotaManagePageTitle.key.localized()
+        }
+
+        let tipButton = UIButton().then {
+            $0.setImage(R.image.icon_button_infor(), for: .normal)
+            $0.setImage(R.image.icon_button_infor()?.highlighted, for: .highlighted)
+        }
+
+        view.addSubview(titleLabel)
+        view.addSubview(tipButton)
+
+        titleLabel.snp.makeConstraints { (m) in
+            m.top.equalTo(view).offset(6)
+            m.left.equalTo(view).offset(24)
+            m.bottom.equalTo(view).offset(-20)
+            m.height.equalTo(29)
+        }
+
+        tipButton.snp.makeConstraints { (m) in
+            m.centerY.equalTo(titleLabel)
+            m.left.equalTo(titleLabel.snp.right).offset(10)
+        }
+
+        tipButton.rx.tap.bind { [weak self] in
+            let url  = R.file.quotaDefinitionHtml()!
+            let vc = PopViewController(url: url)
+            vc.modalPresentationStyle = .overCurrentContext
+            let delegate =  StyleActionSheetTranstionDelegate()
+            vc.transitioningDelegate = delegate
+            self?.present(vc, animated: true, completion: nil)
+        }.disposed(by: rx.disposeBag)
+
+        return view
+    }
 }
 
 //bind
 extension QuotaManageViewController {
     func initBinds() {
+        FetchBalanceInfoService.instance.balanceInfosDriver.drive(onNext: { [weak self] balanceInfos in
+            guard let `self` = self else { return }
+            for balanceInfo in balanceInfos where TokenCacheService.instance.viteToken.id == balanceInfo.token.id {
+                self.balance = balanceInfo.balance
+                self.headerView.balanceLabel.text = balanceInfo.balance.amountFull(decimals: balanceInfo.token.decimals)
+                return
+            }
 
+            // no balanceInfo, set 0.0
+            self.headerView.balanceLabel.text = "0.0"
+        }).disposed(by: rx.disposeBag)
+        FetchQuotaService.instance.quotaDriver.drive(headerView.quotaLabel.rx.text).disposed(by: rx.disposeBag)
+        FetchQuotaService.instance.maxTxCountDriver.drive(headerView.maxTxCountLabel.rx.text).disposed(by: rx.disposeBag)
     }
 }
 
@@ -196,14 +271,13 @@ extension QuotaManageViewController {
 extension QuotaManageViewController {
     //no run pow request service
     func pledgeAndGainQuotaWithoutGetPow(beneficialAddress: Address, amount: BigInt) {
-        self.view.displayLoading(text: "")
+        HUD.show()
         Provider.instance.pledgeAndGainQuotaWithoutGetPow(bag: bag, beneficialAddress: beneficialAddress, tokenId: TokenCacheService.instance.viteToken.id, amount: amount) { [weak self] (result) in
             guard let `self` = self else { return }
-            self.view.hideLoading()
+            HUD.hide()
             switch result {
             case .success:
                 Toast.show("success")
-                GCD.delay(0.5) { self.dismiss() }
             case .error(let error):
                 if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
                     Alert.show(into: self,
@@ -211,12 +285,7 @@ extension QuotaManageViewController {
                                message: nil,
                                actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
                 } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
-                    Alert.show(into: self, title: "没配额", message: nil, actions: [
-                        (.default(title: "获取pow"), { _ in
-                            self.pledgeAndGainQuotaWithGetPow(beneficialAddress: beneficialAddress, amount: amount)
-                        }),
-                        (.cancel, nil),
-                        ])
+                    self.pledgeAndGainQuotaWithGetPow(beneficialAddress: beneficialAddress, amount: amount)
                 } else {
                     Toast.show(error.message)
                 }
@@ -226,33 +295,50 @@ extension QuotaManageViewController {
 
     //run pow request service
     func pledgeAndGainQuotaWithGetPow(beneficialAddress: Address, amount: BigInt) {
-        self.view.displayLoading(text: "获取pow")
+        var cancelPow = false
+        let getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!) {
+            cancelPow = true
+        }
+
+        getPowFloatView.show()
         Provider.instance.pledgeAndGainQuotaWithGetPow(bag: bag, beneficialAddress: beneficialAddress, tokenId: TokenCacheService.instance.viteToken.id, amount: amount, difficulty: AccountBlock.Const.difficulty) { [weak self] (result) in
+
+            guard cancelPow == false else { return }
             guard let `self` = self else { return }
-            self.view.hideLoading()
             switch result {
-            case .success:
-                Toast.show("success")
-                GCD.delay(0.5) { self.dismiss() }
-            case .error(let error):
-                if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
-                    Alert.show(into: self,
-                               title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
-                               message: nil,
-                               actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
-                } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
-                    Toast.show("获取pow转账也失败了")
-                } else {
-                    Toast.show(error.message)
+            case .success(let context):
+
+                getPowFloatView.finish {
+                    HUD.show()
+                    Provider.instance.sendTransactionWithContext(context, completion: { [weak self] (result) in
+                        HUD.hide()
+                        guard let `self` = self else { return }
+                        switch result {
+                        case .success:
+                            Toast.show("success")
+                        case .error(let error):
+                            if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
+                                Alert.show(into: self,
+                                           title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
+                                           message: nil,
+                                           actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
+                            } else {
+                                Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
+                            }
+                        }
+                    })
                 }
+            case .error:
+                getPowFloatView.hide()
+                Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
             }
         }
     }
 }
 
 extension QuotaManageViewController: QuotaSubmitPopViewControllerDelegate {
-    func confirmAction() {
-           self.pledgeAndGainQuotaWithoutGetPow(beneficialAddress: self.bag.address, amount: BigInt("10000000000000000000"))
+    func confirmAction(beneficialAddress: Address, amount: BigInt) {
+           pledgeAndGainQuotaWithoutGetPow(beneficialAddress: beneficialAddress, amount: amount)
     }
 }
 

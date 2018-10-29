@@ -15,7 +15,7 @@ class BaseViewController: UIViewController {
     var statisticsPageName: String?
     var automaticallyShowDismissButton: Bool = true
     var navigationBarStyle = NavigationBarStyle.default
-    var navigationTitleView: NavigationTitleView? {
+    var navigationTitleView: UIView? {
         didSet {
             if let old = oldValue {
                 old.removeFromSuperview()
