@@ -73,12 +73,9 @@ final class FetchBalanceInfoService {
                 TokenCacheService.instance.updateTokensIfNeeded(tokens)
 
                 if let data = allBalanceInfos.toJSONString()?.data(using: .utf8) {
-                    do {
-                        try self.fileHelper.writeData(data, relativePath: FetchBalanceInfoService.saveKey)
-                    } catch let error {
+                    if let error = self.fileHelper.writeData(data, relativePath: type(of: self).saveKey) {
                         assert(false, error.localizedDescription)
                     }
-
                 }
                 self.balanceInfos.accept(allBalanceInfos.map { WalletHomeBalanceInfoViewModel(balanceInfo: $0) })
             case .error(let error):

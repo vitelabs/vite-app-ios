@@ -139,7 +139,7 @@
 "send.page.my.balance.title" = "Balance";
 "send.page.my.quota.title" = "我的配额";
 "send.page.my.max.tx.count.title" = "最大交易量";
-"send.page.my.max.tx.count.unit.title" = "笔/秒";
+"send.page.my.max.tx.count.unit.title" = "笔";
 "send.page.add.current.address.button.title" = "地址";
 "send.page.scan.address.button.title" = "扫码";
 "send.page.to.address.title" = "Recipient";
@@ -149,7 +149,6 @@
 "send.page.amount.toolbar.button.title" = "Next";
 "send.page.toast.send.success" = "Success";
 "send.page.toast.send.failed" = "Transfer failed, please try again later";
-"send.page.toast.send.pow.failed" = "PoW 获取的配额不足，建议您进行抵押 VITE 获取配额";
 "send.page.toast.address.error" = "Wrong recipient format!";
 "send.page.toast.amount.error" = "Insufficient Balance";
 "send.page.toast.amount.empty" = "Please input balance";
@@ -236,6 +235,7 @@
 /* quota alert */
 "quota.alert.title" = "配额不足";
 "quota.alert.pow.and.quota.message" = "无法进行交易，您需要删除备注文字并运行 PoW 或抵押配额才可以继续转账";
+"quota.alert.need.quota.message" = "PoW 获取的配额不足，建议您进行抵押 VITE 获取配额";
 "quota.alert.pow.button.title" = "运行 PoW";
 "quota.alert.quota.button.title" = "抵押 VITE";
 "quota.float.view.title" = "运行 PoW";

@@ -898,7 +898,7 @@ struct R: Rswift.Validatable {
       /// en translation: PoW 获取的配额不足，建议您进行抵押 VITE 获取配额
       /// 
       /// Locales: en, zh-Hans
-      static let sendPageToastSendPowFailed = Rswift.StringResource(key: "send.page.toast.send.pow.failed", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      static let quotaAlertNeedQuotaMessage = Rswift.StringResource(key: "quota.alert.need.quota.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Processing
       /// 
       /// Locales: en, zh-Hans
@@ -1239,7 +1239,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let quotaSubmitPopDesc = Rswift.StringResource(key: "quota.submit.pop.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 笔/秒
+      /// en translation: 笔
       /// 
       /// Locales: en, zh-Hans
       static let sendPageMyMaxTxCountUnitTitle = Rswift.StringResource(key: "send.page.my.max.tx.count.unit.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
@@ -1898,8 +1898,8 @@ struct R: Rswift.Validatable {
       /// en translation: PoW 获取的配额不足，建议您进行抵押 VITE 获取配额
       /// 
       /// Locales: en, zh-Hans
-      static func sendPageToastSendPowFailed(_: Void = ()) -> String {
-        return NSLocalizedString("send.page.toast.send.pow.failed", bundle: R.hostingBundle, comment: "")
+      static func quotaAlertNeedQuotaMessage(_: Void = ()) -> String {
+        return NSLocalizedString("quota.alert.need.quota.message", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Processing
@@ -2497,7 +2497,7 @@ struct R: Rswift.Validatable {
         return String(format: NSLocalizedString("quota.submit.pop.desc", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
-      /// en translation: 笔/秒
+      /// en translation: 笔
       /// 
       /// Locales: en, zh-Hans
       static func sendPageMyMaxTxCountUnitTitle(_: Void = ()) -> String {

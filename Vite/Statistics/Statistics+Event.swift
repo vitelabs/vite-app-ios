@@ -13,22 +13,22 @@ extension Statistics {
     enum Page {
 
         enum Debug: String {
-            case test = "test"
-            static var name = "DebugPage"
+            case test = "debug_page_test"
+            static var name = "debug_page"
         }
 
         enum Common {
         }
 
         enum WalletHome {
-            static var name = "Vite_app_wallet_home"
+            static var name = "wallet_home_page"
         }
 
         enum WalletQuota: String {
-            case submit = "Vite_app_wallet_quota_SubmitQuota"
-            case confirm = "Vite_app_wallet_quota_ConfirmQuota"
+            case submit = "wqp_submit_quota"
+            case confirm = "wqp_confirm_quota"
 
-            static var name = "Vite_app_wallet_quota"
+            static var name = "wallet_quota_page"
         }
     }
 }

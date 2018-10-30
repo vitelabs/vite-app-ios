@@ -65,9 +65,7 @@ class DebugService: Mappable {
 
     fileprivate func pri_save() {
         if let data = self.toJSONString()?.data(using: .utf8) {
-            do {
-                try fileHelper.writeData(data, relativePath: type(of: self).saveKey)
-            } catch let error {
+            if let error = fileHelper.writeData(data, relativePath: type(of: self).saveKey) {
                 assert(false, error.localizedDescription)
             }
         }
