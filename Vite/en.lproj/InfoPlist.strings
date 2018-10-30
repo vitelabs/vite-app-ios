@@ -1,0 +1,12 @@
+/* 
+  InfoPlist.strings
+  Vite
+
+  Created by Stone on 2018/10/18.
+  Copyright © 2018年 vite labs. All rights reserved.
+*/
+
+NSCameraUsageDescription = "This app uses the camera to read QR codes";
+NSFaceIDUsageDescription = "This app can unlock with Face ID";
+NSPhotoLibraryAddUsageDescription = "This app uses the album to import QR codes";
+NSPhotoLibraryUsageDescription = "This app uses the album to import QR codes";

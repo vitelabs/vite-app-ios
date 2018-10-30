@@ -1,90 +1,207 @@
 PODS:
+  - Action (3.8.0):
+    - RxCocoa (~> 4.3.0)
+    - RxSwift (~> 4.3.0)
+  - ActionSheetPicker-3.0 (2.3.0)
+  - Alamofire (4.7.3)
   - APIKit (3.2.1):
     - Result (~> 3.0)
+  - BaiduMobStat (4.9.1)
   - BigInt (3.1.0):
     - SipHash (~> 1.2)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
+  - CryptoSwift (0.12.0)
+  - Differentiator (3.1.0)
   - Eureka (4.2.0)
   - JSONRPCKit (3.0.0):
     - Result (~> 3.2.0)
-  - KeychainSwift (11.0.0)
+  - KeychainSwift (12.0.0)
+  - KMNavigationBarTransition (1.1.5)
   - MBProgressHUD (1.1.0)
-  - PromiseKit (6.3.4):
-    - PromiseKit/CorePromise (= 6.3.4)
-    - PromiseKit/Foundation (= 6.3.4)
-    - PromiseKit/UIKit (= 6.3.4)
-  - PromiseKit/CorePromise (6.3.4)
-  - PromiseKit/Foundation (6.3.4):
+  - MJRefresh (3.1.15.7)
+  - Moya (11.0.2):
+    - Moya/Core (= 11.0.2)
+  - Moya/Core (11.0.2):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - "NSObject+Rx (4.4.1)":
+    - RxSwift (~> 4.3)
+  - ObjcExceptionBridging (1.0.1):
+    - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
+  - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
+  - ObjectMapper (3.3.0)
+  - PromiseKit (6.4.1):
+    - PromiseKit/CorePromise (= 6.4.1)
+    - PromiseKit/Foundation (= 6.4.1)
+    - PromiseKit/UIKit (= 6.4.1)
+  - PromiseKit/CorePromise (6.4.1)
+  - PromiseKit/Foundation (6.4.1):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.3.4):
+  - PromiseKit/UIKit (6.4.1):
     - PromiseKit/CorePromise
-  - QRCodeReaderViewController (4.0.2)
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
   - Result (3.2.4)
+  - ReusableKit (2.0.1):
+    - ReusableKit/Core (= 2.0.1)
+  - ReusableKit/Core (2.0.1)
+  - RxCocoa (4.3.1):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxGesture (2.0.1):
+    - RxCocoa (~> 4.3.1)
+    - RxSwift (~> 4.3.1)
+  - RxOptional (3.5.0):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.3.1)
   - SipHash (1.2.2)
-  - SnapKit (4.0.0)
+  - SnapKit (4.0.1)
   - SwiftLint (0.27.0)
+  - SwiftyJSON (4.2.0)
+  - Then (2.4.0)
+  - Toast-Swift (3.0.1)
+  - TrezorCryptoEd25519WithBlake2b (0.0.1)
+  - Vite_HDWalletKit (1.1.0):
+    - BigInt (~> 3.0)
+    - CryptoSwift (~> 0.12.0)
+    - TrezorCryptoEd25519WithBlake2b (~> 0.0.1)
+  - WechatOpenSDK (1.8.2)
+  - XCGLogger (6.1.0):
+    - XCGLogger/Core (= 6.1.0)
+  - XCGLogger/Core (6.1.0):
+    - ObjcExceptionBridging
 
 DEPENDENCIES:
+  - Action
+  - ActionSheetPicker-3.0
   - APIKit
+  - BaiduMobStat
   - BigInt (~> 3.0)
-  - Eureka
-  - JSONRPCKit (from `https://github.com/bricklife/JSONRPCKit.git`)
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - Eureka (~> 4.2.0)
+  - JSONRPCKit
   - KeychainSwift
+  - KMNavigationBarTransition
   - MBProgressHUD
+  - MJRefresh
+  - Moya
+  - "NSObject+Rx"
+  - ObjectMapper
   - PromiseKit (~> 6.0)
-  - QRCodeReaderViewController (from `https://github.com/yannickl/QRCodeReaderViewController.git`, branch `master`)
   - R.swift
+  - ReusableKit
+  - RxCocoa
+  - RxDataSources (~> 3.0)
+  - RxGesture
+  - RxOptional
+  - RxSwift (~> 4.0)
   - SnapKit (~> 4.0.0)
   - SwiftLint
+  - SwiftyJSON
+  - Then
+  - Toast-Swift (~> 3.0.1)
+  - Vite_HDWalletKit (~> 1.1.0)
+  - WechatOpenSDK
+  - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Action
+    - ActionSheetPicker-3.0
+    - Alamofire
     - APIKit
+    - BaiduMobStat
     - BigInt
+    - CryptoSwift
+    - Differentiator
     - Eureka
+    - JSONRPCKit
     - KeychainSwift
+    - KMNavigationBarTransition
     - MBProgressHUD
+    - MJRefresh
+    - Moya
+    - "NSObject+Rx"
+    - ObjcExceptionBridging
+    - ObjectMapper
     - PromiseKit
     - R.swift
     - R.swift.Library
     - Result
+    - ReusableKit
+    - RxCocoa
+    - RxDataSources
+    - RxGesture
+    - RxOptional
+    - RxSwift
     - SipHash
     - SnapKit
     - SwiftLint
+    - SwiftyJSON
+    - Then
+    - Toast-Swift
+    - TrezorCryptoEd25519WithBlake2b
+    - Vite_HDWalletKit
+    - WechatOpenSDK
+    - XCGLogger
 
 EXTERNAL SOURCES:
-  JSONRPCKit:
-    :git: https://github.com/bricklife/JSONRPCKit.git
-  QRCodeReaderViewController:
-    :branch: master
-    :git: https://github.com/yannickl/QRCodeReaderViewController.git
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
 
 CHECKOUT OPTIONS:
-  JSONRPCKit:
-    :commit: e1ae67de59067ebb677ad0024b3dc6789f31f193
-    :git: https://github.com/bricklife/JSONRPCKit.git
-  QRCodeReaderViewController:
-    :commit: 80bd79cbeede842949b229f81bc6328f53701c5a
-    :git: https://github.com/yannickl/QRCodeReaderViewController.git
+  ChameleonFramework:
+    :commit: 6dd284bde21ea2e7f9fd89bc36f40df16e16369d
+    :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
+  Action: 2275d04a407ecaf46a58d58a304388a28155a0a1
+  ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   APIKit: a39ff72ac44efc15513fd1b98800f63c525be61b
+  BaiduMobStat: e2dbfd44f1535adf3c0001cbd3212eb61c4fe639
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
-  JSONRPCKit: 35aecfdf923a8e2053cef8e46d68ed3da66296c8
-  KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
+  JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
+  KeychainSwift: d5e776578587ee5958ce36601df22f168f65138a
+  KMNavigationBarTransition: 7a52c9bc25b39b6e3343e980b453facee1591b82
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  PromiseKit: e1425568123ec844a944c93f2bcb29d511d39cf5
-  QRCodeReaderViewController: e8f27d035b3e72b1d4b1c61ff66458287e3be0ff
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  Moya: a725035953bc1c0eb1be505ab903984501d82440
+  "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
+  ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
+  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
+  PromiseKit: 4c76a6506638034e3d7bede97b2ff7743f7bd2dc
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  ReusableKit: 11b5bde14553a35bcf3979412dbfd1e690392f14
+  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxGesture: 26ede4ed13ffc6336d29dbd9a8dff229bdb72de7
+  RxOptional: bd32ff8ca9df4177683d56ffeb618a9d4d5d5cad
+  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
+  TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
+  Vite_HDWalletKit: 90bf90b7092cc483ae9eda3385e96ed5be3aca22
+  WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
+  XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: c95531c68e5822c056bc13ffcce4b00d63fe2843
+PODFILE CHECKSUM: 165b7d9c1aacadf8993b3b7aa214b0aacb015913
 
 COCOAPODS: 1.5.3
