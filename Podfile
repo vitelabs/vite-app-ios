@@ -21,9 +21,8 @@ target 'Vite' do
   pod 'MJRefresh'
   pod 'KMNavigationBarTransition'
   pod 'XCGLogger', '~> 6.1.0'
-
-  #social
-  pod 'WechatOpenSDK'
+  pod 'pop', '~> 1.0'
+  pod 'DACircularProgress', '2.3.1'
 
   #request
   pod 'SwiftyJSON'
@@ -50,6 +49,7 @@ target 'Vite' do
   pod 'Then'
   pod 'Action'
   pod 'ReusableKit'
+  pod 'ReactorKit'
 
   #code review
   pod 'SwiftLint'

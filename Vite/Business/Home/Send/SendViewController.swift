@@ -54,6 +54,12 @@ class SendViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         kas_activateAutoScrollingForView(contentView)
+        FetchQuotaService.instance.retainQuota()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        FetchQuotaService.instance.releaseQuota()
     }
 
     // View
@@ -83,7 +89,7 @@ class SendViewController: BaseViewController {
 
     private func setupView() {
         navigationTitleView = NavigationTitleView(title: R.string.localizable.sendPageTitle.key.localized())
-        let addressView = SendAddressView(address: address?.description ?? "")
+        let addressView: SendAddressViewType = address != nil ? AddressLabelView(address: address!.description) : AddressTextViewView()
         let sendButton = UIButton(style: .blue, title: R.string.localizable.sendPageSendButtonTitle.key.localized())
 
         let shadowView = UIView().then {
@@ -91,7 +97,7 @@ class SendViewController: BaseViewController {
             $0.layer.shadowColor = UIColor(netHex: 0x000000).cgColor
             $0.layer.shadowOpacity = 0.1
             $0.layer.shadowOffset = CGSize(width: 0, height: 5)
-            $0.layer.shadowRadius = 20
+            $0.layer.shadowRadius = 9
         }
 
         view.addSubview(scrollView)
@@ -113,7 +119,7 @@ class SendViewController: BaseViewController {
         }
 
         headerView.snp.makeConstraints { (m) in
-            m.top.equalTo(contentView)
+            m.top.equalTo(contentView).offset(10)
             m.left.equalTo(contentView).offset(24)
             m.right.equalTo(contentView).offset(-24)
         }
@@ -168,12 +174,15 @@ class SendViewController: BaseViewController {
 
         sendButton.rx.tap
             .bind { [weak self] in
+                let address = Address(string: addressView.textView.text ?? "")
                 guard let `self` = self else { return }
-                guard Address.isValid(string: addressView.textView.text ?? "") else {
+                guard address.isValid else {
                     Toast.show(R.string.localizable.sendPageToastAddressError.key.localized())
                     return
                 }
-                guard let amountString = self.amountView.textField.text, !amountString.isEmpty, let amount = amountString.toBigInt(decimals: self.token.decimals) else {
+                guard let amountString = self.amountView.textField.text,
+                    !amountString.isEmpty,
+                    let amount = amountString.toBigInt(decimals: self.token.decimals) else {
                     Toast.show(R.string.localizable.sendPageToastAmountEmpty.key.localized())
                     return
                 }
@@ -187,31 +196,7 @@ class SendViewController: BaseViewController {
                     Toast.show(R.string.localizable.sendPageToastAmountError.key.localized())
                     return
                 }
-
-                let address = Address(string: addressView.textView.text!)
-                let biometryAuthConfig = HDWalletManager.instance.isTransferByBiometry
-                let confirmType: ConfirmTransactionViewController.ConfirmTransactionType =  biometryAuthConfig ? .biometry : .password
-
-                let confirmViewController = ConfirmTransactionViewController(confirmType: confirmType, address: address.description, token: self.token.symbol, amount: amountString, completion: { [weak self] (result) in
-                    guard let `self` = self else { return }
-                    switch result {
-                    case .success:
-                        self.sendTransaction(bag: self.bag, toAddress: address, tokenId: self.token.id, amount: amount, note: self.noteView.textField.text)
-                    case .cancelled:
-                        plog(level: .info, log: "Confirm cancelled", tag: .transaction)
-                    case .biometryAuthFailed:
-                        Alert.show(into: self,
-                                   title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle.key.localized(),
-                                   message: nil,
-                                   actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack.key.localized()), nil)])
-                    case .passwordAuthFailed:
-                        Alert.show(into: self,
-                                   title: R.string.localizable.confirmTransactionPageToastPasswordError.key.localized(),
-                                   message: nil,
-                                   actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned sendButton] _ in sendButton.sendActions(for: .touchUpInside) }), (.cancel, nil)])
-                    }
-                })
-                self.present(confirmViewController, animated: false, completion: nil)
+                self.showConfirmTransactionViewController(address: address, amountString: amountString, amount: amount)
             }
             .disposed(by: rx.disposeBag)
     }
@@ -228,13 +213,43 @@ class SendViewController: BaseViewController {
             // no balanceInfo, set 0.0
             self.headerView.balanceLabel.text = "0.0"
         }).disposed(by: rx.disposeBag)
+        FetchQuotaService.instance.quotaDriver.drive(headerView.quotaLabel.rx.text).disposed(by: rx.disposeBag)
+        FetchQuotaService.instance.maxTxCountDriver.drive(headerView.maxTxCountLabel.rx.text).disposed(by: rx.disposeBag)
     }
 
-    private func sendTransaction(bag: HDWalletManager.Bag, toAddress: Address, tokenId: String, amount: BigInt, note: String?) {
-        self.view.displayLoading(text: "")
-        Provider.instance.sendTransaction(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, note: note) { [weak self] result in
+    private func showConfirmTransactionViewController(address: Address, amountString: String, amount: BigInt) {
+
+        let biometryAuthConfig = HDWalletManager.instance.isTransferByBiometry
+        let confirmType: ConfirmTransactionViewController.ConfirmTransactionType =  biometryAuthConfig ? .biometry : .password
+        let confirmViewController = ConfirmTransactionViewController(confirmType: confirmType, address: address.description, token: self.token.symbol, amount: amountString, completion: { [weak self] (result) in
             guard let `self` = self else { return }
-            self.view.hideLoading()
+            switch result {
+            case .success:
+                self.sendTransactionWithoutGetPow(bag: self.bag, toAddress: address, tokenId: self.token.id, amount: amount, note: self.noteView.textField.text)
+            case .cancelled:
+                plog(level: .info, log: "Confirm cancelled", tag: .transaction)
+            case .biometryAuthFailed:
+                Alert.show(into: self,
+                           title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle.key.localized(),
+                           message: nil,
+                           actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack.key.localized()), nil)])
+            case .passwordAuthFailed:
+                Alert.show(into: self,
+                           title: R.string.localizable.confirmTransactionPageToastPasswordError.key.localized(),
+                           message: nil,
+                           actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned self] _ in
+                                self.showConfirmTransactionViewController(address: address, amountString: amountString, amount: amount)
+                           }), (.cancel, nil)])
+            }
+        })
+        self.present(confirmViewController, animated: false, completion: nil)
+    }
+
+    private func sendTransactionWithoutGetPow(bag: HDWalletManager.Bag, toAddress: Address, tokenId: String, amount: BigInt, note: String?) {
+        HUD.show()
+        Provider.instance.sendTransactionWithoutGetPow(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, data: note?.bytes.toBase64()) { [weak self] result in
+            guard let `self` = self else { return }
+            HUD.hide()
             switch result {
             case .success:
                 Toast.show(R.string.localizable.sendPageToastSendSuccess.key.localized())
@@ -245,11 +260,76 @@ class SendViewController: BaseViewController {
                                title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
                                message: nil,
                                actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
+                } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
+                    Alert.show(into: self, title: R.string.localizable.quotaAlertTitle.key.localized(), message: R.string.localizable.quotaAlertPowAndQuotaMessage.key.localized(), actions: [
+                        (.default(title: R.string.localizable.quotaAlertPowButtonTitle.key.localized()), { _ in
+                            self.sendTransactionWithGetPow(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, note: note)
+                        }),
+                        (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle.key.localized()), { [weak self] _ in
+                            let vc = QuotaManageViewController()
+                            self?.navigationController?.pushViewController(vc, animated: true)
+                        }),
+                        (.cancel, nil),
+                        ], config: { alert in
+                            alert.preferredAction = alert.actions[1]
+                    })
                 } else {
                     Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
                 }
             }
         }
+    }
+
+    private func sendTransactionWithGetPow(bag: HDWalletManager.Bag, toAddress: Address, tokenId: String, amount: BigInt, note: String?) {
+        var cancelPow = false
+        let getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!) {
+            cancelPow = true
+        }
+
+        getPowFloatView.show()
+        Provider.instance.sendTransactionWithGetPow(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, data: note?.bytes.toBase64(), difficulty: AccountBlock.Const.difficulty, completion: { [weak self] (result) in
+
+            guard cancelPow == false else { return }
+            guard let `self` = self else { return }
+            switch result {
+            case .success(let context):
+
+                getPowFloatView.finish {
+                    HUD.show()
+                    Provider.instance.sendTransactionWithContext(context, completion: { [weak self] (result) in
+                        HUD.hide()
+                        guard let `self` = self else { return }
+                        switch result {
+                        case .success:
+                            Toast.show(R.string.localizable.sendPageToastSendSuccess.key.localized())
+                            GCD.delay(0.5) { self.dismiss() }
+                        case .error(let error):
+                            if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
+                                Alert.show(into: self,
+                                           title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
+                                           message: nil,
+                                           actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
+                            } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
+                                Alert.show(into: self, title: R.string.localizable.quotaAlertTitle.key.localized(), message: R.string.localizable.quotaAlertNeedQuotaMessage.key.localized(), actions: [
+                                    (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle.key.localized()), { [weak self] _ in
+                                        let vc = QuotaManageViewController()
+                                        self?.navigationController?.pushViewController(vc, animated: true)
+                                    }),
+                                    (.cancel, nil),
+                                    ], config: { alert in
+                                        alert.preferredAction = alert.actions[0]
+                                })
+                            } else {
+                                Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
+                            }
+                        }
+                    })
+                }
+            case .error:
+                getPowFloatView.hide()
+                Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
+            }
+        })
     }
 }
 

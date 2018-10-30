@@ -12,6 +12,8 @@ disabled_rules:
   - xctfail_message
   - fallthrough
   - line_length
+  - redundant_string_enum_value
+  - trailing_comma
 opt_in_rules:
   - closure_end_indentation
   - closure_spacing

@@ -13,7 +13,7 @@ import RxSwift
 final class CreateAccountHomeVM: NSObject {
     var createAccountBtnStr  =  BehaviorRelay(value: R.string.localizable.createAccount.key.localized())
     var recoverAccountBtnStr = BehaviorRelay(value: R.string.localizable.importAccount.key.localized())
-    var changeLanguageBtnStr = BehaviorRelay(value: LocalizationService.sharedInstance.currentLanguageName)
+    var changeLanguageBtnStr = BehaviorRelay(value: LocalizationService.sharedInstance.currentLanguage.name)
     override init() {
         super.init()
         self.initBinds()
@@ -28,7 +28,7 @@ final class CreateAccountHomeVM: NSObject {
 
                 self.createAccountBtnStr.accept(R.string.localizable.createAccount.key.localized())
                 self.recoverAccountBtnStr.accept(R.string.localizable.importAccount.key.localized())
-            self.changeLanguageBtnStr.accept(LocalizationService.sharedInstance.currentLanguageName)
+            self.changeLanguageBtnStr.accept(LocalizationService.sharedInstance.currentLanguage.name)
             }).disposed(by: rx.disposeBag)
     }
 }

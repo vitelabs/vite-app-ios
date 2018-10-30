@@ -47,6 +47,10 @@ extension UIView {
         }
     }
 
+    public var ofViewController: UIViewController? {
+        return __viewController
+    }
+
     private var __viewController: UIViewController? {
         var next = self.next
         while next != nil {

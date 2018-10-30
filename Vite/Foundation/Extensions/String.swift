@@ -12,23 +12,6 @@ import CryptoSwift
 
 extension String {
 
-    func localized() -> String {
-        return LocalizationStr(self)
-    }
-
-    func localized(arguments: CVarArg...) -> String {
-        let format = LocalizationStr(self)
-        let t = self.Localizer()
-
-       return withVaList(arguments) { t(format, $0) }
-    }
-    private func Localizer() -> (_ key: String, _ params: CVaListPointer) -> String {
-        return { (key: String, params: CVaListPointer) in
-            let content = NSLocalizedString(key, tableName: "", comment: "")
-            return NSString(format: content, arguments: params) as String
-        }
-    }
-
     //fetch substring as old
     func subStringInRange(_ r: Range<Int>) -> String? {
         if r.lowerBound < 0 || r.upperBound > self.count {

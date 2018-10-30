@@ -15,34 +15,42 @@ class IconBtnView: UIImageView {
         $0.backgroundColor = .clear
     }
 
-    let btn = UIButton().then {
-        $0.setTitleColor(.white, for: .normal)
-        $0.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        $0.titleLabel?.adjustsFontSizeToFitWidth = true
+    let btn = UIButton()
+
+    let titleLabel = UILabel().then {
+        $0.font = UIFont.systemFont(ofSize: 12)
+        $0.adjustsFontSizeToFitWidth = true
+        $0.textColor = UIColor.init(netHex: 0xA1A9CB)
+        $0.textAlignment = .center
     }
 
     init(iconImg: UIImage, text: String = "") {
-        super.init(frame: CGRect.zero)
+        super.init(frame: CGRect.init(x: 1, y: 1, width: 1, height: 1))
         self.isUserInteractionEnabled = true
-        self.image = R.image.background_button_blue()?.resizable
-        self.highlightedImage = R.image.background_button_blue()?.tintColor(UIColor(netHex: 0x006FEA)).resizable
+        self.image = R.image.icon_background()?.resizable
         iconView.image =  iconImg
-        btn.setTitle(text, for: .normal)
+        titleLabel.text = text
 
         addSubview(iconView)
+        addSubview(titleLabel)
         addSubview(btn)
 
         iconView.snp.makeConstraints { (m) in
-            m.centerY.equalTo(self)
-            m.width.equalTo(20)
-            m.height.equalTo(20)
-            m.left.equalTo(self).offset(16)
+            m.centerX.equalTo(self)
+            m.width.equalTo(32)
+            m.height.equalTo(32)
+            m.top.equalTo(self).offset(15)
+        }
+
+        titleLabel.snp.makeConstraints { (m) in
+            m.centerX.right.equalTo(self)
+            m.top.equalTo(iconView.snp.bottom).offset(4)
         }
 
         btn.snp.makeConstraints { (m) in
-            m.centerY.right.equalTo(self)
-            m.left.equalTo(iconView.snp.right)
+            m.edges.equalTo(self)
         }
+
     }
 
     required init?(coder aDecoder: NSCoder) {

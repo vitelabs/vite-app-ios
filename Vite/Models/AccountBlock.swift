@@ -14,6 +14,17 @@ import Vite_HDWalletKit
 
 struct AccountBlock: Mappable {
 
+    struct Const {
+        static let defaultHash = "0000000000000000000000000000000000000000000000000000000000000000"
+        #if DEBUG
+        static var difficulty: BigInt {
+            return DebugService.instance.useBigDifficulty ? BigInt("18446743798831644672")! : BigInt("65535")!
+        }
+        #else
+        static let difficulty = BigInt("18446743798831644672")!
+        #endif
+    }
+
     enum BlockType: Int {
         case createSend = 1
         case send = 2
@@ -36,6 +47,7 @@ struct AccountBlock: Mappable {
     fileprivate(set) var timestamp: Int64?
     fileprivate(set) var logHash: String?
     fileprivate(set) var nonce: String?
+    fileprivate(set) var difficulty: BigInt?
     fileprivate(set) var signature: String?
     fileprivate(set) var height: UInt64?
     fileprivate(set) var quota: UInt64?
@@ -70,10 +82,11 @@ struct AccountBlock: Mappable {
         fromHash <- map["fromBlockHash"]
         tokenId <- map["tokenId"]
         snapshotHash <- map["snapshotHash"]
-        data <- (map["data"], JSONTransformer.stringToBase64)
+        data <- map["data"]
         timestamp <- map["timestamp"]
         logHash <- map["logHash"]
         nonce <- (map["nonce"], JSONTransformer.hexTobase64)
+        difficulty <- (map["difficulty"], JSONTransformer.bigint)
         signature <- (map["signature"], JSONTransformer.hexTobase64)
         height <- (map["height"], JSONTransformer.uint64)
         quota <- (map["quota"], JSONTransformer.uint64)
@@ -93,8 +106,9 @@ extension AccountBlock {
                                      tokenId: String,
                                      amount: BigInt,
                                      data: String?,
-                                     nonce: String) -> AccountBlock {
-        var block = makeBaseAccountBlock(latest: latest, bag: bag, snapshotHash: snapshotHash, nonce: nonce)
+                                     nonce: String?,
+                                     difficulty: BigInt?) -> AccountBlock {
+        var block = makeBaseAccountBlock(latest: latest, bag: bag, snapshotHash: snapshotHash, nonce: nonce, difficulty: difficulty)
 
         block.type = .send
         block.toAddress = toAddress
@@ -115,12 +129,12 @@ extension AccountBlock {
                                         latest: AccountBlock,
                                         bag: HDWalletManager.Bag,
                                         snapshotHash: String,
-                                        nonce: String) -> AccountBlock {
-        var block = makeBaseAccountBlock(latest: latest, bag: bag, snapshotHash: snapshotHash, nonce: nonce)
+                                        nonce: String?,
+                                        difficulty: BigInt?) -> AccountBlock {
+        var block = makeBaseAccountBlock(latest: latest, bag: bag, snapshotHash: snapshotHash, nonce: nonce, difficulty: difficulty)
 
         block.type = .receive
         block.fromHash = unconfirmed.hash
-        block.data = unconfirmed.data
 
         let (hash, signature) = sign(accountBlock: block,
                                      secretKeyHexString: bag.secretKey,
@@ -134,9 +148,10 @@ extension AccountBlock {
     fileprivate static func makeBaseAccountBlock(latest: AccountBlock,
                                                  bag: HDWalletManager.Bag,
                                                  snapshotHash: String,
-                                                 nonce: String) -> AccountBlock {
+                                                 nonce: String?,
+                                                 difficulty: BigInt?) -> AccountBlock {
         var block = AccountBlock()
-        block.prevHash = latest.hash ?? "0000000000000000000000000000000000000000000000000000000000000000"
+        block.prevHash = latest.hash ?? Const.defaultHash
 
         if let height = latest.height {
             block.height = height + 1
@@ -151,6 +166,7 @@ extension AccountBlock {
         block.timestamp = Int64(Date().timeIntervalSince1970)
         block.logHash = nil
         block.nonce = nonce
+        block.difficulty = difficulty
         block.publicKey = bag.publicKey
 
         return block
@@ -209,8 +225,8 @@ extension AccountBlock {
             source.append(contentsOf: snapshotHash.hex2Bytes)
         }
 
-        if let data = accountBlock.data {
-            source.append(contentsOf: data.bytes)
+        if let data = accountBlock.data, let ret = Data(base64Encoded: data) {
+            source.append(contentsOf: ret)
         }
 
         if let timestamp = accountBlock.timestamp {

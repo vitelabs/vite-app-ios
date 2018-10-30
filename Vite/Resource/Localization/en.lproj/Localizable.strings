@@ -16,8 +16,10 @@
 "Loading" = "Loading";
 "Confirm" = "Confirm";
 "Submit" = "Submit";
+"Close" = "关闭";
 "Update.app" = "Update App";
 "NetWorkError" = "Loading failed, please refresh";
+"Submit.success" = "提交成功";
 
 /* Login */
 "create.account" = "Create Account";
@@ -101,6 +103,7 @@
 "my.page.title" = "Me";
 "my.page.mangeWallet.cell.title" = "Wallet";
 "my.page.dealLog.cell.title" = "Transaction";
+"my.page.quota.cell.title" = "Quota";
 "my.page.system.cell.title" = "System Settings";
 "my.page.aboutUs.cell.title" = "About us";
 "my.page.fetchMoney.cell.title" = "Get Bonus";
@@ -134,6 +137,11 @@
 "send.page.title" = "Transfer";
 "send.page.my.address.title" = "My Address";
 "send.page.my.balance.title" = "Balance";
+"send.page.my.quota.title" = "我的配额";
+"send.page.my.max.tx.count.title" = "最大交易量";
+"send.page.my.max.tx.count.unit.title" = "笔";
+"send.page.add.current.address.button.title" = "地址";
+"send.page.scan.address.button.title" = "扫码";
 "send.page.to.address.title" = "Recipient";
 "send.page.amount.title" = "Amount";
 "send.page.remark.title" = "Comment";
@@ -209,3 +217,35 @@
 
 /* toast error */
 "toast.error.login" = "Login Error";
+
+/* quota manage */
+"quota.manage.page.title" = "获取配额";
+"quota.manage.page.input.address.title" = "配额受益地址";
+"quota.manage.page.quota.money.title" = "抵押金额";
+"quota.manage.page.quota.money.placeholder" = "请输入抵押金额，最小10 vite";
+"quota.manage.page.quota.snapshoot.height.title" = "抵押锁定时长";
+"quota.manage.page.quota.snapshoot.height.desc" = "约3天";
+"quota.manage.page.submit.btn.title" = "提交抵押";
+"quota.manage.page.check.quotaList.btn.title" = "抵押列表";
+"quota.manage.page.toast.money.error" = "抵押金额必须大于10 vite";
+"quota.submit.pop.desc" = "确认是否抵押%@获取配额，抵押生效3天之后才可撤取回";
+"quota.submit.pop.submit.btn.title" = "确认抵押";
+"quota.submit.pop.cancel.btn.title" = "暂不抵押";
+
+/* quota alert */
+"quota.alert.title" = "配额不足";
+"quota.alert.pow.and.quota.message" = "无法进行交易，您需要删除备注文字并运行 PoW 或抵押配额才可以继续转账";
+"quota.alert.need.quota.message" = "PoW 获取的配额不足，建议您进行抵押 VITE 获取配额";
+"quota.alert.pow.button.title" = "运行 PoW";
+"quota.alert.quota.button.title" = "抵押 VITE";
+"quota.float.view.title" = "运行 PoW";
+
+/* Peldge History */
+"peldge.message" = "当前app仅支持查看抵押列表，如需要取回到期抵押VITE，请前往web钱包操作";
+"peldge.deadline" = "到期";
+"peldge.title" = "我的质押列表";
+
+
+
+
+

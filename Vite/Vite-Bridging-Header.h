@@ -8,5 +8,3 @@
 
 
 #import "BaiduMobStat.h"
-#import "WXApi.h"
-#import "WXApiObject.h"

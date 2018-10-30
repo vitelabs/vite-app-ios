@@ -14,16 +14,16 @@ public struct Constants {
     //baidu  statistics
     public static let baiduMobileStat = "e74c7f32c0"
     //vite  centralized  host
+    #if DEBUG
+    public static let viteCentralizedHost = "http://testnet.vite.net"
+    #else
     public static let viteCentralizedHost = "https://testnet.vite.net"
-    //weixinAppID
-    public static let weixinAppID = "wx7e5f2476e871c244"
-    //weixin Official Accounts AppID
-    public static let officialAccountsAppID = "gh_50e071040bca"
+    #endif
     //app channel
     #if RELEASE_INHOUSE_FOR_DISTRIBUTE
     public static let appDownloadChannel = "enterprise"
     #else
     public static let appDownloadChannel = "appstore"
     #endif
-
+    public static let quotaDefinitionURL = "https://app.vite.net/quotaDefinition.html"
 }

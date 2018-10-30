@@ -49,43 +49,20 @@ class AboutUsTableBottomView: UIView {
         self.officialWebsiteBtn.snp.remakeConstraints {  (make) -> Void in
             make.left.equalTo(self).offset(padding)
             make.top.equalTo(collectionView.snp.bottom).offset(30)
-            make.width.equalTo(63)
-            make.height.equalTo(20)
-        }
-
-        let paddingView = UIView()
-        paddingView.backgroundColor = .clear
-        self.addSubview(paddingView)
-        paddingView.snp.makeConstraints {  (make) -> Void in
-            make.left.equalTo(self.officialWebsiteBtn.snp.right)
-            make.top.equalTo(collectionView.snp.bottom).offset(30)
             make.height.equalTo(20)
         }
 
         self.addSubview(portalWebsiteBtn)
         self.portalWebsiteBtn.snp.remakeConstraints {  (make) -> Void in
-            make.left.equalTo(paddingView.snp.right)
-            make.top.equalTo(collectionView.snp.bottom).offset(30)
-            make.width.equalTo(93)
-            make.height.equalTo(20)
-        }
-
-        let paddingView1 = UIView()
-        paddingView1.backgroundColor = .clear
-        self.addSubview(paddingView1)
-        paddingView1.snp.makeConstraints {  (make) -> Void in
-            make.left.equalTo(self.portalWebsiteBtn.snp.right)
+            make.centerX.equalTo(self)
             make.top.equalTo(collectionView.snp.bottom).offset(30)
             make.height.equalTo(20)
-            make.width.equalTo(paddingView)
         }
 
         self.addSubview(blogWebsiteBtn)
         self.blogWebsiteBtn.snp.remakeConstraints {  (make) -> Void in
-            make.left.equalTo(paddingView1.snp.right)
             make.right.equalTo(self).offset(-padding)
             make.top.equalTo(collectionView.snp.bottom).offset(30)
-            make.width.equalTo(63)
             make.height.equalTo(20)
         }
     }
@@ -106,7 +83,7 @@ class AboutUsTableBottomView: UIView {
 
     lazy var officialWebsiteBtn: UIButton = {
         let officialWebsiteBtn = UIButton.init(style: .whiteWithoutShadow, title: R.string.localizable.aboutUsPageCellOfficialWebsite.key.localized())
-        officialWebsiteBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+        officialWebsiteBtn.titleLabel?.adjustsFontSizeToFitWidth = false
         officialWebsiteBtn.rx.tap.bind {_ in
             WebHandler.open(URL.init(string: "https://www.vite.org/")!)
         }.disposed(by: rx.disposeBag)
@@ -115,7 +92,7 @@ class AboutUsTableBottomView: UIView {
 
     lazy var portalWebsiteBtn: UIButton = {
         let portalWebsiteBtn = UIButton.init(style: .whiteWithoutShadow, title: R.string.localizable.aboutUsPageCellPortalWebsite.key.localized())
-        portalWebsiteBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+        portalWebsiteBtn.titleLabel?.adjustsFontSizeToFitWidth = false
         portalWebsiteBtn.rx.tap.bind {_ in
             WebHandler.open(URL.init(string: "https://vite.net/")!)
         }.disposed(by: rx.disposeBag)
@@ -124,7 +101,7 @@ class AboutUsTableBottomView: UIView {
 
     lazy var blogWebsiteBtn: UIButton = {
         let blogWebsiteBtn = UIButton.init(style: .whiteWithoutShadow, title: R.string.localizable.aboutUsPageCellBlogWebsite.key.localized())
-        blogWebsiteBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+        blogWebsiteBtn.titleLabel?.adjustsFontSizeToFitWidth = false
         blogWebsiteBtn.rx.tap.bind {_ in
             WebHandler.open(URL.init(string: "https://vite.blog/")!)
         }.disposed(by: rx.disposeBag)
