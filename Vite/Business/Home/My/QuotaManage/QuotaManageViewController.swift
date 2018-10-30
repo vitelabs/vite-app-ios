@@ -356,7 +356,7 @@ extension QuotaManageViewController {
 }
 
 extension QuotaManageViewController: QuotaSubmitPopViewControllerDelegate {
-    func confirmAction(beneficialAddress: Address,amountString: String, amount: BigInt) {
+    func confirmAction(beneficialAddress: Address, amountString: String, amount: BigInt) {
         self.showConfirmTransactionViewController(beneficialAddress: beneficialAddress, amountString: amountString, amount: amount)
 
     }
