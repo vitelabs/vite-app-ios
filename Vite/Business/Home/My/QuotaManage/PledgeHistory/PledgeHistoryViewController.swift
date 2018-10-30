@@ -40,7 +40,8 @@ class PledgeHistoryViewController: BaseViewController, View {
 
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (m) in
-            m.left.bottom.right.equalTo(view)
+            m.left.right.equalTo(view)
+            m.bottom.equalTo(view.safeAreaLayoutGuideSnpBottom)
             m.top.equalTo(descriptionView.snp.bottom).offset(12)
         }
         tableView.rowHeight = 72
