@@ -14,7 +14,7 @@ import NSObject_Rx
 import BigInt
 
 protocol  QuotaSubmitPopViewControllerDelegate: class {
-    func confirmAction(beneficialAddress: Address,amountString: String, amount: BigInt)
+    func confirmAction(beneficialAddress: Address, amountString: String, amount: BigInt)
 }
 
 class QuotaSubmitPopViewController: BaseViewController {
@@ -101,7 +101,7 @@ class QuotaSubmitPopViewController: BaseViewController {
         self.submitBtn.rx.tap
             .bind { [weak self] in
                 guard let `self` = self else { return }
-                self.delegate?.confirmAction(beneficialAddress: self.beneficialAddress,amountString: self.money, amount: self.amount)
+                self.delegate?.confirmAction(beneficialAddress: self.beneficialAddress, amountString: self.money, amount: self.amount)
                 self.dismiss()
             }.disposed(by: rx.disposeBag)
     }

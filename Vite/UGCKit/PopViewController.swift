@@ -30,7 +30,14 @@ class PopViewController: BaseViewController {
         super.viewDidLoad()
         setupView()
         initBinds()
-        self.webView.load(URLRequest.init(url: self.url))
+        self.reloadWeb()
+    }
+
+    private func reloadWeb() {
+        let request =
+        URLRequest(url: self.url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 5)
+        self.webView.load(request)
+        self.webView.displayLoading(text: "")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -97,14 +104,22 @@ class PopViewController: BaseViewController {
 }
 
 extension PopViewController: WKNavigationDelegate {
+
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         _ = self.webView.evaluateJavaScript("document.body.scrollHeight") { (result, _) in
+            self.webView.hideLoading()
             let num = result as! NSNumber
             let webViewHeight =  num.floatValue
             webView.snp.updateConstraints { (m) in
                 m.height.lessThanOrEqualTo(webViewHeight)
             }
         }
+    }
 
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        self.webView.hideLoading()
+        self.webView.displayRetry(retry: {[weak self] in
+                self?.reloadWeb()
+        })
     }
 }
