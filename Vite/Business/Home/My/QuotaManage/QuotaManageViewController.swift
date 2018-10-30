@@ -79,11 +79,25 @@ class QuotaManageViewController: BaseViewController {
     }
 
     lazy var checkQuotaListBtn = UIButton(style: .whiteWithoutShadow).then {
-    $0.setTitle(R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized(), for: .normal)
-        $0.titleLabel?.font = Fonts.Font14_b
+        $0.setTitle(R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized(), for: .normal);$0.setTitle(R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized(), for: .highlighted)
+        $0.setTitleColor(Colors.blueBg, for: .normal)
+        $0.setTitleColor(Colors.blueBg, for: .highlighted)
+        $0.titleLabel?.font = Fonts.Font14
     }
-    private func setupView() {
+
+    private func setupNavBar() {
+
         navigationTitleView = createNavigationTitleView()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.checkQuotaListBtn)
+        self.checkQuotaListBtn.rx.tap.bind {[weak self] in
+            let pledgeHistoryVC = PledgeHistoryViewController()
+            pledgeHistoryVC.reactor = PledgeHistoryViewReactor()
+            self?.navigationController?.pushViewController(pledgeHistoryVC, animated: true)
+        }.disposed(by: rx.disposeBag)
+    }
+
+    private func setupView() {
+        setupNavBar()
 
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { (m) in
@@ -103,7 +117,6 @@ class QuotaManageViewController: BaseViewController {
         contentView.addSubview(amountView)
         contentView.addSubview(snapshootHeightLab)
         contentView.addSubview(sendButton)
-        contentView.addSubview(checkQuotaListBtn)
 
         shadowView.snp.makeConstraints { (m) in
             m.edges.equalTo(headerView)
@@ -137,13 +150,6 @@ class QuotaManageViewController: BaseViewController {
             m.right.equalTo(contentView).offset(-24)
             m.top.equalTo(snapshootHeightLab.snp.bottom).offset(37)
             m.height.equalTo(50)
-        }
-
-        checkQuotaListBtn.snp.makeConstraints { (m) in
-            m.top.equalTo(sendButton.snp.bottom).offset(16)
-            m.left.equalTo(contentView).offset(24)
-            m.right.equalTo(contentView).offset(-24)
-            m.height.equalTo(20)
             m.bottom.equalToSuperview().offset(-50)
         }
 
@@ -195,14 +201,13 @@ class QuotaManageViewController: BaseViewController {
         }
 
         tipButton.rx.tap.bind { [weak self] in
-            let url  = R.file.quotaDefinitionHtml()!
+            let url  = URL(string: String(format: "%@?localize=%@", Constants.quotaDefinitionURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
             let vc = PopViewController(url: url)
             vc.modalPresentationStyle = .overCurrentContext
             let delegate =  StyleActionSheetTranstionDelegate()
             vc.transitioningDelegate = delegate
             self?.present(vc, animated: true, completion: nil)
         }.disposed(by: rx.disposeBag)
-
         return view
     }
 }
@@ -252,13 +257,6 @@ extension QuotaManageViewController {
 
             }
             .disposed(by: rx.disposeBag)
-
-        checkQuotaListBtn.rx.tap
-            .bind { [weak self] in
-                let pledgeHistoryVC = PledgeHistoryViewController()
-                pledgeHistoryVC.reactor = PledgeHistoryViewReactor()
-                self?.navigationController?.pushViewController(pledgeHistoryVC, animated: true)
-            }.disposed(by: rx.disposeBag)
     }
 
     func refreshDataBySuccess() {
@@ -358,7 +356,6 @@ extension QuotaManageViewController {
 extension QuotaManageViewController: QuotaSubmitPopViewControllerDelegate {
     func confirmAction(beneficialAddress: Address, amountString: String, amount: BigInt) {
         self.showConfirmTransactionViewController(beneficialAddress: beneficialAddress, amountString: amountString, amount: amount)
-
     }
 }
 
@@ -387,7 +384,6 @@ extension QuotaManageViewController: UITextFieldDelegate {
 
 extension QuotaManageViewController {
     private func showConfirmTransactionViewController(beneficialAddress: Address, amountString: String, amount: BigInt) {
-
         let biometryAuthConfig = HDWalletManager.instance.isTransferByBiometry
         let confirmType: ConfirmTransactionViewController.ConfirmTransactionType =  biometryAuthConfig ? .biometry : .password
         let confirmViewController = ConfirmTransactionViewController(confirmType: confirmType, address: beneficialAddress.description, token: TokenCacheService.instance.viteToken.symbol, amount: amountString, completion: { [weak self] (result) in
@@ -406,8 +402,7 @@ extension QuotaManageViewController {
                 Alert.show(into: self,
                            title: R.string.localizable.confirmTransactionPageToastPasswordError.key.localized(),
                            message: nil,
-                           actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned self] _ in
-//                            self.showConfirmTransactionViewController(beneficialAddress: address, amountString: amountString, amount: amount)
+                           actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned self] _ in self.showConfirmTransactionViewController(beneficialAddress: beneficialAddress, amountString: amountString, amount: amount)
                            }), (.cancel, nil)])
             }
         })

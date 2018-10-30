@@ -21,17 +21,8 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 1 files.
+  /// This `R.file` struct is generated, and contains static references to 0 files.
   struct file {
-    /// Resource file `QuotaDefinition.html`.
-    static let quotaDefinitionHtml = Rswift.FileResource(bundle: R.hostingBundle, name: "QuotaDefinition", pathExtension: "html")
-    
-    /// `bundle.url(forResource: "QuotaDefinition", withExtension: "html")`
-    static func quotaDefinitionHtml(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.quotaDefinitionHtml
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-    
     fileprivate init() {}
   }
   
@@ -1204,6 +1195,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let quotaAlertQuotaButtonTitle = Rswift.StringResource(key: "quota.alert.quota.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 抵押列表
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageCheckQuotaListBtnTitle = Rswift.StringResource(key: "quota.manage.page.check.quotaList.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 抵押金额
       /// 
       /// Locales: en, zh-Hans
@@ -1236,10 +1231,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageMyMaxTxCountTitle = Rswift.StringResource(key: "send.page.my.max.tx.count.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 查看抵押列表
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageCheckQuotaListBtnTitle = Rswift.StringResource(key: "quota.manage.page.check.quotaList.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 确认抵押
       /// 
       /// Locales: en, zh-Hans
@@ -2429,6 +2420,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("quota.alert.quota.button.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 抵押列表
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageCheckQuotaListBtnTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.check.quotaList.btn.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 抵押金额
       /// 
       /// Locales: en, zh-Hans
@@ -2483,13 +2481,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func sendPageMyMaxTxCountTitle(_: Void = ()) -> String {
         return NSLocalizedString("send.page.my.max.tx.count.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 查看抵押列表
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageCheckQuotaListBtnTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.check.quotaList.btn.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 确认抵押
