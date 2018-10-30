@@ -24,6 +24,21 @@ extension UIView {
         MBProgressHUD.hide(for: self, animated: animated)
     }
 
+    func displayRetry(retry: @escaping () -> Swift.Void) {
+        let btn = UIButton()
+        btn.backgroundColor = .clear
+ btn.setTitle(R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized(), for: .normal)
+        btn.setTitleColor(Colors.titleGray, for: .normal)
+        self.addSubview(btn)
+        btn.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        btn.center = self.center
+
+        btn.rx.tap.bind {_ in
+            retry()
+            btn.removeFromSuperview()
+        }.disposed(by: rx.disposeBag)
+    }
+
     func  showToast (str: String) {
         self.makeToast(str, duration: 2.0, position: .center)
     }
