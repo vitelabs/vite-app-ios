@@ -220,11 +220,7 @@
 
 /* quota manage */
 "quota.manage.page.title" = "获取配额";
-"quota.manage.page.address.title" = "抵押配额扣除地址";
-"quota.manage.page.balance.title" = "转出账户余额";
-"quota.manage.page.my.quota.title" = "我的配额";
-"quota.manage.page.max.volume.title" = "最大交易量";
-"quota.manage.page.input.address.title" = "请输入获取配额地址";
+"quota.manage.page.input.address.title" = "配额受益地址";
 "quota.manage.page.quota.money.title" = "抵押金额";
 "quota.manage.page.quota.money.placeholder" = "请输入抵押金额，最小10 vite";
 "quota.manage.page.quota.snapshoot.height.title" = "抵押锁定时长";
