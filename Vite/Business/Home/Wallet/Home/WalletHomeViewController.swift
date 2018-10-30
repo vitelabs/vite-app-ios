@@ -127,7 +127,7 @@ class WalletHomeViewController: BaseTableViewController {
     func loadTokenInfoAndTransformToSendScene() {
         let scanViewController = ScanViewController(dismissWhenComplete: false)
         scanViewController.reactor = ScanViewReactor.init()
-        scanViewController.rx.result.bind { [weak scanViewController] result in
+        _ = scanViewController.rx.result.bind { [weak scanViewController] result in
             switch result {
             case let .viteURI(uri):
                 switch uri {
@@ -156,7 +156,7 @@ class WalletHomeViewController: BaseTableViewController {
             default :
                 break
             }
-        }.disposed(by: self.rx.disposeBag)
+        }
 
         self.navigationController?.pushViewController(scanViewController, animated: true)
     }

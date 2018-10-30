@@ -94,7 +94,7 @@ extension AddressTextViewView: AddAddressFloatViewDelegate {
     func scanButtonDidClick() {
         let scanViewController = ScanViewController()
         scanViewController.reactor = ScanViewReactor()
-        scanViewController.rx.result.bind {[weak self] result in
+        _ = scanViewController.rx.result.bind {[weak self] result in
             switch result {
             case .viteURI(let uri):
                 if case .transfer(let address, _, _, _, _ ) = uri {
@@ -103,7 +103,7 @@ extension AddressTextViewView: AddAddressFloatViewDelegate {
             case .otherString:
                 break
             }
-        }.disposed(by: rx.disposeBag)
+        }
         self.ofViewController?.navigationController?.pushViewController(scanViewController, animated: true)
     }
 }
