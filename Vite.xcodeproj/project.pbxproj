@@ -670,13 +670,6 @@
 			path = Style;
 			sourceTree = "<group>";
 		};
-		4C4C9D6C213E96EC005542F8 /* Vendors */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vendors;
-			sourceTree = "<group>";
-		};
 		4C84D928214527F4001B6EBD /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -849,7 +842,6 @@
 				4C4C9D6B213E96EC005542F8 /* Style */,
 				4C4C9D69213E96EC005542F8 /* UGCKit */,
 				8E548541217F339A009C528B /* Statistics */,
-				4C4C9D6C213E96EC005542F8 /* Vendors */,
 				4C4C9D65213E9629005542F8 /* Business */,
 				8E6F3DF92140FEA5003CDFC2 /* Network */,
 				8E6F3E0821411664003CDFC2 /* Models */,

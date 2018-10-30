@@ -84,9 +84,7 @@ final class FetchQuotaService {
 
                 let dic = [Key.quota.rawValue: quota, Key.maxTxCount.rawValue: maxTxCount]
                 if let data = try? JSONSerialization.data(withJSONObject: dic) {
-                    do {
-                        try self.fileHelper.writeData(data, relativePath: Key.fileName.rawValue)
-                    } catch let error {
+                    if let error = self.fileHelper.writeData(data, relativePath: Key.fileName.rawValue) {
                         assert(false, error.localizedDescription)
                     }
                 }
