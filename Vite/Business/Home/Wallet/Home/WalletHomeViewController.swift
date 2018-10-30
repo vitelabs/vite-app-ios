@@ -73,10 +73,8 @@ class WalletHomeViewController: BaseTableViewController {
             self?.navigationController?.pushViewController(ReceiveViewController(token: TokenCacheService.instance.viteToken, style: .default), animated: true)
         }.disposed(by: rx.disposeBag)
 
-        scanItem.rx.tap.bind {  [weak self] _ in
-            let scanViewController = ScanViewController()
-            scanViewController.reactor = ScanViewReactor()
-            self?.navigationController?.pushViewController(scanViewController, animated: true)
+        scanItem.rx.tap.bind {  [unowned self] _ in
+            self.loadTokenInfoAndTransformToSendScene()
         }.disposed(by: rx.disposeBag)
     }
 
@@ -124,5 +122,42 @@ class WalletHomeViewController: BaseTableViewController {
                 }
             }
         }.disposed(by: rx.disposeBag)
+    }
+
+    func loadTokenInfoAndTransformToSendScene() {
+        let scanViewController = ScanViewController(dismissWhenComplete: false)
+        scanViewController.reactor = ScanViewReactor.init()
+        scanViewController.rx.result.bind { [weak scanViewController] result in
+            switch result {
+            case let .viteURI(uri):
+                switch uri {
+                case let .transfer(address, tokenId, _, _, note):
+                    let tokenId = tokenId ?? TokenCacheService.instance.viteToken.id
+                    scanViewController?.view.displayLoading(text: "")
+                    TokenCacheService.instance.tokenForId(tokenId) {[weak scanViewController] (result) in
+                        scanViewController?.view.hideLoading()
+                        switch result {
+                        case .success(let token):
+                            if let token = token {
+                                let amount = uri.amountToBigInt()
+                                let sendViewController = SendViewController(token: token, address: address, amount: amount, note: note)
+                                guard var viewControllers = self.navigationController?.viewControllers else { return }
+                                _ = viewControllers.popLast()
+                                viewControllers.append(sendViewController)
+                                scanViewController?.navigationController?.setViewControllers(viewControllers, animated: true)
+                            } else {
+                                scanViewController?.showToast(string: R.string.localizable.sendPageTokenInfoError.key.localized())
+                            }
+                        case .failure(let error):
+                            scanViewController?.showToast(string: error.message)
+                        }
+                    }
+                }
+            default :
+                break
+            }
+        }.disposed(by: self.rx.disposeBag)
+
+        self.navigationController?.pushViewController(scanViewController, animated: true)
     }
 }
