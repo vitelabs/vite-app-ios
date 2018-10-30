@@ -66,14 +66,18 @@ final class PledgeHistoryViewReactor: Reactor {
             if let newPledges = newPledges {
                 newState.noMoreData = newPledges.isEmpty
                 newState.pledges += newPledges
+            } else {
+                newState.errorMessage = message
+                newState.noMoreData = true
             }
-            newState.errorMessage = message
         case let .replace(pledge: newPledges, errorMessage: message):
             if let newPledges = newPledges {
                 newState.noMoreData = newPledges.isEmpty
                 newState.pledges = newPledges
+            } else {
+                newState.errorMessage = message
+                newState.noMoreData = true
             }
-            newState.errorMessage = message
         }
         return newState
     }

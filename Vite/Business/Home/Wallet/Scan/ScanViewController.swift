@@ -30,6 +30,8 @@ class ScanViewController: BaseViewController, View {
 
     private let dismissWhenComplete: Bool
 
+    private var pickingImage = false
+
     init(dismissWhenComplete: Bool = true) {
         self.dismissWhenComplete = dismissWhenComplete
         super.init(nibName: nil, bundle: nil)
@@ -68,7 +70,9 @@ class ScanViewController: BaseViewController, View {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.stopCaptureSession()
-        self.result.onCompleted()
+        if !pickingImage {
+            self.result.onCompleted()
+        }
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -180,6 +184,7 @@ class ScanViewController: BaseViewController, View {
     }
 
     @objc private func pickeImage(_ button: UIBarButtonItem) {
+        self.pickingImage = true
         present(imagePicker, animated: true) {}
     }
 
@@ -224,30 +229,32 @@ class ScanViewController: BaseViewController, View {
 
         reactor.state
             .map { $0.toastMessage }
-            .filter { $0 != nil }
+            .filterNil()
             .subscribe(onNext: { [unowned self] in
-                self.showToast(string: $0!)
+                self.showToast(string: $0)
             })
             .disposed(by: disposeBag)
 
         reactor.state
             .map { $0.alertMessage }
-            .filter { $0 != nil }
+            .filterNil()
             .subscribe(onNext: { [unowned self] in
-                self.showAlertMessage($0!)
+                self.showAlertMessage($0)
             })
             .disposed(by: disposeBag)
 
         reactor.state
-            .filter { $0.result != nil }
-            .map { $0.result! }
+            .map { $0.result }
+            .filterNil()
             .bind {[weak self] result in
                 self?.stopCaptureSession()
-                if self?.dismissWhenComplete == true {
-                    self?.result.onNext(result)
-                    self?.navigationController?.popViewController(animated: true)
-                } else {
-                    self?.result.onNext(result)
+                if case .viteURI(_) = result {
+                    if self?.dismissWhenComplete == true {
+                        self?.result.onNext(result)
+                        self?.navigationController?.popViewController(animated: true)
+                    } else {
+                        self?.result.onNext(result)
+                    }
                 }
             }
             .disposed(by: disposeBag)
@@ -270,10 +277,6 @@ class ScanViewController: BaseViewController, View {
         alertController.addAction(action)
         alertController.title = alertMessage
         self.present(alertController, animated: true, completion: nil)
-    }
-
-    deinit {
-        print("scan-deinit")
     }
 
 }
