@@ -53,10 +53,7 @@ class QuotaManageViewController: BaseViewController {
     lazy var contentView = UIView()
 
     // headerView
-    lazy var headerView = SendHeaderView(address: bag.address.description).then {
-         $0.addressTitleLabel.text = R.string.localizable.quotaManagePageAddressTitle.key.localized()
-         $0.balanceTitleLabel.text = R.string.localizable.quotaManagePageBalanceTitle.key.localized()
-    }
+    lazy var headerView = SendHeaderView(address: bag.address.description)
 
     // money
     lazy var amountView = TitleMoneyInputView(title: R.string.localizable.quotaManagePageQuotaMoneyTitle.key.localized(), placeholder: R.string.localizable.quotaManagePageQuotaMoneyPlaceholder.key.localized(), content: "", desc: TokenCacheService.instance.viteToken.symbol).then {
@@ -67,7 +64,7 @@ class QuotaManageViewController: BaseViewController {
     lazy var snapshootHeightLab = TitleDescView(title: R.string.localizable.quotaManagePageQuotaSnapshootHeightTitle.key.localized(), desc: R.string.localizable.quotaManagePageQuotaSnapshootHeightDesc.key.localized())
 
     lazy var addressView = AddressTextViewView(currentAddress: self.bag.address.description).then {
-        $0.titleLabel.text = R.string.localizable.quotaManagePageAddressTitle.key.localized()
+        $0.titleLabel.text = R.string.localizable.quotaManagePageInputAddressTitle.key.localized()
         $0.textView.keyboardType = .default
     }
 
@@ -241,7 +238,7 @@ extension QuotaManageViewController {
                     return
                 }
 
-                guard amount > 10 else {
+                guard amount >= "10".toBigInt(decimals: TokenCacheService.instance.viteToken.decimals)! else {
                     Toast.show(R.string.localizable.quotaManagePageToastMoneyError.key.localized())
                     return
                 }
@@ -359,8 +356,9 @@ extension QuotaManageViewController {
 }
 
 extension QuotaManageViewController: QuotaSubmitPopViewControllerDelegate {
-    func confirmAction(beneficialAddress: Address, amount: BigInt) {
-           pledgeAndGainQuotaWithoutGetPow(beneficialAddress: beneficialAddress, amount: amount)
+    func confirmAction(beneficialAddress: Address,amountString: String, amount: BigInt) {
+        self.showConfirmTransactionViewController(beneficialAddress: beneficialAddress, amountString: amountString, amount: amount)
+
     }
 }
 
@@ -384,5 +382,36 @@ extension QuotaManageViewController: UITextFieldDelegate {
         if textField == amountView.textField {
             amountView.symbolLabel.isHidden = textField.text?.isEmpty ?? true
         }
+    }
+}
+
+extension QuotaManageViewController {
+    private func showConfirmTransactionViewController(beneficialAddress: Address, amountString: String, amount: BigInt) {
+
+        let biometryAuthConfig = HDWalletManager.instance.isTransferByBiometry
+        let confirmType: ConfirmTransactionViewController.ConfirmTransactionType =  biometryAuthConfig ? .biometry : .password
+        let confirmViewController = ConfirmTransactionViewController(confirmType: confirmType, address: beneficialAddress.description, token: TokenCacheService.instance.viteToken.symbol, amount: amountString, completion: { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .success:
+                self.pledgeAndGainQuotaWithoutGetPow(beneficialAddress: beneficialAddress, amount: amount)
+            case .cancelled:
+                plog(level: .info, log: "Confirm cancelled", tag: .transaction)
+            case .biometryAuthFailed:
+                Alert.show(into: self,
+                           title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle.key.localized(),
+                           message: nil,
+                           actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack.key.localized()), nil)])
+            case .passwordAuthFailed:
+                Alert.show(into: self,
+                           title: R.string.localizable.confirmTransactionPageToastPasswordError.key.localized(),
+                           message: nil,
+                           actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned self] _ in
+//                            self.showConfirmTransactionViewController(beneficialAddress: address, amountString: amountString, amount: amount)
+                           }), (.cancel, nil)])
+            }
+        })
+        confirmViewController.confirmView.transactionInfoView.titleLabel.text = R.string.localizable.quotaManagePageInputAddressTitle.key.localized()
+        self.present(confirmViewController, animated: false, completion: nil)
     }
 }

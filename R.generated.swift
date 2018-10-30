@@ -546,7 +546,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 187 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 183 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1195,10 +1195,6 @@ struct R: Rswift.Validatable {
       /// en translation: 我的配额
       /// 
       /// Locales: en, zh-Hans
-      static let quotaManagePageMyQuotaTitle = Rswift.StringResource(key: "quota.manage.page.my.quota.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 我的配额
-      /// 
-      /// Locales: en, zh-Hans
       static let sendPageMyQuotaTitle = Rswift.StringResource(key: "send.page.my.quota.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 扫码
       /// 
@@ -1208,10 +1204,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let quotaAlertQuotaButtonTitle = Rswift.StringResource(key: "quota.alert.quota.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 抵押配额扣除地址
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageAddressTitle = Rswift.StringResource(key: "quota.manage.page.address.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 抵押金额
       /// 
       /// Locales: en, zh-Hans
@@ -1240,10 +1232,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let quotaSubmitPopCancelBtnTitle = Rswift.StringResource(key: "quota.submit.pop.cancel.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 最大交易量
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageMaxVolumeTitle = Rswift.StringResource(key: "quota.manage.page.max.volume.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 最大交易量
       /// 
       /// Locales: en, zh-Hans
@@ -1276,14 +1264,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let quotaManagePageQuotaMoneyPlaceholder = Rswift.StringResource(key: "quota.manage.page.quota.money.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 请输入获取配额地址
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageInputAddressTitle = Rswift.StringResource(key: "quota.manage.page.input.address.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 转出账户余额
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageBalanceTitle = Rswift.StringResource(key: "quota.manage.page.balance.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 运行 PoW
       /// 
       /// Locales: en, zh-Hans
@@ -1296,6 +1276,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let quotaAlertTitle = Rswift.StringResource(key: "quota.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 配额受益地址
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageInputAddressTitle = Rswift.StringResource(key: "quota.manage.page.input.address.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -2427,13 +2411,6 @@ struct R: Rswift.Validatable {
       /// en translation: 我的配额
       /// 
       /// Locales: en, zh-Hans
-      static func quotaManagePageMyQuotaTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.my.quota.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 我的配额
-      /// 
-      /// Locales: en, zh-Hans
       static func sendPageMyQuotaTitle(_: Void = ()) -> String {
         return NSLocalizedString("send.page.my.quota.title", bundle: R.hostingBundle, comment: "")
       }
@@ -2450,13 +2427,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func quotaAlertQuotaButtonTitle(_: Void = ()) -> String {
         return NSLocalizedString("quota.alert.quota.button.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 抵押配额扣除地址
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageAddressTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.address.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 抵押金额
@@ -2506,13 +2476,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func quotaSubmitPopCancelBtnTitle(_: Void = ()) -> String {
         return NSLocalizedString("quota.submit.pop.cancel.btn.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 最大交易量
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageMaxVolumeTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.max.volume.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 最大交易量
@@ -2571,20 +2534,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("quota.manage.page.quota.money.placeholder", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: 请输入获取配额地址
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageInputAddressTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.input.address.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 转出账户余额
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageBalanceTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.balance.title", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: 运行 PoW
       /// 
       /// Locales: en, zh-Hans
@@ -2604,6 +2553,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func quotaAlertTitle(_: Void = ()) -> String {
         return NSLocalizedString("quota.alert.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 配额受益地址
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageInputAddressTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.input.address.title", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
