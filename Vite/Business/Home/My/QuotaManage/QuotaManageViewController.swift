@@ -249,7 +249,7 @@ extension QuotaManageViewController {
                     return
                 }
 
-                let vc = QuotaSubmitPopViewController(money: String.init(format: "%@ %@ ", amountString, TokenCacheService.instance.viteToken.symbol), beneficialAddress: address, amount: amount)
+                let vc = QuotaSubmitPopViewController(money: amountString, beneficialAddress: address, amount: amount)
                 vc.delegate = self
                 vc.modalPresentationStyle = .overCurrentContext
                 let delegate =  StyleActionSheetTranstionDelegate()
