@@ -270,7 +270,9 @@ class SendViewController: BaseViewController {
                             self?.navigationController?.pushViewController(vc, animated: true)
                         }),
                         (.cancel, nil),
-                        ])
+                        ], config: { alert in
+                            alert.preferredAction = alert.actions[1]
+                    })
                 } else {
                     Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
                 }
@@ -308,7 +310,15 @@ class SendViewController: BaseViewController {
                                            message: nil,
                                            actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
                             } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
-                                Toast.show(R.string.localizable.sendPageToastSendPowFailed.key.localized())
+                                Alert.show(into: self, title: R.string.localizable.quotaAlertTitle.key.localized(), message: R.string.localizable.quotaAlertNeedQuotaMessage.key.localized(), actions: [
+                                    (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle.key.localized()), { [weak self] _ in
+                                        let vc = QuotaManageViewController()
+                                        self?.navigationController?.pushViewController(vc, animated: true)
+                                    }),
+                                    (.cancel, nil),
+                                    ], config: { alert in
+                                        alert.preferredAction = alert.actions[0]
+                                })
                             } else {
                                 Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
                             }

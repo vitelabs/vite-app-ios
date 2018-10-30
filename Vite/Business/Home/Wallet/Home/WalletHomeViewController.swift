@@ -74,7 +74,7 @@ class WalletHomeViewController: BaseTableViewController {
         }.disposed(by: rx.disposeBag)
 
         scanItem.rx.tap.bind {  [unowned self] _ in
-            self.loadTokenInfoAndTransformToSendScene()
+            self.scanAndTransformToSendScene()
         }.disposed(by: rx.disposeBag)
     }
 
@@ -124,10 +124,10 @@ class WalletHomeViewController: BaseTableViewController {
         }.disposed(by: rx.disposeBag)
     }
 
-    func loadTokenInfoAndTransformToSendScene() {
+    func scanAndTransformToSendScene() {
         let scanViewController = ScanViewController(dismissWhenComplete: false)
         scanViewController.reactor = ScanViewReactor.init()
-        scanViewController.rx.result.bind { [weak scanViewController] result in
+        _ = scanViewController.rx.result.bind { [weak scanViewController] result in
             switch result {
             case let .viteURI(uri):
                 switch uri {
@@ -156,7 +156,7 @@ class WalletHomeViewController: BaseTableViewController {
             default :
                 break
             }
-        }.disposed(by: self.rx.disposeBag)
+        }
 
         self.navigationController?.pushViewController(scanViewController, animated: true)
     }

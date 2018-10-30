@@ -26,7 +26,23 @@ struct WebHandler {
         if LocalizationService.sharedInstance.currentLanguage == .chinese {
             host = "\(host)/zh"
         }
-        let url = URL(string: "\(host)/transaction/\(hash)")!
+
+        let string = appendQuery(urlString: "\(host)/transaction/\(hash)")
+        let url = URL(string: string)!
         open(url)
+    }
+
+    fileprivate static func appendQuery(urlString: String) -> String {
+        let querys = ["version": Bundle.main.versionNumber,
+                      "channel": Constants.appDownloadChannel]
+        var string = urlString
+        for (key, value) in querys {
+            let separator = string.contains("?") ? "&" : "?"
+            string = string.appending(separator)
+            string = string.appending(key)
+            string = string.appending("=")
+            string = string.appending(value)
+        }
+        return string
     }
 }

@@ -40,7 +40,8 @@ class PledgeHistoryViewController: BaseViewController, View {
 
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (m) in
-            m.left.bottom.right.equalTo(view)
+            m.left.right.equalTo(view)
+            m.bottom.equalTo(view.safeAreaLayoutGuideSnpBottom)
             m.top.equalTo(descriptionView.snp.bottom).offset(12)
         }
         tableView.rowHeight = 72
@@ -72,6 +73,24 @@ class PledgeHistoryViewController: BaseViewController, View {
             .disposed(by: disposeBag)
 
         reactor.state
+            .map { $0.pledges.count }
+            .skip(2)
+            .distinctUntilChanged()
+            .bind { [weak self] in
+                guard let `self` = self else { return }
+                if $0 == 0 {
+                    self.tableView.addSubview(self.emptyView)
+                    self.emptyView.snp.makeConstraints({ (m) in
+                        m.center.equalTo(self.tableView)
+                        m.width.height.equalTo(self.tableView)
+                    })
+                } else if self.emptyView.superview != nil {
+                    self.emptyView.removeFromSuperview()
+                }
+            }
+            .disposed(by: disposeBag)
+
+        reactor.state
             .distinctUntilChanged { $0.finisheLoading != $1.finisheLoading }
             .filter { $0.finisheLoading }
             .bind { [unowned self] _ in
@@ -98,4 +117,9 @@ class PledgeHistoryViewController: BaseViewController, View {
             .disposed(by: disposeBag)
 
     }
+
+    lazy var emptyView = {
+        return UIView.defaultPlaceholderView(text: R.string.localizable.transactionListPageEmpty.key.localized())
+    }()
+
 }

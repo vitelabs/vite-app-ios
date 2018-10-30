@@ -50,7 +50,8 @@ extension Provider {
 
     fileprivate func getPowNonce(address: Address, preHash: String?, difficulty: BigInt) -> Promise<String> {
         return Promise { seal in
-            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetPowNonceRequest(address: address, preHash: preHash, difficulty: difficulty)))
+            var request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetPowNonceRequest(address: address, preHash: preHash, difficulty: difficulty)))
+            request.timeoutInterval = 60.0
             Session.send(request) { result in
                 switch result {
                 case .success(let nonce):

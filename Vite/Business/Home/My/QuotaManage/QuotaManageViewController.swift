@@ -86,7 +86,7 @@ class QuotaManageViewController: BaseViewController {
     }
 
     private func setupNavBar() {
-
+        statisticsPageName = Statistics.Page.WalletQuota.name
         navigationTitleView = createNavigationTitleView()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.checkQuotaListBtn)
         self.checkQuotaListBtn.rx.tap.bind {[weak self] in
@@ -218,6 +218,7 @@ extension QuotaManageViewController {
     func initBtnAction() {
         sendButton.rx.tap
             .bind { [weak self] in
+                Statistics.log(eventId: Statistics.Page.WalletQuota.submit.rawValue)
                 guard let `self` = self else { return }
                 let address = Address(string: self.addressView.textView.text ?? "")
 
@@ -355,6 +356,7 @@ extension QuotaManageViewController {
 
 extension QuotaManageViewController: QuotaSubmitPopViewControllerDelegate {
     func confirmAction(beneficialAddress: Address, amountString: String, amount: BigInt) {
+        Statistics.log(eventId: Statistics.Page.WalletQuota.confirm.rawValue)
         self.showConfirmTransactionViewController(beneficialAddress: beneficialAddress, amountString: amountString, amount: amount)
     }
 }

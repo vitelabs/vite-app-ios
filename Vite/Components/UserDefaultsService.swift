@@ -11,40 +11,40 @@ import Foundation
 class UserDefaultsService {
     static let instance = UserDefaultsService()
     typealias DictionaryType = [String: Any]
+    fileprivate let queue = DispatchQueue(label: "net.vite.user.defaults")
     fileprivate static let userDefaultsKey = "com.vite.user.defaults"
-    fileprivate var dic: DictionaryType
+    fileprivate var dic: DictionaryType = [:]
 
     private init() {
-        if let dic = UserDefaults.standard.object(forKey: type(of: self).userDefaultsKey) as? DictionaryType {
-            self.dic = dic
-        } else {
-            self.dic = [:]
+        queue.sync {
+            if let dic = UserDefaults.standard.object(forKey: type(of: self).userDefaultsKey) as? DictionaryType {
+                self.dic = dic
+            }
         }
     }
 
     func setObject(_ object: Any, forKey key: String, inCollection collection: String) {
+        queue.sync {
+            var collectionDic = DictionaryType()
+            if let dic = dic[collection] as? DictionaryType {
+                collectionDic = dic
+            }
 
-        var collectionDic = DictionaryType()
-        if let dic = dic[collection] as? DictionaryType {
-            collectionDic = dic
+            collectionDic[key] = object
+            dic[collection] = collectionDic
+
+            UserDefaults.standard.set(dic, forKey: type(of: self).userDefaultsKey)
+            UserDefaults.standard.synchronize()
         }
-
-        collectionDic[key] = object
-        dic[collection] = collectionDic
-
-        UserDefaults.standard.set(dic, forKey: type(of: self).userDefaultsKey)
-        UserDefaults.standard.synchronize()
     }
 
     func objectForKey(_ key: String, inCollection collection: String) -> Any? {
-
-        var collectionDic = DictionaryType()
-        if let dic = dic[collection] as? DictionaryType {
-            collectionDic = dic
-        } else {
-            return nil
+        var ret: Any?
+        queue.sync {
+            if let dic = dic[collection] as? DictionaryType {
+                ret = dic[key]
+            }
         }
-
-        return collectionDic[key]
+        return ret
     }
 }
