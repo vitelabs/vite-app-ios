@@ -305,7 +305,7 @@ extension QuotaManageViewController {
                 } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
                     self.pledgeAndGainQuotaWithGetPow(beneficialAddress: beneficialAddress, amount: amount)
                 } else {
-                    Toast.show(error.message)
+                    Toast.show(R.string.localizable.quotaManagePageToastSendFailed.key.localized())
                 }
             }
         }
@@ -342,14 +342,14 @@ extension QuotaManageViewController {
                                            message: nil,
                                            actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
                             } else {
-                                Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
+                                Toast.show(R.string.localizable.quotaManagePageToastSendFailed.key.localized())
                             }
                         }
                     })
                 }
             case .error:
                 getPowFloatView.hide()
-                Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
+                Toast.show(R.string.localizable.quotaManagePageToastSendFailed.key.localized())
             }
         }
     }
