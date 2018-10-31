@@ -141,7 +141,7 @@
 "send.page.my.quota.title" = "我的配额";
 "send.page.my.max.tx.count.title" = "最大交易量";
 "send.page.my.max.tx.count.unit.title" = "笔";
-"send.page.add.current.address.button.title" = "地址";
+"send.page.add.current.address.button.title" = "我的";
 "send.page.scan.address.button.title" = "扫码";
 "send.page.to.address.title" = "收款地址";
 "send.page.amount.title" = "金额";
