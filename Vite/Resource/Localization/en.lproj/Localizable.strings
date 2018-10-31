@@ -228,6 +228,7 @@
 "quota.manage.page.submit.btn.title" = "Submit Staking";
 "quota.manage.page.check.quotaList.btn.title" = "Staking List";
 "quota.manage.page.toast.money.error" = "Staking amount should not be less than 10";
+"quota.manage.page.toast.send.failed" = "Staking failed, please try again later";
 "quota.submit.pop.desc" = "Make sure to stake %@ to obtain quota, you cannot withdraw until about 3 days after staking comes into effect.";
 "quota.submit.pop.submit.btn.title" = "Confirm";
 "quota.submit.pop.cancel.btn.title" = "Cancel";

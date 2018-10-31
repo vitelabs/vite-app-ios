@@ -537,8 +537,12 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 183 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 184 localization keys.
     struct localizable {
+      /// en translation: 
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageMyMaxTxCountUnitTitle = Rswift.StringResource(key: "send.page.my.max.tx.count.unit.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
       /// Locales: en, zh-Hans
@@ -555,6 +559,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let exportPageAlterTfPlaceholder = Rswift.StringResource(key: "export.page.alter.tf.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: About 3 days
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageQuotaSnapshootHeightDesc = Rswift.StringResource(key: "quota.manage.page.quota.snapshoot.height.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: About us
       /// 
       /// Locales: en, zh-Hans
@@ -583,6 +591,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicAffirmPageAddLoading = Rswift.StringResource(key: "mnemonic.affirm.page.add.loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Address
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageAddCurrentAddressButtonTitle = Rswift.StringResource(key: "send.page.add.current.address.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Address List
       /// 
       /// Locales: en, zh-Hans
@@ -650,11 +662,19 @@ struct R: Rswift.Validatable {
       /// en translation: Cancel
       /// 
       /// Locales: en, zh-Hans
+      static let quotaSubmitPopCancelBtnTitle = Rswift.StringResource(key: "quota.submit.pop.cancel.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Cancel
+      /// 
+      /// Locales: en, zh-Hans
       static let sendPageNotEnoughBalanceAlertButton = Rswift.StringResource(key: "send.page.not.enough.balance.alert.button", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Cannot be identified
       /// 
       /// Locales: en, zh-Hans
       static let sendPageConfirmBiometryAuthFailedTitle = Rswift.StringResource(key: "send.page.confirm.biometryAuthFailed.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Close
+      /// 
+      /// Locales: en, zh-Hans
+      static let close = Rswift.StringResource(key: "Close", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Comment
       /// 
       /// Locales: en, zh-Hans
@@ -671,6 +691,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let confirmTransactionPageConfirmButton = Rswift.StringResource(key: "confirm.transaction.page.confirm.button", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Confirm
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaSubmitPopSubmitBtnTitle = Rswift.StringResource(key: "quota.submit.pop.submit.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Confirm your seed phrase
       /// 
       /// Locales: en, zh-Hans
@@ -695,6 +719,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let aboutUsPageCellBlockHeight = Rswift.StringResource(key: "aboutUs.page.cell.blockHeight", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Currently Vite App only supports checking staking list, please go to web wallet to withdraw staking on due date if needed.
+      /// 
+      /// Locales: en, zh-Hans
+      static let peldgeMessage = Rswift.StringResource(key: "peldge.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Default Receiving Address
       /// 
       /// Locales: en, zh-Hans
@@ -707,6 +735,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let finish = Rswift.StringResource(key: "Finish", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Due Date
+      /// 
+      /// Locales: en, zh-Hans
+      static let peldgeDeadline = Rswift.StringResource(key: "peldge.deadline", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Edit Wallet Name
       /// 
       /// Locales: en, zh-Hans
@@ -739,6 +771,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let myPageFetchMoneyCellTitle = Rswift.StringResource(key: "my.page.fetchMoney.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Get Quota
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageTitle = Rswift.StringResource(key: "quota.manage.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: How to participate:
       /// 
       /// Locales: en, zh-Hans
@@ -751,6 +787,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importAccount = Rswift.StringResource(key: "import.account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Incorrect Format!
+      /// 
+      /// Locales: en, zh-Hans
+      static let fetchWelfareInputEthereumAddressErrorTitle = Rswift.StringResource(key: "fetch.welfare.inputEthereumAddress.error.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Input Amount
       /// 
       /// Locales: en, zh-Hans
@@ -767,6 +807,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageToastAmountError = Rswift.StringResource(key: "send.page.toast.amount.error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Insufficient Quota
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaAlertTitle = Rswift.StringResource(key: "quota.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Insufficient quota of PoW, we would recommend that you stake VITE to obtain quota.
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaAlertNeedQuotaMessage = Rswift.StringResource(key: "quota.alert.need.quota.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: It isn't a safe way to keep your seed phrase by screenshot. We suggest that you'd better write it down and keep it in a safe place.
       /// 
       /// Locales: en, zh-Hans
@@ -811,6 +859,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let systemPageCellLogoutTitle = Rswift.StringResource(key: "system.page.cell.logout.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Make sure to stake %@ to obtain quota, you cannot withdraw until about 3 days after staking comes into effect.
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaSubmitPopDesc = Rswift.StringResource(key: "quota.submit.pop.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Maximum Amount of Tx
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageMyMaxTxCountTitle = Rswift.StringResource(key: "send.page.my.max.tx.count.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Me
       /// 
       /// Locales: en, zh-Hans
@@ -835,6 +891,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let receivePageMineTitle = Rswift.StringResource(key: "Receive.page.mine.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: My Quota
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageMyQuotaTitle = Rswift.StringResource(key: "send.page.my.quota.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: My Staking List
+      /// 
+      /// Locales: en, zh-Hans
+      static let peldgeTitle = Rswift.StringResource(key: "peldge.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Next
       /// 
       /// Locales: en, zh-Hans
@@ -851,6 +915,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let scanPageQccodeNotFound = Rswift.StringResource(key: "Scan.page.qccode.not.found", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Not available to send a transaction due to lack of quota, please delete descriptive text and run PoW, or gain quota by staking token to resume.
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaAlertPowAndQuotaMessage = Rswift.StringResource(key: "quota.alert.pow.and.quota.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Orderly select seed phrase
       /// 
       /// Locales: en, zh-Hans
@@ -887,6 +955,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let exportPageAlterTitle = Rswift.StringResource(key: "export.page.alter.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Please input staking amount, minimum 10 VITE
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageQuotaMoneyPlaceholder = Rswift.StringResource(key: "quota.manage.page.quota.money.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Please input your password again
       /// 
       /// Locales: en, zh-Hans
@@ -895,14 +967,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageTitle = Rswift.StringResource(key: "import.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: PoW 获取的配额不足，建议您进行抵押 VITE 获取配额
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaAlertNeedQuotaMessage = Rswift.StringResource(key: "quota.alert.need.quota.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Processing
       /// 
       /// Locales: en, zh-Hans
       static let loginPageLoadingTitle = Rswift.StringResource(key: "login.page.loading.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Profit Address
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageInputAddressTitle = Rswift.StringResource(key: "quota.manage.page.input.address.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Prompt
       /// 
       /// Locales: en, zh-Hans
@@ -959,10 +1031,22 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageConfirmPasswordAuthFailedRetry = Rswift.StringResource(key: "send.page.confirm.passwordAuthFailed.retry", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Run PoW
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaAlertPowButtonTitle = Rswift.StringResource(key: "quota.alert.pow.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Run PoW
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaFloatViewTitle = Rswift.StringResource(key: "quota.float.view.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Scan
       /// 
       /// Locales: en, zh-Hans
       static let scanPageTitle = Rswift.StringResource(key: "Scan.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Scan
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageScanAddressButtonTitle = Rswift.StringResource(key: "send.page.scan.address.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Scan and transfer %@
       /// 
       /// Locales: en, zh-Hans
@@ -987,10 +1071,42 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageSubmitInvalidMnemonic = Rswift.StringResource(key: "import.page.submit.invalid.mnemonic", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Stake VITE
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaAlertQuotaButtonTitle = Rswift.StringResource(key: "quota.alert.quota.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Staking Amount
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageQuotaMoneyTitle = Rswift.StringResource(key: "quota.manage.page.quota.money.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Staking List
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageCheckQuotaListBtnTitle = Rswift.StringResource(key: "quota.manage.page.check.quotaList.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Staking amount should not be less than 10
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageToastMoneyError = Rswift.StringResource(key: "quota.manage.page.toast.money.error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Staking failed, please try again later
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageToastSendFailed = Rswift.StringResource(key: "quota.manage.page.toast.send.failed", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Staking frozen duration
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageQuotaSnapshootHeightTitle = Rswift.StringResource(key: "quota.manage.page.quota.snapshoot.height.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Submit
       /// 
       /// Locales: en, zh-Hans
       static let submit = Rswift.StringResource(key: "Submit", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Submit Staking
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageSubmitBtnTitle = Rswift.StringResource(key: "quota.manage.page.submit.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Submit Successful
+      /// 
+      /// Locales: en, zh-Hans
+      static let submitSuccess = Rswift.StringResource(key: "Submit.success", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Success
       /// 
       /// Locales: en, zh-Hans
@@ -1123,10 +1239,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let manageWalletPageErrorTypeName = Rswift.StringResource(key: "manage.wallet.page.error.type.name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Wrong Format!
-      /// 
-      /// Locales: en, zh-Hans
-      static let fetchWelfareInputEthereumAddressErrorTitle = Rswift.StringResource(key: "fetch.welfare.inputEthereumAddress.error.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Wrong password!
       /// 
       /// Locales: en, zh-Hans
@@ -1163,114 +1275,13 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageSubmitLoading = Rswift.StringResource(key: "import.page.submit.loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 关闭
+      
+      /// en translation: 
       /// 
       /// Locales: en, zh-Hans
-      static let close = Rswift.StringResource(key: "Close", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 到期
-      /// 
-      /// Locales: en, zh-Hans
-      static let peldgeDeadline = Rswift.StringResource(key: "peldge.deadline", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 地址
-      /// 
-      /// Locales: en, zh-Hans
-      static let sendPageAddCurrentAddressButtonTitle = Rswift.StringResource(key: "send.page.add.current.address.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 当前app仅支持查看抵押列表，如需要取回到期抵押VITE，请前往web钱包操作
-      /// 
-      /// Locales: en, zh-Hans
-      static let peldgeMessage = Rswift.StringResource(key: "peldge.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 我的质押列表
-      /// 
-      /// Locales: en, zh-Hans
-      static let peldgeTitle = Rswift.StringResource(key: "peldge.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 我的配额
-      /// 
-      /// Locales: en, zh-Hans
-      static let sendPageMyQuotaTitle = Rswift.StringResource(key: "send.page.my.quota.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 扫码
-      /// 
-      /// Locales: en, zh-Hans
-      static let sendPageScanAddressButtonTitle = Rswift.StringResource(key: "send.page.scan.address.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 抵押 VITE
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaAlertQuotaButtonTitle = Rswift.StringResource(key: "quota.alert.quota.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 抵押列表
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageCheckQuotaListBtnTitle = Rswift.StringResource(key: "quota.manage.page.check.quotaList.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 抵押金额
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageQuotaMoneyTitle = Rswift.StringResource(key: "quota.manage.page.quota.money.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 抵押金额必须大于10 vite
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageToastMoneyError = Rswift.StringResource(key: "quota.manage.page.toast.money.error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 抵押锁定时长
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageQuotaSnapshootHeightTitle = Rswift.StringResource(key: "quota.manage.page.quota.snapshoot.height.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 提交成功
-      /// 
-      /// Locales: en, zh-Hans
-      static let submitSuccess = Rswift.StringResource(key: "Submit.success", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 提交抵押
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageSubmitBtnTitle = Rswift.StringResource(key: "quota.manage.page.submit.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 无法进行交易，您需要删除备注文字并运行 PoW 或抵押配额才可以继续转账
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaAlertPowAndQuotaMessage = Rswift.StringResource(key: "quota.alert.pow.and.quota.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 暂不抵押
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaSubmitPopCancelBtnTitle = Rswift.StringResource(key: "quota.submit.pop.cancel.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 最大交易量
-      /// 
-      /// Locales: en, zh-Hans
-      static let sendPageMyMaxTxCountTitle = Rswift.StringResource(key: "send.page.my.max.tx.count.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 确认抵押
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaSubmitPopSubmitBtnTitle = Rswift.StringResource(key: "quota.submit.pop.submit.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 确认是否抵押%@获取配额，抵押生效3天之后才可撤取回
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaSubmitPopDesc = Rswift.StringResource(key: "quota.submit.pop.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 笔
-      /// 
-      /// Locales: en, zh-Hans
-      static let sendPageMyMaxTxCountUnitTitle = Rswift.StringResource(key: "send.page.my.max.tx.count.unit.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 约3天
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageQuotaSnapshootHeightDesc = Rswift.StringResource(key: "quota.manage.page.quota.snapshoot.height.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 获取配额
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageTitle = Rswift.StringResource(key: "quota.manage.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 请输入抵押金额，最小10 vite
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageQuotaMoneyPlaceholder = Rswift.StringResource(key: "quota.manage.page.quota.money.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 运行 PoW
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaAlertPowButtonTitle = Rswift.StringResource(key: "quota.alert.pow.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 运行 PoW
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaFloatViewTitle = Rswift.StringResource(key: "quota.float.view.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 配额不足
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaAlertTitle = Rswift.StringResource(key: "quota.alert.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 配额受益地址
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageInputAddressTitle = Rswift.StringResource(key: "quota.manage.page.input.address.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      static func sendPageMyMaxTxCountUnitTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.my.max.tx.count.unit.title", bundle: R.hostingBundle, comment: "")
+      }
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1298,6 +1309,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func exportPageAlterTfPlaceholder(_: Void = ()) -> String {
         return NSLocalizedString("export.page.alter.tf.placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: About 3 days
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageQuotaSnapshootHeightDesc(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.quota.snapshoot.height.desc", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: About us
@@ -1347,6 +1365,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func mnemonicAffirmPageAddLoading(_: Void = ()) -> String {
         return NSLocalizedString("mnemonic.affirm.page.add.loading", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Address
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageAddCurrentAddressButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.add.current.address.button.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Address List
@@ -1464,6 +1489,13 @@ struct R: Rswift.Validatable {
       /// en translation: Cancel
       /// 
       /// Locales: en, zh-Hans
+      static func quotaSubmitPopCancelBtnTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.submit.pop.cancel.btn.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Cancel
+      /// 
+      /// Locales: en, zh-Hans
       static func sendPageNotEnoughBalanceAlertButton(_: Void = ()) -> String {
         return NSLocalizedString("send.page.not.enough.balance.alert.button", bundle: R.hostingBundle, comment: "")
       }
@@ -1473,6 +1505,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func sendPageConfirmBiometryAuthFailedTitle(_: Void = ()) -> String {
         return NSLocalizedString("send.page.confirm.biometryAuthFailed.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Close
+      /// 
+      /// Locales: en, zh-Hans
+      static func close(_: Void = ()) -> String {
+        return NSLocalizedString("Close", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Comment
@@ -1501,6 +1540,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func confirmTransactionPageConfirmButton(_: Void = ()) -> String {
         return NSLocalizedString("confirm.transaction.page.confirm.button", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Confirm
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaSubmitPopSubmitBtnTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.submit.pop.submit.btn.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Confirm your seed phrase
@@ -1545,6 +1591,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("aboutUs.page.cell.blockHeight", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Currently Vite App only supports checking staking list, please go to web wallet to withdraw staking on due date if needed.
+      /// 
+      /// Locales: en, zh-Hans
+      static func peldgeMessage(_: Void = ()) -> String {
+        return NSLocalizedString("peldge.message", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Default Receiving Address
       /// 
       /// Locales: en, zh-Hans
@@ -1564,6 +1617,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func finish(_: Void = ()) -> String {
         return NSLocalizedString("Finish", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Due Date
+      /// 
+      /// Locales: en, zh-Hans
+      static func peldgeDeadline(_: Void = ()) -> String {
+        return NSLocalizedString("peldge.deadline", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Edit Wallet Name
@@ -1622,6 +1682,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("my.page.fetchMoney.cell.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Get Quota
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: How to participate:
       /// 
       /// Locales: en, zh-Hans
@@ -1641,6 +1708,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func importAccount(_: Void = ()) -> String {
         return NSLocalizedString("import.account", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Incorrect Format!
+      /// 
+      /// Locales: en, zh-Hans
+      static func fetchWelfareInputEthereumAddressErrorTitle(_: Void = ()) -> String {
+        return NSLocalizedString("fetch.welfare.inputEthereumAddress.error.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Input Amount
@@ -1669,6 +1743,20 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func sendPageToastAmountError(_: Void = ()) -> String {
         return NSLocalizedString("send.page.toast.amount.error", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Insufficient Quota
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaAlertTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.alert.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Insufficient quota of PoW, we would recommend that you stake VITE to obtain quota.
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaAlertNeedQuotaMessage(_: Void = ()) -> String {
+        return NSLocalizedString("quota.alert.need.quota.message", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: It isn't a safe way to keep your seed phrase by screenshot. We suggest that you'd better write it down and keep it in a safe place.
@@ -1748,6 +1836,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("system.page.cell.logout.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Make sure to stake %@ to obtain quota, you cannot withdraw until about 3 days after staking comes into effect.
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaSubmitPopDesc(_ value1: String) -> String {
+        return String(format: NSLocalizedString("quota.submit.pop.desc", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// en translation: Maximum Amount of Tx
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageMyMaxTxCountTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.my.max.tx.count.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Me
       /// 
       /// Locales: en, zh-Hans
@@ -1790,6 +1892,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Receive.page.mine.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: My Quota
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageMyQuotaTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.my.quota.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: My Staking List
+      /// 
+      /// Locales: en, zh-Hans
+      static func peldgeTitle(_: Void = ()) -> String {
+        return NSLocalizedString("peldge.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Next
       /// 
       /// Locales: en, zh-Hans
@@ -1816,6 +1932,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func scanPageQccodeNotFound(_: Void = ()) -> String {
         return NSLocalizedString("Scan.page.qccode.not.found", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Not available to send a transaction due to lack of quota, please delete descriptive text and run PoW, or gain quota by staking token to resume.
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaAlertPowAndQuotaMessage(_: Void = ()) -> String {
+        return NSLocalizedString("quota.alert.pow.and.quota.message", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Orderly select seed phrase
@@ -1881,6 +2004,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("export.page.alter.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Please input staking amount, minimum 10 VITE
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageQuotaMoneyPlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.quota.money.placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Please input your password again
       /// 
       /// Locales: en, zh-Hans
@@ -1895,18 +2025,18 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("import.page.title", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: PoW 获取的配额不足，建议您进行抵押 VITE 获取配额
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaAlertNeedQuotaMessage(_: Void = ()) -> String {
-        return NSLocalizedString("quota.alert.need.quota.message", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: Processing
       /// 
       /// Locales: en, zh-Hans
       static func loginPageLoadingTitle(_: Void = ()) -> String {
         return NSLocalizedString("login.page.loading.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Profit Address
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageInputAddressTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.input.address.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Prompt
@@ -2007,11 +2137,32 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send.page.confirm.passwordAuthFailed.retry", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Run PoW
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaAlertPowButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.alert.pow.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Run PoW
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaFloatViewTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.float.view.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Scan
       /// 
       /// Locales: en, zh-Hans
       static func scanPageTitle(_: Void = ()) -> String {
         return NSLocalizedString("Scan.page.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Scan
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageScanAddressButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.scan.address.button.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Scan and transfer %@
@@ -2056,11 +2207,67 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("import.page.submit.invalid.mnemonic", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Stake VITE
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaAlertQuotaButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.alert.quota.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Staking Amount
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageQuotaMoneyTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.quota.money.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Staking List
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageCheckQuotaListBtnTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.check.quotaList.btn.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Staking amount should not be less than 10
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageToastMoneyError(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.toast.money.error", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Staking failed, please try again later
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageToastSendFailed(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.toast.send.failed", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Staking frozen duration
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageQuotaSnapshootHeightTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.quota.snapshoot.height.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Submit
       /// 
       /// Locales: en, zh-Hans
       static func submit(_: Void = ()) -> String {
         return NSLocalizedString("Submit", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Submit Staking
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageSubmitBtnTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.submit.btn.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Submit Successful
+      /// 
+      /// Locales: en, zh-Hans
+      static func submitSuccess(_: Void = ()) -> String {
+        return NSLocalizedString("Submit.success", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Success
@@ -2294,13 +2501,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("manage.wallet.page.error.type.name", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Wrong Format!
-      /// 
-      /// Locales: en, zh-Hans
-      static func fetchWelfareInputEthereumAddressErrorTitle(_: Void = ()) -> String {
-        return NSLocalizedString("fetch.welfare.inputEthereumAddress.error.title", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: Wrong password!
       /// 
       /// Locales: en, zh-Hans
@@ -2362,195 +2562,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func importPageSubmitLoading(_: Void = ()) -> String {
         return NSLocalizedString("import.page.submit.loading", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 关闭
-      /// 
-      /// Locales: en, zh-Hans
-      static func close(_: Void = ()) -> String {
-        return NSLocalizedString("Close", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 到期
-      /// 
-      /// Locales: en, zh-Hans
-      static func peldgeDeadline(_: Void = ()) -> String {
-        return NSLocalizedString("peldge.deadline", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 地址
-      /// 
-      /// Locales: en, zh-Hans
-      static func sendPageAddCurrentAddressButtonTitle(_: Void = ()) -> String {
-        return NSLocalizedString("send.page.add.current.address.button.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 当前app仅支持查看抵押列表，如需要取回到期抵押VITE，请前往web钱包操作
-      /// 
-      /// Locales: en, zh-Hans
-      static func peldgeMessage(_: Void = ()) -> String {
-        return NSLocalizedString("peldge.message", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 我的质押列表
-      /// 
-      /// Locales: en, zh-Hans
-      static func peldgeTitle(_: Void = ()) -> String {
-        return NSLocalizedString("peldge.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 我的配额
-      /// 
-      /// Locales: en, zh-Hans
-      static func sendPageMyQuotaTitle(_: Void = ()) -> String {
-        return NSLocalizedString("send.page.my.quota.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 扫码
-      /// 
-      /// Locales: en, zh-Hans
-      static func sendPageScanAddressButtonTitle(_: Void = ()) -> String {
-        return NSLocalizedString("send.page.scan.address.button.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 抵押 VITE
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaAlertQuotaButtonTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.alert.quota.button.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 抵押列表
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageCheckQuotaListBtnTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.check.quotaList.btn.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 抵押金额
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageQuotaMoneyTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.quota.money.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 抵押金额必须大于10 vite
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageToastMoneyError(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.toast.money.error", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 抵押锁定时长
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageQuotaSnapshootHeightTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.quota.snapshoot.height.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 提交成功
-      /// 
-      /// Locales: en, zh-Hans
-      static func submitSuccess(_: Void = ()) -> String {
-        return NSLocalizedString("Submit.success", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 提交抵押
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageSubmitBtnTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.submit.btn.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 无法进行交易，您需要删除备注文字并运行 PoW 或抵押配额才可以继续转账
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaAlertPowAndQuotaMessage(_: Void = ()) -> String {
-        return NSLocalizedString("quota.alert.pow.and.quota.message", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 暂不抵押
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaSubmitPopCancelBtnTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.submit.pop.cancel.btn.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 最大交易量
-      /// 
-      /// Locales: en, zh-Hans
-      static func sendPageMyMaxTxCountTitle(_: Void = ()) -> String {
-        return NSLocalizedString("send.page.my.max.tx.count.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 确认抵押
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaSubmitPopSubmitBtnTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.submit.pop.submit.btn.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 确认是否抵押%@获取配额，抵押生效3天之后才可撤取回
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaSubmitPopDesc(_ value1: String) -> String {
-        return String(format: NSLocalizedString("quota.submit.pop.desc", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
-      }
-      
-      /// en translation: 笔
-      /// 
-      /// Locales: en, zh-Hans
-      static func sendPageMyMaxTxCountUnitTitle(_: Void = ()) -> String {
-        return NSLocalizedString("send.page.my.max.tx.count.unit.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 约3天
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageQuotaSnapshootHeightDesc(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.quota.snapshoot.height.desc", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 获取配额
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 请输入抵押金额，最小10 vite
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageQuotaMoneyPlaceholder(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.quota.money.placeholder", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 运行 PoW
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaAlertPowButtonTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.alert.pow.button.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 运行 PoW
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaFloatViewTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.float.view.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 配额不足
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaAlertTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.alert.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 配额受益地址
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageInputAddressTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.input.address.title", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
