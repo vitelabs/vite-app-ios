@@ -16,7 +16,7 @@
 "Loading" = "Loading";
 "Confirm" = "Confirm";
 "Submit" = "Submit";
-"Close" = "Close";
+"Close" = "I understand";
 "Update.app" = "Update App";
 "NetWorkError" = "Loading failed, please refresh";
 "Submit.success" = "Submit Successful";
@@ -232,6 +232,7 @@
 "quota.submit.pop.desc" = "Make sure to stake %@ to obtain quota, you cannot withdraw until about 3 days after staking comes into effect.";
 "quota.submit.pop.submit.btn.title" = "Confirm";
 "quota.submit.pop.cancel.btn.title" = "Cancel";
+"quota.submit.page.quota.address.placeholder" = "Please input profit address";
 
 /* quota alert */
 "quota.alert.title" = "Insufficient Quota";

@@ -62,7 +62,7 @@ class QuotaManageViewController: BaseViewController {
     //snapshoot height
     lazy var snapshootHeightLab = TitleDescView(title: R.string.localizable.quotaManagePageQuotaSnapshootHeightTitle.key.localized(), desc: R.string.localizable.quotaManagePageQuotaSnapshootHeightDesc.key.localized())
 
-    lazy var addressView = AddressTextViewView(currentAddress: self.bag.address.description).then {
+    lazy var addressView = AddressTextViewView(currentAddress: self.bag.address.description, placeholder: R.string.localizable.quotaSubmitPageQuotaAddressPlaceholder.key.localized()).then {
         $0.titleLabel.text = R.string.localizable.quotaManagePageInputAddressTitle.key.localized()
         $0.textView.keyboardType = .default
     }
@@ -156,7 +156,7 @@ class QuotaManageViewController: BaseViewController {
         done.rx.tap.bind { [weak self] in self?.amountView.textField.resignFirstResponder() }.disposed(by: rx.disposeBag)
         amountView.textField.inputAccessoryView = toolbar
 
-        addressView.textView.kas_setReturnAction(.next(responder: amountView.textField))
+        addressView.textView.kas_setReturnAction(.next(responder: amountView.textField), delegate: addressView)
         amountView.textField.delegate = self
 
         self.initBtnAction()

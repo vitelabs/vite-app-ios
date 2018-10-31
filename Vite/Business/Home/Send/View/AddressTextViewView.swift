@@ -17,15 +17,22 @@ class AddressTextViewView: SendAddressViewType {
     fileprivate var floatView: AddAddressFloatView!
 
     let currentAddress: String?
+    let placeholderStr: String?
 
-    init(currentAddress: String? = nil) {
+    init(currentAddress: String? = nil, placeholder: String = "") {
         self.currentAddress = currentAddress
+        self.placeholderStr = placeholder
         super.init(frame: CGRect.zero)
 
-        titleLabel.text = R.string.localizable.sendPageToAddressTitle.key.localized()
+        self.placeholderLab.textColor = Colors.lineGray
+        self.placeholderLab.font = AppStyle.descWord.font
+        self.placeholderLab.text = placeholder
 
+        titleLabel.text = R.string.localizable.sendPageToAddressTitle.key.localized()
+        textView.delegate = self
         addSubview(titleLabel)
         addSubview(textView)
+        textView.addSubview(placeholderLab)
         addSubview(addAddressButton)
 
         if let _ = currentAddress {
@@ -59,6 +66,10 @@ class AddressTextViewView: SendAddressViewType {
             m.right.equalTo(addAddressButton.snp.left).offset(-16)
             m.height.equalTo(55)
             m.bottom.equalTo(self)
+        }
+
+        placeholderLab.snp.makeConstraints { (m) in
+            m.edges.equalTo(textView)
         }
 
         addAddressButton.snp.makeConstraints { (m) in
@@ -105,5 +116,20 @@ extension AddressTextViewView: AddAddressFloatViewDelegate {
             }
         }
         self.ofViewController?.navigationController?.pushViewController(scanViewController, animated: true)
+    }
+}
+
+extension AddressTextViewView: UITextViewDelegate {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        self.placeholderLab.text = ""
+        return true
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == nil || textView.text == "" {
+            self.placeholderLab.text = self.placeholderStr
+        } else {
+            self.placeholderLab.text = ""
+        }
     }
 }
