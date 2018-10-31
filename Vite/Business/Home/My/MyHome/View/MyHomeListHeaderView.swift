@@ -22,29 +22,32 @@ class MyHomeListHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        let margin = kScreenW == 320 ? 18 : 24
+        let margin = 19.0
+        let width = 110.0 * (kScreenW / 375.0)
+        let height = 88.0 * (kScreenW / 375.0)
+
         self.addSubview(self.manageWalletBtn)
         self.manageWalletBtn.snp.makeConstraints {  (make) -> Void in
             make.left.equalTo(self).offset(margin)
             make.top.equalTo(self).offset(32)
-            make.height.equalTo(84)
-            make.width.equalTo(100)
+            make.height.equalTo(height)
+            make.width.equalTo(width)
         }
 
         self.addSubview(transactionLogBtn)
         self.transactionLogBtn.snp.makeConstraints {  (make) -> Void in
             make.top.equalTo(self).offset(32)
-            make.height.equalTo(84)
-            make.width.equalTo(100)
+            make.height.equalTo(height)
+            make.width.equalTo(width)
             make.centerX.equalTo(self)
         }
 
         self.addSubview(manageQuotaBtn)
         self.manageQuotaBtn.snp.makeConstraints { (make) in
             make.top.equalTo(self).offset(32)
-            make.height.equalTo(84)
+            make.height.equalTo(height)
             make.right.equalTo(self).offset(-margin)
-            make.width.equalTo(100)
+            make.width.equalTo(width)
         }
     }
 

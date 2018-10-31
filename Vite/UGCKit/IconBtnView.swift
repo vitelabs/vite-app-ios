@@ -35,16 +35,18 @@ class IconBtnView: UIImageView {
         addSubview(titleLabel)
         addSubview(btn)
 
+        let scale = kScreenW < 375 ? (kScreenW / 375.0) : 1
+
         iconView.snp.makeConstraints { (m) in
             m.centerX.equalTo(self)
-            m.width.equalTo(32)
-            m.height.equalTo(32)
-            m.top.equalTo(self).offset(15)
+            m.width.equalTo(32 * scale)
+            m.height.equalTo(32 * scale)
+            m.top.equalTo(self).offset(20 * scale)
         }
 
         titleLabel.snp.makeConstraints { (m) in
             m.centerX.right.equalTo(self)
-            m.top.equalTo(iconView.snp.bottom).offset(4)
+            m.top.equalTo(iconView.snp.bottom).offset(4 * scale)
         }
 
         btn.snp.makeConstraints { (m) in

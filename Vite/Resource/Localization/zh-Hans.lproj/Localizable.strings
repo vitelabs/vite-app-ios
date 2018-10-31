@@ -245,5 +245,5 @@
 /* Peldge History */
 "peldge.message" = "当前app仅支持查看抵押列表，如需要取回到期抵押VITE，请前往web钱包操作";
 "peldge.deadline" = "到期";
-"peldge.title" = "我的质押列表";
+"peldge.title" = "我的抵押列表";
 
