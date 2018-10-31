@@ -31,10 +31,15 @@ class QuotaManageViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        self.setupView()
         initBinds()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        self.navigationController?.setNavigationBarHidden(true, animated: false)
+//        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         kas_activateAutoScrollingForView(contentView)
@@ -78,18 +83,14 @@ class QuotaManageViewController: BaseViewController {
         $0.layer.shadowRadius = 9
     }
 
-    lazy var checkQuotaListBtn = UIButton(style: .whiteWithoutShadow).then {
-        $0.setTitle(R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized(), for: .normal);$0.setTitle(R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized(), for: .highlighted)
-        $0.setTitleColor(Colors.blueBg, for: .normal)
-        $0.setTitleColor(Colors.blueBg, for: .highlighted)
-        $0.titleLabel?.font = Fonts.Font14
-    }
-
     private func setupNavBar() {
         statisticsPageName = Statistics.Page.WalletQuota.name
         navigationTitleView = createNavigationTitleView()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.checkQuotaListBtn)
-        self.checkQuotaListBtn.rx.tap.bind {[weak self] in
+        let rightItem = UIBarButtonItem(title: R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized(), style: .plain, target: self, action: nil)
+        rightItem.setTitleTextAttributes([NSAttributedStringKey.font: Fonts.Font14, NSAttributedStringKey.foregroundColor: Colors.blueBg], for: .normal)
+        rightItem.setTitleTextAttributes([NSAttributedStringKey.font: Fonts.Font14, NSAttributedStringKey.foregroundColor: Colors.blueBg], for: .highlighted)
+        self.navigationItem.rightBarButtonItem = rightItem
+        self.navigationItem.rightBarButtonItem?.rx.tap.bind {[weak self] in
             let pledgeHistoryVC = PledgeHistoryViewController()
             pledgeHistoryVC.reactor = PledgeHistoryViewReactor()
             self?.navigationController?.pushViewController(pledgeHistoryVC, animated: true)
