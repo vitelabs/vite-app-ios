@@ -25,6 +25,7 @@ class AddressTextViewView: SendAddressViewType {
         super.init(frame: CGRect.zero)
 
         self.placeholderLab.textColor = Colors.lineGray
+        self.placeholderLab.font = AppStyle.descWord.font
         self.placeholderLab.text = placeholder
 
         titleLabel.text = R.string.localizable.sendPageToAddressTitle.key.localized()
