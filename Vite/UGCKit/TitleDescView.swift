@@ -25,10 +25,11 @@ class TitleDescView: UIView {
         $0.backgroundColor = Colors.lineGray
     }
 
-    init(title: String, desc: String = "") {
+    init(title: String, desc: NSAttributedString = NSAttributedString(string: "") ) {
         super.init(frame: CGRect.zero)
+
         titleLabel.text = title
-        descLab.text = desc
+        descLab.attributedText = desc
 
         addSubview(titleLabel)
         addSubview(descLab)

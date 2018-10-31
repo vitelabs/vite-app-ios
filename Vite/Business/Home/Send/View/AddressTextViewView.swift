@@ -99,6 +99,7 @@ class AddressTextViewView: SendAddressViewType {
 extension AddressTextViewView: AddAddressFloatViewDelegate {
 
     func currentAddressButtonDidClick() {
+        self.placeholderLab.text = ""
         textView.text = currentAddress
     }
 
@@ -109,6 +110,7 @@ extension AddressTextViewView: AddAddressFloatViewDelegate {
             switch result {
             case .viteURI(let uri):
                 if case .transfer(let address, _, _, _, _ ) = uri {
+                    self?.placeholderLab.text = ""
                     self?.textView.text = address.description
                 }
             case .otherString:

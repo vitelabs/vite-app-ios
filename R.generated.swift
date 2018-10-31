@@ -559,7 +559,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let exportPageAlterTfPlaceholder = Rswift.StringResource(key: "export.page.alter.tf.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: About 3 days
+      /// en translation: About %@ days
       /// 
       /// Locales: en, zh-Hans
       static let quotaManagePageQuotaSnapshootHeightDesc = Rswift.StringResource(key: "quota.manage.page.quota.snapshoot.height.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
@@ -591,10 +591,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicAffirmPageAddLoading = Rswift.StringResource(key: "mnemonic.affirm.page.add.loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Address
-      /// 
-      /// Locales: en, zh-Hans
-      static let sendPageAddCurrentAddressButtonTitle = Rswift.StringResource(key: "send.page.add.current.address.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Address List
       /// 
       /// Locales: en, zh-Hans
@@ -883,6 +879,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPageTipContent = Rswift.StringResource(key: "create.page.tip.content", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: My
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageAddCurrentAddressButtonTitle = Rswift.StringResource(key: "send.page.add.current.address.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: My Address
       /// 
       /// Locales: en, zh-Hans
@@ -1315,11 +1315,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("export.page.alter.tf.placeholder", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: About 3 days
+      /// en translation: About %@ days
       /// 
       /// Locales: en, zh-Hans
-      static func quotaManagePageQuotaSnapshootHeightDesc(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.quota.snapshoot.height.desc", bundle: R.hostingBundle, comment: "")
+      static func quotaManagePageQuotaSnapshootHeightDesc(_ value1: String) -> String {
+        return String(format: NSLocalizedString("quota.manage.page.quota.snapshoot.height.desc", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       /// en translation: About us
@@ -1369,13 +1369,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func mnemonicAffirmPageAddLoading(_: Void = ()) -> String {
         return NSLocalizedString("mnemonic.affirm.page.add.loading", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Address
-      /// 
-      /// Locales: en, zh-Hans
-      static func sendPageAddCurrentAddressButtonTitle(_: Void = ()) -> String {
-        return NSLocalizedString("send.page.add.current.address.button.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Address List
@@ -1880,6 +1873,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func createPageTipContent(_: Void = ()) -> String {
         return NSLocalizedString("create.page.tip.content", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: My
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageAddCurrentAddressButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.add.current.address.button.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: My Address
