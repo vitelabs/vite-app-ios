@@ -20,7 +20,7 @@ extension Provider {
             let request = ViteServiceRequest(for: server, batch: BatchFactory()
                 .create(GetUnconfirmedTransactionRequest(address: address.description),
                         GetLatestAccountBlockRequest(address: address.description),
-                        GetLatestSnapshotHashRequest()))
+                        GetFittestSnapshotHashRequest()))
             Session.send(request) { result in
                 switch result {
                 case .success(let accountBlocks, let latestAccountBlock, let snapshotHash):
@@ -36,7 +36,7 @@ extension Provider {
         return Promise { seal in
             let request = ViteServiceRequest(for: server, batch: BatchFactory()
                 .create(GetLatestAccountBlockRequest(address: address.description),
-                        GetLatestSnapshotHashRequest()))
+                        GetFittestSnapshotHashRequest()))
             Session.send(request) { result in
                 switch result {
                 case .success(let latestAccountBlock, let snapshotHash):
@@ -87,19 +87,19 @@ extension Provider {
 
     func receiveTransactionWithoutGetPow(bag: HDWalletManager.Bag, completion: @escaping (NetworkResult<Void>) -> Void) {
         getUnconfirmedTransaction(address: bag.address)
-            .then({ (accountBlocks, latestAccountBlock, latestSnapshotHash) -> Promise<(accountBlock: AccountBlock, latestAccountBlock: AccountBlock, latestSnapshotHash: String)?> in
+            .then({ (accountBlocks, latestAccountBlock, fittestSnapshotHash) -> Promise<(accountBlock: AccountBlock, latestAccountBlock: AccountBlock, fittestSnapshotHash: String)?> in
                 if let accountBlock = accountBlocks.first {
-                    return Promise { seal in seal.fulfill((accountBlock, latestAccountBlock, latestSnapshotHash)) }
+                    return Promise { seal in seal.fulfill((accountBlock, latestAccountBlock, fittestSnapshotHash)) }
                 } else {
                     return Promise { $0.fulfill(nil) }
                 }
             })
             .then({ [unowned self] ret -> Promise<Void> in
-                if let (accountBlock, latestAccountBlock, latestSnapshotHash) = ret {
+                if let (accountBlock, latestAccountBlock, fittestSnapshotHash) = ret {
                     let receive = AccountBlock.makeReceiveAccountBlock(unconfirmed: accountBlock,
                                                                        latest: latestAccountBlock,
                                                                        bag: bag,
-                                                                       snapshotHash: latestSnapshotHash,
+                                                                       snapshotHash: fittestSnapshotHash,
                                                                        nonce: nil,
                                                                        difficulty: nil)
                     return self.createTransaction(accountBlock: receive)
@@ -117,21 +117,21 @@ extension Provider {
 
     func receiveTransactionWithGetPow(bag: HDWalletManager.Bag, difficulty: BigInt, completion: @escaping (NetworkResult<Void>) -> Void) {
         getUnconfirmedTransaction(address: bag.address)
-            .then({ [unowned self] (accountBlocks, latestAccountBlock, latestSnapshotHash) -> Promise<(accountBlock: AccountBlock, latestAccountBlock: AccountBlock, latestSnapshotHash: String, nonce: String)?> in
+            .then({ [unowned self] (accountBlocks, latestAccountBlock, fittestSnapshotHash) -> Promise<(accountBlock: AccountBlock, latestAccountBlock: AccountBlock, fittestSnapshotHash: String, nonce: String)?> in
                 if let accountBlock = accountBlocks.first {
                     return self.getPowNonce(address: bag.address, preHash: latestAccountBlock.hash, difficulty: difficulty).then({ nonce in
-                        return Promise { seal in seal.fulfill((accountBlock, latestAccountBlock, latestSnapshotHash, nonce)) }
+                        return Promise { seal in seal.fulfill((accountBlock, latestAccountBlock, fittestSnapshotHash, nonce)) }
                     })
                 } else {
                     return Promise { $0.fulfill(nil) }
                 }
             })
             .then({ [unowned self] ret -> Promise<Void> in
-                if let (accountBlock, latestAccountBlock, latestSnapshotHash, nonce) = ret {
+                if let (accountBlock, latestAccountBlock, fittestSnapshotHash, nonce) = ret {
                     let receive = AccountBlock.makeReceiveAccountBlock(unconfirmed: accountBlock,
                                                                        latest: latestAccountBlock,
                                                                        bag: bag,
-                                                                       snapshotHash: latestSnapshotHash,
+                                                                       snapshotHash: fittestSnapshotHash,
                                                                        nonce: nonce,
                                                                        difficulty: difficulty)
                     return self.createTransaction(accountBlock: receive)
@@ -155,10 +155,10 @@ extension Provider {
                                       completion: @escaping (NetworkResult<Void>) -> Void) {
 
         getLatestAccountBlockAndSnapshotHash(address: bag.address)
-            .then({ [unowned self] (latestAccountBlock, latestSnapshotHash) -> Promise<Void> in
+            .then({ [unowned self] (latestAccountBlock, fittestSnapshotHash) -> Promise<Void> in
                 let send = AccountBlock.makeSendAccountBlock(latest: latestAccountBlock,
                                                              bag: bag,
-                                                             snapshotHash: latestSnapshotHash,
+                                                             snapshotHash: fittestSnapshotHash,
                                                              toAddress: toAddress,
                                                              tokenId: tokenId,
                                                              amount: amount,
@@ -178,7 +178,7 @@ extension Provider {
     struct SendTransactionContext {
         let latestAccountBlock: AccountBlock
         let bag: HDWalletManager.Bag
-        let latestSnapshotHash: String
+        let fittestSnapshotHash: String
         let toAddress: Address
         let tokenId: String
         let amount: BigInt
@@ -196,13 +196,13 @@ extension Provider {
                                    completion: @escaping (NetworkResult<SendTransactionContext>) -> Void) {
 
         getLatestAccountBlockAndSnapshotHash(address: bag.address)
-            .then({ [unowned self] (latestAccountBlock, latestSnapshotHash) -> Promise<(latestAccountBlock: AccountBlock, latestSnapshotHash: String, nonce: String)> in
+            .then({ [unowned self] (latestAccountBlock, fittestSnapshotHash) -> Promise<(latestAccountBlock: AccountBlock, fittestSnapshotHash: String, nonce: String)> in
                 return self.getPowNonce(address: bag.address, preHash: latestAccountBlock.hash, difficulty: difficulty).then({ nonce in
-                    return Promise { seal in seal.fulfill((latestAccountBlock, latestSnapshotHash, nonce)) }
+                    return Promise { seal in seal.fulfill((latestAccountBlock, fittestSnapshotHash, nonce)) }
                 })
             })
-            .done ({ (latestAccountBlock, latestSnapshotHash, nonce) in
-                let context = SendTransactionContext(latestAccountBlock: latestAccountBlock, bag: bag, latestSnapshotHash: latestSnapshotHash, toAddress: toAddress, tokenId: tokenId, amount: amount, data: data, nonce: nonce, difficulty: difficulty)
+            .done ({ (latestAccountBlock, fittestSnapshotHash, nonce) in
+                let context = SendTransactionContext(latestAccountBlock: latestAccountBlock, bag: bag, fittestSnapshotHash: fittestSnapshotHash, toAddress: toAddress, tokenId: tokenId, amount: amount, data: data, nonce: nonce, difficulty: difficulty)
                 completion(NetworkResult.success(context))
             })
             .catch({
@@ -215,7 +215,7 @@ extension Provider {
 
         let send = AccountBlock.makeSendAccountBlock(latest: context.latestAccountBlock,
                                                      bag: context.bag,
-                                                     snapshotHash: context.latestSnapshotHash,
+                                                     snapshotHash: context.fittestSnapshotHash,
                                                      toAddress: context.toAddress,
                                                      tokenId: context.tokenId,
                                                      amount: context.amount,
@@ -314,15 +314,15 @@ extension Provider {
                                          amount: BigInt,
                                          completion: @escaping (NetworkResult<Void>) -> Void) {
         getPledgeData(beneficialAddress: beneficialAddress)
-            .then({ [unowned self] (data) -> Promise<(latestAccountBlock: AccountBlock, latestSnapshotHash: String, data: String)> in
-                return self.getLatestAccountBlockAndSnapshotHash(address: bag.address).then({ (latestAccountBlock, latestSnapshotHash) in
-                    return Promise { seal in seal.fulfill((latestAccountBlock, latestSnapshotHash, data)) }
+            .then({ [unowned self] (data) -> Promise<(latestAccountBlock: AccountBlock, fittestSnapshotHash: String, data: String)> in
+                return self.getLatestAccountBlockAndSnapshotHash(address: bag.address).then({ (latestAccountBlock, fittestSnapshotHash) in
+                    return Promise { seal in seal.fulfill((latestAccountBlock, fittestSnapshotHash, data)) }
                 })
             })
-            .then({ [unowned self] (latestAccountBlock, latestSnapshotHash, data) -> Promise<Void> in
+            .then({ [unowned self] (latestAccountBlock, fittestSnapshotHash, data) -> Promise<Void> in
                 let send = AccountBlock.makeSendAccountBlock(latest: latestAccountBlock,
                                                              bag: bag,
-                                                             snapshotHash: latestSnapshotHash,
+                                                             snapshotHash: fittestSnapshotHash,
                                                              toAddress: ContractAddress.pledgeAndGainQuota.address,
                                                              tokenId: tokenId,
                                                              amount: amount,
@@ -346,18 +346,18 @@ extension Provider {
                                       difficulty: BigInt,
                                       completion: @escaping (NetworkResult<SendTransactionContext>) -> Void) {
         getPledgeData(beneficialAddress: beneficialAddress)
-            .then({ [unowned self] (data) -> Promise<(latestAccountBlock: AccountBlock, latestSnapshotHash: String, data: String)> in
-                return self.getLatestAccountBlockAndSnapshotHash(address: bag.address).then({ (latestAccountBlock, latestSnapshotHash) in
-                    return Promise { seal in seal.fulfill((latestAccountBlock, latestSnapshotHash, data)) }
+            .then({ [unowned self] (data) -> Promise<(latestAccountBlock: AccountBlock, fittestSnapshotHash: String, data: String)> in
+                return self.getLatestAccountBlockAndSnapshotHash(address: bag.address).then({ (latestAccountBlock, fittestSnapshotHash) in
+                    return Promise { seal in seal.fulfill((latestAccountBlock, fittestSnapshotHash, data)) }
                 })
             })
-            .then({ [unowned self] (latestAccountBlock, latestSnapshotHash, data) -> Promise<(latestAccountBlock: AccountBlock, latestSnapshotHash: String, data: String, nonce: String)> in
+            .then({ [unowned self] (latestAccountBlock, fittestSnapshotHash, data) -> Promise<(latestAccountBlock: AccountBlock, fittestSnapshotHash: String, data: String, nonce: String)> in
                 return self.getPowNonce(address: bag.address, preHash: latestAccountBlock.hash, difficulty: difficulty).then({ nonce in
-                    return Promise { seal in seal.fulfill((latestAccountBlock, latestSnapshotHash, data, nonce)) }
+                    return Promise { seal in seal.fulfill((latestAccountBlock, fittestSnapshotHash, data, nonce)) }
                 })
             })
-            .done({ (latestAccountBlock, latestSnapshotHash, data, nonce) in
-                let context = SendTransactionContext(latestAccountBlock: latestAccountBlock, bag: bag, latestSnapshotHash: latestSnapshotHash, toAddress: ContractAddress.pledgeAndGainQuota.address, tokenId: tokenId, amount: amount, data: data, nonce: nonce, difficulty: difficulty)
+            .done({ (latestAccountBlock, fittestSnapshotHash, data, nonce) in
+                let context = SendTransactionContext(latestAccountBlock: latestAccountBlock, bag: bag, fittestSnapshotHash: fittestSnapshotHash, toAddress: ContractAddress.pledgeAndGainQuota.address, tokenId: tokenId, amount: amount, data: data, nonce: nonce, difficulty: difficulty)
                 completion(NetworkResult.success(context))
             })
             .catch({

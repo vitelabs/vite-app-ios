@@ -171,7 +171,7 @@
 		8E79261C21522BF1007FEBAB /* FetchBalanceInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261B21522BF1007FEBAB /* FetchBalanceInfoService.swift */; };
 		8E79C6E8214D392900FAEEBC /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6E7214D392900FAEEBC /* FileHelper.swift */; };
 		8E79C6EA214DFD9C00FAEEBC /* TokenCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */; };
-		8E79C6EC214E5DCE00FAEEBC /* GetLatestSnapshotHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6EB214E5DCE00FAEEBC /* GetLatestSnapshotHashRequest.swift */; };
+		8E79C6EC214E5DCE00FAEEBC /* GetFittestSnapshotHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6EB214E5DCE00FAEEBC /* GetFittestSnapshotHashRequest.swift */; };
 		8E79C6EE214E71E300FAEEBC /* HDWalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6ED214E71E300FAEEBC /* HDWalletManager.swift */; };
 		8E7D636E215B76D1009617A0 /* ReceiveHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D636D215B76D1009617A0 /* ReceiveHeaderView.swift */; };
 		8E7D6370215B7BB1009617A0 /* ReceiveMiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D636F215B7BB0009617A0 /* ReceiveMiddleView.swift */; };
@@ -411,7 +411,7 @@
 		8E79261B21522BF1007FEBAB /* FetchBalanceInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBalanceInfoService.swift; sourceTree = "<group>"; };
 		8E79C6E7214D392900FAEEBC /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		8E79C6E9214DFD9C00FAEEBC /* TokenCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCacheService.swift; sourceTree = "<group>"; };
-		8E79C6EB214E5DCE00FAEEBC /* GetLatestSnapshotHashRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLatestSnapshotHashRequest.swift; sourceTree = "<group>"; };
+		8E79C6EB214E5DCE00FAEEBC /* GetFittestSnapshotHashRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFittestSnapshotHashRequest.swift; sourceTree = "<group>"; };
 		8E79C6ED214E71E300FAEEBC /* HDWalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWalletManager.swift; sourceTree = "<group>"; };
 		8E7D636D215B76D1009617A0 /* ReceiveHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveHeaderView.swift; sourceTree = "<group>"; };
 		8E7D636F215B7BB0009617A0 /* ReceiveMiddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveMiddleView.swift; sourceTree = "<group>"; };
@@ -961,7 +961,7 @@
 				8E56FC8621466D6500A68823 /* GetUnconfirmedInfosRequest.swift */,
 				8E6F3E0B21412150003CDFC2 /* GetTransactionsRequest.swift */,
 				8EE46911214BCF2600807D2C /* GetUnconfirmedTransactionRequest.swift */,
-				8E79C6EB214E5DCE00FAEEBC /* GetLatestSnapshotHashRequest.swift */,
+				8E79C6EB214E5DCE00FAEEBC /* GetFittestSnapshotHashRequest.swift */,
 				8EE46921214D017200807D2C /* GetLatestAccountBlockRequest.swift */,
 				8E0FB6A1217468AE001525EB /* GetPowNonceRequest.swift */,
 				8EBDD8012150F4AB00D65BCD /* GetTokenInfoRequest.swift */,
@@ -1670,7 +1670,7 @@
 				8E7926182151D1E7007FEBAB /* AddressManageHeaderView.swift in Sources */,
 				4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */,
 				8E79C6EA214DFD9C00FAEEBC /* TokenCacheService.swift in Sources */,
-				8E79C6EC214E5DCE00FAEEBC /* GetLatestSnapshotHashRequest.swift in Sources */,
+				8E79C6EC214E5DCE00FAEEBC /* GetFittestSnapshotHashRequest.swift in Sources */,
 				8E56FC902147684200A68823 /* TransactionListTableViewModelType.swift in Sources */,
 				8E79261A21522085007FEBAB /* Alert.swift in Sources */,
 				4C181B06215CD5E000FB6CA8 /* AppUpdateVM.swift in Sources */,
