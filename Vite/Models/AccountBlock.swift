@@ -18,11 +18,10 @@ struct AccountBlock: Mappable {
         static let defaultHash = "0000000000000000000000000000000000000000000000000000000000000000"
         #if DEBUG
         static var difficulty: BigInt {
-            return DebugService.instance.useBigDifficulty ? BigInt("18446743798831644672")! : BigInt("65535")!
+            return DebugService.instance.useBigDifficulty ? BigInt("67108863")! : BigInt("65535")!
         }
         #else
-        static let difficulty = BigInt("65535")!
-//        static let difficulty = BigInt("18446743798831644672")!
+        static let difficulty = BigInt("67108863")!
         #endif
     }
 
