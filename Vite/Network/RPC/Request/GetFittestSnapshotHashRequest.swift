@@ -1,5 +1,5 @@
 //
-//  GetLatestSnapshotHashRequest.swift
+//  GetFittestSnapshotHashRequest.swift
 //  Vite
 //
 //  Created by Stone on 2018/9/16.
@@ -9,11 +9,11 @@
 import UIKit
 import JSONRPCKit
 
-class GetLatestSnapshotHashRequest: JSONRPCKit.Request {
+class GetFittestSnapshotHashRequest: JSONRPCKit.Request {
     typealias Response = String
 
     var method: String {
-        return "ledger_getLatestSnapshotChainHash"
+        return "ledger_getFittestSnapshotHash"
     }
 
     var parameters: Any? {

@@ -162,9 +162,12 @@ extension SystemViewController {
     }
 
     private func touchValidation(_ tag: String, value: Bool) {
-        BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.lockPageFingerprintAlterTitle.key.localized(), completion: { (success, _) in
+        BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.lockPageFingerprintAlterTitle.key.localized(), completion: { (success, error) in
             guard success else {
                 self.changeSwitchRowValue(tag, value: false)
+                if let error = error {
+                    Toast.show(error.localizedDescription)
+                }
                 return
             }
             if tag == "systemPageCellLoginFaceId" {

@@ -37,6 +37,12 @@ class QuotaManageViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         kas_activateAutoScrollingForView(contentView)
+        FetchQuotaService.instance.retainQuota()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        FetchQuotaService.instance.releaseQuota()
     }
 
     // View

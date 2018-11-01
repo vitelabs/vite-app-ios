@@ -32,7 +32,7 @@ class AddressTextViewView: SendAddressViewType {
         textView.delegate = self
         addSubview(titleLabel)
         addSubview(textView)
-        textView.addSubview(placeholderLab)
+        addSubview(placeholderLab)
         addSubview(addAddressButton)
 
         if let _ = currentAddress {
@@ -69,12 +69,13 @@ class AddressTextViewView: SendAddressViewType {
         }
 
         placeholderLab.snp.makeConstraints { (m) in
-            m.edges.equalTo(textView)
+            m.right.left.equalTo(textView)
+            m.centerY.equalTo(addAddressButton)
         }
 
         addAddressButton.snp.makeConstraints { (m) in
             m.right.equalTo(titleLabel)
-            m.bottom.equalTo(self).offset(-6)
+            m.bottom.equalTo(self).offset(-10)
         }
 
         textView.textColor = UIColor(netHex: 0x24272B)
