@@ -1239,6 +1239,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let manageWalletPageErrorTypeName = Rswift.StringResource(key: "manage.wallet.page.error.type.name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Wrong Adress, please check the format
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageToastAddressError = Rswift.StringResource(key: "send.page.toast.address.error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Wrong password!
       /// 
       /// Locales: en, zh-Hans
@@ -1251,10 +1255,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let loginPageErrorToastTitle = Rswift.StringResource(key: "login.page.error.toast.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Wrong recipient format!
-      /// 
-      /// Locales: en, zh-Hans
-      static let sendPageToastAddressError = Rswift.StringResource(key: "send.page.toast.address.error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Wrong seed phrase!
       /// 
       /// Locales: en, zh-Hans
@@ -2501,6 +2501,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("manage.wallet.page.error.type.name", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Wrong Adress, please check the format
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageToastAddressError(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.toast.address.error", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Wrong password!
       /// 
       /// Locales: en, zh-Hans
@@ -2520,13 +2527,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func loginPageErrorToastTitle(_: Void = ()) -> String {
         return NSLocalizedString("login.page.error.toast.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Wrong recipient format!
-      /// 
-      /// Locales: en, zh-Hans
-      static func sendPageToastAddressError(_: Void = ()) -> String {
-        return NSLocalizedString("send.page.toast.address.error", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Wrong seed phrase!

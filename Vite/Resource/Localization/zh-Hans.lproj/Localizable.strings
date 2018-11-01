@@ -149,7 +149,7 @@
 "send.page.amount.toolbar.button.title" = "下一项";
 "send.page.toast.send.success" = "支付成功";
 "send.page.toast.send.failed" = "转账发生错误，请重新发起转账";
-"send.page.toast.address.error" = "收款地址格式错误";
+"send.page.toast.address.error" = "地址输入错误,请检查格式";
 "send.page.toast.amount.error" = "账户余额不足";
 "send.page.toast.amount.empty" = "请填写金额";
 "send.page.toast.amount.zero" = "转账金额不能为0";

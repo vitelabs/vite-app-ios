@@ -148,7 +148,7 @@
 "send.page.amount.toolbar.button.title" = "Next";
 "send.page.toast.send.success" = "Success";
 "send.page.toast.send.failed" = "Transfer failed, please try again later";
-"send.page.toast.address.error" = "Wrong recipient format!";
+"send.page.toast.address.error" = "Wrong Adress, please check the format";
 "send.page.toast.amount.error" = "Insufficient Balance";
 "send.page.toast.amount.empty" = "Please input balance";
 "send.page.toast.amount.zero" = "The amount has to be positive";
