@@ -101,7 +101,6 @@
 		8E107ED5215A1D7900B28DE2 /* QRCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107ED4215A1D7900B28DE2 /* QRCodeHelper.swift */; };
 		8E107ED7215A22CC00B28DE2 /* ScrollableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107ED6215A22CC00B28DE2 /* ScrollableView.swift */; };
 		8E107ED9215A57B200B28DE2 /* SendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107ED8215A57B200B28DE2 /* SendHeaderView.swift */; };
-		8E107EDB215A589200B28DE2 /* SendAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107EDA215A589200B28DE2 /* SendAddressView.swift */; };
 		8E107EDD215A61B500B28DE2 /* SendAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107EDC215A61B500B28DE2 /* SendAmountView.swift */; };
 		8E107EDF215B27F500B28DE2 /* SendNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107EDE215B27F500B28DE2 /* SendNoteView.swift */; };
 		8E107EE1215B2BE700B28DE2 /* UITextView+FDSKeyboardAutoScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107EE0215B2BE700B28DE2 /* UITextView+FDSKeyboardAutoScrolling.swift */; };
@@ -342,7 +341,6 @@
 		8E107ED4215A1D7900B28DE2 /* QRCodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeHelper.swift; sourceTree = "<group>"; };
 		8E107ED6215A22CC00B28DE2 /* ScrollableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableView.swift; sourceTree = "<group>"; };
 		8E107ED8215A57B200B28DE2 /* SendHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendHeaderView.swift; sourceTree = "<group>"; };
-		8E107EDA215A589200B28DE2 /* SendAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAddressView.swift; sourceTree = "<group>"; };
 		8E107EDC215A61B500B28DE2 /* SendAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAmountView.swift; sourceTree = "<group>"; };
 		8E107EDE215B27F500B28DE2 /* SendNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendNoteView.swift; sourceTree = "<group>"; };
 		8E107EE0215B2BE700B28DE2 /* UITextView+FDSKeyboardAutoScrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+FDSKeyboardAutoScrolling.swift"; sourceTree = "<group>"; };
@@ -913,7 +911,6 @@
 			isa = PBXGroup;
 			children = (
 				8E107ED8215A57B200B28DE2 /* SendHeaderView.swift */,
-				8E107EDA215A589200B28DE2 /* SendAddressView.swift */,
 				8E68C47F2181F27F00475133 /* AddressLabelView.swift */,
 				8E68C4812181F29900475133 /* AddressTextViewView.swift */,
 				8E107EDC215A61B500B28DE2 /* SendAmountView.swift */,
@@ -1604,7 +1601,6 @@
 			files = (
 				8E6F3DFF2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift in Sources */,
 				8E68C4822181F29900475133 /* AddressTextViewView.swift in Sources */,
-				8E107EDB215A589200B28DE2 /* SendAddressView.swift in Sources */,
 				8EE46916214BD1AF00807D2C /* AccountBlock.swift in Sources */,
 				8E7D636E215B76D1009617A0 /* ReceiveHeaderView.swift in Sources */,
 				8E68C4882182E65F00475133 /* AddAddressFloatView.swift in Sources */,
