@@ -68,12 +68,6 @@ class SendHeaderView: UIView {
             $0.backgroundColor = UIColor(netHex: 0x759BFA)
         }
 
-        let maxTxCountUnitLabel = UILabel().then {
-            $0.textColor = UIColor(netHex: 0x3E4A59)
-            $0.font = UIFont.systemFont(ofSize: 10, weight: .regular)
-            $0.text = R.string.localizable.sendPageMyMaxTxCountUnitTitle.key.localized()
-        }
-
         addSubview(line)
         addSubview(addressTitleLabel)
         addSubview(addressLabel)
@@ -83,7 +77,6 @@ class SendHeaderView: UIView {
         addSubview(quotaLabel)
         addSubview(maxTxCountTitleLabel)
         addSubview(maxTxCountLabel)
-        addSubview(maxTxCountUnitLabel)
 
         line.snp.makeConstraints({ (m) in
             m.top.bottom.left.equalTo(self)
@@ -132,10 +125,6 @@ class SendHeaderView: UIView {
             m.bottom.equalTo(self).offset(-16)
         }
 
-        maxTxCountUnitLabel.snp.makeConstraints { (m) in
-            m.centerY.equalTo(maxTxCountLabel)
-            m.left.equalTo(maxTxCountLabel.snp.right).offset(2)
-        }
     }
 
     required init?(coder aDecoder: NSCoder) {

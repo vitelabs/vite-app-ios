@@ -537,12 +537,8 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 185 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 184 localization keys.
     struct localizable {
-      /// en translation: 
-      /// 
-      /// Locales: en, zh-Hans
-      static let sendPageMyMaxTxCountUnitTitle = Rswift.StringResource(key: "send.page.my.max.tx.count.unit.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
       /// Locales: en, zh-Hans
@@ -1279,13 +1275,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageSubmitLoading = Rswift.StringResource(key: "import.page.submit.loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      
-      /// en translation: 
-      /// 
-      /// Locales: en, zh-Hans
-      static func sendPageMyMaxTxCountUnitTitle(_: Void = ()) -> String {
-        return NSLocalizedString("send.page.my.max.tx.count.unit.title", bundle: R.hostingBundle, comment: "")
-      }
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
