@@ -47,6 +47,8 @@ class PopViewController: BaseViewController {
     lazy var bgView = UIView().then {
         $0.backgroundColor = .white
         $0.setupShadow(CGSize(width: 0, height: 5))
+        $0.layer.cornerRadius = 2
+        $0.layer.masksToBounds = true
     }
 
     lazy var webView = WKWebView().then {

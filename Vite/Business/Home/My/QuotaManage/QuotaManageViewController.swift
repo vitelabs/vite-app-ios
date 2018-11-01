@@ -60,7 +60,13 @@ class QuotaManageViewController: BaseViewController {
     }
 
     //snapshoot height
-    lazy var snapshootHeightLab = TitleDescView(title: R.string.localizable.quotaManagePageQuotaSnapshootHeightTitle.key.localized(), desc: R.string.localizable.quotaManagePageQuotaSnapshootHeightDesc.key.localized())
+    lazy var snapshootHeightLab = TitleDescView(title: R.string.localizable.quotaManagePageQuotaSnapshootHeightTitle.key.localized()).then {
+        let str = R.string.localizable.quotaManagePageQuotaSnapshootHeightDesc.key.localized(arguments: "3")
+        let range = str.range(of: "3")!
+        let attributedString = NSMutableAttributedString(string: str)
+        attributedString.addAttributes([NSAttributedStringKey.foregroundColor: Colors.titleGray_40], range: NSRange.init(range, in: str))
+        $0.descLab.attributedText = attributedString
+    }
 
     lazy var addressView = AddressTextViewView(currentAddress: self.bag.address.description, placeholder: R.string.localizable.quotaSubmitPageQuotaAddressPlaceholder.key.localized()).then {
         $0.titleLabel.text = R.string.localizable.quotaManagePageInputAddressTitle.key.localized()

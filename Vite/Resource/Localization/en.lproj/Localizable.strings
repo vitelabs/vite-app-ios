@@ -140,7 +140,7 @@
 "send.page.my.quota.title" = "My Quota";
 "send.page.my.max.tx.count.title" = "Maximum Amount of Tx";
 "send.page.my.max.tx.count.unit.title" = "";
-"send.page.add.current.address.button.title" = "Address";
+"send.page.add.current.address.button.title" = "My";
 "send.page.scan.address.button.title" = "Scan";
 "send.page.to.address.title" = "Recipient";
 "send.page.amount.title" = "Amount";
@@ -224,7 +224,7 @@
 "quota.manage.page.quota.money.title" = "Staking Amount";
 "quota.manage.page.quota.money.placeholder" = "Please input staking amount, minimum 10 VITE";
 "quota.manage.page.quota.snapshoot.height.title" = "Staking frozen duration";
-"quota.manage.page.quota.snapshoot.height.desc" = "About 3 days";
+"quota.manage.page.quota.snapshoot.height.desc" = "About %@ days";
 "quota.manage.page.submit.btn.title" = "Submit Staking";
 "quota.manage.page.check.quotaList.btn.title" = "Staking List";
 "quota.manage.page.toast.money.error" = "Staking amount should not be less than 10";
