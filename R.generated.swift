@@ -619,10 +619,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPageTipTitle = Rswift.StringResource(key: "create.page.tip.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Back will regenerate seed phrase, ready to go back?
-      /// 
-      /// Locales: en, zh-Hans
-      static let mnemonicAffirmAlterTitle = Rswift.StringResource(key: "mnemonic.affirm.alter.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Backup Seed Phrase
       /// 
       /// Locales: en, zh-Hans
@@ -783,6 +779,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let fetchWelfareInputEthereumAddressErrorTitle = Rswift.StringResource(key: "fetch.welfare.inputEthereumAddress.error.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Incorrect seed phrase!
+      /// 
+      /// Locales: en, zh-Hans
+      static let mnemonicAffirmAlterCheckTitle = Rswift.StringResource(key: "mnemonic.affirm.alter.check.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Input Amount
       /// 
       /// Locales: en, zh-Hans
@@ -943,6 +943,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicBackupPageErrorTypeName = Rswift.StringResource(key: "mnemonic.backup.page.error.type.name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Please input amount, minimum 10 VITE
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageQuotaMoneyPlaceholder = Rswift.StringResource(key: "quota.manage.page.quota.money.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Please input balance
       /// 
       /// Locales: en, zh-Hans
@@ -955,10 +959,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let quotaSubmitPageQuotaAddressPlaceholder = Rswift.StringResource(key: "quota.submit.page.quota.address.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Please input staking amount, minimum 10 VITE
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageQuotaMoneyPlaceholder = Rswift.StringResource(key: "quota.manage.page.quota.money.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Please input your password again
       /// 
       /// Locales: en, zh-Hans
@@ -1111,7 +1111,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageToastSendSuccess = Rswift.StringResource(key: "send.page.toast.send.success", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Successfully backuped your seed phrase!
+      /// en translation: Successfully backup your seed phrase!
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicBackupPageTipNextBtnTitle = Rswift.StringResource(key: "mnemonic.backup.page.tip.nextBtn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
@@ -1131,6 +1131,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageToastAmountZero = Rswift.StringResource(key: "send.page.toast.amount.zero", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: This action will regenerate seed phrase, ready to go back?
+      /// 
+      /// Locales: en, zh-Hans
+      static let mnemonicAffirmAlterTitle = Rswift.StringResource(key: "mnemonic.affirm.alter.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Token Info Error
       /// 
       /// Locales: en, zh-Hans
@@ -1255,10 +1259,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let loginPageErrorToastTitle = Rswift.StringResource(key: "login.page.error.toast.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Wrong seed phrase!
-      /// 
-      /// Locales: en, zh-Hans
-      static let mnemonicAffirmAlterCheckTitle = Rswift.StringResource(key: "mnemonic.affirm.alter.check.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Yes
       /// 
       /// Locales: en, zh-Hans
@@ -1414,13 +1414,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func createPageTipTitle(_: Void = ()) -> String {
         return NSLocalizedString("create.page.tip.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Back will regenerate seed phrase, ready to go back?
-      /// 
-      /// Locales: en, zh-Hans
-      static func mnemonicAffirmAlterTitle(_: Void = ()) -> String {
-        return NSLocalizedString("mnemonic.affirm.alter.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Backup Seed Phrase
@@ -1703,6 +1696,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("fetch.welfare.inputEthereumAddress.error.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Incorrect seed phrase!
+      /// 
+      /// Locales: en, zh-Hans
+      static func mnemonicAffirmAlterCheckTitle(_: Void = ()) -> String {
+        return NSLocalizedString("mnemonic.affirm.alter.check.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Input Amount
       /// 
       /// Locales: en, zh-Hans
@@ -1983,6 +1983,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("mnemonic.backup.page.error.type.name", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Please input amount, minimum 10 VITE
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageQuotaMoneyPlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.quota.money.placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Please input balance
       /// 
       /// Locales: en, zh-Hans
@@ -2002,13 +2009,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func quotaSubmitPageQuotaAddressPlaceholder(_: Void = ()) -> String {
         return NSLocalizedString("quota.submit.page.quota.address.placeholder", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Please input staking amount, minimum 10 VITE
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageQuotaMoneyPlaceholder(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.quota.money.placeholder", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Please input your password again
@@ -2277,7 +2277,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send.page.toast.send.success", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Successfully backuped your seed phrase!
+      /// en translation: Successfully backup your seed phrase!
       /// 
       /// Locales: en, zh-Hans
       static func mnemonicBackupPageTipNextBtnTitle(_: Void = ()) -> String {
@@ -2310,6 +2310,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func sendPageToastAmountZero(_: Void = ()) -> String {
         return NSLocalizedString("send.page.toast.amount.zero", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: This action will regenerate seed phrase, ready to go back?
+      /// 
+      /// Locales: en, zh-Hans
+      static func mnemonicAffirmAlterTitle(_: Void = ()) -> String {
+        return NSLocalizedString("mnemonic.affirm.alter.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Token Info Error
@@ -2527,13 +2534,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func loginPageErrorToastTitle(_: Void = ()) -> String {
         return NSLocalizedString("login.page.error.toast.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Wrong seed phrase!
-      /// 
-      /// Locales: en, zh-Hans
-      static func mnemonicAffirmAlterCheckTitle(_: Void = ()) -> String {
-        return NSLocalizedString("mnemonic.affirm.alter.check.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Yes
