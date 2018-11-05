@@ -46,6 +46,22 @@ class LockPwdViewController: BaseViewController {
         loginBtn.addTarget(self, action: #selector(loginBtnAction), for: .touchUpInside)
         return loginBtn
     }()
+
+    lazy var changeUserBtn: UIButton = {
+        let changeUserBtn = UIButton.init(style: .blue)
+        changeUserBtn.setTitle("切换账户", for: .normal)
+        changeUserBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
+        changeUserBtn.addTarget(self, action: #selector(changeUserBtnAction), for: .touchUpInside)
+        return changeUserBtn
+    }()
+
+    lazy var importUserBtn: UIButton = {
+        let importUserBtn = UIButton.init(style: .blue)
+        importUserBtn.setTitle("助记词恢复账户", for: .normal)
+        importUserBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
+        importUserBtn.addTarget(self, action: #selector(importUserBtnAction), for: .touchUpInside)
+        return importUserBtn
+    }()
 }
 
 extension LockPwdViewController {
@@ -77,6 +93,32 @@ extension LockPwdViewController {
             make.height.equalTo(50)
             make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
         }
+
+        self.view.addSubview(self.changeUserBtn)
+        self.changeUserBtn.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(24)
+            make.width.equalTo(100)
+            make.height.equalTo(50)
+            make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop).offset(30)
+        }
+
+        self.view.addSubview(self.importUserBtn)
+        self.importUserBtn.snp.makeConstraints { (make) -> Void in
+            make.right.equalTo(self.view).offset(-24)
+            make.width.equalTo(100)
+            make.height.equalTo(50)
+            make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop).offset(30)
+        }
+    }
+
+    @objc func importUserBtnAction() {
+        let vc = ImportAccountViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    @objc func changeUserBtnAction() {
+        let vc = LoginViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc func loginBtnAction() {
