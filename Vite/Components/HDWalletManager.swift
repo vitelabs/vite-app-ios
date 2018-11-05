@@ -11,6 +11,7 @@ import Vite_HDWalletKit
 import ObjectMapper
 import RxSwift
 import RxCocoa
+import CryptoSwift
 
 final class HDWalletManager {
     static let instance = HDWalletManager()
@@ -131,15 +132,25 @@ extension HDWalletManager {
 // MARK: - login & logout
 extension HDWalletManager {
 
+    func isExist(mnemonic: String) -> String? {
+        let hash = pri_mnemonicHash(mnemonic: mnemonic)
+        for wallet in storage.wallets where hash == wallet.hash {
+            return wallet.name
+        }
+        return nil
+    }
+
     func addAddLoginWallet(uuid: String, name: String, mnemonic: String, encryptKey: String) {
-        let wallet = storage.addAddLoginWallet(uuid: uuid, name: name, mnemonic: mnemonic, encryptKey: encryptKey, needRecoverAddresses: false)
+        let hash = pri_mnemonicHash(mnemonic: mnemonic)
+        let wallet = storage.addAddLoginWallet(uuid: uuid, name: name, mnemonic: mnemonic, hash: hash, encryptKey: encryptKey, needRecoverAddresses: false)
         self.mnemonic = mnemonic
         self.encryptKey = encryptKey
         pri_updateWallet(wallet)
     }
 
     func importAddLoginWallet(uuid: String, name: String, mnemonic: String, encryptKey: String) {
-        let wallet = storage.addAddLoginWallet(uuid: uuid, name: name, mnemonic: mnemonic, encryptKey: encryptKey, needRecoverAddresses: true)
+        let hash = pri_mnemonicHash(mnemonic: mnemonic)
+        let wallet = storage.addAddLoginWallet(uuid: uuid, name: name, mnemonic: mnemonic, hash: hash, encryptKey: encryptKey, needRecoverAddresses: true)
         self.mnemonic = mnemonic
         self.encryptKey = encryptKey
         pri_updateWallet(wallet)
@@ -226,6 +237,11 @@ extension HDWalletManager {
     fileprivate func pri_generateAllBags() {
         guard let mnemonic = mnemonic else { return }
         bags = pri_generateBags(mnemonic: mnemonic, count: type(of: self).maxAddressCount)
+    }
+
+    fileprivate func pri_mnemonicHash(mnemonic: String) -> String {
+        let firstAddress = pri_generateBags(mnemonic: mnemonic, count: 1)[0].address.description
+        return firstAddress.sha1()
     }
 
     private func pri_generateBags(mnemonic: String, count: Int) -> [Bag] {
