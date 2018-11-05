@@ -44,9 +44,9 @@ class QuotaSubmitPopViewController: BaseViewController {
     lazy var descLab = UILabel().then {
         $0.textColor = Colors.cellTitleGray
         $0.font = Fonts.Font14_b
-        $0.textAlignment = .center
+        $0.textAlignment = .left
         $0.numberOfLines = 2
-        $0.text = R.string.localizable.quotaSubmitPopDesc.key.localized(arguments: self.money)
+        $0.text = R.string.localizable.quotaSubmitPopDesc.key.localized(arguments: String.init(format: "%@ %@ ", self.money, TokenCacheService.instance.viteToken.symbol))
     }
 
     lazy var submitBtn = UIButton(style: .blue, title: R.string.localizable.quotaSubmitPopSubmitBtnTitle.key.localized())

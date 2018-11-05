@@ -18,6 +18,10 @@ class SendAddressViewType: UIView {
     let textView = UITextView().then {
         $0.backgroundColor = UIColor.clear
     }
+
+    let placeholderLab = UILabel().then {
+        $0.backgroundColor = UIColor.clear
+    }
 }
 
 class AddressLabelView: SendAddressViewType {

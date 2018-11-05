@@ -75,3 +75,4 @@ match_version.txt
 #Travis
 .bundle/
 vendor/
+.idea/

@@ -25,5 +25,5 @@ public struct Constants {
     #else
     public static let appDownloadChannel = "appstore"
     #endif
-    public static let quotaDefinitionURL = "https://app.vite.net/quotaDefinition.html"
+    public static let quotaDefinitionURL = "https://app.vite.net/quotaDefinition"
 }

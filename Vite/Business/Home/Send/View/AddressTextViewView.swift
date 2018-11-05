@@ -17,15 +17,22 @@ class AddressTextViewView: SendAddressViewType {
     fileprivate var floatView: AddAddressFloatView!
 
     let currentAddress: String?
+    let placeholderStr: String?
 
-    init(currentAddress: String? = nil) {
+    init(currentAddress: String? = nil, placeholder: String = "") {
         self.currentAddress = currentAddress
+        self.placeholderStr = placeholder
         super.init(frame: CGRect.zero)
 
-        titleLabel.text = R.string.localizable.sendPageToAddressTitle.key.localized()
+        self.placeholderLab.textColor = Colors.lineGray
+        self.placeholderLab.font = AppStyle.descWord.font
+        self.placeholderLab.text = placeholder
 
+        titleLabel.text = R.string.localizable.sendPageToAddressTitle.key.localized()
+        textView.delegate = self
         addSubview(titleLabel)
         addSubview(textView)
+        addSubview(placeholderLab)
         addSubview(addAddressButton)
 
         if let _ = currentAddress {
@@ -61,9 +68,14 @@ class AddressTextViewView: SendAddressViewType {
             m.bottom.equalTo(self)
         }
 
+        placeholderLab.snp.makeConstraints { (m) in
+            m.right.left.equalTo(textView)
+            m.centerY.equalTo(addAddressButton)
+        }
+
         addAddressButton.snp.makeConstraints { (m) in
             m.right.equalTo(titleLabel)
-            m.bottom.equalTo(self).offset(-6)
+            m.bottom.equalTo(self).offset(-10)
         }
 
         textView.textColor = UIColor(netHex: 0x24272B)
@@ -88,6 +100,7 @@ class AddressTextViewView: SendAddressViewType {
 extension AddressTextViewView: AddAddressFloatViewDelegate {
 
     func currentAddressButtonDidClick() {
+        self.placeholderLab.text = ""
         textView.text = currentAddress
     }
 
@@ -98,6 +111,7 @@ extension AddressTextViewView: AddAddressFloatViewDelegate {
             switch result {
             case .viteURI(let uri):
                 if case .transfer(let address, _, _, _, _ ) = uri {
+                    self?.placeholderLab.text = ""
                     self?.textView.text = address.description
                 }
             case .otherString:
@@ -105,5 +119,20 @@ extension AddressTextViewView: AddAddressFloatViewDelegate {
             }
         }
         self.ofViewController?.navigationController?.pushViewController(scanViewController, animated: true)
+    }
+}
+
+extension AddressTextViewView: UITextViewDelegate {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        self.placeholderLab.text = ""
+        return true
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == nil || textView.text == "" {
+            self.placeholderLab.text = self.placeholderStr
+        } else {
+            self.placeholderLab.text = ""
+        }
     }
 }

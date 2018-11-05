@@ -34,10 +34,15 @@ class QuotaManageViewController: BaseViewController {
         setupView()
         initBinds()
     }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         kas_activateAutoScrollingForView(contentView)
+        FetchQuotaService.instance.retainQuota()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        FetchQuotaService.instance.releaseQuota()
     }
 
     // View
@@ -61,9 +66,15 @@ class QuotaManageViewController: BaseViewController {
     }
 
     //snapshoot height
-    lazy var snapshootHeightLab = TitleDescView(title: R.string.localizable.quotaManagePageQuotaSnapshootHeightTitle.key.localized(), desc: R.string.localizable.quotaManagePageQuotaSnapshootHeightDesc.key.localized())
+    lazy var snapshootHeightLab = TitleDescView(title: R.string.localizable.quotaManagePageQuotaSnapshootHeightTitle.key.localized()).then {
+        let str = R.string.localizable.quotaManagePageQuotaSnapshootHeightDesc.key.localized(arguments: "3")
+        let range = str.range(of: "3")!
+        let attributedString = NSMutableAttributedString(string: str)
+        attributedString.addAttributes([NSAttributedStringKey.foregroundColor: Colors.titleGray_40], range: NSRange.init(range, in: str))
+        $0.descLab.attributedText = attributedString
+    }
 
-    lazy var addressView = AddressTextViewView(currentAddress: self.bag.address.description).then {
+    lazy var addressView = AddressTextViewView(currentAddress: self.bag.address.description, placeholder: R.string.localizable.quotaSubmitPageQuotaAddressPlaceholder.key.localized()).then {
         $0.titleLabel.text = R.string.localizable.quotaManagePageInputAddressTitle.key.localized()
         $0.textView.keyboardType = .default
     }
@@ -78,18 +89,14 @@ class QuotaManageViewController: BaseViewController {
         $0.layer.shadowRadius = 9
     }
 
-    lazy var checkQuotaListBtn = UIButton(style: .whiteWithoutShadow).then {
-        $0.setTitle(R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized(), for: .normal);$0.setTitle(R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized(), for: .highlighted)
-        $0.setTitleColor(Colors.blueBg, for: .normal)
-        $0.setTitleColor(Colors.blueBg, for: .highlighted)
-        $0.titleLabel?.font = Fonts.Font14
-    }
-
     private func setupNavBar() {
         statisticsPageName = Statistics.Page.WalletQuota.name
         navigationTitleView = createNavigationTitleView()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.checkQuotaListBtn)
-        self.checkQuotaListBtn.rx.tap.bind {[weak self] in
+        let rightItem = UIBarButtonItem(title: R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized(), style: .plain, target: self, action: nil)
+        rightItem.setTitleTextAttributes([NSAttributedStringKey.font: Fonts.Font14, NSAttributedStringKey.foregroundColor: Colors.blueBg], for: .normal)
+        rightItem.setTitleTextAttributes([NSAttributedStringKey.font: Fonts.Font14, NSAttributedStringKey.foregroundColor: Colors.blueBg], for: .highlighted)
+        self.navigationItem.rightBarButtonItem = rightItem
+        self.navigationItem.rightBarButtonItem?.rx.tap.bind {[weak self] in
             let pledgeHistoryVC = PledgeHistoryViewController()
             pledgeHistoryVC.reactor = PledgeHistoryViewReactor()
             self?.navigationController?.pushViewController(pledgeHistoryVC, animated: true)
@@ -161,7 +168,7 @@ class QuotaManageViewController: BaseViewController {
         done.rx.tap.bind { [weak self] in self?.amountView.textField.resignFirstResponder() }.disposed(by: rx.disposeBag)
         amountView.textField.inputAccessoryView = toolbar
 
-        addressView.textView.kas_setReturnAction(.next(responder: amountView.textField))
+        addressView.textView.kas_setReturnAction(.next(responder: amountView.textField), delegate: addressView)
         amountView.textField.delegate = self
 
         self.initBtnAction()
@@ -249,7 +256,7 @@ extension QuotaManageViewController {
                     return
                 }
 
-                let vc = QuotaSubmitPopViewController(money: String.init(format: "%@ %@ ", amountString, TokenCacheService.instance.viteToken.symbol), beneficialAddress: address, amount: amount)
+                let vc = QuotaSubmitPopViewController(money: amountString, beneficialAddress: address, amount: amount)
                 vc.delegate = self
                 vc.modalPresentationStyle = .overCurrentContext
                 let delegate =  StyleActionSheetTranstionDelegate()
@@ -304,7 +311,7 @@ extension QuotaManageViewController {
                 } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
                     self.pledgeAndGainQuotaWithGetPow(beneficialAddress: beneficialAddress, amount: amount)
                 } else {
-                    Toast.show(error.message)
+                    Toast.show(R.string.localizable.quotaManagePageToastSendFailed.key.localized())
                 }
             }
         }
@@ -341,14 +348,14 @@ extension QuotaManageViewController {
                                            message: nil,
                                            actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
                             } else {
-                                Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
+                                Toast.show(R.string.localizable.quotaManagePageToastSendFailed.key.localized())
                             }
                         }
                     })
                 }
             case .error:
                 getPowFloatView.hide()
-                Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
+                Toast.show(R.string.localizable.quotaManagePageToastSendFailed.key.localized())
             }
         }
     }
