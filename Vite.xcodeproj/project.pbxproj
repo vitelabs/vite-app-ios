@@ -25,6 +25,9 @@
 		4C2284C321493087003E9907 /* ExportMnemonicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284C221493087003E9907 /* ExportMnemonicViewController.swift */; };
 		4C2A191D2151323400C51CE8 /* CreateNameAndPwdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A191C2151323400C51CE8 /* CreateNameAndPwdView.swift */; };
 		4C2A1920215137EF00C51CE8 /* CreateNameAndPwdVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A191F215137EF00C51CE8 /* CreateNameAndPwdVM.swift */; };
+		4C2FAD932190575C00FC9524 /* VoteHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2FAD922190575C00FC9524 /* VoteHomeViewController.swift */; };
+		4C2FAD952190578A00FC9524 /* MyVoteInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2FAD942190578A00FC9524 /* MyVoteInfoViewController.swift */; };
+		4C2FAD972190579900FC9524 /* VoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2FAD962190579900FC9524 /* VoteListViewController.swift */; };
 		4C32E2052182B86A00007E9F /* TitleMoneyInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E2042182B86A00007E9F /* TitleMoneyInputView.swift */; };
 		4C32E2072182C65900007E9F /* TitleDescView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E2062182C65900007E9F /* TitleDescView.swift */; };
 		4C32E2092182E5B300007E9F /* CardBgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E2082182E5B300007E9F /* CardBgView.swift */; };
@@ -246,6 +249,9 @@
 		4C2284C221493087003E9907 /* ExportMnemonicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportMnemonicViewController.swift; sourceTree = "<group>"; };
 		4C2A191C2151323400C51CE8 /* CreateNameAndPwdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNameAndPwdView.swift; sourceTree = "<group>"; };
 		4C2A191F215137EF00C51CE8 /* CreateNameAndPwdVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNameAndPwdVM.swift; sourceTree = "<group>"; };
+		4C2FAD922190575C00FC9524 /* VoteHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteHomeViewController.swift; sourceTree = "<group>"; };
+		4C2FAD942190578A00FC9524 /* MyVoteInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVoteInfoViewController.swift; sourceTree = "<group>"; };
+		4C2FAD962190579900FC9524 /* VoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteListViewController.swift; sourceTree = "<group>"; };
 		4C32E2042182B86A00007E9F /* TitleMoneyInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleMoneyInputView.swift; sourceTree = "<group>"; };
 		4C32E2062182C65900007E9F /* TitleDescView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDescView.swift; sourceTree = "<group>"; };
 		4C32E2082182E5B300007E9F /* CardBgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBgView.swift; sourceTree = "<group>"; };
@@ -587,6 +593,16 @@
 			path = VM;
 			sourceTree = "<group>";
 		};
+		4C2FAD912190574500FC9524 /* Vote */ = {
+			isa = PBXGroup;
+			children = (
+				4C2FAD922190575C00FC9524 /* VoteHomeViewController.swift */,
+				4C2FAD942190578A00FC9524 /* MyVoteInfoViewController.swift */,
+				4C2FAD962190579900FC9524 /* VoteListViewController.swift */,
+			);
+			path = Vote;
+			sourceTree = "<group>";
+		};
 		4C32E20C2182FC4100007E9F /* Transition */ = {
 			isa = PBXGroup;
 			children = (
@@ -598,6 +614,7 @@
 		4C4C9D65213E9629005542F8 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4C2FAD912190574500FC9524 /* Vote */,
 				4C181B04215CD5C400FB6CA8 /* Config */,
 				4C2284B9214906D6003E9907 /* System */,
 				4C84D928214527F4001B6EBD /* Account */,
@@ -1667,6 +1684,7 @@
 				4C56E03F2186B164003550BC /* PopViewController.swift in Sources */,
 				8E68C4862182E55500475133 /* VisualEffectAnimationView.swift in Sources */,
 				8E56FC9A21479A7D00A68823 /* TransactionCell.swift in Sources */,
+				4C2FAD972190579900FC9524 /* VoteListViewController.swift in Sources */,
 				8E7926182151D1E7007FEBAB /* AddressManageHeaderView.swift in Sources */,
 				4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */,
 				8E79C6EA214DFD9C00FAEEBC /* TokenCacheService.swift in Sources */,
@@ -1679,6 +1697,7 @@
 				8E6F3E16214227E7003CDFC2 /* WalletHomeViewController.swift in Sources */,
 				4CC75393215BAB460009CA0E /* BtnDescView.swift in Sources */,
 				8E6F3E0721411650003CDFC2 /* Transaction.swift in Sources */,
+				4C2FAD932190575C00FC9524 /* VoteHomeViewController.swift in Sources */,
 				8E79C6E8214D392900FAEEBC /* FileHelper.swift in Sources */,
 				8E54853A217DB936009C528B /* ServerProvider.swift in Sources */,
 				4C84D96421469FFA001B6EBD /* ImportAccountVM.swift in Sources */,
@@ -1750,6 +1769,7 @@
 				8EE46922214D017200807D2C /* GetLatestAccountBlockRequest.swift in Sources */,
 				8E107EDF215B27F500B28DE2 /* SendNoteView.swift in Sources */,
 				8E107ECD2153656C00B28DE2 /* Provider+Transaction.swift in Sources */,
+				4C2FAD952190578A00FC9524 /* MyVoteInfoViewController.swift in Sources */,
 				4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */,
 				8E68C48A2182FB3B00475133 /* GetPowFloatView.swift in Sources */,
 				4CC4F451214CCB5B0068DA53 /* TitlePasswordInputView.swift in Sources */,
