@@ -68,6 +68,10 @@
 "import.page.submit.invalid.mnemonic" = "Something wrong with your seed phrase, please try again!";
 "import.page.submit.loading" = "import...";
 "import.page.submit.success" = "import success";
+"import.page.alert.exist.title" = "您输入的助记词在当前设备的账户名为%@，确认是否使用新账户覆盖原有账户";
+"import.page.alert.exist.ok" = "确认";
+"import.page.alert.exist.cancel" = "Cancel";
+
 
 /* export mnemonic */
 "export.page.title" = "Export Seed Phrase";
