@@ -1,0 +1,63 @@
+{
+    "my_page":{
+        "items":[
+            {
+                "type":"settings"
+            },
+            {
+                "type":"custom",
+                "title":{
+                    "base":"Reward Query",
+                    "localized":{
+                        "zh-Hans":"奖励查询"
+                    }
+                },
+                "icon":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Tangram_set_00.jpg/300px-Tangram_set_00.jpg",
+                "url":"https://vite.org"
+            },
+            {
+                "type":"about"
+            }
+        ]
+    },
+    "default_tokens":{
+        "defaults":[
+            {
+                "tokenName":"Vite Token",
+                "tokenSymbol":"VITE",
+                "decimals":18,
+                "tokenId":"tti_5649544520544f4b454e6e40",
+                "colors":[
+                    "0x0C3EE6",
+                    "0x00C3FF"
+                ]
+            },
+            {
+                "tokenName":"Vite Community Point",
+                "tokenSymbol":"VCP",
+                "decimals":0,
+                "tokenId":"tti_12ea0c02170304090a5ac879",
+                "colors":[
+                    "0xF76B1C",
+                    "0xFAD961"
+                ]
+            },
+            {
+                "tokenName":"Vite Voucher",
+                "tokenSymbol":"VV",
+                "decimals":18,
+                "tokenId":"tti_b6187a150d175e5a165b1c5b",
+                "colors":[
+                    "0x429321",
+                    "0xB4EC51"
+                ]
+            }
+        ],
+        "other":{
+            "colors":[
+                "0x24283E",
+                "0x485173"
+            ]
+        }
+    }
+}

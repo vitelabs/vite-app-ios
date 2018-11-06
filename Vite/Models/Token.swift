@@ -42,7 +42,7 @@ extension Token {
         return TokenCacheService.instance.backgroundColorsForId(id)
     }
 
-    var icon: Token.Icon {
+    var icon: ImageWrapper {
         return TokenCacheService.instance.iconForId(id)
     }
 }

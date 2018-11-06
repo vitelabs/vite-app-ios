@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ObjectMapper
 
 extension Bundle {
     var versionNumber: String {
@@ -24,6 +25,16 @@ extension Bundle {
         let versionNumber = Bundle.main.versionNumber
         let buildNumber = Bundle.main.buildNumber
         return "\(versionNumber) (\(buildNumber))"
+    }
+
+    static func getObject<O: Mappable>(forResource name: String?, withExtension ext: String? = nil) -> O? {
+        guard let path = Bundle.main.url(forResource: name, withExtension: ext, subdirectory: nil, localization: nil)?.path else {
+            return nil
+        }
+        guard FileManager.default.fileExists(atPath: path) else { return nil }
+        guard let string = try? String(contentsOfFile: path) else { return nil }
+        guard let ret = O(JSONString: string) else { return nil }
+        return ret
     }
 }
 
