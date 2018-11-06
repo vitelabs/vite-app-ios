@@ -9,21 +9,21 @@
 import Foundation
 
 public struct Constants {
+
+    public enum Channel: String {
+        case appstore
+        case enterprise
+    }
+
     // support
     public static let supportEmail = "info@vite.org"
     //baidu  statistics
     public static let baiduMobileStat = "e74c7f32c0"
-    //vite  centralized  host
-    #if DEBUG
-    public static let viteCentralizedHost = "http://testnet.vite.net"
-    #else
-    public static let viteCentralizedHost = "https://testnet.vite.net"
-    #endif
     //app channel
     #if RELEASE_INHOUSE_FOR_DISTRIBUTE
-    public static let appDownloadChannel = "enterprise"
+    public static let appDownloadChannel = Channel.enterprise
     #else
-    public static let appDownloadChannel = "appstore"
+    public static let appDownloadChannel = Channel.appstore
     #endif
     public static let quotaDefinitionURL = "https://app.vite.net/quotaDefinition"
 }

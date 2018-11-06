@@ -23,6 +23,7 @@ target 'Vite' do
   pod 'XCGLogger', '~> 6.1.0'
   pod 'pop', '~> 1.0'
   pod 'DACircularProgress', '2.3.1'
+  pod 'Kingfisher', '~> 4.0'
 
   #request
   pod 'SwiftyJSON'

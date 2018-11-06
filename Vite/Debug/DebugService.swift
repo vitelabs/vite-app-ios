@@ -21,6 +21,13 @@ class DebugService: Mappable {
         }
     }
 
+    var cosUseTestEnvironment = false {
+        didSet {
+            guard cosUseTestEnvironment != oldValue else { return }
+            pri_save()
+        }
+    }
+
     var rpcUseHTTP = false {
         didSet {
             guard rpcUseHTTP != oldValue else { return }
@@ -46,6 +53,7 @@ class DebugService: Mappable {
 
     func mapping(map: Map) {
         useBigDifficulty <- map["useBigDifficulty"]
+        cosUseTestEnvironment <- map["cosUseTestEnvironment"]
         rpcUseHTTP <- map["rpcUseHTTP"]
         showStatisticsToast <- map["showStatisticsToast"]
         reportEventInDebug <- map["reportEventInDebug"]
@@ -57,6 +65,7 @@ class DebugService: Mappable {
             let jsonString = String(data: data, encoding: .utf8),
             let d = DebugService(JSONString: jsonString) {
             self.useBigDifficulty = d.useBigDifficulty
+            self.cosUseTestEnvironment = d.cosUseTestEnvironment
             self.rpcUseHTTP = d.rpcUseHTTP
             self.showStatisticsToast = d.showStatisticsToast
             self.reportEventInDebug = d.reportEventInDebug
