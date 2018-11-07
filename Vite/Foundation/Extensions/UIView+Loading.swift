@@ -60,6 +60,40 @@ extension UIView {
         self.layer.shadowRadius = 9
         self.clipsToBounds = false
     }
+
+    func setShadow(width: CGFloat, height: CGFloat, radius: CGFloat) {
+        backgroundColor = UIColor.white
+        layer.shadowColor = UIColor(netHex: 0x000000).cgColor
+        layer.shadowOpacity = 0.1
+        layer.shadowOffset = CGSize(width: width, height: height)
+        layer.shadowRadius = radius
+    }
+
+    func createContentViewAndSetShadow(width: CGFloat, height: CGFloat, radius: CGFloat) -> UIView {
+        let contentView = UIView()
+        addSubview(contentView)
+        contentView.snp.makeConstraints { $0.edges.equalTo(self) }
+        setShadow(width: width, height: height, radius: radius)
+        return contentView
+    }
+
+    static func embedInShadowView(customView: UIView, width: CGFloat, height: CGFloat, radius: CGFloat) -> UIView {
+        return embedInShadowView(customView: customView, config: { (view) in
+            view.layer.shadowOffset = CGSize(width: width, height: height)
+            view.layer.shadowRadius = radius
+        })
+    }
+
+    static func embedInShadowView(customView: UIView, config: ((UIView) -> Void)? = nil) -> UIView {
+        let view = UIView()
+        view.addSubview(customView)
+        view.setShadow(width: 0, height: 0, radius: 9)
+        customView.snp.makeConstraints { $0.edges.equalTo(view) }
+        if let config = config {
+            config(view)
+        }
+        return view
+    }
 }
 
 struct Toast {
