@@ -46,8 +46,8 @@ class SendAmountView: UIView {
 
         separatorLine.snp.makeConstraints { (m) in
             m.height.equalTo(CGFloat.singleLineWidth)
-            m.left.equalTo(self).offset(24)
-            m.right.equalTo(self).offset(-24)
+            m.left.equalTo(self)
+            m.right.equalTo(self)
             m.bottom.equalTo(self)
         }
 
@@ -55,8 +55,8 @@ class SendAmountView: UIView {
 
             titleLabel.snp.makeConstraints { (m) in
                 m.top.equalTo(self).offset(20)
-                m.left.equalTo(self).offset(24)
-                m.right.equalTo(self).offset(-24)
+                m.left.equalTo(self)
+                m.right.equalTo(self)
             }
 
             textField.textColor = Colors.cellTitleGray
@@ -78,7 +78,7 @@ class SendAmountView: UIView {
 
             titleLabel.snp.makeConstraints { (m) in
                 m.top.equalTo(self).offset(20)
-                m.left.equalTo(self).offset(24)
+                m.left.equalTo(self)
                 m.bottom.equalTo(self).offset(-20)
             }
 
@@ -92,7 +92,7 @@ class SendAmountView: UIView {
 
             symbolLabel.snp.makeConstraints { (m) in
                 m.left.equalTo(textField.snp.right).offset(10)
-                m.right.equalTo(self).offset(-24)
+                m.right.equalTo(self)
                 m.centerY.equalTo(titleLabel)
             }
         }

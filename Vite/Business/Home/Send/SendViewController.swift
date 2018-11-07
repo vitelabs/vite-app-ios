@@ -53,7 +53,7 @@ class SendViewController: BaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        kas_activateAutoScrollingForView(contentView)
+        kas_activateAutoScrollingForView(scrollView.stackView)
         FetchQuotaService.instance.retainQuota()
     }
 
@@ -63,21 +63,12 @@ class SendViewController: BaseViewController {
     }
 
     // View
-    lazy var scrollView = ScrollableView().then {
+    lazy var scrollView = ScrollableView(insets: UIEdgeInsets(top: 10, left: 24, bottom: 30, right: 24)).then {
         $0.layer.masksToBounds = false
         if #available(iOS 11.0, *) {
             $0.contentInsetAdjustmentBehavior = .never
         } else {
             automaticallyAdjustsScrollViewInsets = false
-        }
-    }
-
-    lazy var contentView = UIView().then { view in
-        view.layer.masksToBounds = false
-        scrollView.addSubview(view)
-        view.snp.makeConstraints { (m) in
-            m.edges.equalTo(scrollView)
-            m.width.equalTo(scrollView)
         }
     }
 
@@ -100,32 +91,11 @@ class SendViewController: BaseViewController {
             m.left.right.equalTo(view)
         }
 
-        contentView.addSubview(headerView)
-        contentView.addSubview(addressView)
-        contentView.addSubview(amountView)
-        contentView.addSubview(noteView)
-
-        headerView.snp.makeConstraints { (m) in
-            m.top.equalTo(contentView).offset(10)
-            m.left.equalTo(contentView).offset(24)
-            m.right.equalTo(contentView).offset(-24)
-        }
-
-        addressView.snp.makeConstraints { (m) in
-            m.left.right.equalTo(contentView)
-            m.top.equalTo(headerView.snp.bottom).offset(30)
-        }
-
-        amountView.snp.makeConstraints { (m) in
-            m.left.right.equalTo(contentView)
-            m.top.equalTo(addressView.snp.bottom)
-        }
-
-        noteView.snp.makeConstraints { (m) in
-            m.left.right.equalTo(contentView)
-            m.top.equalTo(amountView.snp.bottom)
-            m.bottom.equalTo(contentView).offset(-30)
-        }
+        scrollView.stackView.addArrangedSubview(headerView)
+        scrollView.stackView.addPlaceholder(height: 30)
+        scrollView.stackView.addArrangedSubview(addressView)
+        scrollView.stackView.addArrangedSubview(amountView)
+        scrollView.stackView.addArrangedSubview(noteView)
 
         sendButton.snp.makeConstraints { (m) in
             m.top.greaterThanOrEqualTo(scrollView.snp.bottom).offset(10)
