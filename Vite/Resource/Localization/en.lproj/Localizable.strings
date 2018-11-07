@@ -18,7 +18,7 @@
 "Submit" = "Submit";
 "Close" = "I understand";
 "Update.app" = "Update App";
-"NetWorkError" = "Loading failed, please refresh";
+"NetWorkError" = "网络异常，请稍后重试";
 "Submit.success" = "Submit Successful";
 
 /* Login */

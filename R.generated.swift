@@ -836,10 +836,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let loading = Rswift.StringResource(key: "Loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Loading failed, please refresh
-      /// 
-      /// Locales: en, zh-Hans
-      static let netWorkError = Rswift.StringResource(key: "NetWorkError", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Loading...
       /// 
       /// Locales: en, zh-Hans
@@ -1296,6 +1292,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageAlertExistOk = Rswift.StringResource(key: "import.page.alert.exist.ok", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 网络异常，请稍后重试
+      /// 
+      /// Locales: en, zh-Hans
+      static let netWorkError = Rswift.StringResource(key: "NetWorkError", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1799,13 +1799,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func loading(_: Void = ()) -> String {
         return NSLocalizedString("Loading", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Loading failed, please refresh
-      /// 
-      /// Locales: en, zh-Hans
-      static func netWorkError(_: Void = ()) -> String {
-        return NSLocalizedString("NetWorkError", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Loading...
@@ -2604,6 +2597,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func importPageAlertExistOk(_: Void = ()) -> String {
         return NSLocalizedString("import.page.alert.exist.ok", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 网络异常，请稍后重试
+      /// 
+      /// Locales: en, zh-Hans
+      static func netWorkError(_: Void = ()) -> String {
+        return NSLocalizedString("NetWorkError", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

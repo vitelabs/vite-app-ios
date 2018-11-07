@@ -18,7 +18,7 @@
 "Submit" = "提交";
 "Close" = "我知道了";
 "Update.app" = "更新 App";
-"NetWorkError" = "加载失败，请刷新重试";
+"NetWorkError" = "网络异常，请稍后重试";
 "Submit.success" = "提交成功";
 
 
