@@ -25,7 +25,7 @@ class VoteHomeViewController: BaseViewController {
 
         myVoteInfoVC.view.snp.makeConstraints { (make) -> Void in
             make.top.left.right.equalTo(self.view)
-            make.height.equalTo(100)
+            make.height.equalTo(200)
         }
         voteListVC.view.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(myVoteInfoVC.view.snp.bottom)

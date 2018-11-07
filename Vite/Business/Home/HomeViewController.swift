@@ -21,7 +21,7 @@ class HomeViewController: UITabBarController {
             $0.automaticallyShowDismissButton = false
         }
         let myVC = MyHomeViewController()
-        
+
         let walletNav = BaseNavigationController(rootViewController: walletVC).then {
             $0.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
             $0.tabBarItem.image = R.image.icon_tabbar_wallet()?.withRenderingMode(.alwaysOriginal)
@@ -40,7 +40,7 @@ class HomeViewController: UITabBarController {
             $0.tabBarItem.selectedImage = R.image.icon_tabbar_me_select()?.withRenderingMode(.alwaysOriginal)
         }
 
-        self.viewControllers = [walletNav,voteNav, myNav]
+        self.viewControllers = [walletNav, voteNav, myNav]
     }
 
     required init?(coder aDecoder: NSCoder) {

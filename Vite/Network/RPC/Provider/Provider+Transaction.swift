@@ -238,6 +238,8 @@ extension Provider {
     fileprivate enum ContractAddress: String {
         case pledgeAndGainQuota = "vite_000000000000000000000000000000000000000309508ba646"
 
+        case gid = "00000000000000000001"
+
         var address: Address {
             return Address(string: self.rawValue)
         }
@@ -359,6 +361,34 @@ extension Provider {
             .done({ (latestAccountBlock, fittestSnapshotHash, data, nonce) in
                 let context = SendTransactionContext(latestAccountBlock: latestAccountBlock, bag: bag, fittestSnapshotHash: fittestSnapshotHash, toAddress: ContractAddress.pledgeAndGainQuota.address, tokenId: tokenId, amount: amount, data: data, nonce: nonce, difficulty: difficulty)
                 completion(NetworkResult.success(context))
+            })
+            .catch({
+                completion(NetworkResult.wrapError($0))
+            })
+    }
+
+    func cancelVoteAndSendWithoutGetPow(bag: HDWalletManager.Bag,
+                                        completion: @escaping (NetworkResult<Void>) -> Void) {
+        self.cancelVote()
+            .then({ [unowned self] (data) -> Promise<(latestAccountBlock: AccountBlock, fittestSnapshotHash: String, data: String)> in
+                return self.getLatestAccountBlockAndSnapshotHash(address: bag.address).then({ (latestAccountBlock, fittestSnapshotHash) in
+                    return Promise { seal in seal.fulfill((latestAccountBlock, fittestSnapshotHash, data)) }
+                })
+            })
+            .then({ [unowned self] (latestAccountBlock, fittestSnapshotHash, data) -> Promise<Void> in
+                let send = AccountBlock.makeSendAccountBlock(latest: latestAccountBlock,
+                                                             bag: bag,
+                                                             snapshotHash: fittestSnapshotHash,
+                                                             toAddress: ContractAddress.pledgeAndGainQuota.address,
+                                                             tokenId: TokenCacheService.instance.viteToken.id,
+                                                             amount: BigInt(0),
+                                                             data: data,
+                                                             nonce: nil,
+                                                             difficulty: nil)
+                return self.createTransaction(accountBlock: send)
+            })
+            .done ({
+                completion(NetworkResult.success($0))
             })
             .catch({
                 completion(NetworkResult.wrapError($0))
