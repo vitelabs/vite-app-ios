@@ -32,7 +32,7 @@ extension Provider {
         }
     }
 
-    fileprivate func getLatestAccountBlockAndSnapshotHash(address: Address) -> Promise<(latestAccountBlock: AccountBlock, snapshotHash: String)> {
+    func getLatestAccountBlockAndSnapshotHash(address: Address) -> Promise<(latestAccountBlock: AccountBlock, snapshotHash: String)> {
         return Promise { seal in
             let request = ViteServiceRequest(for: server, batch: BatchFactory()
                 .create(GetLatestAccountBlockRequest(address: address.description),
@@ -63,7 +63,7 @@ extension Provider {
         }
     }
 
-    fileprivate func createTransaction(accountBlock: AccountBlock) -> Promise<Void> {
+    func createTransaction(accountBlock: AccountBlock) -> Promise<Void> {
         return Promise { seal in
             let request = ViteServiceRequest(for: server, batch: BatchFactory().create(CreateTransactionRequest(accountBlock: accountBlock)))
             Session.send(request) { result in
