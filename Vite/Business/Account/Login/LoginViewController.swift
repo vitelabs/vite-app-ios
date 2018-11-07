@@ -36,7 +36,7 @@ class LoginViewController: BaseViewController {
         kas_activateAutoScrollingForView(contentView)
         if navigationController?.viewControllers.first === self {
 
-        }else{
+        } else {
             navigationBarStyle = .clear
         }
     }

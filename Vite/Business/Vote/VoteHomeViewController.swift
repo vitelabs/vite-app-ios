@@ -20,6 +20,10 @@ class VoteHomeViewController: BaseViewController {
     func _addViewConstraint() {
         view.backgroundColor = .white
 
+        self.addChildViewController(voteListVC)
+        self.addChildViewController(myVoteInfoVC)
+        voteListVC.didMove(toParentViewController: self)
+        myVoteInfoVC.didMove(toParentViewController: self)
         view.addSubview(myVoteInfoVC.view)
         view.addSubview(voteListVC.view)
 
@@ -29,8 +33,7 @@ class VoteHomeViewController: BaseViewController {
         }
         voteListVC.view.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(myVoteInfoVC.view.snp.bottom)
-            make.left.right.equalTo(self.view)
-            make.height.equalTo(200)
+            make.left.right.bottom.equalTo(self.view)
         }
     }
 }
