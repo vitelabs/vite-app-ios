@@ -48,16 +48,16 @@ class LockPwdViewController: BaseViewController {
     }()
 
     lazy var changeUserBtn: UIButton = {
-        let changeUserBtn = UIButton.init(style: .blue)
-        changeUserBtn.setTitle("切换账户", for: .normal)
+        let changeUserBtn = UIButton.init(style: .whiteWithoutShadow)
+        changeUserBtn.setTitle(R.string.localizable.lockPageChangeUserBtnTitle.key.localized(), for: .normal)
         changeUserBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         changeUserBtn.addTarget(self, action: #selector(changeUserBtnAction), for: .touchUpInside)
         return changeUserBtn
     }()
 
     lazy var importUserBtn: UIButton = {
-        let importUserBtn = UIButton.init(style: .blue)
-        importUserBtn.setTitle("助记词恢复账户", for: .normal)
+        let importUserBtn = UIButton.init(style: .whiteWithoutShadow)
+        importUserBtn.setTitle(R.string.localizable.lockPageImportUserBtnTitle.key.localized(), for: .normal)
         importUserBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         importUserBtn.addTarget(self, action: #selector(importUserBtnAction), for: .touchUpInside)
         return importUserBtn
@@ -91,24 +91,35 @@ extension LockPwdViewController {
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
-        }
-
-        self.view.addSubview(self.changeUserBtn)
-        self.changeUserBtn.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view).offset(24)
-            make.width.equalTo(100)
-            make.height.equalTo(50)
-            make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop).offset(30)
+        make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-80)
         }
 
         self.view.addSubview(self.importUserBtn)
         self.importUserBtn.snp.makeConstraints { (make) -> Void in
-            make.right.equalTo(self.view).offset(-24)
-            make.width.equalTo(100)
             make.height.equalTo(50)
-            make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop).offset(30)
+            make.bottom.equalTo(view.safeAreaLayoutGuideSnpBottom).offset(-24)
+            make.left.equalTo(view).offset(24)
+            make.right.equalTo(view.snp.centerX).offset(-2)
         }
+
+        self.view.addSubview(self.changeUserBtn)
+        self.changeUserBtn.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(50)
+            make.bottom.equalTo(view.safeAreaLayoutGuideSnpBottom).offset(-24)
+            make.right.equalTo(view).offset(-24)
+            make.left.equalTo(view.snp.centerX).offset(2)
+        }
+
+        let line = UIView()
+        line.backgroundColor = Colors.lineGray
+        view.addSubview(line)
+        line.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(16)
+            make.width.equalTo(1)
+            make.centerY.equalTo(self.importUserBtn)
+            make.centerX.equalTo(view)
+        }
+
     }
 
     @objc func importUserBtnAction() {
