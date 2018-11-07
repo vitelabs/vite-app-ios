@@ -92,14 +92,6 @@ class SendViewController: BaseViewController {
         let addressView: SendAddressViewType = address != nil ? AddressLabelView(address: address!.description) : AddressTextViewView()
         let sendButton = UIButton(style: .blue, title: R.string.localizable.sendPageSendButtonTitle.key.localized())
 
-        let shadowView = UIView().then {
-            $0.backgroundColor = UIColor.white
-            $0.layer.shadowColor = UIColor(netHex: 0x000000).cgColor
-            $0.layer.shadowOpacity = 0.1
-            $0.layer.shadowOffset = CGSize(width: 0, height: 5)
-            $0.layer.shadowRadius = 9
-        }
-
         view.addSubview(scrollView)
         view.addSubview(sendButton)
 
@@ -108,15 +100,10 @@ class SendViewController: BaseViewController {
             m.left.right.equalTo(view)
         }
 
-        contentView.addSubview(shadowView)
         contentView.addSubview(headerView)
         contentView.addSubview(addressView)
         contentView.addSubview(amountView)
         contentView.addSubview(noteView)
-
-        shadowView.snp.makeConstraints { (m) in
-            m.edges.equalTo(headerView)
-        }
 
         headerView.snp.makeConstraints { (m) in
             m.top.equalTo(contentView).offset(10)

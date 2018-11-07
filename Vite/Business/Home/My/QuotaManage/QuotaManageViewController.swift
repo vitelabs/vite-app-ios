@@ -81,14 +81,6 @@ class QuotaManageViewController: BaseViewController {
 
     lazy var sendButton = UIButton(style: .blue, title: R.string.localizable.quotaManagePageSubmitBtnTitle.key.localized())
 
-    lazy var shadowView = UIView().then {
-        $0.backgroundColor = UIColor.white
-        $0.layer.shadowColor = UIColor(netHex: 0x000000).cgColor
-        $0.layer.shadowOpacity = 0.1
-        $0.layer.shadowOffset = CGSize(width: 0, height: 5)
-        $0.layer.shadowRadius = 9
-    }
-
     private func setupNavBar() {
         statisticsPageName = Statistics.Page.WalletQuota.name
         navigationTitleView = createNavigationTitleView()
@@ -118,16 +110,11 @@ class QuotaManageViewController: BaseViewController {
             m.left.right.equalTo(view)
         }
 
-        contentView.addSubview(shadowView)
         contentView.addSubview(headerView)
         contentView.addSubview(addressView)
         contentView.addSubview(amountView)
         contentView.addSubview(snapshootHeightLab)
         contentView.addSubview(sendButton)
-
-        shadowView.snp.makeConstraints { (m) in
-            m.edges.equalTo(headerView)
-        }
 
         headerView.snp.makeConstraints { (m) in
             m.top.equalTo(contentView).offset(10)
