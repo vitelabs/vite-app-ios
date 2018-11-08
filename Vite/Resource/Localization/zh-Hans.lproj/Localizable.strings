@@ -248,3 +248,6 @@
 "peldge.deadline" = "到期";
 "peldge.title" = "我的抵押列表";
 
+/* Vote */
+"vote.page.title" = "我的投票";
+"vote.page.info.nodata.title" = "暂无投票";

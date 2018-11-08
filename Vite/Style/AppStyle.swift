@@ -29,6 +29,7 @@ struct Fonts {
     static let Font14_b = UIFont.systemFont(ofSize: 14, weight: .semibold)
     static let Font17 = UIFont.systemFont(ofSize: 17, weight: .semibold)
     static let Font18 = UIFont.systemFont(ofSize: 18, weight: .regular)
+    static let Font20 = UIFont.systemFont(ofSize: 20, weight: .semibold)
 }
 
 enum AppStyle {

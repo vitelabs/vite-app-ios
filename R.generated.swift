@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 60 images.
+  /// This `R.image` struct is generated, and contains static references to 65 images.
   struct image {
     /// Image `aboutus_logo`.
     static let aboutus_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "aboutus_logo")
@@ -45,6 +45,10 @@ struct R: Rswift.Validatable {
     static let background_button_white = Rswift.ImageResource(bundle: R.hostingBundle, name: "background_button_white")
     /// Image `beifen`.
     static let beifen = Rswift.ImageResource(bundle: R.hostingBundle, name: "beifen")
+    /// Image `btn_path_bg`.
+    static let btn_path_bg = Rswift.ImageResource(bundle: R.hostingBundle, name: "btn_path_bg")
+    /// Image `dotted_line`.
+    static let dotted_line = Rswift.ImageResource(bundle: R.hostingBundle, name: "dotted_line")
     /// Image `empty`.
     static let empty = Rswift.ImageResource(bundle: R.hostingBundle, name: "empty")
     /// Image `face_id`.
@@ -153,6 +157,12 @@ struct R: Rswift.Validatable {
     static let tabber_shadow = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabber_shadow")
     /// Image `vite`.
     static let vite = Rswift.ImageResource(bundle: R.hostingBundle, name: "vite")
+    /// Image `vote_info_bg`.
+    static let vote_info_bg = Rswift.ImageResource(bundle: R.hostingBundle, name: "vote_info_bg")
+    /// Image `vote_info_dot`.
+    static let vote_info_dot = Rswift.ImageResource(bundle: R.hostingBundle, name: "vote_info_dot")
+    /// Image `vote_info_icon`.
+    static let vote_info_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "vote_info_icon")
     
     /// `UIImage(named: "aboutus_logo", bundle: ..., traitCollection: ...)`
     static func aboutus_logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -182,6 +192,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "beifen", bundle: ..., traitCollection: ...)`
     static func beifen(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.beifen, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "btn_path_bg", bundle: ..., traitCollection: ...)`
+    static func btn_path_bg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.btn_path_bg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "dotted_line", bundle: ..., traitCollection: ...)`
+    static func dotted_line(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.dotted_line, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "empty", bundle: ..., traitCollection: ...)`
@@ -454,6 +474,21 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.vite, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "vote_info_bg", bundle: ..., traitCollection: ...)`
+    static func vote_info_bg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.vote_info_bg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "vote_info_dot", bundle: ..., traitCollection: ...)`
+    static func vote_info_dot(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.vote_info_dot, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "vote_info_icon", bundle: ..., traitCollection: ...)`
+    static func vote_info_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.vote_info_icon, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
@@ -537,7 +572,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 186 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 188 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1283,6 +1318,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let lockPageImportUserBtnTitle = Rswift.StringResource(key: "lock.page.importUser.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// zh-Hans translation: 我的投票
+      /// 
+      /// Locales: zh-Hans
+      static let votePageTitle = Rswift.StringResource(key: "vote.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["zh-Hans"], comment: nil)
+      /// zh-Hans translation: 暂无投票
+      /// 
+      /// Locales: zh-Hans
+      static let votePageInfoNodataTitle = Rswift.StringResource(key: "vote.page.info.nodata.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["zh-Hans"], comment: nil)
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -2584,6 +2627,20 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func lockPageImportUserBtnTitle(_: Void = ()) -> String {
         return NSLocalizedString("lock.page.importUser.btn.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// zh-Hans translation: 我的投票
+      /// 
+      /// Locales: zh-Hans
+      static func votePageTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// zh-Hans translation: 暂无投票
+      /// 
+      /// Locales: zh-Hans
+      static func votePageInfoNodataTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.info.nodata.title", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

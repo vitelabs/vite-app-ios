@@ -28,7 +28,7 @@ enum VoteStatus: Int {
         }
     }
 }
-class ViewInfoView: UIView {
+class VoteInfoView: UIView {
     lazy var nodeNameTitleLab: UILabel = {
         let nodeNameTitleLab = UILabel()
         nodeNameTitleLab.textAlignment = .left

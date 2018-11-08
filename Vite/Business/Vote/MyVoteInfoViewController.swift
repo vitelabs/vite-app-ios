@@ -36,17 +36,27 @@ class MyVoteInfoViewController: BaseViewController, View {
     }
 
     private func _addViewConstraint() {
-        view.backgroundColor = .red
+        view.backgroundColor = .clear
 
         view.addSubview(self.viewInfoView)
         self.viewInfoView.snp.makeConstraints { (make) in
-            make.left.top.equalTo(view)
+            make.edges.equalTo(view)
+        }
+
+        view.addSubview(self.voteInfoEmptyView)
+        self.voteInfoEmptyView.snp.makeConstraints { (make) in
+            make.edges.equalTo(view)
         }
     }
 
-    lazy var viewInfoView: ViewInfoView = {
-        let viewInfoView = ViewInfoView()
+    lazy var viewInfoView: VoteInfoView = {
+        let viewInfoView = VoteInfoView()
         return viewInfoView
+    }()
+
+    lazy var voteInfoEmptyView: VoteInfoEmptyView = {
+        let voteInfoEmptyView = VoteInfoEmptyView()
+        return voteInfoEmptyView
     }()
 }
 
@@ -62,6 +72,13 @@ extension MyVoteInfoViewController {
         reactor.state
             .map { $0.voteInfo }
             .bind {
+                guard let voteInfo = $0 else {
+                    self.viewInfoView.isHidden = true
+                    self.voteInfoEmptyView.isHidden = false
+                    return
+                }
+                self.viewInfoView.isHidden = false
+                self.voteInfoEmptyView.isHidden = true
                 self.viewInfoView.reloadData($0, $0?.nodeStatus == .invalid ? .voteInvalid : .voteSuccess)
             }.disposed(by: disposeBag)
 

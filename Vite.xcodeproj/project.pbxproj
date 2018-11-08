@@ -36,10 +36,13 @@
 		4C3E323F215492AC009936E3 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E323E215492AC009936E3 /* Bundle.swift */; };
 		4C3F3F6E217731900022A8CC /* MnemonicTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F3F6D217731900022A8CC /* MnemonicTextView.swift */; };
 		4C56E03F2186B164003550BC /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C56E03E2186B164003550BC /* PopViewController.swift */; };
+		4C5A13E62193D6CD000A979F /* LabelTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13E52193D6CD000A979F /* LabelTipView.swift */; };
+		4C5A13E82193E953000A979F /* VoteInfoEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13E72193E953000A979F /* VoteInfoEmptyView.swift */; };
+		4C5A13EA21940562000A979F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5A13E921940562000A979F /* Images.xcassets */; };
 		4C5E23022192EDDE0010B905 /* Provider+Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23012192EDDD0010B905 /* Provider+Vote.swift */; };
 		4C5E23062192EDEB0010B905 /* CancelVoteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23042192EDEB0010B905 /* CancelVoteRequest.swift */; };
 		4C5E23072192EDEB0010B905 /* GetVoteInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23052192EDEB0010B905 /* GetVoteInfoRequest.swift */; };
-		4C5E230B2192EE010010B905 /* ViewInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23092192EE010010B905 /* ViewInfoView.swift */; };
+		4C5E230B2192EE010010B905 /* VoteInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23092192EE010010B905 /* VoteInfoView.swift */; };
 		4C5E230C2192EE010010B905 /* MyVoteInfoViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E230A2192EE010010B905 /* MyVoteInfoViewReactor.swift */; };
 		4C5E230E2192EE1A0010B905 /* VoteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E230D2192EE1A0010B905 /* VoteInfo.swift */; };
 		4C745494214D0A9D0070F7AB /* TitleBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C745493214D0A9D0070F7AB /* TitleBtnView.swift */; };
@@ -76,7 +79,6 @@
 		4CCE42462124553B0080E92B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE42452124553B0080E92B /* AppDelegate.swift */; };
 		4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCE424C2124553C0080E92B /* Assets.xcassets */; };
 		4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE425A2124553C0080E92B /* ViteTests.swift */; };
-		4CD8347D2150A6FE006537A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CD8347C2150A6FE006537A2 /* Images.xcassets */; };
 		4CE4E13D214794D000A6CD7E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4E13C214794D000A6CD7E /* UIImage.swift */; };
 		4CE4E14521479EAF00A6CD7E /*  CreateWalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4E14421479EAF00A6CD7E /*  CreateWalletService.swift */; };
 		4CE83DDE21511E2000AB1DAD /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE83DDD21511E2000AB1DAD /* UIViewController+Loading.swift */; };
@@ -272,10 +274,13 @@
 		4C3E323E215492AC009936E3 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		4C3F3F6D217731900022A8CC /* MnemonicTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicTextView.swift; sourceTree = "<group>"; };
 		4C56E03E2186B164003550BC /* PopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
+		4C5A13E52193D6CD000A979F /* LabelTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTipView.swift; sourceTree = "<group>"; };
+		4C5A13E72193E953000A979F /* VoteInfoEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteInfoEmptyView.swift; sourceTree = "<group>"; };
+		4C5A13E921940562000A979F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4C5E23012192EDDD0010B905 /* Provider+Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Provider+Vote.swift"; sourceTree = "<group>"; };
 		4C5E23042192EDEB0010B905 /* CancelVoteRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelVoteRequest.swift; sourceTree = "<group>"; };
 		4C5E23052192EDEB0010B905 /* GetVoteInfoRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetVoteInfoRequest.swift; sourceTree = "<group>"; };
-		4C5E23092192EE010010B905 /* ViewInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewInfoView.swift; sourceTree = "<group>"; };
+		4C5E23092192EE010010B905 /* VoteInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteInfoView.swift; sourceTree = "<group>"; };
 		4C5E230A2192EE010010B905 /* MyVoteInfoViewReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyVoteInfoViewReactor.swift; sourceTree = "<group>"; };
 		4C5E230D2192EE1A0010B905 /* VoteInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteInfo.swift; sourceTree = "<group>"; };
 		4C745493214D0A9D0070F7AB /* TitleBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBtnView.swift; sourceTree = "<group>"; };
@@ -329,7 +334,6 @@
 		4CCE425A2124553C0080E92B /* ViteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteTests.swift; sourceTree = "<group>"; };
 		4CCE425C2124553C0080E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CCE42672124553C0080E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4CD8347C2150A6FE006537A2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4CE4E13C214794D000A6CD7E /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		4CE4E14421479EAF00A6CD7E /*  CreateWalletService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CreateWalletService.swift"; sourceTree = "<group>"; };
 		4CE83DDD21511E2000AB1DAD /* UIViewController+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Loading.swift"; sourceTree = "<group>"; };
@@ -620,8 +624,8 @@
 		4C2FAD912190574500FC9524 /* Vote */ = {
 			isa = PBXGroup;
 			children = (
-				4C5E230A2192EE010010B905 /* MyVoteInfoViewReactor.swift */,
 				4C5E23082192EE010010B905 /* View */,
+				4C5E230A2192EE010010B905 /* MyVoteInfoViewReactor.swift */,
 				4C2FAD922190575C00FC9524 /* VoteHomeViewController.swift */,
 				4C2FAD942190578A00FC9524 /* MyVoteInfoViewController.swift */,
 				4C2FAD962190579900FC9524 /* VoteListViewController.swift */,
@@ -691,6 +695,7 @@
 				4C32E2082182E5B300007E9F /* CardBgView.swift */,
 				4C56E03E2186B164003550BC /* PopViewController.swift */,
 				4C32E20C2182FC4100007E9F /* Transition */,
+				4C5A13E52193D6CD000A979F /* LabelTipView.swift */,
 			);
 			path = UGCKit;
 			sourceTree = "<group>";
@@ -725,7 +730,8 @@
 		4C5E23082192EE010010B905 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4C5E23092192EE010010B905 /* ViewInfoView.swift */,
+				4C5E23092192EE010010B905 /* VoteInfoView.swift */,
+				4C5A13E72193E953000A979F /* VoteInfoEmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -909,7 +915,7 @@
 				4CCE42452124553B0080E92B /* AppDelegate.swift */,
 				4C0024E321258005001DF390 /* R.generated.swift */,
 				4C9AFD89214FB81C005B12C2 /* Vite-Bridging-Header.h */,
-				4CD8347C2150A6FE006537A2 /* Images.xcassets */,
+				4C5A13E921940562000A979F /* Images.xcassets */,
 				4CCE424C2124553C0080E92B /* Assets.xcassets */,
 				4C1FF4EC212A73FB0055067D /* Resource */,
 				4CCE42512124553C0080E92B /* Info.plist */,
@@ -1488,7 +1494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */,
-				4CD8347D2150A6FE006537A2 /* Images.xcassets in Resources */,
+				4C5A13EA21940562000A979F /* Images.xcassets in Resources */,
 				4C1FF4F0212A74730055067D /* Localizable.strings in Resources */,
 				4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */,
 				8E93C26821782DB700185FDE /* InfoPlist.strings in Resources */,
@@ -1785,7 +1791,7 @@
 				4C32E20B2182E89500007E9F /* QuotaSubmitPopViewController.swift in Sources */,
 				4CEB292B214BBD2400E5F7F4 /* ViteInputValidator.swift in Sources */,
 				4C84D94321452836001B6EBD /* MnemonicCollectionView.swift in Sources */,
-				4C5E230B2192EE010010B905 /* ViewInfoView.swift in Sources */,
+				4C5E230B2192EE010010B905 /* VoteInfoView.swift in Sources */,
 				4CC75391215B926B0009CA0E /* LockViewController.swift in Sources */,
 				4C84D9662146A06F001B6EBD /* LoginViewModel.swift in Sources */,
 				8E6F3E0C21412150003CDFC2 /* GetTransactionsRequest.swift in Sources */,
@@ -1821,6 +1827,7 @@
 				8EE468E9214A07D300807D2C /* AddressManageAddressViewModelType.swift in Sources */,
 				8E0FB6A2217468AE001525EB /* GetPowNonceRequest.swift in Sources */,
 				8E6F3E4E21451806003CDFC2 /* BalanceInfo.swift in Sources */,
+				4C5A13E82193E953000A979F /* VoteInfoEmptyView.swift in Sources */,
 				8E56FC7F21466BD100A68823 /* ReceiveViewController.swift in Sources */,
 				740C3E50214BD6A9005FCD24 /* ConfirmTransactionViewController.swift in Sources */,
 				4C9AFD5C214F433C005B12C2 /* AboutUsViewController.swift in Sources */,
@@ -1829,6 +1836,7 @@
 				8E56FC98214768D000A68823 /* TransactionViewModel.swift in Sources */,
 				8EE46922214D017200807D2C /* GetLatestAccountBlockRequest.swift in Sources */,
 				8E107EDF215B27F500B28DE2 /* SendNoteView.swift in Sources */,
+				4C5A13E62193D6CD000A979F /* LabelTipView.swift in Sources */,
 				74875E1C2191707300C3AE9D /* GetCandidateListRequest.swift in Sources */,
 				8E107ECD2153656C00B28DE2 /* Provider+Transaction.swift in Sources */,
 				4C2FAD952190578A00FC9524 /* MyVoteInfoViewController.swift in Sources */,
