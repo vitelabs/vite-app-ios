@@ -104,13 +104,9 @@ final class MyVoteInfoViewReactor: Reactor {
     func cancelVoteAndSendWithoutGetPow()-> Observable<(String? )> {
         return Observable<(String?)>.create({ (observer) -> Disposable in
             Provider.instance.cancelVoteAndSendWithoutGetPow(bag: self.bag
-            ) { [weak self] (result) in
+            ) { (result) in
                 switch result {
-                case .success(let str):
-                    //                    guard let voteInfo = voteInfo else {
-                    //                        self?.viewInfoView.isHidden = true
-                    //                        return
-                    //                    }
+                case .success:
                     observer.onNext(nil)
                     observer.onCompleted()
                 case .error(let error):

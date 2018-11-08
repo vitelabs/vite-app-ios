@@ -124,14 +124,13 @@ class VoteInfoView: UIView {
         if  voteStatus == .voting || voteStatus == .cancelVoting {
             voteStatusLab.bgImg.image = R.image.btn_path_bg()?.tintColor(UIColor(netHex: 0x0046FF)).resizable
             operationBtn.isEnabled = true
-        } else {
-            if (voteStatus == .voteSuccess || voteStatus == .cancelVoteSuccess) {
+        } else if voteStatus == .voteSuccess || voteStatus == .cancelVoteSuccess {
                 voteStatusLab.bgImg.image = R.image.btn_path_bg()?.tintColor(UIColor(netHex: 0xFEC102)).resizable
-            } else if(voteStatus == .voteInvalid) {
+                operationBtn.isEnabled = false
+            } else if voteStatus == .voteInvalid {
                 voteStatusLab.bgImg.image = R.image.btn_path_bg()?.tintColor(UIColor(netHex: 0x99A4C1)).resizable
+                operationBtn.isEnabled = false
             }
-            operationBtn.isEnabled = false
-        }
     }
 
     private func _addViewConstraint() {
