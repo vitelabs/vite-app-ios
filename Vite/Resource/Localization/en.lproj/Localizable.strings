@@ -170,6 +170,11 @@
 "confirm.transaction.page.biometry.confirm.reason" = "Verify";
 "confirm.transaction.page.use.password.title" = "Please";
 "confirm.transaction.page.toast.password.error" = "Wrong password!";
+"confirm.transaction.page.node.name" = "Node Name";
+"confirm.transaction.page.vote" = "Vote";
+"confirm.transaction.page.cancel.vote" = "Cancel Vote";
+
+
 
 /* Receive Page */
 "Receive.page.token.title" = "Receive";

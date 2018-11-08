@@ -22,7 +22,7 @@ final class VoteListReactor {
     var voteError = Variable<Error?>(nil)
 
     init() {
-        vote.asObservable().bind {
+        vote.asObservable().skip(1).bind {
             self.vote(nodeName: $0, completion: { _ in })
         }.disposed(by: bag)
     }
