@@ -72,14 +72,19 @@ extension MyVoteInfoViewController {
         reactor.state
             .map { $0.voteInfo }
             .bind {
-                guard let voteInfo = $0 else {
-                    self.viewInfoView.isHidden = true
-                    self.voteInfoEmptyView.isHidden = false
-                    return
-                }
+//                guard let voteInfo = $0 else {
+//                    self.viewInfoView.isHidden = true
+//                    self.voteInfoEmptyView.isHidden = false
+//                    return
+//                }
+                var voteInfo = VoteInfo()
+                voteInfo.nodeName = "dfasdfasfdasfdasdf"
+                voteInfo.nodeStatus = .valid
+                voteInfo.balance = Balance.init(value: BigInt(121221221221221221222122122212.121))
+
                 self.viewInfoView.isHidden = false
                 self.voteInfoEmptyView.isHidden = true
-                self.viewInfoView.reloadData($0, $0?.nodeStatus == .invalid ? .voteInvalid : .voteSuccess)
+                self.viewInfoView.reloadData(voteInfo, voteInfo.nodeStatus == .invalid ? .voteInvalid : .voteSuccess)
             }.disposed(by: disposeBag)
 
         //handle error message 

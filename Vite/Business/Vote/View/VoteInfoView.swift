@@ -29,91 +29,63 @@ enum VoteStatus: Int {
     }
 }
 class VoteInfoView: UIView {
-    lazy var nodeNameTitleLab: UILabel = {
-        let nodeNameTitleLab = UILabel()
-        nodeNameTitleLab.textAlignment = .left
-        nodeNameTitleLab.font = Fonts.descFont
-        nodeNameTitleLab.textColor  = Colors.titleGray
-        nodeNameTitleLab.text =  "节点名称"
-        return nodeNameTitleLab
+    lazy var bgView: VoteInfoBgView = {
+        let bgView = VoteInfoBgView()
+        bgView.iconImg.isHidden = true
+        return bgView
     }()
 
     lazy var nodeNameLab: UILabel = {
         let nodeNameLab = UILabel()
         nodeNameLab.textAlignment = .left
-        nodeNameLab.font = Fonts.descFont
-        nodeNameLab.textColor  = Colors.titleGray
-        nodeNameLab.text =  ""
+        nodeNameLab.font = Fonts.Font16_b
+        nodeNameLab.textColor  = .white
         return nodeNameLab
-    }()
-
-    lazy var nodeStatusTitleLab: UILabel = {
-        let nodeStatusTitleLab = UILabel()
-        nodeStatusTitleLab.textAlignment = .left
-        nodeStatusTitleLab.font = Fonts.descFont
-        nodeStatusTitleLab.textColor  = Colors.titleGray
-        nodeStatusTitleLab.text =  "节点状态"
-        return nodeStatusTitleLab
     }()
 
     lazy var nodeStatusLab: UILabel = {
         let nodeStatusLab = UILabel()
         nodeStatusLab.textAlignment = .left
-        nodeStatusLab.font = Fonts.descFont
-        nodeStatusLab.textColor  = Colors.titleGray
-        nodeStatusLab.text =  ""
+        nodeStatusLab.font = Fonts.Font14_b
+        nodeStatusLab.textColor  = .white
         return nodeStatusLab
     }()
 
-    lazy var nodePollsTitleLab: UILabel = {
-        let nodePollsTitleLab = UILabel()
-        nodePollsTitleLab.textAlignment = .left
-        nodePollsTitleLab.font = Fonts.descFont
-        nodePollsTitleLab.textColor  = Colors.titleGray
-        nodePollsTitleLab.text =  "当前投票数"
+    lazy var nodePollsTitleLab: IconLabelView = {
+        let nodePollsTitleLab = IconLabelView("我的投票数")
+        nodePollsTitleLab.titleLab.textAlignment = .left
+        nodePollsTitleLab.titleLab.font = Fonts.Font14
+        nodePollsTitleLab.titleLab.textColor  = .white
         return nodePollsTitleLab
     }()
 
     lazy var nodePollsLab: UILabel = {
         let nodePollsLab = UILabel()
         nodePollsLab.textAlignment = .left
-        nodePollsLab.font = Fonts.descFont
-        nodePollsLab.textColor  = Colors.titleGray
-        nodePollsLab.text =  ""
+        nodePollsLab.font = Fonts.Font16_b
+        nodePollsLab.textColor  = .white
+        nodePollsLab.adjustsFontSizeToFitWidth = true
         return nodePollsLab
     }()
 
-    lazy var voteStatusTitleLab: UILabel = {
-        let voteStatusTitleLab = UILabel()
-        voteStatusTitleLab.textAlignment = .left
-        voteStatusTitleLab.font = Fonts.descFont
-        voteStatusTitleLab.textColor  = Colors.titleGray
-        voteStatusTitleLab.text =  "投票状态"
-        return voteStatusTitleLab
-    }()
-
-    lazy var voteStatusLab: UILabel = {
-        let voteStatusLab = UILabel()
-        voteStatusLab.textAlignment = .left
-        voteStatusLab.font = Fonts.descFont
-        voteStatusLab.textColor  = Colors.titleGray
-        voteStatusLab.text =  ""
+    lazy var voteStatusLab: LabelBgView = {
+        let voteStatusLab = LabelBgView()
+        voteStatusLab.titleLab.textAlignment = .center
+        voteStatusLab.titleLab.font = Fonts.Font12
+        voteStatusLab.titleLab.textColor  = .white
         return voteStatusLab
     }()
 
-    lazy var operationTitleLab: UILabel = {
-        let operationTitleLab = UILabel()
-        operationTitleLab.textAlignment = .left
-        operationTitleLab.font = Fonts.descFont
-        operationTitleLab.textColor  = Colors.titleGray
-        operationTitleLab.text =  "操作"
-        return operationTitleLab
-    }()
-
     lazy var operationBtn: UIButton = {
-        let operationBtn = UIButton.init(style: .whiteWithoutShadow)
+        let operationBtn = UIButton()
+        operationBtn.setTitleColor(UIColor.white, for: .normal)
+        operationBtn.titleLabel?.font = Fonts.Font14_b
+        operationBtn.setBackgroundImage(R.image.background_button_blue()?.tintColor(UIColor(netHex: 0x3460CE)).resizable, for: .normal)
+        operationBtn.setBackgroundImage(R.image.background_button_blue()?.tintColor(UIColor(netHex: 0x3460CE)).resizable, for: .highlighted)
         operationBtn.setTitle("撤销", for: .normal)
         operationBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
+        operationBtn.layer.cornerRadius = 10
+        operationBtn.layer.masksToBounds = true
         return operationBtn
     }()
 
@@ -130,30 +102,15 @@ class VoteInfoView: UIView {
     fileprivate var voteInfo: VoteInfo?
     fileprivate var voteStatus: VoteStatus?
 
-    func handleEmptyData(_ isHidden: Bool) {
-        nodePollsTitleLab.isHidden = isHidden
-        voteStatusTitleLab.isHidden = isHidden
-        operationTitleLab.isHidden = isHidden
-
-        nodePollsLab.isHidden = isHidden
-        voteStatusLab.isHidden = isHidden
-        operationBtn.isHidden = isHidden
-    }
-
-    func reloadData(_ voteInfo: VoteInfo?, _ voteStatus: VoteStatus?) {
+    func reloadData(_ voteInfo: VoteInfo, _ voteStatus: VoteStatus?) {
         self.voteInfo = voteInfo
         self.voteStatus = voteStatus
 
-        guard let voteInfo = self.voteInfo else {
-            self.handleEmptyData(true)
-            return
-        }
-        self.handleEmptyData(false)
-        nodeNameLab.text = voteInfo.nodeName
+        nodeNameLab.text = "hellworlddhellworlddninhao_dddddddninhao_ddddddd"//voteInfo.nodeName
         nodeStatusLab.text = voteInfo.nodeStatus?.display
 
         nodePollsLab.text =  voteInfo.balance?.amountShort(decimals: TokenCacheService.instance.viteToken.decimals)
-        voteStatusLab.text = voteStatus?.display
+        voteStatusLab.titleLab.text = voteStatus?.display
 
         if  voteStatus == .voting || voteStatus == .cancelVoting {
             operationBtn.isEnabled = true
@@ -163,84 +120,56 @@ class VoteInfoView: UIView {
     }
 
     private func _addViewConstraint() {
-        self.addSubview(nodeNameTitleLab)
+        self.addSubview(bgView)
+        bgView.snp.makeConstraints { (make) -> Void in
+            make.edges.equalTo(self)
+        }
+
         self.addSubview(nodeNameLab)
-
-        self.addSubview(nodeStatusTitleLab)
         self.addSubview(nodeStatusLab)
-
         self.addSubview(nodePollsTitleLab)
         self.addSubview(nodePollsLab)
-
-        self.addSubview(voteStatusTitleLab)
         self.addSubview(voteStatusLab)
-
-        self.addSubview(operationTitleLab)
         self.addSubview(operationBtn)
 
-        nodeNameTitleLab.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self)
-            make.left.equalTo(self)
-            make.height.equalTo(30)
-            make.width.equalTo(100)
-        }
-        nodeNameLab.snp.makeConstraints { (make) -> Void in
-            make.centerY.equalTo(nodeNameTitleLab)
-            make.left.equalTo(nodeNameTitleLab.snp.right).offset(20)
-            make.height.equalTo(30)
+        nodeStatusLab.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self).offset(14)
+            make.left.equalTo(self).offset(14)
+            make.height.equalTo(20)
             make.width.equalTo(100)
         }
 
-        nodeStatusTitleLab.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(nodeNameTitleLab.snp.bottom)
-            make.left.equalTo(self)
-            make.height.equalTo(30)
-            make.width.equalTo(100)
+        voteStatusLab.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self).offset(14)
+            make.right.equalTo(self).offset(-14)
+            make.height.equalTo(20)
+            make.width.equalTo(60)
         }
-        nodeStatusLab.snp.makeConstraints { (make) -> Void in
-            make.centerY.equalTo(nodeStatusTitleLab)
-            make.left.equalTo(nodeStatusTitleLab.snp.right).offset(20)
-            make.height.equalTo(30)
-            make.width.equalTo(100)
+
+        nodeNameLab.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self).offset(61)
+            make.left.equalTo(self).offset(14)
+            make.right.equalTo(self).offset(-14)
+            make.height.equalTo(20)
         }
 
         nodePollsTitleLab.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(nodeStatusTitleLab.snp.bottom)
-            make.left.equalTo(self)
-            make.height.equalTo(30)
-            make.width.equalTo(100)
+            make.bottom.equalTo(self.snp.bottom).offset(-16)
+            make.left.equalTo(self).offset(14)
+            make.height.equalTo(20)
         }
         nodePollsLab.snp.makeConstraints { (make) -> Void in
             make.centerY.equalTo(nodePollsTitleLab)
-            make.left.equalTo(nodePollsTitleLab.snp.right).offset(20)
-            make.height.equalTo(30)
-            make.width.equalTo(100)
-        }
-
-        voteStatusTitleLab.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(nodePollsTitleLab.snp.bottom)
-            make.left.equalTo(self)
-            make.height.equalTo(30)
-            make.width.equalTo(100)
-        }
-        voteStatusLab.snp.makeConstraints { (make) -> Void in
-            make.centerY.equalTo(voteStatusTitleLab)
-            make.left.equalTo(voteStatusTitleLab.snp.right).offset(20)
-            make.height.equalTo(30)
-            make.width.equalTo(100)
-        }
-
-        operationTitleLab.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(voteStatusTitleLab.snp.bottom)
-            make.left.equalTo(self)
-            make.height.equalTo(30)
-            make.width.equalTo(100)
+            make.left.equalTo(nodePollsTitleLab.snp.right).offset(10)
+            make.height.equalTo(20)
+            make.right.lessThanOrEqualTo(self).offset(-70)
+//            make.width.lessThanOrEqualTo(100)
         }
         operationBtn.snp.makeConstraints { (make) -> Void in
-            make.centerY.equalTo(operationTitleLab)
-            make.left.equalTo(operationTitleLab.snp.right).offset(20)
-            make.height.equalTo(30)
-            make.width.equalTo(100)
+            make.centerY.equalTo(nodePollsTitleLab)
+            make.right.equalTo(self).offset(-14)
+            make.height.equalTo(22)
+            make.width.equalTo(50)
         }
     }
 }

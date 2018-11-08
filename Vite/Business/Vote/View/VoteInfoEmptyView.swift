@@ -24,7 +24,7 @@ class VoteInfoBgView: UIView {
     lazy var lineImg: UIImageView = {
         let lineImg = UIImageView()
         lineImg.isUserInteractionEnabled = true
-        lineImg.image = R.image.dotted_line()
+        lineImg.image = R.image.dotted_line()?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0), resizingMode: .tile)
         return lineImg
     }()
 
@@ -38,6 +38,7 @@ class VoteInfoBgView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
+        self.isUserInteractionEnabled = true
 
         self.addSubview(bgImg)
         bgImg.snp.makeConstraints { (make) -> Void in
@@ -54,6 +55,7 @@ class VoteInfoBgView: UIView {
         lineImg.snp.makeConstraints { (make) -> Void in
             make.left.right.equalTo(self)
             make.top.equalTo(self).offset(46)
+            make.height.equalTo(1)
         }
 
         self.addSubview(iconImg)
@@ -109,4 +111,3 @@ class VoteInfoEmptyView: UIView {
         }
     }
 }
-

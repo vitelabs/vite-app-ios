@@ -39,6 +39,8 @@
 		4C5A13E62193D6CD000A979F /* LabelTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13E52193D6CD000A979F /* LabelTipView.swift */; };
 		4C5A13E82193E953000A979F /* VoteInfoEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13E72193E953000A979F /* VoteInfoEmptyView.swift */; };
 		4C5A13EA21940562000A979F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5A13E921940562000A979F /* Images.xcassets */; };
+		4C5A13EC21942544000A979F /* IconLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13EB21942544000A979F /* IconLabelView.swift */; };
+		4C5A13F02194359A000A979F /* LabelBgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13EF2194359A000A979F /* LabelBgView.swift */; };
 		4C5E23022192EDDE0010B905 /* Provider+Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23012192EDDD0010B905 /* Provider+Vote.swift */; };
 		4C5E23062192EDEB0010B905 /* CancelVoteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23042192EDEB0010B905 /* CancelVoteRequest.swift */; };
 		4C5E23072192EDEB0010B905 /* GetVoteInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23052192EDEB0010B905 /* GetVoteInfoRequest.swift */; };
@@ -277,6 +279,8 @@
 		4C5A13E52193D6CD000A979F /* LabelTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTipView.swift; sourceTree = "<group>"; };
 		4C5A13E72193E953000A979F /* VoteInfoEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteInfoEmptyView.swift; sourceTree = "<group>"; };
 		4C5A13E921940562000A979F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4C5A13EB21942544000A979F /* IconLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconLabelView.swift; sourceTree = "<group>"; };
+		4C5A13EF2194359A000A979F /* LabelBgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelBgView.swift; sourceTree = "<group>"; };
 		4C5E23012192EDDD0010B905 /* Provider+Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Provider+Vote.swift"; sourceTree = "<group>"; };
 		4C5E23042192EDEB0010B905 /* CancelVoteRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelVoteRequest.swift; sourceTree = "<group>"; };
 		4C5E23052192EDEB0010B905 /* GetVoteInfoRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetVoteInfoRequest.swift; sourceTree = "<group>"; };
@@ -696,6 +700,8 @@
 				4C56E03E2186B164003550BC /* PopViewController.swift */,
 				4C32E20C2182FC4100007E9F /* Transition */,
 				4C5A13E52193D6CD000A979F /* LabelTipView.swift */,
+				4C5A13EB21942544000A979F /* IconLabelView.swift */,
+				4C5A13EF2194359A000A979F /* LabelBgView.swift */,
 			);
 			path = UGCKit;
 			sourceTree = "<group>";
@@ -1686,6 +1692,7 @@
 				8E0FB69B21704289001525EB /* Log.swift in Sources */,
 				8EE468E6214A077D00807D2C /* AddressManagerTableViewModelType.swift in Sources */,
 				8E6F3E3A2144C3B5003CDFC2 /* BalanceInfoDetailViewController.swift in Sources */,
+				4C5A13F02194359A000A979F /* LabelBgView.swift in Sources */,
 				8E548534217DA62B009C528B /* UserDefaultsService.swift in Sources */,
 				8E54854E21816C55009C528B /* QuotaManageViewController.swift in Sources */,
 				740C3E52214CB832005FCD24 /* ConfirmTransactionView.swift in Sources */,
@@ -1756,6 +1763,7 @@
 				8E56FC902147684200A68823 /* TransactionListTableViewModelType.swift in Sources */,
 				8E79261A21522085007FEBAB /* Alert.swift in Sources */,
 				4C181B06215CD5E000FB6CA8 /* AppUpdateVM.swift in Sources */,
+				4C5A13EC21942544000A979F /* IconLabelView.swift in Sources */,
 				8E0FB69D217053AE001525EB /* UIWindow+Debug.swift in Sources */,
 				8EE468E3214A047500807D2C /* AddressManageDefaultAddressCell.swift in Sources */,
 				8E6F3E16214227E7003CDFC2 /* WalletHomeViewController.swift in Sources */,

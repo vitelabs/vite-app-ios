@@ -41,7 +41,7 @@ class VoteHomeViewController: BaseViewController {
             let delegate =  StyleActionSheetTranstionDelegate()
             vc.transitioningDelegate = delegate
             self?.present(vc, animated: true, completion: nil)
-            }.disposed(by: rx.disposeBag)
+        }.disposed(by: rx.disposeBag)
         return view
     }
 
