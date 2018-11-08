@@ -25,7 +25,7 @@ struct GetPowNonceRequest: JSONRPCKit.Request {
     var parameters: Any? {
         let preHash = self.preHash ?? AccountBlock.Const.defaultHash
         let text = address.raw + preHash
-        let data: String = Blake2b.hash(outLength: 32, in: text.bytes)?.toHexString() ?? ""
+        let data: String = Blake2b.hash(outLength: 32, in: text.hex2Bytes)?.toHexString() ?? ""
         return [String(difficulty), data]
     }
 
