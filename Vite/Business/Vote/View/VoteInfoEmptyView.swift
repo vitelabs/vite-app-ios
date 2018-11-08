@@ -24,7 +24,7 @@ class VoteInfoBgView: UIView {
     lazy var lineImg: UIImageView = {
         let lineImg = UIImageView()
         lineImg.isUserInteractionEnabled = true
-        lineImg.image = R.image.dotted_line()?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0), resizingMode: .tile)
+        lineImg.image = R.image.dotted_line()?.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), resizingMode: .tile)
         return lineImg
     }()
 

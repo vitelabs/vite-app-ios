@@ -40,4 +40,3 @@ class IconLabelView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-

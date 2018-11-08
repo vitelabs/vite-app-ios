@@ -21,7 +21,7 @@ class LabelTipView: UIView {
         $0.setImage(R.image.icon_button_infor()?.highlighted, for: .highlighted)
     }
 
-    init(_ title: String) {
+    init(_ title: String?) {
         super.init(frame: CGRect.zero)
         self.backgroundColor = .clear
         titleLab.text = title
@@ -38,6 +38,8 @@ class LabelTipView: UIView {
             m.centerY.equalTo(titleLab)
             m.left.equalTo(titleLab.snp.right).offset(4)
             m.right.equalTo(self)
+            m.height.equalTo(titleLab).offset(-8)
+            m.width.equalTo(tipButton.snp.height)
         }
     }
 

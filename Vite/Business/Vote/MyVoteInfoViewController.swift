@@ -62,6 +62,14 @@ class MyVoteInfoViewController: BaseViewController, View {
 
 extension MyVoteInfoViewController {
     func bind(reactor: MyVoteInfoViewReactor) {
+        self.viewInfoView.nodeStatusLab.tipButton.rx.tap.bind { [weak self] in
+            let url  = URL(string: String(format: "%@?localize=%@", Constants.voteLoserURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
+            let vc = PopViewController(url: url)
+            vc.modalPresentationStyle = .overCurrentContext
+            let delegate =  StyleActionSheetTranstionDelegate()
+            vc.transitioningDelegate = delegate
+            self?.present(vc, animated: true, completion: nil)
+        }.disposed(by: rx.disposeBag)
 
         //handle cancel vote
          self.viewInfoView.operationBtn.rx.tap.bind {_ in
@@ -79,7 +87,7 @@ extension MyVoteInfoViewController {
 //                }
                 var voteInfo = VoteInfo()
                 voteInfo.nodeName = "dfasdfasfdasfdasdf"
-                voteInfo.nodeStatus = .valid
+                voteInfo.nodeStatus = .invalid
                 voteInfo.balance = Balance.init(value: BigInt(121221221221221221222122122212.121))
 
                 self.viewInfoView.isHidden = false

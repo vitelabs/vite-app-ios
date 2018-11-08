@@ -27,4 +27,5 @@ public struct Constants {
     #endif
     public static let quotaDefinitionURL = "https://app.vite.net/quotaDefinition"
     public static let voteDefinitionURL = "https://app.vite.net/vote"
+    public static let voteLoserURL = "https://app.vite.net/vote"
 }

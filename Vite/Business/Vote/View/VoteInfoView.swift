@@ -43,11 +43,14 @@ class VoteInfoView: UIView {
         return nodeNameLab
     }()
 
-    lazy var nodeStatusLab: UILabel = {
-        let nodeStatusLab = UILabel()
-        nodeStatusLab.textAlignment = .left
-        nodeStatusLab.font = Fonts.Font14_b
-        nodeStatusLab.textColor  = .white
+    lazy var nodeStatusLab: LabelTipView = {
+        let nodeStatusLab = LabelTipView("")
+        nodeStatusLab.titleLab.textAlignment = .left
+        nodeStatusLab.titleLab.font = Fonts.Font14_b
+        nodeStatusLab.titleLab.textColor  = .white
+        nodeStatusLab.tipButton.setImage(R.image.icon_button_infor()?.tintColor(.white).resizable, for: .normal)
+        nodeStatusLab.tipButton.setImage(R.image.icon_button_infor()?.tintColor(.white).resizable, for: .highlighted)
+        nodeStatusLab.tipButton.isHidden = true
         return nodeStatusLab
     }()
 
@@ -107,14 +110,26 @@ class VoteInfoView: UIView {
         self.voteStatus = voteStatus
 
         nodeNameLab.text = voteInfo.nodeName
-        nodeStatusLab.text = voteInfo.nodeStatus?.display
+        nodeStatusLab.titleLab.text = voteInfo.nodeStatus?.display
 
         nodePollsLab.text =  voteInfo.balance?.amountShort(decimals: TokenCacheService.instance.viteToken.decimals)
         voteStatusLab.titleLab.text = voteStatus?.display
 
+        if  voteInfo.nodeStatus == .valid {
+            nodeStatusLab.tipButton.isHidden = true
+        } else {
+            nodeStatusLab.tipButton.isHidden = false
+        }
+
         if  voteStatus == .voting || voteStatus == .cancelVoting {
+            voteStatusLab.bgImg.image = R.image.btn_path_bg()?.tintColor(UIColor(netHex: 0x0046FF)).resizable
             operationBtn.isEnabled = true
         } else {
+            if (voteStatus == .voteSuccess || voteStatus == .cancelVoteSuccess) {
+                voteStatusLab.bgImg.image = R.image.btn_path_bg()?.tintColor(UIColor(netHex: 0xFEC102)).resizable
+            } else if(voteStatus == .voteInvalid) {
+                voteStatusLab.bgImg.image = R.image.btn_path_bg()?.tintColor(UIColor(netHex: 0x99A4C1)).resizable
+            }
             operationBtn.isEnabled = false
         }
     }
@@ -136,7 +151,6 @@ class VoteInfoView: UIView {
             make.top.equalTo(self).offset(14)
             make.left.equalTo(self).offset(14)
             make.height.equalTo(20)
-            make.width.equalTo(100)
         }
 
         voteStatusLab.snp.makeConstraints { (make) -> Void in
@@ -163,7 +177,6 @@ class VoteInfoView: UIView {
             make.left.equalTo(nodePollsTitleLab.snp.right).offset(10)
             make.height.equalTo(20)
             make.right.lessThanOrEqualTo(self).offset(-70)
-//            make.width.lessThanOrEqualTo(100)
         }
         operationBtn.snp.makeConstraints { (make) -> Void in
             make.centerY.equalTo(nodePollsTitleLab)

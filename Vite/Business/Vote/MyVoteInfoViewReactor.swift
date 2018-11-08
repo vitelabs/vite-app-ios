@@ -87,13 +87,9 @@ final class MyVoteInfoViewReactor: Reactor {
 
         return Observable<(VoteInfo?, String?)>.create({ (observer) -> Disposable in
             Provider.instance.getVoteInfo(address: self.address
-            ) { [weak self] (result) in
+            ) { (result) in
                 switch result {
                 case .success(let voteInfo):
-                    //                    guard let voteInfo = voteInfo else {
-                    //                        self?.viewInfoView.isHidden = true
-                    //                        return
-                    //                    }
                     observer.onNext((voteInfo, nil))
                     observer.onCompleted()
                 case .error(let error):
