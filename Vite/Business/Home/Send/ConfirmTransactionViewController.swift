@@ -8,7 +8,47 @@
 
 import UIKit
 
-class ConfirmTransactionViewController: UIViewController, PasswordInputViewDelegate {
+extension ConfirmViewController {
+
+    //Send Transcation Normally
+    convenience init(confirmType: ConfirmTransactionType,
+                     address: String,
+                     token: String,
+                     amount: String,
+                     completion:@escaping ((ConfirmTransactionResult) -> Void)) {
+        self.init(confirmType: confirmType,
+                  title: R.string.localizable.confirmTransactionPageTitle.key.localized(),
+                  infoTitle: R.string.localizable.confirmTransactionAddressTitle.key.localized(),
+                  info: address,
+                  token: token,
+                  amount: amount,
+                  confirmTitle: R.string.localizable.confirmTransactionPageConfirmButton.key.localized(),
+                  completion: completion)
+    }
+
+    //Comfirm Vote
+    class func comfirmVote(title: String,
+                           nodeName: String,
+                           completion:@escaping ((ConfirmTransactionResult) -> Void)) -> ConfirmTransactionViewController {
+
+        let biometryAuthConfig = HDWalletManager.instance.isTransferByBiometry
+        let confirmType: ConfirmTransactionViewController.ConfirmTransactionType =  biometryAuthConfig ? .biometry : .password
+        return ConfirmTransactionViewController
+            .init(confirmType: confirmType,
+                  title: title,
+                  infoTitle: R.string.localizable.confirmTransactionPageNodeName.key.localized(),
+                  info: nodeName,
+                  token: nil,
+                  amount: nil,
+                  confirmTitle: "确认",
+                  completion: completion)
+    }
+
+}
+
+typealias ConfirmTransactionViewController = ConfirmViewController
+
+class ConfirmViewController: UIViewController, PasswordInputViewDelegate {
 
     enum ConfirmTransactionType {
         case password
@@ -22,27 +62,42 @@ class ConfirmTransactionViewController: UIViewController, PasswordInputViewDeleg
         case passwordAuthFailed
     }
 
-    let confirmView = ConfirmTransactionView()
-
-    let completion: (ConfirmTransactionResult) -> Void
-
     init(confirmType: ConfirmTransactionType,
-         address: String,
-         token: String,
-         amount: String,
+         title: String,
+         infoTitle: String,
+         info: String,
+         token: String?,
+         amount: String?,
+         confirmTitle: String,
          completion:@escaping ((ConfirmTransactionResult) -> Void)) {
+
         self.completion = completion
         super.init(nibName: nil, bundle: nil)
         self.modalPresentationStyle = .custom
-        confirmView.tokenLabel.text = token
-        confirmView.addressLabel.text = address
-        confirmView.amountLabel.text = amount
+
         confirmView.type = confirmType
+        confirmView.titleLabel.text = title
+        confirmView.infoTitleLabel.text = infoTitle
+        confirmView.infoLabel.text = info
+        confirmView.amountLabel.text = amount
+        confirmView.tokenLabel.text = token
+        confirmView.confirmButton.setTitle(confirmTitle, for: .normal)
+
+        if token == nil && amount == nil {
+            confirmViewHeight = 224
+            confirmView.transactionInfoView.backgroundView.isHidden = true
+            confirmView.transactionInfoView.tokenLabel.isHidden = true
+            confirmView.transactionInfoView.amountLabel.isHidden = true
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    let confirmView = ConfirmTransactionView()
+    let completion: (ConfirmTransactionResult) -> Void
+    var confirmViewHeight = 334.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +111,7 @@ class ConfirmTransactionViewController: UIViewController, PasswordInputViewDeleg
         confirmView.passwordView.delegate = self
         confirmView.snp.makeConstraints { (m) in
             m.leading.trailing.bottom.equalToSuperview()
-            m.height.equalTo(334)
+            m.height.equalTo(confirmViewHeight)
         }
     }
 

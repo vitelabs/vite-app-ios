@@ -15,10 +15,9 @@ class VoteListViewController: BaseViewController {
 
     let reactor = VoteListReactor()
 
-    let textView = UITextView()
-    let textView1 = UITextView()
-    let button = UIButton()
     let tableView = UITableView()
+
+    let searchBar = SearchBar()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,56 +30,58 @@ class VoteListViewController: BaseViewController {
     }
 
     func setupUI() {
-        textView.backgroundColor = .blue
 
-        textView1.backgroundColor = .magenta
-        textView1.text = "s10"
-
-        button.backgroundColor = .yellow
-        button.setTitle("Vote", for: .normal)
-
-        view.addSubview(textView)
-        view.addSubview(textView1)
-        view.addSubview(button)
-
-        textView.snp.makeConstraints { (m) in
-            m.width.height.equalTo(40)
-            m.top.left.equalToSuperview()
-        }
-
-        textView1.snp.makeConstraints { (m) in
-            m.width.height.equalTo(40)
+        let titleLabel = UILabel()
+        titleLabel.text = "候选节点列表"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        titleLabel.textColor = UIColor.init(netHex: 0x3e4a59)
+        view.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { (m) in
             m.top.equalToSuperview()
-            m.centerX.equalToSuperview()
+            m.left.equalToSuperview().offset(24)
         }
 
-        button.snp.makeConstraints { (m) in
-            m.width.height.equalTo(40)
-            m.top.right.equalToSuperview()
+        view.addSubview(searchBar)
+
+        searchBar.placeholder = "搜索候选节点名称或出块地址"
+
+        searchBar.snp.makeConstraints { (m) in
+            m.left.equalToSuperview().offset(10)
+            m.top.equalTo(titleLabel.snp.bottom).offset(14)
+            m.right.equalToSuperview().offset(-10)
+            m.height.equalTo(36+16)
         }
 
         view.addSubview(tableView)
 
+        tableView.keyboardDismissMode = .onDrag
+        tableView.rowHeight = 100
+
         tableView.snp.makeConstraints { (m) in
             m.left.right.bottom.equalToSuperview()
-            m.top.equalToSuperview().offset(40)
+            m.top.equalTo(searchBar.snp.bottom).offset(10)
         }
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(CandidateCell.self, forCellReuseIdentifier: "Cell")
     }
 
     func bind() {
 
-        textView.rx.text
+        searchBar.rx.text
             .bind(to: reactor.search)
             .disposed(by: rx.disposeBag)
 
-        button.rx.tap.withLatestFrom(textView1.rx.text)
-            .filterNil()
-            .bind(to: reactor.vote)
-            .disposed(by: rx.disposeBag)
-
         let result = reactor.result()
+
+        self.view.displayLoading()
+        result
+            .map { $0.isEmpty }
+            .filter { !$0 }
+            .take(1)
+            .bind { _ in
+                self.view.hideLoading()
+            }
+            .disposed(by: rx.disposeBag)
 
         result
             .map { $0.isEmpty }
@@ -90,10 +91,17 @@ class VoteListViewController: BaseViewController {
             .disposed(by: rx.disposeBag)
 
         result
-            .bind(to: tableView.rx.items(cellIdentifier: "Cell")) { _, candidate, cell in
-               cell.textLabel?.text = candidate.name
+            .bind(to: tableView.rx.items(cellIdentifier: "Cell")) { [unowned self] _, candidate, cell in
+               let cell = cell as! CandidateCell
+                cell.nodeNameLabel.text = candidate.name
+                cell.voteCountLabel.text = candidate.voteNum
+                cell.addressLabel.text = " " + candidate.nodeAddr
+                cell.disposeable?.dispose()
+                cell.disposeable = cell.voteButton.rx.tap.bind {
+                    self.vote(nodeName: candidate.name)
+                }
+                cell.disposeable?.disposed(by: cell.rx.disposeBag)
             }
-
             .disposed(by: rx.disposeBag)
 
         reactor.voteError.asObservable()
@@ -104,6 +112,41 @@ class VoteListViewController: BaseViewController {
                 }
             }
             .disposed(by: rx.disposeBag)
+    }
+
+    var status = false
+
+    func vote(nodeName: String) {
+
+        func confirmVote() {
+            let confirmVC = ConfirmTransactionViewController.comfirmVote(title: "Vote",
+                                                                         nodeName: nodeName) { [unowned self] (result) in
+                switch result {
+                case .success:
+                    self.reactor.vote.value = nodeName
+                default:
+                    break
+                }
+            }
+            self.present(confirmVC, animated: false, completion: nil)
+        }
+
+        if status {
+            confirmVote()
+        } else {
+            Alert.show(into: self,
+                       title: "投票",
+                       message: "您已经投过票，再次投票将会覆盖上一次投票",
+                       actions: [
+                        (.default(title:"确认覆盖"), {  _ in
+                            confirmVote()
+                       }),
+                        (.default(title: "取消"), {  _ in
+                            self.dismiss(animated: false, completion: nil)
+                       })])
+
+            return
+        }
     }
 
 }

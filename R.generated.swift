@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 65 images.
+  /// This `R.image` struct is generated, and contains static references to 68 images.
   struct image {
     /// Image `aboutus_logo`.
     static let aboutus_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "aboutus_logo")
@@ -117,6 +117,8 @@ struct R: Rswift.Validatable {
     static let icon_quota = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_quota")
     /// Image `icon_right_white`.
     static let icon_right_white = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_right_white")
+    /// Image `icon_search`.
+    static let icon_search = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_search")
     /// Image `icon_setting`.
     static let icon_setting = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_setting")
     /// Image `icon_tabbar_me_select`.
@@ -139,6 +141,10 @@ struct R: Rswift.Validatable {
     static let icon_tx_send = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_send")
     /// Image `icon_vite_logo`.
     static let icon_vite_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_vite_logo")
+    /// Image `icon_voteaddress`.
+    static let icon_voteaddress = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_voteaddress")
+    /// Image `icon_votecount`.
+    static let icon_votecount = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_votecount")
     /// Image `icon_wallet`.
     static let icon_wallet = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_wallet")
     /// Image `login_bg`.
@@ -374,6 +380,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.icon_right_white, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "icon_search", bundle: ..., traitCollection: ...)`
+    static func icon_search(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_search, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "icon_setting", bundle: ..., traitCollection: ...)`
     static func icon_setting(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.icon_setting, compatibleWith: traitCollection)
@@ -427,6 +438,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "icon_vite_logo", bundle: ..., traitCollection: ...)`
     static func icon_vite_logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.icon_vite_logo, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_voteaddress", bundle: ..., traitCollection: ...)`
+    static func icon_voteaddress(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_voteaddress, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_votecount", bundle: ..., traitCollection: ...)`
+    static func icon_votecount(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_votecount, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "icon_wallet", bundle: ..., traitCollection: ...)`
@@ -572,7 +593,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 188 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 191 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -690,6 +711,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageNotEnoughBalanceAlertButton = Rswift.StringResource(key: "send.page.not.enough.balance.alert.button", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Cancel Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static let confirmTransactionPageCancelVote = Rswift.StringResource(key: "confirm.transaction.page.cancel.vote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Cannot be identified
       /// 
       /// Locales: en, zh-Hans
@@ -946,6 +971,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let scanPageQccodeNotFound = Rswift.StringResource(key: "Scan.page.qccode.not.found", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Node Name
+      /// 
+      /// Locales: en, zh-Hans
+      static let confirmTransactionPageNodeName = Rswift.StringResource(key: "confirm.transaction.page.node.name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Not available to send a transaction due to lack of quota, please delete descriptive text and run PoW, or gain quota by staking token to resume.
       /// 
       /// Locales: en, zh-Hans
@@ -1262,6 +1291,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let aboutUsPageCellOfficialWebsite = Rswift.StringResource(key: "aboutUs.page.cell.official.website", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static let confirmTransactionPageVote = Rswift.StringResource(key: "confirm.transaction.page.vote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Wallet
       /// 
       /// Locales: en, zh-Hans
@@ -1528,6 +1561,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func sendPageNotEnoughBalanceAlertButton(_: Void = ()) -> String {
         return NSLocalizedString("send.page.not.enough.balance.alert.button", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Cancel Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static func confirmTransactionPageCancelVote(_: Void = ()) -> String {
+        return NSLocalizedString("confirm.transaction.page.cancel.vote", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Cannot be identified
@@ -1976,6 +2016,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func scanPageQccodeNotFound(_: Void = ()) -> String {
         return NSLocalizedString("Scan.page.qccode.not.found", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Node Name
+      /// 
+      /// Locales: en, zh-Hans
+      static func confirmTransactionPageNodeName(_: Void = ()) -> String {
+        return NSLocalizedString("confirm.transaction.page.node.name", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Not available to send a transaction due to lack of quota, please delete descriptive text and run PoW, or gain quota by staking token to resume.
@@ -2529,6 +2576,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func aboutUsPageCellOfficialWebsite(_: Void = ()) -> String {
         return NSLocalizedString("aboutUs.page.cell.official.website", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static func confirmTransactionPageVote(_: Void = ()) -> String {
+        return NSLocalizedString("confirm.transaction.page.vote", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Wallet

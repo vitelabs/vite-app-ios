@@ -170,6 +170,9 @@
 "confirm.transaction.page.biometry.confirm.reason" = "验证信息";
 "confirm.transaction.page.use.password.title" = "请输入支付密码";
 "confirm.transaction.page.toast.password.error" = "密码错误";
+"confirm.transaction.page.node.name" = "节点名称";
+"confirm.transaction.page.vote" = "投票";
+"confirm.transaction.page.cancel.vote" = "取消投票";
 
 /* Receive Page */
 "Receive.page.token.title" = "收款";

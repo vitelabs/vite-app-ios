@@ -9,9 +9,9 @@
 import Foundation
 import ObjectMapper
 
-struct Candidate: Mappable {
+class Candidate: NSObject, Mappable {
 
-    init?(map: Map) {
+    required init?(map: Map) {
 
     }
 
@@ -19,7 +19,7 @@ struct Candidate: Mappable {
     var nodeAddr: String = ""
     var voteNum: String = ""
 
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         name <- map["name"]
         nodeAddr <- map["nodeAddr"]
         voteNum <- map["voteNum"]
