@@ -36,7 +36,7 @@ class LabelTipView: UIView {
 
         tipButton.snp.makeConstraints { (m) in
             m.centerY.equalTo(titleLab)
-            m.left.equalTo(titleLab.snp.right).offset(10)
+            m.left.equalTo(titleLab.snp.right).offset(4)
             m.right.equalTo(self)
         }
     }

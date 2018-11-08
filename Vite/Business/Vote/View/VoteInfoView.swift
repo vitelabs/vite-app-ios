@@ -106,7 +106,7 @@ class VoteInfoView: UIView {
         self.voteInfo = voteInfo
         self.voteStatus = voteStatus
 
-        nodeNameLab.text = "hellworlddhellworlddninhao_dddddddninhao_ddddddd"//voteInfo.nodeName
+        nodeNameLab.text = voteInfo.nodeName
         nodeStatusLab.text = voteInfo.nodeStatus?.display
 
         nodePollsLab.text =  voteInfo.balance?.amountShort(decimals: TokenCacheService.instance.viteToken.decimals)

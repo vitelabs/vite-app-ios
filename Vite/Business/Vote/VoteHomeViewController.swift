@@ -35,7 +35,7 @@ class VoteHomeViewController: BaseViewController {
         }
 
         titleLabel.tipButton.rx.tap.bind { [weak self] in
-            let url  = URL(string: String(format: "%@?localize=%@", Constants.quotaDefinitionURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
+            let url  = URL(string: String(format: "%@?localize=%@", Constants.voteDefinitionURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
             let vc = PopViewController(url: url)
             vc.modalPresentationStyle = .overCurrentContext
             let delegate =  StyleActionSheetTranstionDelegate()
@@ -74,7 +74,7 @@ class VoteHomeViewController: BaseViewController {
             make.top.equalTo(self.navigationTitleView!.snp.bottom)
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
-            make.height.equalTo(149)
+            make.height.equalTo(128)
         }
         voteListVC.view.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(myVoteInfoVC.view.snp.bottom).offset(20)

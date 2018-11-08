@@ -35,7 +35,7 @@ class PopViewController: BaseViewController {
 
     private func reloadWeb() {
         let request =
-        URLRequest(url: self.url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 5)
+        URLRequest(url: self.url, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 5)
         self.webView.load(request)
         self.webView.displayLoading(text: "")
     }
@@ -78,7 +78,7 @@ class PopViewController: BaseViewController {
         webView.snp.makeConstraints { (m) in
             m.left.right.equalTo(bgView)
             m.top.equalTo(bgView)
-            m.height.lessThanOrEqualTo(1000)
+            m.height.lessThanOrEqualTo(120)
         }
 
         bgView.addSubview(cancelBtn)
@@ -115,6 +115,9 @@ extension PopViewController: WKNavigationDelegate {
             webView.snp.updateConstraints { (m) in
                 m.height.lessThanOrEqualTo(webViewHeight)
             }
+            UIView.animate(withDuration: 0.3, animations: {
+                webView.layoutIfNeeded()
+            })
         }
     }
 
