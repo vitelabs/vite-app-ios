@@ -13,7 +13,7 @@ import APIKit
 import BigInt
 
 private let gID = "00000000000000000001"
-private let voteContractAddress = Address(string: "vite_0000000000000000000000000000000000000001c9e9f25417")
+private let voteContractAddress = Address(string: "vite_000000000000000000000000000000000000000270a48cc491")
 
 // MARK: Vote
 extension Provider {

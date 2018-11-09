@@ -40,7 +40,7 @@ extension ConfirmViewController {
                   info: nodeName,
                   token: nil,
                   amount: nil,
-                  confirmTitle: "确认",
+                  confirmTitle: R.string.localizable.voteListConfirmButtonTitle.key.localized(),
                   completion: completion)
     }
 
