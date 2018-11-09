@@ -45,6 +45,11 @@ class VoteInfoBgView: UIView {
             make.top.bottom.left.right.equalTo(self)
         }
 
+        self.addSubview(iconImg)
+        iconImg.snp.makeConstraints { (make) -> Void in
+            make.bottom.right.equalTo(self)
+        }
+
         self.addSubview(dotImg)
         dotImg.snp.makeConstraints { (make) -> Void in
             make.right.equalTo(self).offset(5)
@@ -56,11 +61,6 @@ class VoteInfoBgView: UIView {
             make.left.right.equalTo(self)
             make.top.equalTo(self).offset(46)
             make.height.equalTo(1)
-        }
-
-        self.addSubview(iconImg)
-        iconImg.snp.makeConstraints { (make) -> Void in
-            make.bottom.right.equalTo(self)
         }
     }
 

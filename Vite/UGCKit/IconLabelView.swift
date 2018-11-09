@@ -14,9 +14,8 @@ class IconLabelView: UIView {
         $0.textAlignment = .left
     }
 
-    let tipButton = UIButton().then {
-        $0.setImage(R.image.icon_button_infor(), for: .normal)
-        $0.setImage(R.image.icon_button_infor()?.highlighted, for: .highlighted)
+    let tipImg = UIImageView().then {
+        $0.image = R.image.icon_votecount()
     }
 
     init(_ title: String) {
@@ -25,14 +24,14 @@ class IconLabelView: UIView {
         titleLab.text = title
 
         addSubview(titleLab)
-        addSubview(tipButton)
+        addSubview(tipImg)
 
-        tipButton.snp.makeConstraints { (m) in
-            m.left.top.bottom.equalTo(self)
+        tipImg.snp.makeConstraints { (m) in
+            m.left.centerY.equalTo(self)
         }
         titleLab.snp.makeConstraints { (m) in
             m.top.bottom.right.equalTo(self)
-            m.left.equalTo(tipButton.snp.right).offset(10)
+            m.left.equalTo(tipImg.snp.right).offset(4)
         }
     }
 

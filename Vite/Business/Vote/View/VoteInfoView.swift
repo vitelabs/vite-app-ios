@@ -59,6 +59,7 @@ class VoteInfoView: UIView {
         nodePollsTitleLab.titleLab.textAlignment = .left
         nodePollsTitleLab.titleLab.font = Fonts.Font14
         nodePollsTitleLab.titleLab.textColor  = .white
+        nodePollsTitleLab.tipImg.image = R.image.icon_votecount()
         return nodePollsTitleLab
     }()
 
