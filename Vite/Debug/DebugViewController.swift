@@ -25,39 +25,61 @@ class DebugViewController: FormViewController {
         form
             +++
             Section {
+                $0.header = HeaderFooterView(title: "App")
+            }
+            <<< LabelRow("appEnvironment") {
+                $0.title = "Environment"
+                $0.value = DebugService.instance.appEnvironment.name
+            }.onCellSelection { _, _ in
+
+                var actions = DebugService.AppEnvironment.allValues.map { config -> (Alert.UIAlertControllerAletrActionTitle, ((UIAlertController) -> Void)?) in
+                    (.default(title: config.name), { alert in
+
+                        guard let cell = self.form.rowBy(tag: "appEnvironment") as? LabelRow else { return }
+                        DebugService.instance.appEnvironment = config
+                        cell.value = config.name
+                        cell.updateCell()
+
+                        guard let useBigDifficultyCell = self.form.rowBy(tag: "useBigDifficulty") as? SwitchRow else { return }
+                        useBigDifficultyCell.value = DebugService.instance.useBigDifficulty
+                        useBigDifficultyCell.updateCell()
+
+                        guard let rpcUseOnlineUrlCell = self.form.rowBy(tag: "rpcUseOnlineUrl") as? SwitchRow else { return }
+                        rpcUseOnlineUrlCell.value = DebugService.instance.rpcUseOnlineUrl
+                        rpcUseOnlineUrlCell.updateCell()
+
+                        guard let rpcCustomUrlCell = self.form.rowBy(tag: "rpcCustomUrl") as? LabelRow else { return }
+                        if let _ = URL(string: DebugService.instance.rpcCustomUrl) {
+                            rpcCustomUrlCell.title = "Custom URL"
+                            rpcCustomUrlCell.value = DebugService.instance.rpcCustomUrl
+                        } else {
+                            rpcCustomUrlCell.title = "Test URL"
+                            rpcCustomUrlCell.value = DebugService.instance.rpcDefaultTestEnvironmentUrl.absoluteString
+                        }
+                        rpcCustomUrlCell.updateCell()
+
+                        guard let configEnvironmentCell = self.form.rowBy(tag: "configEnvironment") as? LabelRow else { return }
+                        configEnvironmentCell.value = DebugService.instance.configEnvironment.name
+                        configEnvironmentCell.updateCell()
+                    })
+                }
+
+                actions.append((.cancel, nil))
+                ActionSheet.show(into: self, title: "Select App Environment", message: nil, actions: actions)
+            }
+            +++
+            Section {
                 $0.header = HeaderFooterView(title: "Wallet")
             }
-            <<< LabelRow("deleteAllWallets") {
-                $0.title =  "Delete All Wallets"
-            }.onCellSelection({ [unowned self]  _, _  in
-                self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
-                DispatchQueue.global().async {
-                    HDWalletManager.instance.deleteAllWallets()
-                    KeychainService.instance.clearCurrentWallet()
-                    DispatchQueue.main.async {
-                        self.view.hideLoading()
-                        NotificationCenter.default.post(name: .logoutDidFinish, object: nil)
-                    }
-                }
-            })
-            <<< LabelRow("resetCurrentWalletBagCount") {
-                $0.title =  "Reset Current Wallet Bag Count"
-            }.onCellSelection({ _, _  in
-                HDWalletManager.instance.resetBagCount()
-                Toast.show("Operation complete")
-            })
-            <<< LabelRow("deleteTokenCache") {
-                $0.title =  "Delete Token Cache"
-            }.onCellSelection({ _, _  in
-                TokenCacheService.instance.deleteCache()
-                Toast.show("Operation complete")
-            })
             <<< SwitchRow("useBigDifficulty") {
                 $0.title = "Use Big Difficulty"
                 $0.value = DebugService.instance.useBigDifficulty
             }.onChange { row in
-                    guard let ret = row.value else { return }
-                    DebugService.instance.useBigDifficulty = ret
+                guard let ret = row.value else { return }
+                DebugService.instance.useBigDifficulty = ret
+                guard let cell = self.form.rowBy(tag: "appEnvironment") as? LabelRow else { return }
+                cell.value = DebugService.instance.appEnvironment.name
+                cell.updateCell()
             }
             +++
             Section {
@@ -69,6 +91,9 @@ class DebugViewController: FormViewController {
             }.onChange { row in
                 guard let ret = row.value else { return }
                 DebugService.instance.rpcUseOnlineUrl = ret
+                guard let cell = self.form.rowBy(tag: "appEnvironment") as? LabelRow else { return }
+                cell.value = DebugService.instance.appEnvironment.name
+                cell.updateCell()
             }
             <<< LabelRow("rpcCustomUrl") {
                 $0.hidden = "$rpcUseOnlineUrl == true"
@@ -97,6 +122,9 @@ class DebugViewController: FormViewController {
                         } else {
                             Toast.show("Error Format")
                         }
+                        guard let appCell = self.form.rowBy(tag: "appEnvironment") as? LabelRow else { return }
+                        appCell.value = DebugService.instance.appEnvironment.name
+                        appCell.updateCell()
                     }),
                     ], config: { alert in
                         alert.addTextField(configurationHandler: { (textField) in
@@ -121,6 +149,9 @@ class DebugViewController: FormViewController {
                         DebugService.instance.configEnvironment = config
                         cell.value = config.name
                         cell.updateCell()
+                        guard let appCell = self.form.rowBy(tag: "appEnvironment") as? LabelRow else { return }
+                        appCell.value = DebugService.instance.appEnvironment.name
+                        appCell.updateCell()
                     })
                 }
 
@@ -150,6 +181,35 @@ class DebugViewController: FormViewController {
                 guard let ret = row.value else { return }
                 DebugService.instance.reportEventInDebug = ret
             }
+            +++
+            Section {
+                $0.header = HeaderFooterView(title: "Operation")
+            }
+            <<< LabelRow("deleteAllWallets") {
+                $0.title =  "Delete All Wallets"
+            }.onCellSelection({ [unowned self]  _, _  in
+                self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
+                DispatchQueue.global().async {
+                    HDWalletManager.instance.deleteAllWallets()
+                    KeychainService.instance.clearCurrentWallet()
+                    DispatchQueue.main.async {
+                        self.view.hideLoading()
+                        NotificationCenter.default.post(name: .logoutDidFinish, object: nil)
+                    }
+                }
+            })
+            <<< LabelRow("resetCurrentWalletBagCount") {
+                $0.title =  "Reset Current Wallet Bag Count"
+            }.onCellSelection({ _, _  in
+                HDWalletManager.instance.resetBagCount()
+                Toast.show("Operation complete")
+            })
+            <<< LabelRow("deleteTokenCache") {
+                $0.title =  "Delete Token Cache"
+            }.onCellSelection({ _, _  in
+                TokenCacheService.instance.deleteCache()
+                Toast.show("Operation complete")
+            })
         #endif
     }
 
