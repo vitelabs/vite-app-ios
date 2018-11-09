@@ -14,6 +14,8 @@ class DebugService: Mappable {
     fileprivate let fileHelper = FileHelper(.library, appending: FileHelper.appPathComponent)
     fileprivate static let saveKey = "DebugService"
 
+    let rpcDefaultTestEnvironmentUrl = URL(string: "http://45.40.197.46:48132")!
+
     var useBigDifficulty = false {
         didSet {
             guard useBigDifficulty != oldValue else { return }
@@ -21,16 +23,54 @@ class DebugService: Mappable {
         }
     }
 
-    var cosUseTestEnvironment = false {
+    enum ConfigEnvironment: Int {
+        case test = 0
+        case stage = 1
+        case online = 2
+
+        static var allValues: [ConfigEnvironment] = [.test, .stage, .online]
+
+        var name: String {
+            switch self {
+            case .test:
+                return "Test"
+            case .stage:
+                return "Stage"
+            case .online:
+                return "Online"
+            }
+        }
+
+        var url: URL {
+            switch self {
+            case .test:
+                return URL(string: "https://testnet-vite-test-1257137467.cos.ap-beijing.myqcloud.com/config")!
+            case .stage:
+                return URL(string: "https://testnet-vite-stage-1257137467.cos.ap-beijing.myqcloud.com/config")!
+            case .online:
+                return URL(string: "https://testnet-vite-1257137467.cos.ap-hongkong.myqcloud.com/config")!
+            }
+        }
+    }
+
+    var configEnvironment = ConfigEnvironment.test {
         didSet {
-            guard cosUseTestEnvironment != oldValue else { return }
+            guard configEnvironment != oldValue else { return }
             pri_save()
         }
     }
 
-    var rpcUseHTTP = false {
+    var rpcUseOnlineUrl = false {
         didSet {
-            guard rpcUseHTTP != oldValue else { return }
+            guard rpcUseOnlineUrl != oldValue else { return }
+            pri_save()
+        }
+    }
+
+    var rpcCustomUrl = "" {
+        didSet {
+            plog(level: .debug, log: self.rpcCustomUrl)
+            guard rpcCustomUrl != oldValue else { return }
             pri_save()
         }
     }
@@ -53,8 +93,9 @@ class DebugService: Mappable {
 
     func mapping(map: Map) {
         useBigDifficulty <- map["useBigDifficulty"]
-        cosUseTestEnvironment <- map["cosUseTestEnvironment"]
-        rpcUseHTTP <- map["rpcUseHTTP"]
+        rpcUseOnlineUrl <- map["rpcUseOnlineUrl"]
+        rpcCustomUrl <- map["rpcCustomUrl"]
+        configEnvironment <- map["configEnvironment"]
         showStatisticsToast <- map["showStatisticsToast"]
         reportEventInDebug <- map["reportEventInDebug"]
     }
@@ -65,8 +106,9 @@ class DebugService: Mappable {
             let jsonString = String(data: data, encoding: .utf8),
             let d = DebugService(JSONString: jsonString) {
             self.useBigDifficulty = d.useBigDifficulty
-            self.cosUseTestEnvironment = d.cosUseTestEnvironment
-            self.rpcUseHTTP = d.rpcUseHTTP
+            self.rpcUseOnlineUrl = d.rpcUseOnlineUrl
+            self.rpcCustomUrl = d.rpcCustomUrl
+            self.configEnvironment = d.configEnvironment
             self.showStatisticsToast = d.showStatisticsToast
             self.reportEventInDebug = d.reportEventInDebug
         }

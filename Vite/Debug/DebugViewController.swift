@@ -61,21 +61,71 @@ class DebugViewController: FormViewController {
             }
             +++
             Section {
-                $0.header = HeaderFooterView(title: "Network")
+                $0.header = HeaderFooterView(title: "RPC")
             }
-            <<< SwitchRow("rpcUseHttp") {
-                $0.title = "RPC Use HTTP"
-                $0.value = DebugService.instance.rpcUseHTTP
+            <<< SwitchRow("rpcUseOnlineUrl") {
+                $0.title = "Use Online URL"
+                $0.value = DebugService.instance.rpcUseOnlineUrl
             }.onChange { row in
                 guard let ret = row.value else { return }
-                DebugService.instance.rpcUseHTTP = ret
+                DebugService.instance.rpcUseOnlineUrl = ret
             }
-            <<< SwitchRow("cosUseTestEnvironment") {
-                $0.title = "COS Use Test Environment"
-                $0.value = DebugService.instance.cosUseTestEnvironment
-            }.onChange { row in
-                guard let ret = row.value else { return }
-                DebugService.instance.cosUseTestEnvironment = ret
+            <<< LabelRow("rpcCustomUrl") {
+                $0.hidden = "$rpcUseOnlineUrl == true"
+                if let _ = URL(string: DebugService.instance.rpcCustomUrl) {
+                    $0.title = "Custom URL"
+                    $0.value = DebugService.instance.rpcCustomUrl
+                } else {
+                    $0.title = "Test URL"
+                    $0.value = DebugService.instance.rpcDefaultTestEnvironmentUrl.absoluteString
+                }
+            }.onCellSelection({ _, _  in
+                Alert.show(into: self, title: "RPC Custom URL", message: nil, actions: [
+                    (.cancel, nil),
+                    (.default(title: "OK"), { alert in
+                        guard let cell = self.form.rowBy(tag: "rpcCustomUrl") as? LabelRow else { return }
+                        if let text = alert.textFields?.first?.text, (text.hasPrefix("http://") || text.hasPrefix("https://")), let _ = URL(string: text) {
+                            DebugService.instance.rpcCustomUrl = text
+                            cell.title = "Custom"
+                            cell.value = text
+                            cell.updateCell()
+                        } else if let text = alert.textFields?.first?.text, text.isEmpty {
+                            DebugService.instance.rpcCustomUrl = ""
+                            cell.title = "Test"
+                            cell.value = DebugService.instance.rpcDefaultTestEnvironmentUrl.absoluteString
+                            cell.updateCell()
+                        } else {
+                            Toast.show("Error Format")
+                        }
+                    }),
+                    ], config: { alert in
+                        alert.addTextField(configurationHandler: { (textField) in
+                            textField.clearButtonMode = .always
+                            textField.text = DebugService.instance.rpcCustomUrl
+                            textField.placeholder = DebugService.instance.rpcDefaultTestEnvironmentUrl.absoluteString
+                        })
+                })
+            })
+            +++
+            Section {
+                $0.header = HeaderFooterView(title: "Config")
+            }
+            <<< LabelRow("configEnvironment") {
+                $0.title = "Config Environment"
+                $0.value = DebugService.instance.configEnvironment.name
+            }.onCellSelection { _, _ in
+
+                var actions = DebugService.ConfigEnvironment.allValues.map { config -> (Alert.UIAlertControllerAletrActionTitle, ((UIAlertController) -> Void)?) in
+                    (.default(title: config.name), { alert in
+                        guard let cell = self.form.rowBy(tag: "configEnvironment") as? LabelRow else { return }
+                        DebugService.instance.configEnvironment = config
+                        cell.value = config.name
+                        cell.updateCell()
+                    })
+                }
+
+                actions.append((.cancel, nil))
+                ActionSheet.show(into: self, title: "Select Config Environment", message: nil, actions: actions)
             }
             +++
             Section {
