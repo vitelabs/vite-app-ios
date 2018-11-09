@@ -15,3 +15,7 @@ enum RPCError<ExpectedType>: Error {
 enum JSONError: Error {
     case jsonData
 }
+
+enum ViteError: Error {
+    case nullData(Int)
+}

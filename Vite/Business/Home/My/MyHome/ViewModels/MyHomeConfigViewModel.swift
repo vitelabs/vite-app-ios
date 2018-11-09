@@ -9,8 +9,8 @@
 import Foundation
 import ObjectMapper
 
-struct MyHomeConfigViewModel: Mappable  {
-    var items:[MyHomeListCellViewModel] = []
+struct MyHomeConfigViewModel: Mappable {
+    var items: [MyHomeListCellViewModel] = []
 
     init?(map: Map) { }
 

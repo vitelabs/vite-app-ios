@@ -135,21 +135,14 @@ class QuotaManageViewController: BaseViewController {
             $0.backgroundColor = UIColor.white
         }
 
-        let titleLabel = UILabel().then {
-            $0.font = UIFont.systemFont(ofSize: 24)
-            $0.numberOfLines = 1
-            $0.adjustsFontSizeToFitWidth = true
-            $0.textColor = UIColor(netHex: 0x24272B)
-            $0.text = R.string.localizable.quotaManagePageTitle.key.localized()
-        }
-
-        let tipButton = UIButton().then {
-            $0.setImage(R.image.icon_button_infor(), for: .normal)
-            $0.setImage(R.image.icon_button_infor()?.highlighted, for: .highlighted)
+        let titleLabel = LabelTipView(R.string.localizable.quotaManagePageTitle.key.localized()).then {
+            $0.titleLab.font = UIFont.systemFont(ofSize: 24)
+            $0.titleLab.numberOfLines = 1
+            $0.titleLab.adjustsFontSizeToFitWidth = true
+            $0.titleLab.textColor = UIColor(netHex: 0x24272B)
         }
 
         view.addSubview(titleLabel)
-        view.addSubview(tipButton)
 
         titleLabel.snp.makeConstraints { (m) in
             m.top.equalTo(view).offset(6)
@@ -158,12 +151,7 @@ class QuotaManageViewController: BaseViewController {
             m.height.equalTo(29)
         }
 
-        tipButton.snp.makeConstraints { (m) in
-            m.centerY.equalTo(titleLabel)
-            m.left.equalTo(titleLabel.snp.right).offset(10)
-        }
-
-        tipButton.rx.tap.bind { [weak self] in
+        titleLabel.tipButton.rx.tap.bind { [weak self] in
             let url  = URL(string: String(format: "%@?localize=%@", Constants.quotaDefinitionURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
             let vc = PopViewController(url: url)
             vc.modalPresentationStyle = .overCurrentContext

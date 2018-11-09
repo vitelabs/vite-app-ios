@@ -34,6 +34,11 @@ class LoginViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         kas_activateAutoScrollingForView(contentView)
+        if navigationController?.viewControllers.first === self {
+
+        } else {
+            navigationBarStyle = .clear
+        }
     }
 
     let contentView = UIView()
@@ -98,7 +103,6 @@ class LoginViewController: BaseViewController {
 extension LoginViewController {
     private func _setupView() {
         self.view.backgroundColor = .white
-        navigationBarStyle = .clear
         self._addViewConstraint()
     }
 

@@ -18,6 +18,10 @@ class HomeViewController: UITabBarController {
             $0.automaticallyShowDismissButton = false
         }
 
+        let voteVC = VoteHomeViewController().then {
+            $0.automaticallyShowDismissButton = false
+        }
+
         let myVC = MyHomeViewController().then {
             $0.automaticallyShowDismissButton = false
         }
@@ -28,13 +32,19 @@ class HomeViewController: UITabBarController {
             $0.tabBarItem.selectedImage = R.image.icon_tabbar_wallet_select()?.withRenderingMode(.alwaysOriginal)
         }
 
+        let voteNav = BaseNavigationController(rootViewController: voteVC).then {
+            $0.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+            $0.tabBarItem.image = R.image.icon_tabbar_vote()?.withRenderingMode(.alwaysOriginal)
+            $0.tabBarItem.selectedImage = R.image.icon_tabbar_vote_select()?.withRenderingMode(.alwaysOriginal)
+        }
+
         let myNav = BaseNavigationController(rootViewController: myVC).then {
             $0.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
             $0.tabBarItem.image = R.image.icon_tabbar_me()?.withRenderingMode(.alwaysOriginal)
             $0.tabBarItem.selectedImage = R.image.icon_tabbar_me_select()?.withRenderingMode(.alwaysOriginal)
         }
 
-        self.viewControllers = [walletNav, myNav]
+        self.viewControllers = [walletNav, voteNav, myNav]
     }
 
     required init?(coder aDecoder: NSCoder) {
