@@ -15,6 +15,7 @@ class MyVoteInfoViewController: BaseViewController, View {
     let bag = HDWalletManager.instance.bag!
     var disposeBag = DisposeBag()
     var timerBag: DisposeBag! = DisposeBag()
+    var balance: Balance?
     init() {
         super.init(nibName: nil, bundle: nil)
         self.reactor = MyVoteInfoViewReactor()
@@ -27,6 +28,7 @@ class MyVoteInfoViewController: BaseViewController, View {
     override func viewDidLoad() {
         super.viewDidLoad()
         self._setupView()
+        self._bindView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +47,20 @@ class MyVoteInfoViewController: BaseViewController, View {
         Observable<Int>.interval(3, scheduler: MainScheduler.instance).bind { [weak self] _ in
             self?.reactor?.action.onNext(.refreshData)
         }.disposed(by: self.timerBag)
+    }
+
+    private func _bindView() {
+        //home page vite balance
+        FetchBalanceInfoService.instance.balanceInfosDriver.drive(onNext: { [weak self] balanceInfos in
+            guard let `self` = self else { return }
+            for balanceInfo in balanceInfos where TokenCacheService.instance.viteToken.id == balanceInfo.token.id {
+                self.balance = balanceInfo.balance
+                return
+            }
+
+            // no balanceInfo, set 0.0
+            //            self.headerView.balanceLabel.text = "0.0"
+        }).disposed(by: rx.disposeBag)
     }
 
     private func _setupView() {
@@ -81,8 +97,13 @@ class MyVoteInfoViewController: BaseViewController, View {
 extension MyVoteInfoViewController {
     func bind(reactor: MyVoteInfoViewReactor) {
 
-        
 
+
+        //vote success
+        _ = NotificationCenter.default.rx.notification(.userDidVote).takeUntil(self.rx.deallocated).observeOn(MainScheduler.instance).subscribe({[weak self] (notification)   in
+            let nodeName = notification.element?.object
+            self?.reactor?.action.onNext(.voting(nodeName as! String))
+        })
 
         self.viewInfoView.nodeStatusLab.tipButton.rx.tap.bind { [weak self] in
             let url  = URL(string: String(format: "%@?localize=%@", Constants.voteLoserURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
@@ -95,7 +116,10 @@ extension MyVoteInfoViewController {
 
         //handle cancel vote
          self.viewInfoView.operationBtn.rx.tap.bind {_ in
-            reactor.action.onNext(.cancelVote)
+
+            NotificationCenter.default.post(name: .userDidVote, object: "nodeName")
+
+//            reactor.action.onNext(.cancelVote)
          }.disposed(by: rx.disposeBag)
 
         //handle new vote data coming

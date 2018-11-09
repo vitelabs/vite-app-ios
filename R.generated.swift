@@ -623,7 +623,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 202 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 201 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1381,10 +1381,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let lockPageChangeUserBtnTitle = Rswift.StringResource(key: "lock.page.changeUser.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 助记词恢复账户
-      /// 
-      /// Locales: en, zh-Hans
-      static let lockPageImportUserBtnTitle = Rswift.StringResource(key: "lock.page.importUser.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 您输入的助记词在当前设备的账户名为%@，确认是否使用新账户覆盖原有账户
       /// 
       /// Locales: en, zh-Hans
@@ -2755,13 +2751,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func lockPageChangeUserBtnTitle(_: Void = ()) -> String {
         return NSLocalizedString("lock.page.changeUser.btn.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 助记词恢复账户
-      /// 
-      /// Locales: en, zh-Hans
-      static func lockPageImportUserBtnTitle(_: Void = ()) -> String {
-        return NSLocalizedString("lock.page.importUser.btn.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 您输入的助记词在当前设备的账户名为%@，确认是否使用新账户覆盖原有账户

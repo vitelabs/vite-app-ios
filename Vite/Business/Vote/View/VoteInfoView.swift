@@ -124,13 +124,13 @@ class VoteInfoView: UIView {
 
         if  voteStatus == .voting || voteStatus == .cancelVoting {
             voteStatusLab.bgImg.image = R.image.btn_path_bg()?.tintColor(UIColor(netHex: 0x0046FF)).resizable
-            operationBtn.isEnabled = true
+            operationBtn.isEnabled = false
         } else if voteStatus == .voteSuccess || voteStatus == .cancelVoteSuccess {
                 voteStatusLab.bgImg.image = R.image.btn_path_bg()?.tintColor(UIColor(netHex: 0xFEC102)).resizable
-                operationBtn.isEnabled = false
+                operationBtn.isEnabled = true
             } else if voteStatus == .voteInvalid {
                 voteStatusLab.bgImg.image = R.image.btn_path_bg()?.tintColor(UIColor(netHex: 0x99A4C1)).resizable
-                operationBtn.isEnabled = false
+                operationBtn.isEnabled = true
             }
     }
 

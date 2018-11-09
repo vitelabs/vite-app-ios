@@ -67,9 +67,11 @@ class LockPwdViewController: BaseViewController {
 
     lazy var importUserBtn: UIButton = {
         let importUserBtn = UIButton.init(style: .whiteWithoutShadow)
-        importUserBtn.setTitle(R.string.localizable.lockPageImportUserBtnTitle.key.localized(), for: .normal)
+        importUserBtn.setTitle(R.string.localizable.importPageSubmitBtn.key.localized(), for: .normal)
         importUserBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         importUserBtn.addTarget(self, action: #selector(importUserBtnAction), for: .touchUpInside)
+
+
         return importUserBtn
     }()
 }

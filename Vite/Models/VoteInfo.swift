@@ -26,15 +26,14 @@ struct VoteInfo: Mappable {
         }
     }
 
-     var nodeName: String?
- var nodeStatus: NodeStatus?
- var balance: Balance?
-//    fileprivate(set) var nodeName: String?
-//    fileprivate(set) var nodeStatus: NodeStatus?
-//    fileprivate(set) var balance: Balance?
+    fileprivate(set) var nodeName: String?
+    fileprivate(set) var nodeStatus: NodeStatus?
+    fileprivate(set) var balance: Balance?
 
-    init() {
-
+    init(_ nodeName:String?, _ nodeStatus:NodeStatus?, _ balance: Balance?) {
+        self.nodeName = nodeName
+        self.nodeStatus = nodeStatus
+        self.balance = balance
     }
 
     init?(map: Map) { }

@@ -19,6 +19,7 @@ final class MyVoteInfoViewReactor: Reactor {
     enum Action {
         case refreshData
         case cancelVote
+        case voting(String)
 //        case voting
 //        case loading
     }
@@ -38,14 +39,6 @@ final class MyVoteInfoViewReactor: Reactor {
 
     init() {
         self.initialState = State.init(voteInfo: nil, dataIsFromServer: false, errorMessage: nil)
-
-        //vote success
-        _ = NotificationCenter.default.rx.notification(.userDidVote).subscribe(onNext: { [unowned self] (value) in
-
-
-    
-        })
-
     }
 
     func mutate(action: Action) -> Observable<Mutation> {
@@ -55,10 +48,13 @@ final class MyVoteInfoViewReactor: Reactor {
             return Observable.concat([
                 self.fetchVoteInfo().map { Mutation.replace(voteInfo: $0.0, errorMessage: $0.1) },
                 ])
-
         case .cancelVote:
             return Observable.concat([
                 self.fetchVoteInfo().map { Mutation.replace(voteInfo: $0.0, errorMessage: $0.1) },
+                ])
+        case .voting(let nodeName):
+            return Observable.concat([
+                self.createLocalVoteInfo(nodeName,false).map { Mutation.replace(voteInfo: $0.0, errorMessage: nil) },
                 ])
         }
     }
@@ -83,6 +79,17 @@ final class MyVoteInfoViewReactor: Reactor {
             }
         }
         return newState
+    }
+
+    func createLocalVoteInfo(_ nodeName:String,_ isCancel:Bool)-> Observable<(VoteInfo, VoteStatus)> {
+        return Observable<(VoteInfo, VoteStatus)>.create({ (observer) ->
+            Disposable in
+//            var voteInfo = VoteInfo(nodeName,.valid,)
+//            voteInfo.nodeName = nodeName
+//            observer.onNext((voteInfo, isCancel ? .cancelVoting : .voting))
+//            observer.onCompleted()
+            return Disposables.create()
+        })
     }
 
     func fetchVoteInfo() -> Observable<(VoteInfo?, String? )> {

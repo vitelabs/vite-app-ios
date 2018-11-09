@@ -30,7 +30,6 @@
 "lock.page.pwd.btn.title" = "Login via password";
 "lock.page.fingerprint.btn.title" = "Arouse verify again";
 "lock.page.fingerprint.alter.title" = "Verify fingerprint to activate Touch ID";
-"lock.page.importUser.btn.title" = "助记词恢复账户";
 "lock.page.changeUser.btn.title" = "切换账户";
 
 /* create */
