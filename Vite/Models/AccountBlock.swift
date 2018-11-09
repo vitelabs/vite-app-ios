@@ -21,7 +21,7 @@ struct AccountBlock: Mappable {
             return DebugService.instance.useBigDifficulty ? BigInt("67108863")! : BigInt("65535")!
         }
         #else
-        static let difficulty = BigInt("67108863")!
+        static let difficulty = BigInt("157108864")!
         #endif
     }
 
