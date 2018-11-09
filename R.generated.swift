@@ -607,7 +607,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 191 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 199 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1357,6 +1357,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageSubmitLoading = Rswift.StringResource(key: "import.page.submit.loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 停止候选
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageNodeStatusInvalidTitle = Rswift.StringResource(key: "vote.page.nodeStatus.invalid.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 切换账户
       /// 
       /// Locales: en, zh-Hans
@@ -1365,14 +1369,42 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let lockPageImportUserBtnTitle = Rswift.StringResource(key: "lock.page.importUser.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// zh-Hans translation: 我的投票
+      /// en translation: 我的投票
       /// 
-      /// Locales: zh-Hans
-      static let votePageTitle = Rswift.StringResource(key: "vote.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["zh-Hans"], comment: nil)
-      /// zh-Hans translation: 暂无投票
+      /// Locales: en, zh-Hans
+      static let votePageTitle = Rswift.StringResource(key: "vote.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 我的投票数
       /// 
-      /// Locales: zh-Hans
-      static let votePageInfoNodataTitle = Rswift.StringResource(key: "vote.page.info.nodata.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["zh-Hans"], comment: nil)
+      /// Locales: en, zh-Hans
+      static let votePageVoteInfoNodePollsTitle = Rswift.StringResource(key: "vote.page.voteInfo.nodePolls.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 投票作废
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteStatusVoteInvalid = Rswift.StringResource(key: "vote.page.voteStatus.voteInvalid", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 投票成功
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteStatusVoteSuccess = Rswift.StringResource(key: "vote.page.voteStatus.voteSuccess", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 撤销
+      /// 
+      /// Locales: en, zh-Hans
+      static let submitCancel = Rswift.StringResource(key: "Submit.cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 暂无投票
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageInfoNodataTitle = Rswift.StringResource(key: "vote.page.info.nodata.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 正在候选
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageNodeStatusValidTitle = Rswift.StringResource(key: "vote.page.nodeStatus.valid.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 正在投票中
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteStatusVoting = Rswift.StringResource(key: "vote.page.voteStatus.voting", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 正在撤销中
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteStatusCancelVoting = Rswift.StringResource(key: "vote.page.voteStatus.cancelVoting", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -2683,6 +2715,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("import.page.submit.loading", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 停止候选
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageNodeStatusInvalidTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.nodeStatus.invalid.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 切换账户
       /// 
       /// Locales: en, zh-Hans
@@ -2697,18 +2736,67 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("lock.page.importUser.btn.title", bundle: R.hostingBundle, comment: "")
       }
       
-      /// zh-Hans translation: 我的投票
+      /// en translation: 我的投票
       /// 
-      /// Locales: zh-Hans
+      /// Locales: en, zh-Hans
       static func votePageTitle(_: Void = ()) -> String {
         return NSLocalizedString("vote.page.title", bundle: R.hostingBundle, comment: "")
       }
       
-      /// zh-Hans translation: 暂无投票
+      /// en translation: 我的投票数
       /// 
-      /// Locales: zh-Hans
+      /// Locales: en, zh-Hans
+      static func votePageVoteInfoNodePollsTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteInfo.nodePolls.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 投票作废
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteStatusVoteInvalid(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteStatus.voteInvalid", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 投票成功
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteStatusVoteSuccess(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteStatus.voteSuccess", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 撤销
+      /// 
+      /// Locales: en, zh-Hans
+      static func submitCancel(_: Void = ()) -> String {
+        return NSLocalizedString("Submit.cancel", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 暂无投票
+      /// 
+      /// Locales: en, zh-Hans
       static func votePageInfoNodataTitle(_: Void = ()) -> String {
         return NSLocalizedString("vote.page.info.nodata.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 正在候选
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageNodeStatusValidTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.nodeStatus.valid.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 正在投票中
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteStatusVoting(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteStatus.voting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 正在撤销中
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteStatusCancelVoting(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteStatus.cancelVoting", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

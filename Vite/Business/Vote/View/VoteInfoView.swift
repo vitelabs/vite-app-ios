@@ -16,15 +16,15 @@ enum VoteStatus: Int {
     var display: String {
         switch self {
         case .voteSuccess:
-            return "投票成功"
+            return R.string.localizable.votePageVoteStatusVoteSuccess.key.localized()
         case .voting:
-            return "正在投票中"
+            return R.string.localizable.votePageVoteStatusVoting.key.localized()
         case .cancelVoting:
-            return "正在撤销中"
+             return R.string.localizable.votePageVoteStatusCancelVoting.key.localized()
         case .cancelVoteSuccess:
             return ""
         case .voteInvalid:
-            return "投票作废"
+            return R.string.localizable.votePageVoteStatusVoteInvalid.key.localized()
         }
     }
 }
@@ -55,7 +55,7 @@ class VoteInfoView: UIView {
     }()
 
     lazy var nodePollsTitleLab: IconLabelView = {
-        let nodePollsTitleLab = IconLabelView("我的投票数")
+        let nodePollsTitleLab = IconLabelView(R.string.localizable.votePageVoteInfoNodePollsTitle.key.localized())
         nodePollsTitleLab.titleLab.textAlignment = .left
         nodePollsTitleLab.titleLab.font = Fonts.Font14
         nodePollsTitleLab.titleLab.textColor  = .white
@@ -86,7 +86,7 @@ class VoteInfoView: UIView {
         operationBtn.titleLabel?.font = Fonts.Font14_b
         operationBtn.setBackgroundImage(R.image.background_button_blue()?.tintColor(UIColor(netHex: 0x3460CE)).resizable, for: .normal)
         operationBtn.setBackgroundImage(R.image.background_button_blue()?.tintColor(UIColor(netHex: 0x3460CE)).resizable, for: .highlighted)
-        operationBtn.setTitle("撤销", for: .normal)
+      operationBtn.setTitle(R.string.localizable.submitCancel.key.localized(), for: .normal)
         operationBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         operationBtn.layer.cornerRadius = 10
         operationBtn.layer.masksToBounds = true

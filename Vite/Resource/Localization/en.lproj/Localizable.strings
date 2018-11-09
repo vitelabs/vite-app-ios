@@ -20,6 +20,7 @@
 "Update.app" = "Update App";
 "NetWorkError" = "Loading failed, please refresh";
 "Submit.success" = "Submit Successful";
+"Submit.cancel" = "撤销";
 
 /* Login */
 "create.account" = "Create Account";
@@ -252,6 +253,17 @@
 "peldge.message" = "Currently Vite App only supports checking staking list, please go to web wallet to withdraw staking on due date if needed.";
 "peldge.deadline" = "Due Date";
 "peldge.title" = "My Staking List";
+
+/* Vote */
+"vote.page.title" = "我的投票";
+"vote.page.info.nodata.title" = "暂无投票";
+"vote.page.voteStatus.voteSuccess" = "投票成功";
+"vote.page.voteStatus.voting" = "正在投票中";
+"vote.page.voteStatus.cancelVoting" = "正在撤销中";
+"vote.page.voteStatus.voteInvalid" = "投票作废";
+"vote.page.voteInfo.nodePolls.title" = "我的投票数";
+"vote.page.nodeStatus.valid.title" = "正在候选";
+"vote.page.nodeStatus.invalid.title" = "停止候选";
 
 
 

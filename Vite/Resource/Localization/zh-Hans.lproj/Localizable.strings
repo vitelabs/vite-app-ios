@@ -20,6 +20,8 @@
 "Update.app" = "更新 App";
 "NetWorkError" = "加载失败，请刷新重试";
 "Submit.success" = "提交成功";
+"Submit.cancel" = "撤销";
+
 
 
 /* Login */
@@ -254,3 +256,10 @@
 /* Vote */
 "vote.page.title" = "我的投票";
 "vote.page.info.nodata.title" = "暂无投票";
+"vote.page.voteStatus.voteSuccess" = "投票成功";
+"vote.page.voteStatus.voting" = "正在投票中";
+"vote.page.voteStatus.cancelVoting" = "正在撤销中";
+"vote.page.voteStatus.voteInvalid" = "投票作废";
+"vote.page.voteInfo.nodePolls.title" = "我的投票数";
+"vote.page.nodeStatus.valid.title" = "正在候选";
+"vote.page.nodeStatus.invalid.title" = "停止候选";

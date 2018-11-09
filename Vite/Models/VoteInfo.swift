@@ -19,12 +19,13 @@ struct VoteInfo: Mappable {
         var display: String {
             switch self {
             case .valid:
-                return "正在候选"
+                return R.string.localizable.votePageNodeStatusValidTitle.key.localized()
             case .invalid:
-                return "停止候选"
+                return R.string.localizable.votePageNodeStatusValidTitle.key.localized()
             }
         }
     }
+
      var nodeName: String?
  var nodeStatus: NodeStatus?
  var balance: Balance?
