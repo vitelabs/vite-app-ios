@@ -244,7 +244,7 @@ class SendViewController: BaseViewController {
         }
 
         getPowFloatView.show()
-        Provider.instance.sendTransactionWithGetPow(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, data: note?.bytes.toBase64(), difficulty: AccountBlock.Const.difficulty, completion: { [weak self] (result) in
+        Provider.instance.sendTransactionWithGetPow(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, data: note?.bytes.toBase64(), difficulty: AccountBlock.Const.Difficulty.sendWithoutData.value, completion: { [weak self] (result) in
 
             guard cancelPow == false else { return }
             guard let `self` = self else { return }

@@ -41,7 +41,7 @@ final class AutoGatheringService {
             case .error(let error):
                 if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
 
-                    Provider.instance.receiveTransactionWithGetPow(bag: bag, difficulty: AccountBlock.Const.difficulty) { [weak self] result in
+                    Provider.instance.receiveTransactionWithGetPow(bag: bag, difficulty: AccountBlock.Const.Difficulty.receive.value) { [weak self] result in
                         guard let `self` = self else { return }
                         guard uuid == self.uuid else { return }
 

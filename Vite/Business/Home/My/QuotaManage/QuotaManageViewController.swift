@@ -269,7 +269,7 @@ extension QuotaManageViewController {
         }
 
         getPowFloatView.show()
-        Provider.instance.pledgeAndGainQuotaWithGetPow(bag: bag, beneficialAddress: beneficialAddress, tokenId: TokenCacheService.instance.viteToken.id, amount: amount, difficulty: AccountBlock.Const.difficulty) { [weak self] (result) in
+        Provider.instance.pledgeAndGainQuotaWithGetPow(bag: bag, beneficialAddress: beneficialAddress, tokenId: TokenCacheService.instance.viteToken.id, amount: amount, difficulty: AccountBlock.Const.Difficulty.pledge.value) { [weak self] (result) in
 
             guard cancelPow == false else { return }
             guard let `self` = self else { return }

@@ -16,11 +16,26 @@ class DebugService: Mappable {
 
     let rpcDefaultTestEnvironmentUrl = URL(string: "http://45.40.197.46:48132")!
 
-    var useBigDifficulty = false {
-        didSet {
-            guard useBigDifficulty != oldValue else { return }
-            pri_save()
+    enum AppEnvironment: Int {
+        case test = 0
+        case stage = 1
+        case online = 2
+        case custom = -1
+
+        var name: String {
+            switch self {
+            case .test:
+                return "Test"
+            case .stage:
+                return "Stage"
+            case .online:
+                return "Online"
+            case .custom:
+                return "Custom"
+            }
         }
+
+        static var allValues: [AppEnvironment] = [.test, .stage, .online]
     }
 
     enum ConfigEnvironment: Int {
@@ -53,9 +68,54 @@ class DebugService: Mappable {
         }
     }
 
+    var appEnvironment = AppEnvironment.test {
+        didSet {
+            guard appEnvironment != oldValue else { return }
+            switch self.appEnvironment {
+            case .test:
+                useBigDifficulty = false
+                configEnvironment = .test
+                rpcUseOnlineUrl = false
+                rpcCustomUrl = ""
+            case .stage:
+                useBigDifficulty = true
+                configEnvironment = .stage
+                rpcUseOnlineUrl = true
+            case .online:
+                useBigDifficulty = true
+                configEnvironment = .online
+                rpcUseOnlineUrl = true
+            case .custom:
+                break
+            }
+            pri_save()
+        }
+    }
+
+    private func updateAppEnvironment() {
+        if useBigDifficulty == false && configEnvironment == ConfigEnvironment.test && rpcUseOnlineUrl == false && rpcCustomUrl == "" {
+            appEnvironment = .test
+        } else if useBigDifficulty == true && configEnvironment == ConfigEnvironment.stage && rpcUseOnlineUrl == true {
+            appEnvironment = .stage
+        }  else if useBigDifficulty == true && configEnvironment == ConfigEnvironment.online && rpcUseOnlineUrl == true {
+            appEnvironment = .online
+        } else {
+            appEnvironment = .custom
+        }
+    }
+
+    var useBigDifficulty = false {
+        didSet {
+            guard useBigDifficulty != oldValue else { return }
+            updateAppEnvironment()
+            pri_save()
+        }
+    }
+
     var configEnvironment = ConfigEnvironment.test {
         didSet {
             guard configEnvironment != oldValue else { return }
+            updateAppEnvironment()
             pri_save()
         }
     }
@@ -63,14 +123,15 @@ class DebugService: Mappable {
     var rpcUseOnlineUrl = false {
         didSet {
             guard rpcUseOnlineUrl != oldValue else { return }
+            updateAppEnvironment()
             pri_save()
         }
     }
 
     var rpcCustomUrl = "" {
         didSet {
-            plog(level: .debug, log: self.rpcCustomUrl)
             guard rpcCustomUrl != oldValue else { return }
+            updateAppEnvironment()
             pri_save()
         }
     }
@@ -92,6 +153,7 @@ class DebugService: Mappable {
     required init?(map: Map) {}
 
     func mapping(map: Map) {
+        appEnvironment <- map["appEnvironment"]
         useBigDifficulty <- map["useBigDifficulty"]
         rpcUseOnlineUrl <- map["rpcUseOnlineUrl"]
         rpcCustomUrl <- map["rpcCustomUrl"]
@@ -105,6 +167,7 @@ class DebugService: Mappable {
         if let data = self.fileHelper.contentsAtRelativePath(type(of: self).saveKey),
             let jsonString = String(data: data, encoding: .utf8),
             let d = DebugService(JSONString: jsonString) {
+            self.appEnvironment = d.appEnvironment
             self.useBigDifficulty = d.useBigDifficulty
             self.rpcUseOnlineUrl = d.rpcUseOnlineUrl
             self.rpcCustomUrl = d.rpcCustomUrl
