@@ -67,8 +67,15 @@ class DebugViewController: FormViewController {
                 $0.title = "RPC Use HTTP"
                 $0.value = DebugService.instance.rpcUseHTTP
             }.onChange { row in
-                    guard let ret = row.value else { return }
-                    DebugService.instance.rpcUseHTTP = ret
+                guard let ret = row.value else { return }
+                DebugService.instance.rpcUseHTTP = ret
+            }
+            <<< SwitchRow("cosUseTestEnvironment") {
+                $0.title = "COS Use Test Environment"
+                $0.value = DebugService.instance.cosUseTestEnvironment
+            }.onChange { row in
+                guard let ret = row.value else { return }
+                DebugService.instance.cosUseTestEnvironment = ret
             }
             +++
             Section {

@@ -13,7 +13,7 @@ struct Statistics {
     private static let stat = BaiduMobStat.default()!
 
     static func initialize() {
-        stat.channelId = Constants.appDownloadChannel
+        stat.channelId = Constants.appDownloadChannel.rawValue
         stat.shortAppVersion  =  Bundle.main.versionNumber
         stat.userId = stat.getDeviceCuid()
         stat.start(withAppId: Constants.baiduMobileStat)

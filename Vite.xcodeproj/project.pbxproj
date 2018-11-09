@@ -16,7 +16,6 @@
 		4C105EC5213FEFF800D483C6 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EC4213FEFF800D483C6 /* NotificationName.swift */; };
 		4C105ED12141401100D483C6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105ED02141401100D483C6 /* String.swift */; };
 		4C181B06215CD5E000FB6CA8 /* AppUpdateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */; };
-		4C181B0E215CF62800FB6CA8 /* ViteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B0D215CF62800FB6CA8 /* ViteAPI.swift */; };
 		4C1FF4F0212A74730055067D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
 		4C2284B52148BB2A003E9907 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284B42148BB2A003E9907 /* ImageCell.swift */; };
 		4C2284B82148BC2B003E9907 /* MyHomeListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284B72148BC2B003E9907 /* MyHomeListHeaderView.swift */; };
@@ -127,7 +126,6 @@
 		8E107EE1215B2BE700B28DE2 /* UITextView+FDSKeyboardAutoScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107EE0215B2BE700B28DE2 /* UITextView+FDSKeyboardAutoScrolling.swift */; };
 		8E548534217DA62B009C528B /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E548533217DA62B009C528B /* UserDefaultsService.swift */; };
 		8E548536217DABFC009C528B /* AppSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E548535217DABFC009C528B /* AppSettingsService.swift */; };
-		8E54853A217DB936009C528B /* ServerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E548539217DB936009C528B /* ServerProvider.swift */; };
 		8E54853C217DC5BD009C528B /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54853B217DC5BD009C528B /* NetworkResult.swift */; };
 		8E548540217F2778009C528B /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54853F217F2778009C528B /* Statistics.swift */; };
 		8E548543217F33B0009C528B /* Statistics+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E548542217F33B0009C528B /* Statistics+Event.swift */; };
@@ -206,6 +204,14 @@
 		8E93C255217747DF00185FDE /* ViewControllerDataStatusable+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E93C254217747DF00185FDE /* ViewControllerDataStatusable+Style.swift */; };
 		8E93C26821782DB700185FDE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E93C26A21782DB700185FDE /* InfoPlist.strings */; };
 		8EBDD8022150F4AB00D65BCD /* GetTokenInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBDD8012150F4AB00D65BCD /* GetTokenInfoRequest.swift */; };
+		8ECA6E3A2190459F0049CDE0 /* COSProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E392190459F0049CDE0 /* COSProvider.swift */; };
+		8ECA6E3C219045B80049CDE0 /* COSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E3B219045B80049CDE0 /* COSAPI.swift */; };
+		8ECA6E41219076840049CDE0 /* AppConfig in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA6E40219076840049CDE0 /* AppConfig */; };
+		8ECA6E4321913DC00049CDE0 /* MyHomeListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E4221913DC00049CDE0 /* MyHomeListCellViewModel.swift */; };
+		8ECA6E4621913FB80049CDE0 /* ImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E4521913FB80049CDE0 /* ImageWrapper.swift */; };
+		8ECA6E48219141720049CDE0 /* StringWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E47219141720049CDE0 /* StringWrapper.swift */; };
+		8ECA6E4A21916EB60049CDE0 /* MyHomeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E4921916EB60049CDE0 /* MyHomeListCell.swift */; };
+		8ECA6E4C219170370049CDE0 /* MyHomeConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E4B219170370049CDE0 /* MyHomeConfigViewModel.swift */; };
 		8ED4CECC2147C4A60005A82D /* SafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CECB2147C4A60005A82D /* SafariViewController.swift */; };
 		8ED4CECF2147C5910005A82D /* WebHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CECE2147C5910005A82D /* WebHandler.swift */; };
 		8ED4CED32148AF630005A82D /* GetMoreLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CED22148AF630005A82D /* GetMoreLoadingView.swift */; };
@@ -257,7 +263,6 @@
 		4C105EC4213FEFF800D483C6 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		4C105ED02141401100D483C6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateVM.swift; sourceTree = "<group>"; };
-		4C181B0D215CF62800FB6CA8 /* ViteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteAPI.swift; sourceTree = "<group>"; };
 		4C1FF4F1212A74730055067D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4C1FF4F4212A76410055067D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4C2284B42148BB2A003E9907 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
@@ -388,7 +393,6 @@
 		8E107EE0215B2BE700B28DE2 /* UITextView+FDSKeyboardAutoScrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+FDSKeyboardAutoScrolling.swift"; sourceTree = "<group>"; };
 		8E548533217DA62B009C528B /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		8E548535217DABFC009C528B /* AppSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsService.swift; sourceTree = "<group>"; };
-		8E548539217DB936009C528B /* ServerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerProvider.swift; sourceTree = "<group>"; };
 		8E54853B217DC5BD009C528B /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		8E54853F217F2778009C528B /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		8E548542217F33B0009C528B /* Statistics+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Statistics+Event.swift"; sourceTree = "<group>"; };
@@ -468,6 +472,14 @@
 		8E93C26921782DB700185FDE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8E93C26B21782DB900185FDE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		8EBDD8012150F4AB00D65BCD /* GetTokenInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTokenInfoRequest.swift; sourceTree = "<group>"; };
+		8ECA6E392190459F0049CDE0 /* COSProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COSProvider.swift; sourceTree = "<group>"; };
+		8ECA6E3B219045B80049CDE0 /* COSAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COSAPI.swift; sourceTree = "<group>"; };
+		8ECA6E40219076840049CDE0 /* AppConfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AppConfig; sourceTree = "<group>"; };
+		8ECA6E4221913DC00049CDE0 /* MyHomeListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHomeListCellViewModel.swift; sourceTree = "<group>"; };
+		8ECA6E4521913FB80049CDE0 /* ImageWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWrapper.swift; sourceTree = "<group>"; };
+		8ECA6E47219141720049CDE0 /* StringWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringWrapper.swift; sourceTree = "<group>"; };
+		8ECA6E4921916EB60049CDE0 /* MyHomeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHomeListCell.swift; sourceTree = "<group>"; };
+		8ECA6E4B219170370049CDE0 /* MyHomeConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHomeConfigViewModel.swift; sourceTree = "<group>"; };
 		8ED4CECB2147C4A60005A82D /* SafariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewController.swift; sourceTree = "<group>"; };
 		8ED4CECE2147C5910005A82D /* WebHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHandler.swift; sourceTree = "<group>"; };
 		8ED4CED22148AF630005A82D /* GetMoreLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoreLoadingView.swift; sourceTree = "<group>"; };
@@ -570,6 +582,7 @@
 		4C1FF4EC212A73FB0055067D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				8ECA6E3F219076840049CDE0 /* Config */,
 				4C1FF4ED212A73FB0055067D /* Localization */,
 			);
 			path = Resource;
@@ -587,6 +600,7 @@
 			isa = PBXGroup;
 			children = (
 				4C2284B72148BC2B003E9907 /* MyHomeListHeaderView.swift */,
+				8ECA6E4921916EB60049CDE0 /* MyHomeListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -714,6 +728,8 @@
 			isa = PBXGroup;
 			children = (
 				4CC75385215A56950009CA0E /* Constants.swift */,
+				8ECA6E4521913FB80049CDE0 /* ImageWrapper.swift */,
+				8ECA6E47219141720049CDE0 /* StringWrapper.swift */,
 				4C105EBD213FCABB00D483C6 /* Extensions */,
 			);
 			path = Foundation;
@@ -1083,8 +1099,8 @@
 		8E548538217DB82C009C528B /* Server */ = {
 			isa = PBXGroup;
 			children = (
-				4C181B0D215CF62800FB6CA8 /* ViteAPI.swift */,
-				8E548539217DB936009C528B /* ServerProvider.swift */,
+				8ECA6E3B219045B80049CDE0 /* COSAPI.swift */,
+				8ECA6E392190459F0049CDE0 /* COSProvider.swift */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -1122,6 +1138,7 @@
 			isa = PBXGroup;
 			children = (
 				8E6F3E2721422BA1003CDFC2 /* MyHomeViewController.swift */,
+				8ECA6E4421913DD40049CDE0 /* ViewModels */,
 				4C2284B62148BC0A003E9907 /* View */,
 			);
 			path = MyHome;
@@ -1360,6 +1377,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		8ECA6E3F219076840049CDE0 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				8ECA6E40219076840049CDE0 /* AppConfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		8ECA6E4421913DD40049CDE0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8ECA6E4B219170370049CDE0 /* MyHomeConfigViewModel.swift */,
+				8ECA6E4221913DC00049CDE0 /* MyHomeListCellViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		8ED4CECD2147C4AA0005A82D /* Web */ = {
 			isa = PBXGroup;
 			children = (
@@ -1506,6 +1540,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ECA6E41219076840049CDE0 /* AppConfig in Resources */,
 				4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */,
 				4C5A13EA21940562000A979F /* Images.xcassets in Resources */,
 				4C1FF4F0212A74730055067D /* Localizable.strings in Resources */,
@@ -1572,6 +1607,7 @@
 				"${BUILT_PRODUCTS_DIR}/JSONRPCKit/JSONRPCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/KMNavigationBarTransition/KMNavigationBarTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -1613,6 +1649,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONRPCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMNavigationBarTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -1701,6 +1738,7 @@
 				8E6F3E3A2144C3B5003CDFC2 /* BalanceInfoDetailViewController.swift in Sources */,
 				4C5A13F02194359A000A979F /* LabelBgView.swift in Sources */,
 				8E548534217DA62B009C528B /* UserDefaultsService.swift in Sources */,
+				8ECA6E4621913FB80049CDE0 /* ImageWrapper.swift in Sources */,
 				8E54854E21816C55009C528B /* QuotaManageViewController.swift in Sources */,
 				740C3E52214CB832005FCD24 /* ConfirmTransactionView.swift in Sources */,
 				8ED4CED7214900240005A82D /* UIViewControllerExtension.swift in Sources */,
@@ -1734,6 +1772,7 @@
 				8EE468EE214A09CA00807D2C /* AddressManagerTableViewModel.swift in Sources */,
 				8E6F3E48214513EC003CDFC2 /* WalletHomeBalanceInfoTableViewModelType.swift in Sources */,
 				4C2A191D2151323400C51CE8 /* CreateNameAndPwdView.swift in Sources */,
+				8ECA6E4A21916EB60049CDE0 /* MyHomeListCell.swift in Sources */,
 				4CC75388215B3AAF0009CA0E /* TitleTextView.swift in Sources */,
 				744CC4602178684E00F55A52 /* Error.swift in Sources */,
 				74875E2221918D1D00C3AE9D /* GetVoteDataRequest.swift in Sources */,
@@ -1761,6 +1800,7 @@
 				4C32E20E2182FC6600007E9F /* StyleActionSheetTranstion.swift in Sources */,
 				8E548543217F33B0009C528B /* Statistics+Event.swift in Sources */,
 				4C56E03F2186B164003550BC /* PopViewController.swift in Sources */,
+				8ECA6E3C219045B80049CDE0 /* COSAPI.swift in Sources */,
 				8E68C4862182E55500475133 /* VisualEffectAnimationView.swift in Sources */,
 				8E56FC9A21479A7D00A68823 /* TransactionCell.swift in Sources */,
 				4C2FAD972190579900FC9524 /* VoteListViewController.swift in Sources */,
@@ -1780,7 +1820,6 @@
 				8E6F3E0721411650003CDFC2 /* Transaction.swift in Sources */,
 				4C2FAD932190575C00FC9524 /* VoteHomeViewController.swift in Sources */,
 				8E79C6E8214D392900FAEEBC /* FileHelper.swift in Sources */,
-				8E54853A217DB936009C528B /* ServerProvider.swift in Sources */,
 				4C84D96421469FFA001B6EBD /* ImportAccountVM.swift in Sources */,
 				8E8318132181C1CB002CB07F /* GetPledgesRequest.swift in Sources */,
 				8E6F3E5221453333003CDFC2 /* WalletHomeBalanceInfoViewModelType.swift in Sources */,
@@ -1791,7 +1830,6 @@
 				8E7D637D215C756D009617A0 /* InputLimitsHelper.swift in Sources */,
 				8E7D6370215B7BB1009617A0 /* ReceiveMiddleView.swift in Sources */,
 				8E6F3E2821422BA1003CDFC2 /* MyHomeViewController.swift in Sources */,
-				4C181B0E215CF62800FB6CA8 /* ViteAPI.swift in Sources */,
 				4C0024E421258005001DF390 /* R.generated.swift in Sources */,
 				4C84D93F21452836001B6EBD /* BackupMnemonicViewController.swift in Sources */,
 				8E56FC7D214656A700A68823 /* UIView+Helper.swift in Sources */,
@@ -1813,6 +1851,7 @@
 				4C84D9662146A06F001B6EBD /* LoginViewModel.swift in Sources */,
 				8E6F3E0C21412150003CDFC2 /* GetTransactionsRequest.swift in Sources */,
 				4C84D94221452836001B6EBD /* AffirmInputMnemonicVM.swift in Sources */,
+				8ECA6E3A2190459F0049CDE0 /* COSProvider.swift in Sources */,
 				8EE4690B214BBE0B00807D2C /* UIButton+Helper.swift in Sources */,
 				4C3E323F215492AC009936E3 /* Bundle.swift in Sources */,
 				4C32E2052182B86A00007E9F /* TitleMoneyInputView.swift in Sources */,
@@ -1830,6 +1869,7 @@
 				4C5E23062192EDEB0010B905 /* CancelVoteRequest.swift in Sources */,
 				4C2A1920215137EF00C51CE8 /* CreateNameAndPwdVM.swift in Sources */,
 				4CE4E14521479EAF00A6CD7E /*  CreateWalletService.swift in Sources */,
+				8ECA6E4321913DC00049CDE0 /* MyHomeListCellViewModel.swift in Sources */,
 				8E56FC8221466BF500A68823 /* SendViewController.swift in Sources */,
 				74B3F8782176DF11002FA14F /* ScanViewReactor.swift in Sources */,
 				4CFD6CC32154CAF800437F33 /* LineView.swift in Sources */,
@@ -1881,6 +1921,7 @@
 				8ED4CECF2147C5910005A82D /* WebHandler.swift in Sources */,
 				4C84D93E21452836001B6EBD /* AffirmInputMnemonicViewController.swift in Sources */,
 				8E6F3E4A21451401003CDFC2 /* WalletHomeBalanceInfoTableViewModel.swift in Sources */,
+				8ECA6E4C219170370049CDE0 /* MyHomeConfigViewModel.swift in Sources */,
 				8EE4690D214BCE0700807D2C /* AutoGatheringService.swift in Sources */,
 				8E6F3E1E2142280F003CDFC2 /* BaseTableViewCell.swift in Sources */,
 				8E548536217DABFC009C528B /* AppSettingsService.swift in Sources */,
@@ -1900,6 +1941,7 @@
 				4C9AFD59214E2FF2005B12C2 /* ManageWalletHeaderView.swift in Sources */,
 				8E56FC932147686700A68823 /* TransactionListTableViewModel.swift in Sources */,
 				8E54854A21805185009C528B /* GetPledgeQuotaRequest.swift in Sources */,
+				8ECA6E48219141720049CDE0 /* StringWrapper.swift in Sources */,
 				8E107EDD215A61B500B28DE2 /* SendAmountView.swift in Sources */,
 				4CEB2926214B968000E5F7F4 /* UIView+Loading.swift in Sources */,
 			);
@@ -2015,7 +2057,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1083;
+				CURRENT_PROJECT_VERSION = 1084;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2184,7 +2226,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1083;
+				CURRENT_PROJECT_VERSION = 1084;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2211,7 +2253,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1083;
+				CURRENT_PROJECT_VERSION = 1084;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

@@ -18,7 +18,7 @@
 "Submit" = "提交";
 "Close" = "我知道了";
 "Update.app" = "更新 App";
-"NetWorkError" = "加载失败，请刷新重试";
+"NetWorkError" = "网络异常，请稍后重试";
 "Submit.success" = "提交成功";
 "Submit.cancel" = "撤销";
 
@@ -73,6 +73,9 @@
 "import.page.submit.invalid.mnemonic" = "助记词输入有误，请重新输入。";
 "import.page.submit.loading" = "账户恢复中...";
 "import.page.submit.success" = "恢复成功";
+"import.page.alert.exist.title" = "您输入的助记词在当前设备的账户名为%@，确认是否使用新账户覆盖原有账户";
+"import.page.alert.exist.ok" = "确认";
+"import.page.alert.exist.cancel" = "取消";
 
 /* export mnemonic */
 "export.page.title" = "导出助记词";

@@ -21,8 +21,17 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 0 files.
+  /// This `R.file` struct is generated, and contains static references to 1 files.
   struct file {
+    /// Resource file `AppConfig`.
+    static let appConfig = Rswift.FileResource(bundle: R.hostingBundle, name: "AppConfig", pathExtension: "")
+    
+    /// `bundle.url(forResource: "AppConfig", withExtension: "")`
+    static func appConfig(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.appConfig
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
     fileprivate init() {}
   }
   
@@ -607,7 +616,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 199 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 202 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -717,6 +726,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let cancel = Rswift.StringResource(key: "Cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Cancel
+      /// 
+      /// Locales: en, zh-Hans
+      static let importPageAlertExistCancel = Rswift.StringResource(key: "import.page.alert.exist.cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Cancel
       /// 
       /// Locales: en, zh-Hans
@@ -897,10 +910,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let loading = Rswift.StringResource(key: "Loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Loading failed, please refresh
-      /// 
-      /// Locales: en, zh-Hans
-      static let netWorkError = Rswift.StringResource(key: "NetWorkError", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Loading...
       /// 
       /// Locales: en, zh-Hans
@@ -1369,6 +1378,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let lockPageImportUserBtnTitle = Rswift.StringResource(key: "lock.page.importUser.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 您输入的助记词在当前设备的账户名为%@，确认是否使用新账户覆盖原有账户
+      /// 
+      /// Locales: en, zh-Hans
+      static let importPageAlertExistTitle = Rswift.StringResource(key: "import.page.alert.exist.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 我的投票
       /// 
       /// Locales: en, zh-Hans
@@ -1405,6 +1418,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let votePageVoteStatusCancelVoting = Rswift.StringResource(key: "vote.page.voteStatus.cancelVoting", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 确认
+      /// 
+      /// Locales: en, zh-Hans
+      static let importPageAlertExistOk = Rswift.StringResource(key: "import.page.alert.exist.ok", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 网络异常，请稍后重试
+      /// 
+      /// Locales: en, zh-Hans
+      static let netWorkError = Rswift.StringResource(key: "NetWorkError", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1593,6 +1614,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func cancel(_: Void = ()) -> String {
         return NSLocalizedString("Cancel", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Cancel
+      /// 
+      /// Locales: en, zh-Hans
+      static func importPageAlertExistCancel(_: Void = ()) -> String {
+        return NSLocalizedString("import.page.alert.exist.cancel", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Cancel
@@ -1908,13 +1936,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func loading(_: Void = ()) -> String {
         return NSLocalizedString("Loading", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Loading failed, please refresh
-      /// 
-      /// Locales: en, zh-Hans
-      static func netWorkError(_: Void = ()) -> String {
-        return NSLocalizedString("NetWorkError", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Loading...
@@ -2736,6 +2757,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("lock.page.importUser.btn.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 您输入的助记词在当前设备的账户名为%@，确认是否使用新账户覆盖原有账户
+      /// 
+      /// Locales: en, zh-Hans
+      static func importPageAlertExistTitle(_ value1: String) -> String {
+        return String(format: NSLocalizedString("import.page.alert.exist.title", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
       /// en translation: 我的投票
       /// 
       /// Locales: en, zh-Hans
@@ -2797,6 +2825,20 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func votePageVoteStatusCancelVoting(_: Void = ()) -> String {
         return NSLocalizedString("vote.page.voteStatus.cancelVoting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 确认
+      /// 
+      /// Locales: en, zh-Hans
+      static func importPageAlertExistOk(_: Void = ()) -> String {
+        return NSLocalizedString("import.page.alert.exist.ok", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 网络异常，请稍后重试
+      /// 
+      /// Locales: en, zh-Hans
+      static func netWorkError(_: Void = ()) -> String {
+        return NSLocalizedString("NetWorkError", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

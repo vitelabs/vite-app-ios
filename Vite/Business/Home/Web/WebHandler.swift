@@ -17,7 +17,10 @@ struct WebHandler {
         while let presentedViewController = top.presentedViewController {
             top = presentedViewController
         }
-        let safariViewController = SafariViewController(url: url)
+
+        let string = appendQuery(urlString: url.absoluteString)
+        let ret = URL(string: string)!
+        let safariViewController = SafariViewController(url: ret)
         top.present(safariViewController, animated: true, completion: nil)
     }
 
@@ -34,7 +37,8 @@ struct WebHandler {
 
     fileprivate static func appendQuery(urlString: String) -> String {
         let querys = ["version": Bundle.main.versionNumber,
-                      "channel": Constants.appDownloadChannel]
+                      "channel": Constants.appDownloadChannel.rawValue,
+                      "address": HDWalletManager.instance.bag?.address.description ?? ""]
         var string = urlString
         for (key, value) in querys {
             let separator = string.contains("?") ? "&" : "?"
