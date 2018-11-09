@@ -9,11 +9,12 @@
 import ReactorKit
 import RxCocoa
 import RxSwift
-import Alamofire
+import NSObject_Rx
 
 final class MyVoteInfoViewReactor: Reactor {
     let address = HDWalletManager.instance.bag?.address ?? Address()
     let bag = HDWalletManager.instance.bag ??  HDWalletManager.Bag()
+    var disposeBag = DisposeBag()
 
     enum Action {
         case refreshData
@@ -23,7 +24,6 @@ final class MyVoteInfoViewReactor: Reactor {
     }
 
     enum Mutation {
-        case setLoading(Bool)
         case append(voteInfo: VoteInfo?, errorMessage: String?)
         case replace(voteInfo: VoteInfo?, errorMessage: String?)
     }
@@ -38,21 +38,23 @@ final class MyVoteInfoViewReactor: Reactor {
 
     init() {
         self.initialState = State.init(voteInfo: nil, dataIsFromServer: false, errorMessage: nil)
+        _ = NotificationCenter.default.rx.notification(.userDidVote).subscribe(onNext: { [unowned self] (value) in
+    
+        })
+
     }
 
     func mutate(action: Action) -> Observable<Mutation> {
+
         switch action {
         case .refreshData:
             return Observable.concat([
-                Observable.just(Mutation.setLoading(true)),
-                self.fetchVoteInfo(refresh: true).map { Mutation.replace(voteInfo: $0.0, errorMessage: $0.1) },
-                Observable.just(Mutation.setLoading(false)),
+                self.fetchVoteInfo().map { Mutation.replace(voteInfo: $0.0, errorMessage: $0.1) },
                 ])
+
         case .cancelVote:
             return Observable.concat([
-                Observable.just(Mutation.setLoading(true)),
-                self.fetchVoteInfo(refresh: false).map { Mutation.append(voteInfo: $0.0, errorMessage: $0.1) },
-                Observable.just(Mutation.setLoading(false)),
+                self.fetchVoteInfo().map { Mutation.replace(voteInfo: $0.0, errorMessage: $0.1) },
                 ])
         }
     }
@@ -61,8 +63,6 @@ final class MyVoteInfoViewReactor: Reactor {
         var newState = state
         newState.errorMessage = nil
         switch mutation {
-        case .setLoading(let loading):
-            newState.dataIsFromServer = !loading
         case let .append(voteInfo: voteInfo, errorMessage: message):
             if let voteInfo = voteInfo {
                 newState.voteInfo = voteInfo
@@ -81,10 +81,7 @@ final class MyVoteInfoViewReactor: Reactor {
         return newState
     }
 
-    func fetchVoteInfo(refresh: Bool) -> Observable<(VoteInfo?, String? )> {
-
-        if refresh { }
-
+    func fetchVoteInfo() -> Observable<(VoteInfo?, String? )> {
         return Observable<(VoteInfo?, String?)>.create({ (observer) -> Disposable in
             Provider.instance.getVoteInfo(address: self.address
             ) { (result) in

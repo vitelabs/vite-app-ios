@@ -14,7 +14,7 @@ class MyVoteInfoViewController: BaseViewController, View {
     // FIXME: Optional
     let bag = HDWalletManager.instance.bag!
     var disposeBag = DisposeBag()
-
+    var timerBag: DisposeBag! = DisposeBag()
     init() {
         super.init(nibName: nil, bundle: nil)
         self.reactor = MyVoteInfoViewReactor()
@@ -27,8 +27,24 @@ class MyVoteInfoViewController: BaseViewController, View {
     override func viewDidLoad() {
         super.viewDidLoad()
         self._setupView()
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.reactor?.action.onNext(.refreshData)
+        self._pollingInfoData()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.timerBag = nil
+    }
+
+    private func _pollingInfoData () {
+        self.timerBag  = DisposeBag()
+        Observable<Int>.interval(3, scheduler: MainScheduler.instance).bind { [weak self] _ in
+            self?.reactor?.action.onNext(.refreshData)
+        }.disposed(by: self.timerBag)
     }
 
     private func _setupView() {
@@ -47,6 +63,8 @@ class MyVoteInfoViewController: BaseViewController, View {
         self.voteInfoEmptyView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
+        self.viewInfoView.isHidden = true
+        self.voteInfoEmptyView.isHidden = false
     }
 
     lazy var viewInfoView: VoteInfoView = {
@@ -62,6 +80,10 @@ class MyVoteInfoViewController: BaseViewController, View {
 
 extension MyVoteInfoViewController {
     func bind(reactor: MyVoteInfoViewReactor) {
+
+        
+
+
         self.viewInfoView.nodeStatusLab.tipButton.rx.tap.bind { [weak self] in
             let url  = URL(string: String(format: "%@?localize=%@", Constants.voteLoserURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
             let vc = PopViewController(url: url)
@@ -79,30 +101,25 @@ extension MyVoteInfoViewController {
         //handle new vote data coming
         reactor.state
             .map { $0.voteInfo }
-            .bind {
-//                guard let voteInfo = $0 else {
-//                    self.viewInfoView.isHidden = true
-//                    self.voteInfoEmptyView.isHidden = false
-//                    return
-//                }
-                var voteInfo = VoteInfo()
-                voteInfo.nodeName = "s111"
-                voteInfo.nodeStatus = .invalid
-                voteInfo.balance = Balance.init(value: BigInt(121221221221221221222122122212.121))
-
-                self.viewInfoView.isHidden = false
-                self.voteInfoEmptyView.isHidden = true
-                self.viewInfoView.reloadData(voteInfo, voteInfo.nodeStatus == .invalid ? .voteInvalid : .voteSuccess)
+            .bind {[weak self] in
+                guard let voteInfo = $0 else {
+                    self?.viewInfoView.isHidden = true
+                    self?.voteInfoEmptyView.isHidden = false
+                    return
+                }
+                self?.viewInfoView.isHidden = false
+                self?.voteInfoEmptyView.isHidden = true
+                self?.viewInfoView.reloadData(voteInfo, voteInfo.nodeStatus == .invalid ? .voteInvalid : .voteSuccess)
             }.disposed(by: disposeBag)
 
         //handle error message 
         reactor.state
             .map { $0.errorMessage }
             .filterNil()
-            .bind {
+            .bind {[weak self] in
                 Toast.show($0)
-                self.viewInfoView.isHidden = true
-                self.voteInfoEmptyView.isHidden = false
+                self?.viewInfoView.isHidden = true
+                self?.voteInfoEmptyView.isHidden = false
             }.disposed(by: disposeBag)
     }
 }
