@@ -27,8 +27,18 @@ class LockPwdViewController: BaseViewController {
     lazy var logoImgView: UIImageView = {
         let logoImgView = UIImageView()
         logoImgView.backgroundColor = .clear
-        logoImgView.image =  R.image.login_logo()
+        logoImgView.image =  R.image.lock_page_user()
         return logoImgView
+    }()
+
+    lazy var userNameLab: UILabel = {
+        let userNameLab = UILabel()
+        userNameLab.backgroundColor = .clear
+        userNameLab.textAlignment = .center
+        userNameLab.textColor = Colors.titleGray
+        userNameLab.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
+        userNameLab.text = HDWalletManager.instance.wallet?.name
+        return userNameLab
     }()
 
     lazy var passwordTF: TitlePasswordInputView = {
@@ -76,6 +86,12 @@ extension LockPwdViewController {
             make.centerX.equalTo(self.view)
             make.top.equalTo(self.view.safeAreaLayoutGuideSnpTop).offset(50)
             make.width.height.equalTo(84)
+        }
+        self.view.addSubview(self.userNameLab)
+        self.userNameLab.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(self.view)
+            make.top.equalTo(self.logoImgView.snp.bottom).offset(37)
+            make.height.equalTo(20)
         }
 
         self.view.addSubview(self.passwordTF)

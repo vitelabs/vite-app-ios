@@ -40,7 +40,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 70 images.
+  /// This `R.image` struct is generated, and contains static references to 71 images.
   struct image {
     /// Image `aboutus_logo`.
     static let aboutus_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "aboutus_logo")
@@ -160,6 +160,8 @@ struct R: Rswift.Validatable {
     static let icon_votecount = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_votecount")
     /// Image `icon_wallet`.
     static let icon_wallet = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_wallet")
+    /// Image `lock_page_user`.
+    static let lock_page_user = Rswift.ImageResource(bundle: R.hostingBundle, name: "lock_page_user")
     /// Image `login_bg`.
     static let login_bg = Rswift.ImageResource(bundle: R.hostingBundle, name: "login_bg")
     /// Image `login_logo`.
@@ -476,6 +478,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "icon_wallet", bundle: ..., traitCollection: ...)`
     static func icon_wallet(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.icon_wallet, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "lock_page_user", bundle: ..., traitCollection: ...)`
+    static func lock_page_user(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.lock_page_user, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "login_bg", bundle: ..., traitCollection: ...)`

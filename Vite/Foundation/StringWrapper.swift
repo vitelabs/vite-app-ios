@@ -12,7 +12,7 @@ import ObjectMapper
 struct StringWrapper: Mappable {
 
     fileprivate var base: String = ""
-    fileprivate var localized:[String: String] = [:]
+    fileprivate var localized: [String: String] = [:]
 
     init(string: String) {
         self.base = string
