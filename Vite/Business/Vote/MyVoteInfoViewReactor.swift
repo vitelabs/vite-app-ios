@@ -38,7 +38,11 @@ final class MyVoteInfoViewReactor: Reactor {
 
     init() {
         self.initialState = State.init(voteInfo: nil, dataIsFromServer: false, errorMessage: nil)
+
+        //vote success
         _ = NotificationCenter.default.rx.notification(.userDidVote).subscribe(onNext: { [unowned self] (value) in
+
+
     
         })
 

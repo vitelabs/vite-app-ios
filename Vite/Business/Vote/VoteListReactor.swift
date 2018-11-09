@@ -85,7 +85,7 @@ final class VoteListReactor {
         Provider.instance.vote(bag: bag, benefitedNodeName: nodeName) { result in
             if case .success = result {
                 DispatchQueue.main.async {
-                    NotificationCenter.default.post(name: .userDidVote, object: nil)
+                    NotificationCenter.default.post(name: .userDidVote, object: nodeName)
                 }
             } else if case let .error(error) = result {
                 self.voteError.value = error
