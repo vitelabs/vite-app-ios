@@ -97,7 +97,7 @@ class DebugService: Mappable {
             appEnvironment = .test
         } else if useBigDifficulty == true && configEnvironment == ConfigEnvironment.stage && rpcUseOnlineUrl == true {
             appEnvironment = .stage
-        }  else if useBigDifficulty == true && configEnvironment == ConfigEnvironment.online && rpcUseOnlineUrl == true {
+        } else if useBigDifficulty == true && configEnvironment == ConfigEnvironment.online && rpcUseOnlineUrl == true {
             appEnvironment = .online
         } else {
             appEnvironment = .custom

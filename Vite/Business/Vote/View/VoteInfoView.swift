@@ -104,7 +104,7 @@ class VoteInfoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     fileprivate var voteInfo: VoteInfo?
-    fileprivate var voteStatus: VoteStatus?
+    var voteStatus: VoteStatus?
 
     func reloadData(_ voteInfo: VoteInfo, _ voteStatus: VoteStatus?) {
         self.voteInfo = voteInfo

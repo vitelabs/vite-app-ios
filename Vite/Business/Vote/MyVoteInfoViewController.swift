@@ -36,7 +36,6 @@ class MyVoteInfoViewController: BaseViewController, View {
         self.reactor?.action.onNext(.refreshData(HDWalletManager.instance.bag?.address.description ?? ""))
         self._pollingInfoData()
 
-
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -60,8 +59,10 @@ class MyVoteInfoViewController: BaseViewController, View {
                 return
             }
 
-            // no balanceInfo, set 0.0
-            //            self.headerView.balanceLabel.text = "0.0"
+            if (self.viewInfoView.voteStatus == .voting) {
+                // no balanceInfo, set 0.0
+                self.viewInfoView.nodePollsLab.text = "0.0"
+            }
         }).disposed(by: rx.disposeBag)
     }
 
@@ -99,12 +100,10 @@ class MyVoteInfoViewController: BaseViewController, View {
 extension MyVoteInfoViewController {
     func bind(reactor: MyVoteInfoViewReactor) {
 
-
-
         //vote success
         _ = NotificationCenter.default.rx.notification(.userDidVote).takeUntil(self.rx.deallocated).observeOn(MainScheduler.instance).subscribe({[weak self] (notification)   in
             let nodeName = notification.element?.object
-            self?.reactor?.action.onNext(.voting(nodeName as! String))
+            self?.reactor?.action.onNext(.voting(nodeName as! String, self?.balance))
         })
 
         self.viewInfoView.nodeStatusLab.tipButton.rx.tap.bind { [weak self] in
@@ -118,9 +117,7 @@ extension MyVoteInfoViewController {
 
         //handle cancel vote
          self.viewInfoView.operationBtn.rx.tap.bind {_ in
-
             NotificationCenter.default.post(name: .userDidVote, object: "nodeName")
-
 //            reactor.action.onNext(.cancelVote)
          }.disposed(by: rx.disposeBag)
 
@@ -133,9 +130,10 @@ extension MyVoteInfoViewController {
                     self?.voteInfoEmptyView.isHidden = false
                     return
                 }
-                self?.viewInfoView.isHidden = false
-                self?.voteInfoEmptyView.isHidden = true
-                self?.viewInfoView.reloadData(voteInfo, voteInfo.nodeStatus == .invalid ? .voteInvalid : .voteSuccess)
+              guard let voteStatus = $1 else {
+                    return
+              }
+             self?.viewInfoView.reloadData(voteInfo, voteInfo.nodeStatus == .invalid ? .voteInvalid :voteStatus)
             }.disposed(by: disposeBag)
 
         //handle error message 

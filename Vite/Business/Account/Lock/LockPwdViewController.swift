@@ -71,7 +71,6 @@ class LockPwdViewController: BaseViewController {
         importUserBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         importUserBtn.addTarget(self, action: #selector(importUserBtnAction), for: .touchUpInside)
 
-
         return importUserBtn
     }()
 }
