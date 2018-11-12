@@ -661,7 +661,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicBackupPageErrorTypeNameValid = Rswift.StringResource(key: "mnemonic.backup.page.error.type.nameValid", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Add List
+      /// en translation: Add Address
       /// 
       /// Locales: en, zh-Hans
       static let addressManageAddressGenerateButtonTitle = Rswift.StringResource(key: "address.manage.address.generate.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
@@ -673,10 +673,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicAffirmPageAddLoading = Rswift.StringResource(key: "mnemonic.affirm.page.add.loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Address List
-      /// 
-      /// Locales: en, zh-Hans
-      static let addressManageAddressHeaderTitle = Rswift.StringResource(key: "address.manage.address.header.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Address Management
       /// 
       /// Locales: en, zh-Hans
@@ -685,6 +681,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let manageWalletPageAddressManageCellTitle = Rswift.StringResource(key: "manage.wallet.page.addressManage.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Addresses
+      /// 
+      /// Locales: en, zh-Hans
+      static let addressManageAddressHeaderTitle = Rswift.StringResource(key: "address.manage.address.header.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Amount
       /// 
       /// Locales: en, zh-Hans
@@ -1493,7 +1493,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("mnemonic.backup.page.error.type.nameValid", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Add List
+      /// en translation: Add Address
       /// 
       /// Locales: en, zh-Hans
       static func addressManageAddressGenerateButtonTitle(_: Void = ()) -> String {
@@ -1514,13 +1514,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("mnemonic.affirm.page.add.loading", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Address List
-      /// 
-      /// Locales: en, zh-Hans
-      static func addressManageAddressHeaderTitle(_: Void = ()) -> String {
-        return NSLocalizedString("address.manage.address.header.title", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: Address Management
       /// 
       /// Locales: en, zh-Hans
@@ -1533,6 +1526,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func manageWalletPageAddressManageCellTitle(_: Void = ()) -> String {
         return NSLocalizedString("manage.wallet.page.addressManage.cell.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Addresses
+      /// 
+      /// Locales: en, zh-Hans
+      static func addressManageAddressHeaderTitle(_: Void = ()) -> String {
+        return NSLocalizedString("address.manage.address.header.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Amount
