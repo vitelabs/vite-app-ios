@@ -105,7 +105,6 @@ final class MyVoteInfoViewReactor: Reactor {
                     observer.onNext(nil)
                     observer.onCompleted()
                 case .error(let error):
-
                     observer.onNext(error.message)
                     observer.onCompleted()
                 }

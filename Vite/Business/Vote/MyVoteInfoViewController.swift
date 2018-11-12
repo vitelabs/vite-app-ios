@@ -78,7 +78,7 @@ class MyVoteInfoViewController: BaseViewController, View {
         //handle cancel vote
         self.viewInfoView.operationBtn.rx.tap.bind {_ in
             self.cancelVote()
-            }.disposed(by: rx.disposeBag)
+        }.disposed(by: rx.disposeBag)
     }
 
     private func _setupView() {
@@ -139,6 +139,14 @@ class MyVoteInfoViewController: BaseViewController, View {
 }
 
 extension MyVoteInfoViewController {
+    private func refreshVoteInfoView(_ voteInfo: VoteInfo, _ voteStatus: VoteStatus) {
+        self.viewInfoView.isHidden = false
+        self.voteInfoEmptyView.isHidden = true
+        self.viewInfoView.reloadData(voteInfo, voteInfo.nodeStatus == .invalid ? .voteInvalid :voteStatus)
+
+        NotificationCenter.default.post(name: .userVoteInfoChange, object: ["voteInfo": voteInfo, "voteStatus": voteStatus])
+    }
+
     func bind(reactor: MyVoteInfoViewReactor) {
 
         //vote success
@@ -154,6 +162,12 @@ extension MyVoteInfoViewController {
                 guard let voteStatus = $1 else {
                     return
                 }
+                //handle cancel vote
+                if voteStatus == .cancelVoting {
+                    self?.refreshVoteInfoView(self?.oldVoteInfo ?? VoteInfo(), voteStatus)
+                    return
+                }
+
                 guard let voteInfo = $0 else {
                     //voteInfo == nil && old voteStatus = voting
                     if self?.viewInfoView.voteStatus != .voting {
@@ -168,25 +182,19 @@ extension MyVoteInfoViewController {
                     return
                 }
                 //voteInfo != nil && new voteStatus = voting, old  voteInfo
-                if voteStatus != .voting && voteStatus != .cancelVoting{
+                if voteStatus != .voting && voteStatus != .cancelVoting {
                     self?.oldVoteInfo = voteInfo
                 }
 
-                self?.viewInfoView.isHidden = false
-                self?.voteInfoEmptyView.isHidden = true
-                self?.viewInfoView.reloadData(voteInfo, voteInfo.nodeStatus == .invalid ? .voteInvalid :voteStatus)
-
-                NotificationCenter.default.post(name: .userVoteInfoChange, object: ["voteInfo": $0 as Any, "voteStatus": $1 as Any])
+                self?.refreshVoteInfoView(voteInfo, voteStatus)
             }.disposed(by: disposeBag)
 
         //handle error message 
         reactor.state
             .map { $0.errorMessage }
             .filterNil()
-            .bind {[weak self] in
+            .bind {
                 Toast.show($0)
-                self?.viewInfoView.isHidden = true
-                self?.voteInfoEmptyView.isHidden = false
             }.disposed(by: disposeBag)
     }
 }

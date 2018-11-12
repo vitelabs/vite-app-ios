@@ -11,7 +11,7 @@ import JSONRPCKit
 
 struct CancelVoteRequest: JSONRPCKit.Request {
     typealias Response = String
-    let gid: String = ""
+    let gid: String
 
     var method: String {
         return "vote_getCancelVoteData"
