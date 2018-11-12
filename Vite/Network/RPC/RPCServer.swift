@@ -12,7 +12,7 @@ final class RPCServer {
     static let shared = RPCServer()
     private init() {}
 
-    #if DEBUG
+    #if DEBUG || TEST
     var rpcURL: URL {
         if DebugService.instance.rpcUseOnlineUrl {
             return URL(string: "https://testnet.vitewallet.com/ios")!

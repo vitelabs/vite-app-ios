@@ -20,7 +20,7 @@ struct Statistics {
     }
 
     static func log(eventId: String, attributes: [String: String] = [:]) {
-        #if DEBUG
+        #if DEBUG || TEST
         if DebugService.instance.showStatisticsToast {
             if attributes.isEmpty {
                 Toast.show("Statistics Event Start: \(eventId)")
@@ -53,7 +53,7 @@ struct Statistics {
     }
 
     static func pageviewStart(with name: String) {
-        #if DEBUG
+        #if DEBUG || TEST
         if DebugService.instance.showStatisticsToast {
             Toast.show("Statistics Page Start: \(name)")
         }
@@ -69,7 +69,7 @@ struct Statistics {
     }
 
     static func pageviewEnd(with name: String) {
-        #if DEBUG
+        #if DEBUG || TEST
         if DebugService.instance.showStatisticsToast {
             Toast.show("Statistics Page End: \(name)")
         }

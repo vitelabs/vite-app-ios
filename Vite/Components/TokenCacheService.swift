@@ -146,7 +146,7 @@ extension TokenCacheService {
     }
 }
 
-#if DEBUG
+#if DEBUG || TEST
 extension TokenCacheService {
     func deleteCache() {
         if let error = fileHelper.deleteFileAtRelativePath(type(of: self).saveKey) {

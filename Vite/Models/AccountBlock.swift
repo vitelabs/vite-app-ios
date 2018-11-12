@@ -17,7 +17,7 @@ struct AccountBlock: Mappable {
     struct Const {
         static let defaultHash = "0000000000000000000000000000000000000000000000000000000000000000"
 
-        #if DEBUG
+        #if DEBUG || TEST
         enum Difficulty {
             case sendWithoutData
             case receive
