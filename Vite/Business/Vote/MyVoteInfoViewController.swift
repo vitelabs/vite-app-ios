@@ -123,7 +123,7 @@ extension MyVoteInfoViewController {
 
         //handle new vote data coming
         reactor.state
-            .map { $0.voteInfo }
+            .map { ($0.voteInfo, $0.voteStatus) }
             .bind {[weak self] in
                 guard let voteInfo = $0 else {
                     self?.viewInfoView.isHidden = true
@@ -133,6 +133,8 @@ extension MyVoteInfoViewController {
               guard let voteStatus = $1 else {
                     return
               }
+                self?.viewInfoView.isHidden = false
+                self?.voteInfoEmptyView.isHidden = true
              self?.viewInfoView.reloadData(voteInfo, voteInfo.nodeStatus == .invalid ? .voteInvalid :voteStatus)
             }.disposed(by: disposeBag)
 

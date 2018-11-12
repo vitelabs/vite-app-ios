@@ -23,7 +23,7 @@ final class MyVoteInfoViewReactor: Reactor {
     }
 
     enum Mutation {
-        case replace(voteInfo: VoteInfo?,voteStatus: VoteStatus? ,errorMessage: String?)
+        case replace(voteInfo: VoteInfo?, voteStatus: VoteStatus?, errorMessage: String?)
     }
 
     struct State {
@@ -46,11 +46,11 @@ final class MyVoteInfoViewReactor: Reactor {
                 ])
         case .cancelVote:
             return Observable.concat([
-                self.fetchVoteInfo("").map { Mutation.replace(voteInfo: $0.0,voteStatus: .cancelVoting, errorMessage: $0.1) },
+                self.fetchVoteInfo("").map { Mutation.replace(voteInfo: $0.0, voteStatus: .cancelVoting, errorMessage: $0.1) },
                 ])
         case .voting(let nodeName, let banlance):
             return Observable.concat([
-                self.createLocalVoteInfo(nodeName, banlance, false).map { Mutation.replace(voteInfo: $0.0,voteStatus: .voting, errorMessage: nil) },
+                self.createLocalVoteInfo(nodeName, banlance, false).map { Mutation.replace(voteInfo: $0.0, voteStatus: .voting, errorMessage: nil) },
                 ])
         }
     }
@@ -59,7 +59,7 @@ final class MyVoteInfoViewReactor: Reactor {
         var newState = state
         newState.errorMessage = nil
         switch mutation {
-        case let .replace(voteInfo: voteInfo,voteStatus: voteStatus,errorMessage: message):
+        case let .replace(voteInfo: voteInfo, voteStatus: voteStatus, errorMessage: message):
                 newState.voteInfo = voteInfo
                 newState.errorMessage = message
                 newState.voteStatus = voteStatus
@@ -76,7 +76,7 @@ final class MyVoteInfoViewReactor: Reactor {
             return Disposables.create()
         })
     }
-    
+
     func fetchVoteInfo(_ address: String) -> Observable<(VoteInfo?, String? )> {
         return Observable<(VoteInfo?, String?)>.create({ (observer) -> Disposable in
             Provider.instance.getVoteInfo(address: address
