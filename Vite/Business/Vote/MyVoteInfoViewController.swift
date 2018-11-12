@@ -59,11 +59,20 @@ class MyVoteInfoViewController: BaseViewController, View {
                 return
             }
 
-            if (self.viewInfoView.voteStatus == .voting) {
+            if self.viewInfoView.voteStatus == .voting {
                 // no balanceInfo, set 0.0
                 self.viewInfoView.nodePollsLab.text = "0.0"
             }
         }).disposed(by: rx.disposeBag)
+
+        self.viewInfoView.nodeStatusLab.tipButton.rx.tap.bind { [weak self] in
+            let url  = URL(string: String(format: "%@?localize=%@", Constants.voteLoserURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
+            let vc = PopViewController(url: url)
+            vc.modalPresentationStyle = .overCurrentContext
+            let delegate =  StyleActionSheetTranstionDelegate()
+            vc.transitioningDelegate = delegate
+            self?.present(vc, animated: true, completion: nil)
+        }.disposed(by: rx.disposeBag)
     }
 
     private func _setupView() {
@@ -106,15 +115,6 @@ extension MyVoteInfoViewController {
             self?.reactor?.action.onNext(.voting(nodeName as! String, self?.balance))
         })
 
-        self.viewInfoView.nodeStatusLab.tipButton.rx.tap.bind { [weak self] in
-            let url  = URL(string: String(format: "%@?localize=%@", Constants.voteLoserURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
-            let vc = PopViewController(url: url)
-            vc.modalPresentationStyle = .overCurrentContext
-            let delegate =  StyleActionSheetTranstionDelegate()
-            vc.transitioningDelegate = delegate
-            self?.present(vc, animated: true, completion: nil)
-        }.disposed(by: rx.disposeBag)
-
         //handle cancel vote
          self.viewInfoView.operationBtn.rx.tap.bind {_ in
             reactor.action.onNext(.cancelVote)
@@ -129,12 +129,14 @@ extension MyVoteInfoViewController {
                     self?.voteInfoEmptyView.isHidden = false
                     return
                 }
-              guard let voteStatus = $1 else {
+                guard let voteStatus = $1 else {
                     return
-              }
+                }
                 self?.viewInfoView.isHidden = false
                 self?.voteInfoEmptyView.isHidden = true
-             self?.viewInfoView.reloadData(voteInfo, voteInfo.nodeStatus == .invalid ? .voteInvalid :voteStatus)
+                self?.viewInfoView.reloadData(voteInfo, voteInfo.nodeStatus == .invalid ? .voteInvalid :voteStatus)
+
+                NotificationCenter.default.post(name: .userVoteInfoChange, object: ["voteInfo": $0 as Any, "voteStatus": $1 as Any])
             }.disposed(by: disposeBag)
 
         //handle error message 
@@ -149,9 +151,9 @@ extension MyVoteInfoViewController {
 
         //handle voteStatus
         reactor.state
-            .map { $0.voteStatus }
+            .map { $0.voteStatus }.observeOn(MainScheduler.instance)
             .bind {
-                NotificationCenter.default.post(name: .userDidCancelVote, object: ($0))
+
             }.disposed(by: disposeBag)
     }
 }
