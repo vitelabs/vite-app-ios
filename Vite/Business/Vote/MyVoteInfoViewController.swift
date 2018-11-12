@@ -33,8 +33,10 @@ class MyVoteInfoViewController: BaseViewController, View {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.reactor?.action.onNext(.refreshData)
+        self.reactor?.action.onNext(.refreshData(HDWalletManager.instance.bag?.address.description ?? ""))
         self._pollingInfoData()
+
+
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,7 +47,7 @@ class MyVoteInfoViewController: BaseViewController, View {
     private func _pollingInfoData () {
         self.timerBag  = DisposeBag()
         Observable<Int>.interval(3, scheduler: MainScheduler.instance).bind { [weak self] _ in
-            self?.reactor?.action.onNext(.refreshData)
+            self?.reactor?.action.onNext(.refreshData(HDWalletManager.instance.bag?.address.description ?? ""))
         }.disposed(by: self.timerBag)
     }
 

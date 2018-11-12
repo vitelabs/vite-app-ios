@@ -12,12 +12,12 @@ import RxSwift
 import NSObject_Rx
 
 final class MyVoteInfoViewReactor: Reactor {
-    let address = HDWalletManager.instance.bag?.address ?? Address()
+   
     let bag = HDWalletManager.instance.bag ??  HDWalletManager.Bag()
     var disposeBag = DisposeBag()
 
     enum Action {
-        case refreshData
+        case refreshData(String)
         case cancelVote
         case voting(String)
 //        case voting
@@ -25,7 +25,6 @@ final class MyVoteInfoViewReactor: Reactor {
     }
 
     enum Mutation {
-        case append(voteInfo: VoteInfo?, errorMessage: String?)
         case replace(voteInfo: VoteInfo?, errorMessage: String?)
     }
 
@@ -44,13 +43,13 @@ final class MyVoteInfoViewReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
 
         switch action {
-        case .refreshData:
+        case .refreshData((let address)):
             return Observable.concat([
-                self.fetchVoteInfo().map { Mutation.replace(voteInfo: $0.0, errorMessage: $0.1) },
+                self.fetchVoteInfo(address).map { Mutation.replace(voteInfo: $0.0, errorMessage: $0.1) },
                 ])
         case .cancelVote:
             return Observable.concat([
-                self.fetchVoteInfo().map { Mutation.replace(voteInfo: $0.0, errorMessage: $0.1) },
+                self.createLocalVoteInfo("",false).map { Mutation.replace(voteInfo: $0.0, errorMessage: nil) },
                 ])
         case .voting(let nodeName):
             return Observable.concat([
@@ -63,20 +62,10 @@ final class MyVoteInfoViewReactor: Reactor {
         var newState = state
         newState.errorMessage = nil
         switch mutation {
-        case let .append(voteInfo: voteInfo, errorMessage: message):
-            if let voteInfo = voteInfo {
-                newState.voteInfo = voteInfo
-            } else {
-                newState.errorMessage = message
-                newState.dataIsFromServer = true
-            }
         case let .replace(voteInfo: voteInfo, errorMessage: message):
-            if let voteInfo = voteInfo {
                 newState.voteInfo = voteInfo
-            } else {
                 newState.errorMessage = message
                 newState.dataIsFromServer = true
-            }
         }
         return newState
     }
@@ -91,10 +80,9 @@ final class MyVoteInfoViewReactor: Reactor {
             return Disposables.create()
         })
     }
-
-    func fetchVoteInfo() -> Observable<(VoteInfo?, String? )> {
+    func fetchVoteInfo(_ address : String) -> Observable<(VoteInfo?, String? )> {
         return Observable<(VoteInfo?, String?)>.create({ (observer) -> Disposable in
-            Provider.instance.getVoteInfo(address: self.address
+            Provider.instance.getVoteInfo(address: address
             ) { (result) in
                 switch result {
                 case .success(let voteInfo):

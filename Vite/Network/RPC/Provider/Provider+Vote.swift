@@ -14,7 +14,7 @@ import BigInt
 
 // MARK: Vote
 extension Provider {
-    fileprivate func getVoteInfo(address: Address) -> Promise<(VoteInfo?)> {
+    fileprivate func getVoteInfo(address: String) -> Promise<(VoteInfo?)> {
         return Promise { seal in
             let request = ViteServiceRequest(for: server, batch: BatchFactory()
                 .create(GetVoteInfoRequest(address: address.description)))
@@ -46,7 +46,7 @@ extension Provider {
 }
 
 extension Provider {
-    func getVoteInfo(address: Address, completion: @escaping (NetworkResult<(VoteInfo?)>) -> Void) {
+    func getVoteInfo(address: String, completion: @escaping (NetworkResult<(VoteInfo?)>) -> Void) {
         getVoteInfo(address: address)
             .done ({
                 completion(NetworkResult.success($0))
