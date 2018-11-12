@@ -18,7 +18,7 @@ class DebugViewController: FormViewController {
 
     func setupView() {
 
-        #if DEBUG
+        #if DEBUG || TEST
         navigationItem.title = "Debug"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.icon_nav_back_black(), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(_onCancel))
 
@@ -26,6 +26,29 @@ class DebugViewController: FormViewController {
             +++
             Section {
                 $0.header = HeaderFooterView(title: "App")
+            }
+            <<< LabelRow("appVersion") {
+                $0.title = "Version"
+                #if ENTERPRISE
+                #if DEBUG
+                $0.value = "\(Bundle.main.versionNumber) (DE\(Bundle.main.buildNumber))"
+                #else
+                $0.value = "\(Bundle.main.versionNumber) (E\(Bundle.main.buildNumber))"
+                #endif
+                #elseif TEST
+                #if DEBUG
+                $0.value = "\(Bundle.main.versionNumber) (DT\(Bundle.main.buildNumber))"
+                #else
+                $0.value = "\(Bundle.main.versionNumber) (T\(Bundle.main.buildNumber))"
+                #endif
+                #else
+                #if DEBUG
+                $0.value = "\(Bundle.main.versionNumber) (DA\(Bundle.main.buildNumber))"
+                #else
+                $0.value = "\(Bundle.main.versionNumber) (A\(Bundle.main.buildNumber))"
+                #endif
+                #endif
+            }.onCellSelection { _, _ in
             }
             <<< LabelRow("appEnvironment") {
                 $0.title = "Environment"

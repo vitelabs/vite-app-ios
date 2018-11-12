@@ -13,6 +13,8 @@ public struct Constants {
     public enum Channel: String {
         case appstore
         case enterprise
+        case test
+        case debug
     }
 
     // support
@@ -20,10 +22,16 @@ public struct Constants {
     //baidu  statistics
     public static let baiduMobileStat = "e74c7f32c0"
     //app channel
-    #if RELEASE_INHOUSE_FOR_DISTRIBUTE
+    #if DEBUG
+    public static let appDownloadChannel = Channel.debug
+    #else
+    #if ENTERPRISE
     public static let appDownloadChannel = Channel.enterprise
+    #elseif TEST
+    public static let appDownloadChannel = Channel.test
     #else
     public static let appDownloadChannel = Channel.appstore
+    #endif
     #endif
     public static let quotaDefinitionURL = "https://app.vite.net/quotaDefinition"
     public static let voteDefinitionURL = "https://app.vite.net/vote"

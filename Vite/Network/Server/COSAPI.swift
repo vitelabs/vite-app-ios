@@ -17,7 +17,7 @@ enum COSAPI {
 extension COSAPI: TargetType {
 
     var baseURL: URL {
-        #if DEBUG
+        #if DEBUG || TEST
         return DebugService.instance.configEnvironment.url
         #else
         return URL(string: "https://testnet-vite-1257137467.cos.ap-hongkong.myqcloud.com/config")!
@@ -29,7 +29,7 @@ extension COSAPI: TargetType {
         case .getAppConfig:
             return "/AppConfig"
         case .checkUpdate:
-            return Constants.appDownloadChannel == .appstore ? "AppStoreCheckUpdate" : "/EnterpriseCheckUpdate"
+            return Constants.appDownloadChannel == .appstore ? "/AppStoreCheckUpdate" : "/EnterpriseCheckUpdate"
         }
     }
 
