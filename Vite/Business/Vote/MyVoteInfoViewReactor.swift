@@ -42,7 +42,7 @@ final class MyVoteInfoViewReactor: Reactor {
         switch action {
         case .refreshData((let address)):
             return Observable.concat([
-                self.fetchVoteInfo(address).map { Mutation.replace(voteInfo: $0.0, voteStatus: .voteSuccess, errorMessage: $0.1) },
+                self.fetchVoteInfo(address).map { Mutation.replace(voteInfo: $0.0, voteStatus: .voteSuccess, errorMessage: nil) },
                 ])
         case .cancelVote:
             return Observable.concat([

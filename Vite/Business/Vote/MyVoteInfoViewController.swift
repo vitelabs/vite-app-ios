@@ -16,6 +16,8 @@ class MyVoteInfoViewController: BaseViewController, View {
     var disposeBag = DisposeBag()
     var timerBag: DisposeBag! = DisposeBag()
     var balance: Balance?
+    var oldVoteInfo: VoteInfo?
+
     init() {
         super.init(nibName: nil, bundle: nil)
         self.reactor = MyVoteInfoViewReactor()
@@ -58,7 +60,6 @@ class MyVoteInfoViewController: BaseViewController, View {
                 self.balance = balanceInfo.balance
                 return
             }
-
             if self.viewInfoView.voteStatus == .voting {
                 // no balanceInfo, set 0.0
                 self.viewInfoView.nodePollsLab.text = "0.0"
@@ -73,6 +74,11 @@ class MyVoteInfoViewController: BaseViewController, View {
             vc.transitioningDelegate = delegate
             self?.present(vc, animated: true, completion: nil)
         }.disposed(by: rx.disposeBag)
+
+        //handle cancel vote
+        self.viewInfoView.operationBtn.rx.tap.bind {_ in
+            self.cancelVote()
+            }.disposed(by: rx.disposeBag)
     }
 
     private func _setupView() {
@@ -141,23 +147,31 @@ extension MyVoteInfoViewController {
             self?.reactor?.action.onNext(.voting(nodeName as! String, self?.balance))
         })
 
-        //handle cancel vote
-         self.viewInfoView.operationBtn.rx.tap.bind {_ in
-            self.cancelVote()
-         }.disposed(by: rx.disposeBag)
-
         //handle new vote data coming
         reactor.state
             .map { ($0.voteInfo, $0.voteStatus) }
             .bind {[weak self] in
-                guard let voteInfo = $0 else {
-                    self?.viewInfoView.isHidden = true
-                    self?.voteInfoEmptyView.isHidden = false
-                    return
-                }
                 guard let voteStatus = $1 else {
                     return
                 }
+                guard let voteInfo = $0 else {
+                    //voteInfo == nil && old voteStatus = voting
+                    if self?.viewInfoView.voteStatus != .voting {
+                        self?.viewInfoView.isHidden = true
+                        self?.voteInfoEmptyView.isHidden = false
+                    }
+                    return
+                }
+                //server node can't affirm
+                if self?.oldVoteInfo?.nodeName == voteInfo.nodeName &&
+                    (self?.viewInfoView.voteStatus == .voting || self?.viewInfoView.voteStatus == .cancelVoting) {
+                    return
+                }
+                //voteInfo != nil && new voteStatus = voting, old  voteInfo
+                if voteStatus != .voting && voteStatus != .cancelVoting{
+                    self?.oldVoteInfo = voteInfo
+                }
+
                 self?.viewInfoView.isHidden = false
                 self?.voteInfoEmptyView.isHidden = true
                 self?.viewInfoView.reloadData(voteInfo, voteInfo.nodeStatus == .invalid ? .voteInvalid :voteStatus)

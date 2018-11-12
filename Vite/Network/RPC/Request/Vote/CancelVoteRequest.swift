@@ -9,15 +9,16 @@
 import Foundation
 import JSONRPCKit
 
-class CancelVoteRequest: JSONRPCKit.Request {
+struct CancelVoteRequest: JSONRPCKit.Request {
     typealias Response = String
+    let gid: String = ""
 
     var method: String {
         return "vote_getCancelVoteData"
     }
 
     var parameters: Any? {
-        return ["00000000000000000001"]
+        return [gid]
     }
 
     func response(from resultObject: Any) throws -> Response {

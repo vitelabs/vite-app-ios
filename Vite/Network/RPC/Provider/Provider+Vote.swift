@@ -19,8 +19,9 @@ private let voteCancelAddress = Address(string: "vite_00000000000000000000000000
 extension Provider {
     fileprivate func getVoteInfo(address: String) -> Promise<(VoteInfo?)> {
         return Promise { seal in
-            let request = ViteServiceRequest(for: server, batch: BatchFactory()
-                .create(GetVoteInfoRequest(address: address.description)))
+            var request = ViteServiceRequest(for: server, batch: BatchFactory()
+                .create(GetVoteInfoRequest(gid: voteCancel_gID, address: address)))
+            request.timeoutInterval = 1.0
             Session.send(request) { result in
                 switch result {
                 case .success(let voteInfo):
