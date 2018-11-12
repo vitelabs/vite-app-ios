@@ -46,7 +46,9 @@ final class MyVoteInfoViewReactor: Reactor {
                 ])
         case .cancelVote:
             return Observable.concat([
-                self.fetchVoteInfo("").map { Mutation.replace(voteInfo: $0.0, voteStatus: .cancelVoting, errorMessage: $0.1) },
+                self.cancelVoteAndSendWithoutGetPow().map({
+                 Mutation.replace(voteInfo: nil, voteStatus: .cancelVoting, errorMessage: $0)
+                })
                 ])
         case .voting(let nodeName, let banlance):
             return Observable.concat([
@@ -97,6 +99,24 @@ final class MyVoteInfoViewReactor: Reactor {
     func cancelVoteAndSendWithoutGetPow()-> Observable<(String? )> {
         return Observable<(String?)>.create({ (observer) -> Disposable in
             Provider.instance.cancelVoteAndSendWithoutGetPow(bag: self.bag
+            ) { (result) in
+                switch result {
+                case .success:
+                    observer.onNext(nil)
+                    observer.onCompleted()
+                case .error(let error):
+
+                    observer.onNext(error.message)
+                    observer.onCompleted()
+                }
+            }
+            return Disposables.create()
+        })
+    }
+
+    func cancelVoteAndSendWithGetPow()-> Observable<(String? )> {
+        return Observable<(String?)>.create({ (observer) -> Disposable in
+            Provider.instance.cancelVoteAndSendWithGetPow(bag: self.bag
             ) { (result) in
                 switch result {
                 case .success:

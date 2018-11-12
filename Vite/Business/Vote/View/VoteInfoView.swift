@@ -103,7 +103,7 @@ class VoteInfoView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    fileprivate var voteInfo: VoteInfo?
+    var voteInfo: VoteInfo?
     var voteStatus: VoteStatus?
 
     func reloadData(_ voteInfo: VoteInfo, _ voteStatus: VoteStatus?) {

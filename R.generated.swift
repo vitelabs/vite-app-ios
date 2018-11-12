@@ -623,7 +623,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 209 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 210 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1429,6 +1429,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let submitCancel = Rswift.StringResource(key: "Submit.cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 撤销投票
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteInfoCancelVoteTitle = Rswift.StringResource(key: "vote.page.voteInfo.cancel.vote.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 暂无投票
       /// 
       /// Locales: en, zh-Hans
@@ -2867,6 +2871,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func submitCancel(_: Void = ()) -> String {
         return NSLocalizedString("Submit.cancel", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 撤销投票
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteInfoCancelVoteTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteInfo.cancel.vote.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 暂无投票
