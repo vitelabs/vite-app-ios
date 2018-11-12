@@ -51,32 +51,59 @@ extension Provider {
               gid: String = gID,
               completion: @escaping (NetworkResult<Void>) -> Void) {
          getVoteData(benefitedNodeName: name, gid: gid)
-            .then({ [unowned self] (data) -> Promise<(latestAccountBlock: AccountBlock, fittestSnapshotHash: String, data: String)> in
-                return self.getLatestAccountBlockAndSnapshotHash(address: bag.address)
-                    .then({ (latestAccountBlock, fittestSnapshotHash) in
-                        return Promise { seal in
-                            seal.fulfill((latestAccountBlock, fittestSnapshotHash, data))
-                        }
+            .done({ data in
+                self.sendTransactionWithoutGetPow(bag: bag,
+                                                   toAddress: voteContractAddress,
+                                                   tokenId: TokenCacheService.instance.viteToken.id,
+                                                   amount: 0,
+                                                   data: data,
+                                                   completion: { result in
+                                                    switch result {
+                                                    case .success:
+                                                        completion(NetworkResult.success(Void()))
+                                                    case .error(let error):
+                                                        completion(NetworkResult.error(error))
+                                                    }
+
                 })
             })
-            .then({ [unowned self] (latestAccountBlock, fittestSnapshotHash, data) -> Promise<Void> in
-                let send = AccountBlock.makeSendAccountBlock(latest: latestAccountBlock,
-                                                             bag: bag,
-                                                             snapshotHash: fittestSnapshotHash,
-                                                             toAddress: voteContractAddress,
-                                                             tokenId: TokenCacheService.instance.viteToken.id,
-                                                             amount: 0,
-                                                             data: data,
-                                                             nonce: nil,
-                                                             difficulty: nil)
-                return self.createTransaction(accountBlock: send)
+            .catch {
+                completion(NetworkResult.error($0))
+            }
+
+    }
+
+    func voteWithPow(bag: HDWalletManager.Bag,
+                     benefitedNodeName name: String,
+                     gid: String = gID,
+                     completion: @escaping (NetworkResult<Void>) -> Void) {
+        getVoteData(benefitedNodeName: name, gid: gid)
+            .done({ [unowned self] (data)  in
+                self.sendTransactionWithGetPow(bag: bag,
+                                               toAddress: voteContractAddress,
+                                               tokenId: TokenCacheService.instance.viteToken.id,
+                                               amount: 0,
+                                               data: data,
+                                               difficulty: AccountBlock.Const.Difficulty.vote.value,
+                                               completion: { result in
+                                                switch result {
+                                                case .success(let context) :
+                                                    self.sendTransactionWithContext(context, completion: { (result) in
+                                                        switch result {
+                                                        case .success:
+                                                            completion(NetworkResult.success(Void()))
+                                                        case .error(let error):
+                                                            completion(NetworkResult.error(error))
+                                                        }
+                                                    })
+                                                case .error(let error):
+                                                    completion(NetworkResult.error(error))
+                                                }
+                })
             })
-            .done({
-                completion(NetworkResult.success($0))
-            })
-            .catch({
-                completion(NetworkResult.wrapError($0))
-            })
+            .catch {
+                completion(NetworkResult.error($0))
+            }
     }
 
 }
