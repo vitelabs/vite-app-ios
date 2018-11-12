@@ -149,6 +149,7 @@ extension MyVoteInfoViewController {
 
     private func notificationList(_ voteInfo: VoteInfo, _ voteStatus: VoteStatus) {
         NotificationCenter.default.post(name: .userVoteInfoChange, object: ["voteInfo": voteInfo, "voteStatus": voteStatus])
+        plog(level: .info, log: String.init(format: "userVoteInfoChange voteStatus = %d voteStatus = %@", voteStatus.rawValue,voteInfo.nodeName ?? ""), tag: .vote)
     }
 
     func bind(reactor: MyVoteInfoViewReactor) {
@@ -184,7 +185,7 @@ extension MyVoteInfoViewController {
                     //server node can't affirm
                     if self?.oldVoteInfo?.nodeName == voteInfo.nodeName &&
                         (self?.viewInfoView.voteStatus == .voting || self?.viewInfoView.voteStatus == .cancelVoting) {
-                        self?.notificationList(voteInfo , voteStatus)
+//                        self?.notificationList(voteInfo , voteStatus)
                         return
                     }
                     //voteInfo != nil && new voteStatus = voting, old  voteInfo
