@@ -146,7 +146,7 @@ class VoteListViewController: BaseViewController {
 
     func vote(nodeName: String) {
         let (status, info) = self.reactor.lastVoteInfo.value
-        let voted = status == .voteSuccess || status == .voteSuccess
+        let voted = status == .voteSuccess || status == .voting
 
         if !voted {
             self.confirmVote(nodeName: nodeName)
