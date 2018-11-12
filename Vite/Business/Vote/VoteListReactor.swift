@@ -64,7 +64,7 @@ final class VoteListReactor {
                 let info = notification.object as! [String: Any]
                 return (info["voteStatus"] as! VoteStatus, info["voteInfo"] as! VoteInfo)
             }
-            .distinctUntilChanged({ $0.0 != $1.0 || $0.1.nodeName != $0.1.nodeName })
+            .distinctUntilChanged({ $0.0 == $1.0 && $0.1.nodeName == $1.1.nodeName })
 
         let fetch = statusChanged
             .flatMapLatest({ (_, _)  in
