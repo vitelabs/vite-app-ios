@@ -35,6 +35,17 @@ struct WebHandler {
         open(url)
     }
 
+    static func openAddressDetailPage(address: String) {
+        var host = "https://testnet.vite.net"
+        if LocalizationService.sharedInstance.currentLanguage == .chinese {
+            host = "\(host)/zh"
+        }
+
+        let string = appendQuery(urlString: "\(host)/account/\(address)")
+        let url = URL(string: string)!
+        open(url)
+    }
+
     fileprivate static func appendQuery(urlString: String) -> String {
         let querys = ["version": Bundle.main.versionNumber,
                       "channel": Constants.appDownloadChannel.rawValue,

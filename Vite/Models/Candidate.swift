@@ -16,12 +16,12 @@ class Candidate: NSObject, Mappable {
     }
 
     var name: String = ""
-    var nodeAddr: String = ""
+    var nodeAddr: Address = Address()
     var voteNum: String = ""
 
     func mapping(map: Map) {
         name <- map["name"]
-        nodeAddr <- map["nodeAddr"]
+        nodeAddr <- (map["nodeAddr"], JSONTransformer.address)
         voteNum <- map["voteNum"]
     }
 
