@@ -14,16 +14,13 @@ import APIKit
 final class VoteListReactor {
 
     let search = Variable<String?>("")
-
     let vote = Variable<String>("")
 
-    let bag = DisposeBag()
-
     var voteError = Variable<(String?, Error?)>((nil, nil))
-
     var voteSuccess = PublishSubject<Void>()
+    var lastVoteInfo = Variable<(VoteStatus, VoteInfo?)>((.voteInvalid, nil))
 
-    var status = Variable<VoteStatus>(.voteInvalid)
+    let bag = DisposeBag()
 
     init() {
         vote.asObservable().skip(1).bind {
@@ -86,7 +83,7 @@ final class VoteListReactor {
             })
 
         statusChanged.bind {
-            self.status.value = $0.0
+            self.lastVoteInfo.value = ($0.0, $0.1)
         }
         .disposed(by: bag)
 

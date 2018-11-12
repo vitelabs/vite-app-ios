@@ -623,7 +623,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 213 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 214 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1393,7 +1393,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let lockPageChangeUserBtnTitle = Rswift.StringResource(key: "lock.page.changeUser.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 您已经投过票，再次投票将会覆盖上一次投票
+      /// en translation: 您已经投票给%@，请确认是否覆盖当前投票
       /// 
       /// Locales: en, zh-Hans
       static let voteListAlertAlreadyVoted = Rswift.StringResource(key: "vote.list.alert.already.voted", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
@@ -1445,6 +1445,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let voteListAlertQuota = Rswift.StringResource(key: "vote.list.alert.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 无结果，换个输入试试
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListSearchEmpty = Rswift.StringResource(key: "vote.list.search.empty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 暂无投票
       /// 
       /// Locales: en, zh-Hans
@@ -2822,11 +2826,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("lock.page.changeUser.btn.title", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: 您已经投过票，再次投票将会覆盖上一次投票
+      /// en translation: 您已经投票给%@，请确认是否覆盖当前投票
       /// 
       /// Locales: en, zh-Hans
-      static func voteListAlertAlreadyVoted(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.alert.already.voted", bundle: R.hostingBundle, comment: "")
+      static func voteListAlertAlreadyVoted(_ value1: String) -> String {
+        return String(format: NSLocalizedString("vote.list.alert.already.voted", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       /// en translation: 您输入的助记词在当前设备的账户名为%@，确认是否使用新账户覆盖原有账户
@@ -2911,6 +2915,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func voteListAlertQuota(_: Void = ()) -> String {
         return NSLocalizedString("vote.list.alert.quota", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 无结果，换个输入试试
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListSearchEmpty(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.search.empty", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 暂无投票
