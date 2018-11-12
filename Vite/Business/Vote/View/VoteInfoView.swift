@@ -111,6 +111,12 @@ class VoteInfoView: UIView {
     var voteInfo: VoteInfo?
     var voteStatus: VoteStatus?
 
+    func changeInfoCancelVoting() {
+        self.voteStatus = .cancelVoting
+        voteStatusLab.titleLab.text = self.voteStatus?.display
+        voteStatusLab.bgImg.image = R.image.btn_path_bg()?.tintColor(UIColor(netHex: 0x0046FF)).resizable
+    }
+
     func reloadData(_ voteInfo: VoteInfo, _ voteStatus: VoteStatus?) {
         self.voteInfo = voteInfo
         self.voteStatus = voteStatus

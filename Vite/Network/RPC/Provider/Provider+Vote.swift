@@ -90,29 +90,33 @@ extension Provider {
 
     func cancelVoteAndSendWithGetPow(bag: HDWalletManager.Bag,
                                         completion: @escaping (NetworkResult<Void>) -> Void) {
-        self.cancelVote()
-            .then({ [unowned self] (data) -> Promise<(latestAccountBlock: AccountBlock, fittestSnapshotHash: String, data: String)> in
-                return self.getLatestAccountBlockAndSnapshotHash(address: bag.address).then({ (latestAccountBlock, fittestSnapshotHash) in
-                    return Promise { seal in seal.fulfill((latestAccountBlock, fittestSnapshotHash, data)) }
+        cancelVote()
+            .done({ [unowned self] (data)  in
+                self.sendTransactionWithGetPow(bag: bag,
+                                               toAddress: voteCancelAddress,
+                                               tokenId: TokenCacheService.instance.viteToken.id,
+                                               amount: 0,
+                                               data: data,
+                                               difficulty: AccountBlock.Const.Difficulty.cancelVote.value,
+                                               completion: { result in
+                                                switch result {
+                                                case .success(let context) :
+                                                    self.sendTransactionWithContext(context, completion: { (result) in
+                                                        switch result {
+                                                        case .success:
+                                                            completion(NetworkResult.success(Void()))
+                                                        case .error(let error):
+                                                            completion(NetworkResult.error(error))
+                                                        }
+                                                    })
+                                                case .error(let error):
+                                                    completion(NetworkResult.error(error))
+                                                }
                 })
             })
-            .then({ [unowned self] (latestAccountBlock, fittestSnapshotHash, data) -> Promise<Void> in
-                let send = AccountBlock.makeSendAccountBlock(latest: latestAccountBlock,
-                                                             bag: bag,
-                                                             snapshotHash: fittestSnapshotHash,
-                                                             toAddress: voteCancelAddress,
-                                                             tokenId: TokenCacheService.instance.viteToken.id,
-                                                             amount: BigInt(0),
-                                                             data: data,
-                                                             nonce: nil,
-                                                             difficulty: AccountBlock.Const.Difficulty.cancelVote.value)
-                return self.createTransaction(accountBlock: send)
-            })
-            .done ({
-                completion(NetworkResult.success($0))
-            })
-            .catch({
-                completion(NetworkResult.wrapError($0))
-            })
+            .catch {
+                completion(NetworkResult.error($0))
+            }
     }
+
 }

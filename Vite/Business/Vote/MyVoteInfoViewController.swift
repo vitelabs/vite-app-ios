@@ -79,6 +79,12 @@ class MyVoteInfoViewController: BaseViewController, View {
         self.viewInfoView.operationBtn.rx.tap.bind {_ in
             self.cancelVote()
         }.disposed(by: rx.disposeBag)
+
+        //vote success
+        _ = NotificationCenter.default.rx.notification(.userDidVote).takeUntil(self.rx.deallocated).observeOn(MainScheduler.instance).subscribe({[weak self] (notification)   in
+            let nodeName = notification.element?.object
+            self?.reactor?.action.onNext(.voting(nodeName as! String, self?.balance))
+        })
     }
 
     private func _setupView() {
@@ -149,17 +155,10 @@ extension MyVoteInfoViewController {
 
     private func notificationList(_ voteInfo: VoteInfo, _ voteStatus: VoteStatus) {
         NotificationCenter.default.post(name: .userVoteInfoChange, object: ["voteInfo": voteInfo, "voteStatus": voteStatus])
-        plog(level: .info, log: String.init(format: "userVoteInfoChange voteStatus = %d voteStatus = %@", voteStatus.rawValue,voteInfo.nodeName ?? ""), tag: .vote)
+        plog(level: .info, log: String.init(format: "userVoteInfoChange voteStatus = %d voteStatus = %@", voteStatus.rawValue, voteInfo.nodeName ?? ""), tag: .vote)
     }
 
     func bind(reactor: MyVoteInfoViewReactor) {
-
-        //vote success
-        _ = NotificationCenter.default.rx.notification(.userDidVote).takeUntil(self.rx.deallocated).observeOn(MainScheduler.instance).subscribe({[weak self] (notification)   in
-            let nodeName = notification.element?.object
-            self?.reactor?.action.onNext(.voting(nodeName as! String, self?.balance))
-        })
-
         //handle new vote data coming
         reactor.state
             .map { ($0.voteInfo, $0.voteStatus, $0.error) }
@@ -185,7 +184,6 @@ extension MyVoteInfoViewController {
                     //server node can't affirm
                     if self?.oldVoteInfo?.nodeName == voteInfo.nodeName &&
                         (self?.viewInfoView.voteStatus == .voting || self?.viewInfoView.voteStatus == .cancelVoting) {
-//                        self?.notificationList(voteInfo , voteStatus)
                         return
                     }
                     //voteInfo != nil && new voteStatus = voting, old  voteInfo
@@ -214,9 +212,14 @@ extension MyVoteInfoViewController {
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }),
                 (.default(title: R.string.localizable.quotaAlertPowButtonTitle.key.localized()), { [weak self] _ in
-                    self?.view.displayLoading()
-                    self?.reactor?.cancelVoteAndSendWithGetPow(completion: { (_) in
-                            self?.view.hideLoading()
+                    HUD.show()
+                    self?.reactor?.cancelVoteAndSendWithGetPow(completion: { (result) in
+                        if case .success = result {
+                            self?.viewInfoView.changeInfoCancelVoting()
+                        } else if case let .error(error) = result {
+                            Toast.show(error.message)
+                        }
+                        HUD.hide()
                     })
                 }),
                 (.cancel, nil),
