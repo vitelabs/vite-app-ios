@@ -32,7 +32,7 @@ class VoteListViewController: BaseViewController {
     func setupUI() {
 
         let titleLabel = UILabel()
-        titleLabel.text = "候选节点列表"
+        titleLabel.text = R.string.localizable.voteListTitle.key.localized()
         titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
         titleLabel.textColor = UIColor.init(netHex: 0x3e4a59)
         view.addSubview(titleLabel)
@@ -43,7 +43,7 @@ class VoteListViewController: BaseViewController {
 
         view.addSubview(searchBar)
 
-        searchBar.placeholder = "搜索候选节点名称或出块地址"
+        searchBar.placeholder = R.string.localizable.voteListSearch.key.localized()
 
         searchBar.snp.makeConstraints { (m) in
             m.left.equalToSuperview().offset(10)
@@ -119,7 +119,7 @@ class VoteListViewController: BaseViewController {
     func vote(nodeName: String) {
 
         func confirmVote() {
-            let confirmVC = ConfirmTransactionViewController.comfirmVote(title: "Vote",
+            let confirmVC = ConfirmTransactionViewController.comfirmVote(title: R.string.localizable.vote.key.localized(),
                                                                          nodeName: nodeName) { [unowned self] (result) in
                 switch result {
                 case .success:
@@ -135,13 +135,13 @@ class VoteListViewController: BaseViewController {
             confirmVote()
         } else {
             Alert.show(into: self,
-                       title: "投票",
-                       message: "您已经投过票，再次投票将会覆盖上一次投票",
+                       title: R.string.localizable.vote.key.localized(),
+                       message: R.string.localizable.voteListAlertMessage.key.localized(),
                        actions: [
-                        (.default(title:"确认覆盖"), {  _ in
+                        (.default(title:R.string.localizable.voteListConfirmRevote.key.localized()), {  _ in
                             confirmVote()
                        }),
-                        (.default(title: "取消"), {  _ in
+                        (.default(title:  R.string.localizable.cancel.key.localized()), {  _ in
                             self.dismiss(animated: false, completion: nil)
                        })])
 
