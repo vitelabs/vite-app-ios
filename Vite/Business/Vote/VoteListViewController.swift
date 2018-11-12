@@ -25,7 +25,6 @@ class VoteListViewController: BaseViewController {
     }
 
     func setupUI() {
-
         let titleLabel = UILabel()
         titleLabel.text = R.string.localizable.voteListTitle.key.localized()
         titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
@@ -56,7 +55,6 @@ class VoteListViewController: BaseViewController {
     }
 
     func bind() {
-
         searchBar.rx.text
             .bind(to: reactor.search)
             .disposed(by: rx.disposeBag)
@@ -75,8 +73,11 @@ class VoteListViewController: BaseViewController {
 
         result
             .map { $0.isEmpty }
-            .bind {
-                print($0)
+            .filter { $0 }
+            .bind { [unowned self]_ in
+                if let text = self.searchBar.textField.text, !text.isEmpty {
+                    Toast.show(R.string.localizable.voteListSearchEmpty.key.localized())
+                }
             }
             .disposed(by: rx.disposeBag)
 
@@ -143,23 +144,21 @@ class VoteListViewController: BaseViewController {
             }).disposed(by: rx.disposeBag)
     }
 
-    var status = false
-
     func vote(nodeName: String) {
-
-        let voted = self.reactor.status.value == .voteSuccess || self.reactor.status.value == .voteSuccess
+        let (status, info) = self.reactor.lastVoteInfo.value
+        let voted = status == .voteSuccess || status == .voteSuccess
 
         if !voted {
             self.confirmVote(nodeName: nodeName)
         } else {
             Alert.show(into: self,
                        title: R.string.localizable.vote.key.localized(),
-                       message: R.string.localizable.voteListAlertAlreadyVoted.key.localized(),
+                       message: R.string.localizable.voteListAlertAlreadyVoted.key.localized(arguments: info?.nodeName ?? ""),
                        actions: [
                         (.default(title:R.string.localizable.voteListConfirmRevote.key.localized()), { [unowned self] _ in
                             self.confirmVote(nodeName: nodeName)
                        }),
-                        (.default(title:  R.string.localizable.cancel.key.localized()), {  _ in
+                        (.default(title:  R.string.localizable.cancel.key.localized()), { [unowned self] _ in
                             self.dismiss(animated: false, completion: nil)
                        })])
         }
