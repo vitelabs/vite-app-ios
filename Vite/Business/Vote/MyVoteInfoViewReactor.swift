@@ -23,47 +23,47 @@ final class MyVoteInfoViewReactor: Reactor {
     }
 
     enum Mutation {
-        case replace(voteInfo: VoteInfo?, voteStatus: VoteStatus?, errorMessage: String?)
+        case replace(voteInfo: VoteInfo?, voteStatus: VoteStatus?, error: Error?)
     }
 
     struct State {
         var voteInfo: VoteInfo?
         var voteStatus: VoteStatus?
-        var errorMessage: String?
+        var error: Error?
     }
 
     var initialState: State
 
     init() {
-        self.initialState = State.init(voteInfo: nil, voteStatus: nil, errorMessage: nil)
+        self.initialState = State.init(voteInfo: nil, voteStatus: nil, error: nil)
     }
 
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .refreshData((let address)):
             return Observable.concat([
-                self.fetchVoteInfo(address).map { Mutation.replace(voteInfo: $0.0, voteStatus: .voteSuccess, errorMessage: nil) },
+                self.fetchVoteInfo(address).map { Mutation.replace(voteInfo: $0.0, voteStatus: .voteSuccess, error: nil) },
                 ])
         case .cancelVote:
             return Observable.concat([
                 self.cancelVoteAndSendWithoutGetPow().map({
-                 Mutation.replace(voteInfo: nil, voteStatus: .cancelVoting, errorMessage: $0)
+                 Mutation.replace(voteInfo: nil, voteStatus: .cancelVoting, error: $0)
                 })
                 ])
         case .voting(let nodeName, let banlance):
             return Observable.concat([
-                self.createLocalVoteInfo(nodeName, banlance, false).map { Mutation.replace(voteInfo: $0.0, voteStatus: .voting, errorMessage: nil) },
+                self.createLocalVoteInfo(nodeName, banlance, false).map { Mutation.replace(voteInfo: $0.0, voteStatus: .voting, error: nil) },
                 ])
         }
     }
 
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
-        newState.errorMessage = nil
+        newState.error = nil
         switch mutation {
-        case let .replace(voteInfo: voteInfo, voteStatus: voteStatus, errorMessage: message):
+        case let .replace(voteInfo: voteInfo, voteStatus: voteStatus, error: message):
                 newState.voteInfo = voteInfo
-                newState.errorMessage = message
+                newState.error = message
                 newState.voteStatus = voteStatus
         }
         return newState
@@ -79,8 +79,8 @@ final class MyVoteInfoViewReactor: Reactor {
         })
     }
 
-    func fetchVoteInfo(_ address: String) -> Observable<(VoteInfo?, String? )> {
-        return Observable<(VoteInfo?, String?)>.create({ (observer) -> Disposable in
+    func fetchVoteInfo(_ address: String) -> Observable<(VoteInfo?, Error? )> {
+        return Observable<(VoteInfo?, Error?)>.create({ (observer) -> Disposable in
             Provider.instance.getVoteInfo(address: address
             ) { (result) in
                 switch result {
@@ -88,7 +88,7 @@ final class MyVoteInfoViewReactor: Reactor {
                     observer.onNext((voteInfo, nil))
                     observer.onCompleted()
                 case .error(let error):
-                    observer.onNext((nil, error.message))
+                    observer.onNext((nil, error))
                     observer.onCompleted()
                 }
             }
@@ -96,8 +96,8 @@ final class MyVoteInfoViewReactor: Reactor {
         })
     }
 
-    func cancelVoteAndSendWithoutGetPow()-> Observable<(String? )> {
-        return Observable<(String?)>.create({ (observer) -> Disposable in
+    func cancelVoteAndSendWithoutGetPow()-> Observable<(Error? )> {
+        return Observable<(Error?)>.create({ (observer) -> Disposable in
             Provider.instance.cancelVoteAndSendWithoutGetPow(bag: self.bag
             ) { (result) in
                 switch result {
@@ -105,7 +105,7 @@ final class MyVoteInfoViewReactor: Reactor {
                     observer.onNext(nil)
                     observer.onCompleted()
                 case .error(let error):
-                    observer.onNext(error.message)
+                    observer.onNext(error)
                     observer.onCompleted()
                 }
             }
@@ -113,21 +113,18 @@ final class MyVoteInfoViewReactor: Reactor {
         })
     }
 
-    func cancelVoteAndSendWithGetPow()-> Observable<(String? )> {
-        return Observable<(String?)>.create({ (observer) -> Disposable in
+    func cancelVoteAndSendWithGetPow(completion: @escaping (NetworkResult<Void>) -> Void) {
             Provider.instance.cancelVoteAndSendWithGetPow(bag: self.bag
             ) { (result) in
-                switch result {
-                case .success:
-                    observer.onNext(nil)
-                    observer.onCompleted()
-                case .error(let error):
-                    observer.onNext(error.message)
-                    observer.onCompleted()
-                }
+//                switch result {
+//                case .success:
+//                    observer.onNext(nil)
+//                    observer.onCompleted()
+//                case .error(let error):
+//                    observer.onNext(error)
+//                    observer.onCompleted()
+//                }
+                completion(result)
             }
-            return Disposables.create()
-        })
-    }
-
+        }
 }

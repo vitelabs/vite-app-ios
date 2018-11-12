@@ -144,6 +144,10 @@ extension MyVoteInfoViewController {
         self.voteInfoEmptyView.isHidden = true
         self.viewInfoView.reloadData(voteInfo, voteInfo.nodeStatus == .invalid ? .voteInvalid :voteStatus)
 
+        self.notificationList(voteInfo, voteStatus)
+    }
+
+    private func notificationList(_ voteInfo: VoteInfo, _ voteStatus: VoteStatus) {
         NotificationCenter.default.post(name: .userVoteInfoChange, object: ["voteInfo": voteInfo, "voteStatus": voteStatus])
     }
 
@@ -157,44 +161,69 @@ extension MyVoteInfoViewController {
 
         //handle new vote data coming
         reactor.state
-            .map { ($0.voteInfo, $0.voteStatus) }
+            .map { ($0.voteInfo, $0.voteStatus, $0.error) }
             .bind {[weak self] in
                 guard let voteStatus = $1 else {
                     return
                 }
-                //handle cancel vote
-                if voteStatus == .cancelVoting {
-                    self?.refreshVoteInfoView(self?.oldVoteInfo ?? VoteInfo(), voteStatus)
-                    return
-                }
-
-                guard let voteInfo = $0 else {
-                    //voteInfo == nil && old voteStatus = voting
-                    if self?.viewInfoView.voteStatus != .voting {
-                        self?.viewInfoView.isHidden = true
-                        self?.voteInfoEmptyView.isHidden = false
+                guard let error = $2 else {
+                    //handle cancel vote
+                    if voteStatus == .cancelVoting {
+                        self?.refreshVoteInfoView(self?.oldVoteInfo ?? VoteInfo(), voteStatus)
+                        return
                     }
+
+                    guard let voteInfo = $0 else {
+                        //voteInfo == nil && old voteStatus = voting
+                        if self?.viewInfoView.voteStatus != .voting {
+                            self?.viewInfoView.isHidden = true
+                            self?.voteInfoEmptyView.isHidden = false
+                        }
+                        return
+                    }
+                    //server node can't affirm
+                    if self?.oldVoteInfo?.nodeName == voteInfo.nodeName &&
+                        (self?.viewInfoView.voteStatus == .voting || self?.viewInfoView.voteStatus == .cancelVoting) {
+                        self?.notificationList(voteInfo , voteStatus)
+                        return
+                    }
+                    //voteInfo != nil && new voteStatus = voting, old  voteInfo
+                    if voteStatus != .voting && voteStatus != .cancelVoting {
+                        self?.oldVoteInfo = voteInfo
+                    }
+
+                    self?.refreshVoteInfoView(voteInfo, voteStatus)
                     return
                 }
-                //server node can't affirm
-                if self?.oldVoteInfo?.nodeName == voteInfo.nodeName &&
-                    (self?.viewInfoView.voteStatus == .voting || self?.viewInfoView.voteStatus == .cancelVoting) {
-                    return
-                }
-                //voteInfo != nil && new voteStatus = voting, old  voteInfo
-                if voteStatus != .voting && voteStatus != .cancelVoting {
-                    self?.oldVoteInfo = voteInfo
-                }
+                self?.handler(error: error)
 
-                self?.refreshVoteInfoView(voteInfo, voteStatus)
             }.disposed(by: disposeBag)
+    }
 
-        //handle error message 
-        reactor.state
-            .map { $0.errorMessage }
-            .filterNil()
-            .bind {
-                Toast.show($0)
-            }.disposed(by: disposeBag)
+    func handler(error: Error) {
+        if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
+            Alert.show(into: self,
+                       title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
+                       message: nil,
+                       actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
+        } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
+            Alert.show(into: self, title: R.string.localizable.quotaAlertTitle.key.localized(), message: R.string.localizable.voteListAlertQuota.key.localized(), actions: [
+                (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle.key.localized()), { [weak self] _ in
+                    let vc = QuotaManageViewController()
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }),
+                (.default(title: R.string.localizable.quotaAlertPowButtonTitle.key.localized()), { [weak self] _ in
+                    self?.view.displayLoading()
+                    self?.reactor?.cancelVoteAndSendWithGetPow(completion: { (_) in
+                            self?.view.hideLoading()
+                    })
+                }),
+                (.cancel, nil),
+                ], config: { alert in
+                    alert.preferredAction = alert.actions[0]
+            })
+        } else {
+            Toast.show(R.string.localizable.voteListSendFailed.key.localized())
+        }
     }
 }

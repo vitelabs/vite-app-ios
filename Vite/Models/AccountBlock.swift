@@ -31,8 +31,10 @@ struct AccountBlock: Mappable {
                     return DebugService.instance.useBigDifficulty ? BigInt("157108864")! : BigInt("65535")!
                 case .receive, .pledge:
                     return DebugService.instance.useBigDifficulty ? BigInt("67108864")! : BigInt("65535")!
-                case .vote, .cancelVote:
+                case .vote:
                     return DebugService.instance.useBigDifficulty ? BigInt("201564160")! : BigInt("196836")!
+                case .cancelVote:
+                    return DebugService.instance.useBigDifficulty ? BigInt("1201564160")! : BigInt("196836")!
                 }
             }
         }

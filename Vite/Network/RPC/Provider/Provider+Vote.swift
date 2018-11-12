@@ -105,7 +105,7 @@ extension Provider {
                                                              amount: BigInt(0),
                                                              data: data,
                                                              nonce: nil,
-                                                             difficulty: nil)
+                                                             difficulty: AccountBlock.Const.Difficulty.cancelVote.value)
                 return self.createTransaction(accountBlock: send)
             })
             .done ({
