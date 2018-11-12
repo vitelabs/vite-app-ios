@@ -623,7 +623,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 210 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 213 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1396,7 +1396,7 @@ struct R: Rswift.Validatable {
       /// en translation: 您已经投过票，再次投票将会覆盖上一次投票
       /// 
       /// Locales: en, zh-Hans
-      static let voteListAlertMessage = Rswift.StringResource(key: "vote.list.alert.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      static let voteListAlertAlreadyVoted = Rswift.StringResource(key: "vote.list.alert.already.voted", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 您输入的助记词在当前设备的账户名为%@，确认是否使用新账户覆盖原有账户
       /// 
       /// Locales: en, zh-Hans
@@ -1417,10 +1417,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let votePageVoteStatusVoteInvalid = Rswift.StringResource(key: "vote.page.voteStatus.voteInvalid", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 投票失败，请重新投票
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListSendFailed = Rswift.StringResource(key: "vote.list.send.failed", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 投票成功
       /// 
       /// Locales: en, zh-Hans
       static let votePageVoteStatusVoteSuccess = Rswift.StringResource(key: "vote.page.voteStatus.voteSuccess", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 投票请求发送成功
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListSendSuccess = Rswift.StringResource(key: "vote.list.send.success", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 搜索候选节点名称或出块地址
       /// 
       /// Locales: en, zh-Hans
@@ -1433,6 +1441,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let votePageVoteInfoCancelVoteTitle = Rswift.StringResource(key: "vote.page.voteInfo.cancel.vote.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 无法投票，您需运行PoW 或抵押VITE 获取配额才可以投票
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListAlertQuota = Rswift.StringResource(key: "vote.list.alert.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 暂无投票
       /// 
       /// Locales: en, zh-Hans
@@ -2813,8 +2825,8 @@ struct R: Rswift.Validatable {
       /// en translation: 您已经投过票，再次投票将会覆盖上一次投票
       /// 
       /// Locales: en, zh-Hans
-      static func voteListAlertMessage(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.alert.message", bundle: R.hostingBundle, comment: "")
+      static func voteListAlertAlreadyVoted(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.alert.already.voted", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 您输入的助记词在当前设备的账户名为%@，确认是否使用新账户覆盖原有账户
@@ -2852,11 +2864,25 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("vote.page.voteStatus.voteInvalid", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 投票失败，请重新投票
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListSendFailed(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.send.failed", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 投票成功
       /// 
       /// Locales: en, zh-Hans
       static func votePageVoteStatusVoteSuccess(_: Void = ()) -> String {
         return NSLocalizedString("vote.page.voteStatus.voteSuccess", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 投票请求发送成功
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListSendSuccess(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.send.success", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 搜索候选节点名称或出块地址
@@ -2878,6 +2904,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func votePageVoteInfoCancelVoteTitle(_: Void = ()) -> String {
         return NSLocalizedString("vote.page.voteInfo.cancel.vote.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 无法投票，您需运行PoW 或抵押VITE 获取配额才可以投票
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListAlertQuota(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.alert.quota", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 暂无投票

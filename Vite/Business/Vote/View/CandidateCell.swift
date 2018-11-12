@@ -88,6 +88,7 @@ class CandidateCell: UITableViewCell {
         voteCountLabel.snp.makeConstraints { (m) in
             m.left.equalTo(voteDescriptionLabel.snp.right).offset(10)
             m.centerY.equalTo(voteCountIcon)
+            m.right.lessThanOrEqualTo(voteButton.snp.right)
         }
 
         addressIcon.snp.makeConstraints { (m) in
