@@ -117,8 +117,7 @@ extension MyVoteInfoViewController {
 
         //handle cancel vote
          self.viewInfoView.operationBtn.rx.tap.bind {_ in
-            NotificationCenter.default.post(name: .userDidVote, object: "nodeName")
-//            reactor.action.onNext(.cancelVote)
+            reactor.action.onNext(.cancelVote)
          }.disposed(by: rx.disposeBag)
 
         //handle new vote data coming
@@ -146,6 +145,13 @@ extension MyVoteInfoViewController {
                 Toast.show($0)
                 self?.viewInfoView.isHidden = true
                 self?.voteInfoEmptyView.isHidden = false
+            }.disposed(by: disposeBag)
+
+        //handle voteStatus
+        reactor.state
+            .map { $0.voteStatus }
+            .bind {
+                NotificationCenter.default.post(name: .userDidCancelVote, object: ($0))
             }.disposed(by: disposeBag)
     }
 }

@@ -157,7 +157,7 @@ class VoteInfoView: UIView {
             make.top.equalTo(self).offset(14)
             make.right.equalTo(self).offset(-14)
             make.height.equalTo(20)
-            make.width.equalTo(60)
+            make.width.equalTo(64)
         }
 
         nodeNameLab.snp.makeConstraints { (make) -> Void in
