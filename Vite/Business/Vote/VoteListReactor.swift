@@ -63,7 +63,10 @@ final class VoteListReactor {
         ])
 
         let statusChanged = NotificationCenter.default.rx.notification(.userVoteInfoChange)
-            .map { ($0.userInfo?["voteStatus"] as! VoteStatus, $0.userInfo?["voteInfo"] as! VoteInfo) }
+            .map { notification -> (VoteStatus, VoteInfo) in
+                let info = notification.object as! [String: Any]
+                return (info["voteStatus"] as! VoteStatus, info["voteInfo"] as! VoteInfo)
+            }
             .distinctUntilChanged({ $0.0 != $1.0 || $0.1.nodeName != $0.1.nodeName })
 
         let fetch = statusChanged
@@ -128,7 +131,7 @@ final class VoteListReactor {
         Provider.instance.voteWithPow(bag: bag, benefitedNodeName: nodeName) { result in
             if case .success = result {
                 DispatchQueue.main.async {
-                    NotificationCenter.default.post(name: .userDidVote, object: nil)
+                    NotificationCenter.default.post(name: .userDidVote, object: nodeName)
                 }
                 self.voteSuccess.onNext(Void())
             } else if case let .error(error) = result {
