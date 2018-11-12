@@ -73,7 +73,7 @@ class DebugService: Mappable {
             guard appEnvironment != oldValue else { return }
             switch self.appEnvironment {
             case .test:
-                useBigDifficulty = false
+                useBigDifficulty = true
                 configEnvironment = .test
                 rpcUseOnlineUrl = false
                 rpcCustomUrl = ""
@@ -93,7 +93,7 @@ class DebugService: Mappable {
     }
 
     private func updateAppEnvironment() {
-        if useBigDifficulty == false && configEnvironment == ConfigEnvironment.test && rpcUseOnlineUrl == false && rpcCustomUrl == "" {
+        if useBigDifficulty == true && configEnvironment == ConfigEnvironment.test && rpcUseOnlineUrl == false && rpcCustomUrl == "" {
             appEnvironment = .test
         } else if useBigDifficulty == true && configEnvironment == ConfigEnvironment.stage && rpcUseOnlineUrl == true {
             appEnvironment = .stage
@@ -104,7 +104,7 @@ class DebugService: Mappable {
         }
     }
 
-    var useBigDifficulty = false {
+    var useBigDifficulty = true {
         didSet {
             guard useBigDifficulty != oldValue else { return }
             updateAppEnvironment()
@@ -117,6 +117,8 @@ class DebugService: Mappable {
             guard configEnvironment != oldValue else { return }
             updateAppEnvironment()
             pri_save()
+            AppUpdateVM.checkUpdate()
+            AppSettingsService.instance.start()
         }
     }
 

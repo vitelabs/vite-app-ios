@@ -133,8 +133,8 @@
 /* Address Manage Page */
 "address.manage.page.title" = "Address Management";
 "address.manage.default.address.cell.title" = "Default Receiving Address";
-"address.manage.address.header.title" = "Address List";
-"address.manage.address.generate.button.title" = "Add List";
+"address.manage.address.header.title" = "Addresses";
+"address.manage.address.generate.button.title" = "Add Address";
 "address.manage.address.generate.button.toast" = "Add up to maximum 10 addresses!";
 "address.manage.tip.alert.message" = "At most 10 accounts. The first address and addresses that have transaction records will be shown when resotring account, and addresses with no record will be hidden, these can be regenerated and reused.";
 "address.manage.tip.alert.ok" = "I know";

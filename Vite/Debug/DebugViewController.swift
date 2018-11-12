@@ -72,7 +72,7 @@ class DebugViewController: FormViewController {
                 $0.header = HeaderFooterView(title: "Wallet")
             }
             <<< SwitchRow("useBigDifficulty") {
-                $0.title = "Use Big Difficulty"
+                $0.title = "Use Big Difficulty (Use GPU)"
                 $0.value = DebugService.instance.useBigDifficulty
             }.onChange { row in
                 guard let ret = row.value else { return }
