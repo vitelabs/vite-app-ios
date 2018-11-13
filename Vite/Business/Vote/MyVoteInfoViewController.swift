@@ -127,8 +127,10 @@ class MyVoteInfoViewController: BaseViewController, View {
 
 extension MyVoteInfoViewController {
     private func refreshVoteInfoView(_ voteInfo: VoteInfo, _ voteStatus: VoteStatus) {
-        self.viewInfoView.isHidden = false
-        self.voteInfoEmptyView.isHidden = true
+        UIView.animate(withDuration: 0.3) {
+            self.viewInfoView.isHidden = false
+            self.voteInfoEmptyView.isHidden = true
+        }
         self.viewInfoView.reloadData(voteInfo, voteInfo.nodeStatus == .invalid ? .voteInvalid :voteStatus)
 
         self.notificationList(voteInfo, voteStatus)
@@ -158,8 +160,10 @@ extension MyVoteInfoViewController {
                     guard let voteInfo = $0 else {
                         //voteInfo == nil && old voteStatus = voting
                         if self?.viewInfoView.voteStatus != .voting {
-                            self?.viewInfoView.isHidden = true
-                            self?.voteInfoEmptyView.isHidden = false
+                            UIView.animate(withDuration: 0.3, animations: {
+                                self?.viewInfoView.isHidden = true
+                                self?.voteInfoEmptyView.isHidden = false
+                            })
                         }
                         self?.notificationList(nil, .noVote)
                         return
