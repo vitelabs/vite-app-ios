@@ -258,7 +258,7 @@ extension HDWalletManager {
 }
 
 // MARK: - DEBUG function
-#if DEBUG
+#if DEBUG || TEST
 extension HDWalletManager {
 
     func deleteAllWallets() {
