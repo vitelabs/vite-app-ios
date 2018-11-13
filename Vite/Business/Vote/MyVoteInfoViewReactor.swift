@@ -17,7 +17,7 @@ final class MyVoteInfoViewReactor: Reactor {
 
     enum Action {
         case refreshData(String)
-        case cancelVote
+        case cancelVoteWithoutGetPow
         case voting(String, Balance?)
     }
 
@@ -41,9 +41,9 @@ final class MyVoteInfoViewReactor: Reactor {
         switch action {
         case .refreshData((let address)):
             return Observable.concat([
-                self.fetchVoteInfo(address).map { Mutation.replace(voteInfo: $0.0, voteStatus: .voteSuccess, error: nil) },
+                self.fetchVoteInfo(address).map { Mutation.replace(voteInfo: $0.0, voteStatus: .voteSuccess, error: $0.1) },
                 ])
-        case .cancelVote:
+        case .cancelVoteWithoutGetPow:
             return Observable.concat([
                 self.cancelVoteAndSendWithoutGetPow().map({
                  Mutation.replace(voteInfo: nil, voteStatus: .cancelVoting, error: $0)
@@ -60,9 +60,9 @@ final class MyVoteInfoViewReactor: Reactor {
         var newState = state
         newState.error = nil
         switch mutation {
-        case let .replace(voteInfo: voteInfo, voteStatus: voteStatus, error: message):
+        case let .replace(voteInfo: voteInfo, voteStatus: voteStatus, error: error):
                 newState.voteInfo = voteInfo
-                newState.error = message
+                newState.error = error
                 newState.voteStatus = voteStatus
         }
         return newState
@@ -84,9 +84,11 @@ final class MyVoteInfoViewReactor: Reactor {
             ) { (result) in
                 switch result {
                 case .success(let voteInfo):
+                    plog(level: .info, log: String.init(format: "fetchVoteInfo success  voteInfo.nodeName = %@", voteInfo?.nodeName ?? ""), tag: .vote)
                     observer.onNext((voteInfo, nil))
                     observer.onCompleted()
                 case .error(let error):
+                    plog(level: .info, log: String.init(format: "fetchVoteInfo error  error = %@", error.localizedDescription), tag: .vote)
                     observer.onNext((nil, error))
                     observer.onCompleted()
                 }

@@ -107,32 +107,6 @@ class MyVoteInfoViewController: BaseViewController, View {
         self.voteInfoEmptyView.isHidden = false
     }
 
-    private func cancelVoteAction() {
-        let confirmVC = ConfirmTransactionViewController.comfirmVote(title: R.string.localizable.votePageVoteInfoCancelVoteTitle.key.localized(),
-                                                                     nodeName: self.viewInfoView.voteInfo?.nodeName ?? "") { [unowned self] (result) in
-                                                                        switch result {
-                                                                        case .success:
-                                                                        self.reactor?.action.onNext(.cancelVote)
-                                                                        case .cancelled:
-                                                                            plog(level: .info, log: "Confirm vote cancel cancelled", tag: .vote)
-                                                                        case .biometryAuthFailed:
-                                                                            Alert.show(into: self,
-                                                                                       title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle.key.localized(),
-                                                                                       message: nil,
-                                                                                       actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack.key.localized()), nil)])
-                                                                        case .passwordAuthFailed:
-                                                                            Alert.show(into: self,
-                                                                                       title: R.string.localizable.confirmTransactionPageToastPasswordError.key.localized(),
-                                                                                       message: nil,
-                                                                                       actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned self] _ in
-                                                                                        self.cancelVoteAction()
-                                                                                       }), (.cancel, nil)])
-
-                                                                        }
-        }
-        self.present(confirmVC, animated: false, completion: nil)
-    }
-
     lazy var viewInfoView: VoteInfoView = {
         let viewInfoView = VoteInfoView()
         return viewInfoView
@@ -155,7 +129,7 @@ extension MyVoteInfoViewController {
 
     private func notificationList(_ voteInfo: VoteInfo, _ voteStatus: VoteStatus) {
         NotificationCenter.default.post(name: .userVoteInfoChange, object: ["voteInfo": voteInfo, "voteStatus": voteStatus])
-        plog(level: .info, log: String.init(format: "userVoteInfoChange voteStatus = %d voteStatus = %@", voteStatus.rawValue, voteInfo.nodeName ?? ""), tag: .vote)
+        plog(level: .info, log: String.init(format: "userVoteInfoChange voteStatus = %d voteInfo.nodeName  = %@", voteStatus.rawValue, voteInfo.nodeName ?? ""), tag: .vote)
     }
 
     func bind(reactor: MyVoteInfoViewReactor) {
@@ -194,9 +168,40 @@ extension MyVoteInfoViewController {
                     self?.refreshVoteInfoView(voteInfo, voteStatus)
                     return
                 }
-                self?.handlerCancelError(error)
 
+                //cancel voting handle error
+                if voteStatus == .cancelVoting {
+                       self?.handlerCancelError(error)
+                }
             }.disposed(by: disposeBag)
+    }
+}
+
+extension MyVoteInfoViewController {
+    private func cancelVoteAction() {
+        let confirmVC = ConfirmTransactionViewController.comfirmVote(title: R.string.localizable.votePageVoteInfoCancelVoteTitle.key.localized(),
+                                                                     nodeName: self.viewInfoView.voteInfo?.nodeName ?? "") { [unowned self] (result) in
+                                                                        switch result {
+                                                                        case .success:
+                                                                            self.reactor?.action.onNext(.cancelVoteWithoutGetPow)
+                                                                        case .cancelled:
+                                                                            plog(level: .info, log: "Confirm vote cancel cancelled", tag: .vote)
+                                                                        case .biometryAuthFailed:
+                                                                            Alert.show(into: self,
+                                                                                       title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle.key.localized(),
+                                                                                       message: nil,
+                                                                                       actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack.key.localized()), nil)])
+                                                                        case .passwordAuthFailed:
+                                                                            Alert.show(into: self,
+                                                                                       title: R.string.localizable.confirmTransactionPageToastPasswordError.key.localized(),
+                                                                                       message: nil,
+                                                                                       actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned self] _ in
+                                                                                        self.cancelVoteAction()
+                                                                                       }), (.cancel, nil)])
+
+                                                                        }
+        }
+        self.present(confirmVC, animated: false, completion: nil)
     }
 
     private func handlerCancelError(_ error: Error) {
@@ -216,7 +221,7 @@ extension MyVoteInfoViewController {
                     self?.reactor?.cancelVoteAndSendWithGetPow(completion: { (result) in
                         if case .success = result {
                             self?.viewInfoView.changeInfoCancelVoting()
-                             Toast.show(R.string.localizable.votePageVoteInfoCancelVoteToastTitle.key.localized())
+                            Toast.show(R.string.localizable.votePageVoteInfoCancelVoteToastTitle.key.localized())
                         } else if case let .error(error) = result {
                             Toast.show(error.message)
                         }
