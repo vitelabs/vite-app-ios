@@ -20,7 +20,7 @@
 "Update.app" = "Update App";
 "NetWorkError" = "Something went wrong with network, please try again later";
 "Submit.success" = "Submit Successful";
-"Submit.cancel" = "撤销";
+"Submit.cancel" = "Cancel";
 
 /* Login */
 "create.account" = "Create Account";
@@ -176,7 +176,7 @@
 "confirm.transaction.page.toast.password.error" = "Wrong password!";
 "confirm.transaction.page.node.name" = "Node Name";
 "confirm.transaction.page.vote" = "Vote";
-"confirm.transaction.page.cancel.vote" = "Cancel Vote";
+"confirm.transaction.page.cancel.vote" = "Revoke Vote";
 
 
 
@@ -262,7 +262,7 @@
 "vote.page.info.nodata.title" = "No Vote";
 "vote.page.voteStatus.voteSuccess" = "Vote successful";
 "vote.page.voteStatus.voting" = "Voting";
-"vote.page.voteStatus.cancelVoting" = "Cancelling";
+"vote.page.voteStatus.cancelVoting" = "Revoking";
 "vote.page.voteStatus.voteInvalid" = "Invalid Vote";
 "vote.page.voteInfo.nodePolls.title" = "My Polls";
 "vote.page.nodeStatus.valid.title" = "Available";
