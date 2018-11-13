@@ -117,8 +117,10 @@ class DebugService: Mappable {
             guard configEnvironment != oldValue else { return }
             updateAppEnvironment()
             pri_save()
-            AppUpdateVM.checkUpdate()
-            AppSettingsService.instance.start()
+            DispatchQueue.main.async {
+                AppUpdateVM.checkUpdate()
+                AppSettingsService.instance.start()
+            }
         }
     }
 
