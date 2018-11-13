@@ -14,16 +14,17 @@ import APIKit
 final class VoteListReactor {
 
     let search = Variable<String?>("")
-
     let vote = Variable<String>("")
+
+    var voteError = Variable<(String?, Error?)>((nil, nil))
+    var voteSuccess = PublishSubject<Void>()
+    var lastVoteInfo = Variable<(VoteStatus, VoteInfo?)>((.voteInvalid, nil))
 
     let bag = DisposeBag()
 
-    var voteError = Variable<Error?>(nil)
-
     init() {
         vote.asObservable().skip(1).bind {
-            self.vote(nodeName: $0, completion: { _ in })
+            self.vote(nodeName: $0)
         }.disposed(by: bag)
     }
 
@@ -42,7 +43,7 @@ final class VoteListReactor {
                     return Disposables.create()
                 }),
 
-                Observable<Int>.interval(10, scheduler: MainScheduler.instance)
+                Observable<Int>.interval(30, scheduler: MainScheduler.instance)
                 .flatMap { _ in
                     Observable<[Candidate]>.create({ (observer) -> Disposable in
                         _ = Provider.instance.getCandidateList { result in
@@ -58,7 +59,35 @@ final class VoteListReactor {
                 }
         ])
 
-        return Observable.combineLatest(polling, self.search.asObservable())
+        let statusChanged = NotificationCenter.default.rx.notification(.userVoteInfoChange)
+            .map { notification -> (VoteStatus, VoteInfo) in
+                let info = notification.object as! [String: Any]
+                return (info["voteStatus"] as! VoteStatus, info["voteInfo"] as! VoteInfo)
+            }
+            .distinctUntilChanged({ $0.0 == $1.0 && $0.1.nodeName == $1.1.nodeName })
+
+        let fetch = statusChanged
+            .flatMapLatest({ (_, _)  in
+                Observable<[Candidate]>.create({ (observer) -> Disposable in
+                    _ = Provider.instance.getCandidateList { result in
+                        switch result {
+                        case .success(let candidates):
+                            observer.onNext(candidates)
+                            observer.onCompleted()
+                        case .error:
+                            observer.onCompleted()
+                        }
+                    }
+                    return Disposables.create()
+                })
+            })
+
+        statusChanged.bind {
+            self.lastVoteInfo.value = ($0.0, $0.1)
+        }
+        .disposed(by: bag)
+
+        return Observable.combineLatest(Observable.merge([polling, fetch]), self.search.asObservable())
             .map { [unowned self] (candidates, world) in
                 return self.search(candidates: candidates, world: world)
             }.share()
@@ -68,7 +97,7 @@ final class VoteListReactor {
         var result = candidates
         if let world = world, !world.isEmpty {
             result = []
-            for candidate in candidates where candidate.name.contains(world) || candidate.nodeAddr.contains(world) {
+            for candidate in candidates where candidate.name.contains(world) || candidate.nodeAddr.description.contains(world) {
                 result.append(candidate)
             }
         }
@@ -80,15 +109,30 @@ final class VoteListReactor {
         })
     }
 
-    func vote(nodeName: String, completion: @escaping (NetworkResult<Void>) -> Void) {
+    func vote(nodeName: String) {
         guard let bag = HDWalletManager.instance.bag else { return }
         Provider.instance.vote(bag: bag, benefitedNodeName: nodeName) { result in
             if case .success = result {
                 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: .userDidVote, object: nodeName)
                 }
+                self.voteSuccess.onNext(Void())
             } else if case let .error(error) = result {
-                self.voteError.value = error
+                self.voteError.value = (nodeName, error)
+            }
+        }
+    }
+
+    func voteWithPow(nodeName: String, completion: @escaping (NetworkResult<Void>) -> Void) {
+        guard let bag = HDWalletManager.instance.bag else { return }
+        Provider.instance.voteWithPow(bag: bag, benefitedNodeName: nodeName) { result in
+            if case .success = result {
+                DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: .userDidVote, object: nodeName)
+                }
+                self.voteSuccess.onNext(Void())
+            } else if case let .error(error) = result {
+                self.voteError.value = (nodeName, error)
             }
             completion(result)
         }

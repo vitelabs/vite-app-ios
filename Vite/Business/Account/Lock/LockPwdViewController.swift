@@ -71,7 +71,6 @@ class LockPwdViewController: BaseViewController {
         importUserBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         importUserBtn.addTarget(self, action: #selector(importUserBtnAction), for: .touchUpInside)
 
-
         return importUserBtn
     }()
 }
@@ -93,7 +92,7 @@ extension LockPwdViewController {
         self.userNameLab.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.view)
             make.top.equalTo(self.logoImgView.snp.bottom).offset(37)
-            make.height.equalTo(20)
+            make.height.equalTo(30)
         }
 
         self.view.addSubview(self.passwordTF)

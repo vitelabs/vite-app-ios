@@ -89,7 +89,6 @@ class VoteInfoEmptyView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
-
         self._addViewConstraint()
     }
 

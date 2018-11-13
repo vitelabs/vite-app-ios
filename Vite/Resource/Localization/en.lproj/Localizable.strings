@@ -267,6 +267,26 @@
 "vote.page.voteInfo.nodePolls.title" = "我的投票数";
 "vote.page.nodeStatus.valid.title" = "正在候选";
 "vote.page.nodeStatus.invalid.title" = "停止候选";
+"vote.page.voteInfo.cancel.vote.title" = "撤销投票";
+"vote.page.voteInfo.cancel.vote.toast.title" = "撤销投票请求发送成功";
+
+/* Vote List*/
+"Vote" = "投票";
+"vote.list.title" = "候选节点列表";
+"vote.list.search" = "搜索候选节点名称或出块地址";
+"vote.list.alert.already.voted" = "您已经投票给%@，请确认是否覆盖当前投票";
+"vote.list.confirm.revote" = "确认覆盖";
+"vote.list.confirm.button.title" = "确认";
+"vote.list.count" = "上轮得票数";
+"vote.list.address" = "出块地址";
+"vote.list.send.success" = "投票请求发送成功";
+"vote.list.send.failed" = "投票失败，请重新投票";
+"vote.list.alert.quota" = "无法投票，您需运行PoW 或抵押VITE 获取配额才可以投票";
+"vote.list.search.empty" = "无结果，换个输入试试";
+
+
+
+
 
 
 

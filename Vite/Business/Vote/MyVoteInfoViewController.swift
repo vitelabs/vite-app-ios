@@ -16,6 +16,8 @@ class MyVoteInfoViewController: BaseViewController, View {
     var disposeBag = DisposeBag()
     var timerBag: DisposeBag! = DisposeBag()
     var balance: Balance?
+    var oldVoteInfo: VoteInfo?
+
     init() {
         super.init(nibName: nil, bundle: nil)
         self.reactor = MyVoteInfoViewReactor()
@@ -33,8 +35,9 @@ class MyVoteInfoViewController: BaseViewController, View {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.reactor?.action.onNext(.refreshData)
+        self.reactor?.action.onNext(.refreshData(HDWalletManager.instance.bag?.address.description ?? ""))
         self._pollingInfoData()
+
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,7 +48,7 @@ class MyVoteInfoViewController: BaseViewController, View {
     private func _pollingInfoData () {
         self.timerBag  = DisposeBag()
         Observable<Int>.interval(3, scheduler: MainScheduler.instance).bind { [weak self] _ in
-            self?.reactor?.action.onNext(.refreshData)
+            self?.reactor?.action.onNext(.refreshData(HDWalletManager.instance.bag?.address.description ?? ""))
         }.disposed(by: self.timerBag)
     }
 
@@ -57,10 +60,31 @@ class MyVoteInfoViewController: BaseViewController, View {
                 self.balance = balanceInfo.balance
                 return
             }
-
-            // no balanceInfo, set 0.0
-            //            self.headerView.balanceLabel.text = "0.0"
+            if self.viewInfoView.voteStatus == .voting {
+                // no balanceInfo, set 0.0
+                self.viewInfoView.nodePollsLab.text = "0.0"
+            }
         }).disposed(by: rx.disposeBag)
+
+        self.viewInfoView.nodeStatusLab.tipButton.rx.tap.bind { [weak self] in
+            let url  = URL(string: String(format: "%@?localize=%@", Constants.voteLoserURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
+            let vc = PopViewController(url: url)
+            vc.modalPresentationStyle = .overCurrentContext
+            let delegate =  StyleActionSheetTranstionDelegate()
+            vc.transitioningDelegate = delegate
+            self?.present(vc, animated: true, completion: nil)
+        }.disposed(by: rx.disposeBag)
+
+        //handle cancel vote
+        self.viewInfoView.operationBtn.rx.tap.bind {_ in
+            self.cancelVoteAction()
+        }.disposed(by: rx.disposeBag)
+
+        //vote success
+        _ = NotificationCenter.default.rx.notification(.userDidVote).takeUntil(self.rx.deallocated).observeOn(MainScheduler.instance).subscribe({[weak self] (notification)   in
+            let nodeName = notification.element?.object
+            self?.reactor?.action.onNext(.voting(nodeName as! String, self?.balance))
+        })
     }
 
     private func _setupView() {
@@ -83,6 +107,32 @@ class MyVoteInfoViewController: BaseViewController, View {
         self.voteInfoEmptyView.isHidden = false
     }
 
+    private func cancelVoteAction() {
+        let confirmVC = ConfirmTransactionViewController.comfirmVote(title: R.string.localizable.votePageVoteInfoCancelVoteTitle.key.localized(),
+                                                                     nodeName: self.viewInfoView.voteInfo?.nodeName ?? "") { [unowned self] (result) in
+                                                                        switch result {
+                                                                        case .success:
+                                                                        self.reactor?.action.onNext(.cancelVote)
+                                                                        case .cancelled:
+                                                                            plog(level: .info, log: "Confirm vote cancel cancelled", tag: .vote)
+                                                                        case .biometryAuthFailed:
+                                                                            Alert.show(into: self,
+                                                                                       title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle.key.localized(),
+                                                                                       message: nil,
+                                                                                       actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack.key.localized()), nil)])
+                                                                        case .passwordAuthFailed:
+                                                                            Alert.show(into: self,
+                                                                                       title: R.string.localizable.confirmTransactionPageToastPasswordError.key.localized(),
+                                                                                       message: nil,
+                                                                                       actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned self] _ in
+                                                                                        self.cancelVoteAction()
+                                                                                       }), (.cancel, nil)])
+
+                                                                        }
+        }
+        self.present(confirmVC, animated: false, completion: nil)
+    }
+
     lazy var viewInfoView: VoteInfoView = {
         let viewInfoView = VoteInfoView()
         return viewInfoView
@@ -95,55 +145,90 @@ class MyVoteInfoViewController: BaseViewController, View {
 }
 
 extension MyVoteInfoViewController {
+    private func refreshVoteInfoView(_ voteInfo: VoteInfo, _ voteStatus: VoteStatus) {
+        self.viewInfoView.isHidden = false
+        self.voteInfoEmptyView.isHidden = true
+        self.viewInfoView.reloadData(voteInfo, voteInfo.nodeStatus == .invalid ? .voteInvalid :voteStatus)
+
+        self.notificationList(voteInfo, voteStatus)
+    }
+
+    private func notificationList(_ voteInfo: VoteInfo, _ voteStatus: VoteStatus) {
+        NotificationCenter.default.post(name: .userVoteInfoChange, object: ["voteInfo": voteInfo, "voteStatus": voteStatus])
+        plog(level: .info, log: String.init(format: "userVoteInfoChange voteStatus = %d voteStatus = %@", voteStatus.rawValue, voteInfo.nodeName ?? ""), tag: .vote)
+    }
+
     func bind(reactor: MyVoteInfoViewReactor) {
-
-
-
-        //vote success
-        _ = NotificationCenter.default.rx.notification(.userDidVote).takeUntil(self.rx.deallocated).observeOn(MainScheduler.instance).subscribe({[weak self] (notification)   in
-            let nodeName = notification.element?.object
-            self?.reactor?.action.onNext(.voting(nodeName as! String))
-        })
-
-        self.viewInfoView.nodeStatusLab.tipButton.rx.tap.bind { [weak self] in
-            let url  = URL(string: String(format: "%@?localize=%@", Constants.voteLoserURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
-            let vc = PopViewController(url: url)
-            vc.modalPresentationStyle = .overCurrentContext
-            let delegate =  StyleActionSheetTranstionDelegate()
-            vc.transitioningDelegate = delegate
-            self?.present(vc, animated: true, completion: nil)
-        }.disposed(by: rx.disposeBag)
-
-        //handle cancel vote
-         self.viewInfoView.operationBtn.rx.tap.bind {_ in
-
-            NotificationCenter.default.post(name: .userDidVote, object: "nodeName")
-
-//            reactor.action.onNext(.cancelVote)
-         }.disposed(by: rx.disposeBag)
-
         //handle new vote data coming
         reactor.state
-            .map { $0.voteInfo }
+            .map { ($0.voteInfo, $0.voteStatus, $0.error) }
             .bind {[weak self] in
-                guard let voteInfo = $0 else {
-                    self?.viewInfoView.isHidden = true
-                    self?.voteInfoEmptyView.isHidden = false
+                guard let voteStatus = $1 else {
                     return
                 }
-                self?.viewInfoView.isHidden = false
-                self?.voteInfoEmptyView.isHidden = true
-                self?.viewInfoView.reloadData(voteInfo, voteInfo.nodeStatus == .invalid ? .voteInvalid : .voteSuccess)
-            }.disposed(by: disposeBag)
+                guard let error = $2 else {
+                    //handle cancel vote
+                    if voteStatus == .cancelVoting {
+                        self?.refreshVoteInfoView(self?.oldVoteInfo ?? VoteInfo(), voteStatus)
+                        return
+                    }
 
-        //handle error message 
-        reactor.state
-            .map { $0.errorMessage }
-            .filterNil()
-            .bind {[weak self] in
-                Toast.show($0)
-                self?.viewInfoView.isHidden = true
-                self?.voteInfoEmptyView.isHidden = false
+                    guard let voteInfo = $0 else {
+                        //voteInfo == nil && old voteStatus = voting
+                        if self?.viewInfoView.voteStatus != .voting {
+                            self?.viewInfoView.isHidden = true
+                            self?.voteInfoEmptyView.isHidden = false
+                        }
+                        return
+                    }
+                    //server node can't affirm
+                    if self?.oldVoteInfo?.nodeName == voteInfo.nodeName &&
+                        (self?.viewInfoView.voteStatus == .voting || self?.viewInfoView.voteStatus == .cancelVoting) {
+                        return
+                    }
+                    //voteInfo != nil && new voteStatus = voting, old  voteInfo
+                    if voteStatus != .voting && voteStatus != .cancelVoting {
+                        self?.oldVoteInfo = voteInfo
+                    }
+
+                    self?.refreshVoteInfoView(voteInfo, voteStatus)
+                    return
+                }
+                self?.handlerCancelError(error)
+
             }.disposed(by: disposeBag)
+    }
+
+    private func handlerCancelError(_ error: Error) {
+        if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
+            Alert.show(into: self,
+                       title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
+                       message: nil,
+                       actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
+        } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
+            Alert.show(into: self, title: R.string.localizable.quotaAlertTitle.key.localized(), message: R.string.localizable.voteListAlertQuota.key.localized(), actions: [
+                (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle.key.localized()), { [weak self] _ in
+                    let vc = QuotaManageViewController()
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }),
+                (.default(title: R.string.localizable.quotaAlertPowButtonTitle.key.localized()), { [weak self] _ in
+                    HUD.show()
+                    self?.reactor?.cancelVoteAndSendWithGetPow(completion: { (result) in
+                        if case .success = result {
+                            self?.viewInfoView.changeInfoCancelVoting()
+                             Toast.show(R.string.localizable.votePageVoteInfoCancelVoteToastTitle.key.localized())
+                        } else if case let .error(error) = result {
+                            Toast.show(error.message)
+                        }
+                        HUD.hide()
+                    })
+                }),
+                (.cancel, nil),
+                ], config: { alert in
+                    alert.preferredAction = alert.actions[0]
+            })
+        } else {
+            Toast.show(error.message)
+        }
     }
 }

@@ -366,32 +366,4 @@ extension Provider {
                 completion(NetworkResult.wrapError($0))
             })
     }
-
-    func cancelVoteAndSendWithoutGetPow(bag: HDWalletManager.Bag,
-                                        completion: @escaping (NetworkResult<Void>) -> Void) {
-        self.cancelVote()
-            .then({ [unowned self] (data) -> Promise<(latestAccountBlock: AccountBlock, fittestSnapshotHash: String, data: String)> in
-                return self.getLatestAccountBlockAndSnapshotHash(address: bag.address).then({ (latestAccountBlock, fittestSnapshotHash) in
-                    return Promise { seal in seal.fulfill((latestAccountBlock, fittestSnapshotHash, data)) }
-                })
-            })
-            .then({ [unowned self] (latestAccountBlock, fittestSnapshotHash, data) -> Promise<Void> in
-                let send = AccountBlock.makeSendAccountBlock(latest: latestAccountBlock,
-                                                             bag: bag,
-                                                             snapshotHash: fittestSnapshotHash,
-                                                             toAddress: ContractAddress.pledgeAndGainQuota.address,
-                                                             tokenId: TokenCacheService.instance.viteToken.id,
-                                                             amount: BigInt(0),
-                                                             data: data,
-                                                             nonce: nil,
-                                                             difficulty: nil)
-                return self.createTransaction(accountBlock: send)
-            })
-            .done ({
-                completion(NetworkResult.success($0))
-            })
-            .catch({
-                completion(NetworkResult.wrapError($0))
-            })
-    }
 }

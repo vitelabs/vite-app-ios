@@ -83,10 +83,13 @@ class VoteInfoView: UIView {
     lazy var operationBtn: UIButton = {
         let operationBtn = UIButton()
         operationBtn.setTitleColor(UIColor.white, for: .normal)
-        operationBtn.titleLabel?.font = Fonts.Font14_b
+        operationBtn.setTitleColor(UIColor.white, for: .highlighted)
+        operationBtn.setTitleColor(UIColor(netHex: 0xECECEC), for: .disabled)
         operationBtn.setBackgroundImage(R.image.background_button_blue()?.tintColor(UIColor(netHex: 0x3460CE)).resizable, for: .normal)
         operationBtn.setBackgroundImage(R.image.background_button_blue()?.tintColor(UIColor(netHex: 0x3460CE)).resizable, for: .highlighted)
-      operationBtn.setTitle(R.string.localizable.submitCancel.key.localized(), for: .normal)
+        operationBtn.setBackgroundImage(R.image.background_button_blue()?.tintColor(UIColor(netHex: 0xBCC0CA)).resizable, for: .disabled)
+             operationBtn.titleLabel?.font = Fonts.Font14_b
+        operationBtn.setTitle(R.string.localizable.submitCancel.key.localized(), for: .normal)
         operationBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         operationBtn.layer.cornerRadius = 10
         operationBtn.layer.masksToBounds = true
@@ -103,8 +106,14 @@ class VoteInfoView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    fileprivate var voteInfo: VoteInfo?
-    fileprivate var voteStatus: VoteStatus?
+    var voteInfo: VoteInfo?
+    var voteStatus: VoteStatus?
+
+    func changeInfoCancelVoting() {
+        self.voteStatus = .cancelVoting
+        voteStatusLab.titleLab.text = self.voteStatus?.display
+        voteStatusLab.bgImg.image = R.image.btn_path_bg()?.tintColor(UIColor(netHex: 0x0046FF)).resizable
+    }
 
     func reloadData(_ voteInfo: VoteInfo, _ voteStatus: VoteStatus?) {
         self.voteInfo = voteInfo
@@ -157,7 +166,7 @@ class VoteInfoView: UIView {
             make.top.equalTo(self).offset(14)
             make.right.equalTo(self).offset(-14)
             make.height.equalTo(20)
-            make.width.equalTo(60)
+            make.width.equalTo(64)
         }
 
         nodeNameLab.snp.makeConstraints { (make) -> Void in

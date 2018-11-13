@@ -9,9 +9,9 @@
 import Foundation
 import JSONRPCKit
 
-class GetVoteInfoRequest: JSONRPCKit.Request {
+struct GetVoteInfoRequest: JSONRPCKit.Request {
     typealias Response = VoteInfo?
-
+    let gid: String
     let address: String
 
     var method: String {
@@ -19,11 +19,7 @@ class GetVoteInfoRequest: JSONRPCKit.Request {
     }
 
     var parameters: Any? {
-        return ["00000000000000000001", address]
-    }
-
-    init(address: String) {
-        self.address = address
+        return [gid, address]
     }
 
     func response(from resultObject: Any) throws -> Response {

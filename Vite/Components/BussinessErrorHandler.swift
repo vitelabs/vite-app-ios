@@ -24,6 +24,9 @@ struct BussinessErrorHandler {
                     let vc = QuotaManageViewController()
                     viewController?.navigationController?.pushViewController(vc, animated: true)
                 }),
+                (.default(title: R.string.localizable.quotaAlertPowButtonTitle.key.localized()), { _ in
+
+                }),
                 (.cancel, nil),
                 ], config: { alert in
                     alert.preferredAction = alert.actions[0]

@@ -14,6 +14,7 @@ enum Tag: String {
     case transaction
     case server
     case getConfig
+    case vote
 }
 
 func plog(level: XCGLogger.Level, log: @escaping @autoclosure () -> Any?, tag: Tag, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
