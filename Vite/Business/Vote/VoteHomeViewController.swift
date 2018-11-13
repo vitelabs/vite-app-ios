@@ -52,15 +52,15 @@ class VoteHomeViewController: BaseViewController {
             $0.backgroundColor = UIColor.white
             $0.layer.shadowColor = UIColor.black.cgColor
             $0.layer.shadowOpacity = 0.1
-            $0.layer.shadowOffset = CGSize(width: 0, height: 5)
+            $0.layer.shadowOffset = CGSize(width: 0, height: 10)
             $0.layer.shadowRadius = 20
         }
 
         view.addSubview(shadowView)
         shadowView.snp.makeConstraints { (m) in
-            m.left.right.equalTo(view)
-            m.top.equalTo(view).offset(118)
-            m.height.equalTo(10)
+            m.left.top.right.equalTo(view)
+            m.top.equalTo(view)
+            m.height.equalTo(118)
         }
 
         self.addChildViewController(voteListVC)
