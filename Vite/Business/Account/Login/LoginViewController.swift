@@ -34,6 +34,11 @@ class LoginViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         kas_activateAutoScrollingForView(contentView)
+        if navigationController?.viewControllers.first === self {
+
+        } else {
+            navigationBarStyle = .clear
+        }
     }
 
     let contentView = UIView()
@@ -46,7 +51,8 @@ class LoginViewController: BaseViewController {
     }()
 
     lazy var userNameBtn: TitleBtnView = {
-        let name = HDWalletManager.instance.wallets.first?.name ?? ""
+        let index = HDWalletManager.instance.currentWalletIndex ?? 0
+        let name = HDWalletManager.instance.wallets[index].name
         let userNameBtn = TitleBtnView(title: R.string.localizable.loginPageBtnChooseName.key.localized(), text: name)
         userNameBtn.btn.addTarget(self, action: #selector(userNameBtnAction), for: .touchUpInside)
         return userNameBtn
@@ -97,7 +103,6 @@ class LoginViewController: BaseViewController {
 extension LoginViewController {
     private func _setupView() {
         self.view.backgroundColor = .white
-        navigationBarStyle = .clear
         self._addViewConstraint()
     }
 
@@ -179,7 +184,8 @@ extension LoginViewController {
              return wallet.name
         }
 
-        _ =  ActionSheetStringPicker.show(withTitle: "选择钱包账户", rows: pickData, initialSelection: 0, doneBlock: {_, index, _ in
+        let index = HDWalletManager.instance.currentWalletIndex ?? 0
+        _ =  ActionSheetStringPicker.show(withTitle: "选择钱包账户", rows: pickData, initialSelection: index, doneBlock: {_, index, _ in
             let wallet = HDWalletManager.instance.wallets[index]
             self.viewModel.chooseUuid = wallet.uuid
             self.userNameBtn.btn.setTitle(wallet.name, for: .normal)

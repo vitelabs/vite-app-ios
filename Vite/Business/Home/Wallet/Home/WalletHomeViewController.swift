@@ -31,6 +31,7 @@ class WalletHomeViewController: BaseTableViewController {
 
     fileprivate func setupView() {
 
+        statisticsPageName = Statistics.Page.WalletHome.name
         let qrcodeItem = UIBarButtonItem(image: R.image.icon_nav_qrcode_black(), style: .plain, target: nil, action: nil)
         let scanItem = UIBarButtonItem(image: R.image.icon_nav_scan_black(), style: .plain, target: nil, action: nil)
         navigationItem.leftBarButtonItem = qrcodeItem
@@ -72,8 +73,8 @@ class WalletHomeViewController: BaseTableViewController {
             self?.navigationController?.pushViewController(ReceiveViewController(token: TokenCacheService.instance.viteToken, style: .default), animated: true)
         }.disposed(by: rx.disposeBag)
 
-        scanItem.rx.tap.bind {  [weak self] _ in
-            self?.navigationController?.pushViewController(ScanViewController(), animated: true)
+        scanItem.rx.tap.bind {  [unowned self] _ in
+            self.scanAndTransformToSendScene()
         }.disposed(by: rx.disposeBag)
     }
 
@@ -85,7 +86,10 @@ class WalletHomeViewController: BaseTableViewController {
 
     fileprivate func bind() {
 
-        walletDriver.map({ $0.name }).drive(navigationTitleView!.titleLabel.rx.text).disposed(by: rx.disposeBag)
+        if let navigationTitleView = navigationTitleView as? NavigationTitleView {
+            walletDriver.map({ $0.name }).drive(navigationTitleView.titleLabel.rx.text).disposed(by: rx.disposeBag)
+        }
+
         addressViewModel = WalletHomeAddressViewModel()
         tableViewModel = WalletHomeBalanceInfoTableViewModel()
 
@@ -118,5 +122,42 @@ class WalletHomeViewController: BaseTableViewController {
                 }
             }
         }.disposed(by: rx.disposeBag)
+    }
+
+    func scanAndTransformToSendScene() {
+        let scanViewController = ScanViewController(dismissWhenComplete: false)
+        scanViewController.reactor = ScanViewReactor.init()
+        _ = scanViewController.rx.result.bind { [weak scanViewController] result in
+            switch result {
+            case let .viteURI(uri):
+                switch uri {
+                case let .transfer(address, tokenId, _, _, note):
+                    let tokenId = tokenId ?? TokenCacheService.instance.viteToken.id
+                    scanViewController?.view.displayLoading(text: "")
+                    TokenCacheService.instance.tokenForId(tokenId) {[weak scanViewController] (result) in
+                        scanViewController?.view.hideLoading()
+                        switch result {
+                        case .success(let token):
+                            if let token = token {
+                                let amount = uri.amountToBigInt()
+                                let sendViewController = SendViewController(token: token, address: address, amount: amount, note: note)
+                                guard var viewControllers = self.navigationController?.viewControllers else { return }
+                                _ = viewControllers.popLast()
+                                viewControllers.append(sendViewController)
+                                scanViewController?.navigationController?.setViewControllers(viewControllers, animated: true)
+                            } else {
+                                scanViewController?.showToast(string: R.string.localizable.sendPageTokenInfoError.key.localized())
+                            }
+                        case .failure(let error):
+                            scanViewController?.showToast(string: error.message)
+                        }
+                    }
+                }
+            default :
+                break
+            }
+        }
+
+        self.navigationController?.pushViewController(scanViewController, animated: true)
     }
 }

@@ -1,0 +1,17 @@
+# For more information about this configuration visit
+# https://docs.fastlane.tools/actions/scan/#scanfile
+
+# In general, you can use the options available
+# fastlane scan --help
+
+# Remove the # in front of the line to enable the option
+
+scheme("Vite")
+open_report(true)
+clean(true)
+skip_build(false)
+output_types("html")
+output_directory("../")
+configuration("Debug")
+device("iPhone X (12.0)")
+skip_build(false)

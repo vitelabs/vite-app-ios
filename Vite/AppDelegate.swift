@@ -24,18 +24,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
 
-        startBaiduMobileStat()
+        Statistics.initialize()
         handleNotification()
         _ = LocalizationService.sharedInstance
 
         window = UIWindow(frame: UIScreen.main.bounds)
         handleRootVC()
 
+        AppUpdateVM.checkUpdate()
+        AppSettingsService.instance.start()
+        TokenCacheService.instance.start()
         AutoGatheringService.instance.start()
         FetchBalanceInfoService.instance.start()
-        //fetch app config
-        AppConfigVM().fetchVersionInfo()
-        WXApi.registerApp(Constants.weixinAppID)
+        FetchQuotaService.instance.start()
         return true
     }
 
@@ -102,6 +103,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             rootVC.automaticallyShowDismissButton = false
         }
         let nav = BaseNavigationController(rootViewController: rootVC)
+        //fix magnifying glass fluoroscopy bug
+        lockWindow.isHidden = false
         self.lockWindow.rootViewController = nav
         self.lockWindow.makeKeyAndVisible()
     }
@@ -110,6 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootVC = HomeViewController()
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
+        lockWindow.isHidden = true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -131,11 +135,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
 
     }
-
-    func startBaiduMobileStat() {
-        let statTracker: BaiduMobStat = BaiduMobStat.default()
-        statTracker.shortAppVersion  =  Bundle.main.fullVersion
-        statTracker.start(withAppId: Constants.baiduMobileStat)
-    }
-
 }

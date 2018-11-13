@@ -12,6 +12,8 @@ import XCGLogger
 enum Tag: String {
     case life
     case transaction
+    case server
+    case getConfig
 }
 
 func plog(level: XCGLogger.Level, log: @escaping @autoclosure () -> Any?, tag: Tag, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
@@ -43,12 +45,12 @@ private let __log: XCGLogger = {
     log.dateFormatter = dateFormatter
 
     let systemDestination = AppleSystemLogDestination(identifier: "advancedLogger.systemDestination")
-    systemDestination.outputLevel = .debug
+
     systemDestination.showLogIdentifier = false
     systemDestination.showFunctionName = true
     systemDestination.showThreadName = false
     systemDestination.showLevel = true
-    systemDestination.showFileName = false
+    systemDestination.showFileName = true
     systemDestination.showLineNumber = true
     systemDestination.showDate = true
     log.add(destination: systemDestination)
@@ -61,7 +63,7 @@ private let __log: XCGLogger = {
     fileDestination.showFunctionName = true
     fileDestination.showThreadName = false
     fileDestination.showLevel = true
-    fileDestination.showFileName = false
+    fileDestination.showFileName = true
     fileDestination.showLineNumber = true
     fileDestination.showDate = true
 

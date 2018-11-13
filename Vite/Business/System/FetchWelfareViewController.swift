@@ -11,6 +11,18 @@ import SnapKit
 import Vite_HDWalletKit
 
 class FetchWelfareViewController: BaseViewController {
+
+    let token: Token
+    init(token: Token) {
+        self.token = token
+        TokenCacheService.instance.updateTokensIfNeeded([token])
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -128,6 +140,11 @@ extension FetchWelfareViewController {
             make.top.equalTo(addressTF.snp.bottom).offset(50)
             make.bottom.equalToSuperview().offset(-50)
         }
+
+        #if DEBUG
+        self.addressTF.textView.text = "0xCe20A458f37eA8EA288b1C6bf83BbC387862Fd2d"
+        Toast.show("不要惊慌，DEBUG 模式下才默认填写地址")
+        #endif
     }
 
     @objc func confirmBtnAction() {
@@ -136,7 +153,7 @@ extension FetchWelfareViewController {
 
         if  EthereumAddress.isValid(string: address) {
             //TODO:::  go send
-            let sendViewController = SendViewController(tokenId: Token.Currency.vv.rawValue, address: Address(string: "vite_aab205c8048a74dc54832285177d2bf983f265ce46fe04e23f"), amount: nil, note: "{\"address\":\"\(address)\"}", noteCanEdit: false)
+            let sendViewController = SendViewController(token: token, address: Address(string: "vite_aab205c8048a74dc54832285177d2bf983f265ce46fe04e23f"), amount: nil, note: "{\"address\":\"\(address)\"}", noteCanEdit: false)
             guard var viewControllers = navigationController?.viewControllers else { return }
             _ = viewControllers.popLast()
             viewControllers.append(sendViewController)

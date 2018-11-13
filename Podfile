@@ -11,7 +11,7 @@ target 'Vite' do
   pod 'SnapKit', '~> 4.0.0'
   pod 'BigInt', '~> 3.0'
   pod 'R.swift'
-  pod 'JSONRPCKit' #, :git=> 'https://github.com/bricklife/JSONRPCKit.git'
+  pod 'JSONRPCKit'
   pod 'PromiseKit', '~> 6.0'
   pod 'APIKit'
   pod 'ObjectMapper'
@@ -21,9 +21,9 @@ target 'Vite' do
   pod 'MJRefresh'
   pod 'KMNavigationBarTransition'
   pod 'XCGLogger', '~> 6.1.0'
-
-  #social
-  pod 'WechatOpenSDK'
+  pod 'pop', '~> 1.0'
+  pod 'DACircularProgress', '2.3.1'
+  pod 'Kingfisher', '~> 4.0'
 
   #request
   pod 'SwiftyJSON'
@@ -50,6 +50,7 @@ target 'Vite' do
   pod 'Then'
   pod 'Action'
   pod 'ReusableKit'
+  pod 'ReactorKit'
 
   #code review
   pod 'SwiftLint'

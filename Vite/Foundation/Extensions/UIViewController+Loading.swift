@@ -20,6 +20,15 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 
+    func displayConfirmAlter(title: String, message: String, done: String, doneHandler: @escaping () -> Void) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let doneAction = UIAlertAction(title: done, style: .destructive, handler: {_ in
+            doneHandler()
+        })
+        alertController.addAction(doneAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     func displayConfirmAlter(title: String, done: String, doneHandler: @escaping () -> Void) {
         let alertController = UIAlertController(title: title, message: "", preferredStyle: .alert)
         let doneAction = UIAlertAction(title: done, style: .destructive, handler: {_ in

@@ -10,6 +10,9 @@ import XCTest
 import PromiseKit
 import BigInt
 import ObjectMapper
+import Alamofire
+import Moya
+import SwiftyJSON
 @testable import Vite
 
 class ViteNetworkTests: XCTestCase {
@@ -104,7 +107,71 @@ class ViteNetworkTests: XCTestCase {
             Provider.instance.getTokenForId("tti_000000000000000000004cfd", completion: { result in
                 switch result {
                 case .success(let token):
-                    print("🏆\(token)")
+                    if let token = token {
+                        print("🏆\(token)")
+                    } else {
+                        print("🏆 token not found")
+                    }
+                case .error(let error):
+                    print("🤯🤯🤯🤯🤯🤯\(error)")
+                }
+                completion()
+            })
+        }
+    }
+}
+
+extension ViteNetworkTests {
+    func testGetAppUpdate() {
+        async { (completion) in
+            ServerProvider.instance.getAppUpdate(completion: { (result) in
+                switch result {
+                case .success(let info):
+                    print("🏆\(info)")
+                case .error(let error):
+                    print("🤯🤯🤯🤯🤯🤯\(error)")
+                }
+                completion()
+            })
+        }
+    }
+
+    func testGetAppSettingsConfig() {
+        async { (completion) in
+            ServerProvider.instance.getAppSettingsConfig(completion: { (result) in
+                switch result {
+                case .success(let config):
+                    print("🏆\(String(describing: config))")
+                case .error(let error):
+                    print("🤯🤯🤯🤯🤯🤯\(error)")
+                }
+                completion()
+            })
+        }
+    }
+
+    func testGetDefaultTokens() {
+        async { (completion) in
+            ServerProvider.instance.getAppDefaultTokens(completion: { (result) in
+                switch result {
+                case .success(let string):
+                    print("🏆\(string)")
+                case .error(let error):
+                    print("🤯🤯🤯🤯🤯🤯\(error)")
+                }
+                completion()
+            })
+        }
+    }
+}
+
+extension ViteNetworkTests {
+    func testGetPledgest() {
+        async { (completion) in
+            Provider.instance.getPledges(address: Address(string: "vite_847e1672c9a775ca0f3c3a2d3bf389ca466e5501cbecdb7107"), index: 0, count: 50, completion: { (result) in
+                switch result {
+                case .success(let pledges):
+                    print("🏆\(pledges)")
                 case .error(let error):
                     print("🤯🤯🤯🤯🤯🤯\(error)")
                 }

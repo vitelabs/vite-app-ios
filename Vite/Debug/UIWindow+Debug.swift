@@ -8,7 +8,7 @@
 
 import Foundation
 
-#if DEBUG
+#if DEBUG || TEST
 
 import UIKit
 
@@ -34,6 +34,10 @@ extension UIWindow {
 
         while let presentedViewController = top.presentedViewController {
             top = presentedViewController
+        }
+
+        if let n = top as? UINavigationController, n.viewControllers.first is DebugViewController {
+            return
         }
 
         top.present(nav, animated: true, completion: nil)

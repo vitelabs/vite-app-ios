@@ -24,7 +24,7 @@ class BaseTableViewController: BaseViewController {
         super.init(coder: aDecoder)
     }
 
-    override var navigationTitleView: NavigationTitleView? {
+    override var navigationTitleView: UIView? {
         didSet { layoutTableView() }
     }
 

@@ -49,7 +49,7 @@ class ReceiveViewController: BaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        kas_activateAutoScrollingForView(contentView)
+        kas_activateAutoScrollingForView(scrollView.stackView)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -64,19 +64,11 @@ class ReceiveViewController: BaseViewController {
         $0.layer.shadowRadius = 20
     }
 
-    lazy var scrollView = ScrollableView().then {
+    lazy var scrollView = ScrollableView(insets: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)).then {
         if #available(iOS 11.0, *) {
             $0.contentInsetAdjustmentBehavior = .never
         } else {
             automaticallyAdjustsScrollViewInsets = false
-        }
-    }
-
-    lazy var contentView = UIView().then { view in
-        scrollView.addSubview(view)
-        view.snp.makeConstraints { (m) in
-            m.edges.equalTo(scrollView)
-            m.width.equalTo(scrollView)
         }
     }
 
@@ -88,9 +80,7 @@ class ReceiveViewController: BaseViewController {
     func setupView() {
 
         navigationBarStyle = .clear
-        if case .token = style {
-            navigationItem.title = R.string.localizable.receivePageTitle.key.localized()
-        }
+        navigationItem.title = .token == style ? R.string.localizable.receivePageTokenTitle.key.localized() : R.string.localizable.receivePageMineTitle.key.localized()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.icon_nav_share_black(), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(onShare))
         view.backgroundColor = GradientColor(.topToBottom, frame: view.frame, colors: token.backgroundColors)
 
@@ -109,38 +99,16 @@ class ReceiveViewController: BaseViewController {
             m.bottom.lessThanOrEqualTo(view).offset(-24)
         }
 
-        contentView.addSubview(headerView)
-        contentView.addSubview(qrcodeView)
-
-        headerView.snp.makeConstraints { (m) in
-            m.top.left.right.equalTo(contentView)
-        }
+        scrollView.stackView.addArrangedSubview(headerView)
 
         switch style {
         case .default:
-            qrcodeView.snp.makeConstraints { (m) in
-                m.top.equalTo(headerView.snp.bottom)
-                m.left.right.equalTo(contentView)
-                m.bottom.equalTo(contentView).offset(-10)
-            }
+            scrollView.stackView.addArrangedSubview(qrcodeView)
+            scrollView.stackView.addPlaceholder(height: 10)
         case .token:
-            contentView.addSubview(middleView)
-            contentView.addSubview(footerView)
-
-            middleView.snp.makeConstraints { (m) in
-                m.top.equalTo(headerView.snp.bottom)
-                m.left.right.equalTo(contentView)
-            }
-
-            qrcodeView.snp.makeConstraints { (m) in
-                m.top.equalTo(middleView.snp.bottom)
-                m.left.right.equalTo(contentView)
-            }
-
-            footerView.snp.makeConstraints { (m) in
-                m.top.equalTo(qrcodeView.snp.bottom)
-                m.left.right.bottom.equalTo(contentView)
-            }
+            scrollView.stackView.addArrangedSubview(middleView)
+            scrollView.stackView.addArrangedSubview(qrcodeView)
+            scrollView.stackView.addArrangedSubview(footerView)
 
             footerView.amountButton.rx.tap
                 .bind {

@@ -15,8 +15,8 @@ class ViteCryptoTest: XCTestCase {
     func testMnemonicCrypto() {
 
         let mnemonic = Mnemonic.randomGenerator(strength: .strong, language: .english)
-        let ciphertext = HDWalletStorage.Wallet.encrypt(plaintext: mnemonic, password: "123456")!
-        let ret = HDWalletStorage.Wallet.decrypt(ciphertext: ciphertext, password: "123456")!
+        let ciphertext = HDWalletStorage.Wallet.encrypt(plaintext: mnemonic, encryptKey: "123456")!
+        let ret = HDWalletStorage.Wallet.decrypt(ciphertext: ciphertext, encryptKey: "123456")!
         XCTAssertEqual(mnemonic, ret)
     }
 }

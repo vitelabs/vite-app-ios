@@ -67,6 +67,12 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 fastlane/.env
+match_version.txt
 
-#R.swift
-*.generated.swift
+#R.swift  xcode10 Compile Sources build 
+#*.generated.swift
+
+#Travis
+.bundle/
+vendor/
+.idea/

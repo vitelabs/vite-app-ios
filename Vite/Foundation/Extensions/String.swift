@@ -12,23 +12,6 @@ import CryptoSwift
 
 extension String {
 
-    func localized() -> String {
-        return LocalizationStr(self)
-    }
-
-    func localized(arguments: CVarArg...) -> String {
-        let format = LocalizationStr(self)
-        let t = self.Localizer()
-
-       return withVaList(arguments) { t(format, $0) }
-    }
-    private func Localizer() -> (_ key: String, _ params: CVaListPointer) -> String {
-        return { (key: String, params: CVaListPointer) in
-            let content = NSLocalizedString(key, tableName: "", comment: "")
-            return NSString(format: content, arguments: params) as String
-        }
-    }
-
     //fetch substring as old
     func subStringInRange(_ r: Range<Int>) -> String? {
         if r.lowerBound < 0 || r.upperBound > self.count {
@@ -37,13 +20,6 @@ extension String {
         let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
         let endIndex   = self.index(self.startIndex, offsetBy: r.upperBound)
         return String(self[startIndex..<endIndex])
-    }
-
-    func filterWhitespacesAndNewlines() -> String {
-        var temp = self.trimmingCharacters(in: .whitespacesAndNewlines)
-        temp = temp.replacingOccurrences(of: "\n", with: "")
-        temp = temp.replacingOccurrences(of: "\r", with: "")
-        return temp
     }
 
     func toEncryptKey(salt: String) -> String {

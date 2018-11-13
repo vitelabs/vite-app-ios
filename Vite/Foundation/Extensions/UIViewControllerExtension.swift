@@ -46,7 +46,7 @@ extension ViewControllerDataStatusable {
     public func networkErrorView(error: Error, retry: @escaping () -> Swift.Void) -> UIView {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor.red
-        button.setTitle(error.localizedDescription, for: .normal)
+        button.setTitle(error.message, for: .normal)
         return button
     }
 
@@ -82,9 +82,18 @@ extension ViewControllerDataStatusable where Self: UIViewController {
                 view.addSubview(dataStatusView)
                 dataStatusView.backgroundColor = view.backgroundColor
             }
-            dataStatusView.snp.makeConstraints({ (m) in
-                m.edges.equalTo(view)
-            })
+
+            if let vc = self as? BaseViewController, let navigationTitleView = vc.navigationTitleView {
+                dataStatusView.snp.makeConstraints({ (m) in
+                    m.top.equalTo(navigationTitleView.snp.bottom)
+                    m.left.right.bottom.equalTo(view)
+                })
+            } else {
+                dataStatusView.snp.makeConstraints({ (m) in
+                    m.edges.equalTo(view)
+                })
+            }
+
             objc_setAssociatedObject(self, &kDataStatusViewKey, dataStatusView, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             return dataStatusView
         }

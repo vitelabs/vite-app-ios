@@ -17,12 +17,36 @@ struct WebHandler {
         while let presentedViewController = top.presentedViewController {
             top = presentedViewController
         }
-        let safariViewController = SafariViewController(url: url)
+
+        let string = appendQuery(urlString: url.absoluteString)
+        let ret = URL(string: string)!
+        let safariViewController = SafariViewController(url: ret)
         top.present(safariViewController, animated: true, completion: nil)
     }
 
     static func openTranscationDetailPage(hash: String) {
-        let url = URL(string: "https://testnet.vite.net/transaction/\(hash)")!
+        var host = "https://testnet.vite.net"
+        if LocalizationService.sharedInstance.currentLanguage == .chinese {
+            host = "\(host)/zh"
+        }
+
+        let string = appendQuery(urlString: "\(host)/transaction/\(hash)")
+        let url = URL(string: string)!
         open(url)
+    }
+
+    fileprivate static func appendQuery(urlString: String) -> String {
+        let querys = ["version": Bundle.main.versionNumber,
+                      "channel": Constants.appDownloadChannel.rawValue,
+                      "address": HDWalletManager.instance.bag?.address.description ?? ""]
+        var string = urlString
+        for (key, value) in querys {
+            let separator = string.contains("?") ? "&" : "?"
+            string = string.appending(separator)
+            string = string.appending(key)
+            string = string.appending("=")
+            string = string.appending(value)
+        }
+        return string
     }
 }
