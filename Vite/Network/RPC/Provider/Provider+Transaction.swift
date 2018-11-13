@@ -83,6 +83,7 @@ extension Provider {
     enum TransactionErrorCode: Int {
         case notEnoughBalance = -35001
         case notEnoughQuota = -35002
+        case noTransactionBefore = -36001
     }
 
     func receiveTransactionWithoutGetPow(bag: HDWalletManager.Bag, completion: @escaping (NetworkResult<Void>) -> Void) {

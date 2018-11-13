@@ -60,11 +60,11 @@ final class VoteListReactor {
         ])
 
         let statusChanged = NotificationCenter.default.rx.notification(.userVoteInfoChange)
-            .map { notification -> (VoteStatus, VoteInfo) in
+            .map { notification -> (VoteStatus, VoteInfo?) in
                 let info = notification.object as! [String: Any]
-                return (info["voteStatus"] as! VoteStatus, info["voteInfo"] as! VoteInfo)
+                return (info["voteStatus"] as! VoteStatus, info["voteInfo"] as? VoteInfo)
             }
-            .distinctUntilChanged({ $0.0 == $1.0 && $0.1.nodeName == $1.1.nodeName })
+            .distinctUntilChanged({ $0.0 == $1.0 && $0.1?.nodeName == $1.1?.nodeName })
 
         let fetch = statusChanged
             .flatMapLatest({ (_, _)  in

@@ -199,6 +199,8 @@ class VoteListViewController: BaseViewController {
                 ], config: { alert in
                     alert.preferredAction = alert.actions[0]
             })
+        } else if error.code == Provider.TransactionErrorCode.noTransactionBefore.rawValue {
+            Toast.show(R.string.localizable.voteListSearchNoTransactionBefore.key.localized())
         } else {
              Toast.show(R.string.localizable.voteListSendFailed.key.localized())
         }

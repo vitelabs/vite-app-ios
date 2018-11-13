@@ -88,7 +88,7 @@ final class MyVoteInfoViewReactor: Reactor {
                     observer.onNext((voteInfo, nil))
                     observer.onCompleted()
                 case .error(let error):
-                    plog(level: .info, log: String.init(format: "fetchVoteInfo   error address=%@, =%d-%@", address,error.code, error.localizedDescription), tag: .vote)
+                    plog(level: .info, log: String.init(format: "fetchVoteInfo error  error = %d=%@", error.code, error.localizedDescription), tag: .vote)
                     observer.onNext((nil, error))
                     observer.onCompleted()
                 }
