@@ -117,6 +117,10 @@ class VoteInfoView: UIView {
         voteStatusLab.titleLab.text = self.voteStatus?.display
         voteStatusLab.bgImg.image = R.image.btn_path_bg()?.tintColor(UIColor(netHex: 0x0046FF)).resizable
     }
+    func resetView() {
+        self.voteInfo = nil
+        self.voteStatus = .noVote
+    }
 
     func reloadData(_ voteInfo: VoteInfo, _ voteStatus: VoteStatus?) {
         self.voteInfo = voteInfo

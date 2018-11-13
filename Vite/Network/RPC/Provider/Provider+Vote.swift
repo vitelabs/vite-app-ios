@@ -35,8 +35,9 @@ extension Provider {
 
      func cancelVote() -> Promise<(String)> {
         return Promise { seal in
-            let request = ViteServiceRequest(for: server, batch: BatchFactory()
+            var request = ViteServiceRequest(for: server, batch: BatchFactory()
                 .create(CancelVoteRequest(gid: voteCancel_gID)))
+            request.timeoutInterval = 10.0
             Session.send(request) { result in
                 switch result {
                 case .success(let voteInfo):

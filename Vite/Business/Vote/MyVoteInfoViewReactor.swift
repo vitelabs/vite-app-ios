@@ -84,11 +84,11 @@ final class MyVoteInfoViewReactor: Reactor {
             ) { (result) in
                 switch result {
                 case .success(let voteInfo):
-                    plog(level: .info, log: String.init(format: "fetchVoteInfo success  voteInfo.nodeName = %@", voteInfo?.nodeName ?? ""), tag: .vote)
+                    plog(level: .info, log: String.init(format: "fetchVoteInfo  success address=%@, voteInfo.nodeName = %@", address, voteInfo?.nodeName ?? ""), tag: .vote)
                     observer.onNext((voteInfo, nil))
                     observer.onCompleted()
                 case .error(let error):
-                    plog(level: .info, log: String.init(format: "fetchVoteInfo error  error = %@", error.localizedDescription), tag: .vote)
+                    plog(level: .info, log: String.init(format: "fetchVoteInfo error  error = %d=%@", error.code, error.localizedDescription), tag: .vote)
                     observer.onNext((nil, error))
                     observer.onCompleted()
                 }
@@ -103,11 +103,11 @@ final class MyVoteInfoViewReactor: Reactor {
             ) { (result) in
                 switch result {
                 case .success:
-                    plog(level: .info, log:"cancelVoteAndSendWithoutGetPow success ", tag: .vote)
+                    plog(level: .info, log: "cancelVoteAndSendWithoutGetPow success ", tag: .vote)
                     observer.onNext(nil)
                     observer.onCompleted()
                 case .error(let error):
-                    plog(level: .info, log: String.init(format: "cancelVoteAndSendWithoutGetPow error  error = %@=%@", error.code,error.localizedDescription), tag: .vote)
+                    plog(level: .info, log: String.init(format: "cancelVoteAndSendWithoutGetPow error  error = %d=%@", error.code, error.localizedDescription), tag: .vote)
                     observer.onNext(error)
                     observer.onCompleted()
                 }
@@ -122,7 +122,7 @@ final class MyVoteInfoViewReactor: Reactor {
                 if case .success = result {
                         plog(level: .info, log: "cancelVoteAndSendWithGetPow success", tag: .vote)
                 } else if case let .error(error) = result {
-                        plog(level: .info, log: String.init(format: "cancelVoteAndSendWithGetPow error = %@-%@", error.code,error.localizedDescription), tag: .vote)
+                        plog(level: .info, log: String.init(format: "cancelVoteAndSendWithGetPow error = %d=%@", error.code, error.localizedDescription), tag: .vote)
                 }
                 completion(result)
             }

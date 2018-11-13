@@ -66,6 +66,13 @@ class MyVoteInfoViewController: BaseViewController, View {
             }
         }).disposed(by: rx.disposeBag)
 
+        //change address
+        HDWalletManager.instance.bagDriver.drive(onNext: { [weak self] _ in
+            self?.viewInfoView.resetView()
+            self?.viewInfoView.isHidden = true
+            self?.voteInfoEmptyView.isHidden = false
+        }).disposed(by: disposeBag)
+
         self.viewInfoView.nodeStatusLab.tipButton.rx.tap.bind { [weak self] in
             let url  = URL(string: String(format: "%@?localize=%@", Constants.voteLoserURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
             let vc = PopViewController(url: url)
@@ -143,7 +150,8 @@ extension MyVoteInfoViewController {
                 guard let error = $2 else {
                     //handle cancel vote
                     if voteStatus == .cancelVoting {
-                        self?.refreshVoteInfoView(self?.oldVoteInfo ?? VoteInfo(), voteStatus)
+                        self?.viewInfoView.changeInfoCancelVoting()
+                        Toast.show(R.string.localizable.votePageVoteInfoCancelVoteToastTitle.key.localized())
                         return
                     }
 
