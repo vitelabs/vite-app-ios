@@ -7,6 +7,7 @@
 //
 
 enum VoteStatus: Int {
+    case noVote = 0
     case voteSuccess = 1
     case voting = 2
     case cancelVoting = 3
@@ -15,6 +16,8 @@ enum VoteStatus: Int {
 
     var display: String {
         switch self {
+        case .noVote:
+            return ""
         case .voteSuccess:
             return R.string.localizable.votePageVoteStatusVoteSuccess.key.localized()
         case .voting:
