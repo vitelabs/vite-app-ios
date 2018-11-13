@@ -12,8 +12,8 @@
                         "zh-Hans":"奖励查询"
                     }
                 },
-                "icon":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Tangram_set_00.jpg/300px-Tangram_set_00.jpg",
-                "url":"https://vite.org"
+                "icon":"https://testnet-vite-1257137467.cos.ap-hongkong.myqcloud.com/icon/settings_reward_query.png",
+                "url":"https://reward.vite.net/query/voteReward"
             },
             {
                 "type":"about"
@@ -36,17 +36,17 @@
                 "tokenName":"Vite Community Point",
                 "tokenSymbol":"VCP",
                 "decimals":0,
-                "tokenId":"tti_12ea0c02170304090a5ac879",
+                "tokenId":"tti_251a3e67a41b5ea2373936c8",
                 "colors":[
                     "0xF76B1C",
                     "0xFAD961"
                 ]
             },
             {
-                "tokenName":"Vite Voucher",
-                "tokenSymbol":"VV",
+                "tokenName":"Vite Test Token",
+                "tokenSymbol":"VTT",
                 "decimals":18,
-                "tokenId":"tti_b6187a150d175e5a165b1c5b",
+                "tokenId":"tti_c55ec37a916b7f447575ae59",
                 "colors":[
                     "0x429321",
                     "0xB4EC51"
