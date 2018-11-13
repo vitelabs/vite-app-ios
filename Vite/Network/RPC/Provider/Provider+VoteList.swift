@@ -53,11 +53,11 @@ extension Provider {
          getVoteData(benefitedNodeName: name, gid: gid)
             .done({ data in
                 self.sendTransactionWithoutGetPow(bag: bag,
-                                                   toAddress: voteContractAddress,
-                                                   tokenId: TokenCacheService.instance.viteToken.id,
-                                                   amount: 0,
-                                                   data: data,
-                                                   completion: { result in
+                                                  toAddress: voteContractAddress,
+                                                  tokenId: TokenCacheService.instance.viteToken.id,
+                                                  amount: 0,
+                                                  data: data,
+                                                  completion: { result in
                                                     switch result {
                                                     case .success:
                                                         completion(NetworkResult.success(Void()))
