@@ -56,8 +56,8 @@ class AddressTextViewView: SendAddressViewType {
 
         titleLabel.snp.makeConstraints { (m) in
             m.top.equalTo(self)
-            m.left.equalTo(self).offset(24)
-            m.right.equalTo(self).offset(-24)
+            m.left.equalTo(self)
+            m.right.equalTo(self)
         }
 
         textView.snp.makeConstraints { (m) in

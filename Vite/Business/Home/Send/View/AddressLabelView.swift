@@ -39,8 +39,8 @@ class AddressLabelView: SendAddressViewType {
 
         titleLabel.snp.makeConstraints { (m) in
             m.top.equalTo(self).offset(16)
-            m.left.equalTo(self).offset(24)
-            m.right.equalTo(self).offset(-24)
+            m.left.equalTo(self)
+            m.right.equalTo(self)
         }
 
         textView.snp.makeConstraints { (m) in
@@ -58,7 +58,11 @@ class AddressLabelView: SendAddressViewType {
         backView.layer.borderColor = UIColor(netHex: 0x007AFF).withAlphaComponent(0.12).cgColor
         backView.layer.borderWidth = CGFloat.singleLineWidth
         insertSubview(backView, at: 0)
-        backView.snp.makeConstraints { (m) in m.edges.equalTo(self) }
+        backView.snp.makeConstraints { (m) in
+            m.top.bottom.equalTo(self)
+            m.left.equalTo(self).offset(-24)
+            m.right.equalTo(self).offset(24)
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -7,112 +7,67 @@
 //
 
 import UIKit
-import Eureka
-import SafariServices
+import RxSwift
+import RxCocoa
+import NSObject_Rx
+import RxDataSources
 
-class MyHomeViewController: FormViewController {
-    var navigationBarStyle = NavigationBarStyle.clear
-    var navigationTitleView: NavigationTitleView? {
-        didSet {
-            if let old = oldValue {
-                old.removeFromSuperview()
-            }
+class MyHomeViewController: BaseTableViewController {
 
-            if let new = navigationTitleView {
-                view.addSubview(new)
-                new.snp.makeConstraints { (m) in
-                    m.top.equalTo(view.safeAreaLayoutGuideSnpTop)
-                    m.left.equalTo(view)
-                    m.right.equalTo(view)
-                }
-            }
-        }
-    }
+    typealias DataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, MyHomeListCellViewModel>>
 
-    let fetchGiftToken: Token? = AppSettingsService.instance.giftTokenBehaviorRelay.value
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        NavigationBarStyle.configStyle(navigationBarStyle, viewController: self)
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        bind()
+    }
+
+    fileprivate func setupView() {
         navigationTitleView = NavigationTitleView(title: R.string.localizable.myPageTitle.key.localized())
-        self.view.backgroundColor = .white
-        self.automaticallyAdjustsScrollViewInsets = false
-
-        self.setupTableView()
+        let headerView = MyHomeListHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 116))
+        headerView.delegate = self
+        tableView.tableHeaderView = headerView
     }
 
-    func setupTableView() {
-        self.tableView.backgroundColor = .white
-        self.tableView.separatorStyle = .none
+    fileprivate let dataSource = DataSource(configureCell: { (_, tableView, indexPath, item) -> UITableViewCell in
+        let cell: MyHomeListCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.bind(viewModel: item)
+        return cell
+    })
 
-        ImageRow.defaultCellSetup = { cell, row in
-            cell.selectionStyle = .none
-        }
-
-        form +++
-            Section {section in
-                var header = HeaderFooterView<MyHomeListHeaderView>(.class)
-                header.onSetupView = { view, section in
-                    view.delegate = self
+    fileprivate func bind() {
+        AppSettingsService.instance.configDriver.asObservable().map { config -> [SectionModel<String, MyHomeListCellViewModel>] in
+            let configViewModel = MyHomeConfigViewModel(JSON: config.myPage)!
+            return [SectionModel(model: "item", items: configViewModel.items)]
+        }.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
+        tableView.separatorStyle = .none
+        tableView.rowHeight = MyHomeListCell.cellHeight
+        tableView.rx.setDelegate(self).disposed(by: rx.disposeBag)
+        tableView.rx.itemSelected
+            .bind { [weak self] indexPath in
+                guard let `self` = self else { fatalError() }
+                if let viewModel = (try? self.dataSource.model(at: indexPath)) as? MyHomeListCellViewModel {
+                    self.tableView.deselectRow(at: indexPath, animated: true)
+                    viewModel.clicked(viewController: self)
                 }
-                header.height = { 136.0 }
-                section.header = header
             }
-
-            <<< ImageRow("my.page.system.cell.title") {
-                $0.cell.titleLab.text =  R.string.localizable.myPageSystemCellTitle.key.localized()
-                $0.cell.rightImageView.image = R.image.icon_setting()
-            }.onCellSelection({ [unowned self] _, _  in
-                    let vc = SystemViewController()
-                    self.navigationController?.pushViewController(vc, animated: true)
-            })
-
-            <<< ImageRow("my.page.aboutUs.cell.title") {
-                $0.cell.titleLab.text =  R.string.localizable.myPageAboutUsCellTitle.key.localized()
-                $0.cell.rightImageView.image = R.image.icon_token_vite()
-            }.onCellSelection({ [unowned self] _, _  in
-                let vc = AboutUsViewController()
-                self.navigationController?.pushViewController(vc, animated: true)
-            })
-
-            <<< ImageRow("my.page.fetchMoney.cell.title") {
-                $0.cell.titleLab.text =  R.string.localizable.myPageFetchMoneyCellTitle.key.localized()
-                $0.cell.rightImageView.image = R.image.gift()
-                $0.hidden = showFetchMoneyCondition
-            }.onCellSelection({ [unowned self] _, _  in
-                    guard let token = self.fetchGiftToken else { return }
-                    let vc = FetchWelfareViewController(token: token)
-                    self.navigationController?.pushViewController(vc, animated: true)
-                })
-
-        self.tableView.snp.makeConstraints { (make) in
-            make.top.equalTo((self.navigationTitleView?.snp.bottom)!).offset(-20)
-            make.left.right.bottom.equalTo(self.view)
-        }
-    }
-
-    private var showFetchMoneyCondition: Condition {
-       return Eureka.Condition.function([], {[weak self] _ in
-            return self?.fetchGiftToken == nil
-        })
+            .disposed(by: rx.disposeBag)
     }
 }
 
 extension MyHomeViewController: MyHomeListHeaderViewDelegate {
     func transactionLogBtnAction() {
-        navigationController?.pushViewController(TransactionListViewController(), animated: true)
+        let vc = TransactionListViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     func manageWalletBtnAction() {
         let vc = ManageWalletViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     func manageQuotaBtnAction() {
         let vc = QuotaManageViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

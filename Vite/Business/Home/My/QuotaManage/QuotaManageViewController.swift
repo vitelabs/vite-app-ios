@@ -36,7 +36,7 @@ class QuotaManageViewController: BaseViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        kas_activateAutoScrollingForView(contentView)
+        kas_activateAutoScrollingForView(scrollView.stackView)
         FetchQuotaService.instance.retainQuota()
     }
 
@@ -46,7 +46,7 @@ class QuotaManageViewController: BaseViewController {
     }
 
     // View
-    lazy var scrollView = ScrollableView().then {
+    lazy var scrollView = ScrollableView(insets: UIEdgeInsets(top: 10, left: 24, bottom: 50, right: 24)).then {
         $0.layer.masksToBounds = false
         if #available(iOS 11.0, *) {
             $0.contentInsetAdjustmentBehavior = .never
@@ -54,8 +54,6 @@ class QuotaManageViewController: BaseViewController {
             automaticallyAdjustsScrollViewInsets = false
         }
     }
-
-    lazy var contentView = UIView()
 
     // headerView
     lazy var headerView = SendHeaderView(address: bag.address.description)
@@ -81,14 +79,6 @@ class QuotaManageViewController: BaseViewController {
 
     lazy var sendButton = UIButton(style: .blue, title: R.string.localizable.quotaManagePageSubmitBtnTitle.key.localized())
 
-    lazy var shadowView = UIView().then {
-        $0.backgroundColor = UIColor.white
-        $0.layer.shadowColor = UIColor(netHex: 0x000000).cgColor
-        $0.layer.shadowOpacity = 0.1
-        $0.layer.shadowOffset = CGSize(width: 0, height: 5)
-        $0.layer.shadowRadius = 9
-    }
-
     private func setupNavBar() {
         statisticsPageName = Statistics.Page.WalletQuota.name
         navigationTitleView = createNavigationTitleView()
@@ -112,53 +102,19 @@ class QuotaManageViewController: BaseViewController {
             m.left.right.bottom.equalTo(view)
         }
 
-        scrollView.addSubview(contentView)
-        contentView.snp.makeConstraints { (m) in
-            m.top.bottom.equalTo(scrollView)
-            m.left.right.equalTo(view)
-        }
-
-        contentView.addSubview(shadowView)
-        contentView.addSubview(headerView)
-        contentView.addSubview(addressView)
-        contentView.addSubview(amountView)
-        contentView.addSubview(snapshootHeightLab)
-        contentView.addSubview(sendButton)
-
-        shadowView.snp.makeConstraints { (m) in
-            m.edges.equalTo(headerView)
-        }
-
-        headerView.snp.makeConstraints { (m) in
-            m.top.equalTo(contentView).offset(10)
-            m.left.equalTo(contentView).offset(24)
-            m.right.equalTo(contentView).offset(-24)
-        }
-
-        addressView.snp.makeConstraints { (m) in
-            m.left.right.equalTo(contentView)
-            m.top.equalTo(headerView.snp.bottom).offset(30)
-        }
-
-        amountView.snp.makeConstraints { (m) in
-            m.left.equalTo(contentView).offset(24)
-            m.right.equalTo(contentView).offset(-24)
-            m.top.equalTo(addressView.snp.bottom).offset(30)
-        }
-
-        snapshootHeightLab.snp.makeConstraints { (m) in
-            m.left.equalTo(contentView).offset(24)
-            m.right.equalTo(contentView).offset(-24)
-            m.top.equalTo(amountView.snp.bottom).offset(40)
-        }
-
         sendButton.snp.makeConstraints { (m) in
-            m.left.equalTo(contentView).offset(24)
-            m.right.equalTo(contentView).offset(-24)
-            m.top.equalTo(snapshootHeightLab.snp.bottom).offset(37)
             m.height.equalTo(50)
-            m.bottom.equalToSuperview().offset(-50)
         }
+
+        scrollView.stackView.addArrangedSubview(headerView)
+        scrollView.stackView.addPlaceholder(height: 30)
+        scrollView.stackView.addArrangedSubview(addressView)
+        scrollView.stackView.addPlaceholder(height: 30)
+        scrollView.stackView.addArrangedSubview(amountView)
+        scrollView.stackView.addPlaceholder(height: 40)
+        scrollView.stackView.addArrangedSubview(snapshootHeightLab)
+        scrollView.stackView.addPlaceholder(height: 37)
+        scrollView.stackView.addArrangedSubview(sendButton)
 
         let toolbar = UIToolbar()
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -179,21 +135,14 @@ class QuotaManageViewController: BaseViewController {
             $0.backgroundColor = UIColor.white
         }
 
-        let titleLabel = UILabel().then {
-            $0.font = UIFont.systemFont(ofSize: 24)
-            $0.numberOfLines = 1
-            $0.adjustsFontSizeToFitWidth = true
-            $0.textColor = UIColor(netHex: 0x24272B)
-            $0.text = R.string.localizable.quotaManagePageTitle.key.localized()
-        }
-
-        let tipButton = UIButton().then {
-            $0.setImage(R.image.icon_button_infor(), for: .normal)
-            $0.setImage(R.image.icon_button_infor()?.highlighted, for: .highlighted)
+        let titleLabel = LabelTipView(R.string.localizable.quotaManagePageTitle.key.localized()).then {
+            $0.titleLab.font = UIFont.systemFont(ofSize: 24)
+            $0.titleLab.numberOfLines = 1
+            $0.titleLab.adjustsFontSizeToFitWidth = true
+            $0.titleLab.textColor = UIColor(netHex: 0x24272B)
         }
 
         view.addSubview(titleLabel)
-        view.addSubview(tipButton)
 
         titleLabel.snp.makeConstraints { (m) in
             m.top.equalTo(view).offset(6)
@@ -202,12 +151,7 @@ class QuotaManageViewController: BaseViewController {
             m.height.equalTo(29)
         }
 
-        tipButton.snp.makeConstraints { (m) in
-            m.centerY.equalTo(titleLabel)
-            m.left.equalTo(titleLabel.snp.right).offset(10)
-        }
-
-        tipButton.rx.tap.bind { [weak self] in
+        titleLabel.tipButton.rx.tap.bind { [weak self] in
             let url  = URL(string: String(format: "%@?localize=%@", Constants.quotaDefinitionURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
             let vc = PopViewController(url: url)
             vc.modalPresentationStyle = .overCurrentContext
@@ -325,7 +269,7 @@ extension QuotaManageViewController {
         }
 
         getPowFloatView.show()
-        Provider.instance.pledgeAndGainQuotaWithGetPow(bag: bag, beneficialAddress: beneficialAddress, tokenId: TokenCacheService.instance.viteToken.id, amount: amount, difficulty: AccountBlock.Const.difficulty) { [weak self] (result) in
+        Provider.instance.pledgeAndGainQuotaWithGetPow(bag: bag, beneficialAddress: beneficialAddress, tokenId: TokenCacheService.instance.viteToken.id, amount: amount, difficulty: AccountBlock.Const.Difficulty.pledge.value) { [weak self] (result) in
 
             guard cancelPow == false else { return }
             guard let `self` = self else { return }

@@ -13,14 +13,14 @@ struct Statistics {
     private static let stat = BaiduMobStat.default()!
 
     static func initialize() {
-        stat.channelId = Constants.appDownloadChannel
+        stat.channelId = Constants.appDownloadChannel.rawValue
         stat.shortAppVersion  =  Bundle.main.versionNumber
         stat.userId = stat.getDeviceCuid()
         stat.start(withAppId: Constants.baiduMobileStat)
     }
 
     static func log(eventId: String, attributes: [String: String] = [:]) {
-        #if DEBUG
+        #if DEBUG || TEST
         if DebugService.instance.showStatisticsToast {
             if attributes.isEmpty {
                 Toast.show("Statistics Event Start: \(eventId)")
@@ -53,7 +53,7 @@ struct Statistics {
     }
 
     static func pageviewStart(with name: String) {
-        #if DEBUG
+        #if DEBUG || TEST
         if DebugService.instance.showStatisticsToast {
             Toast.show("Statistics Page Start: \(name)")
         }
@@ -69,7 +69,7 @@ struct Statistics {
     }
 
     static func pageviewEnd(with name: String) {
-        #if DEBUG
+        #if DEBUG || TEST
         if DebugService.instance.showStatisticsToast {
             Toast.show("Statistics Page End: \(name)")
         }

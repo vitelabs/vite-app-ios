@@ -16,12 +16,46 @@ struct AccountBlock: Mappable {
 
     struct Const {
         static let defaultHash = "0000000000000000000000000000000000000000000000000000000000000000"
-        #if DEBUG
-        static var difficulty: BigInt {
-            return DebugService.instance.useBigDifficulty ? BigInt("67108863")! : BigInt("65535")!
+
+        #if DEBUG || TEST
+        enum Difficulty {
+            case sendWithoutData
+            case receive
+            case pledge
+            case vote
+            case cancelVote
+
+            var value: BigInt {
+                switch self {
+                case .sendWithoutData:
+                    return DebugService.instance.useBigDifficulty ? BigInt("157108864")! : BigInt("65535")!
+                case .receive, .pledge:
+                    return DebugService.instance.useBigDifficulty ? BigInt("67108864")! : BigInt("65535")!
+                case .vote, .cancelVote:
+                    return DebugService.instance.useBigDifficulty ? BigInt("201564160")! : BigInt("196836")!
+                }
+            }
         }
         #else
-        static let difficulty = BigInt("157108864")!
+        enum Difficulty {
+            case sendWithoutData
+            case receive
+            case pledge
+            case vote
+            case cancelVote
+
+            var value: BigInt {
+                switch self {
+                case .sendWithoutData:
+                    return BigInt("157108864")!
+                case .receive, .pledge:
+                    return BigInt("67108864")!
+                case .vote, .cancelVote:
+                    return BigInt("201564160")!
+                }
+
+            }
+        }
         #endif
     }
 

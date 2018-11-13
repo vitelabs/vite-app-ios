@@ -133,17 +133,36 @@ extension ImportAccountViewController {
         let encryptKey = password.toEncryptKey(salt: uuid)
         let mnemonic = ViteInputValidator.handleMnemonicStrSpacing(self.contentTextView.text)
 
-        self.view.displayLoading(text: R.string.localizable.importPageSubmitLoading.key.localized(), animated: true)
-        DispatchQueue.global().async {
-            KeychainService.instance.setCurrentWallet(uuid: uuid, encryptKey: encryptKey)
-            HDWalletManager.instance.importAddLoginWallet(uuid: uuid, name: name, mnemonic: mnemonic, encryptKey: encryptKey)
-            DispatchQueue.main.async {
-                self.view.hideLoading()
-                NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
+        let importBlock = {
+            DispatchQueue.global().async {
+                KeychainService.instance.setCurrentWallet(uuid: uuid, encryptKey: encryptKey)
+                HDWalletManager.instance.importAddLoginWallet(uuid: uuid, name: name, mnemonic: mnemonic, encryptKey: encryptKey)
                 DispatchQueue.main.async {
-                    Toast.show(R.string.localizable.importPageSubmitSuccess.key.localized())
+                    HUD.hide()
+                    NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
+                    DispatchQueue.main.async {
+                        Toast.show(R.string.localizable.importPageSubmitSuccess.key.localized())
+                    }
                 }
             }
+        }
+
+        HUD.show(R.string.localizable.importPageSubmitLoading.key.localized())
+        DispatchQueue.global().async {
+            if let name = HDWalletManager.instance.isExist(mnemonic: mnemonic) {
+                DispatchQueue.main.async {
+                    HUD.hide()
+                    Alert.show(into: self, title: R.string.localizable.importPageAlertExistTitle.key.localized(arguments: name), message: nil, actions: [
+                        (.default(title: R.string.localizable.importPageAlertExistOk.key.localized()), { alertController in
+                            HUD.show(R.string.localizable.importPageSubmitLoading.key.localized())
+                            importBlock()
+                        }),
+                        (.default(title: R.string.localizable.importPageAlertExistCancel.key.localized()), nil)])
+                }
+            } else {
+                importBlock()
+            }
+
         }
     }
 }

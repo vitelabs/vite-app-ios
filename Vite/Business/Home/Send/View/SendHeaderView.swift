@@ -58,35 +58,33 @@ class SendHeaderView: UIView {
 
     init(address: String) {
         super.init(frame: CGRect.zero)
-
         addressLabel.text = address
 
-        layer.masksToBounds = true
-        layer.cornerRadius = 2
+        let contentView = createContentViewAndSetShadow(width: 0, height: 5, radius: 9)
+        contentView.layer.masksToBounds = true
+        contentView.layer.cornerRadius = 2
 
-        let line = UIView().then {
-            $0.backgroundColor = UIColor(netHex: 0x759BFA)
-        }
+        let line = UIView().then { $0.backgroundColor = UIColor(netHex: 0x759BFA) }
 
-        addSubview(line)
-        addSubview(addressTitleLabel)
-        addSubview(addressLabel)
-        addSubview(balanceTitleLabel)
-        addSubview(balanceLabel)
-        addSubview(quotaTitleLabel)
-        addSubview(quotaLabel)
-        addSubview(maxTxCountTitleLabel)
-        addSubview(maxTxCountLabel)
+        contentView.addSubview(line)
+        contentView.addSubview(addressTitleLabel)
+        contentView.addSubview(addressLabel)
+        contentView.addSubview(balanceTitleLabel)
+        contentView.addSubview(balanceLabel)
+        contentView.addSubview(quotaTitleLabel)
+        contentView.addSubview(quotaLabel)
+        contentView.addSubview(maxTxCountTitleLabel)
+        contentView.addSubview(maxTxCountLabel)
 
         line.snp.makeConstraints({ (m) in
-            m.top.bottom.left.equalTo(self)
+            m.top.bottom.left.equalTo(contentView)
             m.width.equalTo(3)
         })
 
         addressTitleLabel.snp.makeConstraints({ (m) in
-            m.top.equalTo(self).offset(16)
-            m.left.equalTo(self).offset(19)
-            m.right.equalTo(self).offset(-16)
+            m.top.equalTo(contentView).offset(16)
+            m.left.equalTo(contentView).offset(19)
+            m.right.equalTo(contentView).offset(-16)
         })
 
         addressLabel.snp.makeConstraints({ (m) in
@@ -122,7 +120,7 @@ class SendHeaderView: UIView {
         maxTxCountLabel.snp.makeConstraints { (m) in
             m.top.equalTo(maxTxCountTitleLabel.snp.bottom).offset(8)
             m.left.equalTo(addressTitleLabel)
-            m.bottom.equalTo(self).offset(-16)
+            m.bottom.equalTo(contentView).offset(-16)
         }
 
     }
