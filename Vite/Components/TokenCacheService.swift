@@ -11,8 +11,11 @@ import ObjectMapper
 import Alamofire
 import Moya
 import SwiftyJSON
+import RxSwift
+import RxCocoa
+import NSObject_Rx
 
-class TokenCacheService: Mappable {
+class TokenCacheService: NSObject, Mappable {
     static let instance = TokenCacheService()
     fileprivate let fileHelper = FileHelper(.library, appending: FileHelper.appPathComponent)
     fileprivate static let saveKey = "TokenCache"
@@ -24,13 +27,13 @@ class TokenCacheService: Mappable {
     static fileprivate let viteTokenColors = ["0x0C3EE6", "0x00C3FF"]
 
     static fileprivate let otherTokenKey = "other"
-    static fileprivate let otherTokenColors = ["0x24283E", "0x485173"]
+    static fileprivate let otherTokenColors = ["0x24283E", "0x485173", "0x485173"]
 
     var defaultTokens: [Token] = [Token(id: viteTokenId, name: viteTokenName, symbol: viteTokenSymbol, decimals: viteTokenDecimals)]
     fileprivate var colorDic = [viteTokenId: viteTokenColors, otherTokenKey: otherTokenColors]
     fileprivate var tokenDic = [String: Token]()
 
-    private init() {
+    private override init() {
 
         if let data = self.fileHelper.contentsAtRelativePath(type(of: self).saveKey),
             let jsonString = String(data: data, encoding: .utf8),
@@ -44,13 +47,30 @@ class TokenCacheService: Mappable {
     required init?(map: Map) {}
 
     func mapping(map: Map) {
-        defaultTokens <- map["defaultTokens"]
-        colorDic <- map["colorDic"]
         tokenDic <- map["tokenDic"]
     }
 
     func start() {
-        pri_updateDefaultTokens()
+        AppSettingsService.instance.configDriver.asObservable().bind { [weak self] (config) in
+            guard let `self` = self else { return }
+            guard let array = config.defaultTokens["defaults"] as? [[String: Any]],
+                let other = config.defaultTokens["other"] as? [String: Any],
+                let colors = other["colors"] as? [String] else { return }
+
+            let tokens = [Token](JSONArray: array).compactMap { $0 }
+            guard !tokens.isEmpty else { return }
+            guard !colors.isEmpty else { return }
+
+            self.defaultTokens = tokens
+            self.colorDic[type(of: self).otherTokenKey] = colors
+
+            for dic in array {
+                if let id = dic["tokenId"] as? String,
+                    let colors = dic["colors"] as? [String] {
+                    self.colorDic[id] = colors
+                }
+            }
+        }.disposed(by: rx.disposeBag)
     }
 
     func updateTokensIfNeeded(_ tokens: [Token]) {
@@ -68,36 +88,6 @@ class TokenCacheService: Mappable {
 }
 
 extension TokenCacheService {
-
-    fileprivate func pri_updateDefaultTokens() {
-
-        ServerProvider.instance.getAppDefaultTokens { [weak self] (result) in
-            guard let `self` = self else { return }
-            switch result {
-            case .success(let string):
-                plog(level: .debug, log: "update default tokens finished", tag: .getConfig)
-                let json = JSON(parseJSON: string)
-                let array = json["defaults"].arrayValue
-                let tokens = array.map { $0.dictionaryObject }.compactMap { $0 }.map { Token(JSON: $0) }.compactMap { $0 }
-                guard !tokens.isEmpty else { return }
-
-                self.defaultTokens = tokens
-                for tokenJson in array {
-                    if let dic = tokenJson.dictionaryObject,
-                        let id = dic["tokenId"] as? String,
-                        let colors = dic["colors"] as? [String] {
-                        self.colorDic[id] = colors
-                    }
-                }
-                self.pri_save()
-            case .error(let error):
-                plog(level: .warning, log: error.message, tag: .getConfig)
-                GCD.delay(2, task: {
-                    self.pri_updateDefaultTokens()
-                })
-            }
-        }
-    }
 
     fileprivate func pri_save() {
         if let data = self.toJSONString()?.data(using: .utf8) {
@@ -140,8 +130,8 @@ extension TokenCacheService {
         return tokenDic[id]
     }
 
-    func iconForId(_ id: String) -> Token.Icon {
-        return Token.Icon.image(image: R.image.icon_token_vite_white()!)
+    func iconForId(_ id: String) -> ImageWrapper {
+        return ImageWrapper.image(image: R.image.icon_token_vite_white()!)
     }
 
     func backgroundColorsForId(_ id: String) -> [UIColor] {
@@ -156,7 +146,7 @@ extension TokenCacheService {
     }
 }
 
-#if DEBUG
+#if DEBUG || TEST
 extension TokenCacheService {
     func deleteCache() {
         if let error = fileHelper.deleteFileAtRelativePath(type(of: self).saveKey) {
@@ -165,20 +155,3 @@ extension TokenCacheService {
     }
 }
 #endif
-
-extension Token {
-
-    enum Icon {
-        case url(url: URL)
-        case image(image: UIImage)
-
-        func putIn(_ imageView: UIImageView) {
-            switch self {
-            case .image(let image):
-                imageView.image = image
-            case .url(let url):
-                fatalError("\(url) Currently not supported!")
-            }
-        }
-    }
-}

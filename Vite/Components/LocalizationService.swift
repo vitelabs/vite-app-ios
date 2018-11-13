@@ -69,17 +69,12 @@ class LocalizationService {
 
     private init() {
 
-        if let l = compatibleWithVer1_0_0() {
+        if let string = UserDefaultsService.instance.objectForKey(Key.language.rawValue, inCollection: Key.collection.rawValue) as? String,
+            let l = Language(rawValue: string) {
             currentLanguage = l
         } else {
-
-            if let string = UserDefaultsService.instance.objectForKey(Key.language.rawValue, inCollection: Key.collection.rawValue) as? String,
-                let l = Language(rawValue: string) {
-                currentLanguage = l
-            } else {
-                currentLanguage = getSystemLanguage()
-                UserDefaultsService.instance.setObject(currentLanguage.rawValue, forKey: Key.language.rawValue, inCollection: Key.collection.rawValue)
-            }
+            currentLanguage = getSystemLanguage()
+            UserDefaultsService.instance.setObject(currentLanguage.rawValue, forKey: Key.language.rawValue, inCollection: Key.collection.rawValue)
         }
 
         loadDictionaryForLanguage(currentLanguage)
@@ -111,26 +106,6 @@ extension LocalizationService {
         } else {
             return key
         }
-    }
-}
-
-// MARK: Compatible With Ver 1.0.0
-extension LocalizationService {
-    fileprivate func compatibleWithVer1_0_0() -> Language? {
-
-        if let old = UserDefaults.standard.string(forKey: "AppCurrentLanguages") {
-            var language = Language.base
-            if old == "zh-Hans" {
-                language = .chinese
-            }
-
-            UserDefaults.standard.removeObject(forKey: "AppCurrentLanguages")
-            UserDefaults.standard.synchronize()
-            UserDefaultsService.instance.setObject(language.rawValue, forKey: Key.language.rawValue, inCollection: Key.collection.rawValue)
-            return language
-        }
-
-        return nil
     }
 }
 

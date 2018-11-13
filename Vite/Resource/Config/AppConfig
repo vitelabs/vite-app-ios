@@ -1,0 +1,63 @@
+{
+    "my_page":{
+        "items":[
+            {
+                "type":"settings"
+            },
+            {
+                "type":"custom",
+                "title":{
+                    "base":"Reward Query",
+                    "localized":{
+                        "zh-Hans":"奖励查询"
+                    }
+                },
+                "icon":"https://testnet-vite-1257137467.cos.ap-hongkong.myqcloud.com/icon/settings_reward_query.png",
+                "url":"https://reward.vite.net/query/voteReward"
+            },
+            {
+                "type":"about"
+            }
+        ]
+    },
+    "default_tokens":{
+        "defaults":[
+            {
+                "tokenName":"Vite Token",
+                "tokenSymbol":"VITE",
+                "decimals":18,
+                "tokenId":"tti_5649544520544f4b454e6e40",
+                "colors":[
+                    "0x0C3EE6",
+                    "0x00C3FF"
+                ]
+            },
+            {
+                "tokenName":"Vite Community Point",
+                "tokenSymbol":"VCP",
+                "decimals":0,
+                "tokenId":"tti_251a3e67a41b5ea2373936c8",
+                "colors":[
+                    "0xF76B1C",
+                    "0xFAD961"
+                ]
+            },
+            {
+                "tokenName":"Vite Test Token",
+                "tokenSymbol":"VTT",
+                "decimals":18,
+                "tokenId":"tti_c55ec37a916b7f447575ae59",
+                "colors":[
+                    "0x429321",
+                    "0xB4EC51"
+                ]
+            }
+        ],
+        "other":{
+            "colors":[
+                "0x24283E",
+                "0x485173"
+            ]
+        }
+    }
+}

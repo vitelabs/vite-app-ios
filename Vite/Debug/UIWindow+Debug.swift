@@ -8,7 +8,7 @@
 
 import Foundation
 
-#if DEBUG
+#if DEBUG || TEST
 
 import UIKit
 

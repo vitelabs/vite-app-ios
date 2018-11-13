@@ -10,21 +10,25 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxOptional
+import ObjectMapper
 
 class AppSettingsService {
     static let instance = AppSettingsService()
 
-    let giftTokenBehaviorRelay: BehaviorRelay<Token?> = BehaviorRelay(value: nil)
-
-    fileprivate enum Key: String {
-        case collection = "AppSettings"
-        case giftToken = "GiftToken"
-    }
+    lazy var configDriver: Driver<AppConfig> = self.configBehaviorRelay.asDriver()
+    fileprivate let configBehaviorRelay: BehaviorRelay<AppConfig>
+    fileprivate let fileHelper = FileHelper(.library, appending: FileHelper.appPathComponent)
+    fileprivate static let saveKey = "AppConfig"
 
     private init() {
-        if let string = UserDefaultsService.instance.objectForKey(Key.giftToken.rawValue, inCollection: Key.collection.rawValue) as? String,
-            let token = Token(JSONString: string) {
-            giftTokenBehaviorRelay.accept(token)
+        if let data = self.fileHelper.contentsAtRelativePath(type(of: self).saveKey),
+            let jsonString = String(data: data, encoding: .utf8),
+            let config = AppConfig(JSONString: jsonString) {
+            configBehaviorRelay = BehaviorRelay(value: config)
+        } else if let config: AppConfig = Bundle.getObject(forResource: type(of: self).saveKey) {
+            configBehaviorRelay = BehaviorRelay(value: config)
+        } else {
+            fatalError("app file not found in bundle")
         }
     }
 
@@ -33,21 +37,40 @@ class AppSettingsService {
     }
 
     fileprivate func getAppSettingsConfig() {
-        ServerProvider.instance.getAppSettingsConfig { (result) in
+
+        COSProvider.instance.getAppConfig { [weak self] (result) in
+            guard let `self` = self else { return }
             switch result {
-            case .success(let c):
-                plog(level: .debug, log: "get app settings config finished", tag: .getConfig)
-                guard let config = c else { return }
-                var token = config.giftToken
-                if !config.isOpen { token = nil }
-                self.giftTokenBehaviorRelay.accept(token)
-                UserDefaultsService.instance.setObject(token?.toJSONString() ?? "", forKey: Key.giftToken.rawValue, inCollection: Key.collection.rawValue)
+            case .success(let jsonString):
+                plog(level: .debug, log: "get app config finished", tag: .getConfig)
+                if let string = jsonString,
+                    let config = AppConfig(JSONString: string) {
+                    self.configBehaviorRelay.accept(config)
+                    if let data = config.toJSONString()?.data(using: .utf8) {
+                        if let error = self.fileHelper.writeData(data, relativePath: type(of: self).saveKey) {
+                            assert(false, error.localizedDescription)
+                        }
+                    }
+                }
             case .error(let error):
                 plog(level: .warning, log: error.message, tag: .getConfig)
-                GCD.delay(2, task: {
-                    self.getAppSettingsConfig()
-                })
+                GCD.delay(2, task: { self.getAppSettingsConfig() })
             }
+        }
+    }
+}
+
+extension AppSettingsService {
+
+    struct AppConfig: Mappable {
+        fileprivate(set) var myPage: [String: Any] = [:]
+        fileprivate(set) var defaultTokens: [String: Any] = [:]
+
+        init?(map: Map) { }
+
+        mutating func mapping(map: Map) {
+            myPage <- map["my_page"]
+            defaultTokens <- map["default_tokens"]
         }
     }
 }

@@ -29,14 +29,14 @@ class MyHomeListHeaderView: UIView {
         self.addSubview(self.manageWalletBtn)
         self.manageWalletBtn.snp.makeConstraints {  (make) -> Void in
             make.left.equalTo(self).offset(margin)
-            make.top.equalTo(self).offset(32)
+            make.top.equalTo(self).offset(12)
             make.height.equalTo(height)
             make.width.equalTo(width)
         }
 
         self.addSubview(transactionLogBtn)
         self.transactionLogBtn.snp.makeConstraints {  (make) -> Void in
-            make.top.equalTo(self).offset(32)
+            make.top.equalTo(self).offset(12)
             make.height.equalTo(height)
             make.width.equalTo(width)
             make.centerX.equalTo(self)
@@ -44,7 +44,7 @@ class MyHomeListHeaderView: UIView {
 
         self.addSubview(manageQuotaBtn)
         self.manageQuotaBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(32)
+            make.top.equalTo(self).offset(12)
             make.height.equalTo(height)
             make.right.equalTo(self).offset(-margin)
             make.width.equalTo(width)

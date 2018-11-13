@@ -32,7 +32,7 @@ extension Provider {
         }
     }
 
-    fileprivate func getLatestAccountBlockAndSnapshotHash(address: Address) -> Promise<(latestAccountBlock: AccountBlock, snapshotHash: String)> {
+    func getLatestAccountBlockAndSnapshotHash(address: Address) -> Promise<(latestAccountBlock: AccountBlock, snapshotHash: String)> {
         return Promise { seal in
             let request = ViteServiceRequest(for: server, batch: BatchFactory()
                 .create(GetLatestAccountBlockRequest(address: address.description),
@@ -63,7 +63,7 @@ extension Provider {
         }
     }
 
-    fileprivate func createTransaction(accountBlock: AccountBlock) -> Promise<Void> {
+    func createTransaction(accountBlock: AccountBlock) -> Promise<Void> {
         return Promise { seal in
             let request = ViteServiceRequest(for: server, batch: BatchFactory().create(CreateTransactionRequest(accountBlock: accountBlock)))
             Session.send(request) { result in
@@ -83,6 +83,7 @@ extension Provider {
     enum TransactionErrorCode: Int {
         case notEnoughBalance = -35001
         case notEnoughQuota = -35002
+        case noTransactionBefore = -36001
     }
 
     func receiveTransactionWithoutGetPow(bag: HDWalletManager.Bag, completion: @escaping (NetworkResult<Void>) -> Void) {
@@ -237,6 +238,8 @@ extension Provider {
 
     fileprivate enum ContractAddress: String {
         case pledgeAndGainQuota = "vite_000000000000000000000000000000000000000309508ba646"
+
+        case gid = "00000000000000000001"
 
         var address: Address {
             return Address(string: self.rawValue)

@@ -12,12 +12,16 @@ final class RPCServer {
     static let shared = RPCServer()
     private init() {}
 
-    #if DEBUG
+    #if DEBUG || TEST
     var rpcURL: URL {
-        if DebugService.instance.rpcUseHTTP {
-            return URL(string: "http://150.109.120.109:48132")!
-        } else {
+        if DebugService.instance.rpcUseOnlineUrl {
             return URL(string: "https://testnet.vitewallet.com/ios")!
+        } else {
+            if let url = URL(string: DebugService.instance.rpcCustomUrl) {
+                return url
+            } else {
+                return DebugService.instance.rpcDefaultTestEnvironmentUrl
+            }
         }
     }
     #else

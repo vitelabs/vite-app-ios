@@ -18,8 +18,9 @@
 "Submit" = "Submit";
 "Close" = "I understand";
 "Update.app" = "Update App";
-"NetWorkError" = "Loading failed, please refresh";
+"NetWorkError" = "网络异常，请稍后重试";
 "Submit.success" = "Submit Successful";
+"Submit.cancel" = "撤销";
 
 /* Login */
 "create.account" = "Create Account";
@@ -29,6 +30,7 @@
 "lock.page.pwd.btn.title" = "Login via password";
 "lock.page.fingerprint.btn.title" = "Arouse verify again";
 "lock.page.fingerprint.alter.title" = "Verify fingerprint to activate Touch ID";
+"lock.page.changeUser.btn.title" = "切换账户";
 
 /* create */
 "create.page.title" = "Create Account";
@@ -68,6 +70,10 @@
 "import.page.submit.invalid.mnemonic" = "Something wrong with your seed phrase, please try again!";
 "import.page.submit.loading" = "import...";
 "import.page.submit.success" = "import success";
+"import.page.alert.exist.title" = "您输入的助记词在当前设备的账户名为%@，确认是否使用新账户覆盖原有账户";
+"import.page.alert.exist.ok" = "确认";
+"import.page.alert.exist.cancel" = "Cancel";
+
 
 /* export mnemonic */
 "export.page.title" = "Export Seed Phrase";
@@ -127,8 +133,8 @@
 /* Address Manage Page */
 "address.manage.page.title" = "Address Management";
 "address.manage.default.address.cell.title" = "Default Receiving Address";
-"address.manage.address.header.title" = "Address List";
-"address.manage.address.generate.button.title" = "Add List";
+"address.manage.address.header.title" = "Addresses";
+"address.manage.address.generate.button.title" = "Add Address";
 "address.manage.address.generate.button.toast" = "Add up to maximum 10 addresses!";
 "address.manage.tip.alert.message" = "At most 10 accounts. The first address and addresses that have transaction records will be shown when resotring account, and addresses with no record will be hidden, these can be regenerated and reused.";
 "address.manage.tip.alert.ok" = "I know";
@@ -168,6 +174,11 @@
 "confirm.transaction.page.biometry.confirm.reason" = "Verify";
 "confirm.transaction.page.use.password.title" = "Please";
 "confirm.transaction.page.toast.password.error" = "Wrong password!";
+"confirm.transaction.page.node.name" = "Node Name";
+"confirm.transaction.page.vote" = "Vote";
+"confirm.transaction.page.cancel.vote" = "Cancel Vote";
+
+
 
 /* Receive Page */
 "Receive.page.token.title" = "Receive";
@@ -245,6 +256,39 @@
 "peldge.message" = "Currently Vite App only supports checking staking list, please go to web wallet to withdraw staking on due date if needed.";
 "peldge.deadline" = "Due Date";
 "peldge.title" = "My Staking List";
+
+/* Vote */
+"vote.page.title" = "我的投票";
+"vote.page.info.nodata.title" = "暂无投票";
+"vote.page.voteStatus.voteSuccess" = "投票成功";
+"vote.page.voteStatus.voting" = "正在投票中";
+"vote.page.voteStatus.cancelVoting" = "正在撤销中";
+"vote.page.voteStatus.voteInvalid" = "投票作废";
+"vote.page.voteInfo.nodePolls.title" = "我的投票数";
+"vote.page.nodeStatus.valid.title" = "正在候选";
+"vote.page.nodeStatus.invalid.title" = "停止候选";
+"vote.page.voteInfo.cancel.vote.title" = "撤销投票";
+"vote.page.voteInfo.cancel.vote.toast.title" = "撤销投票请求发送成功";
+
+/* Vote List*/
+"Vote" = "投票";
+"vote.list.title" = "候选节点列表";
+"vote.list.search" = "搜索候选节点名称或出块地址";
+"vote.list.alert.already.voted" = "您已经投票给%@，请确认是否覆盖当前投票";
+"vote.list.confirm.revote" = "确认覆盖";
+"vote.list.confirm.button.title" = "确认";
+"vote.list.count" = "上轮得票数";
+"vote.list.address" = "出块地址";
+"vote.list.send.success" = "投票请求发送成功";
+"vote.list.send.failed" = "投票失败，请重新投票";
+"vote.list.alert.quota" = "无法投票，您需运行PoW 或抵押VITE 获取配额才可以投票";
+"vote.list.search.empty" = "无结果，换个输入试试";
+"vote.list.search.no.transaction.before" = "您的地址未发生过交易，暂不能投票";
+
+
+
+
+
 
 
 

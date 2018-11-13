@@ -92,7 +92,25 @@ extension AboutUsViewController {
                 $0.cell.textLabel?.textColor = Colors.cellTitleGray
                 $0.cell.textLabel?.font = Fonts.light16
                 $0.title =  R.string.localizable.aboutUsPageCellVersion.key.localized()
-                $0.value = Bundle.main.fullVersion
+                #if ENTERPRISE
+                #if DEBUG
+                $0.value = "\(Bundle.main.versionNumber) (DE\(Bundle.main.buildNumber))"
+                #else
+                $0.value = "\(Bundle.main.versionNumber) (E\(Bundle.main.buildNumber))"
+                #endif
+                #elseif TEST
+                #if DEBUG
+                $0.value = "\(Bundle.main.versionNumber) (DT\(Bundle.main.buildNumber))"
+                #else
+                $0.value = "\(Bundle.main.versionNumber) (T\(Bundle.main.buildNumber))"
+                #endif
+                #else
+                #if DEBUG
+                $0.value = "\(Bundle.main.versionNumber) (DA\(Bundle.main.buildNumber))"
+                #else
+                $0.value = "\(Bundle.main.versionNumber) (A\(Bundle.main.buildNumber))"
+                #endif
+                #endif
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
             }.onCellSelection({ _, _  in
