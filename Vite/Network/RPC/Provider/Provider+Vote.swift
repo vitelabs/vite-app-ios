@@ -88,8 +88,7 @@ extension Provider {
             })
     }
 
-    func cancelVoteAndSendWithGetPow(bag: HDWalletManager.Bag,
-                                        completion: @escaping (NetworkResult<Void>) -> Void) {
+    func cancelVoteAndSendWithGetPow(bag: HDWalletManager.Bag, completion:@escaping (NetworkResult<Void>) -> Void) {
         cancelVote()
             .done({ [unowned self] (data)  in
                 self.sendTransactionWithGetPow(bag: bag,

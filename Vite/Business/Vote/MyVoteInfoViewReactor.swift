@@ -12,7 +12,6 @@ import RxSwift
 import NSObject_Rx
 
 final class MyVoteInfoViewReactor: Reactor {
-
     let bag = HDWalletManager.instance.bag ??  HDWalletManager.Bag()
     var disposeBag = DisposeBag()
 
@@ -116,14 +115,6 @@ final class MyVoteInfoViewReactor: Reactor {
     func cancelVoteAndSendWithGetPow(completion: @escaping (NetworkResult<Void>) -> Void) {
             Provider.instance.cancelVoteAndSendWithGetPow(bag: self.bag
             ) { (result) in
-//                switch result {
-//                case .success:
-//                    observer.onNext(nil)
-//                    observer.onCompleted()
-//                case .error(let error):
-//                    observer.onNext(error)
-//                    observer.onCompleted()
-//                }
                 completion(result)
             }
         }

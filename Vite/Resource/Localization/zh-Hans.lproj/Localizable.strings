@@ -266,6 +266,7 @@
 "vote.page.nodeStatus.valid.title" = "正在候选";
 "vote.page.nodeStatus.invalid.title" = "停止候选";
 "vote.page.voteInfo.cancel.vote.title" = "撤销投票";
+"vote.page.voteInfo.cancel.vote.toast.title" = "撤销投票请求发送成功";
 
 /* Vote List*/
 "Vote" = "投票";

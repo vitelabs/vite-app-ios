@@ -623,7 +623,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 214 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 215 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1441,6 +1441,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let votePageVoteInfoCancelVoteTitle = Rswift.StringResource(key: "vote.page.voteInfo.cancel.vote.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 撤销投票请求发送成功
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteInfoCancelVoteToastTitle = Rswift.StringResource(key: "vote.page.voteInfo.cancel.vote.toast.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 无法投票，您需运行PoW 或抵押VITE 获取配额才可以投票
       /// 
       /// Locales: en, zh-Hans
@@ -2908,6 +2912,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func votePageVoteInfoCancelVoteTitle(_: Void = ()) -> String {
         return NSLocalizedString("vote.page.voteInfo.cancel.vote.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 撤销投票请求发送成功
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteInfoCancelVoteToastTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteInfo.cancel.vote.toast.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 无法投票，您需运行PoW 或抵押VITE 获取配额才可以投票

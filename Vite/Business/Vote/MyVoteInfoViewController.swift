@@ -77,7 +77,7 @@ class MyVoteInfoViewController: BaseViewController, View {
 
         //handle cancel vote
         self.viewInfoView.operationBtn.rx.tap.bind {_ in
-            self.cancelVote()
+            self.cancelVoteAction()
         }.disposed(by: rx.disposeBag)
 
         //vote success
@@ -107,7 +107,7 @@ class MyVoteInfoViewController: BaseViewController, View {
         self.voteInfoEmptyView.isHidden = false
     }
 
-    private func cancelVote() {
+    private func cancelVoteAction() {
         let confirmVC = ConfirmTransactionViewController.comfirmVote(title: R.string.localizable.votePageVoteInfoCancelVoteTitle.key.localized(),
                                                                      nodeName: self.viewInfoView.voteInfo?.nodeName ?? "") { [unowned self] (result) in
                                                                         switch result {
@@ -125,7 +125,7 @@ class MyVoteInfoViewController: BaseViewController, View {
                                                                                        title: R.string.localizable.confirmTransactionPageToastPasswordError.key.localized(),
                                                                                        message: nil,
                                                                                        actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned self] _ in
-                                                                                        self.cancelVote()
+                                                                                        self.cancelVoteAction()
                                                                                        }), (.cancel, nil)])
 
                                                                         }
@@ -194,12 +194,12 @@ extension MyVoteInfoViewController {
                     self?.refreshVoteInfoView(voteInfo, voteStatus)
                     return
                 }
-                self?.handler(error: error)
+                self?.handlerCancelError(error)
 
             }.disposed(by: disposeBag)
     }
 
-    func handler(error: Error) {
+    private func handlerCancelError(_ error: Error) {
         if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
             Alert.show(into: self,
                        title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
@@ -216,6 +216,7 @@ extension MyVoteInfoViewController {
                     self?.reactor?.cancelVoteAndSendWithGetPow(completion: { (result) in
                         if case .success = result {
                             self?.viewInfoView.changeInfoCancelVoting()
+                             Toast.show(R.string.localizable.votePageVoteInfoCancelVoteToastTitle.key.localized())
                         } else if case let .error(error) = result {
                             Toast.show(error.message)
                         }
@@ -227,7 +228,7 @@ extension MyVoteInfoViewController {
                     alert.preferredAction = alert.actions[0]
             })
         } else {
-            Toast.show(R.string.localizable.voteListSendFailed.key.localized())
+            Toast.show(error.message)
         }
     }
 }
