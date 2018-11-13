@@ -16,3 +16,8 @@ env:
 cache:
 - cocoapods
 - bundler
+branches:
+  only:
+  - develop
+  - release
+  - travis
