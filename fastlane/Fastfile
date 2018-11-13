@@ -8,26 +8,37 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new beta build to TestFlight"
 
+
+  lane :vite_build do 
+    if channel == appstore
+      puts "Build appstore channel ipa and upload to testflisht"
+  	  vite_appstore
+    else
+      puts "Build test channel ipa and upload to testflisht"
+	  vite_test  	
+    end
+  end
+
+  lane :vite_appstore do 
+    increment_build_number_and_push_git
+    match_profile
+    build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+  end
+
+  lane :vite_test do 
+    increment_build_number_and_push_git
+    match_profile
+    build_app(workspace: "Vite.xcworkspace", scheme: "Vite-test")
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+  end
+
   lane :match_profile do 
     match(type: "appstore", app_identifier: "net.vite.wallet",  clone_branch_directly: true)
   end
 
   lane :increment_build_number_and_push_git do 
     increment_build_number
-    push_git
-    beta
-  end
-
-  lane :beta do 
-    match_profile
-    build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
-    upload_to_testflight(skip_waiting_for_build_processing: true)
-  end
-
-  desc "Push a new beta build to TestFlight"
-  lane :package do 
-    increment_build_number
-    #build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
     push_git
   end
 
@@ -36,7 +47,7 @@ platform :ios do
   git_add(path: ".")
   build_number = get_build_number
   git_commit(path: ".", message: "Jenkins Version Bump "+ build_number)
-  push_to_git_remote(remote_branch: "release",force: true)
+  push_to_git_remote(remote_branch: TRAVIS_BRANCH, force: false)
   end
 
   desc "create new pr in github argument base is base branch"
