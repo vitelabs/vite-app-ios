@@ -59,7 +59,7 @@ class VoteHomeViewController: BaseViewController {
         view.addSubview(shadowView)
         shadowView.snp.makeConstraints { (m) in
             m.left.right.equalTo(view)
-            m.top.equalTo(view).offset(182)
+            m.top.equalTo(view).offset(118)
             m.height.equalTo(10)
         }
 

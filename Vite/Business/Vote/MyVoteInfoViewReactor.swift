@@ -103,9 +103,11 @@ final class MyVoteInfoViewReactor: Reactor {
             ) { (result) in
                 switch result {
                 case .success:
+                    plog(level: .info, log:"cancelVoteAndSendWithoutGetPow success ", tag: .vote)
                     observer.onNext(nil)
                     observer.onCompleted()
                 case .error(let error):
+                    plog(level: .info, log: String.init(format: "cancelVoteAndSendWithoutGetPow error  error = %@=%@", error.code,error.localizedDescription), tag: .vote)
                     observer.onNext(error)
                     observer.onCompleted()
                 }
@@ -117,6 +119,11 @@ final class MyVoteInfoViewReactor: Reactor {
     func cancelVoteAndSendWithGetPow(completion: @escaping (NetworkResult<Void>) -> Void) {
             Provider.instance.cancelVoteAndSendWithGetPow(bag: self.bag
             ) { (result) in
+                if case .success = result {
+                        plog(level: .info, log: "cancelVoteAndSendWithGetPow success", tag: .vote)
+                } else if case let .error(error) = result {
+                        plog(level: .info, log: String.init(format: "cancelVoteAndSendWithGetPow error = %@-%@", error.code,error.localizedDescription), tag: .vote)
+                }
                 completion(result)
             }
         }
