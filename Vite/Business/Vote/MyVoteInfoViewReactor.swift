@@ -107,7 +107,7 @@ final class MyVoteInfoViewReactor: Reactor {
                     observer.onNext(nil)
                     observer.onCompleted()
                 case .error(let error):
-                    plog(level: .info, log: String.init(format: "cancelVoteAndSendWithoutGetPow error  error = %@=%@", error.code,error.localizedDescription), tag: .vote)
+                    plog(level: .info, log: String.init(format: "cancelVoteAndSendWithoutGetPow error  error = %d=%@", error.code,error.localizedDescription), tag: .vote)
                     observer.onNext(error)
                     observer.onCompleted()
                 }
@@ -122,7 +122,7 @@ final class MyVoteInfoViewReactor: Reactor {
                 if case .success = result {
                         plog(level: .info, log: "cancelVoteAndSendWithGetPow success", tag: .vote)
                 } else if case let .error(error) = result {
-                        plog(level: .info, log: String.init(format: "cancelVoteAndSendWithGetPow error = %@-%@", error.code,error.localizedDescription), tag: .vote)
+                        plog(level: .info, log: String.init(format: "cancelVoteAndSendWithGetPow error = %d=%@", error.code,error.localizedDescription), tag: .vote)
                 }
                 completion(result)
             }
