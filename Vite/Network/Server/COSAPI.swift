@@ -29,7 +29,12 @@ extension COSAPI: TargetType {
         case .getAppConfig:
             return "/AppConfig"
         case .checkUpdate:
-            return Constants.appDownloadChannel == .appstore ? "/AppStoreCheckUpdate" : "/EnterpriseCheckUpdate"
+            switch Constants.appDownloadChannel {
+            case .appstore:
+                return "/AppStoreCheckUpdate"
+            case .enterprise:
+                return "/EnterpriseCheckUpdate"
+            }
         }
     }
 
