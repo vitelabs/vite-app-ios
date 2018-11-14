@@ -1285,6 +1285,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let voteListSendSuccess = Rswift.StringResource(key: "vote.list.send.success", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Switch account
+      /// 
+      /// Locales: en, zh-Hans
+      static let lockPageChangeUserBtnTitle = Rswift.StringResource(key: "lock.page.changeUser.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: System Settings
       /// 
       /// Locales: en, zh-Hans
@@ -1485,10 +1489,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let voteListAlertQuota = Rswift.StringResource(key: "vote.list.alert.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 切换账户
-      /// 
-      /// Locales: en, zh-Hans
-      static let lockPageChangeUserBtnTitle = Rswift.StringResource(key: "lock.page.changeUser.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -2645,6 +2645,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("vote.list.send.success", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Switch account
+      /// 
+      /// Locales: en, zh-Hans
+      static func lockPageChangeUserBtnTitle(_: Void = ()) -> String {
+        return NSLocalizedString("lock.page.changeUser.btn.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: System Settings
       /// 
       /// Locales: en, zh-Hans
@@ -2993,13 +3000,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func voteListAlertQuota(_: Void = ()) -> String {
         return NSLocalizedString("vote.list.alert.quota", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 切换账户
-      /// 
-      /// Locales: en, zh-Hans
-      static func lockPageChangeUserBtnTitle(_: Void = ()) -> String {
-        return NSLocalizedString("lock.page.changeUser.btn.title", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

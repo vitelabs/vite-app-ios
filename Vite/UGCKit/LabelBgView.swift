@@ -29,7 +29,9 @@ class LabelBgView: UIView {
             m.edges.equalTo(self)
         }
         titleLab.snp.makeConstraints { (m) in
-           m.edges.equalTo(self)
+           m.top.bottom.equalTo(self)
+           m.left.equalTo(self).offset(6)
+           m.right.equalTo(self).offset(-6)
         }
     }
 
