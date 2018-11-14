@@ -673,6 +673,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicAffirmPageAddLoading = Rswift.StringResource(key: "mnemonic.affirm.page.add.loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Address
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListAddress = Rswift.StringResource(key: "vote.list.address", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Address Management
       /// 
       /// Locales: en, zh-Hans
@@ -697,6 +701,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let addressManageTipAlertMessage = Rswift.StringResource(key: "address.manage.tip.alert.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Available
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageNodeStatusValidTitle = Rswift.StringResource(key: "vote.page.nodeStatus.valid.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Back
       /// 
       /// Locales: en, zh-Hans
@@ -745,10 +753,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageNotEnoughBalanceAlertButton = Rswift.StringResource(key: "send.page.not.enough.balance.alert.button", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Cancel Vote
+      /// en translation: Cancel
       /// 
       /// Locales: en, zh-Hans
-      static let confirmTransactionPageCancelVote = Rswift.StringResource(key: "confirm.transaction.page.cancel.vote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      static let submitCancel = Rswift.StringResource(key: "Submit.cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Candidate Nodes
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListTitle = Rswift.StringResource(key: "vote.list.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Cannot be identified
       /// 
       /// Locales: en, zh-Hans
@@ -772,7 +784,15 @@ struct R: Rswift.Validatable {
       /// en translation: Confirm
       /// 
       /// Locales: en, zh-Hans
+      static let importPageAlertExistOk = Rswift.StringResource(key: "import.page.alert.exist.ok", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Confirm
+      /// 
+      /// Locales: en, zh-Hans
       static let quotaSubmitPopSubmitBtnTitle = Rswift.StringResource(key: "quota.submit.pop.submit.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Confirm
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListConfirmButtonTitle = Rswift.StringResource(key: "vote.list.confirm.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Confirm your seed phrase
       /// 
       /// Locales: en, zh-Hans
@@ -901,6 +921,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let quotaAlertNeedQuotaMessage = Rswift.StringResource(key: "quota.alert.need.quota.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Invalid Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteStatusVoteInvalid = Rswift.StringResource(key: "vote.page.voteStatus.voteInvalid", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: It isn't a safe way to keep your seed phrase by screenshot. We suggest that you'd better write it down and keep it in a safe place.
       /// 
       /// Locales: en, zh-Hans
@@ -909,6 +933,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let systemPageCellChangeLanguage = Rswift.StringResource(key: "system.page.cell.change.language", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Last round polls
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListCount = Rswift.StringResource(key: "vote.list.count", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Loading
       /// 
       /// Locales: en, zh-Hans
@@ -973,6 +1001,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageMyAddressTitle = Rswift.StringResource(key: "send.page.my.address.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: My Polls
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteInfoNodePollsTitle = Rswift.StringResource(key: "vote.page.voteInfo.nodePolls.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: My QRCode
       /// 
       /// Locales: en, zh-Hans
@@ -985,6 +1017,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let peldgeTitle = Rswift.StringResource(key: "peldge.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: My Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageTitle = Rswift.StringResource(key: "vote.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Next
       /// 
       /// Locales: en, zh-Hans
@@ -1001,6 +1037,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let scanPageQccodeNotFound = Rswift.StringResource(key: "Scan.page.qccode.not.found", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: No Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageInfoNodataTitle = Rswift.StringResource(key: "vote.page.info.nodata.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: No result, please try another input
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListSearchEmpty = Rswift.StringResource(key: "vote.list.search.empty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Node Name
       /// 
       /// Locales: en, zh-Hans
@@ -1085,6 +1129,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let myPageQuotaCellTitle = Rswift.StringResource(key: "my.page.quota.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Ready to overwrite
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListConfirmRevote = Rswift.StringResource(key: "vote.list.confirm.revote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Receive
       /// 
       /// Locales: en, zh-Hans
@@ -1125,6 +1173,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageConfirmPasswordAuthFailedRetry = Rswift.StringResource(key: "send.page.confirm.passwordAuthFailed.retry", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Revoke Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static let confirmTransactionPageCancelVote = Rswift.StringResource(key: "confirm.transaction.page.cancel.vote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Revoke Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteInfoCancelVoteTitle = Rswift.StringResource(key: "vote.page.voteInfo.cancel.vote.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Revoking
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteStatusCancelVoting = Rswift.StringResource(key: "vote.page.voteStatus.cancelVoting", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Run PoW
       /// 
       /// Locales: en, zh-Hans
@@ -1145,6 +1205,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let receivePageTokenNameLabel = Rswift.StringResource(key: "Receive.page.token.name.label", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Search for name or address of candidate nodes
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListSearch = Rswift.StringResource(key: "vote.list.search", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Seed Phrase
       /// 
       /// Locales: en, zh-Hans
@@ -1161,6 +1225,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let aboutUsPageCellShareUs = Rswift.StringResource(key: "aboutUs.page.cell.shareUs", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Something went wrong with network, please try again later
+      /// 
+      /// Locales: en, zh-Hans
+      static let netWorkError = Rswift.StringResource(key: "NetWorkError", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Something wrong with your seed phrase, please try again!
       /// 
       /// Locales: en, zh-Hans
@@ -1213,6 +1281,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let walletHomeToastCopyAddress = Rswift.StringResource(key: "wallet.home.toast.copy.address", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Successfully sent vote request
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListSendSuccess = Rswift.StringResource(key: "vote.list.send.success", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: System Settings
       /// 
       /// Locales: en, zh-Hans
@@ -1225,6 +1297,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageToastAmountZero = Rswift.StringResource(key: "send.page.toast.amount.zero", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: The seed phrase you input has already had an account name '%@' on current device, are you sure you would like to overwrite existed account
+      /// 
+      /// Locales: en, zh-Hans
+      static let importPageAlertExistTitle = Rswift.StringResource(key: "import.page.alert.exist.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: This action will regenerate seed phrase, ready to go back?
       /// 
       /// Locales: en, zh-Hans
@@ -1253,6 +1329,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageToastSendFailed = Rswift.StringResource(key: "send.page.toast.send.failed", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Unavailable
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageNodeStatusInvalidTitle = Rswift.StringResource(key: "vote.page.nodeStatus.invalid.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Unlock By Face ID
       /// 
       /// Locales: en, zh-Hans
@@ -1325,6 +1405,26 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let confirmTransactionPageVote = Rswift.StringResource(key: "confirm.transaction.page.vote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static let vote = Rswift.StringResource(key: "Vote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Vote failed, please vote again
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListSendFailed = Rswift.StringResource(key: "vote.list.send.failed", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Vote revoking request is successfully sent
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteInfoCancelVoteToastTitle = Rswift.StringResource(key: "vote.page.voteInfo.cancel.vote.toast.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Vote successful
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteStatusVoteSuccess = Rswift.StringResource(key: "vote.page.voteStatus.voteSuccess", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Voting
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteStatusVoting = Rswift.StringResource(key: "vote.page.voteStatus.voting", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Wallet
       /// 
       /// Locales: en, zh-Hans
@@ -1365,6 +1465,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let yes = Rswift.StringResource(key: "Yes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: You cannot vote for now as there is no transaction record in your address
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListSearchNoTransactionBefore = Rswift.StringResource(key: "vote.list.search.no.transaction.before", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: You have voted for %@, please make sure this action will overwrite current voting result
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListAlertAlreadyVoted = Rswift.StringResource(key: "vote.list.alert.already.voted", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: import success
       /// 
       /// Locales: en, zh-Hans
@@ -1373,122 +1481,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageSubmitLoading = Rswift.StringResource(key: "import.page.submit.loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 上轮得票数
+      /// en translation: unable to vote, you have to run PoW or stake VITE for TPS quota to vote
       /// 
       /// Locales: en, zh-Hans
-      static let voteListCount = Rswift.StringResource(key: "vote.list.count", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 候选节点列表
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListTitle = Rswift.StringResource(key: "vote.list.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 停止候选
-      /// 
-      /// Locales: en, zh-Hans
-      static let votePageNodeStatusInvalidTitle = Rswift.StringResource(key: "vote.page.nodeStatus.invalid.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 出块地址
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListAddress = Rswift.StringResource(key: "vote.list.address", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      static let voteListAlertQuota = Rswift.StringResource(key: "vote.list.alert.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 切换账户
       /// 
       /// Locales: en, zh-Hans
       static let lockPageChangeUserBtnTitle = Rswift.StringResource(key: "lock.page.changeUser.btn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 您已经投票给%@，请确认是否覆盖当前投票
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListAlertAlreadyVoted = Rswift.StringResource(key: "vote.list.alert.already.voted", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 您的地址未发生过交易，暂不能投票
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListSearchNoTransactionBefore = Rswift.StringResource(key: "vote.list.search.no.transaction.before", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 您输入的助记词在当前设备的账户名为%@，确认是否使用新账户覆盖原有账户
-      /// 
-      /// Locales: en, zh-Hans
-      static let importPageAlertExistTitle = Rswift.StringResource(key: "import.page.alert.exist.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 我的投票
-      /// 
-      /// Locales: en, zh-Hans
-      static let votePageTitle = Rswift.StringResource(key: "vote.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 我的投票数
-      /// 
-      /// Locales: en, zh-Hans
-      static let votePageVoteInfoNodePollsTitle = Rswift.StringResource(key: "vote.page.voteInfo.nodePolls.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 投票
-      /// 
-      /// Locales: en, zh-Hans
-      static let vote = Rswift.StringResource(key: "Vote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 投票作废
-      /// 
-      /// Locales: en, zh-Hans
-      static let votePageVoteStatusVoteInvalid = Rswift.StringResource(key: "vote.page.voteStatus.voteInvalid", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 投票失败，请重新投票
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListSendFailed = Rswift.StringResource(key: "vote.list.send.failed", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 投票成功
-      /// 
-      /// Locales: en, zh-Hans
-      static let votePageVoteStatusVoteSuccess = Rswift.StringResource(key: "vote.page.voteStatus.voteSuccess", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 投票请求发送成功
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListSendSuccess = Rswift.StringResource(key: "vote.list.send.success", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 搜索候选节点名称或出块地址
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListSearch = Rswift.StringResource(key: "vote.list.search", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 撤销
-      /// 
-      /// Locales: en, zh-Hans
-      static let submitCancel = Rswift.StringResource(key: "Submit.cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 撤销投票
-      /// 
-      /// Locales: en, zh-Hans
-      static let votePageVoteInfoCancelVoteTitle = Rswift.StringResource(key: "vote.page.voteInfo.cancel.vote.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 撤销投票请求发送成功
-      /// 
-      /// Locales: en, zh-Hans
-      static let votePageVoteInfoCancelVoteToastTitle = Rswift.StringResource(key: "vote.page.voteInfo.cancel.vote.toast.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 无法投票，您需运行PoW 或抵押VITE 获取配额才可以投票
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListAlertQuota = Rswift.StringResource(key: "vote.list.alert.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 无结果，换个输入试试
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListSearchEmpty = Rswift.StringResource(key: "vote.list.search.empty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 暂无投票
-      /// 
-      /// Locales: en, zh-Hans
-      static let votePageInfoNodataTitle = Rswift.StringResource(key: "vote.page.info.nodata.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 正在候选
-      /// 
-      /// Locales: en, zh-Hans
-      static let votePageNodeStatusValidTitle = Rswift.StringResource(key: "vote.page.nodeStatus.valid.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 正在投票中
-      /// 
-      /// Locales: en, zh-Hans
-      static let votePageVoteStatusVoting = Rswift.StringResource(key: "vote.page.voteStatus.voting", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 正在撤销中
-      /// 
-      /// Locales: en, zh-Hans
-      static let votePageVoteStatusCancelVoting = Rswift.StringResource(key: "vote.page.voteStatus.cancelVoting", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 确认
-      /// 
-      /// Locales: en, zh-Hans
-      static let importPageAlertExistOk = Rswift.StringResource(key: "import.page.alert.exist.ok", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 确认
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListConfirmButtonTitle = Rswift.StringResource(key: "vote.list.confirm.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 确认覆盖
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListConfirmRevote = Rswift.StringResource(key: "vote.list.confirm.revote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 网络异常，请稍后重试
-      /// 
-      /// Locales: en, zh-Hans
-      static let netWorkError = Rswift.StringResource(key: "NetWorkError", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1574,6 +1574,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("mnemonic.affirm.page.add.loading", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Address
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListAddress(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.address", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Address Management
       /// 
       /// Locales: en, zh-Hans
@@ -1614,6 +1621,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func addressManageTipAlertMessage(_: Void = ()) -> String {
         return NSLocalizedString("address.manage.tip.alert.message", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Available
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageNodeStatusValidTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.nodeStatus.valid.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Back
@@ -1700,11 +1714,18 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send.page.not.enough.balance.alert.button", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Cancel Vote
+      /// en translation: Cancel
       /// 
       /// Locales: en, zh-Hans
-      static func confirmTransactionPageCancelVote(_: Void = ()) -> String {
-        return NSLocalizedString("confirm.transaction.page.cancel.vote", bundle: R.hostingBundle, comment: "")
+      static func submitCancel(_: Void = ()) -> String {
+        return NSLocalizedString("Submit.cancel", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Candidate Nodes
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Cannot be identified
@@ -1745,8 +1766,22 @@ struct R: Rswift.Validatable {
       /// en translation: Confirm
       /// 
       /// Locales: en, zh-Hans
+      static func importPageAlertExistOk(_: Void = ()) -> String {
+        return NSLocalizedString("import.page.alert.exist.ok", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Confirm
+      /// 
+      /// Locales: en, zh-Hans
       static func quotaSubmitPopSubmitBtnTitle(_: Void = ()) -> String {
         return NSLocalizedString("quota.submit.pop.submit.btn.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Confirm
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListConfirmButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.confirm.button.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Confirm your seed phrase
@@ -1973,6 +2008,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("quota.alert.need.quota.message", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Invalid Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteStatusVoteInvalid(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteStatus.voteInvalid", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: It isn't a safe way to keep your seed phrase by screenshot. We suggest that you'd better write it down and keep it in a safe place.
       /// 
       /// Locales: en, zh-Hans
@@ -1985,6 +2027,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func systemPageCellChangeLanguage(_: Void = ()) -> String {
         return NSLocalizedString("system.page.cell.change.language", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Last round polls
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListCount(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.count", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Loading
@@ -2099,6 +2148,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send.page.my.address.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: My Polls
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteInfoNodePollsTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteInfo.nodePolls.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: My QRCode
       /// 
       /// Locales: en, zh-Hans
@@ -2118,6 +2174,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func peldgeTitle(_: Void = ()) -> String {
         return NSLocalizedString("peldge.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: My Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Next
@@ -2146,6 +2209,20 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func scanPageQccodeNotFound(_: Void = ()) -> String {
         return NSLocalizedString("Scan.page.qccode.not.found", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: No Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageInfoNodataTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.info.nodata.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: No result, please try another input
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListSearchEmpty(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.search.empty", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Node Name
@@ -2295,6 +2372,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("my.page.quota.cell.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Ready to overwrite
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListConfirmRevote(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.confirm.revote", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Receive
       /// 
       /// Locales: en, zh-Hans
@@ -2365,6 +2449,27 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send.page.confirm.passwordAuthFailed.retry", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Revoke Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static func confirmTransactionPageCancelVote(_: Void = ()) -> String {
+        return NSLocalizedString("confirm.transaction.page.cancel.vote", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Revoke Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteInfoCancelVoteTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteInfo.cancel.vote.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Revoking
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteStatusCancelVoting(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteStatus.cancelVoting", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Run PoW
       /// 
       /// Locales: en, zh-Hans
@@ -2400,6 +2505,13 @@ struct R: Rswift.Validatable {
         return String(format: NSLocalizedString("Receive.page.token.name.label", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
+      /// en translation: Search for name or address of candidate nodes
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListSearch(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.search", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Seed Phrase
       /// 
       /// Locales: en, zh-Hans
@@ -2426,6 +2538,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func aboutUsPageCellShareUs(_: Void = ()) -> String {
         return NSLocalizedString("aboutUs.page.cell.shareUs", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Something went wrong with network, please try again later
+      /// 
+      /// Locales: en, zh-Hans
+      static func netWorkError(_: Void = ()) -> String {
+        return NSLocalizedString("NetWorkError", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Something wrong with your seed phrase, please try again!
@@ -2519,6 +2638,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet.home.toast.copy.address", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Successfully sent vote request
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListSendSuccess(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.send.success", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: System Settings
       /// 
       /// Locales: en, zh-Hans
@@ -2538,6 +2664,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func sendPageToastAmountZero(_: Void = ()) -> String {
         return NSLocalizedString("send.page.toast.amount.zero", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The seed phrase you input has already had an account name '%@' on current device, are you sure you would like to overwrite existed account
+      /// 
+      /// Locales: en, zh-Hans
+      static func importPageAlertExistTitle(_ value1: String) -> String {
+        return String(format: NSLocalizedString("import.page.alert.exist.title", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       /// en translation: This action will regenerate seed phrase, ready to go back?
@@ -2587,6 +2720,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func sendPageToastSendFailed(_: Void = ()) -> String {
         return NSLocalizedString("send.page.toast.send.failed", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Unavailable
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageNodeStatusInvalidTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.nodeStatus.invalid.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Unlock By Face ID
@@ -2715,6 +2855,41 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("confirm.transaction.page.vote", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static func vote(_: Void = ()) -> String {
+        return NSLocalizedString("Vote", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Vote failed, please vote again
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListSendFailed(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.send.failed", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Vote revoking request is successfully sent
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteInfoCancelVoteToastTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteInfo.cancel.vote.toast.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Vote successful
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteStatusVoteSuccess(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteStatus.voteSuccess", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Voting
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteStatusVoting(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteStatus.voting", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Wallet
       /// 
       /// Locales: en, zh-Hans
@@ -2785,6 +2960,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Yes", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: You cannot vote for now as there is no transaction record in your address
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListSearchNoTransactionBefore(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.search.no.transaction.before", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: You have voted for %@, please make sure this action will overwrite current voting result
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListAlertAlreadyVoted(_ value1: String) -> String {
+        return String(format: NSLocalizedString("vote.list.alert.already.voted", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
       /// en translation: import success
       /// 
       /// Locales: en, zh-Hans
@@ -2799,32 +2988,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("import.page.submit.loading", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: 上轮得票数
+      /// en translation: unable to vote, you have to run PoW or stake VITE for TPS quota to vote
       /// 
       /// Locales: en, zh-Hans
-      static func voteListCount(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.count", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 候选节点列表
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListTitle(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 停止候选
-      /// 
-      /// Locales: en, zh-Hans
-      static func votePageNodeStatusInvalidTitle(_: Void = ()) -> String {
-        return NSLocalizedString("vote.page.nodeStatus.invalid.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 出块地址
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListAddress(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.address", bundle: R.hostingBundle, comment: "")
+      static func voteListAlertQuota(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.alert.quota", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 切换账户
@@ -2832,174 +3000,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func lockPageChangeUserBtnTitle(_: Void = ()) -> String {
         return NSLocalizedString("lock.page.changeUser.btn.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 您已经投票给%@，请确认是否覆盖当前投票
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListAlertAlreadyVoted(_ value1: String) -> String {
-        return String(format: NSLocalizedString("vote.list.alert.already.voted", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
-      }
-      
-      /// en translation: 您的地址未发生过交易，暂不能投票
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListSearchNoTransactionBefore(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.search.no.transaction.before", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 您输入的助记词在当前设备的账户名为%@，确认是否使用新账户覆盖原有账户
-      /// 
-      /// Locales: en, zh-Hans
-      static func importPageAlertExistTitle(_ value1: String) -> String {
-        return String(format: NSLocalizedString("import.page.alert.exist.title", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
-      }
-      
-      /// en translation: 我的投票
-      /// 
-      /// Locales: en, zh-Hans
-      static func votePageTitle(_: Void = ()) -> String {
-        return NSLocalizedString("vote.page.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 我的投票数
-      /// 
-      /// Locales: en, zh-Hans
-      static func votePageVoteInfoNodePollsTitle(_: Void = ()) -> String {
-        return NSLocalizedString("vote.page.voteInfo.nodePolls.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 投票
-      /// 
-      /// Locales: en, zh-Hans
-      static func vote(_: Void = ()) -> String {
-        return NSLocalizedString("Vote", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 投票作废
-      /// 
-      /// Locales: en, zh-Hans
-      static func votePageVoteStatusVoteInvalid(_: Void = ()) -> String {
-        return NSLocalizedString("vote.page.voteStatus.voteInvalid", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 投票失败，请重新投票
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListSendFailed(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.send.failed", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 投票成功
-      /// 
-      /// Locales: en, zh-Hans
-      static func votePageVoteStatusVoteSuccess(_: Void = ()) -> String {
-        return NSLocalizedString("vote.page.voteStatus.voteSuccess", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 投票请求发送成功
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListSendSuccess(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.send.success", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 搜索候选节点名称或出块地址
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListSearch(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.search", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 撤销
-      /// 
-      /// Locales: en, zh-Hans
-      static func submitCancel(_: Void = ()) -> String {
-        return NSLocalizedString("Submit.cancel", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 撤销投票
-      /// 
-      /// Locales: en, zh-Hans
-      static func votePageVoteInfoCancelVoteTitle(_: Void = ()) -> String {
-        return NSLocalizedString("vote.page.voteInfo.cancel.vote.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 撤销投票请求发送成功
-      /// 
-      /// Locales: en, zh-Hans
-      static func votePageVoteInfoCancelVoteToastTitle(_: Void = ()) -> String {
-        return NSLocalizedString("vote.page.voteInfo.cancel.vote.toast.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 无法投票，您需运行PoW 或抵押VITE 获取配额才可以投票
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListAlertQuota(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.alert.quota", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 无结果，换个输入试试
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListSearchEmpty(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.search.empty", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 暂无投票
-      /// 
-      /// Locales: en, zh-Hans
-      static func votePageInfoNodataTitle(_: Void = ()) -> String {
-        return NSLocalizedString("vote.page.info.nodata.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 正在候选
-      /// 
-      /// Locales: en, zh-Hans
-      static func votePageNodeStatusValidTitle(_: Void = ()) -> String {
-        return NSLocalizedString("vote.page.nodeStatus.valid.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 正在投票中
-      /// 
-      /// Locales: en, zh-Hans
-      static func votePageVoteStatusVoting(_: Void = ()) -> String {
-        return NSLocalizedString("vote.page.voteStatus.voting", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 正在撤销中
-      /// 
-      /// Locales: en, zh-Hans
-      static func votePageVoteStatusCancelVoting(_: Void = ()) -> String {
-        return NSLocalizedString("vote.page.voteStatus.cancelVoting", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 确认
-      /// 
-      /// Locales: en, zh-Hans
-      static func importPageAlertExistOk(_: Void = ()) -> String {
-        return NSLocalizedString("import.page.alert.exist.ok", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 确认
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListConfirmButtonTitle(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.confirm.button.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 确认覆盖
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListConfirmRevote(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.confirm.revote", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: 网络异常，请稍后重试
-      /// 
-      /// Locales: en, zh-Hans
-      static func netWorkError(_: Void = ()) -> String {
-        return NSLocalizedString("NetWorkError", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

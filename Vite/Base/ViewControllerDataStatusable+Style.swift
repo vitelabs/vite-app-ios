@@ -16,8 +16,8 @@ extension UIView {
         let button = UIButton(type: .system).then {
             $0.isUserInteractionEnabled = false
             $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-            $0.setTitleColor(UIColor(netHex: 0x007AFF), for: .normal)
-            $0.setTitleColor(UIColor(netHex: 0x007AFF).highlighted, for: .highlighted)
+            $0.setTitleColor(UIColor(netHex: 0x3E4A59, alpha: 0.45), for: .normal)
+            $0.setTitleColor(UIColor(netHex: 0x3E4A59, alpha: 0.45).highlighted, for: .highlighted)
             $0.setTitle(text, for: .normal)
         }
 
