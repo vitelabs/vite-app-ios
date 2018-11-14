@@ -9,6 +9,8 @@
 import Foundation
 import ObjectMapper
 
+typealias VoteNum = Balance
+
 class Candidate: NSObject, Mappable {
 
     required init?(map: Map) {
@@ -17,12 +19,11 @@ class Candidate: NSObject, Mappable {
 
     var name: String = ""
     var nodeAddr: Address = Address()
-    var voteNum: String = ""
+    var voteNum: VoteNum = VoteNum()
 
     func mapping(map: Map) {
         name <- map["name"]
         nodeAddr <- (map["nodeAddr"], JSONTransformer.address)
-        voteNum <- map["voteNum"]
+        voteNum <- (map["voteNum"], JSONTransformer.balance)
     }
-
 }
