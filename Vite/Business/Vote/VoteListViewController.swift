@@ -85,7 +85,7 @@ class VoteListViewController: BaseViewController {
         let dataSource = DataSource(configureCell: { (_, tableView, indexPath, candidate) -> UITableViewCell in
             let cell: CandidateCell = tableView.dequeueReusableCell(for: indexPath)
             cell.nodeNameLabel.text = candidate.name
-            cell.voteCountLabel.text = candidate.voteNum
+            cell.voteCountLabel.text = candidate.voteNum.amountShort(decimals: TokenCacheService.instance.viteToken.decimals)
             cell.addressLabel.text = " " + candidate.nodeAddr.description
             cell.disposeable?.dispose()
             cell.disposeable = cell.voteButton.rx.tap
@@ -131,14 +131,14 @@ class VoteListViewController: BaseViewController {
             NotificationCenter.default.rx.notification(.UIKeyboardWillShow)
             ])
             .filter { [unowned self] _  in self.appear }
-            .subscribe(onNext: {[weak self] (notification) in
+            .subscribe(onNext: {[unowned self] (notification) in
                 let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25
                 let height =  min((notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height, 128+55)
                 UIView.animate(withDuration: duration, animations: {
-                    if notification.name == .UIKeyboardWillShow {
-                        self?.parent?.view.transform = CGAffineTransform(translationX: 0, y: -height)
-                    } else {
-                        self?.parent?.view.transform = .identity
+                    if notification.name == .UIKeyboardWillShow && self.searchBar.textField.isFirstResponder {
+                        self.parent?.view.transform = CGAffineTransform(translationX: 0, y: -height)
+                    } else if notification.name == .UIKeyboardWillHide {
+                        self.parent?.view.transform = .identity
                     }
                 })
             }).disposed(by: rx.disposeBag)
@@ -202,10 +202,17 @@ class VoteListViewController: BaseViewController {
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }),
                 (.default(title: R.string.localizable.quotaAlertPowButtonTitle.key.localized()), { [weak self] _ in
-                    self?.view.displayLoading()
-                    self?.reactor.voteWithPow(nodeName: nodeName, completion: { (_) in
-                        self?.view.hideLoading()
+                    var cancelPow = false
+                    let getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!) {
+                        cancelPow = true
+                    }
+                    getPowFloatView.show()
+                    self?.reactor.voteWithPow(nodeName: nodeName, tryToCancel: { () -> Bool in
+                        return cancelPow
+                    }, completion: { (_) in
+                        getPowFloatView.hide()
                     })
+
                 }),
                 (.cancel, nil),
                 ], config: { alert in

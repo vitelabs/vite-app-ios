@@ -76,9 +76,11 @@ extension Provider {
     func voteWithPow(bag: HDWalletManager.Bag,
                      benefitedNodeName name: String,
                      gid: String = gID,
+                     tryToCancel: @escaping () -> Bool,
                      completion: @escaping (NetworkResult<Void>) -> Void) {
         getVoteData(benefitedNodeName: name, gid: gid)
             .done({ [unowned self] (data)  in
+                if tryToCancel() { return }
                 self.sendTransactionWithGetPow(bag: bag,
                                                toAddress: voteContractAddress,
                                                tokenId: TokenCacheService.instance.viteToken.id,
