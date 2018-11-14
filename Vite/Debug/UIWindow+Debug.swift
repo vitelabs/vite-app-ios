@@ -37,10 +37,10 @@ extension UIWindow {
         }
 
         if let n = top as? UINavigationController, n.viewControllers.first is DebugViewController {
-            return
+            n.dismiss(animated: true, completion: nil)
+        } else {
+            top.present(nav, animated: true, completion: nil)
         }
-
-        top.present(nav, animated: true, completion: nil)
     }
 }
 
