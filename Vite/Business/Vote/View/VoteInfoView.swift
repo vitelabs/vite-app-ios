@@ -93,8 +93,9 @@ class VoteInfoView: UIView {
         operationBtn.setBackgroundImage(R.image.background_button_blue()?.tintColor(UIColor(netHex: 0xBCC0CA)).resizable, for: .disabled)
              operationBtn.titleLabel?.font = Fonts.Font14_b
         operationBtn.setTitle(R.string.localizable.submitCancel.key.localized(), for: .normal)
+        operationBtn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         operationBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
-        operationBtn.layer.cornerRadius = 10
+        operationBtn.layer.cornerRadius = 12
         operationBtn.layer.masksToBounds = true
         return operationBtn
     }()
@@ -174,7 +175,6 @@ class VoteInfoView: UIView {
             make.top.equalTo(self).offset(14)
             make.right.equalTo(self).offset(-14)
             make.height.equalTo(20)
-            make.width.equalTo(64)
         }
 
         nodeNameLab.snp.makeConstraints { (make) -> Void in
@@ -193,13 +193,12 @@ class VoteInfoView: UIView {
             make.centerY.equalTo(nodePollsTitleLab)
             make.left.equalTo(nodePollsTitleLab.snp.right).offset(10)
             make.height.equalTo(20)
-            make.right.lessThanOrEqualTo(self).offset(-70)
+            make.right.lessThanOrEqualTo(operationBtn.snp.left).offset(-10)
         }
         operationBtn.snp.makeConstraints { (make) -> Void in
             make.centerY.equalTo(nodePollsTitleLab)
             make.right.equalTo(self).offset(-14)
-            make.height.equalTo(22)
-            make.width.equalTo(50)
+            make.height.equalTo(25)
         }
     }
 }
