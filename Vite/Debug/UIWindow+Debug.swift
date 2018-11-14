@@ -26,8 +26,7 @@ extension UIWindow {
         let vc = DebugViewController()
         let nav = BaseNavigationController(rootViewController: vc)
 
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        guard let rootVC = appDelegate.window?.rootViewController else { return }
+        guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
 
         nav.modalPresentationStyle = .formSheet
         var top = rootVC
