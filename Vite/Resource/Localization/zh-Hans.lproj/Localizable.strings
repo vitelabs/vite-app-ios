@@ -267,6 +267,7 @@
 "vote.page.nodeStatus.invalid.title" = "停止候选";
 "vote.page.voteInfo.cancel.vote.title" = "撤销投票";
 "vote.page.voteInfo.cancel.vote.toast.title" = "撤销投票请求发送成功";
+"vote.page.voteInfo.alert.quota" = "无法撤销投票，您需运行PoW 或抵押VITE 获取配额才可以撤销投票";
 
 /* Vote List*/
 "Vote" = "投票";
