@@ -81,6 +81,20 @@ class DebugViewController: FormViewController {
                         }
                         rpcCustomUrlCell.updateCell()
 
+                        guard let browserUseOnlineUrlCell = self.form.rowBy(tag: "browserUseOnlineUrl") as? SwitchRow else { return }
+                        browserUseOnlineUrlCell.value = DebugService.instance.browserUseOnlineUrl
+                        browserUseOnlineUrlCell.updateCell()
+
+                        guard let browserCustomUrlCell = self.form.rowBy(tag: "browserCustomUrl") as? LabelRow else { return }
+                        if let _ = URL(string: DebugService.instance.browserCustomUrl) {
+                            browserCustomUrlCell.title = "Custom URL"
+                            browserCustomUrlCell.value = DebugService.instance.browserCustomUrl
+                        } else {
+                            browserCustomUrlCell.title = "Test URL"
+                            browserCustomUrlCell.value = DebugService.instance.browserDefaultTestEnvironmentUrl.absoluteString
+                        }
+                        browserCustomUrlCell.updateCell()
+
                         guard let configEnvironmentCell = self.form.rowBy(tag: "configEnvironment") as? LabelRow else { return }
                         configEnvironmentCell.value = DebugService.instance.configEnvironment.name
                         configEnvironmentCell.updateCell()
@@ -154,6 +168,59 @@ class DebugViewController: FormViewController {
                             textField.clearButtonMode = .always
                             textField.text = DebugService.instance.rpcCustomUrl
                             textField.placeholder = DebugService.instance.rpcDefaultTestEnvironmentUrl.absoluteString
+                        })
+                })
+            })
+            +++
+            Section {
+                $0.header = HeaderFooterView(title: "Browser")
+            }
+            <<< SwitchRow("browserUseOnlineUrl") {
+                $0.title = "Use Online URL"
+                $0.value = DebugService.instance.browserUseOnlineUrl
+            }.onChange { row in
+                guard let ret = row.value else { return }
+                DebugService.instance.browserUseOnlineUrl = ret
+                guard let cell = self.form.rowBy(tag: "appEnvironment") as? LabelRow else { return }
+                cell.value = DebugService.instance.appEnvironment.name
+                cell.updateCell()
+            }
+            <<< LabelRow("browserCustomUrl") {
+                $0.hidden = "$browserUseOnlineUrl == true"
+                if let _ = URL(string: DebugService.instance.browserCustomUrl) {
+                    $0.title = "Custom URL"
+                    $0.value = DebugService.instance.browserCustomUrl
+                } else {
+                    $0.title = "Test URL"
+                    $0.value = DebugService.instance.browserDefaultTestEnvironmentUrl.absoluteString
+                }
+            }.onCellSelection({ _, _  in
+                Alert.show(into: self, title: "Browser Custom URL", message: nil, actions: [
+                    (.cancel, nil),
+                    (.default(title: "OK"), { alert in
+                        guard let cell = self.form.rowBy(tag: "browserCustomUrl") as? LabelRow else { return }
+                        if let text = alert.textFields?.first?.text, (text.hasPrefix("http://") || text.hasPrefix("https://")), let _ = URL(string: text) {
+                            DebugService.instance.browserCustomUrl = text
+                            cell.title = "Custom"
+                            cell.value = text
+                            cell.updateCell()
+                        } else if let text = alert.textFields?.first?.text, text.isEmpty {
+                            DebugService.instance.browserCustomUrl = ""
+                            cell.title = "Test"
+                            cell.value = DebugService.instance.browserDefaultTestEnvironmentUrl.absoluteString
+                            cell.updateCell()
+                        } else {
+                            Toast.show("Error Format")
+                        }
+                        guard let appCell = self.form.rowBy(tag: "appEnvironment") as? LabelRow else { return }
+                        appCell.value = DebugService.instance.appEnvironment.name
+                        appCell.updateCell()
+                    }),
+                    ], config: { alert in
+                        alert.addTextField(configurationHandler: { (textField) in
+                            textField.clearButtonMode = .always
+                            textField.text = DebugService.instance.browserCustomUrl
+                            textField.placeholder = DebugService.instance.browserDefaultTestEnvironmentUrl.absoluteString
                         })
                 })
             })

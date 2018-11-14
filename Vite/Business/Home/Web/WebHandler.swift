@@ -9,6 +9,22 @@
 import UIKit
 
 struct WebHandler {
+    #if DEBUG || TEST
+    fileprivate static var browserUrlString: String {
+        if DebugService.instance.browserUseOnlineUrl {
+            return "https://testnet.vite.net"
+        } else {
+            if let url = URL(string: DebugService.instance.browserCustomUrl) {
+                return url.absoluteString
+            } else {
+                return DebugService.instance.browserDefaultTestEnvironmentUrl.absoluteString
+            }
+        }
+    }
+    #else
+    fileprivate static let browserUrlString = "https://testnet.vite.net"
+    #endif
+
     static func open(_ url: URL) {
 
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { fatalError() }
@@ -25,25 +41,26 @@ struct WebHandler {
     }
 
     static func openTranscationDetailPage(hash: String) {
-        var host = "https://testnet.vite.net"
-        if LocalizationService.sharedInstance.currentLanguage == .chinese {
-            host = "\(host)/zh"
-        }
-
+        let host = appendLanguagePath(urlString: browserUrlString)
         let string = appendQuery(urlString: "\(host)/transaction/\(hash)")
         let url = URL(string: string)!
         open(url)
     }
 
     static func openAddressDetailPage(address: String) {
-        var host = "https://testnet.vite.net"
-        if LocalizationService.sharedInstance.currentLanguage == .chinese {
-            host = "\(host)/zh"
-        }
-
+        let host = appendLanguagePath(urlString: browserUrlString)
         let string = appendQuery(urlString: "\(host)/account/\(address)")
         let url = URL(string: string)!
         open(url)
+    }
+
+
+    fileprivate static func appendLanguagePath(urlString: String) -> String {
+        if LocalizationService.sharedInstance.currentLanguage == .chinese {
+            return "\(urlString)/zh"
+        } else {
+            return urlString
+        }
     }
 
     fileprivate static func appendQuery(urlString: String) -> String {
