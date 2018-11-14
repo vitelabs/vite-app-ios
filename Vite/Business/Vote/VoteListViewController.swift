@@ -170,6 +170,18 @@ class VoteListViewController: BaseViewController {
                                                             switch result {
                                                             case .success:
                                                                 self.reactor.vote.value = nodeName
+                                                            case .passwordAuthFailed:
+                                                                Alert.show(into: self,
+                                                                           title: R.string.localizable.confirmTransactionPageToastPasswordError.key.localized(),
+                                                                           message: nil,
+                                                                           actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned self] _ in
+                                                                            self.confirmVote(nodeName: nodeName)
+                                                                           }), (.cancel, nil)])
+                                                            case .biometryAuthFailed:
+                                                                Alert.show(into: self,
+                                                                           title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle.key.localized(),
+                                                                           message: nil,
+                                                                           actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack.key.localized()), nil)])
                                                             default:
                                                                 break
                                                             }
