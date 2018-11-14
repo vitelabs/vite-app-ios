@@ -32,6 +32,30 @@ extension UIViewController {
     }
 }
 
+var bundleKey: UInt8 = 0
+
+class AnyLanguageBundle: Bundle {
+    override func localizedString(forKey key: String,
+                                  value: String?,
+                                  table tableName: String?) -> String {
+        guard let path = objc_getAssociatedObject(self, &bundleKey) as? String,
+            let bundle = Bundle(path: path) else {
+
+                return super.localizedString(forKey: key, value: value, table: tableName)
+        }
+        return bundle.localizedString(forKey: key, value: value, table: tableName)
+    }
+}
+
+extension Bundle {
+    class func setLanguage(_ language: String) {
+        defer {
+            object_setClass(Bundle.main, AnyLanguageBundle.self)
+        }
+        objc_setAssociatedObject(Bundle.main, &bundleKey,    Bundle.main.path(forResource: language, ofType: "lproj"), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+    }
+}
+
 class LocalizationService {
 
     enum Language: String {
@@ -62,6 +86,12 @@ class LocalizationService {
     var currentLanguage: Language = .base {
         didSet {
             guard currentLanguage != oldValue else { return }
+//            UserDefaults.standard.removeObject(forKey: "AppleLanguages")
+//            UserDefaults.standard.set([currentLanguage.rawValue], forKey: "AppleLanguages")
+//            UserDefaults.standard.synchronize()
+            Bundle.setLanguage(currentLanguage.rawValue)
+//            NSLocale.preferredLanguages = [currentL anguage.rawValue]
+
             loadDictionaryForLanguage(currentLanguage)
             UserDefaultsService.instance.setObject(currentLanguage.rawValue, forKey: Key.language.rawValue, inCollection: Key.collection.rawValue)
         }
