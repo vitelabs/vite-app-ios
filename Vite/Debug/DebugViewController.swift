@@ -275,6 +275,22 @@ class DebugViewController: FormViewController {
             Section {
                 $0.header = HeaderFooterView(title: "Operation")
             }
+            <<< LabelRow("getTestToken") {
+                $0.title =  "Get Test Token"
+            }.onCellSelection({ _, _  in
+                if let address = HDWalletManager.instance.bag?.address {
+                    Provider.instance.getTestToken(address: address, completion: { (result) in
+                        switch result {
+                        case .success:
+                            Toast.show("\(address.description) get test token complete")
+                        case .error(let error):
+                            Toast.show(error.message)
+                        }
+                    })
+                } else {
+                    Toast.show("Login firstly")
+                }
+            })
             <<< LabelRow("reloadConfig") {
                 $0.title =  "Reload Config"
             }.onCellSelection({ _, _  in
