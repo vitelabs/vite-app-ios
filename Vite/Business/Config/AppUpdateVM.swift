@@ -82,14 +82,14 @@ class AppUpdateVM: NSObject {
 
         if isForce {
             func showAlert() {
-                top.displayConfirmAlter(title: info.title.string, message: info.message.string, done: info.okTitle?.string ?? R.string.localizable.updateApp.key.localized(), doneHandler: {
+                top.displayConfirmAlter(title: info.title.string, message: info.message.string, done: info.okTitle?.string ?? R.string.localizable.updateApp(), doneHandler: {
                     UIApplication.shared.open(info.url, options: [:], completionHandler: nil)
                     showAlert()
                 })
             }
             showAlert()
         } else {
-            top.displayAlter(title: info.title.string, message: info.message.string, cancel: info.cancelTitle?.string ?? R.string.localizable.cancel.key.localized(), done: info.okTitle?.string ?? R.string.localizable.updateApp.key.localized(), doneHandler: {
+            top.displayAlter(title: info.title.string, message: info.message.string, cancel: info.cancelTitle?.string ?? R.string.localizable.cancel(), done: info.okTitle?.string ?? R.string.localizable.updateApp(), doneHandler: {
                 UIApplication.shared.open(info.url, options: [:], completionHandler: nil)
             })
         }

@@ -14,17 +14,17 @@ struct BussinessErrorHandler {
 
         if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
             Alert.show(into: viewController,
-                       title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
+                       title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
                        message: nil,
-                       actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
+                       actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
             return true
         } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
-            Alert.show(into: viewController, title: R.string.localizable.quotaAlertTitle.key.localized(), message: R.string.localizable.quotaAlertNeedQuotaMessage.key.localized(), actions: [
-                (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle.key.localized()), { [weak viewController] _ in
+            Alert.show(into: viewController, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.quotaAlertNeedQuotaMessage(), actions: [
+                (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle()), { [weak viewController] _ in
                     let vc = QuotaManageViewController()
                     viewController?.navigationController?.pushViewController(vc, animated: true)
                 }),
-                (.default(title: R.string.localizable.quotaAlertPowButtonTitle.key.localized()), { _ in
+                (.default(title: R.string.localizable.quotaAlertPowButtonTitle()), { _ in
 
                 }),
                 (.cancel, nil),

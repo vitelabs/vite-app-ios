@@ -22,7 +22,7 @@ class VoteHomeViewController: BaseViewController {
             $0.backgroundColor = UIColor.clear
         }
 
-        let titleLabel = LabelTipView(R.string.localizable.votePageTitle.key.localized()).then {
+        let titleLabel = LabelTipView(R.string.localizable.votePageTitle()).then {
             $0.titleLab.font = UIFont.systemFont(ofSize: 24)
             $0.titleLab.textColor = UIColor(netHex: 0x24272B)
         }

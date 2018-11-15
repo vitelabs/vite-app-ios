@@ -30,12 +30,12 @@ struct ActionSheet {
                 })
                 alert.addAction(action)
             case .cancel:
-                let action = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: UIAlertActionStyle.cancel, handler: { (_) in
+                let action = UIAlertAction(title: R.string.localizable.cancel(), style: UIAlertActionStyle.cancel, handler: { (_) in
                     if let action = action.1 { action(alert) }
                 })
                 alert.addAction(action)
             case .delete:
-                let action = UIAlertAction(title: R.string.localizable.delete.key.localized(), style: UIAlertActionStyle.destructive, handler: { (_) in
+                let action = UIAlertAction(title: R.string.localizable.delete(), style: UIAlertActionStyle.destructive, handler: { (_) in
                     if let action = action.1 { action(alert) }
                 })
                 alert.addAction(action)
@@ -70,12 +70,12 @@ struct Alert {
                 })
                 alert.addAction(action)
             case .cancel:
-                let action = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: UIAlertActionStyle.default, handler: { (_) in
+                let action = UIAlertAction(title: R.string.localizable.cancel(), style: UIAlertActionStyle.default, handler: { (_) in
                     if let action = action.1 { action(alert) }
                 })
                 alert.addAction(action)
             case .delete:
-                let action = UIAlertAction(title: R.string.localizable.delete.key.localized(), style: UIAlertActionStyle.destructive, handler: { (_) in
+                let action = UIAlertAction(title: R.string.localizable.delete(), style: UIAlertActionStyle.destructive, handler: { (_) in
                     if let action = action.1 { action(alert) }
                 })
                 alert.addAction(action)

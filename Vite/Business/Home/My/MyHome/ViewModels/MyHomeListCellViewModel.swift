@@ -39,10 +39,10 @@ class MyHomeListCellViewModel: Mappable {
 
         switch type {
         case .settings:
-            name = StringWrapper(string: R.string.localizable.myPageSystemCellTitle.key.localized())
+            name = StringWrapper(string: R.string.localizable.myPageSystemCellTitle())
             image = ImageWrapper.image(image: R.image.icon_setting()!)
         case .about:
-            name = StringWrapper(string: R.string.localizable.myPageAboutUsCellTitle.key.localized())
+            name = StringWrapper(string: R.string.localizable.myPageAboutUsCellTitle())
             image = ImageWrapper.image(image: R.image.icon_token_vite()!)
         case .custom:
             name = title

@@ -31,7 +31,7 @@ class GetMoreLoadingView: UITableViewHeaderFooterView {
 
     fileprivate let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     fileprivate let retryButton = UIButton().then {
-        $0.setTitle(R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized(), for: .normal)
+        $0.setTitle(R.string.localizable.sendPageConfirmPasswordAuthFailedRetry(), for: .normal)
         $0.setTitleColor(.black, for: .normal)
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 12)
     }

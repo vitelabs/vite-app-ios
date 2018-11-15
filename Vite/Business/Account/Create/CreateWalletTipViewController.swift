@@ -23,13 +23,13 @@ class CreateWalletTipViewController: BaseViewController {
         tipTitleLab.numberOfLines = 0
         tipTitleLab.font = Fonts.descFont
         tipTitleLab.textColor  = Colors.titleGray
-        tipTitleLab.text =  R.string.localizable.createPageTipContent.key.localized()
+        tipTitleLab.text =  R.string.localizable.createPageTipContent()
         return tipTitleLab
     }()
 
     lazy var nextBtn: UIButton = {
         let nextBtn = UIButton.init(style: .blue)
-        nextBtn.setTitle(R.string.localizable.createPageTipNextBtn.key.localized(), for: .normal)
+        nextBtn.setTitle(R.string.localizable.createPageTipNextBtn(), for: .normal)
         nextBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         nextBtn.addTarget(self, action: #selector(nextBtnAction), for: .touchUpInside)
         return nextBtn
@@ -39,7 +39,7 @@ class CreateWalletTipViewController: BaseViewController {
 extension CreateWalletTipViewController {
     func _setupView() {
         self.view.backgroundColor = .white
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.createPageTipTitle.key.localized())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.createPageTipTitle())
 
         self._addViewConstraint()
     }

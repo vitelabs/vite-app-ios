@@ -278,7 +278,7 @@ class DebugViewController: FormViewController {
             <<< LabelRow("deleteAllWallets") {
                 $0.title =  "Delete All Wallets"
             }.onCellSelection({ [unowned self]  _, _  in
-                self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
+                self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading(), animated: true)
                 DispatchQueue.global().async {
                     HDWalletManager.instance.deleteAllWallets()
                     KeychainService.instance.clearCurrentWallet()

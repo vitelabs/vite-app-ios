@@ -59,30 +59,30 @@ class QuotaManageViewController: BaseViewController {
     lazy var headerView = SendHeaderView(address: bag.address.description)
 
     // money
-    lazy var amountView = TitleMoneyInputView(title: R.string.localizable.quotaManagePageQuotaMoneyTitle.key.localized(), placeholder: R.string.localizable.quotaManagePageQuotaMoneyPlaceholder.key.localized(), content: "", desc: TokenCacheService.instance.viteToken.symbol).then {
+    lazy var amountView = TitleMoneyInputView(title: R.string.localizable.quotaManagePageQuotaMoneyTitle(), placeholder: R.string.localizable.quotaManagePageQuotaMoneyPlaceholder(), content: "", desc: TokenCacheService.instance.viteToken.symbol).then {
         $0.textField.keyboardType = .decimalPad
     }
 
     //snapshoot height
-    lazy var snapshootHeightLab = TitleDescView(title: R.string.localizable.quotaManagePageQuotaSnapshootHeightTitle.key.localized()).then {
-        let str = R.string.localizable.quotaManagePageQuotaSnapshootHeightDesc.key.localized(arguments: "3")
+    lazy var snapshootHeightLab = TitleDescView(title: R.string.localizable.quotaManagePageQuotaSnapshootHeightTitle()).then {
+        let str = R.string.localizable.quotaManagePageQuotaSnapshootHeightDesc("3")
         let range = str.range(of: "3")!
         let attributedString = NSMutableAttributedString(string: str)
         attributedString.addAttributes([NSAttributedStringKey.foregroundColor: Colors.titleGray_40], range: NSRange.init(range, in: str))
         $0.descLab.attributedText = attributedString
     }
 
-    lazy var addressView = AddressTextViewView(currentAddress: self.bag.address.description, placeholder: R.string.localizable.quotaSubmitPageQuotaAddressPlaceholder.key.localized()).then {
-        $0.titleLabel.text = R.string.localizable.quotaManagePageInputAddressTitle.key.localized()
+    lazy var addressView = AddressTextViewView(currentAddress: self.bag.address.description, placeholder: R.string.localizable.quotaSubmitPageQuotaAddressPlaceholder()).then {
+        $0.titleLabel.text = R.string.localizable.quotaManagePageInputAddressTitle()
         $0.textView.keyboardType = .default
     }
 
-    lazy var sendButton = UIButton(style: .blue, title: R.string.localizable.quotaManagePageSubmitBtnTitle.key.localized())
+    lazy var sendButton = UIButton(style: .blue, title: R.string.localizable.quotaManagePageSubmitBtnTitle())
 
     private func setupNavBar() {
         statisticsPageName = Statistics.Page.WalletQuota.name
         navigationTitleView = createNavigationTitleView()
-        let rightItem = UIBarButtonItem(title: R.string.localizable.quotaManagePageCheckQuotaListBtnTitle.key.localized(), style: .plain, target: self, action: nil)
+        let rightItem = UIBarButtonItem(title: R.string.localizable.quotaManagePageCheckQuotaListBtnTitle(), style: .plain, target: self, action: nil)
         rightItem.setTitleTextAttributes([NSAttributedStringKey.font: Fonts.Font14, NSAttributedStringKey.foregroundColor: Colors.blueBg], for: .normal)
         rightItem.setTitleTextAttributes([NSAttributedStringKey.font: Fonts.Font14, NSAttributedStringKey.foregroundColor: Colors.blueBg], for: .highlighted)
         self.navigationItem.rightBarButtonItem = rightItem
@@ -118,7 +118,7 @@ class QuotaManageViewController: BaseViewController {
 
         let toolbar = UIToolbar()
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: R.string.localizable.finish.key.localized(), style: .done, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: R.string.localizable.finish(), style: .done, target: nil, action: nil)
         toolbar.items = [flexSpace, done]
         toolbar.sizeToFit()
         done.rx.tap.bind { [weak self] in self?.amountView.textField.resignFirstResponder() }.disposed(by: rx.disposeBag)
@@ -135,7 +135,7 @@ class QuotaManageViewController: BaseViewController {
             $0.backgroundColor = UIColor.white
         }
 
-        let titleLabel = LabelTipView(R.string.localizable.quotaManagePageTitle.key.localized()).then {
+        let titleLabel = LabelTipView(R.string.localizable.quotaManagePageTitle()).then {
             $0.titleLab.font = UIFont.systemFont(ofSize: 24)
             $0.titleLab.numberOfLines = 1
             $0.titleLab.adjustsFontSizeToFitWidth = true
@@ -174,29 +174,29 @@ extension QuotaManageViewController {
                 let address = Address(string: self.addressView.textView.text ?? "")
 
                 guard address.isValid else {
-                    Toast.show(R.string.localizable.sendPageToastAddressError.key.localized())
+                    Toast.show(R.string.localizable.sendPageToastAddressError())
                     return
                 }
 
                 guard let amountString = self.amountView.textField.text,
                     !amountString.isEmpty,
                     let amount = amountString.toBigInt(decimals: TokenCacheService.instance.viteToken.decimals) else {
-                        Toast.show(R.string.localizable.sendPageToastAmountEmpty.key.localized())
+                        Toast.show(R.string.localizable.sendPageToastAmountEmpty())
                         return
                 }
 
                 guard amount > BigInt(0) else {
-                    Toast.show(R.string.localizable.sendPageToastAmountZero.key.localized())
+                    Toast.show(R.string.localizable.sendPageToastAmountZero())
                     return
                 }
 
                 guard amount <= self.balance.value else {
-                    Toast.show(R.string.localizable.sendPageToastAmountError.key.localized())
+                    Toast.show(R.string.localizable.sendPageToastAmountError())
                     return
                 }
 
                 guard amount >= "10".toBigInt(decimals: TokenCacheService.instance.viteToken.decimals)! else {
-                    Toast.show(R.string.localizable.quotaManagePageToastMoneyError.key.localized())
+                    Toast.show(R.string.localizable.quotaManagePageToastMoneyError())
                     return
                 }
 
@@ -245,17 +245,17 @@ extension QuotaManageViewController {
             switch result {
             case .success:
                 self.refreshDataBySuccess()
-                Toast.show(R.string.localizable.submitSuccess.key.localized())
+                Toast.show(R.string.localizable.submitSuccess())
             case .error(let error):
                 if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
                     Alert.show(into: self,
-                               title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
+                               title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
                                message: nil,
-                               actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
+                               actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
                 } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
                     self.pledgeAndGainQuotaWithGetPow(beneficialAddress: beneficialAddress, amount: amount)
                 } else {
-                    Toast.show(R.string.localizable.quotaManagePageToastSendFailed.key.localized())
+                    Toast.show(R.string.localizable.quotaManagePageToastSendFailed())
                 }
             }
         }
@@ -284,22 +284,22 @@ extension QuotaManageViewController {
                         switch result {
                         case .success:
                               self.refreshDataBySuccess()
-                              Toast.show(R.string.localizable.submitSuccess.key.localized())
+                              Toast.show(R.string.localizable.submitSuccess())
                         case .error(let error):
                             if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
                                 Alert.show(into: self,
-                                           title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
+                                           title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
                                            message: nil,
-                                           actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
+                                           actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
                             } else {
-                                Toast.show(R.string.localizable.quotaManagePageToastSendFailed.key.localized())
+                                Toast.show(R.string.localizable.quotaManagePageToastSendFailed())
                             }
                         }
                     })
                 }
             case .error:
                 getPowFloatView.hide()
-                Toast.show(R.string.localizable.quotaManagePageToastSendFailed.key.localized())
+                Toast.show(R.string.localizable.quotaManagePageToastSendFailed())
             }
         }
     }
@@ -348,18 +348,18 @@ extension QuotaManageViewController {
                 plog(level: .info, log: "Confirm cancelled", tag: .transaction)
             case .biometryAuthFailed:
                 Alert.show(into: self,
-                           title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle.key.localized(),
+                           title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle(),
                            message: nil,
-                           actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack.key.localized()), nil)])
+                           actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack()), nil)])
             case .passwordAuthFailed:
                 Alert.show(into: self,
-                           title: R.string.localizable.confirmTransactionPageToastPasswordError.key.localized(),
+                           title: R.string.localizable.confirmTransactionPageToastPasswordError(),
                            message: nil,
-                           actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned self] _ in self.showConfirmTransactionViewController(beneficialAddress: beneficialAddress, amountString: amountString, amount: amount)
+                           actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry()), { [unowned self] _ in self.showConfirmTransactionViewController(beneficialAddress: beneficialAddress, amountString: amountString, amount: amount)
                            }), (.cancel, nil)])
             }
         })
-        confirmViewController.confirmView.transactionInfoView.titleLabel.text = R.string.localizable.quotaManagePageInputAddressTitle.key.localized()
+        confirmViewController.confirmView.transactionInfoView.titleLabel.text = R.string.localizable.quotaManagePageInputAddressTitle()
         self.present(confirmViewController, animated: false, completion: nil)
     }
 }

@@ -19,15 +19,15 @@ enum VoteStatus: Int {
         case .noVote:
             return ""
         case .voteSuccess:
-            return R.string.localizable.votePageVoteStatusVoteSuccess.key.localized()
+            return R.string.localizable.votePageVoteStatusVoteSuccess()
         case .voting:
-            return R.string.localizable.votePageVoteStatusVoting.key.localized()
+            return R.string.localizable.votePageVoteStatusVoting()
         case .cancelVoting:
-             return R.string.localizable.votePageVoteStatusCancelVoting.key.localized()
+             return R.string.localizable.votePageVoteStatusCancelVoting()
         case .cancelVoteSuccess:
             return ""
         case .voteInvalid:
-            return R.string.localizable.votePageVoteStatusVoteInvalid.key.localized()
+            return R.string.localizable.votePageVoteStatusVoteInvalid()
         }
     }
 }
@@ -58,7 +58,7 @@ class VoteInfoView: UIView {
     }()
 
     lazy var nodePollsTitleLab: IconLabelView = {
-        let nodePollsTitleLab = IconLabelView(R.string.localizable.votePageVoteInfoNodePollsTitle.key.localized())
+        let nodePollsTitleLab = IconLabelView(R.string.localizable.votePageVoteInfoNodePollsTitle())
         nodePollsTitleLab.titleLab.textAlignment = .left
         nodePollsTitleLab.titleLab.font = Fonts.Font14
         nodePollsTitleLab.titleLab.textColor  = .white
@@ -92,7 +92,7 @@ class VoteInfoView: UIView {
         operationBtn.setBackgroundImage(R.image.background_button_blue()?.tintColor(UIColor(netHex: 0x3460CE)).resizable, for: .highlighted)
         operationBtn.setBackgroundImage(R.image.background_button_blue()?.tintColor(UIColor(netHex: 0xBCC0CA)).resizable, for: .disabled)
              operationBtn.titleLabel?.font = Fonts.Font14_b
-        operationBtn.setTitle(R.string.localizable.submitCancel.key.localized(), for: .normal)
+        operationBtn.setTitle(R.string.localizable.submitCancel(), for: .normal)
         operationBtn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         operationBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         operationBtn.layer.cornerRadius = 12

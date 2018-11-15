@@ -24,7 +24,7 @@ class AddressManageViewController: BaseTableViewController {
 
     let headerView = AddressManageHeaderView()
     let generateButton = UIButton().then {
-        $0.setTitle(R.string.localizable.addressManageAddressGenerateButtonTitle.key.localized(), for: .normal)
+        $0.setTitle(R.string.localizable.addressManageAddressGenerateButtonTitle(), for: .normal)
         $0.setImage(R.image.icon_button_add(), for: .normal)
         $0.setImage(R.image.icon_button_add(), for: .highlighted)
         $0.setTitleColor(UIColor(netHex: 0x007AFF), for: .normal)
@@ -41,7 +41,7 @@ class AddressManageViewController: BaseTableViewController {
     }
 
     fileprivate func setupView() {
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.addressManagePageTitle.key.localized())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.addressManagePageTitle())
         customHeaderView = headerView
 
         tableView.rowHeight = AddressManageAddressCell.cellHeight()
@@ -91,15 +91,15 @@ class AddressManageViewController: BaseTableViewController {
                 self.tableViewModel.generateAddress()
                 self.tableView.scrollToRow(at: IndexPath(row: self.tableView.numberOfRows(inSection: 0) - 1, section: 0), at: .bottom, animated: true)
             } else {
-                Toast.show(R.string.localizable.addressManageAddressGenerateButtonToast.key.localized())
+                Toast.show(R.string.localizable.addressManageAddressGenerateButtonToast())
             }
         }.disposed(by: rx.disposeBag)
 
         headerView.tipButton.rx.tap.bind { [weak self] in
             guard let `self` = self else { return }
-            Alert.show(into: self, title: R.string.localizable.hint.key.localized(),
-                       message: R.string.localizable.addressManageTipAlertMessage.key.localized(),
-                       actions: [(Alert.UIAlertControllerAletrActionTitle.default(title: R.string.localizable.addressManageTipAlertOk.key.localized()), nil)])
+            Alert.show(into: self, title: R.string.localizable.hint(),
+                       message: R.string.localizable.addressManageTipAlertMessage(),
+                       actions: [(Alert.UIAlertControllerAletrActionTitle.default(title: R.string.localizable.addressManageTipAlertOk()), nil)])
         }.disposed(by: rx.disposeBag)
     }
 }

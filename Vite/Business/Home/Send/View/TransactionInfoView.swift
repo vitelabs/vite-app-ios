@@ -13,7 +13,7 @@ import SnapKit
 final class TransactionInfoView: UIView {
 
     let titleLabel = UILabel().then {
-        $0.text = R.string.localizable.confirmTransactionAddressTitle.key.localized()
+        $0.text = R.string.localizable.confirmTransactionAddressTitle()
         $0.font = UIFont.systemFont(ofSize: 14)
         $0.textColor = UIColor.init(netHex: 0x3E4A59)
     }

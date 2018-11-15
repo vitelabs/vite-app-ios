@@ -13,7 +13,7 @@ import MBProgressHUD
 extension UIView {
 
     func displayLoading(
-        text: String = R.string.localizable.loading.key.localized(),
+        text: String = R.string.localizable.loading(),
         animated: Bool = true
         ) {
         let hud = MBProgressHUD.showAdded(to: self, animated: animated)
@@ -27,7 +27,7 @@ extension UIView {
     func displayRetry(retry: @escaping () -> Swift.Void) {
         let btn = UIButton()
         btn.backgroundColor = .clear
- btn.setTitle(R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized(), for: .normal)
+ btn.setTitle(R.string.localizable.sendPageConfirmPasswordAuthFailedRetry(), for: .normal)
         btn.setTitleColor(Colors.titleGray, for: .normal)
         self.addSubview(btn)
         btn.frame = CGRect(x: 0, y: 0, width: 100, height: 100)

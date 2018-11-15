@@ -43,7 +43,7 @@ class BackupMnemonicViewController: BaseViewController {
         tipTitleLab.adjustsFontSizeToFitWidth = true
         tipTitleLab.font = Fonts.descFont
         tipTitleLab.textColor  = Colors.titleGray
-        tipTitleLab.text =  R.string.localizable.mnemonicBackupPageTipTitle.key.localized()
+        tipTitleLab.text =  R.string.localizable.mnemonicBackupPageTipTitle()
         return tipTitleLab
     }()
 
@@ -54,7 +54,7 @@ class BackupMnemonicViewController: BaseViewController {
 
     lazy var afreshMnemonicBtn: UIButton = {
         let afreshMnemonicBtn = UIButton.init(style: .white)
-    afreshMnemonicBtn.setTitle(R.string.localizable.mnemonicBackupPageTipAnewBtnTitle.key.localized(), for: .normal)
+    afreshMnemonicBtn.setTitle(R.string.localizable.mnemonicBackupPageTipAnewBtnTitle(), for: .normal)
         afreshMnemonicBtn.rx.tap.bind {
                     self.viewModel.fetchNewMnemonicWordsAction?.execute(())
         }.disposed(by: rx.disposeBag)
@@ -63,7 +63,7 @@ class BackupMnemonicViewController: BaseViewController {
 
     lazy var nextMnemonicBtn: UIButton = {
         let nextMnemonicBtn = UIButton.init(style: .blue)
-        nextMnemonicBtn.setTitle(R.string.localizable.mnemonicBackupPageTipNextBtnTitle.key.localized(), for: .normal)
+        nextMnemonicBtn.setTitle(R.string.localizable.mnemonicBackupPageTipNextBtnTitle(), for: .normal)
         nextMnemonicBtn.addTarget(self, action: #selector(nextMnemonicBtnAction), for: .touchUpInside)
         return nextMnemonicBtn
     }()
@@ -80,8 +80,8 @@ extension BackupMnemonicViewController {
             .takeUntil(self.rx.deallocated)
             .subscribe(onNext: { [weak self] (_) in
                 guard let `self` = self else { return }
-                self.displayAlter(title: R.string.localizable.mnemonicBackupPageAlterTitle.key.localized(), message: R.string.localizable.mnemonicBackupPageAlterMessage.key.localized(), cancel: R.string.localizable.mnemonicBackupPageAlterCancel.key.localized(), done:
-                    R.string.localizable.mnemonicBackupPageAlterConfirm.key.localized(),
+                self.displayAlter(title: R.string.localizable.mnemonicBackupPageAlterTitle(), message: R.string.localizable.mnemonicBackupPageAlterMessage(), cancel: R.string.localizable.mnemonicBackupPageAlterCancel(), done:
+                    R.string.localizable.mnemonicBackupPageAlterConfirm(),
                                   doneHandler: {
                                     self.viewModel.fetchNewMnemonicWordsAction?.execute(())
                 })
@@ -90,7 +90,7 @@ extension BackupMnemonicViewController {
 
     private func _setupView() {
         self.view.backgroundColor = .white
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.mnemonicBackupPageTitle.key.localized())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.mnemonicBackupPageTitle())
 
         self._addViewConstraint()
     }

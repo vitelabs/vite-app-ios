@@ -75,7 +75,7 @@ class VoteInfoEmptyView: UIView {
         descLab.font = Fonts.Font20
         descLab.textColor  = .white
         descLab.alpha  = 0.7
-        descLab.text =  R.string.localizable.votePageInfoNodataTitle.key.localized()
+        descLab.text =  R.string.localizable.votePageInfoNodataTitle()
         return descLab
     }()
 

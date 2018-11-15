@@ -29,11 +29,11 @@ class RefreshHeader: MJRefreshHeader {
         didSet {
             switch state {
             case .idle:
-                stateLabel.text = R.string.localizable.transactionListPageHeaderRefreshIdle.key.localized()
+                stateLabel.text = R.string.localizable.transactionListPageHeaderRefreshIdle()
             case .pulling:
-                stateLabel.text = R.string.localizable.transactionListPageHeaderRefreshPulling.key.localized()
+                stateLabel.text = R.string.localizable.transactionListPageHeaderRefreshPulling()
             case .refreshing:
-                stateLabel.text = R.string.localizable.transactionListPageHeaderRefreshRefreshing.key.localized()
+                stateLabel.text = R.string.localizable.transactionListPageHeaderRefreshRefreshing()
             default:
                 break
             }

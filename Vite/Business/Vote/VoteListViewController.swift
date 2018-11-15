@@ -26,7 +26,7 @@ class VoteListViewController: BaseViewController {
 
     func setupUI() {
         let titleLabel = UILabel()
-        titleLabel.text = R.string.localizable.voteListTitle.key.localized()
+        titleLabel.text = R.string.localizable.voteListTitle()
         titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
         titleLabel.textColor = UIColor.init(netHex: 0x3e4a59)
         view.addSubview(titleLabel)
@@ -36,7 +36,7 @@ class VoteListViewController: BaseViewController {
         }
 
         view.addSubview(searchBar)
-        searchBar.placeholder = R.string.localizable.voteListSearch.key.localized()
+        searchBar.placeholder = R.string.localizable.voteListSearch()
         searchBar.snp.makeConstraints { (m) in
             m.left.equalToSuperview().offset(10)
             m.top.equalTo(titleLabel.snp.bottom).offset(14)
@@ -76,7 +76,7 @@ class VoteListViewController: BaseViewController {
             .filter { $0 }
             .bind { [unowned self]_ in
                 if let text = self.searchBar.textField.text, !text.isEmpty {
-                    Toast.show(R.string.localizable.voteListSearchEmpty.key.localized())
+                    Toast.show(R.string.localizable.voteListSearchEmpty())
                 }
             }
             .disposed(by: rx.disposeBag)
@@ -122,7 +122,7 @@ class VoteListViewController: BaseViewController {
 
         reactor.voteSuccess.asObserver()
             .bind { _ in
-                Toast.show(R.string.localizable.voteListSendSuccess.key.localized())
+                Toast.show(R.string.localizable.voteListSendSuccess())
             }
             .disposed(by: rx.disposeBag)
 
@@ -152,36 +152,36 @@ class VoteListViewController: BaseViewController {
             self.confirmVote(nodeName: nodeName)
         } else {
             Alert.show(into: self,
-                       title: R.string.localizable.vote.key.localized(),
-                       message: R.string.localizable.voteListAlertAlreadyVoted.key.localized(arguments: info?.nodeName ?? ""),
+                       title: R.string.localizable.vote(),
+                       message: R.string.localizable.voteListAlertAlreadyVoted(info?.nodeName ?? ""),
                        actions: [
-                        (.default(title:R.string.localizable.voteListConfirmRevote.key.localized()), { [unowned self] _ in
+                        (.default(title:R.string.localizable.voteListConfirmRevote()), { [unowned self] _ in
                             self.confirmVote(nodeName: nodeName)
                        }),
-                        (.default(title:  R.string.localizable.cancel.key.localized()), { [unowned self] _ in
+                        (.default(title:  R.string.localizable.cancel()), { [unowned self] _ in
                             self.dismiss(animated: false, completion: nil)
                        })])
         }
     }
 
     func confirmVote(nodeName: String) {
-        let confirmVC = ConfirmViewController.comfirmVote(title: R.string.localizable.vote.key.localized(),
+        let confirmVC = ConfirmViewController.comfirmVote(title: R.string.localizable.vote(),
                                                           nodeName: nodeName) { [unowned self] (result) in
                                                             switch result {
                                                             case .success:
                                                                 self.reactor.vote.value = nodeName
                                                             case .passwordAuthFailed:
                                                                 Alert.show(into: self,
-                                                                           title: R.string.localizable.confirmTransactionPageToastPasswordError.key.localized(),
+                                                                           title: R.string.localizable.confirmTransactionPageToastPasswordError(),
                                                                            message: nil,
-                                                                           actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned self] _ in
+                                                                           actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry()), { [unowned self] _ in
                                                                             self.confirmVote(nodeName: nodeName)
                                                                            }), (.cancel, nil)])
                                                             case .biometryAuthFailed:
                                                                 Alert.show(into: self,
-                                                                           title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle.key.localized(),
+                                                                           title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle(),
                                                                            message: nil,
-                                                                           actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack.key.localized()), nil)])
+                                                                           actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack()), nil)])
                                                             default:
                                                                 break
                                                             }
@@ -192,16 +192,16 @@ class VoteListViewController: BaseViewController {
     func handler(error: Error, nodeName: String) {
         if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
             Alert.show(into: self,
-                       title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
+                       title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
                        message: nil,
-                       actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
+                       actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
         } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
-            Alert.show(into: self, title: R.string.localizable.quotaAlertTitle.key.localized(), message: R.string.localizable.voteListAlertQuota.key.localized(), actions: [
-                (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle.key.localized()), { [weak self] _ in
+            Alert.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.voteListAlertQuota(), actions: [
+                (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle()), { [weak self] _ in
                     let vc = QuotaManageViewController()
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }),
-                (.default(title: R.string.localizable.quotaAlertPowButtonTitle.key.localized()), { [weak self] _ in
+                (.default(title: R.string.localizable.quotaAlertPowButtonTitle()), { [weak self] _ in
                     var cancelPow = false
                     let getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!) {
                         cancelPow = true
@@ -219,9 +219,9 @@ class VoteListViewController: BaseViewController {
                     alert.preferredAction = alert.actions[0]
             })
         } else if error.code == Provider.TransactionErrorCode.noTransactionBefore.rawValue {
-            Toast.show(R.string.localizable.voteListSearchNoTransactionBefore.key.localized())
+            Toast.show(R.string.localizable.voteListSearchNoTransactionBefore())
         } else {
-             Toast.show(R.string.localizable.voteListSendFailed.key.localized())
+             Toast.show(R.string.localizable.voteListSendFailed())
         }
     }
 
