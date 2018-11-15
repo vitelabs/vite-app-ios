@@ -623,7 +623,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 216 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 217 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1485,6 +1485,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageSubmitLoading = Rswift.StringResource(key: "import.page.submit.loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: unable to revoke vote, you have to run PoW or stake VITE for TPS quota to revoke vote
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteInfoAlertQuota = Rswift.StringResource(key: "vote.page.voteInfo.alert.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: unable to vote, you have to run PoW or stake VITE for TPS quota to vote
       /// 
       /// Locales: en, zh-Hans
@@ -2993,6 +2997,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func importPageSubmitLoading(_: Void = ()) -> String {
         return NSLocalizedString("import.page.submit.loading", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: unable to revoke vote, you have to run PoW or stake VITE for TPS quota to revoke vote
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteInfoAlertQuota(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteInfo.alert.quota", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: unable to vote, you have to run PoW or stake VITE for TPS quota to vote

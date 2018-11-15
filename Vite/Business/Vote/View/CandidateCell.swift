@@ -48,6 +48,7 @@ class CandidateCell: UITableViewCell {
         $0.font = UIFont.systemFont(ofSize: 12)
         $0.textColor = UIColor.init(netHex: 0x3E4A59)
         $0.backgroundColor = UIColor.init(netHex: 0xF3F5F9)
+        $0.lineBreakMode = .byTruncatingMiddle
     }
 
     let voteButton = UIButton().then {
@@ -105,8 +106,7 @@ class CandidateCell: UITableViewCell {
         addressLabel.snp.makeConstraints { (m) in
             m.left.equalTo(addressDescriptionLabel.snp.right).offset(16)
             m.centerY.equalTo(addressIcon)
-            m.width.equalTo(113)
-            m.right.lessThanOrEqualTo(voteButton.snp.left)
+            m.right.equalTo(voteButton.snp.left).offset(-16)
         }
 
         voteButton.snp.makeConstraints { (m) in

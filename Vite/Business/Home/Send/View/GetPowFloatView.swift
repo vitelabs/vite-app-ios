@@ -124,4 +124,5 @@ class GetPowFloatView: VisualEffectAnimationView {
         updateProgress(false)
         GCD.delay(0.25) { self.hide(animations: nil, completion: completion) }
     }
+
 }
