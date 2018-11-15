@@ -92,7 +92,7 @@ class VoteListViewController: BaseViewController {
             cell.disposeable?.dispose()
             cell.disposeable = cell.voteButton.rx.tap
                 .bind {
-                self.vote(nodeName: candidate.name)
+                    self.vote(nodeName: candidate.name)
                 }
             cell.disposeable?.disposed(by: cell.rx.disposeBag)
             return cell

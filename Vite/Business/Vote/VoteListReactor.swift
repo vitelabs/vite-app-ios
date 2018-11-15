@@ -89,14 +89,15 @@ final class VoteListReactor {
             })
 
         let fetchManually = self.fetchManually
-            .flatMap({ (_)  in
+            .flatMap({ [weak self] (_)  in
                 Observable<[Candidate]?>.create({ (observer) -> Disposable in
                     _ = Provider.instance.getCandidateList { result in
                         switch result {
                         case .success(let candidates):
                             observer.onNext(candidates)
                             observer.onCompleted()
-                        case .error:
+                        case .error(let error):
+                            self?.fetchCandidateError.value = error
                             observer.onCompleted()
                         }
                     }
