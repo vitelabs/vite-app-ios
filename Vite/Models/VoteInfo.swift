@@ -21,7 +21,7 @@ struct VoteInfo: Mappable {
             case .valid:
                 return R.string.localizable.votePageNodeStatusValidTitle.key.localized()
             case .invalid:
-                return R.string.localizable.votePageNodeStatusValidTitle.key.localized()
+                return R.string.localizable.votePageNodeStatusInvalidTitle.key.localized()
             }
         }
     }

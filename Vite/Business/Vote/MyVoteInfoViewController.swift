@@ -137,8 +137,12 @@ extension MyVoteInfoViewController {
     }
 
     private func notificationList(_ voteInfo: VoteInfo?, _ voteStatus: VoteStatus) {
-        NotificationCenter.default.post(name: .userVoteInfoChange, object: ["voteInfo": voteInfo ?? VoteInfo(), "voteStatus": voteStatus])
-        plog(level: .info, log: String.init(format: " voteStatus = %d voteInfo.nodeName  = %@", voteStatus.rawValue, voteInfo?.nodeName ?? ""), tag: .vote)
+        var status = voteStatus
+        if voteInfo?.nodeStatus == .invalid {
+            status = .voteInvalid
+        }
+        NotificationCenter.default.post(name: .userVoteInfoChange, object: ["voteInfo": voteInfo ?? VoteInfo(), "voteStatus": status])
+        plog(level: .info, log: String.init(format: " voteStatus = %d voteInfo.nodeName  = %@", status.rawValue, voteInfo?.nodeName ?? ""), tag: .vote)
     }
 
     func bind(reactor: MyVoteInfoViewReactor) {
@@ -153,6 +157,7 @@ extension MyVoteInfoViewController {
                     //handle cancel vote
                     if voteStatus == .cancelVoting {
                         self?.viewInfoView.changeInfoCancelVoting()
+                        HUD.hide()
                         Toast.show(R.string.localizable.votePageVoteInfoCancelVoteToastTitle.key.localized())
                         return
                     }
@@ -199,7 +204,8 @@ extension MyVoteInfoViewController {
                                                                          nodeName: self.viewInfoView.voteInfo?.nodeName ?? "") { [unowned self] (result) in
                                                                             switch result {
                                                                             case .success:
-                                                                                self.reactor?.action.onNext(.cancelVoteWithoutGetPow)
+                                                                                    HUD.show()
+                                                                                    self.reactor?.action.onNext(.cancelVoteWithoutGetPow)
                                                                             case .cancelled:
                                                                                 plog(level: .info, log: "Confirm vote cancel cancelled", tag: .vote)
                                                                             case .biometryAuthFailed:
@@ -221,6 +227,7 @@ extension MyVoteInfoViewController {
     }
 
     private func handlerCancelError(_ error: Error) {
+        HUD.hide()
         if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
             Alert.show(into: self,
                        title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
