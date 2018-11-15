@@ -21,7 +21,7 @@ extension Provider {
         return Promise { seal in
             var request = ViteServiceRequest(for: server, batch: BatchFactory()
                 .create(GetVoteInfoRequest(gid: voteCancel_gID, address: address)))
-            request.timeoutInterval = 1.0
+            request.timeoutInterval = 10.0
             Session.send(request) { result in
                 switch result {
                 case .success(let voteInfo):

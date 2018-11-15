@@ -54,7 +54,6 @@ struct WebHandler {
         open(url)
     }
 
-
     fileprivate static func appendLanguagePath(urlString: String) -> String {
         if LocalizationService.sharedInstance.currentLanguage == .chinese {
             return "\(urlString)/zh"
