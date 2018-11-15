@@ -63,6 +63,7 @@ class VoteListViewController: BaseViewController {
 
         self.view.displayLoading()
         result
+            .filterNil()
             .map { $0.isEmpty }
             .filter { !$0 }
             .take(1)
@@ -72,6 +73,7 @@ class VoteListViewController: BaseViewController {
             .disposed(by: rx.disposeBag)
 
         result
+            .filterNil()
             .map { $0.isEmpty }
             .filter { $0 }
             .bind { [unowned self]_ in
@@ -97,6 +99,7 @@ class VoteListViewController: BaseViewController {
         })
 
         result
+            .filterNil()
             .map { config -> [SectionModel<String, Candidate>] in
                 return [SectionModel(model: "item", items: config)]
             }
@@ -116,12 +119,14 @@ class VoteListViewController: BaseViewController {
         reactor.voteError.asObservable()
             .filter { $0.0 != nil && $0.1 != nil }
             .bind { [unowned self] in
+                self.view.hideLoading()
                 self.handler(error: $0.1!, nodeName: $0.0!)
             }
             .disposed(by: rx.disposeBag)
 
         reactor.voteSuccess.asObserver()
-            .bind { _ in
+            .bind { [unowned self] _ in
+                self.view.hideLoading()
                 Toast.show(R.string.localizable.voteListSendSuccess.key.localized())
             }
             .disposed(by: rx.disposeBag)
@@ -142,6 +147,25 @@ class VoteListViewController: BaseViewController {
                     }
                 })
             }).disposed(by: rx.disposeBag)
+
+        self.reactor.fetchCandidateError.asObservable()
+            .filterNil()
+            .takeUntil(result)
+            .bind { [weak self] e in
+                self?.dataStatus = .networkError(e, { [weak self] in
+                    self?.dataStatus = .normal
+                    self?.reactor.fetchManually.onNext(Void())
+                })
+                self?.view.hideLoading()
+            }.disposed(by: rx.disposeBag)
+
+        self.reactor.fetchCandidateError.asObservable()
+            .filter { $0 == nil }
+            .bind { [weak self] _ in
+                self?.view.hideLoading()
+                self?.dataStatus = .normal
+            }.disposed(by: rx.disposeBag)
+
     }
 
     func vote(nodeName: String) {
@@ -169,6 +193,7 @@ class VoteListViewController: BaseViewController {
                                                           nodeName: nodeName) { [unowned self] (result) in
                                                             switch result {
                                                             case .success:
+                                                                self.view.displayLoading()
                                                                 self.reactor.vote.value = nodeName
                                                             case .passwordAuthFailed:
                                                                 Alert.show(into: self,
@@ -237,4 +262,14 @@ class VoteListViewController: BaseViewController {
         appear = false
     }
 
+}
+
+extension VoteListViewController: ViewControllerDataStatusable {
+
+    func networkErrorView(error: Error, retry: @escaping () -> Void) -> UIView {
+        return UIView.defaultNetworkErrorView(error: error) { [weak self] in
+            self?.view.displayLoading()
+            retry()
+        }
+    }
 }
