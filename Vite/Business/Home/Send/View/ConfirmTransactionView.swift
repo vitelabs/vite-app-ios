@@ -15,14 +15,14 @@ class ConfirmTransactionView: UIView {
         didSet {
             var view: UIView!
             if type == .password {
-                titleLabel.text = R.string.localizable.confirmTransactionPageUsePasswordTitle.key.localized()
+                titleLabel.text = R.string.localizable.confirmTransactionPageUsePasswordTitle()
                 confirmButton.removeFromSuperview()
                 self.addSubview(passwordView)
                 enterPasswordButton.isHidden = true
                 _ = passwordView.becomeFirstResponder()
                 view = passwordView
             } else {
-                titleLabel.text = R.string.localizable.confirmTransactionPageTitle.key.localized()
+                titleLabel.text = R.string.localizable.confirmTransactionPageTitle()
                 passwordView.removeFromSuperview()
                 self.addSubview(confirmButton)
                 view = confirmButton
@@ -41,13 +41,13 @@ class ConfirmTransactionView: UIView {
     }
 
     let titleLabel = UILabel().then {
-        $0.text = R.string.localizable.confirmTransactionPageTitle.key.localized()
+        $0.text = R.string.localizable.confirmTransactionPageTitle()
         $0.font = UIFont.boldSystemFont(ofSize: 17)
     }
 
     let enterPasswordButton = UIButton().then {
         $0.setTitleColor(UIColor.init(netHex: 0x007AFF), for: .normal)
-        $0.setTitle(R.string.localizable.confirmTransactionPageUsePassword.key.localized(), for: .normal)
+        $0.setTitle(R.string.localizable.confirmTransactionPageUsePassword(), for: .normal)
         $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     }
 

@@ -45,13 +45,13 @@ class FetchWelfareViewController: BaseViewController {
 
     lazy var confirmBtn: UIButton = {
         let confirmBtn = UIButton.init(style: .blue)
-        confirmBtn.setTitle(R.string.localizable.submit.key.localized(), for: .normal)
+        confirmBtn.setTitle(R.string.localizable.submit(), for: .normal)
         confirmBtn.addTarget(self, action: #selector(confirmBtnAction), for: .touchUpInside)
         return confirmBtn
     }()
 
     lazy var addressTF: TitleTextView = {
-        let addressTF = TitleTextView(title: R.string.localizable.fetchWelfareInputEthereumAddressTitle.key.localized(), text: "")
+        let addressTF = TitleTextView(title: R.string.localizable.fetchWelfareInputEthereumAddressTitle(), text: "")
         addressTF.titleLabel.textColor = UIColor(netHex: 0x77808A)
         addressTF.titleLabel.font = Fonts.Font14_b
         addressTF.textView.font = Fonts.descFont
@@ -64,7 +64,7 @@ extension FetchWelfareViewController {
 
     private func _setupView() {
         self.view.backgroundColor = .white
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.fetchWelfarePageTitle.key.localized())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.fetchWelfarePageTitle())
 
         self._addViewConstraint()
     }
@@ -96,7 +96,7 @@ extension FetchWelfareViewController {
             $0.backgroundColor = .clear
             $0.font = Fonts.Font14_b
             $0.textColor = UIColor(netHex: 0x77808A)
-            $0.text = R.string.localizable.fetchWelfareParticipationTitle.key.localized()
+            $0.text = R.string.localizable.fetchWelfareParticipationTitle()
         }
         contentView.addSubview(wayTitleLab)
         wayTitleLab.snp.makeConstraints { (make) -> Void in
@@ -115,7 +115,7 @@ extension FetchWelfareViewController {
         let attributes = [NSAttributedStringKey.font: Fonts.Font14,
                           NSAttributedStringKey.foregroundColor: UIColor(netHex: 0x77808A),
                           NSAttributedStringKey.paragraphStyle: paragraph, ]
-        wayContentLab.attributedText = NSAttributedString(string: R.string.localizable.fetchWelfareParticipationWays.key.localized(), attributes: attributes)
+        wayContentLab.attributedText = NSAttributedString(string: R.string.localizable.fetchWelfareParticipationWays(), attributes: attributes)
 
         contentView.addSubview(wayContentLab)
         wayContentLab.snp.makeConstraints { (make) -> Void in
@@ -159,7 +159,7 @@ extension FetchWelfareViewController {
             viewControllers.append(sendViewController)
             self.navigationController?.setViewControllers(viewControllers, animated: true)
         } else {
-            self.displayConfirmAlter(title: R.string.localizable.fetchWelfareInputEthereumAddressErrorTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
+            self.displayConfirmAlter(title: R.string.localizable.fetchWelfareInputEthereumAddressErrorTitle(), done: R.string.localizable.confirm(), doneHandler: {
             })
         }
     }

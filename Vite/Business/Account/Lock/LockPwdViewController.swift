@@ -42,7 +42,7 @@ class LockPwdViewController: BaseViewController {
     }()
 
     lazy var passwordTF: TitlePasswordInputView = {
-        let passwordTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwTitle.key.localized())
+        let passwordTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwTitle())
         passwordTF.titleLabel.textColor = Colors.titleGray
         passwordTF.titleLabel.font = AppStyle.formHeader.font
         passwordTF.passwordInputView.delegate = self
@@ -51,7 +51,7 @@ class LockPwdViewController: BaseViewController {
 
     lazy var loginBtn: UIButton = {
         let loginBtn = UIButton.init(style: .blue)
-        loginBtn.setTitle(R.string.localizable.loginPageBtnLogin.key.localized(), for: .normal)
+        loginBtn.setTitle(R.string.localizable.loginPageBtnLogin(), for: .normal)
         loginBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         loginBtn.addTarget(self, action: #selector(loginBtnAction), for: .touchUpInside)
         return loginBtn
@@ -59,7 +59,7 @@ class LockPwdViewController: BaseViewController {
 
     lazy var changeUserBtn: UIButton = {
         let changeUserBtn = UIButton.init(style: .whiteWithoutShadow)
-        changeUserBtn.setTitle(R.string.localizable.lockPageChangeUserBtnTitle.key.localized(), for: .normal)
+        changeUserBtn.setTitle(R.string.localizable.lockPageChangeUserBtnTitle(), for: .normal)
         changeUserBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         changeUserBtn.addTarget(self, action: #selector(changeUserBtnAction), for: .touchUpInside)
         return changeUserBtn
@@ -67,7 +67,7 @@ class LockPwdViewController: BaseViewController {
 
     lazy var importUserBtn: UIButton = {
         let importUserBtn = UIButton.init(style: .whiteWithoutShadow)
-        importUserBtn.setTitle(R.string.localizable.importPageSubmitBtn.key.localized(), for: .normal)
+        importUserBtn.setTitle(R.string.localizable.importPageSubmitBtn(), for: .normal)
         importUserBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         importUserBtn.addTarget(self, action: #selector(importUserBtnAction), for: .touchUpInside)
 
@@ -151,7 +151,7 @@ extension LockPwdViewController {
 
     @objc func loginBtnAction() {
 
-        self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
+        self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle(), animated: true)
         let password = self.passwordTF.passwordInputView.textField.text ?? ""
         DispatchQueue.global().async {
             if let wallet = HDWalletManager.instance.wallet,
@@ -164,7 +164,7 @@ extension LockPwdViewController {
             } else {
                 DispatchQueue.main.async {
                     self.view.hideLoading()
-                    self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
+                    self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle(), done: R.string.localizable.confirm(), doneHandler: {
                     })
                 }
             }

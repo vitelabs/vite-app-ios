@@ -24,7 +24,7 @@ class CandidateCell: UITableViewCell {
     }
 
     let voteDescriptionLabel = UILabel().then {
-        $0.text = R.string.localizable.voteListCount.key.localized()
+        $0.text = R.string.localizable.voteListCount()
         $0.font = UIFont.systemFont(ofSize: 14)
         $0.textColor = UIColor.init(netHex: 0x3E4A59, alpha: 0.6)
     }
@@ -39,7 +39,7 @@ class CandidateCell: UITableViewCell {
     }
 
     let addressDescriptionLabel = UILabel().then {
-        $0.text = R.string.localizable.voteListAddress.key.localized()
+        $0.text = R.string.localizable.voteListAddress()
         $0.font = UIFont.systemFont(ofSize: 14)
         $0.textColor = UIColor.init(netHex: 0x3E4A59, alpha: 0.6)
     }
@@ -48,10 +48,11 @@ class CandidateCell: UITableViewCell {
         $0.font = UIFont.systemFont(ofSize: 12)
         $0.textColor = UIColor.init(netHex: 0x3E4A59)
         $0.backgroundColor = UIColor.init(netHex: 0xF3F5F9)
+        $0.lineBreakMode = .byTruncatingMiddle
     }
 
     let voteButton = UIButton().then {
-        $0.setTitle(R.string.localizable.vote.key.localized(), for: .normal)
+        $0.setTitle(R.string.localizable.vote(), for: .normal)
         $0.backgroundColor = UIColor.init(netHex: 0x007AFF)
         $0.layer.cornerRadius = 11
         $0.layer.masksToBounds = true
@@ -105,8 +106,7 @@ class CandidateCell: UITableViewCell {
         addressLabel.snp.makeConstraints { (m) in
             m.left.equalTo(addressDescriptionLabel.snp.right).offset(16)
             m.centerY.equalTo(addressIcon)
-            m.width.equalTo(113)
-            m.right.lessThanOrEqualTo(voteButton.snp.left)
+            m.right.equalTo(voteButton.snp.left).offset(-16)
         }
 
         voteButton.snp.makeConstraints { (m) in

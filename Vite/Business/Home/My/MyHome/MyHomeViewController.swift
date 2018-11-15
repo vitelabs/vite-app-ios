@@ -23,7 +23,7 @@ class MyHomeViewController: BaseTableViewController {
     }
 
     fileprivate func setupView() {
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.myPageTitle.key.localized())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.myPageTitle())
         let headerView = MyHomeListHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 116))
         headerView.delegate = self
         tableView.tableHeaderView = headerView

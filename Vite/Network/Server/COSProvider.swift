@@ -16,7 +16,11 @@ import ObjectMapper
 
 class COSProvider: MoyaProvider<COSAPI> {
     static let instance = COSProvider(manager: Manager(
-        configuration: URLSessionConfiguration.default,
+        configuration: {
+            var configuration = URLSessionConfiguration.default
+            configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
+            return configuration
+    }(),
         serverTrustPolicyManager: ServerTrustPolicyManager(policies: [:])
     ))
 }

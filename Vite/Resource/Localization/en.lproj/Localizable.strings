@@ -18,9 +18,9 @@
 "Submit" = "Submit";
 "Close" = "I understand";
 "Update.app" = "Update App";
-"NetWorkError" = "网络异常，请稍后重试";
+"NetWorkError" = "Something went wrong with network, please try again later";
 "Submit.success" = "Submit Successful";
-"Submit.cancel" = "撤销";
+"Submit.cancel" = "Cancel";
 
 /* Login */
 "create.account" = "Create Account";
@@ -30,7 +30,7 @@
 "lock.page.pwd.btn.title" = "Login via password";
 "lock.page.fingerprint.btn.title" = "Arouse verify again";
 "lock.page.fingerprint.alter.title" = "Verify fingerprint to activate Touch ID";
-"lock.page.changeUser.btn.title" = "切换账户";
+"lock.page.changeUser.btn.title" = "Switch account";
 
 /* create */
 "create.page.title" = "Create Account";
@@ -70,8 +70,8 @@
 "import.page.submit.invalid.mnemonic" = "Something wrong with your seed phrase, please try again!";
 "import.page.submit.loading" = "import...";
 "import.page.submit.success" = "import success";
-"import.page.alert.exist.title" = "您输入的助记词在当前设备的账户名为%@，确认是否使用新账户覆盖原有账户";
-"import.page.alert.exist.ok" = "确认";
+"import.page.alert.exist.title" = "The seed phrase you input has already had an account name '%@' on current device, are you sure you would like to overwrite existed account";
+"import.page.alert.exist.ok" = "Confirm";
 "import.page.alert.exist.cancel" = "Cancel";
 
 
@@ -176,7 +176,7 @@
 "confirm.transaction.page.toast.password.error" = "Wrong password!";
 "confirm.transaction.page.node.name" = "Node Name";
 "confirm.transaction.page.vote" = "Vote";
-"confirm.transaction.page.cancel.vote" = "Cancel Vote";
+"confirm.transaction.page.cancel.vote" = "Revoke Vote";
 
 
 
@@ -258,32 +258,33 @@
 "peldge.title" = "My Staking List";
 
 /* Vote */
-"vote.page.title" = "我的投票";
-"vote.page.info.nodata.title" = "暂无投票";
-"vote.page.voteStatus.voteSuccess" = "投票成功";
-"vote.page.voteStatus.voting" = "正在投票中";
-"vote.page.voteStatus.cancelVoting" = "正在撤销中";
-"vote.page.voteStatus.voteInvalid" = "投票作废";
-"vote.page.voteInfo.nodePolls.title" = "我的投票数";
-"vote.page.nodeStatus.valid.title" = "正在候选";
-"vote.page.nodeStatus.invalid.title" = "停止候选";
-"vote.page.voteInfo.cancel.vote.title" = "撤销投票";
-"vote.page.voteInfo.cancel.vote.toast.title" = "撤销投票请求发送成功";
+"vote.page.title" = "My Vote";
+"vote.page.info.nodata.title" = "No Vote";
+"vote.page.voteStatus.voteSuccess" = "Vote successful";
+"vote.page.voteStatus.voting" = "Voting";
+"vote.page.voteStatus.cancelVoting" = "Revoking";
+"vote.page.voteStatus.voteInvalid" = "Invalid Vote";
+"vote.page.voteInfo.nodePolls.title" = "My Polls";
+"vote.page.nodeStatus.valid.title" = "Available";
+"vote.page.nodeStatus.invalid.title" = "Unavailable";
+"vote.page.voteInfo.cancel.vote.title" = "Revoke Vote";
+"vote.page.voteInfo.cancel.vote.toast.title" = "Vote revoking request is successfully sent";
+"vote.page.voteInfo.alert.quota" = "unable to revoke vote, you have to run PoW or stake VITE for TPS quota to revoke vote";
 
 /* Vote List*/
-"Vote" = "投票";
-"vote.list.title" = "候选节点列表";
-"vote.list.search" = "搜索候选节点名称或出块地址";
-"vote.list.alert.already.voted" = "您已经投票给%@，请确认是否覆盖当前投票";
-"vote.list.confirm.revote" = "确认覆盖";
-"vote.list.confirm.button.title" = "确认";
-"vote.list.count" = "上轮得票数";
-"vote.list.address" = "出块地址";
-"vote.list.send.success" = "投票请求发送成功";
-"vote.list.send.failed" = "投票失败，请重新投票";
-"vote.list.alert.quota" = "无法投票，您需运行PoW 或抵押VITE 获取配额才可以投票";
-"vote.list.search.empty" = "无结果，换个输入试试";
-"vote.list.search.no.transaction.before" = "您的地址未发生过交易，暂不能投票";
+"Vote" = "Vote";
+"vote.list.title" = "Candidate Nodes";
+"vote.list.search" = "Search for name or address of candidate nodes";
+"vote.list.alert.already.voted" = "You have voted for %@, please make sure this action will overwrite current voting result";
+"vote.list.confirm.revote" = "Ready to overwrite";
+"vote.list.confirm.button.title" = "Confirm";
+"vote.list.count" = "Last round polls";
+"vote.list.address" = "Address";
+"vote.list.send.success" = "Successfully sent vote request";
+"vote.list.send.failed" = "Vote failed, please vote again";
+"vote.list.alert.quota" = "unable to vote, you have to run PoW or stake VITE for TPS quota to vote";
+"vote.list.search.empty" = "No result, please try another input";
+"vote.list.search.no.transaction.before" = "You cannot vote for now as there is no transaction record in your address";
 
 
 

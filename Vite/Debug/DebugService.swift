@@ -15,6 +15,7 @@ class DebugService: Mappable {
     fileprivate static let saveKey = "DebugService"
 
     let rpcDefaultTestEnvironmentUrl = URL(string: "http://45.40.197.46:48132")!
+    let browserDefaultTestEnvironmentUrl = URL(string: "http://132.232.134.168:8080")!
 
     enum AppEnvironment: Int {
         case test = 0
@@ -77,14 +78,18 @@ class DebugService: Mappable {
                 configEnvironment = .test
                 rpcUseOnlineUrl = false
                 rpcCustomUrl = ""
+                browserUseOnlineUrl = false
+                browserCustomUrl = ""
             case .stage:
                 useBigDifficulty = true
                 configEnvironment = .stage
                 rpcUseOnlineUrl = true
+                browserUseOnlineUrl = true
             case .online:
                 useBigDifficulty = true
                 configEnvironment = .online
                 rpcUseOnlineUrl = true
+                browserUseOnlineUrl = true
             case .custom:
                 break
             }
@@ -93,11 +98,12 @@ class DebugService: Mappable {
     }
 
     private func updateAppEnvironment() {
-        if useBigDifficulty == true && configEnvironment == ConfigEnvironment.test && rpcUseOnlineUrl == false && rpcCustomUrl == "" {
+        if useBigDifficulty == true && configEnvironment == ConfigEnvironment.test &&
+            rpcUseOnlineUrl == false && rpcCustomUrl == "" && browserUseOnlineUrl == false && browserCustomUrl == "" {
             appEnvironment = .test
-        } else if useBigDifficulty == true && configEnvironment == ConfigEnvironment.stage && rpcUseOnlineUrl == true {
+        } else if useBigDifficulty == true && configEnvironment == ConfigEnvironment.stage && rpcUseOnlineUrl == true && browserUseOnlineUrl == true {
             appEnvironment = .stage
-        } else if useBigDifficulty == true && configEnvironment == ConfigEnvironment.online && rpcUseOnlineUrl == true {
+        } else if useBigDifficulty == true && configEnvironment == ConfigEnvironment.online && rpcUseOnlineUrl == true && browserUseOnlineUrl == true {
             appEnvironment = .online
         } else {
             appEnvironment = .custom
@@ -140,6 +146,22 @@ class DebugService: Mappable {
         }
     }
 
+    var browserUseOnlineUrl = false {
+        didSet {
+            guard browserUseOnlineUrl != oldValue else { return }
+            updateAppEnvironment()
+            pri_save()
+        }
+    }
+
+    var browserCustomUrl = "" {
+        didSet {
+            guard browserCustomUrl != oldValue else { return }
+            updateAppEnvironment()
+            pri_save()
+        }
+    }
+
     var showStatisticsToast = false {
         didSet {
             guard showStatisticsToast != oldValue else { return }
@@ -161,6 +183,8 @@ class DebugService: Mappable {
         useBigDifficulty <- map["useBigDifficulty"]
         rpcUseOnlineUrl <- map["rpcUseOnlineUrl"]
         rpcCustomUrl <- map["rpcCustomUrl"]
+        browserUseOnlineUrl <- map["browserUseOnlineUrl"]
+        browserCustomUrl <- map["browserCustomUrl"]
         configEnvironment <- map["configEnvironment"]
         showStatisticsToast <- map["showStatisticsToast"]
         reportEventInDebug <- map["reportEventInDebug"]
@@ -175,6 +199,8 @@ class DebugService: Mappable {
             self.useBigDifficulty = d.useBigDifficulty
             self.rpcUseOnlineUrl = d.rpcUseOnlineUrl
             self.rpcCustomUrl = d.rpcCustomUrl
+            self.browserUseOnlineUrl = d.browserUseOnlineUrl
+            self.browserCustomUrl = d.browserCustomUrl
             self.configEnvironment = d.configEnvironment
             self.showStatisticsToast = d.showStatisticsToast
             self.reportEventInDebug = d.reportEventInDebug

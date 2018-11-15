@@ -49,18 +49,17 @@ class VoteInfoBgView: UIView {
         iconImg.snp.makeConstraints { (make) -> Void in
             make.bottom.right.equalTo(self)
         }
-
-        self.addSubview(dotImg)
-        dotImg.snp.makeConstraints { (make) -> Void in
-            make.right.equalTo(self).offset(5)
-            make.top.equalTo(self).offset(41)
-        }
-
         self.addSubview(lineImg)
         lineImg.snp.makeConstraints { (make) -> Void in
             make.left.right.equalTo(self)
             make.top.equalTo(self).offset(46)
             make.height.equalTo(1)
+        }
+
+        self.addSubview(dotImg)
+        dotImg.snp.makeConstraints { (make) -> Void in
+            make.right.equalTo(self).offset(5)
+            make.top.equalTo(self).offset(41)
         }
     }
 
@@ -76,7 +75,7 @@ class VoteInfoEmptyView: UIView {
         descLab.font = Fonts.Font20
         descLab.textColor  = .white
         descLab.alpha  = 0.7
-        descLab.text =  R.string.localizable.votePageInfoNodataTitle.key.localized()
+        descLab.text =  R.string.localizable.votePageInfoNodataTitle()
         return descLab
     }()
 

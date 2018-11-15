@@ -11,7 +11,7 @@ import UIKit
 class AddressManageHeaderView: UIView {
 
     let titleLabel = UILabel().then {
-        $0.text = R.string.localizable.addressManageDefaultAddressCellTitle.key.localized()
+        $0.text = R.string.localizable.addressManageDefaultAddressCellTitle()
         $0.font = UIFont.systemFont(ofSize: 14)
         $0.textColor = UIColor(netHex: 0x3E4A59)
     }
@@ -23,7 +23,7 @@ class AddressManageHeaderView: UIView {
     }
 
     let addressListTitleLabel = UILabel().then {
-        $0.text = R.string.localizable.addressManageAddressHeaderTitle.key.localized()
+        $0.text = R.string.localizable.addressManageAddressHeaderTitle()
         $0.font = UIFont.systemFont(ofSize: 14)
         $0.textColor = UIColor(netHex: 0x3E4A59)
     }

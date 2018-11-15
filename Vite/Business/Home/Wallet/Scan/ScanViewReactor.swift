@@ -73,7 +73,7 @@ final class ScanViewReactor: Reactor {
 
     func processImage(_ image: UIImage?) -> (resultString: String?, toastString: String?) {
         var resultString: String?
-        var toastString: String? = R.string.localizable.scanPageQccodeNotFound.key.localized()
+        var toastString: String? = R.string.localizable.scanPageQccodeNotFound()
 
         guard let image = image, let ciImage = CIImage.init(image: image) else {
             return (resultString, toastString)

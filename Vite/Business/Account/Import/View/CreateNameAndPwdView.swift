@@ -10,7 +10,7 @@ import UIKit
 
 class CreateNameAndPwdView: UIView {
     lazy var walletNameTF: TitleTextFieldView = {
-        let walletNameTF = TitleTextFieldView(title: R.string.localizable.createPageTfTitle.key.localized(), placeholder: "", text: "")
+        let walletNameTF = TitleTextFieldView(title: R.string.localizable.createPageTfTitle(), placeholder: "", text: "")
         walletNameTF.titleLabel.textColor = Colors.titleGray
         walletNameTF.textField.font = AppStyle.inputDescWord.font
         walletNameTF.textField.textColor = Colors.descGray
@@ -19,7 +19,7 @@ class CreateNameAndPwdView: UIView {
     }()
 
     lazy var passwordTF: TitlePasswordInputView = {
-        let passwordTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwTitle.key.localized())
+        let passwordTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwTitle())
         passwordTF.passwordInputView.delegate = self
         passwordTF.titleLabel.textColor = Colors.titleGray
         passwordTF.titleLabel.font = AppStyle.formHeader.font
@@ -27,7 +27,7 @@ class CreateNameAndPwdView: UIView {
     }()
 
     lazy var passwordRepeateTF: TitlePasswordInputView = {
-        let passwordRepeateTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwRepeateTitle.key.localized())
+        let passwordRepeateTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwRepeateTitle())
         passwordRepeateTF.passwordInputView.delegate = self
         passwordRepeateTF.titleLabel.textColor = Colors.titleGray
         passwordRepeateTF.titleLabel.font = AppStyle.formHeader.font

@@ -40,13 +40,13 @@ class AffirmInputMnemonicViewController: BaseViewController, MnemonicCollectionV
         tipTitleLab.textAlignment = .left
         tipTitleLab.font =  AppStyle.descWord.font
         tipTitleLab.textColor  = AppStyle.descWord.textColor
-        tipTitleLab.text =  R.string.localizable.mnemonicAffirmPageTipTitle.key.localized()
+        tipTitleLab.text =  R.string.localizable.mnemonicAffirmPageTipTitle()
         return tipTitleLab
     }()
 
     lazy var submitBtn: UIButton = {
         let submitBtn = UIButton.init(style: .blue)
-        submitBtn.setTitle(R.string.localizable.finish.key.localized(), for: .normal)
+        submitBtn.setTitle(R.string.localizable.finish(), for: .normal)
         submitBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         submitBtn.addTarget(self, action: #selector(submitBtnAction), for: .touchUpInside)
         return submitBtn
@@ -87,7 +87,7 @@ extension AffirmInputMnemonicViewController {
         let backItem = UIBarButtonItem(image: R.image.icon_nav_back_black(), style: .plain, target: self, action: #selector(backItemAction))
         navigationItem.leftBarButtonItem = backItem
 
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.mnemonicAffirmPageTitle.key.localized())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.mnemonicAffirmPageTitle())
         self._addViewConstraint()
     }
 
@@ -132,11 +132,11 @@ extension AffirmInputMnemonicViewController {
     @objc func submitBtnAction() {
         let chooseStr = self.viewModel.hasChooseMnemonicWordsList.value.joined(separator: " ")
         if chooseStr != CreateWalletService.sharedInstance.mnemonic {
-            self.displayConfirmAlter(title: R.string.localizable.mnemonicAffirmAlterCheckTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
+            self.displayConfirmAlter(title: R.string.localizable.mnemonicAffirmAlterCheckTitle(), done: R.string.localizable.confirm(), doneHandler: {
 
             })
         } else {
-            self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading.key.localized(), animated: true)
+            self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading(), animated: true)
             DispatchQueue.global().async {
                 let uuid = UUID().uuidString
                 let encryptKey = CreateWalletService.sharedInstance.password.toEncryptKey(salt: uuid)
@@ -151,8 +151,8 @@ extension AffirmInputMnemonicViewController {
     }
 
     @objc func backItemAction() {
-        self.displayAlter(title: R.string.localizable.mnemonicAffirmAlterTitle.key.localized(), message: "", cancel: R.string.localizable.no.key.localized(), done:
-            R.string.localizable.yes.key.localized(),
+        self.displayAlter(title: R.string.localizable.mnemonicAffirmAlterTitle(), message: "", cancel: R.string.localizable.no(), done:
+            R.string.localizable.yes(),
                           doneHandler: {
                 self.navigationController?.popViewController(animated: true)
         })

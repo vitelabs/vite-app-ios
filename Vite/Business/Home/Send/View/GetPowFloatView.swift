@@ -23,7 +23,7 @@ class GetPowFloatView: VisualEffectAnimationView {
     fileprivate let titleLabel = UILabel().then {
         $0.textColor = UIColor(netHex: 0x007AFF)
         $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        $0.text = R.string.localizable.quotaFloatViewTitle.key.localized()
+        $0.text = R.string.localizable.quotaFloatViewTitle()
     }
 
     fileprivate let progressView = DACircularProgressView().then {
@@ -40,7 +40,7 @@ class GetPowFloatView: VisualEffectAnimationView {
     }
 
     let cancelButton = UIButton().then {
-        $0.setTitle(R.string.localizable.cancel.key.localized(), for: .normal)
+        $0.setTitle(R.string.localizable.cancel(), for: .normal)
         $0.setTitleColor(UIColor(netHex: 0x007AFF), for: .normal)
         $0.setTitleColor(UIColor(netHex: 0x007AFF).highlighted, for: .highlighted)
         $0.layer.cornerRadius = 4
@@ -124,4 +124,5 @@ class GetPowFloatView: VisualEffectAnimationView {
         updateProgress(false)
         GCD.delay(0.25) { self.hide(animations: nil, completion: completion) }
     }
+
 }

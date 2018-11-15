@@ -33,7 +33,7 @@ class FetchWelfareCardView: UIView {
             $0.textAlignment = .center
             $0.font = Fonts.Font14_b
             $0.textColor = .white
-            $0.text = R.string.localizable.fetchWelfareContentTitle.key.localized()
+            $0.text = R.string.localizable.fetchWelfareContentTitle()
         }
         self.addSubview(titleLab)
 
@@ -50,7 +50,7 @@ class FetchWelfareCardView: UIView {
         let attributes = [NSAttributedStringKey.font: Fonts.Font14,
                                   NSAttributedStringKey.foregroundColor: UIColor.white,
                           NSAttributedStringKey.paragraphStyle: paragraph, ]
-        descLab.attributedText = NSAttributedString(string: R.string.localizable.fetchWelfareContentDesc.key.localized(), attributes: attributes)
+        descLab.attributedText = NSAttributedString(string: R.string.localizable.fetchWelfareContentDesc(), attributes: attributes)
 
         bgImgView.snp.makeConstraints { (make) in
             make.edges.equalTo(self)

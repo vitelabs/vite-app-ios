@@ -17,17 +17,17 @@ enum NetworkResult<T> {
             switch error {
             case .connectionError(let e):
                 var userInfo = e.userInfo
-                userInfo[NSLocalizedDescriptionKey] = "\(R.string.localizable.netWorkError.key.localized())(C\(e.code))"
+                userInfo[NSLocalizedDescriptionKey] = "\(R.string.localizable.netWorkError())(C\(e.code))"
                 let error = NSError.init(domain: e.domain, code: e.code, userInfo: userInfo)
                 return NetworkResult.error(error)
             case .requestError(let e):
                 var userInfo = e.userInfo
-                userInfo[NSLocalizedDescriptionKey] = "\(R.string.localizable.netWorkError.key.localized())(S\(e.code))"
+                userInfo[NSLocalizedDescriptionKey] = "\(R.string.localizable.netWorkError())(S\(e.code))"
                 let error = NSError.init(domain: e.domain, code: e.code, userInfo: userInfo)
                 return NetworkResult.error(error)
             case .responseError(let e):
                 var userInfo = e.userInfo
-                userInfo[NSLocalizedDescriptionKey] = "\(R.string.localizable.netWorkError.key.localized())(R\(e.code))"
+                userInfo[NSLocalizedDescriptionKey] = "\(R.string.localizable.netWorkError())(R\(e.code))"
                 let error = NSError.init(domain: e.domain, code: e.code, userInfo: userInfo)
                 return NetworkResult.error(error)
             }
