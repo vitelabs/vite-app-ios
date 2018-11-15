@@ -229,7 +229,7 @@ extension MyVoteInfoViewController {
                        message: nil,
                        actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
         } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
-            Alert.show(into: self, title: R.string.localizable.quotaAlertTitle.key.localized(), message: R.string.localizable.voteListAlertQuota.key.localized(), actions: [
+            Alert.show(into: self, title: R.string.localizable.quotaAlertTitle.key.localized(), message: R.string.localizable.votePageVoteInfoAlertQuota.key.localized(), actions: [
                 (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle.key.localized()), { [weak self] _ in
                     let vc = QuotaManageViewController()
                     self?.navigationController?.pushViewController(vc, animated: true)

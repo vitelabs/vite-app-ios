@@ -267,6 +267,7 @@
 "vote.page.nodeStatus.invalid.title" = "停止候选";
 "vote.page.voteInfo.cancel.vote.title" = "撤销投票";
 "vote.page.voteInfo.cancel.vote.toast.title" = "撤销投票请求发送成功";
+"vote.page.voteInfo.alert.quota" = "无法撤销投票，您需运行PoW 或抵押VITE 获取配额才可以撤销投票";
 
 /* Vote List*/
 "Vote" = "投票";
@@ -275,7 +276,7 @@
 "vote.list.alert.already.voted" = "您已经投票给%@，请确认是否覆盖当前投票";
 "vote.list.confirm.revote" = "确认覆盖";
 "vote.list.confirm.button.title" = "确认";
-"vote.list.count" = "上轮得票数";
+"vote.list.count" = "得票数";
 "vote.list.address" = "出块地址";
 "vote.list.send.success" = "投票请求发送成功";
 "vote.list.send.failed" = "投票失败，请重新投票";

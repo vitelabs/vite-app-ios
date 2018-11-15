@@ -70,6 +70,9 @@ private let __log: XCGLogger = {
 
     #if DEBUG
     fileDestination.outputLevel = .debug
+    #elseif TEST
+    fileDestination.outputLevel = .debug
+    fileDestination.logQueue = XCGLogger.logQueue
     #else
     fileDestination.outputLevel = .info
     fileDestination.logQueue = XCGLogger.logQueue

@@ -72,6 +72,18 @@ extension Provider {
 
 extension Provider {
 
+    func getTestToken(address: Address, completion: @escaping (NetworkResult<Void>) -> Void) {
+        let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetTestTokenRequest(address: address.description)))
+        Session.send(request) { result in
+            switch result {
+            case .success:
+                completion(NetworkResult.success(()))
+            case .failure(let error):
+                completion(NetworkResult.wrapError(error))
+            }
+        }
+    }
+
     func getBalanceInfos(address: Address, completion: @escaping (NetworkResult<[BalanceInfo]>) -> Void) {
         getBalanceInfos(address: address)
             .done({

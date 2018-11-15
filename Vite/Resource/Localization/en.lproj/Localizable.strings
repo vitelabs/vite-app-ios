@@ -269,6 +269,7 @@
 "vote.page.nodeStatus.invalid.title" = "Unavailable";
 "vote.page.voteInfo.cancel.vote.title" = "Revoke Vote";
 "vote.page.voteInfo.cancel.vote.toast.title" = "Vote revoking request is successfully sent";
+"vote.page.voteInfo.alert.quota" = "unable to revoke vote, you have to run PoW or stake VITE for TPS quota to revoke vote";
 
 /* Vote List*/
 "Vote" = "Vote";
@@ -277,7 +278,7 @@
 "vote.list.alert.already.voted" = "You have voted for %@, please make sure this action will overwrite current voting result";
 "vote.list.confirm.revote" = "Ready to overwrite";
 "vote.list.confirm.button.title" = "Confirm";
-"vote.list.count" = "Last round polls";
+"vote.list.count" = "Polls";
 "vote.list.address" = "Address";
 "vote.list.send.success" = "Successfully sent vote request";
 "vote.list.send.failed" = "Vote failed, please vote again";

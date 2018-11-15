@@ -63,6 +63,7 @@ class VoteListViewController: BaseViewController {
 
         self.view.displayLoading()
         result
+            .filterNil()
             .map { $0.isEmpty }
             .filter { !$0 }
             .take(1)
@@ -72,6 +73,7 @@ class VoteListViewController: BaseViewController {
             .disposed(by: rx.disposeBag)
 
         result
+            .filterNil()
             .map { $0.isEmpty }
             .filter { $0 }
             .bind { [unowned self]_ in
@@ -85,18 +87,19 @@ class VoteListViewController: BaseViewController {
         let dataSource = DataSource(configureCell: { (_, tableView, indexPath, candidate) -> UITableViewCell in
             let cell: CandidateCell = tableView.dequeueReusableCell(for: indexPath)
             cell.nodeNameLabel.text = candidate.name
-            cell.voteCountLabel.text = candidate.voteNum
+            cell.voteCountLabel.text = candidate.voteNum.amountShort(decimals: TokenCacheService.instance.viteToken.decimals)
             cell.addressLabel.text = " " + candidate.nodeAddr.description
             cell.disposeable?.dispose()
             cell.disposeable = cell.voteButton.rx.tap
                 .bind {
-                self.vote(nodeName: candidate.name)
+                    self.vote(nodeName: candidate.name)
                 }
             cell.disposeable?.disposed(by: cell.rx.disposeBag)
             return cell
         })
 
         result
+            .filterNil()
             .map { config -> [SectionModel<String, Candidate>] in
                 return [SectionModel(model: "item", items: config)]
             }
@@ -116,12 +119,14 @@ class VoteListViewController: BaseViewController {
         reactor.voteError.asObservable()
             .filter { $0.0 != nil && $0.1 != nil }
             .bind { [unowned self] in
+                self.view.hideLoading()
                 self.handler(error: $0.1!, nodeName: $0.0!)
             }
             .disposed(by: rx.disposeBag)
 
         reactor.voteSuccess.asObserver()
-            .bind { _ in
+            .bind { [unowned self] _ in
+                self.view.hideLoading()
                 Toast.show(R.string.localizable.voteListSendSuccess.key.localized())
             }
             .disposed(by: rx.disposeBag)
@@ -131,17 +136,36 @@ class VoteListViewController: BaseViewController {
             NotificationCenter.default.rx.notification(.UIKeyboardWillShow)
             ])
             .filter { [unowned self] _  in self.appear }
-            .subscribe(onNext: {[weak self] (notification) in
+            .subscribe(onNext: {[unowned self] (notification) in
                 let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25
                 let height =  min((notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height, 128+55)
                 UIView.animate(withDuration: duration, animations: {
-                    if notification.name == .UIKeyboardWillShow {
-                        self?.parent?.view.transform = CGAffineTransform(translationX: 0, y: -height)
-                    } else {
-                        self?.parent?.view.transform = .identity
+                    if notification.name == .UIKeyboardWillShow && self.searchBar.textField.isFirstResponder {
+                        self.parent?.view.transform = CGAffineTransform(translationX: 0, y: -height)
+                    } else if notification.name == .UIKeyboardWillHide {
+                        self.parent?.view.transform = .identity
                     }
                 })
             }).disposed(by: rx.disposeBag)
+
+        self.reactor.fetchCandidateError.asObservable()
+            .filterNil()
+            .takeUntil(result)
+            .bind { [weak self] e in
+                self?.dataStatus = .networkError(e, { [weak self] in
+                    self?.dataStatus = .normal
+                    self?.reactor.fetchManually.onNext(Void())
+                })
+                self?.view.hideLoading()
+            }.disposed(by: rx.disposeBag)
+
+        self.reactor.fetchCandidateError.asObservable()
+            .filter { $0 == nil }
+            .bind { [weak self] _ in
+                self?.view.hideLoading()
+                self?.dataStatus = .normal
+            }.disposed(by: rx.disposeBag)
+
     }
 
     func vote(nodeName: String) {
@@ -169,7 +193,20 @@ class VoteListViewController: BaseViewController {
                                                           nodeName: nodeName) { [unowned self] (result) in
                                                             switch result {
                                                             case .success:
+                                                                self.view.displayLoading()
                                                                 self.reactor.vote.value = nodeName
+                                                            case .passwordAuthFailed:
+                                                                Alert.show(into: self,
+                                                                           title: R.string.localizable.confirmTransactionPageToastPasswordError.key.localized(),
+                                                                           message: nil,
+                                                                           actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned self] _ in
+                                                                            self.confirmVote(nodeName: nodeName)
+                                                                           }), (.cancel, nil)])
+                                                            case .biometryAuthFailed:
+                                                                Alert.show(into: self,
+                                                                           title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle.key.localized(),
+                                                                           message: nil,
+                                                                           actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack.key.localized()), nil)])
                                                             default:
                                                                 break
                                                             }
@@ -190,10 +227,17 @@ class VoteListViewController: BaseViewController {
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }),
                 (.default(title: R.string.localizable.quotaAlertPowButtonTitle.key.localized()), { [weak self] _ in
-                    self?.view.displayLoading()
-                    self?.reactor.voteWithPow(nodeName: nodeName, completion: { (_) in
-                        self?.view.hideLoading()
+                    var cancelPow = false
+                    let getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!) {
+                        cancelPow = true
+                    }
+                    getPowFloatView.show()
+                    self?.reactor.voteWithPow(nodeName: nodeName, tryToCancel: { () -> Bool in
+                        return cancelPow
+                    }, completion: { (_) in
+                        getPowFloatView.hide()
                     })
+
                 }),
                 (.cancel, nil),
                 ], config: { alert in
@@ -218,4 +262,14 @@ class VoteListViewController: BaseViewController {
         appear = false
     }
 
+}
+
+extension VoteListViewController: ViewControllerDataStatusable {
+
+    func networkErrorView(error: Error, retry: @escaping () -> Void) -> UIView {
+        return UIView.defaultNetworkErrorView(error: error) { [weak self] in
+            self?.view.displayLoading()
+            retry()
+        }
+    }
 }

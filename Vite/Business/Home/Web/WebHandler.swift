@@ -27,8 +27,7 @@ struct WebHandler {
 
     static func open(_ url: URL) {
 
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { fatalError() }
-        guard let rootVC = appDelegate.window?.rootViewController else { fatalError() }
+        guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
         var top = rootVC
         while let presentedViewController = top.presentedViewController {
             top = presentedViewController

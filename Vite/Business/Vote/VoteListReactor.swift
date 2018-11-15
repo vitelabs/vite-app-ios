@@ -15,7 +15,9 @@ final class VoteListReactor {
 
     let search = Variable<String?>("")
     let vote = Variable<String>("")
+    let fetchManually = PublishSubject<Void>()
 
+    var fetchCandidateError = Variable<Error?>(nil)
     var voteError = Variable<(String?, Error?)>((nil, nil))
     var voteSuccess = PublishSubject<Void>()
     var lastVoteInfo = Variable<(VoteStatus, VoteInfo?)>((.voteInvalid, nil))
@@ -28,15 +30,16 @@ final class VoteListReactor {
         }.disposed(by: bag)
     }
 
-    func result() -> Observable<[Candidate]> {
+    func result() -> Observable<[Candidate]?> {
         let polling = Observable.concat([
-                Observable<[Candidate]>.create({ (observer) -> Disposable in
-                    _ = Provider.instance.getCandidateList { result in
+                Observable<[Candidate]?>.create({ (observer) -> Disposable in
+                    _ = Provider.instance.getCandidateList { [weak self] result in
                         switch result {
                         case .success(let candidates):
                             observer.onNext(candidates)
                             observer.onCompleted()
-                        case .error:
+                        case .error(let error):
+                            self?.fetchCandidateError.value = error
                             observer.onCompleted()
                         }
                     }
@@ -44,14 +47,15 @@ final class VoteListReactor {
                 }),
 
                 Observable<Int>.interval(30, scheduler: MainScheduler.instance)
-                .flatMap { _ in
-                    Observable<[Candidate]>.create({ (observer) -> Disposable in
+                .flatMap { [weak self] _ in
+                    Observable<[Candidate]?>.create({ (observer) -> Disposable in
                         _ = Provider.instance.getCandidateList { result in
                             switch result {
                             case .success(let candidates):
+                                self?.fetchCandidateError.value = nil
                                 observer.onNext(candidates)
-                            case .error:
-                                break
+                            case .error(let error):
+                                self?.fetchCandidateError.value = error
                             }
                         }
                         return Disposables.create()
@@ -66,9 +70,11 @@ final class VoteListReactor {
             }
             .distinctUntilChanged({ $0.0 == $1.0 && $0.1?.nodeName == $1.1?.nodeName })
 
-        let fetch = statusChanged
+        statusChanged.bind { self.lastVoteInfo.value = $0 }.disposed(by: bag)
+
+        let fetchWhenStatusChange = statusChanged
             .flatMapLatest({ (_, _)  in
-                Observable<[Candidate]>.create({ (observer) -> Disposable in
+                Observable<[Candidate]?>.create({ (observer) -> Disposable in
                     _ = Provider.instance.getCandidateList { result in
                         switch result {
                         case .success(let candidates):
@@ -82,30 +88,44 @@ final class VoteListReactor {
                 })
             })
 
-        statusChanged.bind {
-            self.lastVoteInfo.value = ($0.0, $0.1)
-        }
-        .disposed(by: bag)
+        let fetchManually = self.fetchManually
+            .flatMap({ [weak self] (_)  in
+                Observable<[Candidate]?>.create({ (observer) -> Disposable in
+                    _ = Provider.instance.getCandidateList { result in
+                        switch result {
+                        case .success(let candidates):
+                            observer.onNext(candidates)
+                            observer.onCompleted()
+                        case .error(let error):
+                            self?.fetchCandidateError.value = error
+                            observer.onCompleted()
+                        }
+                    }
+                    return Disposables.create()
+                })
+            })
+
+        let fetch = Observable.merge([fetchWhenStatusChange, fetchManually])
 
         return Observable.combineLatest(Observable.merge([polling, fetch]), self.search.asObservable())
             .map { [unowned self] (candidates, world) in
-                return self.search(candidates: candidates, world: world)
+                return self.search(candidates: candidates, with: world)
             }.share()
     }
 
-    func search(candidates: [Candidate], world: String?) -> [Candidate] {
+    func search(candidates: [Candidate]?, with world: String?) -> [Candidate]? {
+        guard let candidates = candidates else {
+            return nil
+        }
         var result = candidates
-        if let world = world, !world.isEmpty {
+        if let world = world?.lowercased(), !world.isEmpty {
             result = []
-            for candidate in candidates where candidate.name.contains(world) || candidate.nodeAddr.description.contains(world) {
+            for candidate in candidates where candidate.name.lowercased().contains(world) || candidate.nodeAddr.description.lowercased().contains(world) {
                 result.append(candidate)
             }
         }
         return result.sorted(by: {
-            if let n0 = Int($0.voteNum), let n1 = Int($1.voteNum) {
-                return n0 > n1
-            }
-            return $0.voteNum > $1.voteNum
+            return $0.voteNum.value > $1.voteNum.value
         })
     }
 
@@ -123,9 +143,12 @@ final class VoteListReactor {
         }
     }
 
-    func voteWithPow(nodeName: String, completion: @escaping (NetworkResult<Void>) -> Void) {
+    func voteWithPow(nodeName: String, tryToCancel: @escaping () -> Bool, completion: @escaping (NetworkResult<Void>) -> Void) {
         guard let bag = HDWalletManager.instance.bag else { return }
-        Provider.instance.voteWithPow(bag: bag, benefitedNodeName: nodeName) { result in
+
+        Provider.instance.voteWithPow(bag: bag,
+                                      benefitedNodeName: nodeName,
+                                      tryToCancel: tryToCancel) { (result) in
             if case .success = result {
                 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: .userDidVote, object: nodeName)
@@ -135,7 +158,9 @@ final class VoteListReactor {
                 self.voteError.value = (nodeName, error)
             }
             completion(result)
+
         }
+
     }
 
 }
