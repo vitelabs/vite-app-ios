@@ -107,6 +107,9 @@
 		74DE323F2192C9440024B991 /* BussinessErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DE323E2192C9440024B991 /* BussinessErrorHandler.swift */; };
 		74DE3243219424B30024B991 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DE3242219424B30024B991 /* SearchBar.swift */; };
 		74DE3245219434860024B991 /* CandidateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DE3244219434860024B991 /* CandidateCell.swift */; };
+		8E0B3C2A219D620F0058713A /* GetTestTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B3C29219D620F0058713A /* GetTestTokenRequest.swift */; };
+		8E0B3C2B219D664E0058713A /* GetTestTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B3C29219D620F0058713A /* GetTestTokenRequest.swift */; };
+		8E0B3C2C219D664F0058713A /* GetTestTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B3C29219D620F0058713A /* GetTestTokenRequest.swift */; };
 		8E0FB693216074F4001525EB /* RefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB692216074F4001525EB /* RefreshHeader.swift */; };
 		8E0FB695216B4082001525EB /* HDWalletStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB694216B4082001525EB /* HDWalletStorage.swift */; };
 		8E0FB697216B5B95001525EB /* ViteCryptoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB696216B5B95001525EB /* ViteCryptoTest.swift */; };
@@ -834,6 +837,7 @@
 		77D7FFC58FD1E386CB5A3514 /* Pods-Vite-enterprise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-enterprise.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise.release.xcconfig"; sourceTree = "<group>"; };
 		79000FBA546CDDAD7FEC4E7C /* libPods-ViteTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ViteTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		885501CC3EDB677E37F58341 /* Pods-Vite-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test.release.xcconfig"; sourceTree = "<group>"; };
+		8E0B3C29219D620F0058713A /* GetTestTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTestTokenRequest.swift; sourceTree = "<group>"; };
 		8E0FB692216074F4001525EB /* RefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHeader.swift; sourceTree = "<group>"; };
 		8E0FB694216B4082001525EB /* HDWalletStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWalletStorage.swift; sourceTree = "<group>"; };
 		8E0FB696216B5B95001525EB /* ViteCryptoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteCryptoTest.swift; sourceTree = "<group>"; };
@@ -1550,6 +1554,7 @@
 				8EE46921214D017200807D2C /* GetLatestAccountBlockRequest.swift */,
 				8E0FB6A1217468AE001525EB /* GetPowNonceRequest.swift */,
 				8EBDD8012150F4AB00D65BCD /* GetTokenInfoRequest.swift */,
+				8E0B3C29219D620F0058713A /* GetTestTokenRequest.swift */,
 				8EE4691B214CAD6600807D2C /* CreateTransactionRequest.swift */,
 				74875E1B2191707300C3AE9D /* GetCandidateListRequest.swift */,
 				74875E2121918D1D00C3AE9D /* GetVoteDataRequest.swift */,
@@ -2784,6 +2789,7 @@
 				8EE468FD214A574600807D2C /* UIViewController+KeyboardAutoScrolling.swift in Sources */,
 				8E107ED7215A22CC00B28DE2 /* ScrollableView.swift in Sources */,
 				4C2284BB214906F0003E9907 /* SystemViewController.swift in Sources */,
+				8E0B3C2A219D620F0058713A /* GetTestTokenRequest.swift in Sources */,
 				8E6F3E1D2142280F003CDFC2 /* BaseViewController.swift in Sources */,
 				74875E1E2191756400C3AE9D /* Provider+VoteList.swift in Sources */,
 				741414DD2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift in Sources */,
@@ -3023,6 +3029,7 @@
 				8EA0BEF021996D4800FDE2E8 /* UIViewController+KeyboardAutoScrolling.swift in Sources */,
 				8EA0BEF121996D4800FDE2E8 /* ScrollableView.swift in Sources */,
 				8EA0BEF221996D4800FDE2E8 /* SystemViewController.swift in Sources */,
+				8E0B3C2B219D664E0058713A /* GetTestTokenRequest.swift in Sources */,
 				8EA0BEF321996D4800FDE2E8 /* BaseViewController.swift in Sources */,
 				8EA0BEF421996D4800FDE2E8 /* Provider+VoteList.swift in Sources */,
 				8EA0BEF521996D4800FDE2E8 /* PledgeHistoryCellTableViewCell.swift in Sources */,
@@ -3250,6 +3257,7 @@
 				8EA0BFE121996D7800FDE2E8 /* UIViewController+KeyboardAutoScrolling.swift in Sources */,
 				8EA0BFE221996D7800FDE2E8 /* ScrollableView.swift in Sources */,
 				8EA0BFE321996D7800FDE2E8 /* SystemViewController.swift in Sources */,
+				8E0B3C2C219D664F0058713A /* GetTestTokenRequest.swift in Sources */,
 				8EA0BFE421996D7800FDE2E8 /* BaseViewController.swift in Sources */,
 				8EA0BFE521996D7800FDE2E8 /* Provider+VoteList.swift in Sources */,
 				8EA0BFE621996D7800FDE2E8 /* PledgeHistoryCellTableViewCell.swift in Sources */,
