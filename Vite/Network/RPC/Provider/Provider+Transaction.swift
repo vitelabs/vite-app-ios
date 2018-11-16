@@ -236,14 +236,17 @@ extension Provider {
 // MARK: Pledge
 extension Provider {
 
-    fileprivate enum ContractAddress: String {
-        case pledgeAndGainQuota = "vite_000000000000000000000000000000000000000309508ba646"
+    struct Const {
+        enum ContractAddress: String {
+            case vote = "vite_000000000000000000000000000000000000000270a48cc491"
+            case pledge = "vite_000000000000000000000000000000000000000309508ba646"
 
-        case gid = "00000000000000000001"
-
-        var address: Address {
-            return Address(string: self.rawValue)
+            var address: Address {
+                return Address(string: self.rawValue)
+            }
         }
+
+        static let gid = "00000000000000000001"
     }
 
     fileprivate func getPledgeQuota(address: Address) -> Promise<(quota: String, maxTxCount: String)> {
@@ -326,7 +329,7 @@ extension Provider {
                 let send = AccountBlock.makeSendAccountBlock(latest: latestAccountBlock,
                                                              bag: bag,
                                                              snapshotHash: fittestSnapshotHash,
-                                                             toAddress: ContractAddress.pledgeAndGainQuota.address,
+                                                             toAddress: Const.ContractAddress.pledge.address,
                                                              tokenId: tokenId,
                                                              amount: amount,
                                                              data: data,
@@ -360,7 +363,7 @@ extension Provider {
                 })
             })
             .done({ (latestAccountBlock, fittestSnapshotHash, data, nonce) in
-                let context = SendTransactionContext(latestAccountBlock: latestAccountBlock, bag: bag, fittestSnapshotHash: fittestSnapshotHash, toAddress: ContractAddress.pledgeAndGainQuota.address, tokenId: tokenId, amount: amount, data: data, nonce: nonce, difficulty: difficulty)
+                let context = SendTransactionContext(latestAccountBlock: latestAccountBlock, bag: bag, fittestSnapshotHash: fittestSnapshotHash, toAddress: Const.ContractAddress.pledge.address, tokenId: tokenId, amount: amount, data: data, nonce: nonce, difficulty: difficulty)
                 completion(NetworkResult.success(context))
             })
             .catch({
