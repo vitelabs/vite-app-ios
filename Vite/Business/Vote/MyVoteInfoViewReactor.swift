@@ -14,6 +14,7 @@ import NSObject_Rx
 final class MyVoteInfoViewReactor: Reactor {
     let bag = HDWalletManager.instance.bag ??  HDWalletManager.Bag()
     var disposeBag = DisposeBag()
+    var pollingVoteInfoTask: GCD.Task?
 
     enum Action {
         case refreshData(String)
@@ -35,6 +36,9 @@ final class MyVoteInfoViewReactor: Reactor {
 
     init() {
         self.initialState = State.init(voteInfo: nil, voteStatus: nil, error: nil)
+        self.pollingVoteInfoTask = {cancel in
+            self.action.onNext(.refreshData(HDWalletManager.instance.bag?.address.description ?? ""))
+        }
     }
 
     func mutate(action: Action) -> Observable<Mutation> {
@@ -81,17 +85,20 @@ final class MyVoteInfoViewReactor: Reactor {
     func fetchVoteInfo(_ address: String) -> Observable<(VoteInfo?, Error? )> {
         return Observable<(VoteInfo?, Error?)>.create({ (observer) -> Disposable in
             Provider.instance.getVoteInfo(address: address
-            ) { (result) in
+            ) { [weak self](result) in
                 switch result {
                 case .success(let voteInfo):
-                    plog(level: .info, log: String.init(format: "fetchVoteInfo  success address=%@, voteInfo.nodeName = %@", address, voteInfo?.nodeName ?? ""), tag: .vote)
+                    plog(level: .debug, log: String.init(format: "fetchVoteInfo  success address=%@, voteInfo.nodeName = %@", address, voteInfo?.nodeName ?? ""), tag: .vote)
                     observer.onNext((voteInfo, nil))
                     observer.onCompleted()
                 case .error(let error):
-                    plog(level: .info, log: String.init(format: "fetchVoteInfo error  error = %d=%@", error.code, error.localizedDescription), tag: .vote)
+                    plog(level: .debug, log: String.init(format: "fetchVoteInfo error  error = %d=%@", error.code, error.localizedDescription), tag: .vote)
                     observer.onNext((nil, error))
                     observer.onCompleted()
                 }
+                self?.pollingVoteInfoTask =  GCD.delay(3, task: {
+                    self?.action.onNext(.refreshData(HDWalletManager.instance.bag?.address.description ?? ""))
+                })
             }
             return Disposables.create()
         })
@@ -116,7 +123,7 @@ final class MyVoteInfoViewReactor: Reactor {
         })
     }
 
-    func cancelVoteAndSendWithGetPow(completion: @escaping (NetworkResult<Void>) -> Void) {
+    func cancelVoteAndSendWithGetPow(completion: @escaping (NetworkResult<Provider.SendTransactionContext>) -> Void) {
             Provider.instance.cancelVoteAndSendWithGetPow(bag: self.bag
             ) { (result) in
                 if case .success = result {
@@ -127,4 +134,16 @@ final class MyVoteInfoViewReactor: Reactor {
                 completion(result)
             }
         }
+
+    func cancelVoteSendTransaction(_ context: Provider.SendTransactionContext, completion: @escaping (NetworkResult<Void>) -> Void) {
+        Provider.instance.sendTransactionWithContext(context
+        ) { (result) in
+            if case .success = result {
+                plog(level: .info, log: "cancelVoteSendTransaction success", tag: .vote)
+            } else if case let .error(error) = result {
+                plog(level: .info, log: String.init(format: "cancelVoteSendTransaction error = %d=%@", error.code, error.localizedDescription), tag: .vote)
+            }
+            completion(result)
+        }
+    }
 }

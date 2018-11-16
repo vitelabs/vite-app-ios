@@ -275,6 +275,34 @@ class DebugViewController: FormViewController {
             Section {
                 $0.header = HeaderFooterView(title: "Operation")
             }
+            <<< LabelRow("getTestToken") {
+                $0.title =  "Get Test Token"
+            }.onCellSelection({ _, _  in
+                if let address = HDWalletManager.instance.bag?.address {
+                    Provider.instance.getTestToken(address: address, completion: { (result) in
+                        switch result {
+                        case .success:
+                            Toast.show("\(address.description) get test token complete")
+                        case .error(let error):
+                            Toast.show(error.message)
+                        }
+                    })
+                } else {
+                    Toast.show("Login firstly")
+                }
+            })
+            <<< LabelRow("reloadConfig") {
+                $0.title =  "Reload Config"
+            }.onCellSelection({ _, _  in
+                AppSettingsService.instance.start()
+                Toast.show("Operation complete")
+            })
+            <<< LabelRow("checkUpdate") {
+                $0.title =  "Check Update"
+            }.onCellSelection({ _, _  in
+                AppUpdateVM.checkUpdate()
+                Toast.show("Operation complete")
+            })
             <<< LabelRow("deleteAllWallets") {
                 $0.title =  "Delete All Wallets"
             }.onCellSelection({ [unowned self]  _, _  in
@@ -299,6 +327,14 @@ class DebugViewController: FormViewController {
             }.onCellSelection({ _, _  in
                 TokenCacheService.instance.deleteCache()
                 Toast.show("Operation complete")
+            })
+            <<< LabelRow("exportLogFile") {
+                $0.title =  "Export Log File"
+            }.onCellSelection({ [weak self] _, _  in
+                let cachePath = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0]
+                let logURL = cachePath.appendingPathComponent("logger.log")
+                let activityViewController = UIActivityViewController(activityItems: [logURL], applicationActivities: nil)
+                self?.present(activityViewController, animated: true)
             })
         #endif
     }

@@ -5,17 +5,6 @@
                 "type":"settings"
             },
             {
-                "type":"custom",
-                "title":{
-                    "base":"Reward Query",
-                    "localized":{
-                        "zh-Hans":"奖励查询"
-                    }
-                },
-                "icon":"https://testnet-vite-1257137467.cos.ap-hongkong.myqcloud.com/icon/settings_reward_query.png",
-                "url":"https://reward.vite.net/query/voteReward"
-            },
-            {
                 "type":"about"
             }
         ]

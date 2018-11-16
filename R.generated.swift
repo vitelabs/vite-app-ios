@@ -623,7 +623,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 217 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 221 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -933,10 +933,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let systemPageCellChangeLanguage = Rswift.StringResource(key: "system.page.cell.change.language", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Last round polls
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListCount = Rswift.StringResource(key: "vote.list.count", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Loading
       /// 
       /// Locales: en, zh-Hans
@@ -949,6 +945,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let transactionListPageHeaderRefreshRefreshing = Rswift.StringResource(key: "transaction.list.page.header.refresh.refreshing", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Loading...
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteRefreshBackFooterRefreshingText = Rswift.StringResource(key: "Vite.RefreshBackFooter.RefreshingText", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Login
       /// 
       /// Locales: en, zh-Hans
@@ -1041,6 +1041,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let votePageInfoNodataTitle = Rswift.StringResource(key: "vote.page.info.nodata.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: No more data
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteRefreshBackFooterNoMoreDataText = Rswift.StringResource(key: "Vite.RefreshBackFooter.NoMoreDataText", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: No result, please try another input
       /// 
       /// Locales: en, zh-Hans
@@ -1049,10 +1053,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let confirmTransactionPageNodeName = Rswift.StringResource(key: "confirm.transaction.page.node.name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Not available to send a transaction due to lack of quota, please delete descriptive text and run PoW, or gain quota by staking token to resume.
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaAlertPowAndQuotaMessage = Rswift.StringResource(key: "quota.alert.pow.and.quota.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Orderly select seed phrase
       /// 
       /// Locales: en, zh-Hans
@@ -1105,6 +1105,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageTitle = Rswift.StringResource(key: "import.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Polls
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListCount = Rswift.StringResource(key: "vote.list.count", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Processing
       /// 
       /// Locales: en, zh-Hans
@@ -1121,6 +1125,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let transactionListPageHeaderRefreshIdle = Rswift.StringResource(key: "transaction.list.page.header.refresh.idle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Pull up to load more
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteRefreshBackFooterIdleText = Rswift.StringResource(key: "vite.RefreshBackFooter.IdleText", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: QRCode cannot be identified
       /// 
       /// Locales: en, zh-Hans
@@ -1161,6 +1169,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicBackupPageAlterMessage = Rswift.StringResource(key: "mnemonic.backup.page.alter.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Release to load more.
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteRefreshBackFooterPullingText = Rswift.StringResource(key: "Vite.RefreshBackFooter.PullingText", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Release to refresh
       /// 
       /// Locales: en, zh-Hans
@@ -1225,6 +1237,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let aboutUsPageCellShareUs = Rswift.StringResource(key: "aboutUs.page.cell.shareUs", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Short in quota, you can acquire quota by running PoW or staking VITE.
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaAlertPowAndQuotaMessage = Rswift.StringResource(key: "quota.alert.pow.and.quota.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Something went wrong with network, please try again later
       /// 
       /// Locales: en, zh-Hans
@@ -1413,7 +1429,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let vote = Rswift.StringResource(key: "Vote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Vote failed, please vote again
+      /// en translation: Vote failed, please vote again(code: %@)
       /// 
       /// Locales: en, zh-Hans
       static let voteListSendFailed = Rswift.StringResource(key: "vote.list.send.failed", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
@@ -2033,13 +2049,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("system.page.cell.change.language", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Last round polls
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListCount(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.count", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: Loading
       /// 
       /// Locales: en, zh-Hans
@@ -2059,6 +2068,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func transactionListPageHeaderRefreshRefreshing(_: Void = ()) -> String {
         return NSLocalizedString("transaction.list.page.header.refresh.refreshing", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Loading...
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteRefreshBackFooterRefreshingText(_: Void = ()) -> String {
+        return NSLocalizedString("Vite.RefreshBackFooter.RefreshingText", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Login
@@ -2222,6 +2238,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("vote.page.info.nodata.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: No more data
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteRefreshBackFooterNoMoreDataText(_: Void = ()) -> String {
+        return NSLocalizedString("Vite.RefreshBackFooter.NoMoreDataText", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: No result, please try another input
       /// 
       /// Locales: en, zh-Hans
@@ -2234,13 +2257,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func confirmTransactionPageNodeName(_: Void = ()) -> String {
         return NSLocalizedString("confirm.transaction.page.node.name", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Not available to send a transaction due to lack of quota, please delete descriptive text and run PoW, or gain quota by staking token to resume.
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaAlertPowAndQuotaMessage(_: Void = ()) -> String {
-        return NSLocalizedString("quota.alert.pow.and.quota.message", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Orderly select seed phrase
@@ -2334,6 +2350,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("import.page.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Polls
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListCount(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.count", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Processing
       /// 
       /// Locales: en, zh-Hans
@@ -2360,6 +2383,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func transactionListPageHeaderRefreshIdle(_: Void = ()) -> String {
         return NSLocalizedString("transaction.list.page.header.refresh.idle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Pull up to load more
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteRefreshBackFooterIdleText(_: Void = ()) -> String {
+        return NSLocalizedString("vite.RefreshBackFooter.IdleText", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: QRCode cannot be identified
@@ -2430,6 +2460,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func mnemonicBackupPageAlterMessage(_: Void = ()) -> String {
         return NSLocalizedString("mnemonic.backup.page.alter.message", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Release to load more.
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteRefreshBackFooterPullingText(_: Void = ()) -> String {
+        return NSLocalizedString("Vite.RefreshBackFooter.PullingText", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Release to refresh
@@ -2542,6 +2579,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func aboutUsPageCellShareUs(_: Void = ()) -> String {
         return NSLocalizedString("aboutUs.page.cell.shareUs", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Short in quota, you can acquire quota by running PoW or staking VITE.
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaAlertPowAndQuotaMessage(_: Void = ()) -> String {
+        return NSLocalizedString("quota.alert.pow.and.quota.message", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Something went wrong with network, please try again later
@@ -2873,11 +2917,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Vote", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Vote failed, please vote again
+      /// en translation: Vote failed, please vote again(code: %@)
       /// 
       /// Locales: en, zh-Hans
-      static func voteListSendFailed(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.send.failed", bundle: R.hostingBundle, comment: "")
+      static func voteListSendFailed(_ value1: String) -> String {
+        return String(format: NSLocalizedString("vote.list.send.failed", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       /// en translation: Vote revoking request is successfully sent

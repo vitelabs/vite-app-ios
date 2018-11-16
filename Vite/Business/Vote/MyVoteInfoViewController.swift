@@ -14,7 +14,6 @@ class MyVoteInfoViewController: BaseViewController, View {
     // FIXME: Optional
     let bag = HDWalletManager.instance.bag!
     var disposeBag = DisposeBag()
-    var timerBag: DisposeBag! = DisposeBag()
     var balance: Balance?
     var oldVoteInfo: VoteInfo?
 
@@ -35,21 +34,17 @@ class MyVoteInfoViewController: BaseViewController, View {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.reactor?.action.onNext(.refreshData(HDWalletManager.instance.bag?.address.description ?? ""))
         self._pollingInfoData()
-
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.timerBag = nil
+        GCD.cancel(self.reactor?.pollingVoteInfoTask)
     }
 
     private func _pollingInfoData () {
-        self.timerBag  = DisposeBag()
-        Observable<Int>.interval(3, scheduler: MainScheduler.instance).bind { [weak self] _ in
-            self?.reactor?.action.onNext(.refreshData(HDWalletManager.instance.bag?.address.description ?? ""))
-        }.disposed(by: self.timerBag)
+        self.reactor?.action.onNext(.refreshData(HDWalletManager.instance.bag?.address.description ?? ""))
+
     }
 
     private func _bindView() {
@@ -137,8 +132,12 @@ extension MyVoteInfoViewController {
     }
 
     private func notificationList(_ voteInfo: VoteInfo?, _ voteStatus: VoteStatus) {
-        NotificationCenter.default.post(name: .userVoteInfoChange, object: ["voteInfo": voteInfo ?? VoteInfo(), "voteStatus": voteStatus])
-        plog(level: .info, log: String.init(format: " voteStatus = %d voteInfo.nodeName  = %@", voteStatus.rawValue, voteInfo?.nodeName ?? ""), tag: .vote)
+        var status = voteStatus
+        if voteInfo?.nodeStatus == .invalid {
+            status = .voteInvalid
+        }
+        NotificationCenter.default.post(name: .userVoteInfoChange, object: ["voteInfo": voteInfo ?? VoteInfo(), "voteStatus": status])
+        plog(level: .info, log: String.init(format: " voteStatus = %d voteInfo.nodeName  = %@", status.rawValue, voteInfo?.nodeName ?? ""), tag: .vote)
     }
 
     func bind(reactor: MyVoteInfoViewReactor) {
@@ -153,6 +152,7 @@ extension MyVoteInfoViewController {
                     //handle cancel vote
                     if voteStatus == .cancelVoting {
                         self?.viewInfoView.changeInfoCancelVoting()
+                        HUD.hide()
                         Toast.show(R.string.localizable.votePageVoteInfoCancelVoteToastTitle())
                         return
                     }
@@ -199,7 +199,8 @@ extension MyVoteInfoViewController {
                                                                          nodeName: self.viewInfoView.voteInfo?.nodeName ?? "") { [unowned self] (result) in
                                                                             switch result {
                                                                             case .success:
-                                                                                self.reactor?.action.onNext(.cancelVoteWithoutGetPow)
+                                                                                    HUD.show()
+                                                                                    self.reactor?.action.onNext(.cancelVoteWithoutGetPow)
                                                                             case .cancelled:
                                                                                 plog(level: .info, log: "Confirm vote cancel cancelled", tag: .vote)
                                                                             case .biometryAuthFailed:
@@ -221,6 +222,7 @@ extension MyVoteInfoViewController {
     }
 
     private func handlerCancelError(_ error: Error) {
+        HUD.hide()
         if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
             Alert.show(into: self,
                        title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
@@ -228,21 +230,41 @@ extension MyVoteInfoViewController {
                        actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
         } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
             Alert.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.votePageVoteInfoAlertQuota(), actions: [
+                (.default(title: R.string.localizable.quotaAlertPowButtonTitle()), { [weak self] _ in
+                    var cancelPow = false
+                    let getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!) {
+                        cancelPow = true
+                    }
+                    getPowFloatView.show()
+
+                    //get pow data
+                    self?.reactor?.cancelVoteAndSendWithGetPow(completion: { (result) in
+                        guard cancelPow == false else { return }
+                        guard let `self` = self else { return }
+                        if case let .success(context) = result {
+                            getPowFloatView.finish(completion: {
+                                //send transaction
+                                HUD.show()
+                                self.reactor?.cancelVoteSendTransaction(context, completion: { (result) in
+                                    HUD.hide()
+                                    if case .success = result {
+                                        //in the end
+                                        self.viewInfoView.changeInfoCancelVoting()
+                                        Toast.show(R.string.localizable.votePageVoteInfoCancelVoteToastTitle())
+                                    } else if case let .error(error) = result {
+                                           Toast.show(error.message)
+                                    }
+                                })
+                            })
+                        } else if case let .error(error) = result {
+                            getPowFloatView.hide()
+                            Toast.show(error.message)
+                        }
+                    })
+                }),
                 (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle()), { [weak self] _ in
                     let vc = QuotaManageViewController()
                     self?.navigationController?.pushViewController(vc, animated: true)
-                }),
-                (.default(title: R.string.localizable.quotaAlertPowButtonTitle()), { [weak self] _ in
-                    HUD.show()
-                    self?.reactor?.cancelVoteAndSendWithGetPow(completion: { (result) in
-                        if case .success = result {
-                            self?.viewInfoView.changeInfoCancelVoting()
-                            Toast.show(R.string.localizable.votePageVoteInfoCancelVoteToastTitle())
-                        } else if case let .error(error) = result {
-                            Toast.show(error.message)
-                        }
-                        HUD.hide()
-                    })
                 }),
                 (.cancel, nil),
                 ], config: { alert in

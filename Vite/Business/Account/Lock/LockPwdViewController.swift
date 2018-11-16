@@ -176,7 +176,6 @@ extension LockPwdViewController: PasswordInputViewDelegate {
     func inputFinish(passwordView: PasswordInputView, password: String) {
         if passwordView ==  self.passwordTF.passwordInputView {
             _ = self.passwordTF.passwordInputView.resignFirstResponder()
-            self.loginBtnAction()
         }
     }
 }

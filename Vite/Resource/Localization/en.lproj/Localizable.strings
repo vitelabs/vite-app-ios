@@ -246,7 +246,7 @@
 
 /* quota alert */
 "quota.alert.title" = "Insufficient Quota";
-"quota.alert.pow.and.quota.message" = "Not available to send a transaction due to lack of quota, please delete descriptive text and run PoW, or gain quota by staking token to resume.";
+"quota.alert.pow.and.quota.message" = "Short in quota, you can acquire quota by running PoW or staking VITE.";
 "quota.alert.need.quota.message" = "Insufficient quota of PoW, we would recommend that you stake VITE to obtain quota.";
 "quota.alert.pow.button.title" = "Run PoW";
 "quota.alert.quota.button.title" = "Stake VITE";
@@ -278,13 +278,19 @@
 "vote.list.alert.already.voted" = "You have voted for %@, please make sure this action will overwrite current voting result";
 "vote.list.confirm.revote" = "Ready to overwrite";
 "vote.list.confirm.button.title" = "Confirm";
-"vote.list.count" = "Last round polls";
+"vote.list.count" = "Polls";
 "vote.list.address" = "Address";
 "vote.list.send.success" = "Successfully sent vote request";
-"vote.list.send.failed" = "Vote failed, please vote again";
+"vote.list.send.failed" = "Vote failed, please vote again(code: %@)";
 "vote.list.alert.quota" = "unable to vote, you have to run PoW or stake VITE for TPS quota to vote";
 "vote.list.search.empty" = "No result, please try another input";
 "vote.list.search.no.transaction.before" = "You cannot vote for now as there is no transaction record in your address";
+
+//RefreshFooter
+"vite.RefreshBackFooter.IdleText" = "Pull up to load more";
+"Vite.RefreshBackFooter.PullingText" = "Release to load more.";
+"Vite.RefreshBackFooter.RefreshingText" = "Loading...";
+"Vite.RefreshBackFooter.NoMoreDataText" = "No more data";
 
 
 

@@ -57,9 +57,9 @@ class PledgeHistoryViewController: BaseViewController, View {
             reactor?.action.onNext(.refresh)
         })
 
-        tableView.mj_footer = MJRefreshBackNormalFooter.init(refreshingBlock: { [weak reactor] in
+        tableView.mj_footer = RefreshFooter.footer { [weak reactor] in
             reactor?.action.onNext(.loadMore)
-        })
+        }
 
         reactor.state
             .map { $0.pledges }

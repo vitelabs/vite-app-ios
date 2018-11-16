@@ -12,13 +12,10 @@ import JSONRPCKit
 import APIKit
 import BigInt
 
-private let gID = "00000000000000000001"
-private let voteContractAddress = Address(string: "vite_000000000000000000000000000000000000000270a48cc491")
-
 // MARK: Vote
 extension Provider {
 
-    func getCandidateList(gid: String = gID, completion: @escaping ((NetworkResult<[Candidate]>) -> Void)) -> SessionTask? {
+    func getCandidateList(gid: String = Const.gid, completion: @escaping ((NetworkResult<[Candidate]>) -> Void)) -> SessionTask? {
             let batch = BatchFactory().create(GetCandidateListRequest(gid: gid))
             let request = ViteServiceRequest(for: server, batch: batch)
             return Session.send(request) { result in
@@ -31,7 +28,7 @@ extension Provider {
             }
     }
 
-    func getVoteData(benefitedNodeName name: String, gid: String = gID) -> Promise<String> {
+    func getVoteData(benefitedNodeName name: String, gid: String = Const.gid) -> Promise<String> {
         return Promise<String> { seal in
             let batch = BatchFactory().create(GetVoteDataRequest(gid: gid, name: name))
             let request = ViteServiceRequest(for: server, batch: batch)
@@ -48,12 +45,12 @@ extension Provider {
 
     func vote(bag: HDWalletManager.Bag,
               benefitedNodeName name: String,
-              gid: String = gID,
+              gid: String = Const.gid,
               completion: @escaping (NetworkResult<Void>) -> Void) {
          getVoteData(benefitedNodeName: name, gid: gid)
             .done({ data in
                 self.sendTransactionWithoutGetPow(bag: bag,
-                                                  toAddress: voteContractAddress,
+                                                  toAddress: Const.ContractAddress.vote.address,
                                                   tokenId: TokenCacheService.instance.viteToken.id,
                                                   amount: 0,
                                                   data: data,
@@ -75,19 +72,22 @@ extension Provider {
 
     func voteWithPow(bag: HDWalletManager.Bag,
                      benefitedNodeName name: String,
-                     gid: String = gID,
+                     gid: String = Const.gid,
                      tryToCancel: @escaping () -> Bool,
+                     powCompletion: @escaping (NetworkResult<SendTransactionContext>) -> Void,
                      completion: @escaping (NetworkResult<Void>) -> Void) {
         getVoteData(benefitedNodeName: name, gid: gid)
             .done({ [unowned self] (data)  in
                 if tryToCancel() { return }
                 self.sendTransactionWithGetPow(bag: bag,
-                                               toAddress: voteContractAddress,
+                                               toAddress: Const.ContractAddress.vote.address,
                                                tokenId: TokenCacheService.instance.viteToken.id,
                                                amount: 0,
                                                data: data,
                                                difficulty: AccountBlock.Const.Difficulty.vote.value,
                                                completion: { result in
+                                                if tryToCancel() { return }
+                                                powCompletion(result)
                                                 switch result {
                                                 case .success(let context) :
                                                     self.sendTransactionWithContext(context, completion: { (result) in

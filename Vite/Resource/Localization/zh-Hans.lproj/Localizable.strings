@@ -244,7 +244,7 @@
 
 /* quota alert */
 "quota.alert.title" = "配额不足";
-"quota.alert.pow.and.quota.message" = "无法进行交易，您需要删除备注文字并运行 PoW 或抵押 VITE 获取配额才可以继续转账";
+"quota.alert.pow.and.quota.message" = "配额不足，建议您点击运行 PoW 获取配额或抵押 VITE 获取配额";
 "quota.alert.need.quota.message" = "PoW 获取的配额不足，建议您进行抵押 VITE 获取配额";
 "quota.alert.pow.button.title" = "运行 PoW";
 "quota.alert.quota.button.title" = "抵押 VITE";
@@ -276,11 +276,17 @@
 "vote.list.alert.already.voted" = "您已经投票给%@，请确认是否覆盖当前投票";
 "vote.list.confirm.revote" = "确认覆盖";
 "vote.list.confirm.button.title" = "确认";
-"vote.list.count" = "上轮得票数";
+"vote.list.count" = "得票数";
 "vote.list.address" = "出块地址";
 "vote.list.send.success" = "投票请求发送成功";
-"vote.list.send.failed" = "投票失败，请重新投票";
+"vote.list.send.failed" = "投票失败，请重新投票(code: %@)";
 "vote.list.alert.quota" = "无法投票，您需运行PoW 或抵押VITE 获取配额才可以投票";
 "vote.list.search.empty" = "无结果，换个输入试试";
 "vote.list.search.no.transaction.before" = "您的地址未发生过交易，暂不能投票";
+
+//RefreshFooter
+"vite.RefreshBackFooter.IdleText" = "上拉可以加载更多";
+"Vite.RefreshBackFooter.PullingText" = "松开立即加载更多";
+"Vite.RefreshBackFooter.RefreshingText" = "正在加载更多的数据...";
+"Vite.RefreshBackFooter.NoMoreDataText" = "已经全部加载完毕";
 

@@ -228,7 +228,7 @@ class SendViewController: BaseViewController {
                         }),
                         (.cancel, nil),
                         ], config: { alert in
-                            alert.preferredAction = alert.actions[1]
+                            alert.preferredAction = alert.actions[0]
                     })
                 } else {
                     Toast.show(R.string.localizable.sendPageToastSendFailed())

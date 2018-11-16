@@ -12,16 +12,12 @@ import JSONRPCKit
 import APIKit
 import BigInt
 
-private let voteCancel_gID = "00000000000000000001"
-private let voteCancelAddress = Address(string: "vite_000000000000000000000000000000000000000270a48cc491")
-
 // MARK: Vote
 extension Provider {
     fileprivate func getVoteInfo(address: String) -> Promise<(VoteInfo?)> {
         return Promise { seal in
-            var request = ViteServiceRequest(for: server, batch: BatchFactory()
-                .create(GetVoteInfoRequest(gid: voteCancel_gID, address: address)))
-            request.timeoutInterval = 1.0
+            let request = ViteServiceRequest(for: server, batch: BatchFactory()
+                .create(GetVoteInfoRequest(gid: Const.gid, address: address)))
             Session.send(request) { result in
                 switch result {
                 case .success(let voteInfo):
@@ -35,9 +31,8 @@ extension Provider {
 
      func cancelVote() -> Promise<(String)> {
         return Promise { seal in
-            var request = ViteServiceRequest(for: server, batch: BatchFactory()
-                .create(CancelVoteRequest(gid: voteCancel_gID)))
-            request.timeoutInterval = 10.0
+            let request = ViteServiceRequest(for: server, batch: BatchFactory()
+                .create(CancelVoteRequest(gid: Const.gid)))
             Session.send(request) { result in
                 switch result {
                 case .success(let voteInfo):
@@ -73,7 +68,7 @@ extension Provider {
                 let send = AccountBlock.makeSendAccountBlock(latest: latestAccountBlock,
                                                              bag: bag,
                                                              snapshotHash: fittestSnapshotHash,
-                                                             toAddress: voteCancelAddress,
+                                                             toAddress: Const.ContractAddress.vote.address,
                                                              tokenId: TokenCacheService.instance.viteToken.id,
                                                              amount: BigInt(0),
                                                              data: data,
@@ -89,11 +84,11 @@ extension Provider {
             })
     }
 
-    func cancelVoteAndSendWithGetPow(bag: HDWalletManager.Bag, completion:@escaping (NetworkResult<Void>) -> Void) {
+    func cancelVoteAndSendWithGetPow(bag: HDWalletManager.Bag, completion:@escaping (NetworkResult<SendTransactionContext>) -> Void) {
         cancelVote()
             .done({ [unowned self] (data)  in
                 self.sendTransactionWithGetPow(bag: bag,
-                                               toAddress: voteCancelAddress,
+                                               toAddress: Const.ContractAddress.vote.address,
                                                tokenId: TokenCacheService.instance.viteToken.id,
                                                amount: 0,
                                                data: data,
@@ -101,14 +96,7 @@ extension Provider {
                                                completion: { result in
                                                 switch result {
                                                 case .success(let context) :
-                                                    self.sendTransactionWithContext(context, completion: { (result) in
-                                                        switch result {
-                                                        case .success:
-                                                            completion(NetworkResult.success(Void()))
-                                                        case .error(let error):
-                                                            completion(NetworkResult.error(error))
-                                                        }
-                                                    })
+                                                    completion(NetworkResult.success(context))
                                                 case .error(let error):
                                                     completion(NetworkResult.error(error))
                                                 }

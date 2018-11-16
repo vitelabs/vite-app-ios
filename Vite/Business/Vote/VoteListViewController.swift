@@ -63,6 +63,7 @@ class VoteListViewController: BaseViewController {
 
         self.view.displayLoading()
         result
+            .filterNil()
             .map { $0.isEmpty }
             .filter { !$0 }
             .take(1)
@@ -72,6 +73,7 @@ class VoteListViewController: BaseViewController {
             .disposed(by: rx.disposeBag)
 
         result
+            .filterNil()
             .map { $0.isEmpty }
             .filter { $0 }
             .bind { [unowned self]_ in
@@ -90,13 +92,14 @@ class VoteListViewController: BaseViewController {
             cell.disposeable?.dispose()
             cell.disposeable = cell.voteButton.rx.tap
                 .bind {
-                self.vote(nodeName: candidate.name)
+                    self.vote(nodeName: candidate.name)
                 }
             cell.disposeable?.disposed(by: cell.rx.disposeBag)
             return cell
         })
 
         result
+            .filterNil()
             .map { config -> [SectionModel<String, Candidate>] in
                 return [SectionModel(model: "item", items: config)]
             }
@@ -116,12 +119,14 @@ class VoteListViewController: BaseViewController {
         reactor.voteError.asObservable()
             .filter { $0.0 != nil && $0.1 != nil }
             .bind { [unowned self] in
+                self.view.hideLoading()
                 self.handler(error: $0.1!, nodeName: $0.0!)
             }
             .disposed(by: rx.disposeBag)
 
         reactor.voteSuccess.asObserver()
-            .bind { _ in
+            .bind { [unowned self] _ in
+                self.view.hideLoading()
                 Toast.show(R.string.localizable.voteListSendSuccess())
             }
             .disposed(by: rx.disposeBag)
@@ -142,6 +147,25 @@ class VoteListViewController: BaseViewController {
                     }
                 })
             }).disposed(by: rx.disposeBag)
+
+        self.reactor.fetchCandidateError.asObservable()
+            .filterNil()
+            .takeUntil(result)
+            .bind { [weak self] e in
+                self?.dataStatus = .networkError(e, { [weak self] in
+                    self?.dataStatus = .normal
+                    self?.reactor.fetchManually.onNext(Void())
+                })
+                self?.view.hideLoading()
+            }.disposed(by: rx.disposeBag)
+
+        self.reactor.fetchCandidateError.asObservable()
+            .filter { $0 == nil }
+            .bind { [weak self] _ in
+                self?.view.hideLoading()
+                self?.dataStatus = .normal
+            }.disposed(by: rx.disposeBag)
+
     }
 
     func vote(nodeName: String) {
@@ -169,6 +193,7 @@ class VoteListViewController: BaseViewController {
                                                           nodeName: nodeName) { [unowned self] (result) in
                                                             switch result {
                                                             case .success:
+                                                                self.view.displayLoading()
                                                                 self.reactor.vote.value = nodeName
                                                             case .passwordAuthFailed:
                                                                 Alert.show(into: self,
@@ -197,10 +222,6 @@ class VoteListViewController: BaseViewController {
                        actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
         } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
             Alert.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.voteListAlertQuota(), actions: [
-                (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle()), { [weak self] _ in
-                    let vc = QuotaManageViewController()
-                    self?.navigationController?.pushViewController(vc, animated: true)
-                }),
                 (.default(title: R.string.localizable.quotaAlertPowButtonTitle()), { [weak self] _ in
                     var cancelPow = false
                     let getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!) {
@@ -209,10 +230,17 @@ class VoteListViewController: BaseViewController {
                     getPowFloatView.show()
                     self?.reactor.voteWithPow(nodeName: nodeName, tryToCancel: { () -> Bool in
                         return cancelPow
+                    }, powCompletion: { (_) in
+                        getPowFloatView.finish {}
+                        self?.view.displayLoading()
                     }, completion: { (_) in
-                        getPowFloatView.hide()
+
                     })
 
+                }),
+                (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle()), { [weak self] _ in
+                    let vc = QuotaManageViewController()
+                    self?.navigationController?.pushViewController(vc, animated: true)
                 }),
                 (.cancel, nil),
                 ], config: { alert in
@@ -221,7 +249,7 @@ class VoteListViewController: BaseViewController {
         } else if error.code == Provider.TransactionErrorCode.noTransactionBefore.rawValue {
             Toast.show(R.string.localizable.voteListSearchNoTransactionBefore())
         } else {
-             Toast.show(R.string.localizable.voteListSendFailed())
+            Toast.show(R.string.localizable.voteListSendFailed(String(error.code)))
         }
     }
 
@@ -237,4 +265,14 @@ class VoteListViewController: BaseViewController {
         appear = false
     }
 
+}
+
+extension VoteListViewController: ViewControllerDataStatusable {
+
+    func networkErrorView(error: Error, retry: @escaping () -> Void) -> UIView {
+        return UIView.defaultNetworkErrorView(error: error) { [weak self] in
+            self?.view.displayLoading()
+            retry()
+        }
+    }
 }
