@@ -623,7 +623,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 217 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 221 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -945,6 +945,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let transactionListPageHeaderRefreshRefreshing = Rswift.StringResource(key: "transaction.list.page.header.refresh.refreshing", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Loading...
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteRefreshBackFooterRefreshingText = Rswift.StringResource(key: "Vite.RefreshBackFooter.RefreshingText", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Login
       /// 
       /// Locales: en, zh-Hans
@@ -1037,6 +1041,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let votePageInfoNodataTitle = Rswift.StringResource(key: "vote.page.info.nodata.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: No more data
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteRefreshBackFooterNoMoreDataText = Rswift.StringResource(key: "Vite.RefreshBackFooter.NoMoreDataText", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: No result, please try another input
       /// 
       /// Locales: en, zh-Hans
@@ -1121,6 +1129,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let transactionListPageHeaderRefreshIdle = Rswift.StringResource(key: "transaction.list.page.header.refresh.idle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Pull up to load more
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteRefreshBackFooterIdleText = Rswift.StringResource(key: "vite.RefreshBackFooter.IdleText", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: QRCode cannot be identified
       /// 
       /// Locales: en, zh-Hans
@@ -1161,6 +1173,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicBackupPageAlterMessage = Rswift.StringResource(key: "mnemonic.backup.page.alter.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Release to load more.
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteRefreshBackFooterPullingText = Rswift.StringResource(key: "Vite.RefreshBackFooter.PullingText", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Release to refresh
       /// 
       /// Locales: en, zh-Hans
@@ -2054,6 +2070,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("transaction.list.page.header.refresh.refreshing", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Loading...
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteRefreshBackFooterRefreshingText(_: Void = ()) -> String {
+        return NSLocalizedString("Vite.RefreshBackFooter.RefreshingText", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Login
       /// 
       /// Locales: en, zh-Hans
@@ -2215,6 +2238,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("vote.page.info.nodata.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: No more data
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteRefreshBackFooterNoMoreDataText(_: Void = ()) -> String {
+        return NSLocalizedString("Vite.RefreshBackFooter.NoMoreDataText", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: No result, please try another input
       /// 
       /// Locales: en, zh-Hans
@@ -2362,6 +2392,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("transaction.list.page.header.refresh.idle", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Pull up to load more
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteRefreshBackFooterIdleText(_: Void = ()) -> String {
+        return NSLocalizedString("vite.RefreshBackFooter.IdleText", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: QRCode cannot be identified
       /// 
       /// Locales: en, zh-Hans
@@ -2430,6 +2467,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func mnemonicBackupPageAlterMessage(_: Void = ()) -> String {
         return NSLocalizedString("mnemonic.backup.page.alter.message", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Release to load more.
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteRefreshBackFooterPullingText(_: Void = ()) -> String {
+        return NSLocalizedString("Vite.RefreshBackFooter.PullingText", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Release to refresh

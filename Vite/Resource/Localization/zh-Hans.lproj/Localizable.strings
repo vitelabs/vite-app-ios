@@ -284,3 +284,9 @@
 "vote.list.search.empty" = "无结果，换个输入试试";
 "vote.list.search.no.transaction.before" = "您的地址未发生过交易，暂不能投票";
 
+//RefreshFooter
+"vite.RefreshBackFooter.IdleText" = "上拉可以加载更多";
+"Vite.RefreshBackFooter.PullingText" = "松开立即加载更多";
+"Vite.RefreshBackFooter.RefreshingText" = "正在加载更多的数据...";
+"Vite.RefreshBackFooter.NoMoreDataText" = "已经全部加载完毕";
+

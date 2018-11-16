@@ -109,7 +109,7 @@
 		8E0B3C2A219D620F0058713A /* GetTestTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B3C29219D620F0058713A /* GetTestTokenRequest.swift */; };
 		8E0B3C2B219D664E0058713A /* GetTestTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B3C29219D620F0058713A /* GetTestTokenRequest.swift */; };
 		8E0B3C2C219D664F0058713A /* GetTestTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B3C29219D620F0058713A /* GetTestTokenRequest.swift */; };
-		8E0FB693216074F4001525EB /* RefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB692216074F4001525EB /* RefreshHeader.swift */; };
+		8E0FB693216074F4001525EB /* RefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB692216074F4001525EB /* RefreshComponent.swift */; };
 		8E0FB695216B4082001525EB /* HDWalletStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB694216B4082001525EB /* HDWalletStorage.swift */; };
 		8E0FB697216B5B95001525EB /* ViteCryptoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB696216B5B95001525EB /* ViteCryptoTest.swift */; };
 		8E0FB699216C8957001525EB /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB698216C8957001525EB /* KeychainService.swift */; };
@@ -266,7 +266,7 @@
 		8EA0BE6021996D4800FDE2E8 /* CreateAccountHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D96021469E8D001B6EBD /* CreateAccountHomeViewController.swift */; };
 		8EA0BE6121996D4800FDE2E8 /* IconBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD55214E241F005B12C2 /* IconBtnView.swift */; };
 		8EA0BE6221996D4800FDE2E8 /* TransactionViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC95214768BD00A68823 /* TransactionViewModelType.swift */; };
-		8EA0BE6321996D4800FDE2E8 /* RefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB692216074F4001525EB /* RefreshHeader.swift */; };
+		8EA0BE6321996D4800FDE2E8 /* RefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB692216074F4001525EB /* RefreshComponent.swift */; };
 		8EA0BE6421996D4800FDE2E8 /* VoteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E230D2192EE1A0010B905 /* VoteInfo.swift */; };
 		8EA0BE6521996D4800FDE2E8 /* TitleDescView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E2062182C65900007E9F /* TitleDescView.swift */; };
 		8EA0BE6621996D4800FDE2E8 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E322142768B003CDFC2 /* ScanViewController.swift */; };
@@ -491,7 +491,7 @@
 		8EA0BF5121996D7800FDE2E8 /* CreateAccountHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D96021469E8D001B6EBD /* CreateAccountHomeViewController.swift */; };
 		8EA0BF5221996D7800FDE2E8 /* IconBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD55214E241F005B12C2 /* IconBtnView.swift */; };
 		8EA0BF5321996D7800FDE2E8 /* TransactionViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC95214768BD00A68823 /* TransactionViewModelType.swift */; };
-		8EA0BF5421996D7800FDE2E8 /* RefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB692216074F4001525EB /* RefreshHeader.swift */; };
+		8EA0BF5421996D7800FDE2E8 /* RefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB692216074F4001525EB /* RefreshComponent.swift */; };
 		8EA0BF5521996D7800FDE2E8 /* VoteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E230D2192EE1A0010B905 /* VoteInfo.swift */; };
 		8EA0BF5621996D7800FDE2E8 /* TitleDescView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E2062182C65900007E9F /* TitleDescView.swift */; };
 		8EA0BF5721996D7800FDE2E8 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E322142768B003CDFC2 /* ScanViewController.swift */; };
@@ -834,7 +834,7 @@
 		79000FBA546CDDAD7FEC4E7C /* libPods-ViteTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ViteTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		885501CC3EDB677E37F58341 /* Pods-Vite-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test.release.xcconfig"; sourceTree = "<group>"; };
 		8E0B3C29219D620F0058713A /* GetTestTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTestTokenRequest.swift; sourceTree = "<group>"; };
-		8E0FB692216074F4001525EB /* RefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHeader.swift; sourceTree = "<group>"; };
+		8E0FB692216074F4001525EB /* RefreshComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshComponent.swift; sourceTree = "<group>"; };
 		8E0FB694216B4082001525EB /* HDWalletStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWalletStorage.swift; sourceTree = "<group>"; };
 		8E0FB696216B5B95001525EB /* ViteCryptoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteCryptoTest.swift; sourceTree = "<group>"; };
 		8E0FB698216C8957001525EB /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
@@ -1692,7 +1692,7 @@
 			children = (
 				8E56FC9921479A7D00A68823 /* TransactionCell.swift */,
 				8ED4CED22148AF630005A82D /* GetMoreLoadingView.swift */,
-				8E0FB692216074F4001525EB /* RefreshHeader.swift */,
+				8E0FB692216074F4001525EB /* RefreshComponent.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2639,7 +2639,7 @@
 				4C84D96121469E8D001B6EBD /* CreateAccountHomeViewController.swift in Sources */,
 				4C9AFD56214E241F005B12C2 /* IconBtnView.swift in Sources */,
 				8E56FC96214768BD00A68823 /* TransactionViewModelType.swift in Sources */,
-				8E0FB693216074F4001525EB /* RefreshHeader.swift in Sources */,
+				8E0FB693216074F4001525EB /* RefreshComponent.swift in Sources */,
 				4C5E230E2192EE1A0010B905 /* VoteInfo.swift in Sources */,
 				4C32E2072182C65900007E9F /* TitleDescView.swift in Sources */,
 				8E6F3E332142768B003CDFC2 /* ScanViewController.swift in Sources */,
@@ -2878,7 +2878,7 @@
 				8EA0BE6021996D4800FDE2E8 /* CreateAccountHomeViewController.swift in Sources */,
 				8EA0BE6121996D4800FDE2E8 /* IconBtnView.swift in Sources */,
 				8EA0BE6221996D4800FDE2E8 /* TransactionViewModelType.swift in Sources */,
-				8EA0BE6321996D4800FDE2E8 /* RefreshHeader.swift in Sources */,
+				8EA0BE6321996D4800FDE2E8 /* RefreshComponent.swift in Sources */,
 				8EA0BE6421996D4800FDE2E8 /* VoteInfo.swift in Sources */,
 				8EA0BE6521996D4800FDE2E8 /* TitleDescView.swift in Sources */,
 				8EA0BE6621996D4800FDE2E8 /* ScanViewController.swift in Sources */,
@@ -3105,7 +3105,7 @@
 				8EA0BF5121996D7800FDE2E8 /* CreateAccountHomeViewController.swift in Sources */,
 				8EA0BF5221996D7800FDE2E8 /* IconBtnView.swift in Sources */,
 				8EA0BF5321996D7800FDE2E8 /* TransactionViewModelType.swift in Sources */,
-				8EA0BF5421996D7800FDE2E8 /* RefreshHeader.swift in Sources */,
+				8EA0BF5421996D7800FDE2E8 /* RefreshComponent.swift in Sources */,
 				8EA0BF5521996D7800FDE2E8 /* VoteInfo.swift in Sources */,
 				8EA0BF5621996D7800FDE2E8 /* TitleDescView.swift in Sources */,
 				8EA0BF5721996D7800FDE2E8 /* ScanViewController.swift in Sources */,
