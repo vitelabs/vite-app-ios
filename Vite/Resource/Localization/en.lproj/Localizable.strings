@@ -246,7 +246,7 @@
 
 /* quota alert */
 "quota.alert.title" = "Insufficient Quota";
-"quota.alert.pow.and.quota.message" = "Not available to send a transaction due to lack of quota, please delete descriptive text and run PoW, or gain quota by staking token to resume.";
+"quota.alert.pow.and.quota.message" = "Short in quota, you can acquire quota by running PoW or staking VITE.";
 "quota.alert.need.quota.message" = "Insufficient quota of PoW, we would recommend that you stake VITE to obtain quota.";
 "quota.alert.pow.button.title" = "Run PoW";
 "quota.alert.quota.button.title" = "Stake VITE";

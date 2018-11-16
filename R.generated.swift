@@ -1053,10 +1053,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let confirmTransactionPageNodeName = Rswift.StringResource(key: "confirm.transaction.page.node.name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Not available to send a transaction due to lack of quota, please delete descriptive text and run PoW, or gain quota by staking token to resume.
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaAlertPowAndQuotaMessage = Rswift.StringResource(key: "quota.alert.pow.and.quota.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Orderly select seed phrase
       /// 
       /// Locales: en, zh-Hans
@@ -1241,6 +1237,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let aboutUsPageCellShareUs = Rswift.StringResource(key: "aboutUs.page.cell.shareUs", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Short in quota, you can acquire quota by running PoW or staking VITE.
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaAlertPowAndQuotaMessage = Rswift.StringResource(key: "quota.alert.pow.and.quota.message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Something went wrong with network, please try again later
       /// 
       /// Locales: en, zh-Hans
@@ -2259,13 +2259,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("confirm.transaction.page.node.name", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Not available to send a transaction due to lack of quota, please delete descriptive text and run PoW, or gain quota by staking token to resume.
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaAlertPowAndQuotaMessage(_: Void = ()) -> String {
-        return NSLocalizedString("quota.alert.pow.and.quota.message", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: Orderly select seed phrase
       /// 
       /// Locales: en, zh-Hans
@@ -2586,6 +2579,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func aboutUsPageCellShareUs(_: Void = ()) -> String {
         return NSLocalizedString("aboutUs.page.cell.shareUs", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Short in quota, you can acquire quota by running PoW or staking VITE.
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaAlertPowAndQuotaMessage(_: Void = ()) -> String {
+        return NSLocalizedString("quota.alert.pow.and.quota.message", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Something went wrong with network, please try again later

@@ -64,14 +64,21 @@ struct WebHandler {
     fileprivate static func appendQuery(urlString: String) -> String {
         let querys = ["version": Bundle.main.versionNumber,
                       "channel": Constants.appDownloadChannel.rawValue,
-                      "address": HDWalletManager.instance.bag?.address.description ?? ""]
+                      "address": HDWalletManager.instance.bag?.address.description ?? "",
+                      "language": LocalizationService.sharedInstance.currentLanguage.rawValue]
+
+        let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
+        let subDelimitersToEncode = "!$&'()*+,;="
+        var allowedCharacterSet = CharacterSet.urlQueryAllowed
+        allowedCharacterSet.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
+
         var string = urlString
         for (key, value) in querys {
             let separator = string.contains("?") ? "&" : "?"
             string = string.appending(separator)
-            string = string.appending(key)
+            string = string.appending(key.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet) ?? "")
             string = string.appending("=")
-            string = string.appending(value)
+            string = string.appending(value.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet) ?? "")
         }
         return string
     }
