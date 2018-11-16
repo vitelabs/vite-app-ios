@@ -88,6 +88,7 @@ extension Provider {
                                                data: data,
                                                difficulty: AccountBlock.Const.Difficulty.vote.value,
                                                completion: { result in
+                                                if tryToCancel() { return }
                                                 switch result {
                                                 case .success(let context) :
                                                     self.sendTransactionWithContext(context, completion: { (result) in
