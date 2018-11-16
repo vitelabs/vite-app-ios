@@ -235,15 +235,35 @@ extension MyVoteInfoViewController {
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }),
                 (.default(title: R.string.localizable.quotaAlertPowButtonTitle.key.localized()), { [weak self] _ in
-                    HUD.show()
+                    var cancelPow = false
+                    let getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!) {
+                        cancelPow = true
+                    }
+                    getPowFloatView.show()
+
+                    //get pow data
                     self?.reactor?.cancelVoteAndSendWithGetPow(completion: { (result) in
-                        if case .success = result {
-                            self?.viewInfoView.changeInfoCancelVoting()
-                            Toast.show(R.string.localizable.votePageVoteInfoCancelVoteToastTitle.key.localized())
+                        guard cancelPow == false else { return }
+                        guard let `self` = self else { return }
+                        if case let .success(context) = result {
+                            getPowFloatView.finish(completion: {
+                                //send transaction
+                                HUD.show()
+                                self.reactor?.cancelVoteSendTransaction(context, completion: { (result) in
+                                    HUD.hide()
+                                    if case .success = result {
+                                        //in the end
+                                        self.viewInfoView.changeInfoCancelVoting()
+                                        Toast.show(R.string.localizable.votePageVoteInfoCancelVoteToastTitle.key.localized())
+                                    } else if case let .error(error) = result {
+                                           Toast.show(error.message)
+                                    }
+                                })
+                            })
                         } else if case let .error(error) = result {
+                            getPowFloatView.hide()
                             Toast.show(error.message)
                         }
-                        HUD.hide()
                     })
                 }),
                 (.cancel, nil),
