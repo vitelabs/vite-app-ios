@@ -234,8 +234,11 @@ class VoteListViewController: BaseViewController {
                     getPowFloatView.show()
                     self?.reactor.voteWithPow(nodeName: nodeName, tryToCancel: { () -> Bool in
                         return cancelPow
+                    }, powCompletion: { (_) in
+                        getPowFloatView.finish {}
+                        self?.view.displayLoading()
                     }, completion: { (_) in
-                        getPowFloatView.hide()
+
                     })
 
                 }),
@@ -246,7 +249,7 @@ class VoteListViewController: BaseViewController {
         } else if error.code == Provider.TransactionErrorCode.noTransactionBefore.rawValue {
             Toast.show(R.string.localizable.voteListSearchNoTransactionBefore.key.localized())
         } else {
-             Toast.show(R.string.localizable.voteListSendFailed.key.localized())
+            Toast.show(R.string.localizable.voteListSendFailed.key.localized(arguments: String(error.code)))
         }
     }
 

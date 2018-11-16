@@ -279,7 +279,7 @@
 "vote.list.count" = "得票数";
 "vote.list.address" = "出块地址";
 "vote.list.send.success" = "投票请求发送成功";
-"vote.list.send.failed" = "投票失败，请重新投票";
+"vote.list.send.failed" = "投票失败，请重新投票(code: %@)";
 "vote.list.alert.quota" = "无法投票，您需运行PoW 或抵押VITE 获取配额才可以投票";
 "vote.list.search.empty" = "无结果，换个输入试试";
 "vote.list.search.no.transaction.before" = "您的地址未发生过交易，暂不能投票";
