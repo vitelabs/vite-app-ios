@@ -12,15 +12,12 @@ import JSONRPCKit
 import APIKit
 import BigInt
 
-private let voteCancel_gID = "00000000000000000001"
-private let voteCancelAddress = Address(string: "vite_000000000000000000000000000000000000000270a48cc491")
-
 // MARK: Vote
 extension Provider {
     fileprivate func getVoteInfo(address: String) -> Promise<(VoteInfo?)> {
         return Promise { seal in
             var request = ViteServiceRequest(for: server, batch: BatchFactory()
-                .create(GetVoteInfoRequest(gid: voteCancel_gID, address: address)))
+                .create(GetVoteInfoRequest(gid: Const.gid, address: address)))
             request.timeoutInterval = 10.0
             Session.send(request) { result in
                 switch result {
@@ -36,7 +33,7 @@ extension Provider {
      func cancelVote() -> Promise<(String)> {
         return Promise { seal in
             var request = ViteServiceRequest(for: server, batch: BatchFactory()
-                .create(CancelVoteRequest(gid: voteCancel_gID)))
+                .create(CancelVoteRequest(gid: Const.gid)))
             request.timeoutInterval = 10.0
             Session.send(request) { result in
                 switch result {
@@ -73,7 +70,7 @@ extension Provider {
                 let send = AccountBlock.makeSendAccountBlock(latest: latestAccountBlock,
                                                              bag: bag,
                                                              snapshotHash: fittestSnapshotHash,
-                                                             toAddress: voteCancelAddress,
+                                                             toAddress: Const.ContractAddress.vote.address,
                                                              tokenId: TokenCacheService.instance.viteToken.id,
                                                              amount: BigInt(0),
                                                              data: data,
@@ -93,7 +90,7 @@ extension Provider {
         cancelVote()
             .done({ [unowned self] (data)  in
                 self.sendTransactionWithGetPow(bag: bag,
-                                               toAddress: voteCancelAddress,
+                                               toAddress: Const.ContractAddress.vote.address,
                                                tokenId: TokenCacheService.instance.viteToken.id,
                                                amount: 0,
                                                data: data,
