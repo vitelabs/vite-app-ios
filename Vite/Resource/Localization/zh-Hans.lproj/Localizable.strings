@@ -244,7 +244,7 @@
 
 /* quota alert */
 "quota.alert.title" = "配额不足";
-"quota.alert.pow.and.quota.message" = "无法进行交易，您需要删除备注文字并运行 PoW 或抵押 VITE 获取配额才可以继续转账";
+"quota.alert.pow.and.quota.message" = "配额不足，建议您点击运行 PoW 获取配额或抵押 VITE 获取配额";
 "quota.alert.need.quota.message" = "PoW 获取的配额不足，建议您进行抵押 VITE 获取配额";
 "quota.alert.pow.button.title" = "运行 PoW";
 "quota.alert.quota.button.title" = "抵押 VITE";
