@@ -230,10 +230,6 @@ extension MyVoteInfoViewController {
                        actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
         } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
             Alert.show(into: self, title: R.string.localizable.quotaAlertTitle.key.localized(), message: R.string.localizable.votePageVoteInfoAlertQuota.key.localized(), actions: [
-                (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle.key.localized()), { [weak self] _ in
-                    let vc = QuotaManageViewController()
-                    self?.navigationController?.pushViewController(vc, animated: true)
-                }),
                 (.default(title: R.string.localizable.quotaAlertPowButtonTitle.key.localized()), { [weak self] _ in
                     var cancelPow = false
                     let getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!) {
@@ -265,6 +261,10 @@ extension MyVoteInfoViewController {
                             Toast.show(error.message)
                         }
                     })
+                }),
+                (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle.key.localized()), { [weak self] _ in
+                    let vc = QuotaManageViewController()
+                    self?.navigationController?.pushViewController(vc, animated: true)
                 }),
                 (.cancel, nil),
                 ], config: { alert in
