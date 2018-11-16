@@ -16,9 +16,8 @@ import BigInt
 extension Provider {
     fileprivate func getVoteInfo(address: String) -> Promise<(VoteInfo?)> {
         return Promise { seal in
-            var request = ViteServiceRequest(for: server, batch: BatchFactory()
+            let request = ViteServiceRequest(for: server, batch: BatchFactory()
                 .create(GetVoteInfoRequest(gid: Const.gid, address: address)))
-            request.timeoutInterval = 10.0
             Session.send(request) { result in
                 switch result {
                 case .success(let voteInfo):
@@ -32,9 +31,8 @@ extension Provider {
 
      func cancelVote() -> Promise<(String)> {
         return Promise { seal in
-            var request = ViteServiceRequest(for: server, batch: BatchFactory()
+            let request = ViteServiceRequest(for: server, batch: BatchFactory()
                 .create(CancelVoteRequest(gid: Const.gid)))
-            request.timeoutInterval = 10.0
             Session.send(request) { result in
                 switch result {
                 case .success(let voteInfo):
@@ -86,7 +84,7 @@ extension Provider {
             })
     }
 
-    func cancelVoteAndSendWithGetPow(bag: HDWalletManager.Bag, completion:@escaping (NetworkResult<Void>) -> Void) {
+    func cancelVoteAndSendWithGetPow(bag: HDWalletManager.Bag, completion:@escaping (NetworkResult<SendTransactionContext>) -> Void) {
         cancelVote()
             .done({ [unowned self] (data)  in
                 self.sendTransactionWithGetPow(bag: bag,
@@ -98,14 +96,7 @@ extension Provider {
                                                completion: { result in
                                                 switch result {
                                                 case .success(let context) :
-                                                    self.sendTransactionWithContext(context, completion: { (result) in
-                                                        switch result {
-                                                        case .success:
-                                                            completion(NetworkResult.success(Void()))
-                                                        case .error(let error):
-                                                            completion(NetworkResult.error(error))
-                                                        }
-                                                    })
+                                                    completion(NetworkResult.success(context))
                                                 case .error(let error):
                                                     completion(NetworkResult.error(error))
                                                 }

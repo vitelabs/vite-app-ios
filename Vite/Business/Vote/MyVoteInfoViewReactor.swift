@@ -88,11 +88,11 @@ final class MyVoteInfoViewReactor: Reactor {
             ) { [weak self](result) in
                 switch result {
                 case .success(let voteInfo):
-                    plog(level: .info, log: String.init(format: "fetchVoteInfo  success address=%@, voteInfo.nodeName = %@", address, voteInfo?.nodeName ?? ""), tag: .vote)
+                    plog(level: .debug, log: String.init(format: "fetchVoteInfo  success address=%@, voteInfo.nodeName = %@", address, voteInfo?.nodeName ?? ""), tag: .vote)
                     observer.onNext((voteInfo, nil))
                     observer.onCompleted()
                 case .error(let error):
-                    plog(level: .info, log: String.init(format: "fetchVoteInfo error  error = %d=%@", error.code, error.localizedDescription), tag: .vote)
+                    plog(level: .debug, log: String.init(format: "fetchVoteInfo error  error = %d=%@", error.code, error.localizedDescription), tag: .vote)
                     observer.onNext((nil, error))
                     observer.onCompleted()
                 }
@@ -123,7 +123,7 @@ final class MyVoteInfoViewReactor: Reactor {
         })
     }
 
-    func cancelVoteAndSendWithGetPow(completion: @escaping (NetworkResult<Void>) -> Void) {
+    func cancelVoteAndSendWithGetPow(completion: @escaping (NetworkResult<Provider.SendTransactionContext>) -> Void) {
             Provider.instance.cancelVoteAndSendWithGetPow(bag: self.bag
             ) { (result) in
                 if case .success = result {
@@ -134,4 +134,16 @@ final class MyVoteInfoViewReactor: Reactor {
                 completion(result)
             }
         }
+
+    func cancelVoteSendTransaction(_ context: Provider.SendTransactionContext, completion: @escaping (NetworkResult<Void>) -> Void) {
+        Provider.instance.sendTransactionWithContext(context
+        ) { (result) in
+            if case .success = result {
+                plog(level: .info, log: "cancelVoteSendTransaction success", tag: .vote)
+            } else if case let .error(error) = result {
+                plog(level: .info, log: String.init(format: "cancelVoteSendTransaction error = %d=%@", error.code, error.localizedDescription), tag: .vote)
+            }
+            completion(result)
+        }
+    }
 }
