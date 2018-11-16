@@ -286,6 +286,12 @@
 "vote.list.search.empty" = "No result, please try another input";
 "vote.list.search.no.transaction.before" = "You cannot vote for now as there is no transaction record in your address";
 
+//RefreshFooter
+"vite.RefreshBackFooter.IdleText" = "Pull up to load more";
+"Vite.RefreshBackFooter.PullingText" = "Release to load more.";
+"Vite.RefreshBackFooter.RefreshingText" = "Loading...";
+"Vite.RefreshBackFooter.NoMoreDataText" = "No more data";
+
 
 
 

@@ -41,3 +41,16 @@ class RefreshHeader: MJRefreshHeader {
     }
 
 }
+
+final class RefreshFooter: MJRefreshBackNormalFooter {
+
+    class func footer(refreshingBlock: @escaping MJRefreshComponentRefreshingBlock) -> RefreshFooter? {
+        let footer = RefreshFooter.init(refreshingBlock: refreshingBlock)
+        footer?.setTitle(R.string.localizable.viteRefreshBackFooterIdleText.key.localized(), for: .idle)
+        footer?.setTitle(R.string.localizable.viteRefreshBackFooterPullingText.key.localized(), for: .pulling)
+        footer?.setTitle(R.string.localizable.viteRefreshBackFooterRefreshingText.key.localized(), for: .refreshing)
+        footer?.setTitle(R.string.localizable.viteRefreshBackFooterNoMoreDataText.key.localized(), for: .noMoreData)
+        return footer
+    }
+
+}
