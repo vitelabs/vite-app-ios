@@ -74,6 +74,7 @@ extension Provider {
                      benefitedNodeName name: String,
                      gid: String = Const.gid,
                      tryToCancel: @escaping () -> Bool,
+                     powCompletion: @escaping (NetworkResult<SendTransactionContext>) -> Void,
                      completion: @escaping (NetworkResult<Void>) -> Void) {
         getVoteData(benefitedNodeName: name, gid: gid)
             .done({ [unowned self] (data)  in
@@ -86,6 +87,7 @@ extension Provider {
                                                difficulty: AccountBlock.Const.Difficulty.vote.value,
                                                completion: { result in
                                                 if tryToCancel() { return }
+                                                powCompletion(result)
                                                 switch result {
                                                 case .success(let context) :
                                                     self.sendTransactionWithContext(context, completion: { (result) in

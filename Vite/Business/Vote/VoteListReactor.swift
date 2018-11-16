@@ -143,12 +143,16 @@ final class VoteListReactor {
         }
     }
 
-    func voteWithPow(nodeName: String, tryToCancel: @escaping () -> Bool, completion: @escaping (NetworkResult<Void>) -> Void) {
+    func voteWithPow(nodeName: String,
+                     tryToCancel: @escaping () -> Bool,
+                     powCompletion: @escaping (NetworkResult<Provider.SendTransactionContext>) -> Void,
+                     completion: @escaping (NetworkResult<Void>) -> Void) {
         guard let bag = HDWalletManager.instance.bag else { return }
 
         Provider.instance.voteWithPow(bag: bag,
                                       benefitedNodeName: nodeName,
-                                      tryToCancel: tryToCancel) { (result) in
+                                      tryToCancel: tryToCancel,
+                                      powCompletion: powCompletion) { (result) in
             if case .success = result {
                 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: .userDidVote, object: nodeName)
@@ -158,7 +162,6 @@ final class VoteListReactor {
                 self.voteError.value = (nodeName, error)
             }
             completion(result)
-
         }
 
     }

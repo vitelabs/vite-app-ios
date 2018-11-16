@@ -1413,7 +1413,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let vote = Rswift.StringResource(key: "Vote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Vote failed, please vote again
+      /// en translation: Vote failed, please vote again(code: %@)
       /// 
       /// Locales: en, zh-Hans
       static let voteListSendFailed = Rswift.StringResource(key: "vote.list.send.failed", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
@@ -2873,11 +2873,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Vote", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Vote failed, please vote again
+      /// en translation: Vote failed, please vote again(code: %@)
       /// 
       /// Locales: en, zh-Hans
-      static func voteListSendFailed(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.send.failed", bundle: R.hostingBundle, comment: "")
+      static func voteListSendFailed(_ value1: String) -> String {
+        return String(format: NSLocalizedString("vote.list.send.failed", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       /// en translation: Vote revoking request is successfully sent
