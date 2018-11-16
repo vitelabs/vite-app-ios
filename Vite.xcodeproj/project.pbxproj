@@ -104,7 +104,6 @@
 		74B3F87A2176E92D002FA14F /* UIImagePickerController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3F8792176E92D002FA14F /* UIImagePickerController+Rx.swift */; };
 		74B3F87C217708B0002FA14F /* AVCaptureMetadataOutput+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3F87B217708B0002FA14F /* AVCaptureMetadataOutput+Rx.swift */; };
 		74DE323D2192912C0024B991 /* VoteListReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DE323C2192912C0024B991 /* VoteListReactor.swift */; };
-		74DE323F2192C9440024B991 /* BussinessErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DE323E2192C9440024B991 /* BussinessErrorHandler.swift */; };
 		74DE3243219424B30024B991 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DE3242219424B30024B991 /* SearchBar.swift */; };
 		74DE3245219434860024B991 /* CandidateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DE3244219434860024B991 /* CandidateCell.swift */; };
 		8E0B3C2A219D620F0058713A /* GetTestTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B3C29219D620F0058713A /* GetTestTokenRequest.swift */; };
@@ -249,7 +248,6 @@
 		8EA0BE4D21996D4800FDE2E8 /* GetVoteInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23052192EDEB0010B905 /* GetVoteInfoRequest.swift */; };
 		8EA0BE4E21996D4800FDE2E8 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0F2141263A003CDFC2 /* Balance.swift */; };
 		8EA0BE4F21996D4800FDE2E8 /* UITableView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E2B2142644E003CDFC2 /* UITableView+Helper.swift */; };
-		8EA0BE5021996D4800FDE2E8 /* BussinessErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DE323E2192C9440024B991 /* BussinessErrorHandler.swift */; };
 		8EA0BE5121996D4800FDE2E8 /* AddressManagerTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468ED214A09CA00807D2C /* AddressManagerTableViewModel.swift */; };
 		8EA0BE5221996D4800FDE2E8 /* WalletHomeBalanceInfoTableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E47214513EC003CDFC2 /* WalletHomeBalanceInfoTableViewModelType.swift */; };
 		8EA0BE5321996D4800FDE2E8 /* CreateNameAndPwdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A191C2151323400C51CE8 /* CreateNameAndPwdView.swift */; };
@@ -475,7 +473,6 @@
 		8EA0BF3E21996D7800FDE2E8 /* GetVoteInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23052192EDEB0010B905 /* GetVoteInfoRequest.swift */; };
 		8EA0BF3F21996D7800FDE2E8 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0F2141263A003CDFC2 /* Balance.swift */; };
 		8EA0BF4021996D7800FDE2E8 /* UITableView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E2B2142644E003CDFC2 /* UITableView+Helper.swift */; };
-		8EA0BF4121996D7800FDE2E8 /* BussinessErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DE323E2192C9440024B991 /* BussinessErrorHandler.swift */; };
 		8EA0BF4221996D7800FDE2E8 /* AddressManagerTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468ED214A09CA00807D2C /* AddressManagerTableViewModel.swift */; };
 		8EA0BF4321996D7800FDE2E8 /* WalletHomeBalanceInfoTableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E47214513EC003CDFC2 /* WalletHomeBalanceInfoTableViewModelType.swift */; };
 		8EA0BF4421996D7800FDE2E8 /* CreateNameAndPwdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A191C2151323400C51CE8 /* CreateNameAndPwdView.swift */; };
@@ -830,7 +827,6 @@
 		74B3F8792176E92D002FA14F /* UIImagePickerController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Rx.swift"; sourceTree = "<group>"; };
 		74B3F87B217708B0002FA14F /* AVCaptureMetadataOutput+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureMetadataOutput+Rx.swift"; sourceTree = "<group>"; };
 		74DE323C2192912C0024B991 /* VoteListReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteListReactor.swift; sourceTree = "<group>"; };
-		74DE323E2192C9440024B991 /* BussinessErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BussinessErrorHandler.swift; sourceTree = "<group>"; };
 		74DE3242219424B30024B991 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		74DE3244219434860024B991 /* CandidateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateCell.swift; sourceTree = "<group>"; };
 		7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1181,7 +1177,6 @@
 				8E79261B21522BF1007FEBAB /* FetchBalanceInfoService.swift */,
 				8E68C4832182BFBE00475133 /* FetchQuotaService.swift */,
 				8E792613215151E0007FEBAB /* ViteURI.swift */,
-				74DE323E2192C9440024B991 /* BussinessErrorHandler.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -2626,7 +2621,6 @@
 				4C5E23072192EDEB0010B905 /* GetVoteInfoRequest.swift in Sources */,
 				8E6F3E102141263A003CDFC2 /* Balance.swift in Sources */,
 				8E6F3E2C2142644E003CDFC2 /* UITableView+Helper.swift in Sources */,
-				74DE323F2192C9440024B991 /* BussinessErrorHandler.swift in Sources */,
 				8EE468EE214A09CA00807D2C /* AddressManagerTableViewModel.swift in Sources */,
 				8E6F3E48214513EC003CDFC2 /* WalletHomeBalanceInfoTableViewModelType.swift in Sources */,
 				4C2A191D2151323400C51CE8 /* CreateNameAndPwdView.swift in Sources */,
@@ -2866,7 +2860,6 @@
 				8EA0BE4D21996D4800FDE2E8 /* GetVoteInfoRequest.swift in Sources */,
 				8EA0BE4E21996D4800FDE2E8 /* Balance.swift in Sources */,
 				8EA0BE4F21996D4800FDE2E8 /* UITableView+Helper.swift in Sources */,
-				8EA0BE5021996D4800FDE2E8 /* BussinessErrorHandler.swift in Sources */,
 				8EA0BE5121996D4800FDE2E8 /* AddressManagerTableViewModel.swift in Sources */,
 				8EA0BE5221996D4800FDE2E8 /* WalletHomeBalanceInfoTableViewModelType.swift in Sources */,
 				8EA0BE5321996D4800FDE2E8 /* CreateNameAndPwdView.swift in Sources */,
@@ -3094,7 +3087,6 @@
 				8EA0BF3E21996D7800FDE2E8 /* GetVoteInfoRequest.swift in Sources */,
 				8EA0BF3F21996D7800FDE2E8 /* Balance.swift in Sources */,
 				8EA0BF4021996D7800FDE2E8 /* UITableView+Helper.swift in Sources */,
-				8EA0BF4121996D7800FDE2E8 /* BussinessErrorHandler.swift in Sources */,
 				8EA0BF4221996D7800FDE2E8 /* AddressManagerTableViewModel.swift in Sources */,
 				8EA0BF4321996D7800FDE2E8 /* WalletHomeBalanceInfoTableViewModelType.swift in Sources */,
 				8EA0BF4421996D7800FDE2E8 /* CreateNameAndPwdView.swift in Sources */,
