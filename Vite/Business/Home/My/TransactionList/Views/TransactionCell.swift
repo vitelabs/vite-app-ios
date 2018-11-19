@@ -19,32 +19,44 @@ class TransactionCell: BaseTableViewCell {
 
     fileprivate let typeImageView = UIImageView()
 
-    fileprivate let hashLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 16)
-        $0.textColor = UIColor(netHex: 0x3E4A59)
+    fileprivate let typeNameLabel = UILabel().then {
+        $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        $0.textColor = UIColor(netHex: 0x77808A)
+    }
+
+    fileprivate let addressLabel = UILabel().then {
+        $0.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        $0.textColor = UIColor(netHex: 0x3E4A59, alpha: 0.45)
         $0.lineBreakMode = .byTruncatingMiddle
     }
 
     fileprivate let timeLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 14)
-        $0.textColor = UIColor(netHex: 0x3E4A59).withAlphaComponent(0.45)
+        $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        $0.textColor = UIColor(netHex: 0x3E4A59, alpha: 0.6)
     }
 
     fileprivate let balanceLabel = UILabel().then {
-        $0.font = UIFont.boldSystemFont(ofSize: 16)
-        $0.textColor = UIColor(netHex: 0x3E4A59)
+        $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        $0.textAlignment = .right
     }
 
     fileprivate let symbolLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 14)
-        $0.textColor = UIColor(netHex: 0x3E4A59)
+        $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        $0.textColor = UIColor(netHex: 0x3E4A59, alpha: 0.7)
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        let addressBackView = UIImageView().then {
+            $0.image = UIImage.image(withColor: UIColor(netHex: 0xF3F5F9), cornerRadius: 2).resizable
+            $0.highlightedImage = UIImage.color(UIColor(netHex: 0xd9d9d9))
+        }
+
         contentView.addSubview(typeImageView)
-        contentView.addSubview(hashLabel)
+        contentView.addSubview(typeNameLabel)
+        contentView.addSubview(addressBackView)
+        contentView.addSubview(addressLabel)
         contentView.addSubview(timeLabel)
         contentView.addSubview(balanceLabel)
         contentView.addSubview(symbolLabel)
@@ -52,32 +64,50 @@ class TransactionCell: BaseTableViewCell {
         typeImageView.setContentHuggingPriority(.required, for: .horizontal)
         typeImageView.setContentCompressionResistancePriority(.required, for: .horizontal)
         typeImageView.snp.makeConstraints { (m) in
-            m.centerY.equalTo(contentView)
+            m.top.equalTo(contentView).offset(19)
             m.left.equalTo(contentView).offset(24)
+            m.size.equalTo(CGSize(width: 14, height: 14))
         }
 
-        hashLabel.snp.makeConstraints { (m) in
-            m.top.equalTo(contentView).offset(16)
-            m.left.equalTo(typeImageView.snp.right).offset(10)
+        typeNameLabel.setContentHuggingPriority(.required, for: .horizontal)
+        typeNameLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        typeNameLabel.snp.makeConstraints { (m) in
+            m.centerY.equalTo(typeImageView)
+            m.left.equalTo(typeImageView.snp.right).offset(4)
         }
 
-        timeLabel.snp.makeConstraints { (m) in
-            m.top.equalTo(hashLabel.snp.bottom).offset(5)
-            m.left.equalTo(hashLabel)
-        }
-
-        balanceLabel.setContentHuggingPriority(.required, for: .horizontal)
-        balanceLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-        balanceLabel.snp.makeConstraints { (m) in
-            m.top.equalTo(hashLabel)
-            m.left.greaterThanOrEqualTo(hashLabel.snp.right).offset(22)
-            m.left.greaterThanOrEqualTo(timeLabel.snp.right).offset(22)
+        addressBackView.snp.makeConstraints { (m) in
+            m.centerY.equalTo(typeImageView)
+            m.height.equalTo(20)
+            m.left.equalTo(typeNameLabel.snp.right).offset(11)
             m.right.equalTo(contentView).offset(-24)
         }
 
+        addressLabel.snp.makeConstraints { (m) in
+            m.centerY.equalTo(addressBackView)
+            m.left.equalTo(addressBackView).offset(6)
+            m.right.equalTo(addressBackView).offset(-6)
+        }
+
+        timeLabel.setContentHuggingPriority(.required, for: .horizontal)
+        timeLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        timeLabel.snp.makeConstraints { (m) in
+            m.top.equalTo(typeImageView.snp.bottom).offset(14)
+            m.left.equalTo(typeImageView)
+            m.bottom.equalTo(contentView).offset(-13)
+        }
+
+        balanceLabel.snp.makeConstraints { (m) in
+            m.centerY.equalTo(timeLabel)
+            m.left.equalTo(timeLabel.snp.right).offset(10)
+        }
+
+        symbolLabel.setContentHuggingPriority(.required, for: .horizontal)
+        symbolLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         symbolLabel.snp.makeConstraints { (m) in
-            m.right.equalTo(balanceLabel)
-            m.top.equalTo(timeLabel)
+            m.centerY.equalTo(timeLabel)
+            m.left.equalTo(balanceLabel.snp.right).offset(8)
+            m.right.equalTo(addressBackView)
         }
 
         let line = UIView().then {
@@ -99,9 +129,11 @@ class TransactionCell: BaseTableViewCell {
 
     func bind(viewModel: TransactionViewModelType, index: Int) {
         typeImageView.image = viewModel.typeImage
-        hashLabel.text = viewModel.address
+        typeNameLabel.text = viewModel.typeName
+        addressLabel.text = viewModel.address
         timeLabel.text = viewModel.timeString
         balanceLabel.text = viewModel.balanceString
+        balanceLabel.textColor = viewModel.balanceColor
         symbolLabel.text = viewModel.symbolString
     }
 

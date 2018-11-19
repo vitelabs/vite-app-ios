@@ -10,19 +10,52 @@ import UIKit
 
 final class TransactionViewModel: TransactionViewModelType {
     let typeImage: UIImage
-    let timeString: String
-    let hash: String
+    let typeName: String
     let address: String
+    let timeString: String
     let balanceString: String
+    let balanceColor: UIColor
     let symbolString: String
+    let hash: String
 
     init(transaction: Transaction) {
-        self.typeImage = (transaction.type == .request ? R.image.icon_tx_send() : R.image.icon_tx_recieve())!
-        self.timeString = transaction.timestamp.format()
-        self.hash = transaction.hash
-        self.address = transaction.type == .request ? transaction.toAddress.description : transaction.fromAddress.description
-        let symbol = transaction.type == .request ? "-" : "+"
+        self.typeImage = R.image.icon_tx_send()!
+        self.typeName = transaction.type.name
+        self.address = transaction.type == .receive ? transaction.fromAddress.description : transaction.toAddress.description
+        self.timeString = transaction.timestamp.format("yyyy.MM.dd")
+        let symbol = transaction.amount.value == 0 ? "" : (transaction.type == .receive ? "+" : "-")
         self.balanceString = "\(symbol)\(transaction.amount.amountShort(decimals: transaction.token.decimals))"
+        self.balanceColor = transaction.type == .receive ? UIColor(netHex: 0xFF0008) : UIColor(netHex: 0x5BC500)
         self.symbolString = TokenCacheService.instance.tokenForId(transaction.token.id)?.symbol ?? ""
+        self.hash = transaction.hash
+    }
+}
+
+extension Transaction.TransactionType {
+    var name: String {
+        switch self {
+        case .register:
+            return R.string.localizable.transactionListTransactionTypeNameRegister()
+        case .registerUpdate:
+            return R.string.localizable.transactionListTransactionTypeNameRegisterUpdate()
+        case .cancelRegister:
+            return R.string.localizable.transactionListTransactionTypeNameCancelRegister()
+        case .extractReward:
+            return R.string.localizable.transactionListTransactionTypeNameExtractReward()
+        case .vote:
+            return R.string.localizable.transactionListTransactionTypeNameVote()
+        case .cancelVote:
+            return R.string.localizable.transactionListTransactionTypeNameCancelVote()
+        case .pledge:
+            return R.string.localizable.transactionListTransactionTypeNamePledge()
+        case .cancelPledge:
+            return R.string.localizable.transactionListTransactionTypeNameCancelPledge()
+        case .coin:
+            return R.string.localizable.transactionListTransactionTypeNameCoin()
+        case .cancelCoin:
+            return R.string.localizable.transactionListTransactionTypeNameCancelCoin()
+        case .send, .receive:
+            return R.string.localizable.transactionListTransactionTypeNameTransfer()
+        }
     }
 }
