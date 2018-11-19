@@ -630,7 +630,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 221 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 232 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1516,6 +1516,50 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let voteListAlertQuota = Rswift.StringResource(key: "vote.list.alert.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 取回配额抵押
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameCancelPledge = Rswift.StringResource(key: "transaction.list.transaction.type.name.cancelPledge", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 取回铸币抵押
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameCancelCoin = Rswift.StringResource(key: "transaction.list.transaction.type.name.cancelCoin", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 投票
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameVote = Rswift.StringResource(key: "transaction.list.transaction.type.name.vote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 提取奖励
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameExtractReward = Rswift.StringResource(key: "transaction.list.transaction.type.name.extractReward", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 撤销投票
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameCancelVote = Rswift.StringResource(key: "transaction.list.transaction.type.name.cancelVote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 撤销注册
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameCancelRegister = Rswift.StringResource(key: "transaction.list.transaction.type.name.cancelRegister", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 更新注册
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameRegisterUpdate = Rswift.StringResource(key: "transaction.list.transaction.type.name.registerUpdate", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 注册
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameRegister = Rswift.StringResource(key: "transaction.list.transaction.type.name.register", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 获取配额
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNamePledge = Rswift.StringResource(key: "transaction.list.transaction.type.name.pledge", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 转账
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameTransfer = Rswift.StringResource(key: "transaction.list.transaction.type.name.transfer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 铸币
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameCoin = Rswift.StringResource(key: "transaction.list.transaction.type.name.coin", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -3062,6 +3106,83 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func voteListAlertQuota(_: Void = ()) -> String {
         return NSLocalizedString("vote.list.alert.quota", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 取回配额抵押
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameCancelPledge(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.cancelPledge", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 取回铸币抵押
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameCancelCoin(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.cancelCoin", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 投票
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameVote(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.vote", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 提取奖励
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameExtractReward(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.extractReward", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 撤销投票
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameCancelVote(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.cancelVote", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 撤销注册
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameCancelRegister(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.cancelRegister", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 更新注册
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameRegisterUpdate(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.registerUpdate", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 注册
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameRegister(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.register", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 获取配额
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNamePledge(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.pledge", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 转账
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameTransfer(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.transfer", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 铸币
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameCoin(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.coin", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
