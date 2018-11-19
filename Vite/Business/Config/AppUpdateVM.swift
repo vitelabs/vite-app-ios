@@ -7,54 +7,91 @@
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
-import Alamofire
-import Moya
-import SwiftyJSON
+import ObjectMapper
 
 class AppUpdateVM: NSObject {
-    public func fetchUpdateInfo() {
-        let policies: [String: ServerTrustPolicy] = [:]
-        let manager = Manager(
-            configuration: URLSessionConfiguration.default,
-            serverTrustPolicyManager: ServerTrustPolicyManager(policies: policies)
-        )
-        let provider =  MoyaProvider<ViteAPI>(manager: manager)
 
-        let viteAppServiceRequest = ViteAppServiceRequest.init(provider: provider)
+    struct UpdateInfo: Mappable {
 
-        let _ = viteAppServiceRequest.getAppUpdate().done { versions in
-            guard let version = versions.first else { return }
+        fileprivate var isForce = true
+        fileprivate var build = 0
+        fileprivate var urlString = ""
+        fileprivate var forced: Int?
+        fileprivate var title: StringWrapper = StringWrapper(string: "")
+        fileprivate var message: StringWrapper = StringWrapper(string: "")
+        fileprivate var okTitle: StringWrapper?
+        fileprivate var cancelTitle: StringWrapper?
 
-            let dic = JSON.init(parseJSON: version)
+        fileprivate var url: URL {
+            return URL(string: urlString)!
+        }
 
-            let isOpen = dic["isOpen"].boolValue
-            if isOpen {
-                let isForce = dic["version"].dictionaryValue["isForce"]?.boolValue ?? true
-                let message = dic["version"].dictionaryValue["message"]?.stringValue ?? ""
-                let url = dic["version"].dictionaryValue["url"]?.stringValue ?? ""
+        init?(map: Map) {
+            guard let urlString = map.JSON["url"] as? String, let _ = URL(string: urlString) else {
+                return nil
+            }
+        }
 
-                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-                guard let rootVC = appDelegate.window?.rootViewController else { return }
-                var top = rootVC
-                while let presentedViewController = top.presentedViewController {
-                    top = presentedViewController
+        mutating func mapping(map: Map) {
+            isForce <- map["isForce"]
+            build <- map["build"]
+            urlString <- map["url"]
+            forced <- map["forced"]
+            title <- map["title"]
+            message <- map["message"]
+            okTitle <- map["okTitle"]
+            cancelTitle <- map["cancelTitle"]
+        }
+    }
+
+    static func checkUpdate() {
+
+        COSProvider.instance.checkUpdate { (result) in
+            switch result {
+            case .success(let jsonString):
+                plog(level: .debug, log: "check app update finished", tag: .getConfig)
+                if let string = jsonString,
+                    let info = UpdateInfo(JSONString: string),
+                    let current = Int(Bundle.main.buildNumber) {
+                    if current < info.build {
+                        showUpdate(info: info, current: current)
+                    }
                 }
-                if isForce {
-                    top.displayConfirmAlter(title: message, done: R.string.localizable.updateApp.key.localized(), doneHandler: {
-                        UIApplication.shared.open(URL.init(string: url)!, options: [:], completionHandler: nil)
-                        top.displayConfirmAlter(title: message, done: R.string.localizable.updateApp.key.localized(), doneHandler: {
-                              UIApplication.shared.open(URL.init(string: url)!, options: [:], completionHandler: nil)
-                        })
-                    })
-                } else {
-                    top.displayAlter(title: message, message: "", cancel: R.string.localizable.cancel.key.localized(), done: R.string.localizable.updateApp.key.localized(), doneHandler: {
-                        UIApplication.shared.open(URL.init(string: url)!, options: [:], completionHandler: nil)
-                    })
+            case .error(let error):
+                plog(level: .warning, log: error.message, tag: .getConfig)
+                GCD.delay(2, task: { self.checkUpdate() })
+            }
+        }
+    }
+
+    fileprivate static func showUpdate(info: UpdateInfo, current: Int) {
+        guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
+        var top = rootVC
+        while let presentedViewController = top.presentedViewController {
+            top = presentedViewController
+        }
+
+        var isForce = info.isForce
+        if !isForce {
+            if let forced = info.forced {
+                if current < forced {
+                    isForce = true
                 }
             }
         }
 
+        if isForce {
+            func showAlert() {
+                top.displayConfirmAlter(title: info.title.string, message: info.message.string, done: info.okTitle?.string ?? R.string.localizable.updateApp.key.localized(), doneHandler: {
+                    UIApplication.shared.open(info.url, options: [:], completionHandler: nil)
+                    showAlert()
+                })
+            }
+            showAlert()
+        } else {
+            top.displayAlter(title: info.title.string, message: info.message.string, cancel: info.cancelTitle?.string ?? R.string.localizable.cancel.key.localized(), done: info.okTitle?.string ?? R.string.localizable.updateApp.key.localized(), doneHandler: {
+                UIApplication.shared.open(info.url, options: [:], completionHandler: nil)
+            })
+        }
     }
 }

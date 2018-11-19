@@ -11,11 +11,50 @@ import AVFoundation
 import Then
 import SnapKit
 
-class ScanViewController: BaseViewController {
+import ReactorKit
+import RxSwift
+import RxCocoa
 
-    let scanViewWidth: CGFloat = 262.0
-    let scanViewCenterYOffset: CGFloat = 70.0
-    let captureSession = AVCaptureSession()
+enum ScanResult {
+    case viteURI(ViteURI)
+    case otherString(String?)
+}
+
+extension Reactive where Base: ScanViewController {
+    var result: Observable<ScanResult> {
+        return base.result.asObservable().share()
+    }
+}
+
+class ScanViewController: BaseViewController, View {
+
+    private let dismissWhenComplete: Bool
+
+    private var pickingImage = false
+
+    init(dismissWhenComplete: Bool = true) {
+        self.dismissWhenComplete = dismissWhenComplete
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    fileprivate var result: PublishSubject<ScanResult> = PublishSubject<ScanResult>()
+
+    var disposeBag = DisposeBag()
+
+    private let scanViewWidth: CGFloat = 262.0
+    private let scanViewCenterYOffset: CGFloat = 70.0
+
+    private let captureSession = AVCaptureSession()
+    private let captureMetadataOutput = AVCaptureMetadataOutput()
+
+    private let imagePicker = UIImagePickerController().then { (imagePicker) in
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +64,14 @@ class ScanViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if captureSession.isRunning == false {
-            captureSession.startRunning()
-        }
+        self.startCaptureSession()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if captureSession.isRunning == true {
-            captureSession.stopRunning()
+        self.stopCaptureSession()
+        if !pickingImage {
+            self.result.onCompleted()
         }
     }
 
@@ -41,7 +79,7 @@ class ScanViewController: BaseViewController {
         return .lightContent
     }
 
-    func setupAVComponents() {
+    private func setupAVComponents() {
         guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else { return }
         let videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer.backgroundColor = UIColor(netHex: 0x24272B).cgColor
@@ -52,113 +90,105 @@ class ScanViewController: BaseViewController {
             do {
                 let input = try AVCaptureDeviceInput(device: captureDevice)
                 self.captureSession.addInput(input)
-                let captureMetadataOutput = AVCaptureMetadataOutput()
-                self.captureSession.addOutput(captureMetadataOutput)
-                captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-                captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
+                self.captureSession.addOutput(self.captureMetadataOutput)
+                self.captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
                 let scanRect = CGRect(x: (videoPreviewLayer.bounds.size.width - self.scanViewWidth)/2,
                                       y: (videoPreviewLayer.bounds.size.height - kNavibarH - self.scanViewWidth)/2 - self.scanViewCenterYOffset,
                                       width: self.scanViewWidth,
                                       height: self.scanViewWidth)
                 let rectOfInterest = videoPreviewLayer.metadataOutputRectConverted(fromLayerRect: scanRect)
-                captureMetadataOutput.rectOfInterest = rectOfInterest
+                self.captureMetadataOutput.rectOfInterest = rectOfInterest
             } catch {
                 plog(level: .severe, log: "Init AVCaptureDeviceInput error")
             }
         }
     }
 
-    func setupUIComponents() {
+    private func setupUIComponents() {
         navigationItem.title = R.string.localizable.scanPageTitle.key.localized()
         navigationBarStyle = .custom(tintColor: UIColor.white, backgroundColor: UIColor(netHex: 0x24272B))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.icon_nav_photo_black(), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self.pickeImage(_:)))
 
-        do {
-
-            let clearView = UIView().then {
-                $0.backgroundColor = UIColor.clear
-                $0.layer.borderColor = UIColor(netHex: 0x0079df).cgColor
-                $0.layer.borderWidth = 2
-            }
-
-            let topBackgroundView = UIView().then {
-                $0.backgroundColor = UIColor(netHex: 0x24272B).withAlphaComponent(0.8)
-            }
-            let leftBackgroundView = UIView().then {
-                $0.backgroundColor = UIColor(netHex: 0x24272B).withAlphaComponent(0.8)
-            }
-            let bottomBackgroundView = UIView().then {
-                $0.backgroundColor = UIColor(netHex: 0x24272B).withAlphaComponent(0.8)
-            }
-            let rightBackgroundView = UIView().then {
-                $0.backgroundColor = UIColor(netHex: 0x24272B).withAlphaComponent(0.8)
-            }
-
-            let flashButton = UIButton().then {
-                $0.setImage(R.image.icon_button_light(), for: .normal)
-                $0.setImage(R.image.icon_button_light()?.highlighted, for: .highlighted)
-
-                guard let device = AVCaptureDevice.default(for: .video) else { return }
-                if !device.hasTorch || !device.isTorchAvailable {
-                    $0.isHidden = true
-                }
-            }
-
-            view.addSubview(clearView)
-            view.addSubview(topBackgroundView)
-            view.addSubview(bottomBackgroundView)
-            view.addSubview(leftBackgroundView)
-            view.addSubview(rightBackgroundView)
-            view.addSubview(flashButton)
-
-            clearView.snp.makeConstraints { (m) in
-                m.centerX.equalTo(view)
-                m.centerY.equalTo(view).offset(-scanViewCenterYOffset)
-                m.size.equalTo(CGSize(width: scanViewWidth, height: scanViewWidth))
-            }
-
-            topBackgroundView.snp.makeConstraints { (m) in
-                m.top.left.right.equalTo(view)
-                m.bottom.equalTo(clearView.snp.top)
-            }
-
-            bottomBackgroundView.snp.makeConstraints { (m) in
-                m.bottom.left.right.equalTo(view)
-                m.top.equalTo(clearView.snp.bottom)
-            }
-
-            leftBackgroundView.snp.makeConstraints { (m) in
-                m.top.equalTo(topBackgroundView.snp.bottom)
-                m.bottom.equalTo(bottomBackgroundView.snp.top)
-                m.left.equalTo(view)
-                m.right.equalTo(clearView.snp.left)
-            }
-
-            rightBackgroundView.snp.makeConstraints { (m) in
-                m.top.equalTo(topBackgroundView.snp.bottom)
-                m.bottom.equalTo(bottomBackgroundView.snp.top)
-                m.left.equalTo(clearView.snp.right)
-                m.right.equalTo(view)
-            }
-
-            flashButton.snp.makeConstraints { (m) in
-                m.centerX.equalTo(view)
-                m.top.equalTo(clearView.snp.bottom).offset(40)
-            }
-
-            flashButton.addTarget(self, action: #selector(switchFlash(_:)), for: .touchUpInside)
+        let clearView = UIView().then {
+            $0.backgroundColor = UIColor.clear
+            $0.layer.borderColor = UIColor(netHex: 0x0079df).cgColor
+            $0.layer.borderWidth = 2
         }
+
+        let topBackgroundView = UIView().then {
+            $0.backgroundColor = UIColor(netHex: 0x24272B).withAlphaComponent(0.8)
+        }
+        let leftBackgroundView = UIView().then {
+            $0.backgroundColor = UIColor(netHex: 0x24272B).withAlphaComponent(0.8)
+        }
+        let bottomBackgroundView = UIView().then {
+            $0.backgroundColor = UIColor(netHex: 0x24272B).withAlphaComponent(0.8)
+        }
+        let rightBackgroundView = UIView().then {
+            $0.backgroundColor = UIColor(netHex: 0x24272B).withAlphaComponent(0.8)
+        }
+
+        let flashButton = UIButton().then {
+            $0.setImage(R.image.icon_button_light(), for: .normal)
+            $0.setImage(R.image.icon_button_light()?.highlighted, for: .highlighted)
+
+            guard let device = AVCaptureDevice.default(for: .video) else { return }
+            if !device.hasTorch || !device.isTorchAvailable {
+                $0.isHidden = true
+            }
+        }
+
+        view.addSubview(clearView)
+        view.addSubview(topBackgroundView)
+        view.addSubview(bottomBackgroundView)
+        view.addSubview(leftBackgroundView)
+        view.addSubview(rightBackgroundView)
+        view.addSubview(flashButton)
+
+        clearView.snp.makeConstraints { (m) in
+            m.centerX.equalTo(view)
+            m.centerY.equalTo(view).offset(-scanViewCenterYOffset)
+            m.size.equalTo(CGSize(width: scanViewWidth, height: scanViewWidth))
+        }
+
+        topBackgroundView.snp.makeConstraints { (m) in
+            m.top.left.right.equalTo(view)
+            m.bottom.equalTo(clearView.snp.top)
+        }
+
+        bottomBackgroundView.snp.makeConstraints { (m) in
+            m.bottom.left.right.equalTo(view)
+            m.top.equalTo(clearView.snp.bottom)
+        }
+
+        leftBackgroundView.snp.makeConstraints { (m) in
+            m.top.equalTo(topBackgroundView.snp.bottom)
+            m.bottom.equalTo(bottomBackgroundView.snp.top)
+            m.left.equalTo(view)
+            m.right.equalTo(clearView.snp.left)
+        }
+
+        rightBackgroundView.snp.makeConstraints { (m) in
+            m.top.equalTo(topBackgroundView.snp.bottom)
+            m.bottom.equalTo(bottomBackgroundView.snp.top)
+            m.left.equalTo(clearView.snp.right)
+            m.right.equalTo(view)
+        }
+
+        flashButton.snp.makeConstraints { (m) in
+            m.centerX.equalTo(view)
+            m.top.equalTo(clearView.snp.bottom).offset(40)
+        }
+
+        flashButton.addTarget(self, action: #selector(switchFlash(_:)), for: .touchUpInside)
     }
 
-    @objc func pickeImage(_ button: UIBarButtonItem) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .photoLibrary
+    @objc private func pickeImage(_ button: UIBarButtonItem) {
+        self.pickingImage = true
         present(imagePicker, animated: true) {}
     }
 
-    @objc func switchFlash(_ sender: UIButton) {
+    @objc private func switchFlash(_ sender: UIButton) {
         guard let device = AVCaptureDevice.default(for: .video) else { return }
         if device.hasTorch && device.isTorchAvailable {
             try? device.lockForConfiguration()
@@ -171,104 +201,82 @@ class ScanViewController: BaseViewController {
         }
     }
 
-    func handleQRResult(_ result: String?) {
-        guard let result = result else { return }
-        if let uri = ViteURI.parser(string: result) {
-            captureSession.stopRunning()
-            switch uri {
-            case .transfer(let address, let tokenId, _, _, let note):
+    func startCaptureSession() {
+        if captureSession.isRunning == false {
+            captureSession.startRunning()
+        }
+    }
 
-                self.view.displayLoading(text: "")
-                let tokenId = tokenId ?? TokenCacheService.instance.viteToken.id
-                TokenCacheService.instance.tokenForId(tokenId) { [weak self] (result) in
-                    guard let `self` = self else { return }
-                    self.view.hideLoading()
-                    switch result {
-                    case .success(let token):
-                        if let token = token {
-                            let amount = uri.amountToBigInt()
-                            let sendViewController = SendViewController(token: token, address: address, amount: amount, note: note)
-                            guard var viewControllers = self.navigationController?.viewControllers else { return }
-                            _ = viewControllers.popLast()
-                            viewControllers.append(sendViewController)
-                            self.navigationController?.setViewControllers(viewControllers, animated: true)
-                        } else {
-                            self.showScanError(string: R.string.localizable.sendPageTokenInfoError.key.localized())
-                        }
-                    case .failure(let error):
-                        self.showScanError(string: error.localizedDescription)
+    func stopCaptureSession() {
+        if captureSession.isRunning == true {
+            captureSession.stopRunning()
+        }
+    }
+
+    func bind(reactor: ScanViewReactor) {
+        imagePicker.rx.didFinishPickingMediaWithInfo
+            .map { ScanViewReactor.Action.pickeImage($0[UIImagePickerControllerOriginalImage] as? UIImage) }
+            .do(onNext: { [unowned self] (_) in
+                self.imagePicker.dismiss(animated: true, completion: nil)
+            })
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+
+        captureMetadataOutput.rx.metadataOutput
+            .map { ScanViewReactor.Action.scanQRCode($0.first) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+
+        reactor.state
+            .map { $0.toastMessage }
+            .filterNil()
+            .subscribe(onNext: { [unowned self] in
+                self.showToast(string: $0)
+            })
+            .disposed(by: disposeBag)
+
+        reactor.state
+            .map { $0.alertMessage }
+            .filterNil()
+            .subscribe(onNext: { [unowned self] in
+                self.showAlertMessage($0)
+            })
+            .disposed(by: disposeBag)
+
+        reactor.state
+            .map { $0.result }
+            .filterNil()
+            .bind {[weak self] result in
+                self?.stopCaptureSession()
+                if case .viteURI(_) = result {
+                    if self?.dismissWhenComplete == true {
+                        self?.result.onNext(result)
+                        self?.navigationController?.popViewController(animated: true)
+                    } else {
+                        self?.result.onNext(result)
                     }
                 }
             }
-        } else {
-            self.showAlert(string: result)
-        }
+            .disposed(by: disposeBag)
     }
 
-    func showScanError(string: String) {
+    func showToast(string: String) {
         Toast.show(string)
+        self.stopCaptureSession()
         GCD.delay(2, task: { [weak self] in
-            self?.captureSession.startRunning()
+            self?.startCaptureSession()
         })
     }
 
-    func showAlert(string: String) {
+    func showAlertMessage(_ alertMessage: String) {
         self.captureSession.stopRunning()
         let alertController = UIAlertController.init()
-        let action = UIAlertAction.init(title: LocalizationStr("OK"), style: .default) { [weak self](_) in
-            self?.captureSession.startRunning()
+        let action = UIAlertAction.init(title: R.string.localizable.finish.key.localized(), style: .default) { (_) in
+            self.captureSession.startRunning()
         }
         alertController.addAction(action)
-        alertController.title = string
-        present(alertController, animated: true, completion: nil)
+        alertController.title = alertMessage
+        self.present(alertController, animated: true, completion: nil)
     }
 
-    func detectQRCode(_ image: UIImage?) -> [CIFeature]? {
-        if let image = image, let ciImage = CIImage.init(image: image) {
-            var options: [String: Any]
-            let context = CIContext()
-            options = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
-            let qrDetector = CIDetector(ofType: CIDetectorTypeQRCode, context: context, options: options)
-            if ciImage.properties.keys.contains((kCGImagePropertyOrientation as String)) {
-                options = [CIDetectorImageOrientation: ciImage.properties[(kCGImagePropertyOrientation as String)] ?? 1]
-            } else {
-                options = [CIDetectorImageOrientation: 1]
-            }
-            let features = qrDetector?.features(in: ciImage, options: options)
-            return features
-        }
-        return nil
-    }
-}
-
-extension ScanViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, AVCaptureMetadataOutputObjectsDelegate {
-
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        if let metadataObject = metadataObjects.first {
-            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
-            guard let stringValue = readableObject.stringValue else { return }
-            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            self.handleQRResult(stringValue)
-        }
-    }
-
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
-        var stringValue: String?
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            if let features = detectQRCode(pickedImage), !features.isEmpty {
-                for case let row as CIQRCodeFeature in features {
-                    stringValue = row.messageString
-                }
-            }
-        }
-
-        dismiss(animated: true) {
-            if stringValue != nil {
-                AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-                self.handleQRResult(stringValue)
-            } else {
-                Toast.show(R.string.localizable.scanPageQccodeNotFound.key.localized())
-            }
-        }
-    }
 }

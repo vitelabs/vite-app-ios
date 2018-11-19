@@ -57,7 +57,11 @@ class ConfirmTransactionView: UIView {
         return transactionInfoView.tokenLabel
     }
 
-    var addressLabel: UILabel {
+    var infoTitleLabel: UILabel {
+        return transactionInfoView.titleLabel
+    }
+
+    var infoLabel: UILabel {
         return transactionInfoView.addressLabel
     }
 
@@ -67,7 +71,6 @@ class ConfirmTransactionView: UIView {
 
     let confirmButton = UIButton().then {
         $0.backgroundColor = UIColor.init(netHex: 0x007AFF)
-        $0.setTitle(R.string.localizable.confirmTransactionPageConfirmButton.key.localized(), for: .normal)
         $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         $0.layer.cornerRadius = 2.0
     }

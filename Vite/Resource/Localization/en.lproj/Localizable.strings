@@ -16,8 +16,11 @@
 "Loading" = "Loading";
 "Confirm" = "Confirm";
 "Submit" = "Submit";
+"Close" = "I understand";
 "Update.app" = "Update App";
-"NetWorkError" = "Loading failed, please refresh";
+"NetWorkError" = "Something went wrong with network, please try again later";
+"Submit.success" = "Submit Successful";
+"Submit.cancel" = "Cancel";
 
 /* Login */
 "create.account" = "Create Account";
@@ -27,6 +30,7 @@
 "lock.page.pwd.btn.title" = "Login via password";
 "lock.page.fingerprint.btn.title" = "Arouse verify again";
 "lock.page.fingerprint.alter.title" = "Verify fingerprint to activate Touch ID";
+"lock.page.changeUser.btn.title" = "Switch account";
 
 /* create */
 "create.page.title" = "Create Account";
@@ -44,7 +48,7 @@
 "mnemonic.backup.page.tip.title" = "Mnemonic seed phrase is the only way to restore your wallet, please keep it safe or you won't have access to your account for good.";
 "mnemonic.backup.page.tip.lab.title" = "Seed Phrase";
 "mnemonic.backup.page.tip.anewBtn.title" = "Regenerate Seed Phrase";
-"mnemonic.backup.page.tip.nextBtn.title" = "Successfully backuped your seed phrase!";
+"mnemonic.backup.page.tip.nextBtn.title" = "Successfully backup your seed phrase!";
 "mnemonic.backup.page.alter.title" = "It isn't a safe way to keep your seed phrase by screenshot. We suggest that you'd better write it down and keep it in a safe place.";
 "mnemonic.backup.page.alter.message" = "Regenerate seed phrase？";
 "mnemonic.backup.page.alter.cancel" = "No";
@@ -56,8 +60,8 @@
 
 "mnemonic.affirm.page.title" = "Confirm your seed phrase";
 "mnemonic.affirm.page.tip.title" = "Orderly select seed phrase";
-"mnemonic.affirm.alter.title" = "Back will regenerate seed phrase, ready to go back?";
-"mnemonic.affirm.alter.check.title" = "Wrong seed phrase!";
+"mnemonic.affirm.alter.title" = "This action will regenerate seed phrase, ready to go back?";
+"mnemonic.affirm.alter.check.title" = "Incorrect seed phrase!";
 "mnemonic.affirm.page.add.loading" = "Adding...";
 
 /* import mnemonic*/
@@ -66,6 +70,10 @@
 "import.page.submit.invalid.mnemonic" = "Something wrong with your seed phrase, please try again!";
 "import.page.submit.loading" = "import...";
 "import.page.submit.success" = "import success";
+"import.page.alert.exist.title" = "The seed phrase you input has already had an account name '%@' on current device, are you sure you would like to overwrite existed account";
+"import.page.alert.exist.ok" = "Confirm";
+"import.page.alert.exist.cancel" = "Cancel";
+
 
 /* export mnemonic */
 "export.page.title" = "Export Seed Phrase";
@@ -101,6 +109,7 @@
 "my.page.title" = "Me";
 "my.page.mangeWallet.cell.title" = "Wallet";
 "my.page.dealLog.cell.title" = "Transaction";
+"my.page.quota.cell.title" = "Quota";
 "my.page.system.cell.title" = "System Settings";
 "my.page.aboutUs.cell.title" = "About us";
 "my.page.fetchMoney.cell.title" = "Get Bonus";
@@ -124,8 +133,8 @@
 /* Address Manage Page */
 "address.manage.page.title" = "Address Management";
 "address.manage.default.address.cell.title" = "Default Receiving Address";
-"address.manage.address.header.title" = "Address List";
-"address.manage.address.generate.button.title" = "Add List";
+"address.manage.address.header.title" = "Addresses";
+"address.manage.address.generate.button.title" = "Add Address";
 "address.manage.address.generate.button.toast" = "Add up to maximum 10 addresses!";
 "address.manage.tip.alert.message" = "At most 10 accounts. The first address and addresses that have transaction records will be shown when resotring account, and addresses with no record will be hidden, these can be regenerated and reused.";
 "address.manage.tip.alert.ok" = "I know";
@@ -134,6 +143,10 @@
 "send.page.title" = "Transfer";
 "send.page.my.address.title" = "My Address";
 "send.page.my.balance.title" = "Balance";
+"send.page.my.quota.title" = "My Quota";
+"send.page.my.max.tx.count.title" = "Maximum Amount of Tx";
+"send.page.add.current.address.button.title" = "My";
+"send.page.scan.address.button.title" = "Scan";
 "send.page.to.address.title" = "Recipient";
 "send.page.amount.title" = "Amount";
 "send.page.remark.title" = "Comment";
@@ -141,7 +154,7 @@
 "send.page.amount.toolbar.button.title" = "Next";
 "send.page.toast.send.success" = "Success";
 "send.page.toast.send.failed" = "Transfer failed, please try again later";
-"send.page.toast.address.error" = "Wrong recipient format!";
+"send.page.toast.address.error" = "Wrong Adress, please check the format";
 "send.page.toast.amount.error" = "Insufficient Balance";
 "send.page.toast.amount.empty" = "Please input balance";
 "send.page.toast.amount.zero" = "The amount has to be positive";
@@ -161,6 +174,11 @@
 "confirm.transaction.page.biometry.confirm.reason" = "Verify";
 "confirm.transaction.page.use.password.title" = "Please";
 "confirm.transaction.page.toast.password.error" = "Wrong password!";
+"confirm.transaction.page.node.name" = "Node Name";
+"confirm.transaction.page.vote" = "Vote";
+"confirm.transaction.page.cancel.vote" = "Revoke Vote";
+
+
 
 /* Receive Page */
 "Receive.page.token.title" = "Receive";
@@ -205,7 +223,81 @@
 "fetch.welfare.participation.title" = "How to participate:";
 "fetch.welfare.participation.ways" = "1. Submit your Vite address in Loopring community. \n2. System will airdrop specific token - VV token. \n3. Please fill in address of Ethereum in this page, confirm and submit, then a transaction to special account will be generated, input any amount.\n4. The special account will send equal amount of Vite tokens in Ethereum ERC20 after receiving VV token.";
 "fetch.welfare.inputEthereumAddress.title" = "Please input Ethereum address:";
-"fetch.welfare.inputEthereumAddress.error.title" = "Wrong Format!";
+"fetch.welfare.inputEthereumAddress.error.title" = "Incorrect Format!";
 
 /* toast error */
 "toast.error.login" = "Login Error";
+
+/* quota manage */
+"quota.manage.page.title" = "Get Quota";
+"quota.manage.page.input.address.title" = "Profit Address";
+"quota.manage.page.quota.money.title" = "Staking Amount";
+"quota.manage.page.quota.money.placeholder" = "Please input amount, minimum 10 VITE";
+"quota.manage.page.quota.snapshoot.height.title" = "Staking frozen duration";
+"quota.manage.page.quota.snapshoot.height.desc" = "About %@ days";
+"quota.manage.page.submit.btn.title" = "Submit Staking";
+"quota.manage.page.check.quotaList.btn.title" = "Staking List";
+"quota.manage.page.toast.money.error" = "Staking amount should not be less than 10";
+"quota.manage.page.toast.send.failed" = "Staking failed, please try again later";
+"quota.submit.pop.desc" = "Make sure to stake %@ to obtain quota, you cannot withdraw until about 3 days after staking comes into effect.";
+"quota.submit.pop.submit.btn.title" = "Confirm";
+"quota.submit.pop.cancel.btn.title" = "Cancel";
+"quota.submit.page.quota.address.placeholder" = "Please input profit address";
+
+/* quota alert */
+"quota.alert.title" = "Insufficient Quota";
+"quota.alert.pow.and.quota.message" = "Short in quota, you can acquire quota by running PoW or staking VITE.";
+"quota.alert.need.quota.message" = "Insufficient quota of PoW, we would recommend that you stake VITE to obtain quota.";
+"quota.alert.pow.button.title" = "Run PoW";
+"quota.alert.quota.button.title" = "Stake VITE";
+"quota.float.view.title" = "Run PoW";
+
+/* Peldge History */
+"peldge.message" = "Currently Vite App only supports checking staking list, please go to web wallet to withdraw staking on due date if needed.";
+"peldge.deadline" = "Due Date";
+"peldge.title" = "My Staking List";
+
+/* Vote */
+"vote.page.title" = "My Vote";
+"vote.page.info.nodata.title" = "No Vote";
+"vote.page.voteStatus.voteSuccess" = "Vote successful";
+"vote.page.voteStatus.voting" = "Voting";
+"vote.page.voteStatus.cancelVoting" = "Revoking";
+"vote.page.voteStatus.voteInvalid" = "Invalid Vote";
+"vote.page.voteInfo.nodePolls.title" = "My Polls";
+"vote.page.nodeStatus.valid.title" = "Available";
+"vote.page.nodeStatus.invalid.title" = "Unavailable";
+"vote.page.voteInfo.cancel.vote.title" = "Revoke Vote";
+"vote.page.voteInfo.cancel.vote.toast.title" = "Vote revoking request is successfully sent";
+"vote.page.voteInfo.alert.quota" = "unable to revoke vote, you have to run PoW or stake VITE for TPS quota to revoke vote";
+
+/* Vote List*/
+"Vote" = "Vote";
+"vote.list.title" = "Candidate Nodes";
+"vote.list.search" = "Search for name or address of candidate nodes";
+"vote.list.alert.already.voted" = "You have voted for %@, please make sure this action will overwrite current voting result";
+"vote.list.confirm.revote" = "Ready to overwrite";
+"vote.list.confirm.button.title" = "Confirm";
+"vote.list.count" = "Polls";
+"vote.list.address" = "Address";
+"vote.list.send.success" = "Successfully sent vote request";
+"vote.list.send.failed" = "Vote failed, please vote again(code: %@)";
+"vote.list.alert.quota" = "unable to vote, you have to run PoW or stake VITE for TPS quota to vote";
+"vote.list.search.empty" = "No result, please try another input";
+"vote.list.search.no.transaction.before" = "You cannot vote for now as there is no transaction record in your address";
+
+//RefreshFooter
+"vite.RefreshBackFooter.IdleText" = "Pull up to load more";
+"Vite.RefreshBackFooter.PullingText" = "Release to load more.";
+"Vite.RefreshBackFooter.RefreshingText" = "Loading...";
+"Vite.RefreshBackFooter.NoMoreDataText" = "No more data";
+
+
+
+
+
+
+
+
+
+

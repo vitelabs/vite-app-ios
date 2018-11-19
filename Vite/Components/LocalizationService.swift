@@ -8,26 +8,20 @@
 
 import UIKit
 
-func LocalizationStr(_ key: String) -> String {
-    return LocalizationService.sharedInstance.localizedStringForKey(key)
-}
-
-func SetLanguage(_ language: String) -> Bool {
-    return LocalizationService.sharedInstance.setLanguage(language)
-}
-
 extension UIViewController {
     func showChangeLanguageList(isSettingPage: Bool = false) {
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
-        let languages: [String: String] = LocalizationService.availableLocalization
-        for element in languages {
-            let action = UIAlertAction(title: element.value, style: .`default`, handler: {_ in
-                _ = SetLanguage(element.key)
+        let languages  = LocalizationService.Language.allLanguages
+        for language in languages {
+            let action = UIAlertAction(title: language.name, style: .`default`, handler: {_ in
+                guard LocalizationService.sharedInstance.currentLanguage != language else { return }
+                LocalizationService.sharedInstance.currentLanguage = language
                 if isSettingPage {
                     NotificationCenter.default.post(name: .languageChangedInSetting, object: nil)
                 }
+                NotificationCenter.default.post(name: .languageChanged, object: nil)
             })
             action.setValue(Colors.descGray, forKey: "titleTextColor")
             alertController.addAction(action)
@@ -39,92 +33,100 @@ extension UIViewController {
 }
 
 class LocalizationService {
-    private let userDefaults = UserDefaults.standard
-    private var localizationDic: NSDictionary?
 
-    // Supported Languages
-    private var availableLanguagesArray = ["en", "zh-Hans"]
-    static let availableLocalization = [
-        "en": "English",
-        "zh-Hans": "中文",
-    ]
+    enum Language: String {
+        case base = "en"
+        case chinese = "zh-Hans"
 
-    private let kSaveLanguageDefaultKey = "kSaveLanguageDefaultKey"
-
-    var currentLanguageName: String?
-
-    static let  sharedInstance = LocalizationService()
-
-    init () {
-        var currentLanguage = userDefaults.string(forKey: UserDefaultsName.AppCurrentLanguages)
-        if currentLanguage == nil {
-            let languageName = self.systemLanguage()
-            _ = self.setLanguage(languageName)
-            currentLanguage = languageName
-        }
-        _ = self.loadDictionaryForLanguage(currentLanguage ?? "en")
-    }
-
-    fileprivate func systemLanguage() -> String {
-       let languageCode = userDefaults.array(forKey: "AppleLanguages")?[0] as! String
-         // special china language
-        if languageCode.hasPrefix("zh-Hans") || languageCode.hasPrefix("zh-Hant") || languageCode.hasPrefix("zh") {
-            return "zh-Hans"
-        } else if languageCode.hasPrefix("en") {
-            return "en"
-        } else {
-            // Default Priority Language
-            return "en"
-        }
-    }
-
-    // MARK: - Public custom getter
-    func getArrayAvailableLanguages() -> [String] {
-        return availableLanguagesArray
-    }
-
-    // MARK: - Private instance methods
-    fileprivate func loadDictionaryForLanguage(_ newLanguage: String) -> Bool {
-        let arrayExt = newLanguage.components(separatedBy: "_")
-        for ext in arrayExt {
-            if let path = Bundle(for: object_getClass(self)!).url(forResource: "Localizable", withExtension: "strings", subdirectory: nil, localization: ext)?.path {
-                if FileManager.default.fileExists(atPath: path) {
-                    currentLanguageName = LocalizationService.availableLocalization[newLanguage]
-                    localizationDic = NSDictionary(contentsOfFile: path)
-                    return true
-                }
+        var name: String {
+            switch self {
+            case .base:
+                return "English"
+            case .chinese:
+                return "中文"
             }
         }
-        return false
+
+        static var allLanguages: [Language] {
+            return [.base, .chinese]
+        }
+    }
+
+    static let  sharedInstance = LocalizationService()
+    fileprivate var localizationDic: NSDictionary = NSDictionary()
+    fileprivate enum Key: String {
+        case collection = "Localization"
+        case language = "Language"
+    }
+
+    var currentLanguage: Language = .base {
+        didSet {
+            guard currentLanguage != oldValue else { return }
+            loadDictionaryForLanguage(currentLanguage)
+            UserDefaultsService.instance.setObject(currentLanguage.rawValue, forKey: Key.language.rawValue, inCollection: Key.collection.rawValue)
+        }
+    }
+
+    private init() {
+
+        if let string = UserDefaultsService.instance.objectForKey(Key.language.rawValue, inCollection: Key.collection.rawValue) as? String,
+            let l = Language(rawValue: string) {
+            currentLanguage = l
+        } else {
+            currentLanguage = getSystemLanguage()
+            UserDefaultsService.instance.setObject(currentLanguage.rawValue, forKey: Key.language.rawValue, inCollection: Key.collection.rawValue)
+        }
+
+        loadDictionaryForLanguage(currentLanguage)
+    }
+}
+
+// MARK: private function
+extension LocalizationService {
+    fileprivate func getSystemLanguage() -> Language {
+        if let code = UserDefaults.standard.array(forKey: "AppleLanguages")?.first as? String {
+            if code.hasPrefix("zh") {
+                return .chinese
+            }
+        }
+        return .base
+    }
+
+    fileprivate func loadDictionaryForLanguage(_ language: Language) {
+        if let path = Bundle(for: object_getClass(self)!).url(forResource: "Localizable", withExtension: "strings", subdirectory: nil, localization: language.rawValue)?.path {
+            if FileManager.default.fileExists(atPath: path) {
+                localizationDic = NSDictionary(contentsOfFile: path) ?? NSDictionary()
+            }
+        }
     }
 
     fileprivate func localizedStringForKey(_ key: String) -> String {
-        if let dic = localizationDic {
-            if let localizedString = dic[key] as? String {
-                return localizedString
-            } else {
-                return key
-            }
+        if let localizedString = localizationDic[key] as? String {
+            return localizedString
         } else {
-            return NSLocalizedString(key, comment: key)
+            return key
         }
+    }
+}
 
+// MARK: String extension
+extension String {
+
+    func localized() -> String {
+        return LocalizationService.sharedInstance.localizedStringForKey(self)
     }
 
-    fileprivate func setLanguage(_ newLanguage: String) -> Bool {
-        if (newLanguage == currentLanguageName) || !availableLanguagesArray.contains(newLanguage) {
-            return false
-        }
+    func localized(arguments: CVarArg...) -> String {
+        let format = LocalizationService.sharedInstance.localizedStringForKey(self)
+        let t = self.Localizer()
 
-        if loadDictionaryForLanguage(newLanguage) {
-            // Update the setting. It only works when the application is restarted.
-            userDefaults.set(newLanguage, forKey: UserDefaultsName.AppCurrentLanguages)
-            userDefaults.synchronize()
+        return withVaList(arguments) { t(format, $0) }
+    }
 
-            // runtime
-            NotificationCenter.default.post(name: .languageChanged, object: nil)
-            return true
+    private func Localizer() -> (_ key: String, _ params: CVaListPointer) -> String {
+        return { (key: String, params: CVaListPointer) in
+            let content = NSLocalizedString(key, tableName: "", comment: "")
+            return NSString(format: content, arguments: params) as String
         }
-        return false
     }
 }

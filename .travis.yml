@@ -1,11 +1,13 @@
 language: swift
 osx_image: xcode10
 before_install:
+- brew update
+- brew install imagemagick
 - bundle install
 - pod install --repo-update
 - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
 script:
-- fastlane increment_build_number_and_push_git
+- fastlane vite_test
 env:
   global:
   - secure: Aq5CLPWFr6E6LBCrseSCB6w+ZckttyBnbE+ehVoc0ZY8wDNHonMum4HJXb6a8zuFOJhZLKTz58T7RwdQW6R3jEQIblvkply3Y9ejNE4rVKZeZmE0ikSzd+sUaSIbykfqEedvXQUYOaY4u6nY3br9MWPfY5/eGgRUAKbwknsTeStAzWZrrc/48FkJaesQrkeF0doedhvV8nTJpCBPy129+ypr2sgD4c1V2E1rQWo4EpMgN+deUznO+SfcLk7dPECR3KhdIMbZnfOhEBsjU+o523ccBYAjHO1TNEvsZju9ZsDF0kfHJ0UfXgCi11VdtxJM6diunM5v9gR3gjKigorWdU91E0wMjcchsseuWNF0KwDFWtuA0857qhSWJlRSKTBcs6o8wQaIwrjPSdjkgQPXqicA/WK9XHAS8t3VPNFR6hDgVRUfo7ept/qyZ4jyJaldq24CRPTZ+XzFig15DjnFseYaHLED8D1/PNx28Xuq9ovXYsEYLpBgnij8BxTp2RJevNANTJJ9qwif2momihPm1oZFVfwyU/0381JoIxZPJVCQHBDyvcSRGNCTXR0/k9Ic9xHspfHNK7PI0d02iKUlxMu8Zh8tuCV+NvUsw2L7qm5qtjK08/wsgOSMxQX+Dolt0tbDHNEmBzXsZeGR+LiSJTu6Wgwnfi44+eMfq1g4T4k=
@@ -14,3 +16,8 @@ env:
 cache:
 - cocoapods
 - bundler
+branches:
+  only:
+  - develop
+  - release
+  - travis

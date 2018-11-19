@@ -60,9 +60,21 @@ final class HDWalletStorage: Mappable {
 // MARK: - public function
 extension HDWalletStorage {
 
-    func addAddLoginWallet(uuid: String, name: String, mnemonic: String, encryptKey: String, needRecoverAddresses: Bool) -> Wallet {
-        let wallet = Wallet(uuid: uuid, name: name, mnemonic: mnemonic, encryptKey: encryptKey, needRecoverAddresses: needRecoverAddresses)
-        wallets.append(wallet)
+    func addAddLoginWallet(uuid: String, name: String, mnemonic: String, hash: String, encryptKey: String, needRecoverAddresses: Bool) -> Wallet {
+        let wallet = Wallet(uuid: uuid, name: name, mnemonic: mnemonic, hash: hash, encryptKey: encryptKey, needRecoverAddresses: needRecoverAddresses)
+
+        var index: Int?
+        for (i, wallet) in wallets.enumerated() where wallet.hash == hash {
+            index = i
+        }
+
+        if let index = index {
+            wallets.remove(at: index)
+            wallets.insert(wallet, at: index)
+        } else {
+            wallets.append(wallet)
+        }
+
         currentWalletUuid = uuid
         isLogin = true
         pri_save()
@@ -149,9 +161,7 @@ extension HDWalletStorage {
 
     fileprivate func pri_save() {
         if let data = self.toJSONString()?.data(using: .utf8) {
-            do {
-                try fileHelper.writeData(data, relativePath: type(of: self).saveKey)
-            } catch let error {
+            if let error = fileHelper.writeData(data, relativePath: type(of: self).saveKey) {
                 assert(false, error.localizedDescription)
             }
         }
@@ -165,6 +175,7 @@ extension HDWalletStorage {
         fileprivate(set) var uuid: String = ""
         fileprivate(set) var name: String = ""
         fileprivate(set) var ciphertext: String?
+        fileprivate(set) var hash: String?
 
         fileprivate(set) var addressIndex: Int = 0
         fileprivate(set) var addressCount: Int = 1
@@ -179,6 +190,7 @@ extension HDWalletStorage {
         init(uuid: String = "",
              name: String = "",
              mnemonic: String = "",
+             hash: String = "",
              encryptKey: String = "",
              addressIndex: Int = 0,
              addressCount: Int = 1,
@@ -190,6 +202,7 @@ extension HDWalletStorage {
             self.uuid = uuid
             self.name = name
             self.ciphertext = type(of: self).encrypt(plaintext: mnemonic, encryptKey: encryptKey)
+            self.hash = hash
 
             self.addressIndex = addressIndex
             self.addressCount = addressCount
@@ -209,6 +222,7 @@ extension HDWalletStorage {
             uuid <- map["uuid"]
             name <- map["name"]
             ciphertext <- map["ciphertext"]
+            hash <- map["hash"]
 
             addressIndex <- map["addressIndex"]
             addressCount <- map["addressCount"]

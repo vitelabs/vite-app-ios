@@ -13,11 +13,13 @@ PODS:
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
   - CryptoSwift (0.12.0)
+  - DACircularProgress (2.3.1)
   - Differentiator (3.1.0)
   - Eureka (4.2.0)
   - JSONRPCKit (3.0.0):
     - Result (~> 3.2.0)
-  - KeychainSwift (12.0.0)
+  - KeychainSwift (13.0.0)
+  - Kingfisher (4.10.0)
   - KMNavigationBarTransition (1.1.5)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.15.7)
@@ -32,18 +34,21 @@ PODS:
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - ObjectMapper (3.3.0)
-  - PromiseKit (6.4.1):
-    - PromiseKit/CorePromise (= 6.4.1)
-    - PromiseKit/Foundation (= 6.4.1)
-    - PromiseKit/UIKit (= 6.4.1)
-  - PromiseKit/CorePromise (6.4.1)
-  - PromiseKit/Foundation (6.4.1):
+  - pop (1.0.12)
+  - PromiseKit (6.5.2):
+    - PromiseKit/CorePromise (= 6.5.2)
+    - PromiseKit/Foundation (= 6.5.2)
+    - PromiseKit/UIKit (= 6.5.2)
+  - PromiseKit/CorePromise (6.5.2)
+  - PromiseKit/Foundation (6.5.2):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.4.1):
+  - PromiseKit/UIKit (6.5.2):
     - PromiseKit/CorePromise
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
+  - ReactorKit (1.2.1):
+    - RxSwift (>= 4.0.0)
   - Result (3.2.4)
   - ReusableKit (2.0.1):
     - ReusableKit/Core (= 2.0.1)
@@ -72,7 +77,6 @@ PODS:
     - BigInt (~> 3.0)
     - CryptoSwift (~> 0.12.0)
     - TrezorCryptoEd25519WithBlake2b (~> 0.0.1)
-  - WechatOpenSDK (1.8.2)
   - XCGLogger (6.1.0):
     - XCGLogger/Core (= 6.1.0)
   - XCGLogger/Core (6.1.0):
@@ -85,17 +89,21 @@ DEPENDENCIES:
   - BaiduMobStat
   - BigInt (~> 3.0)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - DACircularProgress (= 2.3.1)
   - Eureka (~> 4.2.0)
   - JSONRPCKit
   - KeychainSwift
+  - Kingfisher (~> 4.0)
   - KMNavigationBarTransition
   - MBProgressHUD
   - MJRefresh
   - Moya
   - "NSObject+Rx"
   - ObjectMapper
+  - pop (~> 1.0)
   - PromiseKit (~> 6.0)
   - R.swift
+  - ReactorKit
   - ReusableKit
   - RxCocoa
   - RxDataSources (~> 3.0)
@@ -108,7 +116,6 @@ DEPENDENCIES:
   - Then
   - Toast-Swift (~> 3.0.1)
   - Vite_HDWalletKit (~> 1.1.0)
-  - WechatOpenSDK
   - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
@@ -120,10 +127,12 @@ SPEC REPOS:
     - BaiduMobStat
     - BigInt
     - CryptoSwift
+    - DACircularProgress
     - Differentiator
     - Eureka
     - JSONRPCKit
     - KeychainSwift
+    - Kingfisher
     - KMNavigationBarTransition
     - MBProgressHUD
     - MJRefresh
@@ -131,9 +140,11 @@ SPEC REPOS:
     - "NSObject+Rx"
     - ObjcExceptionBridging
     - ObjectMapper
+    - pop
     - PromiseKit
     - R.swift
     - R.swift.Library
+    - ReactorKit
     - Result
     - ReusableKit
     - RxCocoa
@@ -149,7 +160,6 @@ SPEC REPOS:
     - Toast-Swift
     - TrezorCryptoEd25519WithBlake2b
     - Vite_HDWalletKit
-    - WechatOpenSDK
     - XCGLogger
 
 EXTERNAL SOURCES:
@@ -170,10 +180,12 @@ SPEC CHECKSUMS:
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
-  KeychainSwift: d5e776578587ee5958ce36601df22f168f65138a
+  KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
+  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   KMNavigationBarTransition: 7a52c9bc25b39b6e3343e980b453facee1591b82
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
@@ -181,9 +193,11 @@ SPEC CHECKSUMS:
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
-  PromiseKit: 4c76a6506638034e3d7bede97b2ff7743f7bd2dc
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  PromiseKit: 27c1601bfb73405871b805bcb8cf7e55c4dad3db
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
+  ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   ReusableKit: 11b5bde14553a35bcf3979412dbfd1e690392f14
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
@@ -199,9 +213,8 @@ SPEC CHECKSUMS:
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
   Vite_HDWalletKit: 90bf90b7092cc483ae9eda3385e96ed5be3aca22
-  WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 165b7d9c1aacadf8993b3b7aa214b0aacb015913
+PODFILE CHECKSUM: caef9dac921f41eca4771d7e799e28b00b1b344d
 
 COCOAPODS: 1.5.3

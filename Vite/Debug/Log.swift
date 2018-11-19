@@ -13,6 +13,8 @@ enum Tag: String {
     case life
     case transaction
     case server
+    case getConfig
+    case vote
 }
 
 func plog(level: XCGLogger.Level, log: @escaping @autoclosure () -> Any?, tag: Tag, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
@@ -68,6 +70,9 @@ private let __log: XCGLogger = {
 
     #if DEBUG
     fileDestination.outputLevel = .debug
+    #elseif TEST
+    fileDestination.outputLevel = .debug
+    fileDestination.logQueue = XCGLogger.logQueue
     #else
     fileDestination.outputLevel = .info
     fileDestination.logQueue = XCGLogger.logQueue

@@ -16,8 +16,13 @@
 "Loading" = "加载中";
 "Confirm" = "确定";
 "Submit" = "提交";
+"Close" = "我知道了";
 "Update.app" = "更新 App";
-"NetWorkError" = "加载失败，请刷新重试";
+"NetWorkError" = "网络异常，请稍后重试";
+"Submit.success" = "提交成功";
+"Submit.cancel" = "撤销";
+
+
 
 /* Login */
 "create.account" = "创建账户";
@@ -27,6 +32,7 @@
 "lock.page.pwd.btn.title" = "使用密码登录";
 "lock.page.fingerprint.btn.title" = "再次唤起验证";
 "lock.page.fingerprint.alter.title" = "请验证指纹，开启 Touch ID";
+"lock.page.changeUser.btn.title" = "切换账户";
 
 /* create */
 "create.page.title" = "创建钱包账户";
@@ -66,6 +72,9 @@
 "import.page.submit.invalid.mnemonic" = "助记词输入有误，请重新输入。";
 "import.page.submit.loading" = "账户恢复中...";
 "import.page.submit.success" = "恢复成功";
+"import.page.alert.exist.title" = "您输入的助记词在当前设备的账户名为%@，确认是否使用新账户覆盖原有账户";
+"import.page.alert.exist.ok" = "确认";
+"import.page.alert.exist.cancel" = "取消";
 
 /* export mnemonic */
 "export.page.title" = "导出助记词";
@@ -101,6 +110,7 @@
 "my.page.title" = "我";
 "my.page.mangeWallet.cell.title" = "管理钱包";
 "my.page.dealLog.cell.title" = "交易记录";
+"my.page.quota.cell.title" = "配额管理";
 "my.page.system.cell.title" = "系统设置";
 "my.page.aboutUs.cell.title" = "关于我们";
 "my.page.fetchMoney.cell.title" = "领福利";
@@ -133,15 +143,19 @@
 /* Send Page */
 "send.page.title" = "转账";
 "send.page.my.address.title" = "我的账户地址";
-"send.page.my.balance.title" = "我的账户余额 ";
+"send.page.my.balance.title" = "我的账户余额";
+"send.page.my.quota.title" = "我的配额";
+"send.page.my.max.tx.count.title" = "最大交易笔数";
+"send.page.add.current.address.button.title" = "我的";
+"send.page.scan.address.button.title" = "扫码";
 "send.page.to.address.title" = "收款地址";
 "send.page.amount.title" = "金额";
 "send.page.remark.title" = "备注";
 "send.page.send.button.title" = "转账";
 "send.page.amount.toolbar.button.title" = "下一项";
 "send.page.toast.send.success" = "支付成功";
-"send.page.toast.send.failed" = "转账失败，请稍后重试";
-"send.page.toast.address.error" = "收款地址格式错误";
+"send.page.toast.send.failed" = "转账发生错误，请重新发起转账";
+"send.page.toast.address.error" = "地址输入错误,请检查格式";
 "send.page.toast.amount.error" = "账户余额不足";
 "send.page.toast.amount.empty" = "请填写金额";
 "send.page.toast.amount.zero" = "转账金额不能为0";
@@ -160,6 +174,9 @@
 "confirm.transaction.page.biometry.confirm.reason" = "验证信息";
 "confirm.transaction.page.use.password.title" = "请输入支付密码";
 "confirm.transaction.page.toast.password.error" = "密码错误";
+"confirm.transaction.page.node.name" = "节点名称";
+"confirm.transaction.page.vote" = "投票";
+"confirm.transaction.page.cancel.vote" = "取消投票";
 
 /* Receive Page */
 "Receive.page.token.title" = "收款";
@@ -207,3 +224,69 @@
 
 /* toast error */
 "toast.error.login" = "解锁失败";
+
+/* quota manage */
+"quota.manage.page.title" = "获取配额";
+"quota.manage.page.input.address.title" = "配额受益地址";
+"quota.manage.page.quota.money.title" = "抵押金额";
+"quota.manage.page.quota.money.placeholder" = "请输入抵押金额，最小10 vite";
+"quota.manage.page.quota.snapshoot.height.title" = "抵押锁定时长";
+"quota.manage.page.quota.snapshoot.height.desc" = "约 %@ 天";
+"quota.manage.page.submit.btn.title" = "提交抵押";
+"quota.manage.page.check.quotaList.btn.title" = "抵押列表";
+"quota.manage.page.toast.money.error" = "抵押金额必须大于10 vite";
+"quota.manage.page.toast.send.failed" = "抵押发生错误，请重新发起转账";
+"quota.submit.pop.desc" = "确认是否抵押%@以获取配额，抵押生效3天之后才可取回抵押金额";
+"quota.submit.pop.submit.btn.title" = "确认抵押";
+"quota.submit.pop.cancel.btn.title" = "暂不抵押";
+"quota.submit.page.quota.address.placeholder" = "请输入获取配额地址";
+
+
+/* quota alert */
+"quota.alert.title" = "配额不足";
+"quota.alert.pow.and.quota.message" = "配额不足，建议您点击运行 PoW 获取配额或抵押 VITE 获取配额";
+"quota.alert.need.quota.message" = "PoW 获取的配额不足，建议您进行抵押 VITE 获取配额";
+"quota.alert.pow.button.title" = "运行 PoW";
+"quota.alert.quota.button.title" = "抵押 VITE";
+"quota.float.view.title" = "运行 PoW";
+
+/* Peldge History */
+"peldge.message" = "当前app仅支持查看抵押列表，如需要取回到期抵押VITE，请前往web钱包操作";
+"peldge.deadline" = "到期";
+"peldge.title" = "我的抵押列表";
+
+/* Vote */
+"vote.page.title" = "我的投票";
+"vote.page.info.nodata.title" = "暂无投票";
+"vote.page.voteStatus.voteSuccess" = "投票成功";
+"vote.page.voteStatus.voting" = "正在投票中";
+"vote.page.voteStatus.cancelVoting" = "正在撤销中";
+"vote.page.voteStatus.voteInvalid" = "投票作废";
+"vote.page.voteInfo.nodePolls.title" = "我的投票数";
+"vote.page.nodeStatus.valid.title" = "正在候选";
+"vote.page.nodeStatus.invalid.title" = "停止候选";
+"vote.page.voteInfo.cancel.vote.title" = "撤销投票";
+"vote.page.voteInfo.cancel.vote.toast.title" = "撤销投票请求发送成功";
+"vote.page.voteInfo.alert.quota" = "无法撤销投票，您需运行PoW 或抵押VITE 获取配额才可以撤销投票";
+
+/* Vote List*/
+"Vote" = "投票";
+"vote.list.title" = "候选节点列表";
+"vote.list.search" = "搜索候选节点名称或出块地址";
+"vote.list.alert.already.voted" = "您已经投票给%@，请确认是否覆盖当前投票";
+"vote.list.confirm.revote" = "确认覆盖";
+"vote.list.confirm.button.title" = "确认";
+"vote.list.count" = "得票数";
+"vote.list.address" = "出块地址";
+"vote.list.send.success" = "投票请求发送成功";
+"vote.list.send.failed" = "投票失败，请重新投票(code: %@)";
+"vote.list.alert.quota" = "无法投票，您需运行PoW 或抵押VITE 获取配额才可以投票";
+"vote.list.search.empty" = "无结果，换个输入试试";
+"vote.list.search.no.transaction.before" = "您的地址未发生过交易，暂不能投票";
+
+//RefreshFooter
+"vite.RefreshBackFooter.IdleText" = "上拉可以加载更多";
+"Vite.RefreshBackFooter.PullingText" = "松开立即加载更多";
+"Vite.RefreshBackFooter.RefreshingText" = "正在加载更多的数据...";
+"Vite.RefreshBackFooter.NoMoreDataText" = "已经全部加载完毕";
+

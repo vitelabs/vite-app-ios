@@ -38,8 +38,8 @@ class SendNoteView: UIView {
 
         titleLabel.snp.makeConstraints { (m) in
             m.top.equalTo(self).offset(20)
-            m.left.equalTo(self).offset(24)
-            m.right.equalTo(self).offset(-24)
+            m.left.equalTo(self)
+            m.right.equalTo(self)
         }
 
         textField.snp.makeConstraints { (m) in
@@ -50,8 +50,8 @@ class SendNoteView: UIView {
 
         separatorLine.snp.makeConstraints { (m) in
             m.height.equalTo(CGFloat.singleLineWidth)
-            m.left.equalTo(self).offset(24)
-            m.right.equalTo(self).offset(-24)
+            m.left.equalTo(self)
+            m.right.equalTo(self)
             m.bottom.equalTo(self)
         }
     }

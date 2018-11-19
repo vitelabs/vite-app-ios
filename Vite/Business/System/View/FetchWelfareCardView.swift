@@ -31,7 +31,7 @@ class FetchWelfareCardView: UIView {
         let titleLab = UILabel().then {
             $0.backgroundColor = .clear
             $0.textAlignment = .center
-            $0.font = Fonts.Font16
+            $0.font = Fonts.Font14_b
             $0.textColor = .white
             $0.text = R.string.localizable.fetchWelfareContentTitle.key.localized()
         }

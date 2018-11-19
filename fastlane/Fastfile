@@ -8,26 +8,34 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new beta build to TestFlight"
 
+  lane :vite_appstore do 
+    increment_build_number_and_push_git
+    match_profile
+    build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+  end
+
+  lane :vite_test do 
+    increment_build_number_and_push_git
+    match_profile
+    version_number = get_version_number(xcodeproj: "Vite.xcodeproj", target: "Vite-test")
+    build_number = get_build_number(xcodeproj: "Vite.xcodeproj")
+    add_badge(shield: version_number + "-" + build_number + "-" + "orange", no_badge: true)
+    build_app(workspace: "Vite.xcworkspace", scheme: "Vite-test")
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+  end
+
+  lane :vite_enterprise do 
+    match(type: "adhoc", app_identifier: "net.vite.wallet.ep",  clone_branch_directly: true)
+    build_ios_app(workspace: "Vite.xcworkspace", configuration: "Release", scheme: "Vite-enterprise", export_method: "ad-hoc", clean: true, include_bitcode: false)
+  end
+
   lane :match_profile do 
     match(type: "appstore", app_identifier: "net.vite.wallet",  clone_branch_directly: true)
   end
 
   lane :increment_build_number_and_push_git do 
     increment_build_number
-    push_git
-    beta
-  end
-
-  lane :beta do 
-    match_profile
-    build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
-    upload_to_testflight(skip_waiting_for_build_processing: true)
-  end
-
-  desc "Push a new beta build to TestFlight"
-  lane :package do 
-    increment_build_number
-    #build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
     push_git
   end
 
@@ -36,7 +44,8 @@ platform :ios do
   git_add(path: ".")
   build_number = get_build_number
   git_commit(path: ".", message: "Jenkins Version Bump "+ build_number)
-  push_to_git_remote(remote_branch: "release",force: true)
+  branch = ENV["TRAVIS_BRANCH"]
+  push_to_git_remote(remote_branch: branch, force: false)
   end
 
   desc "create new pr in github argument base is base branch"
