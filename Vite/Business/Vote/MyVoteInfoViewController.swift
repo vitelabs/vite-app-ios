@@ -68,13 +68,13 @@ class MyVoteInfoViewController: BaseViewController, View {
             self?.voteInfoEmptyView.isHidden = false
         }).disposed(by: disposeBag)
 
-        self.viewInfoView.nodeStatusLab.tipButton.rx.tap.bind { [weak self] in
+        self.viewInfoView.nodeStatusLab.tipButton.rx.tap.bind {
             let url  = URL(string: String(format: "%@?localize=%@", Constants.voteLoserURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
             let vc = PopViewController(url: url)
             vc.modalPresentationStyle = .overCurrentContext
             let delegate =  StyleActionSheetTranstionDelegate()
             vc.transitioningDelegate = delegate
-            self?.present(vc, animated: true, completion: nil)
+            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
         }.disposed(by: rx.disposeBag)
 
         //handle cancel vote

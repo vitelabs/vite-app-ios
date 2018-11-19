@@ -40,7 +40,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 71 images.
+  /// This `R.image` struct is generated, and contains static references to 72 images.
   struct image {
     /// Image `aboutus_logo`.
     static let aboutus_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "aboutus_logo")
@@ -174,6 +174,8 @@ struct R: Rswift.Validatable {
     static let splash_slogen = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash_slogen")
     /// Image `success`.
     static let success = Rswift.ImageResource(bundle: R.hostingBundle, name: "success")
+    /// Image `switch_mode_icon`.
+    static let switch_mode_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "switch_mode_icon")
     /// Image `tabber_shadow`.
     static let tabber_shadow = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabber_shadow")
     /// Image `vite`.
@@ -515,6 +517,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.success, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "switch_mode_icon", bundle: ..., traitCollection: ...)`
+    static func switch_mode_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.switch_mode_icon, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "tabber_shadow", bundle: ..., traitCollection: ...)`
     static func tabber_shadow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.tabber_shadow, compatibleWith: traitCollection)
@@ -623,7 +630,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 221 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 222 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1509,6 +1516,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let voteListAlertQuota = Rswift.StringResource(key: "vote.list.alert.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 切换%@个助记词
+      /// 
+      /// Locales: en, zh-Hans
+      static let mnemonicBackupPageSwitchModeTitle = Rswift.StringResource(key: "mnemonic.backup.page.switch.mode.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -3055,6 +3066,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func voteListAlertQuota(_: Void = ()) -> String {
         return NSLocalizedString("vote.list.alert.quota", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 切换%@个助记词
+      /// 
+      /// Locales: en, zh-Hans
+      static func mnemonicBackupPageSwitchModeTitle(_ value1: String) -> String {
+        return String(format: NSLocalizedString("mnemonic.backup.page.switch.mode.title", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       fileprivate init() {}

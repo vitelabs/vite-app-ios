@@ -24,11 +24,13 @@ final class MnemonicCollectionView: UIView {
     weak var delegate: MnemonicCollectionViewDelegate?
     let padding = CGFloat(6.0)
     let w_num = CGFloat(4.0)
-    let h_num = CGFloat(6.0)
+    var h_num = CGFloat(6.0)
 
     var dataList: [String] = [] {
         didSet {
-            collectionView.reloadData()
+            UIView.animate(withDuration: 0.3) {
+                self.collectionView.reloadData()
+            }
         }
     }
 

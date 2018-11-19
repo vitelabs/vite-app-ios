@@ -47,6 +47,17 @@ class BackupMnemonicViewController: BaseViewController {
         return tipTitleLab
     }()
 
+    lazy var switchTipView: LabelTipView = {
+        let switchTipView = LabelTipView(R.string.localizable.mnemonicBackupPageSwitchModeTitle("12"))
+        switchTipView.titleLab.font = Fonts.Font12
+        switchTipView.titleLab.textColor = UIColor(netHex: 0x007AFF)
+        switchTipView.tipButton.setImage(R.image.switch_mode_icon(), for: .normal)
+        switchTipView.rx.tap.bind {
+            self.viewModel.switchModeMnemonicWordsAction?.execute(())
+        }.disposed(by: rx.disposeBag)
+        return switchTipView
+    }()
+
     lazy var mnemonicCollectionView: MnemonicCollectionView = {
         let mnemonicCollectionView = MnemonicCollectionView.init(isHasSelected: true)
         return mnemonicCollectionView
@@ -67,11 +78,34 @@ class BackupMnemonicViewController: BaseViewController {
         nextMnemonicBtn.addTarget(self, action: #selector(nextMnemonicBtnAction), for: .touchUpInside)
         return nextMnemonicBtn
     }()
+
+    lazy var contentView: UIView = {
+        let contentView = UIView()
+        return contentView
+    }()
 }
 
 extension BackupMnemonicViewController {
     private func _bindViewModel() {
         self.viewModel.mnemonicWordsList.asObservable().subscribe { (_) in
+            if self.viewModel.mnemonicWordsList.value.count == 12 {
+                self.switchTipView.titleLab.text = R.string.localizable.mnemonicBackupPageSwitchModeTitle("24")
+                self.mnemonicCollectionView.snp.updateConstraints { (make) -> Void in
+                    make.height.equalTo(kScreenH * (96.0/667.0))
+                }
+                self.mnemonicCollectionView.h_num =  CGFloat(3.0)
+            } else {
+                self.switchTipView.titleLab.text = R.string.localizable.mnemonicBackupPageSwitchModeTitle("12")
+                self.mnemonicCollectionView.snp.updateConstraints { (make) -> Void in
+                    make.height.equalTo(kScreenH * (186.0/667.0))
+                }
+                self.mnemonicCollectionView.h_num =  CGFloat(6.0)
+            }
+
+            UIView.animate(withDuration: 0.3, animations: {
+                self.contentView.layoutIfNeeded()
+            })
+
             self.mnemonicCollectionView.dataList = (self.viewModel.mnemonicWordsList.value)
         }.disposed(by: rx.disposeBag)
 
@@ -118,7 +152,6 @@ extension BackupMnemonicViewController {
             make.bottom.equalTo(self.afreshMnemonicBtn.snp.top).offset(-24)
         }
 
-        let contentView = UIView()
         self.view.addSubview(contentView)
         contentView.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(self.view).offset(24)
@@ -126,12 +159,19 @@ extension BackupMnemonicViewController {
             make.top.equalTo(self.tipTitleLab.snp.bottom)
             make.bottom.equalTo(self.nextMnemonicBtn.snp.top)
         }
-        self.view.addSubview(self.mnemonicCollectionView)
+
+        contentView.addSubview(self.mnemonicCollectionView)
         self.mnemonicCollectionView.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
             make.centerY.equalTo(contentView)
             make.height.equalTo(kScreenH * (186.0/667.0))
+        }
+        contentView.addSubview(self.switchTipView)
+        self.switchTipView.snp.makeConstraints { (make) -> Void in
+            make.bottom.equalTo(self.mnemonicCollectionView.snp.top).offset(-10)
+            make.right.equalTo(self.mnemonicCollectionView)
+            make.height.equalTo(20)
         }
     }
 
