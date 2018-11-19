@@ -298,7 +298,8 @@ extension SendViewController: UITextFieldDelegate {
             textField.text = text
             return ret
         } else if textField == noteView.textField {
-            return InputLimitsHelper.allowText(textField.text ?? "", shouldChangeCharactersIn: range, replacementString: string, maxCount: 180)
+            // maxCount is 120, about 40 Chinese characters
+            return InputLimitsHelper.allowText(textField.text ?? "", shouldChangeCharactersIn: range, replacementString: string, maxCount: 120)
         } else {
             return true
         }
