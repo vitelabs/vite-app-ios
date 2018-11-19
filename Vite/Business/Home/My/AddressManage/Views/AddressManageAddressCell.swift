@@ -15,39 +15,61 @@ class AddressManageAddressCell: BaseTableViewCell {
         return 84
     }
 
-    let addressLabel = UILabel().then {
+    fileprivate let flagImageView = UIImageView()
+
+    fileprivate let addressLabel = UILabel().then {
         $0.font = UIFont.boldSystemFont(ofSize: 14)
         $0.textColor = UIColor(netHex: 0x24272B)
         $0.numberOfLines = 2
     }
 
-    let flagImageView = UIImageView()
+    fileprivate let copyButton = UIButton().then {
+        $0.setImage(R.image.icon_button_paste_light_gray(), for: .normal)
+        $0.setImage(R.image.icon_button_paste_light_gray()?.highlighted, for: .highlighted)
+    }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        contentView.addSubview(addressLabel)
         contentView.addSubview(flagImageView)
-
-        addressLabel.snp.makeConstraints { (m) in
-            m.centerY.equalTo(contentView)
-            m.left.equalTo(contentView).offset(24)
-        }
+        contentView.addSubview(addressLabel)
+        contentView.addSubview(copyButton)
 
         flagImageView.setContentHuggingPriority(.required, for: .horizontal)
         flagImageView.setContentCompressionResistancePriority(.required, for: .horizontal)
         flagImageView.snp.makeConstraints { (m) in
             m.centerY.equalTo(contentView)
-            m.left.equalTo(addressLabel.snp.right).offset(24)
-            m.right.equalTo(contentView).offset(-24)
+            m.left.equalTo(contentView).offset(24)
         }
 
-        let line = UIView().then {
+        addressLabel.snp.makeConstraints { (m) in
+            m.centerY.equalTo(contentView)
+            m.left.equalTo(flagImageView.snp.right).offset(14)
+        }
+
+        let vLine = UIView().then {
+            $0.backgroundColor = UIColor(netHex: 0xe5e5ea)
+        }
+
+        contentView.addSubview(vLine)
+        vLine.snp.makeConstraints { (m) in
+            m.width.equalTo(CGFloat.singleLineWidth)
+            m.left.equalTo(addressLabel.snp.right).offset(13)
+            m.right.equalTo(contentView).offset(-57)
+            m.top.bottom.equalTo(addressLabel)
+        }
+
+        copyButton.snp.makeConstraints { (m) in
+            m.top.bottom.right.equalTo(contentView)
+            m.width.equalTo(66)
+        }
+
+        let hLine = UIView().then {
             $0.backgroundColor = Colors.lineGray
         }
 
-        contentView.addSubview(line)
-        line.snp.makeConstraints { (m) in
+        contentView.addSubview(hLine)
+        hLine.snp.makeConstraints { (m) in
             m.height.equalTo(CGFloat.singleLineWidth)
             m.left.equalTo(contentView).offset(24)
             m.right.equalTo(contentView).offset(-24)
@@ -62,6 +84,7 @@ class AddressManageAddressCell: BaseTableViewCell {
     func bind(viewModel: AddressManageAddressViewModelType) {
         addressLabel.text = viewModel.address
         flagImageView.image = viewModel.isSelected ? R.image.icon_cell_select() : R.image.icon_cell_unselect()
+        copyButton.rx.tap.bind { viewModel.copy() }.disposed(by: disposeBag)
     }
 
 }
