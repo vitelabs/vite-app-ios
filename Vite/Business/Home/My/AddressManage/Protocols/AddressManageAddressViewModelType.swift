@@ -12,4 +12,5 @@ protocol AddressManageAddressViewModelType {
     var number: Int { get }
     var address: String { get }
     var isSelected: Bool { get }
+    func copy()
 }

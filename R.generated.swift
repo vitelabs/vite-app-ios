@@ -40,7 +40,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 71 images.
+  /// This `R.image` struct is generated, and contains static references to 72 images.
   struct image {
     /// Image `aboutus_logo`.
     static let aboutus_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "aboutus_logo")
@@ -92,6 +92,8 @@ struct R: Rswift.Validatable {
     static let icon_button_paste_blue = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_button_paste_blue")
     /// Image `icon_button_paste_gray`.
     static let icon_button_paste_gray = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_button_paste_gray")
+    /// Image `icon_button_paste_light_gray`.
+    static let icon_button_paste_light_gray = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_button_paste_light_gray")
     /// Image `icon_button_paste_white`.
     static let icon_button_paste_white = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_button_paste_white")
     /// Image `icon_button_reddit`.
@@ -308,6 +310,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "icon_button_paste_gray", bundle: ..., traitCollection: ...)`
     static func icon_button_paste_gray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.icon_button_paste_gray, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_button_paste_light_gray", bundle: ..., traitCollection: ...)`
+    static func icon_button_paste_light_gray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_button_paste_light_gray, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "icon_button_paste_white", bundle: ..., traitCollection: ...)`
