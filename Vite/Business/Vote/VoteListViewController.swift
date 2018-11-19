@@ -161,6 +161,7 @@ class VoteListViewController: BaseViewController {
 
         self.reactor.fetchCandidateError.asObservable()
             .filter { $0 == nil }
+            .skip(1)
             .bind { [weak self] _ in
                 self?.view.hideLoading()
                 self?.dataStatus = .normal
