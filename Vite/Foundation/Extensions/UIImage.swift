@@ -35,7 +35,7 @@ extension UIImage {
         fillShape.fill()
 
         if let borderColor = borderColor, borderWidth > 0 {
-            let halfWidth = borderWidth / 2.0;
+            let halfWidth = borderWidth / 2.0
             let strokeRect = CGRect(x: halfWidth, y: halfWidth, width: imgRect.width - borderWidth, height: imgRect.height - borderWidth)
             let strokeShape = UIBezierPath(roundedRect: strokeRect, cornerRadius: cornerRadius)
             context?.setStrokeColor(borderColor.cgColor)
@@ -44,7 +44,7 @@ extension UIImage {
         }
 
         let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext();
+        UIGraphicsEndImageContext()
         return image!
     }
 

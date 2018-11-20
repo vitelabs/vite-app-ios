@@ -103,13 +103,13 @@ class AlertControl: UIViewController {
 
         for (i, b) in alertSheetView.actionButtons.enumerated() {
             b.rx.tap.bind { [unowned self] in
-                self.actions[i].handler?(self)
+                filtedActions[i].handler?(self)
                 self.view.removeFromSuperview()
                 self.selfReference = nil
             }.disposed(by: rx.disposeBag)
         }
 
-        alertSheetView.closeButton.rx.tap.bind {  [unowned self] in
+        alertSheetView.closeButton.rx.tap.bind { [unowned self] in
             self.view.removeFromSuperview()
             self.cancelAction?.handler?(self)
             self.selfReference = nil

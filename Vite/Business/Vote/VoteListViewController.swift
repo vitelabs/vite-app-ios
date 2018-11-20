@@ -127,7 +127,7 @@ class VoteListViewController: BaseViewController {
         reactor.voteSuccess.asObserver()
             .bind { [unowned self] _ in
                 self.view.hideLoading()
-                Toast.show(R.string.localizable.voteListSendSuccess())
+                AlertControl.showCompletion(R.string.localizable.voteListSendSuccess())
             }
             .disposed(by: rx.disposeBag)
 
