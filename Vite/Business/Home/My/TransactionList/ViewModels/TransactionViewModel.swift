@@ -19,7 +19,7 @@ final class TransactionViewModel: TransactionViewModelType {
     let hash: String
 
     init(transaction: Transaction) {
-        self.typeImage = R.image.icon_tx_send()!
+        self.typeImage = transaction.type.icon
         self.typeName = transaction.type.name
         self.address = transaction.type == .receive ? transaction.fromAddress.description : transaction.toAddress.description
         self.timeString = transaction.timestamp.format("yyyy.MM.dd")
@@ -56,6 +56,23 @@ extension Transaction.TransactionType {
             return R.string.localizable.transactionListTransactionTypeNameCancelCoin()
         case .send, .receive:
             return R.string.localizable.transactionListTransactionTypeNameTransfer()
+        }
+    }
+
+    var icon: UIImage! {
+        switch self {
+        case .register, .registerUpdate, .cancelRegister:
+            return R.image.icon_tx_register()
+        case .extractReward:
+            return R.image.icon_tx_reward()
+        case .vote, .cancelVote:
+            return R.image.icon_tx_vote()
+        case .pledge, .cancelPledge:
+            return R.image.icon_tx_pledge()
+        case .coin, .cancelCoin:
+            return R.image.icon_tx_coin()
+        case .send, .receive:
+            return R.image.icon_tx_transfer()
         }
     }
 }
