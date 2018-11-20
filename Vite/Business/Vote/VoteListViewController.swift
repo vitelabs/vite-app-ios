@@ -183,7 +183,7 @@ class VoteListViewController: BaseViewController {
                         (.default(title:R.string.localizable.voteListConfirmRevote()), { [unowned self] _ in
                             self.confirmVote(nodeName: nodeName)
                        }),
-                        (.default(title:  R.string.localizable.cancel()), { [unowned self] _ in
+                        (.cancel, { [unowned self] _ in
                             self.dismiss(animated: false, completion: nil)
                        })])
         }

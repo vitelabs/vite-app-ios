@@ -73,7 +73,7 @@ struct Alert {
                 let action = AlertAction(title: R.string.localizable.cancel(), style: .light, handler: { alert in
                     if let action = action.1 { action(alert) }
                 })
-                alert.addAction(action)
+                alert.addCancelAction(action)
             case .delete:
                 let action = AlertAction(title: R.string.localizable.delete(), style: .light, handler: { alert in
                     if let action = action.1 { action(alert) }

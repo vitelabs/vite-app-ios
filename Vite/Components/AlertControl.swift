@@ -17,17 +17,16 @@ class AlertAction: NSObject {
         case light
     }
 
-    let title: String
-    var style: Style
+    let title: String?
+    var style: Style?
     let handler: ((AlertControl) -> Void)?
 
-    init(title: String, style: Style, handler: ((AlertControl) -> Void)?) {
+    init(title: String? = nil, style: Style? = nil, handler: ((AlertControl) -> Void)?) {
         self.title = title
         self.style = style
         self.handler = handler
     }
 }
-
 
 class AlertControl: UIViewController {
 
@@ -36,6 +35,7 @@ class AlertControl: UIViewController {
     var preferredAction: AlertAction?
     var textFields: [UITextField]? = []
     var actions: [AlertAction] = []
+    var cancelAction: AlertAction?
     var window: UIWindow {
         return UIApplication.shared.keyWindow!
     }
@@ -49,6 +49,14 @@ class AlertControl: UIViewController {
 
     func addAction(_ action: AlertAction) {
         actions.append(action)
+    }
+
+    func addCancelAction(_ action: AlertAction) {
+        if self.cancelAction != nil {
+            fatalError("already have cancelAction")
+        }
+        actions.append(action)
+        cancelAction = action
     }
 
     func addTextField(configurationHandler: ((UITextField) -> Void)? = nil) {
@@ -84,7 +92,10 @@ class AlertControl: UIViewController {
     }
 
     fileprivate func showAlerSheet() {
-        let alertSheetView = AlertSheetView.init(title: alertTitle, message: message, actions: actions)
+        let filtedActions = actions.filter { (action) -> Bool in
+            return action != self.cancelAction
+        }
+        let alertSheetView = AlertSheetView.init(title: alertTitle, message: message, actions: filtedActions)
         view.addSubview(alertSheetView)
         alertSheetView.snp.makeConstraints { (m) in
             m.bottom.left.right.equalToSuperview()
@@ -100,8 +111,11 @@ class AlertControl: UIViewController {
 
         alertSheetView.closeButton.rx.tap.bind {  [unowned self] in
             self.view.removeFromSuperview()
+            self.cancelAction?.handler?(self)
             self.selfReference = nil
         }.disposed(by: rx.disposeBag)
+
+        alertSheetView.closeButton.isHidden = (self.cancelAction == nil)
     }
 
     fileprivate func showAlertInputView() {
