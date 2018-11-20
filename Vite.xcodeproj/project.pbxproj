@@ -95,6 +95,10 @@
 		741414D82186FA39007DDD01 /* PledgeHistoryViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414D62186FA39007DDD01 /* PledgeHistoryViewReactor.swift */; };
 		741414DB2186FA71007DDD01 /* PledgeHistoryDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414DA2186FA71007DDD01 /* PledgeHistoryDescriptionView.swift */; };
 		741414DD2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414DC2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift */; };
+		743534CA21A29B3800CD8C1D /* AlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743534C921A29B3800CD8C1D /* AlertControl.swift */; };
+		743534CB21A29B3800CD8C1D /* AlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743534C921A29B3800CD8C1D /* AlertControl.swift */; };
+		743534CC21A29B3800CD8C1D /* AlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743534C921A29B3800CD8C1D /* AlertControl.swift */; };
+		743534CD21A29B3800CD8C1D /* AlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743534C921A29B3800CD8C1D /* AlertControl.swift */; };
 		744CC4602178684E00F55A52 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744CC45F2178684E00F55A52 /* Error.swift */; };
 		74875E1C2191707300C3AE9D /* GetCandidateListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E1B2191707300C3AE9D /* GetCandidateListRequest.swift */; };
 		74875E1E2191756400C3AE9D /* Provider+VoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E1D2191756400C3AE9D /* Provider+VoteList.swift */; };
@@ -818,6 +822,7 @@
 		741414D62186FA39007DDD01 /* PledgeHistoryViewReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PledgeHistoryViewReactor.swift; sourceTree = "<group>"; };
 		741414DA2186FA71007DDD01 /* PledgeHistoryDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeHistoryDescriptionView.swift; sourceTree = "<group>"; };
 		741414DC2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeHistoryCellTableViewCell.swift; sourceTree = "<group>"; };
+		743534C921A29B3800CD8C1D /* AlertControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControl.swift; sourceTree = "<group>"; };
 		744CC45F2178684E00F55A52 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		74875E1B2191707300C3AE9D /* GetCandidateListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCandidateListRequest.swift; sourceTree = "<group>"; };
 		74875E1D2191756400C3AE9D /* Provider+VoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+VoteList.swift"; sourceTree = "<group>"; };
@@ -1177,6 +1182,7 @@
 				8E79261B21522BF1007FEBAB /* FetchBalanceInfoService.swift */,
 				8E68C4832182BFBE00475133 /* FetchQuotaService.swift */,
 				8E792613215151E0007FEBAB /* ViteURI.swift */,
+				743534C921A29B3800CD8C1D /* AlertControl.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -2751,6 +2757,7 @@
 				4C2FAD952190578A00FC9524 /* MyVoteInfoViewController.swift in Sources */,
 				4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */,
 				8E68C48A2182FB3B00475133 /* GetPowFloatView.swift in Sources */,
+				743534CA21A29B3800CD8C1D /* AlertControl.swift in Sources */,
 				4CC4F451214CCB5B0068DA53 /* TitlePasswordInputView.swift in Sources */,
 				4C84D95C21466C1B001B6EBD /* AccountLoginResult.swift in Sources */,
 				8E7D6374215B7FBB009617A0 /* ReceiveFooterView.swift in Sources */,
@@ -2808,6 +2815,7 @@
 				8E0FB697216B5B95001525EB /* ViteCryptoTest.swift in Sources */,
 				4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */,
 				8E6F3E14214220DF003CDFC2 /* ViteNetworkTests.swift in Sources */,
+				743534CD21A29B3800CD8C1D /* AlertControl.swift in Sources */,
 				4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2990,6 +2998,7 @@
 				8EA0BED021996D4800FDE2E8 /* MyVoteInfoViewController.swift in Sources */,
 				8EA0BED121996D4800FDE2E8 /* LocalizationService.swift in Sources */,
 				8EA0BED221996D4800FDE2E8 /* GetPowFloatView.swift in Sources */,
+				743534CB21A29B3800CD8C1D /* AlertControl.swift in Sources */,
 				8EA0BED321996D4800FDE2E8 /* TitlePasswordInputView.swift in Sources */,
 				8EA0BED421996D4800FDE2E8 /* AccountLoginResult.swift in Sources */,
 				8EA0BED521996D4800FDE2E8 /* ReceiveFooterView.swift in Sources */,
@@ -3217,6 +3226,7 @@
 				8EA0BFC121996D7800FDE2E8 /* MyVoteInfoViewController.swift in Sources */,
 				8EA0BFC221996D7800FDE2E8 /* LocalizationService.swift in Sources */,
 				8EA0BFC321996D7800FDE2E8 /* GetPowFloatView.swift in Sources */,
+				743534CC21A29B3800CD8C1D /* AlertControl.swift in Sources */,
 				8EA0BFC421996D7800FDE2E8 /* TitlePasswordInputView.swift in Sources */,
 				8EA0BFC521996D7800FDE2E8 /* AccountLoginResult.swift in Sources */,
 				8EA0BFC621996D7800FDE2E8 /* ReceiveFooterView.swift in Sources */,

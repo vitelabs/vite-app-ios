@@ -12,9 +12,9 @@ import Vite_HDWalletKit
 
 extension UIViewController {
     func verifyWalletPassword(callback: @escaping () -> Void) {
-        let controller = UIAlertController(title: nil, message: R.string.localizable.exportPageAlterTitle(), preferredStyle: UIAlertControllerStyle.alert)
-        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
-        let okAction = UIAlertAction(title: R.string.localizable.confirm(), style: UIAlertActionStyle.default) { (_) in
+        let controller = AlertControl(title: R.string.localizable.exportPageAlterTitle(), message: nil)
+        let cancelAction = AlertAction(title: R.string.localizable.cancel(), style: .light, handler: nil)
+        let okAction = AlertAction(title: R.string.localizable.confirm(), style: .light) { controller in
             let textField = (controller.textFields?.first)! as UITextField
             if HDWalletManager.instance.verifyPassword(textField.text ?? "") {
                 callback()
@@ -29,7 +29,7 @@ extension UIViewController {
         }
         controller.addAction(cancelAction)
         controller.addAction(okAction)
-        self.present(controller, animated: true, completion: nil)
+        controller.show()
     }
 }
 
