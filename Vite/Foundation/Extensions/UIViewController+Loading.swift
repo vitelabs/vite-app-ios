@@ -9,11 +9,15 @@
 import UIKit
 
 extension UIViewController {
-    func displayAlter(title: String, message: String, cancel: String, done: String, doneHandler: @escaping () -> Void) {
+    func displayAlter(title: String, message: String, cancel: String, done: String, doneHandler: @escaping () -> Void, cancelHandler: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: cancel, style: .cancel, handler: nil)
-        let doneAction = UIAlertAction(title: done, style: .destructive, handler: {_ in
-                doneHandler()
+        let cancelAction = UIAlertAction(title: cancel, style: .cancel, handler: { _ in
+            if let cancelHandler = cancelHandler {
+                cancelHandler()
+            }
+        })
+        let doneAction = UIAlertAction(title: done, style: .destructive, handler: { _ in
+            doneHandler()
         })
         alertController.addAction(cancelAction)
         alertController.addAction(doneAction)

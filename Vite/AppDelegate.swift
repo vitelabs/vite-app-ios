@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         handleRootVC()
 
-        AppUpdateVM.checkUpdate()
+        AppUpdateService.checkUpdate()
         AppSettingsService.instance.start()
         TokenCacheService.instance.start()
         AutoGatheringService.instance.start()
