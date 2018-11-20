@@ -28,6 +28,7 @@ class AlertAction: NSObject {
     }
 }
 
+
 class AlertControl: UIViewController {
 
     var alertTitle: String?
@@ -150,8 +151,63 @@ class AlertControl: UIViewController {
         self.textFields?.first?.becomeFirstResponder()
     }
 
-    deinit {
-        print("sssssssssss")
+}
+
+extension AlertControl {
+    class func showCompletion(_ title: String) {
+        let vc = AlertControl()
+        vc.window.addSubview(vc.view)
+        vc.selfReference = vc
+        vc.view.frame = vc.window.bounds
+        vc.view.backgroundColor = UIColor.init(hex: "0x000000", alpha: 0.5)
+        let alertCompletionView = AlertCompletionView.init(title: title)
+        vc.view.addSubview(alertCompletionView)
+        alertCompletionView.snp.makeConstraints { (m) in
+            m.width.equalTo(270)
+            m.height.equalTo(140)
+            m.center.equalToSuperview()
+        }
+        GCD.delay(2) {
+            vc.view.removeFromSuperview()
+            vc.selfReference = nil
+        }
+    }
+}
+
+private class AlertCompletionView: UIView {
+
+    let imageView = UIImageView().then {
+        $0.image = R.image.success()
+    }
+
+    let titleLabel = UILabel().then {
+        $0.textAlignment = .center
+        $0.font = UIFont.boldSystemFont(ofSize: 17)
+    }
+
+    init(title: String?) {
+        super.init(frame: CGRect.init(x: 0, y: 0, width: 270, height: 140))
+        self.layer.cornerRadius = 2
+        self.backgroundColor = UIColor.init(netHex: 0xFFFFFF)
+        titleLabel.text = title
+        self.addSubview(imageView)
+        self.addSubview(titleLabel)
+
+        imageView.snp.makeConstraints { (m) in
+            m.top.equalToSuperview().offset(23)
+            m.centerX.equalToSuperview()
+            m.width.equalTo(54)
+            m.height.equalTo(52)
+        }
+        titleLabel.snp.makeConstraints { (m) in
+            m.top.equalTo(imageView.snp.bottom).offset(25)
+            m.left.right.equalToSuperview()
+        }
+
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
 }

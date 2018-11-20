@@ -46,7 +46,7 @@ final class SearchBar: UIImageView {
         textField.snp.makeConstraints { (m) in
             m.centerY.equalTo(leftIcon)
             m.left.equalTo(leftIcon.snp.right).offset(10)
-            m.right.equalToSuperview()
+            m.right.equalToSuperview().offset(-10)
             m.height.equalTo(36)
         }
     }

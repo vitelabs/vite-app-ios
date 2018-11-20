@@ -209,8 +209,8 @@ class SendViewController: BaseViewController {
             HUD.hide()
             switch result {
             case .success:
-                Toast.show(R.string.localizable.sendPageToastSendSuccess())
-                GCD.delay(0.5) { self.dismiss() }
+                AlertControl.showCompletion(R.string.localizable.sendPageToastSendSuccess())
+                GCD.delay(1) { self.dismiss() }
             case .error(let error):
                 if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
                     Alert.show(into: self,
@@ -258,8 +258,8 @@ class SendViewController: BaseViewController {
                         guard let `self` = self else { return }
                         switch result {
                         case .success:
-                            Toast.show(R.string.localizable.sendPageToastSendSuccess())
-                            GCD.delay(0.5) { self.dismiss() }
+                            AlertControl.showCompletion(R.string.localizable.sendPageToastSendSuccess())
+                            GCD.delay(1) { self.dismiss() }
                         case .error(let error):
                             if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
                                 Alert.show(into: self,
