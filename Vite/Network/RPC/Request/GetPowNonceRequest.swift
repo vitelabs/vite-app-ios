@@ -39,7 +39,7 @@ struct GetPowNonceRequest: JSONRPCKit.Request {
         if let response = resultObject as? String, let nonce = Data(base64Encoded: response)?.toHexString() {
             return nonce
         } else {
-            throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: Response.self)
+            throw ViteError.JSONTypeError()
         }
     }
 }

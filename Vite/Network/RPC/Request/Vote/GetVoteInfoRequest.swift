@@ -27,12 +27,12 @@ struct GetVoteInfoRequest: JSONRPCKit.Request {
             if let ret = VoteInfo(JSON: response) {
                 return ret
             } else {
-                throw JSONError.jsonData
+                throw ViteError.JSONTypeError()
             }
         } else if  let _ = resultObject as? NSNull {
             return nil
         } else {
-            throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: Response.self)
+            throw ViteError.JSONTypeError()
         }
     }
 }

@@ -38,8 +38,8 @@ final class AutoGatheringService {
             switch result {
             case .success:
                 GCD.delay(2) { self.getUnconfirmedTransaction(uuid) }
-            case .error(let error):
-                if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
+            case .failure(let error):
+                if error.code == ViteErrorCode.rpcNotEnoughQuota {
 
                     Provider.instance.receiveTransactionWithGetPow(bag: bag, difficulty: AccountBlock.Const.Difficulty.receive.value) { [weak self] result in
                         guard let `self` = self else { return }
@@ -48,7 +48,7 @@ final class AutoGatheringService {
                         switch result {
                         case .success:
                             break
-                        case .error(let error):
+                        case .failure(let error):
                             plog(level: .warning, log: bag.address.description + ": " + error.message, tag: .transaction)
                         }
                         GCD.delay(2) { self.getUnconfirmedTransaction(uuid) }

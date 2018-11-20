@@ -147,7 +147,7 @@ extension AboutUsViewController {
             case .success(let string):
                 cell.value = string
                 cell.updateCell()
-            case .error:
+            case .failure:
                 break
             }
         })

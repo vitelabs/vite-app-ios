@@ -312,3 +312,6 @@
 "introduction.page.tip3.desc" = "支持多种代币，方便账号管";
 "introduction.page.tip4.desc" = "投票官方节点，赚取VITE奖励";
 "introduction.page.nextBtn.title" = "开始体验";
+
+/* Error Message */
+"vite.error.operation.failure" = "操作失败";

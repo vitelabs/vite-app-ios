@@ -29,14 +29,14 @@ class GetPledgeQuotaRequest: JSONRPCKit.Request {
     func response(from resultObject: Any) throws -> Response {
 
         guard let response = resultObject as? [String: Any] else {
-            throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: [String: Any].self)
+            throw ViteError.JSONTypeError()
         }
 
         if let quota = response["quota"] as? String,
             let maxTxCount = response["txNum"] as? String {
             return (quota, maxTxCount)
         } else {
-            throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: Response.self)
+            throw ViteError.JSONTypeError()
         }
 
     }

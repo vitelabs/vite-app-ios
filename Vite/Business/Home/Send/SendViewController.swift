@@ -211,13 +211,13 @@ class SendViewController: BaseViewController {
             case .success:
                 AlertControl.showCompletion(R.string.localizable.sendPageToastSendSuccess())
                 GCD.delay(1) { self.dismiss() }
-            case .error(let error):
-                if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
+            case .failure(let error):
+                if error.code == ViteErrorCode.rpcNotEnoughBalance {
                     Alert.show(into: self,
                                title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
                                message: nil,
                                actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
-                } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
+                } else if error.code == ViteErrorCode.rpcNotEnoughQuota {
                     Alert.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.quotaAlertPowAndQuotaMessage(), actions: [
                         (.default(title: R.string.localizable.quotaAlertPowButtonTitle()), { _ in
                             self.sendTransactionWithGetPow(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, note: note)
@@ -260,13 +260,13 @@ class SendViewController: BaseViewController {
                         case .success:
                             AlertControl.showCompletion(R.string.localizable.sendPageToastSendSuccess())
                             GCD.delay(1) { self.dismiss() }
-                        case .error(let error):
-                            if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
+                        case .failure(let error):
+                            if error.code == ViteErrorCode.rpcNotEnoughBalance {
                                 Alert.show(into: self,
                                            title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
                                            message: nil,
                                            actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
-                            } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
+                            } else if error.code == ViteErrorCode.rpcNotEnoughQuota {
                                 Alert.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.quotaAlertNeedQuotaMessage(), actions: [
                                     (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle()), { [weak self] _ in
                                         let vc = QuotaManageViewController()
@@ -282,7 +282,7 @@ class SendViewController: BaseViewController {
                         }
                     })
                 }
-            case .error:
+            case .failure:
                 getPowFloatView.hide()
                 Toast.show(R.string.localizable.sendPageToastSendFailed())
             }

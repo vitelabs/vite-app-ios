@@ -246,13 +246,13 @@ extension QuotaManageViewController {
             case .success:
                 self.refreshDataBySuccess()
                 Toast.show(R.string.localizable.submitSuccess())
-            case .error(let error):
-                if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
+            case .failure(let error):
+                if error.code == ViteErrorCode.rpcNotEnoughBalance {
                     Alert.show(into: self,
                                title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
                                message: nil,
                                actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
-                } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
+                } else if error.code == ViteErrorCode.rpcNotEnoughQuota {
                     self.pledgeAndGainQuotaWithGetPow(beneficialAddress: beneficialAddress, amount: amount)
                 } else {
                     Toast.show(R.string.localizable.quotaManagePageToastSendFailed())
@@ -285,8 +285,8 @@ extension QuotaManageViewController {
                         case .success:
                               self.refreshDataBySuccess()
                               Toast.show(R.string.localizable.submitSuccess())
-                        case .error(let error):
-                            if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
+                        case .failure(let error):
+                            if error.code == ViteErrorCode.rpcNotEnoughBalance {
                                 Alert.show(into: self,
                                            title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
                                            message: nil,
@@ -297,7 +297,7 @@ extension QuotaManageViewController {
                         }
                     })
                 }
-            case .error:
+            case .failure:
                 getPowFloatView.hide()
                 Toast.show(R.string.localizable.quotaManagePageToastSendFailed())
             }

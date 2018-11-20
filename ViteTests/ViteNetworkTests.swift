@@ -57,7 +57,7 @@ class ViteNetworkTests: XCTestCase {
                 switch result {
                 case .success(let height):
                     print("🏆snapschot china height: \(height)")
-                case .error(let error):
+                case .failure(let error):
                     print("🤯🤯🤯🤯🤯🤯\(error)")
                 }
                 completion()
@@ -72,7 +72,7 @@ class ViteNetworkTests: XCTestCase {
                 switch result {
                 case .success(let transactions):
                     print("🏆\(transactions)")
-                case .error(let error):
+                case .failure(let error):
                     print("🤯🤯🤯🤯🤯🤯\(error)")
                 }
                 completion()
@@ -87,7 +87,7 @@ class ViteNetworkTests: XCTestCase {
                 switch result {
                 case .success(let balanceInfos):
                     print("🏆\(balanceInfos)")
-                case .error(let error):
+                case .failure(let error):
                     print("🤯🤯🤯🤯🤯🤯\(error)")
                 }
                 completion()
@@ -112,7 +112,7 @@ class ViteNetworkTests: XCTestCase {
                     } else {
                         print("🏆 token not found")
                     }
-                case .error(let error):
+                case .failure(let error):
                     print("🤯🤯🤯🤯🤯🤯\(error)")
                 }
                 completion()
@@ -128,7 +128,7 @@ extension ViteNetworkTests {
                 switch result {
                 case .success(let info):
                     print("🏆\(info)")
-                case .error(let error):
+                case .failure(let error):
                     print("🤯🤯🤯🤯🤯🤯\(error)")
                 }
                 completion()
@@ -142,7 +142,7 @@ extension ViteNetworkTests {
                 switch result {
                 case .success(let config):
                     print("🏆\(String(describing: config))")
-                case .error(let error):
+                case .failure(let error):
                     print("🤯🤯🤯🤯🤯🤯\(error)")
                 }
                 completion()
@@ -156,7 +156,7 @@ extension ViteNetworkTests {
                 switch result {
                 case .success(let string):
                     print("🏆\(string)")
-                case .error(let error):
+                case .failure(let error):
                     print("🤯🤯🤯🤯🤯🤯\(error)")
                 }
                 completion()
@@ -172,7 +172,7 @@ extension ViteNetworkTests {
                 switch result {
                 case .success(let pledges):
                     print("🏆\(pledges)")
-                case .error(let error):
+                case .failure(let error):
                     print("🤯🤯🤯🤯🤯🤯\(error)")
                 }
                 completion()

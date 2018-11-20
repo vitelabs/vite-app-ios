@@ -100,7 +100,7 @@
 		743534CB21A29B3800CD8C1D /* AlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743534C921A29B3800CD8C1D /* AlertControl.swift */; };
 		743534CC21A29B3800CD8C1D /* AlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743534C921A29B3800CD8C1D /* AlertControl.swift */; };
 		743534CD21A29B3800CD8C1D /* AlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743534C921A29B3800CD8C1D /* AlertControl.swift */; };
-		744CC4602178684E00F55A52 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744CC45F2178684E00F55A52 /* Error.swift */; };
+		744CC4602178684E00F55A52 /* ViteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744CC45F2178684E00F55A52 /* ViteError.swift */; };
 		74875E1C2191707300C3AE9D /* GetCandidateListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E1B2191707300C3AE9D /* GetCandidateListRequest.swift */; };
 		74875E1E2191756400C3AE9D /* Provider+VoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E1D2191756400C3AE9D /* Provider+VoteList.swift */; };
 		74875E202191802C00C3AE9D /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E1F2191802C00C3AE9D /* Candidate.swift */; };
@@ -162,7 +162,6 @@
 		8E6F3DF82140FE99003CDFC2 /* RPCServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */; };
 		8E6F3DFB2140FFEC003CDFC2 /* ViteServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */; };
 		8E6F3DFF2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DFE2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift */; };
-		8E6F3E0121410424003CDFC2 /* RPCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0021410424003CDFC2 /* RPCError.swift */; };
 		8E6F3E0721411650003CDFC2 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0621411650003CDFC2 /* Transaction.swift */; };
 		8E6F3E0A2141199B003CDFC2 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E092141199B003CDFC2 /* Address.swift */; };
 		8E6F3E0C21412150003CDFC2 /* GetTransactionsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0B21412150003CDFC2 /* GetTransactionsRequest.swift */; };
@@ -258,7 +257,7 @@
 		8EA0BE5321996D4800FDE2E8 /* CreateNameAndPwdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A191C2151323400C51CE8 /* CreateNameAndPwdView.swift */; };
 		8EA0BE5421996D4800FDE2E8 /* MyHomeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E4921916EB60049CDE0 /* MyHomeListCell.swift */; };
 		8EA0BE5521996D4800FDE2E8 /* TitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC75387215B3AAF0009CA0E /* TitleTextView.swift */; };
-		8EA0BE5621996D4800FDE2E8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744CC45F2178684E00F55A52 /* Error.swift */; };
+		8EA0BE5621996D4800FDE2E8 /* ViteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744CC45F2178684E00F55A52 /* ViteError.swift */; };
 		8EA0BE5721996D4800FDE2E8 /* GetVoteDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E2121918D1D00C3AE9D /* GetVoteDataRequest.swift */; };
 		8EA0BE5821996D4800FDE2E8 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54853B217DC5BD009C528B /* NetworkResult.swift */; };
 		8EA0BE5921996D4800FDE2E8 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E1B2142280F003CDFC2 /* BaseTableViewController.swift */; };
@@ -325,7 +324,6 @@
 		8EA0BE9621996D4800FDE2E8 /* PledgeHistoryViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414D62186FA39007DDD01 /* PledgeHistoryViewReactor.swift */; };
 		8EA0BE9721996D4800FDE2E8 /* WalletHomeBalanceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */; };
 		8EA0BE9821996D4800FDE2E8 /* WalletHomeAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4691D214CE03F00807D2C /* WalletHomeAddressView.swift */; };
-		8EA0BE9921996D4800FDE2E8 /* RPCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0021410424003CDFC2 /* RPCError.swift */; };
 		8EA0BE9A21996D4800FDE2E8 /* UITextView+FDSKeyboardAutoScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107EE0215B2BE700B28DE2 /* UITextView+FDSKeyboardAutoScrolling.swift */; };
 		8EA0BE9B21996D4800FDE2E8 /* QuotaSubmitPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E20A2182E89500007E9F /* QuotaSubmitPopViewController.swift */; };
 		8EA0BE9C21996D4800FDE2E8 /* ViteInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */; };
@@ -483,7 +481,7 @@
 		8EA0BF4421996D7800FDE2E8 /* CreateNameAndPwdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A191C2151323400C51CE8 /* CreateNameAndPwdView.swift */; };
 		8EA0BF4521996D7800FDE2E8 /* MyHomeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E4921916EB60049CDE0 /* MyHomeListCell.swift */; };
 		8EA0BF4621996D7800FDE2E8 /* TitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC75387215B3AAF0009CA0E /* TitleTextView.swift */; };
-		8EA0BF4721996D7800FDE2E8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744CC45F2178684E00F55A52 /* Error.swift */; };
+		8EA0BF4721996D7800FDE2E8 /* ViteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744CC45F2178684E00F55A52 /* ViteError.swift */; };
 		8EA0BF4821996D7800FDE2E8 /* GetVoteDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E2121918D1D00C3AE9D /* GetVoteDataRequest.swift */; };
 		8EA0BF4921996D7800FDE2E8 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54853B217DC5BD009C528B /* NetworkResult.swift */; };
 		8EA0BF4A21996D7800FDE2E8 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E1B2142280F003CDFC2 /* BaseTableViewController.swift */; };
@@ -550,7 +548,6 @@
 		8EA0BF8721996D7800FDE2E8 /* PledgeHistoryViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414D62186FA39007DDD01 /* PledgeHistoryViewReactor.swift */; };
 		8EA0BF8821996D7800FDE2E8 /* WalletHomeBalanceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */; };
 		8EA0BF8921996D7800FDE2E8 /* WalletHomeAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4691D214CE03F00807D2C /* WalletHomeAddressView.swift */; };
-		8EA0BF8A21996D7800FDE2E8 /* RPCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0021410424003CDFC2 /* RPCError.swift */; };
 		8EA0BF8B21996D7800FDE2E8 /* UITextView+FDSKeyboardAutoScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107EE0215B2BE700B28DE2 /* UITextView+FDSKeyboardAutoScrolling.swift */; };
 		8EA0BF8C21996D7800FDE2E8 /* QuotaSubmitPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E20A2182E89500007E9F /* QuotaSubmitPopViewController.swift */; };
 		8EA0BF8D21996D7800FDE2E8 /* ViteInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */; };
@@ -668,6 +665,9 @@
 		8ECA6E48219141720049CDE0 /* StringWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E47219141720049CDE0 /* StringWrapper.swift */; };
 		8ECA6E4A21916EB60049CDE0 /* MyHomeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E4921916EB60049CDE0 /* MyHomeListCell.swift */; };
 		8ECA6E4C219170370049CDE0 /* MyHomeConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E4B219170370049CDE0 /* MyHomeConfigViewModel.swift */; };
+		8ED3807D21A3FCA50009CD8B /* ViteErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED3807C21A3FCA50009CD8B /* ViteErrorCode.swift */; };
+		8ED3807E21A3FCAC0009CD8B /* ViteErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED3807C21A3FCA50009CD8B /* ViteErrorCode.swift */; };
+		8ED3807F21A3FCAD0009CD8B /* ViteErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED3807C21A3FCA50009CD8B /* ViteErrorCode.swift */; };
 		8ED4CECC2147C4A60005A82D /* SafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CECB2147C4A60005A82D /* SafariViewController.swift */; };
 		8ED4CECF2147C5910005A82D /* WebHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CECE2147C5910005A82D /* WebHandler.swift */; };
 		8ED4CED32148AF630005A82D /* GetMoreLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CED22148AF630005A82D /* GetMoreLoadingView.swift */; };
@@ -825,7 +825,7 @@
 		741414DA2186FA71007DDD01 /* PledgeHistoryDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeHistoryDescriptionView.swift; sourceTree = "<group>"; };
 		741414DC2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeHistoryCellTableViewCell.swift; sourceTree = "<group>"; };
 		743534C921A29B3800CD8C1D /* AlertControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControl.swift; sourceTree = "<group>"; };
-		744CC45F2178684E00F55A52 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		744CC45F2178684E00F55A52 /* ViteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteError.swift; sourceTree = "<group>"; };
 		74875E1B2191707300C3AE9D /* GetCandidateListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCandidateListRequest.swift; sourceTree = "<group>"; };
 		74875E1D2191756400C3AE9D /* Provider+VoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+VoteList.swift"; sourceTree = "<group>"; };
 		74875E1F2191802C00C3AE9D /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
@@ -889,7 +889,6 @@
 		8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCServer.swift; sourceTree = "<group>"; };
 		8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteServiceRequest.swift; sourceTree = "<group>"; };
 		8E6F3DFE2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSnapshotChainHeightRequest.swift; sourceTree = "<group>"; };
-		8E6F3E0021410424003CDFC2 /* RPCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCError.swift; sourceTree = "<group>"; };
 		8E6F3E0621411650003CDFC2 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		8E6F3E092141199B003CDFC2 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		8E6F3E0B21412150003CDFC2 /* GetTransactionsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionsRequest.swift; sourceTree = "<group>"; };
@@ -948,6 +947,7 @@
 		8ECA6E47219141720049CDE0 /* StringWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringWrapper.swift; sourceTree = "<group>"; };
 		8ECA6E4921916EB60049CDE0 /* MyHomeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHomeListCell.swift; sourceTree = "<group>"; };
 		8ECA6E4B219170370049CDE0 /* MyHomeConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHomeConfigViewModel.swift; sourceTree = "<group>"; };
+		8ED3807C21A3FCA50009CD8B /* ViteErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteErrorCode.swift; sourceTree = "<group>"; };
 		8ED4CECB2147C4A60005A82D /* SafariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewController.swift; sourceTree = "<group>"; };
 		8ED4CECE2147C5910005A82D /* WebHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHandler.swift; sourceTree = "<group>"; };
 		8ED4CED22148AF630005A82D /* GetMoreLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoreLoadingView.swift; sourceTree = "<group>"; };
@@ -1047,7 +1047,6 @@
 			isa = PBXGroup;
 			children = (
 				4C105EBE213FCAD500D483C6 /* UIColor.swift */,
-				744CC45F2178684E00F55A52 /* Error.swift */,
 				4C105ED02141401100D483C6 /* String.swift */,
 				4CE4E13C214794D000A6CD7E /* UIImage.swift */,
 				8E56FC9B2147A9CE00A68823 /* DateExtension.swift */,
@@ -1582,7 +1581,6 @@
 		8E548537217DB821009C528B /* RPC */ = {
 			isa = PBXGroup;
 			children = (
-				8E6F3E0021410424003CDFC2 /* RPCError.swift */,
 				8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */,
 				8E6F3E1121421A4F003CDFC2 /* JSONTransformer.swift */,
 				8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */,
@@ -1709,6 +1707,8 @@
 		8E6F3DF92140FEA5003CDFC2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				744CC45F2178684E00F55A52 /* ViteError.swift */,
+				8ED3807C21A3FCA50009CD8B /* ViteErrorCode.swift */,
 				8E54853B217DC5BD009C528B /* NetworkResult.swift */,
 				8E548538217DB82C009C528B /* Server */,
 				8E548537217DB821009C528B /* RPC */,
@@ -2178,6 +2178,7 @@
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/RazzleDazzle/RazzleDazzle.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
@@ -2186,6 +2187,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SCPageControl/SCPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -2222,6 +2224,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RazzleDazzle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableKit.framework",
@@ -2230,6 +2233,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -2302,6 +2306,7 @@
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/RazzleDazzle/RazzleDazzle.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
@@ -2310,6 +2315,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SCPageControl/SCPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -2344,6 +2350,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RazzleDazzle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableKit.framework",
@@ -2352,6 +2359,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -2398,6 +2406,7 @@
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/RazzleDazzle/RazzleDazzle.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
@@ -2406,6 +2415,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SCPageControl/SCPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -2442,6 +2452,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RazzleDazzle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableKit.framework",
@@ -2450,6 +2461,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -2636,7 +2648,7 @@
 				4C2A191D2151323400C51CE8 /* CreateNameAndPwdView.swift in Sources */,
 				8ECA6E4A21916EB60049CDE0 /* MyHomeListCell.swift in Sources */,
 				4CC75388215B3AAF0009CA0E /* TitleTextView.swift in Sources */,
-				744CC4602178684E00F55A52 /* Error.swift in Sources */,
+				744CC4602178684E00F55A52 /* ViteError.swift in Sources */,
 				74875E2221918D1D00C3AE9D /* GetVoteDataRequest.swift in Sources */,
 				8E54853C217DC5BD009C528B /* NetworkResult.swift in Sources */,
 				8E6F3E1F2142280F003CDFC2 /* BaseTableViewController.swift in Sources */,
@@ -2703,7 +2715,6 @@
 				741414D82186FA39007DDD01 /* PledgeHistoryViewReactor.swift in Sources */,
 				8E56FC78214643B300A68823 /* WalletHomeBalanceInfoCell.swift in Sources */,
 				8EE4691E214CE03F00807D2C /* WalletHomeAddressView.swift in Sources */,
-				8E6F3E0121410424003CDFC2 /* RPCError.swift in Sources */,
 				8E107EE1215B2BE700B28DE2 /* UITextView+FDSKeyboardAutoScrolling.swift in Sources */,
 				4C32E20B2182E89500007E9F /* QuotaSubmitPopViewController.swift in Sources */,
 				4CEB292B214BBD2400E5F7F4 /* ViteInputValidator.swift in Sources */,
@@ -2738,6 +2749,7 @@
 				8EE4691A214CA8E800807D2C /* GCD+Helper.swift in Sources */,
 				8EE4690F214BCEC100807D2C /* Provider.swift in Sources */,
 				4C9AFD8C214FBB85005B12C2 /* AboutUsTableBottomView.swift in Sources */,
+				8ED3807D21A3FCA50009CD8B /* ViteErrorCode.swift in Sources */,
 				4C105ED12141401100D483C6 /* String.swift in Sources */,
 				4C5E230C2192EE010010B905 /* MyVoteInfoViewReactor.swift in Sources */,
 				4C3F3F6E217731900022A8CC /* MnemonicTextView.swift in Sources */,
@@ -2877,7 +2889,7 @@
 				8EA0BE5321996D4800FDE2E8 /* CreateNameAndPwdView.swift in Sources */,
 				8EA0BE5421996D4800FDE2E8 /* MyHomeListCell.swift in Sources */,
 				8EA0BE5521996D4800FDE2E8 /* TitleTextView.swift in Sources */,
-				8EA0BE5621996D4800FDE2E8 /* Error.swift in Sources */,
+				8EA0BE5621996D4800FDE2E8 /* ViteError.swift in Sources */,
 				8EA0BE5721996D4800FDE2E8 /* GetVoteDataRequest.swift in Sources */,
 				8EA0BE5821996D4800FDE2E8 /* NetworkResult.swift in Sources */,
 				8EA0BE5921996D4800FDE2E8 /* BaseTableViewController.swift in Sources */,
@@ -2944,7 +2956,6 @@
 				8EA0BE9621996D4800FDE2E8 /* PledgeHistoryViewReactor.swift in Sources */,
 				8EA0BE9721996D4800FDE2E8 /* WalletHomeBalanceInfoCell.swift in Sources */,
 				8EA0BE9821996D4800FDE2E8 /* WalletHomeAddressView.swift in Sources */,
-				8EA0BE9921996D4800FDE2E8 /* RPCError.swift in Sources */,
 				8EA0BE9A21996D4800FDE2E8 /* UITextView+FDSKeyboardAutoScrolling.swift in Sources */,
 				8EA0BE9B21996D4800FDE2E8 /* QuotaSubmitPopViewController.swift in Sources */,
 				8EA0BE9C21996D4800FDE2E8 /* ViteInputValidator.swift in Sources */,
@@ -2979,6 +2990,7 @@
 				8EA0BEB921996D4800FDE2E8 /* GCD+Helper.swift in Sources */,
 				8EA0BEBA21996D4800FDE2E8 /* Provider.swift in Sources */,
 				8EA0BEBB21996D4800FDE2E8 /* AboutUsTableBottomView.swift in Sources */,
+				8ED3807E21A3FCAC0009CD8B /* ViteErrorCode.swift in Sources */,
 				8EA0BEBC21996D4800FDE2E8 /* String.swift in Sources */,
 				8EA0BEBD21996D4800FDE2E8 /* MyVoteInfoViewReactor.swift in Sources */,
 				8EA0BEBE21996D4800FDE2E8 /* MnemonicTextView.swift in Sources */,
@@ -3105,7 +3117,7 @@
 				8EA0BF4421996D7800FDE2E8 /* CreateNameAndPwdView.swift in Sources */,
 				8EA0BF4521996D7800FDE2E8 /* MyHomeListCell.swift in Sources */,
 				8EA0BF4621996D7800FDE2E8 /* TitleTextView.swift in Sources */,
-				8EA0BF4721996D7800FDE2E8 /* Error.swift in Sources */,
+				8EA0BF4721996D7800FDE2E8 /* ViteError.swift in Sources */,
 				8EA0BF4821996D7800FDE2E8 /* GetVoteDataRequest.swift in Sources */,
 				8EA0BF4921996D7800FDE2E8 /* NetworkResult.swift in Sources */,
 				8EA0BF4A21996D7800FDE2E8 /* BaseTableViewController.swift in Sources */,
@@ -3172,7 +3184,6 @@
 				8EA0BF8721996D7800FDE2E8 /* PledgeHistoryViewReactor.swift in Sources */,
 				8EA0BF8821996D7800FDE2E8 /* WalletHomeBalanceInfoCell.swift in Sources */,
 				8EA0BF8921996D7800FDE2E8 /* WalletHomeAddressView.swift in Sources */,
-				8EA0BF8A21996D7800FDE2E8 /* RPCError.swift in Sources */,
 				8EA0BF8B21996D7800FDE2E8 /* UITextView+FDSKeyboardAutoScrolling.swift in Sources */,
 				8EA0BF8C21996D7800FDE2E8 /* QuotaSubmitPopViewController.swift in Sources */,
 				8EA0BF8D21996D7800FDE2E8 /* ViteInputValidator.swift in Sources */,
@@ -3207,6 +3218,7 @@
 				8EA0BFAA21996D7800FDE2E8 /* GCD+Helper.swift in Sources */,
 				8EA0BFAB21996D7800FDE2E8 /* Provider.swift in Sources */,
 				8EA0BFAC21996D7800FDE2E8 /* AboutUsTableBottomView.swift in Sources */,
+				8ED3807F21A3FCAD0009CD8B /* ViteErrorCode.swift in Sources */,
 				8EA0BFAD21996D7800FDE2E8 /* String.swift in Sources */,
 				8EA0BFAE21996D7800FDE2E8 /* MyVoteInfoViewReactor.swift in Sources */,
 				8EA0BFAF21996D7800FDE2E8 /* MnemonicTextView.swift in Sources */,

@@ -80,12 +80,6 @@ extension Provider {
 
 extension Provider {
 
-    enum TransactionErrorCode: Int {
-        case notEnoughBalance = -35001
-        case notEnoughQuota = -35002
-        case noTransactionBefore = -36001
-    }
-
     func receiveTransactionWithoutGetPow(bag: HDWalletManager.Bag, completion: @escaping (NetworkResult<Void>) -> Void) {
         getUnconfirmedTransaction(address: bag.address)
             .then({ (accountBlocks, latestAccountBlock, fittestSnapshotHash) -> Promise<(accountBlock: AccountBlock, latestAccountBlock: AccountBlock, fittestSnapshotHash: String)?> in
