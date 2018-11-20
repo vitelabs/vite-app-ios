@@ -19,12 +19,27 @@ final class BackupMnemonicVM: NSObject {
 
     var fetchNewMnemonicWordsAction: Action<Void, Void>?
 
+    var switchModeMnemonicWordsAction: Action<Void, Void>?
+
+    private var mnemonicStrength: Mnemonic.Strength = .strong
+
     override init() {
         super.init()
         mnemonicWordsList.accept(mnemonicWordsStr.value.components(separatedBy: " "))
 
         fetchNewMnemonicWordsAction = Action {
-            self.mnemonicWordsStr.accept(Mnemonic.randomGenerator(strength: .strong, language: .english))
+            self.mnemonicWordsStr.accept(Mnemonic.randomGenerator(strength: self.mnemonicStrength, language: .english))
+            self.mnemonicWordsList.accept(self.mnemonicWordsStr.value.components(separatedBy: " "))
+            return Observable.empty()
+        }
+
+        switchModeMnemonicWordsAction = Action {
+            if self.mnemonicStrength == .strong {
+                self.mnemonicStrength = .weak
+            } else if self.mnemonicStrength == .weak {
+                self.mnemonicStrength = .strong
+            }
+            self.mnemonicWordsStr.accept(Mnemonic.randomGenerator(strength: self.mnemonicStrength, language: .english))
             self.mnemonicWordsList.accept(self.mnemonicWordsStr.value.components(separatedBy: " "))
             return Observable.empty()
         }

@@ -34,13 +34,14 @@ class VoteHomeViewController: BaseViewController {
             m.height.equalTo(29)
         }
 
-        titleLabel.tipButton.rx.tap.bind { [weak self] in
+        titleLabel.tipButton.rx.tap.bind {
             let url  = URL(string: String(format: "%@?localize=%@", Constants.voteDefinitionURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
             let vc = PopViewController(url: url)
             vc.modalPresentationStyle = .overCurrentContext
             let delegate =  StyleActionSheetTranstionDelegate()
             vc.transitioningDelegate = delegate
-            self?.present(vc, animated: true, completion: nil)
+
+            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
         }.disposed(by: rx.disposeBag)
         return view
     }

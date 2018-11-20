@@ -57,6 +57,7 @@
 "mnemonic.backup.page.error.type.nameValid" = "Account name only supports Chinese and English characters as well as unserscores.";
 "mnemonic.backup.page.error.type.validWalletNameCount" = "Username only supports less than 32 characters";
 "mnemonic.backup.page.error.type.difference" = "Please enter the same password!";
+"mnemonic.backup.page.switch.mode.title" = "切换%@个助记词";
 
 "mnemonic.affirm.page.title" = "Confirm your seed phrase";
 "mnemonic.affirm.page.tip.title" = "Orderly select seed phrase";
@@ -302,6 +303,17 @@
 "Vite.RefreshBackFooter.PullingText" = "Release to load more.";
 "Vite.RefreshBackFooter.RefreshingText" = "Loading...";
 "Vite.RefreshBackFooter.NoMoreDataText" = "No more data";
+
+//Welcome
+"introduction.page.tip1.title" = "转账零费用";
+"introduction.page.tip2.title" = "交易速度快";
+"introduction.page.tip3.title" = "HD钱包结构";
+"introduction.page.tip4.title" = "投票赚奖励";
+"introduction.page.tip1.desc" = "交易消耗配额，运行PoW免费获取";
+"introduction.page.tip2.desc" = "异步架构设计，交易畅通无阻";
+"introduction.page.tip3.desc" = "支持多种代币，方便账号管";
+"introduction.page.tip4.desc" = "投票官方节点，赚取VITE奖励";
+"introduction.page.nextBtn.title" = "开始体验";
 
 
 

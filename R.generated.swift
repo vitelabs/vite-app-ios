@@ -40,7 +40,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 76 images.
+  /// This `R.image` struct is generated, and contains static references to 81 images.
   struct image {
     /// Image `aboutus_logo`.
     static let aboutus_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "aboutus_logo")
@@ -170,6 +170,14 @@ struct R: Rswift.Validatable {
     static let icon_votecount = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_votecount")
     /// Image `icon_wallet`.
     static let icon_wallet = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_wallet")
+    /// Image `intro_icon_0`.
+    static let intro_icon_0 = Rswift.ImageResource(bundle: R.hostingBundle, name: "intro_icon_0")
+    /// Image `intro_icon_1`.
+    static let intro_icon_1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "intro_icon_1")
+    /// Image `intro_icon_2`.
+    static let intro_icon_2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "intro_icon_2")
+    /// Image `intro_icon_3`.
+    static let intro_icon_3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "intro_icon_3")
     /// Image `lock_page_user`.
     static let lock_page_user = Rswift.ImageResource(bundle: R.hostingBundle, name: "lock_page_user")
     /// Image `login_bg`.
@@ -184,6 +192,8 @@ struct R: Rswift.Validatable {
     static let splash_slogen = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash_slogen")
     /// Image `success`.
     static let success = Rswift.ImageResource(bundle: R.hostingBundle, name: "success")
+    /// Image `switch_mode_icon`.
+    static let switch_mode_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "switch_mode_icon")
     /// Image `tabber_shadow`.
     static let tabber_shadow = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabber_shadow")
     /// Image `vite`.
@@ -515,6 +525,26 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.icon_wallet, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "intro_icon_0", bundle: ..., traitCollection: ...)`
+    static func intro_icon_0(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.intro_icon_0, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "intro_icon_1", bundle: ..., traitCollection: ...)`
+    static func intro_icon_1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.intro_icon_1, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "intro_icon_2", bundle: ..., traitCollection: ...)`
+    static func intro_icon_2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.intro_icon_2, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "intro_icon_3", bundle: ..., traitCollection: ...)`
+    static func intro_icon_3(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.intro_icon_3, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "lock_page_user", bundle: ..., traitCollection: ...)`
     static func lock_page_user(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.lock_page_user, compatibleWith: traitCollection)
@@ -548,6 +578,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "success", bundle: ..., traitCollection: ...)`
     static func success(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.success, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "switch_mode_icon", bundle: ..., traitCollection: ...)`
+    static func switch_mode_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.switch_mode_icon, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "tabber_shadow", bundle: ..., traitCollection: ...)`
@@ -658,7 +693,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 232 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 242 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -908,6 +943,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let quotaManagePageTitle = Rswift.StringResource(key: "quota.manage.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: HD钱包结构
+      /// 
+      /// Locales: en, zh-Hans
+      static let introductionPageTip3Title = Rswift.StringResource(key: "introduction.page.tip3.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: How to participate:
       /// 
       /// Locales: en, zh-Hans
@@ -1544,6 +1583,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let voteListAlertQuota = Rswift.StringResource(key: "vote.list.alert.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 交易消耗配额，运行PoW免费获取
+      /// 
+      /// Locales: en, zh-Hans
+      static let introductionPageTip1Desc = Rswift.StringResource(key: "introduction.page.tip1.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 交易速度快
+      /// 
+      /// Locales: en, zh-Hans
+      static let introductionPageTip2Title = Rswift.StringResource(key: "introduction.page.tip2.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 切换%@个助记词
+      /// 
+      /// Locales: en, zh-Hans
+      static let mnemonicBackupPageSwitchModeTitle = Rswift.StringResource(key: "mnemonic.backup.page.switch.mode.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 取回配额抵押
       /// 
       /// Locales: en, zh-Hans
@@ -1552,10 +1603,26 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let transactionListTransactionTypeNameCancelCoin = Rswift.StringResource(key: "transaction.list.transaction.type.name.cancelCoin", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 开始体验
+      /// 
+      /// Locales: en, zh-Hans
+      static let introductionPageNextBtnTitle = Rswift.StringResource(key: "introduction.page.nextBtn.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 异步架构设计，交易畅通无阻
+      /// 
+      /// Locales: en, zh-Hans
+      static let introductionPageTip2Desc = Rswift.StringResource(key: "introduction.page.tip2.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 投票
       /// 
       /// Locales: en, zh-Hans
       static let transactionListTransactionTypeNameVote = Rswift.StringResource(key: "transaction.list.transaction.type.name.vote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 投票官方节点，赚取VITE奖励
+      /// 
+      /// Locales: en, zh-Hans
+      static let introductionPageTip4Desc = Rswift.StringResource(key: "introduction.page.tip4.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 投票赚奖励
+      /// 
+      /// Locales: en, zh-Hans
+      static let introductionPageTip4Title = Rswift.StringResource(key: "introduction.page.tip4.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 提取奖励
       /// 
       /// Locales: en, zh-Hans
@@ -1568,6 +1635,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let transactionListTransactionTypeNameCancelRegister = Rswift.StringResource(key: "transaction.list.transaction.type.name.cancelRegister", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 支持多种代币，方便账号管
+      /// 
+      /// Locales: en, zh-Hans
+      static let introductionPageTip3Desc = Rswift.StringResource(key: "introduction.page.tip3.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 更新注册
       /// 
       /// Locales: en, zh-Hans
@@ -1584,6 +1655,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let transactionListTransactionTypeNameTransfer = Rswift.StringResource(key: "transaction.list.transaction.type.name.transfer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 转账零费用
+      /// 
+      /// Locales: en, zh-Hans
+      static let introductionPageTip1Title = Rswift.StringResource(key: "introduction.page.tip1.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 铸币
       /// 
       /// Locales: en, zh-Hans
@@ -2021,6 +2096,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func quotaManagePageTitle(_: Void = ()) -> String {
         return NSLocalizedString("quota.manage.page.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: HD钱包结构
+      /// 
+      /// Locales: en, zh-Hans
+      static func introductionPageTip3Title(_: Void = ()) -> String {
+        return NSLocalizedString("introduction.page.tip3.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: How to participate:
@@ -3136,6 +3218,27 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("vote.list.alert.quota", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 交易消耗配额，运行PoW免费获取
+      /// 
+      /// Locales: en, zh-Hans
+      static func introductionPageTip1Desc(_: Void = ()) -> String {
+        return NSLocalizedString("introduction.page.tip1.desc", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 交易速度快
+      /// 
+      /// Locales: en, zh-Hans
+      static func introductionPageTip2Title(_: Void = ()) -> String {
+        return NSLocalizedString("introduction.page.tip2.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 切换%@个助记词
+      /// 
+      /// Locales: en, zh-Hans
+      static func mnemonicBackupPageSwitchModeTitle(_ value1: String) -> String {
+        return String(format: NSLocalizedString("mnemonic.backup.page.switch.mode.title", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
       /// en translation: 取回配额抵押
       /// 
       /// Locales: en, zh-Hans
@@ -3150,11 +3253,39 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("transaction.list.transaction.type.name.cancelCoin", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 开始体验
+      /// 
+      /// Locales: en, zh-Hans
+      static func introductionPageNextBtnTitle(_: Void = ()) -> String {
+        return NSLocalizedString("introduction.page.nextBtn.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 异步架构设计，交易畅通无阻
+      /// 
+      /// Locales: en, zh-Hans
+      static func introductionPageTip2Desc(_: Void = ()) -> String {
+        return NSLocalizedString("introduction.page.tip2.desc", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 投票
       /// 
       /// Locales: en, zh-Hans
       static func transactionListTransactionTypeNameVote(_: Void = ()) -> String {
         return NSLocalizedString("transaction.list.transaction.type.name.vote", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 投票官方节点，赚取VITE奖励
+      /// 
+      /// Locales: en, zh-Hans
+      static func introductionPageTip4Desc(_: Void = ()) -> String {
+        return NSLocalizedString("introduction.page.tip4.desc", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 投票赚奖励
+      /// 
+      /// Locales: en, zh-Hans
+      static func introductionPageTip4Title(_: Void = ()) -> String {
+        return NSLocalizedString("introduction.page.tip4.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 提取奖励
@@ -3176,6 +3307,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func transactionListTransactionTypeNameCancelRegister(_: Void = ()) -> String {
         return NSLocalizedString("transaction.list.transaction.type.name.cancelRegister", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 支持多种代币，方便账号管
+      /// 
+      /// Locales: en, zh-Hans
+      static func introductionPageTip3Desc(_: Void = ()) -> String {
+        return NSLocalizedString("introduction.page.tip3.desc", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 更新注册
@@ -3204,6 +3342,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func transactionListTransactionTypeNameTransfer(_: Void = ()) -> String {
         return NSLocalizedString("transaction.list.transaction.type.name.transfer", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 转账零费用
+      /// 
+      /// Locales: en, zh-Hans
+      static func introductionPageTip1Title(_: Void = ()) -> String {
+        return NSLocalizedString("introduction.page.tip1.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 铸币

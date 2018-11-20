@@ -13,9 +13,12 @@ import Vite_HDWalletKit
 
 class AffirmInputMnemonicViewController: BaseViewController, MnemonicCollectionViewDelegate {
     fileprivate var viewModel: AffirmInputMnemonicVM
-
+    fileprivate var chooseMnemonicCollectionViewHeight: CGFloat
+    fileprivate var defaultMnemonicCollectionViewHeight: CGFloat
     init(mnemonicWordsStr: String) {
-        self.viewModel = AffirmInputMnemonicVM.init(mnemonicWordsStr: mnemonicWordsStr)
+        self.viewModel = AffirmInputMnemonicVM(mnemonicWordsStr: mnemonicWordsStr)
+        self.chooseMnemonicCollectionViewHeight = self.viewModel.mnemonicWordsList.count == 24 ? 186.0 : 110
+        self.defaultMnemonicCollectionViewHeight = self.viewModel.mnemonicWordsList.count == 24 ? 210.0 : 110
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -55,14 +58,14 @@ class AffirmInputMnemonicViewController: BaseViewController, MnemonicCollectionV
     lazy var chooseMnemonicCollectionView: MnemonicCollectionView = {
         let chooseMnemonicCollectionView = MnemonicCollectionView.init(isHasSelected: true)
         chooseMnemonicCollectionView.delegate = self
-        chooseMnemonicCollectionView.backgroundColor = .orange
+        chooseMnemonicCollectionView.h_num = CGFloat(CGFloat(self.viewModel.mnemonicWordsList.count) / 4.0)
         return chooseMnemonicCollectionView
     }()
 
     lazy var defaultMnemonicCollectionView: MnemonicCollectionView = {
         let defaultMnemonicCollectionView = MnemonicCollectionView.init(isHasSelected: false)
         defaultMnemonicCollectionView.delegate = self
-        defaultMnemonicCollectionView.backgroundColor = .red
+        defaultMnemonicCollectionView.h_num = CGFloat(CGFloat(self.viewModel.mnemonicWordsList.count) / 4.0)
         return defaultMnemonicCollectionView
     }()
 
@@ -105,7 +108,7 @@ extension AffirmInputMnemonicViewController {
         self.chooseMnemonicCollectionView.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.view)
             make.top.equalTo(self.tipTitleLab.snp.bottom).offset(18)
-            make.height.equalTo(kScreenH * (186.0/667.0))
+            make.height.equalTo(kScreenH * (self.chooseMnemonicCollectionViewHeight/667.0))
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
         }
@@ -122,7 +125,7 @@ extension AffirmInputMnemonicViewController {
         self.defaultMnemonicCollectionView.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.view)
             make.top.equalTo(self.chooseMnemonicCollectionView.snp.bottom).offset(12)
-            make.height.lessThanOrEqualTo(kScreenH * (210.0/667.0))
+            make.height.lessThanOrEqualTo(kScreenH * (self.defaultMnemonicCollectionViewHeight/667.0))
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
             make.bottom.equalTo(self.submitBtn.snp.top).offset(-10).priority(250)
