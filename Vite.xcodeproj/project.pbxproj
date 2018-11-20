@@ -14,6 +14,12 @@
 		4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EC2213FE73A00D483C6 /* LocalizationService.swift */; };
 		4C105EC5213FEFF800D483C6 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EC4213FEFF800D483C6 /* NotificationName.swift */; };
 		4C105ED12141401100D483C6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105ED02141401100D483C6 /* String.swift */; };
+		4C12370B21A3D92100E4454E /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12370A21A3D92100E4454E /* IntroductionViewController.swift */; };
+		4C12370C21A3D92100E4454E /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12370A21A3D92100E4454E /* IntroductionViewController.swift */; };
+		4C12370D21A3D92100E4454E /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12370A21A3D92100E4454E /* IntroductionViewController.swift */; };
+		4C12370F21A40C8800E4454E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C12370E21A40C8700E4454E /* Images.xcassets */; };
+		4C12371021A40C8800E4454E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C12370E21A40C8700E4454E /* Images.xcassets */; };
+		4C12371121A40C8800E4454E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C12370E21A40C8700E4454E /* Images.xcassets */; };
 		4C181B06215CD5E000FB6CA8 /* AppUpdateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */; };
 		4C1FF4F0212A74730055067D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
 		4C2284B52148BB2A003E9907 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284B42148BB2A003E9907 /* ImageCell.swift */; };
@@ -36,7 +42,6 @@
 		4C56E03F2186B164003550BC /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C56E03E2186B164003550BC /* PopViewController.swift */; };
 		4C5A13E62193D6CD000A979F /* LabelTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13E52193D6CD000A979F /* LabelTipView.swift */; };
 		4C5A13E82193E953000A979F /* VoteInfoEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13E72193E953000A979F /* VoteInfoEmptyView.swift */; };
-		4C5A13EA21940562000A979F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5A13E921940562000A979F /* Images.xcassets */; };
 		4C5A13EC21942544000A979F /* IconLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13EB21942544000A979F /* IconLabelView.swift */; };
 		4C5A13F02194359A000A979F /* LabelBgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13EF2194359A000A979F /* LabelBgView.swift */; };
 		4C5E23022192EDDE0010B905 /* Provider+Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23012192EDDD0010B905 /* Provider+Vote.swift */; };
@@ -425,7 +430,6 @@
 		8EA0BEFF21996D4800FDE2E8 /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */; };
 		8EA0BF0321996D4800FDE2E8 /* AppConfig in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA6E40219076840049CDE0 /* AppConfig */; };
 		8EA0BF0421996D4800FDE2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
-		8EA0BF0521996D4800FDE2E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5A13E921940562000A979F /* Images.xcassets */; };
 		8EA0BF0621996D4800FDE2E8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
 		8EA0BF0721996D4800FDE2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCE424C2124553C0080E92B /* Assets.xcassets */; };
 		8EA0BF0821996D4800FDE2E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E93C26A21782DB700185FDE /* InfoPlist.strings */; };
@@ -650,7 +654,6 @@
 		8EA0BFF021996D7800FDE2E8 /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */; };
 		8EA0BFF421996D7800FDE2E8 /* AppConfig in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA6E40219076840049CDE0 /* AppConfig */; };
 		8EA0BFF521996D7800FDE2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
-		8EA0BFF621996D7800FDE2E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5A13E921940562000A979F /* Images.xcassets */; };
 		8EA0BFF721996D7800FDE2E8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
 		8EA0BFF821996D7800FDE2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCE424C2124553C0080E92B /* Assets.xcassets */; };
 		8EA0BFF921996D7800FDE2E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E93C26A21782DB700185FDE /* InfoPlist.strings */; };
@@ -718,6 +721,8 @@
 		4C105EC2213FE73A00D483C6 /* LocalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationService.swift; sourceTree = "<group>"; };
 		4C105EC4213FEFF800D483C6 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		4C105ED02141401100D483C6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		4C12370A21A3D92100E4454E /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
+		4C12370E21A40C8700E4454E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateVM.swift; sourceTree = "<group>"; };
 		4C1FF4F1212A74730055067D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4C1FF4F4212A76410055067D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -741,7 +746,6 @@
 		4C56E03E2186B164003550BC /* PopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
 		4C5A13E52193D6CD000A979F /* LabelTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTipView.swift; sourceTree = "<group>"; };
 		4C5A13E72193E953000A979F /* VoteInfoEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteInfoEmptyView.swift; sourceTree = "<group>"; };
-		4C5A13E921940562000A979F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4C5A13EB21942544000A979F /* IconLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconLabelView.swift; sourceTree = "<group>"; };
 		4C5A13EF2194359A000A979F /* LabelBgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelBgView.swift; sourceTree = "<group>"; };
 		4C5E23012192EDDD0010B905 /* Provider+Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Provider+Vote.swift"; sourceTree = "<group>"; };
@@ -1055,6 +1059,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		4C12370921A3D90000E4454E /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				4C12370A21A3D92100E4454E /* IntroductionViewController.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
 		4C181B04215CD5C400FB6CA8 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -1151,6 +1163,7 @@
 		4C4C9D65213E9629005542F8 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4C12370921A3D90000E4454E /* Welcome */,
 				4C2FAD912190574500FC9524 /* Vote */,
 				4C181B04215CD5C400FB6CA8 /* Config */,
 				4C2284B9214906D6003E9907 /* System */,
@@ -1428,7 +1441,7 @@
 				4CCE42452124553B0080E92B /* AppDelegate.swift */,
 				4C0024E321258005001DF390 /* R.generated.swift */,
 				4C9AFD89214FB81C005B12C2 /* Vite-Bridging-Header.h */,
-				4C5A13E921940562000A979F /* Images.xcassets */,
+				4C12370E21A40C8700E4454E /* Images.xcassets */,
 				4CCE424C2124553C0080E92B /* Assets.xcassets */,
 				4C1FF4EC212A73FB0055067D /* Resource */,
 				4CCE42512124553C0080E92B /* Info.plist */,
@@ -2073,8 +2086,8 @@
 			files = (
 				8ECA6E41219076840049CDE0 /* AppConfig in Resources */,
 				4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */,
-				4C5A13EA21940562000A979F /* Images.xcassets in Resources */,
 				4C1FF4F0212A74730055067D /* Localizable.strings in Resources */,
+				4C12370F21A40C8800E4454E /* Images.xcassets in Resources */,
 				4CCE424D2124553C0080E92B /* Assets.xcassets in Resources */,
 				8E93C26821782DB700185FDE /* InfoPlist.strings in Resources */,
 			);
@@ -2093,8 +2106,8 @@
 			files = (
 				8EA0BF0321996D4800FDE2E8 /* AppConfig in Resources */,
 				8EA0BF0421996D4800FDE2E8 /* LaunchScreen.storyboard in Resources */,
-				8EA0BF0521996D4800FDE2E8 /* Images.xcassets in Resources */,
 				8EA0BF0621996D4800FDE2E8 /* Localizable.strings in Resources */,
+				4C12371021A40C8800E4454E /* Images.xcassets in Resources */,
 				8EA0BF0721996D4800FDE2E8 /* Assets.xcassets in Resources */,
 				8EA0BF0821996D4800FDE2E8 /* InfoPlist.strings in Resources */,
 			);
@@ -2106,8 +2119,8 @@
 			files = (
 				8EA0BFF421996D7800FDE2E8 /* AppConfig in Resources */,
 				8EA0BFF521996D7800FDE2E8 /* LaunchScreen.storyboard in Resources */,
-				8EA0BFF621996D7800FDE2E8 /* Images.xcassets in Resources */,
 				8EA0BFF721996D7800FDE2E8 /* Localizable.strings in Resources */,
+				4C12371121A40C8800E4454E /* Images.xcassets in Resources */,
 				8EA0BFF821996D7800FDE2E8 /* Assets.xcassets in Resources */,
 				8EA0BFF921996D7800FDE2E8 /* InfoPlist.strings in Resources */,
 			);
@@ -2169,6 +2182,7 @@
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/RazzleDazzle/RazzleDazzle.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
@@ -2177,6 +2191,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SCPageControl/SCPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -2213,6 +2228,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RazzleDazzle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableKit.framework",
@@ -2221,6 +2237,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -2293,6 +2310,7 @@
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/RazzleDazzle/RazzleDazzle.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
@@ -2301,6 +2319,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SCPageControl/SCPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -2335,6 +2354,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RazzleDazzle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableKit.framework",
@@ -2343,6 +2363,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -2389,6 +2410,7 @@
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/RazzleDazzle/RazzleDazzle.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
@@ -2397,6 +2419,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SCPageControl/SCPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -2433,6 +2456,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RazzleDazzle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableKit.framework",
@@ -2441,6 +2465,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -2787,6 +2812,7 @@
 				8E6F3E1D2142280F003CDFC2 /* BaseViewController.swift in Sources */,
 				74875E1E2191756400C3AE9D /* Provider+VoteList.swift in Sources */,
 				741414DD2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift in Sources */,
+				4C12370B21A3D92100E4454E /* IntroductionViewController.swift in Sources */,
 				4C9AFD5E214F4370005B12C2 /* FetchWelfareViewController.swift in Sources */,
 				8E0FB699216C8957001525EB /* KeychainService.swift in Sources */,
 				4CC75382215A2D740009CA0E /* CellSeparatorLine.swift in Sources */,
@@ -3026,6 +3052,7 @@
 				8EA0BEF321996D4800FDE2E8 /* BaseViewController.swift in Sources */,
 				8EA0BEF421996D4800FDE2E8 /* Provider+VoteList.swift in Sources */,
 				8EA0BEF521996D4800FDE2E8 /* PledgeHistoryCellTableViewCell.swift in Sources */,
+				4C12370C21A3D92100E4454E /* IntroductionViewController.swift in Sources */,
 				8EA0BEF621996D4800FDE2E8 /* FetchWelfareViewController.swift in Sources */,
 				8EA0BEF721996D4800FDE2E8 /* KeychainService.swift in Sources */,
 				8EA0BEF821996D4800FDE2E8 /* CellSeparatorLine.swift in Sources */,
@@ -3253,6 +3280,7 @@
 				8EA0BFE421996D7800FDE2E8 /* BaseViewController.swift in Sources */,
 				8EA0BFE521996D7800FDE2E8 /* Provider+VoteList.swift in Sources */,
 				8EA0BFE621996D7800FDE2E8 /* PledgeHistoryCellTableViewCell.swift in Sources */,
+				4C12370D21A3D92100E4454E /* IntroductionViewController.swift in Sources */,
 				8EA0BFE721996D7800FDE2E8 /* FetchWelfareViewController.swift in Sources */,
 				8EA0BFE821996D7800FDE2E8 /* KeychainService.swift in Sources */,
 				8EA0BFE921996D7800FDE2E8 /* CellSeparatorLine.swift in Sources */,

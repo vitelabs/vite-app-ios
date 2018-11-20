@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         handleRootVC()
+        goShowIntroViewPage()
 
         AppUpdateVM.checkUpdate()
         AppSettingsService.instance.start()
@@ -91,6 +92,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let nav = BaseNavigationController(rootViewController: rootVC)
             window?.rootViewController = nav
             window?.makeKeyAndVisible()
+        }
+    }
+
+    func goShowIntroViewPage() {
+        let isShow = UserDefaultsService.instance.objectForKey("IntroView", inCollection: "ShowIntroViewPage") as? Bool
+        if !(isShow ?? false) {
+            let vc = IntroductionViewController()
+            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: false, completion: nil)
         }
     }
 

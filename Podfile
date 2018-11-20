@@ -39,6 +39,8 @@ targetArray.each do |t|
         pod 'MBProgressHUD'
         pod 'Toast-Swift', '~> 3.0.1'
         pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+        pod 'RazzleDazzle'
+        pod 'SCPageControl'
 
         #table static form
         pod 'Eureka', '~> 4.2.0'
