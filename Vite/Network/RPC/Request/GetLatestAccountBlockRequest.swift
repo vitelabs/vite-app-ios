@@ -33,10 +33,10 @@ struct GetLatestAccountBlockRequest: JSONRPCKit.Request {
             if let ret = AccountBlock(JSON: response) {
                 return ret
             } else {
-                throw JSONError.jsonData
+                throw ViteError.JSONTypeError()
             }
         } else {
-            throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: Response.self)
+            throw ViteError.JSONTypeError()
         }
     }
 }

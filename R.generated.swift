@@ -693,7 +693,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 242 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 243 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1059,6 +1059,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let tabbarItemTitleMy = Rswift.StringResource(key: "tabbar.item.title.my", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Mine
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageAddCurrentAddressButtonTitle = Rswift.StringResource(key: "send.page.add.current.address.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Mnemonic seed phrase is the only way to restore your wallet, please keep it safe or you won't have access to your account for good.
       /// 
       /// Locales: en, zh-Hans
@@ -1067,10 +1071,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPageTipContent = Rswift.StringResource(key: "create.page.tip.content", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: My
-      /// 
-      /// Locales: en, zh-Hans
-      static let sendPageAddCurrentAddressButtonTitle = Rswift.StringResource(key: "send.page.add.current.address.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: My Address
       /// 
       /// Locales: en, zh-Hans
@@ -1635,6 +1635,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let transactionListTransactionTypeNameCancelRegister = Rswift.StringResource(key: "transaction.list.transaction.type.name.cancelRegister", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 操作失败
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteErrorOperationFailure = Rswift.StringResource(key: "vite.error.operation.failure", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 支持多种代币，方便账号管
       /// 
       /// Locales: en, zh-Hans
@@ -2301,6 +2305,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("tabbar.item.title.my", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Mine
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageAddCurrentAddressButtonTitle(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.add.current.address.button.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Mnemonic seed phrase is the only way to restore your wallet, please keep it safe or you won't have access to your account for good.
       /// 
       /// Locales: en, zh-Hans
@@ -2313,13 +2324,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func createPageTipContent(_: Void = ()) -> String {
         return NSLocalizedString("create.page.tip.content", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: My
-      /// 
-      /// Locales: en, zh-Hans
-      static func sendPageAddCurrentAddressButtonTitle(_: Void = ()) -> String {
-        return NSLocalizedString("send.page.add.current.address.button.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: My Address
@@ -3307,6 +3311,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func transactionListTransactionTypeNameCancelRegister(_: Void = ()) -> String {
         return NSLocalizedString("transaction.list.transaction.type.name.cancelRegister", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 操作失败
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteErrorOperationFailure(_: Void = ()) -> String {
+        return NSLocalizedString("vite.error.operation.failure", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 支持多种代币，方便账号管

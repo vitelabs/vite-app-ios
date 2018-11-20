@@ -283,7 +283,7 @@ class DebugViewController: FormViewController {
                         switch result {
                         case .success:
                             Toast.show("\(address.description) get test token complete")
-                        case .error(let error):
+                        case .failure(let error):
                             Toast.show(error.message)
                         }
                     })

@@ -33,7 +33,7 @@ class GetBalanceInfosRequest: JSONRPCKit.Request {
         }
 
         guard let response = resultObject as? [String: Any] else {
-            throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: [BalanceInfo].self)
+            throw ViteError.JSONTypeError()
         }
 
         var balanceInfoArray = [[String: Any]]()

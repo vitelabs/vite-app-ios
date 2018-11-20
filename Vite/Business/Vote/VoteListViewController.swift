@@ -216,12 +216,12 @@ class VoteListViewController: BaseViewController {
     }
 
     func handler(error: Error, nodeName: String) {
-        if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
+        if error.code == ViteErrorCode.rpcNotEnoughBalance {
             Alert.show(into: self,
                        title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
                        message: nil,
                        actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
-        } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
+        } else if error.code == ViteErrorCode.rpcNotEnoughQuota {
             Alert.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.voteListAlertQuota(), actions: [
                 (.default(title: R.string.localizable.quotaAlertPowButtonTitle()), { [weak self] _ in
                     var cancelPow = false
@@ -247,10 +247,10 @@ class VoteListViewController: BaseViewController {
                 ], config: { alert in
                     alert.preferredAction = alert.actions[0]
             })
-        } else if error.code == Provider.TransactionErrorCode.noTransactionBefore.rawValue {
+        } else if error.code == ViteErrorCode.rpcNoTransactionBefore {
             Toast.show(R.string.localizable.voteListSearchNoTransactionBefore())
         } else {
-            Toast.show(R.string.localizable.voteListSendFailed(String(error.code)))
+            Toast.show(R.string.localizable.voteListSendFailed(error.code.description))
         }
     }
 

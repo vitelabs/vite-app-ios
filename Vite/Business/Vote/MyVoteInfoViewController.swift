@@ -223,12 +223,12 @@ extension MyVoteInfoViewController {
 
     private func handlerCancelError(_ error: Error) {
         HUD.hide()
-        if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
+        if error.code == ViteErrorCode.rpcNotEnoughBalance {
             Alert.show(into: self,
                        title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
                        message: nil,
                        actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
-        } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
+        } else if error.code == ViteErrorCode.rpcNotEnoughQuota {
             Alert.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.votePageVoteInfoAlertQuota(), actions: [
                 (.default(title: R.string.localizable.quotaAlertPowButtonTitle()), { [weak self] _ in
                     var cancelPow = false
@@ -251,12 +251,12 @@ extension MyVoteInfoViewController {
                                         //in the end
                                         self.viewInfoView.changeInfoCancelVoting()
                                         Toast.show(R.string.localizable.votePageVoteInfoCancelVoteToastTitle())
-                                    } else if case let .error(error) = result {
+                                    } else if case let .failure(error) = result {
                                            Toast.show(error.message)
                                     }
                                 })
                             })
-                        } else if case let .error(error) = result {
+                        } else if case let .failure(error) = result {
                             getPowFloatView.hide()
                             Toast.show(error.message)
                         }

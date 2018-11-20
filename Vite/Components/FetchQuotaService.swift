@@ -89,7 +89,7 @@ final class FetchQuotaService {
                     }
                 }
 
-            case .error(let error):
+            case .failure(let error):
                 plog(level: .warning, log: bag.address.description + ": " + error.message, tag: .transaction)
             }
 

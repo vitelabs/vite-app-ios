@@ -57,7 +57,7 @@ class AppUpdateService: NSObject {
                         showUpdate(info: info, current: current)
                     }
                 }
-            case .error(let error):
+            case .failure(let error):
                 plog(level: .warning, log: error.message, tag: .getConfig)
                 GCD.delay(2, task: { self.checkUpdate() })
             }

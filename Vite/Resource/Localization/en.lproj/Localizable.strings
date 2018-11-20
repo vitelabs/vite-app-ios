@@ -157,7 +157,7 @@
 "send.page.my.balance.title" = "Balance";
 "send.page.my.quota.title" = "My Quota";
 "send.page.my.max.tx.count.title" = "Maximum Amount of Tx";
-"send.page.add.current.address.button.title" = "My";
+"send.page.add.current.address.button.title" = "Mine";
 "send.page.scan.address.button.title" = "Scan";
 "send.page.to.address.title" = "Recipient";
 "send.page.amount.title" = "Amount";
@@ -315,12 +315,5 @@
 "introduction.page.tip4.desc" = "投票官方节点，赚取VITE奖励";
 "introduction.page.nextBtn.title" = "开始体验";
 
-
-
-
-
-
-
-
-
-
+/* Error Message */
+"vite.error.operation.failure" = "操作失败";

@@ -97,13 +97,13 @@ extension Provider {
                                                 switch result {
                                                 case .success(let context) :
                                                     completion(NetworkResult.success(context))
-                                                case .error(let error):
-                                                    completion(NetworkResult.error(error))
+                                                case .failure(let error):
+                                                    completion(NetworkResult.wrapError(error))
                                                 }
                 })
             })
             .catch {
-                completion(NetworkResult.error($0))
+                completion(NetworkResult.wrapError($0))
             }
     }
 
