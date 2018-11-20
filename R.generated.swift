@@ -40,7 +40,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 76 images.
+  /// This `R.image` struct is generated, and contains static references to 81 images.
   struct image {
     /// Image `aboutus_logo`.
     static let aboutus_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "aboutus_logo")
@@ -92,6 +92,8 @@ struct R: Rswift.Validatable {
     static let icon_button_paste_blue = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_button_paste_blue")
     /// Image `icon_button_paste_gray`.
     static let icon_button_paste_gray = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_button_paste_gray")
+    /// Image `icon_button_paste_light_gray`.
+    static let icon_button_paste_light_gray = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_button_paste_light_gray")
     /// Image `icon_button_paste_white`.
     static let icon_button_paste_white = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_button_paste_white")
     /// Image `icon_button_reddit`.
@@ -148,10 +150,18 @@ struct R: Rswift.Validatable {
     static let icon_token_vite = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_token_vite")
     /// Image `icon_transrecord`.
     static let icon_transrecord = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_transrecord")
-    /// Image `icon_tx_recieve`.
-    static let icon_tx_recieve = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_recieve")
-    /// Image `icon_tx_send`.
-    static let icon_tx_send = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_send")
+    /// Image `icon_tx_coin`.
+    static let icon_tx_coin = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_coin")
+    /// Image `icon_tx_pledge`.
+    static let icon_tx_pledge = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_pledge")
+    /// Image `icon_tx_register`.
+    static let icon_tx_register = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_register")
+    /// Image `icon_tx_reward`.
+    static let icon_tx_reward = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_reward")
+    /// Image `icon_tx_transfer`.
+    static let icon_tx_transfer = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_transfer")
+    /// Image `icon_tx_vote`.
+    static let icon_tx_vote = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_vote")
     /// Image `icon_vite_logo`.
     static let icon_vite_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_vite_logo")
     /// Image `icon_voteaddress`.
@@ -320,6 +330,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.icon_button_paste_gray, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "icon_button_paste_light_gray", bundle: ..., traitCollection: ...)`
+    static func icon_button_paste_light_gray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_button_paste_light_gray, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "icon_button_paste_white", bundle: ..., traitCollection: ...)`
     static func icon_button_paste_white(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.icon_button_paste_white, compatibleWith: traitCollection)
@@ -460,14 +475,34 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.icon_transrecord, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "icon_tx_recieve", bundle: ..., traitCollection: ...)`
-    static func icon_tx_recieve(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.icon_tx_recieve, compatibleWith: traitCollection)
+    /// `UIImage(named: "icon_tx_coin", bundle: ..., traitCollection: ...)`
+    static func icon_tx_coin(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_tx_coin, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "icon_tx_send", bundle: ..., traitCollection: ...)`
-    static func icon_tx_send(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.icon_tx_send, compatibleWith: traitCollection)
+    /// `UIImage(named: "icon_tx_pledge", bundle: ..., traitCollection: ...)`
+    static func icon_tx_pledge(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_tx_pledge, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_tx_register", bundle: ..., traitCollection: ...)`
+    static func icon_tx_register(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_tx_register, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_tx_reward", bundle: ..., traitCollection: ...)`
+    static func icon_tx_reward(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_tx_reward, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_tx_transfer", bundle: ..., traitCollection: ...)`
+    static func icon_tx_transfer(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_tx_transfer, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_tx_vote", bundle: ..., traitCollection: ...)`
+    static func icon_tx_vote(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_tx_vote, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "icon_vite_logo", bundle: ..., traitCollection: ...)`
@@ -658,7 +693,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 231 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 242 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1560,6 +1595,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let mnemonicBackupPageSwitchModeTitle = Rswift.StringResource(key: "mnemonic.backup.page.switch.mode.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 取回配额抵押
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameCancelPledge = Rswift.StringResource(key: "transaction.list.transaction.type.name.cancelPledge", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 取回铸币抵押
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameCancelCoin = Rswift.StringResource(key: "transaction.list.transaction.type.name.cancelCoin", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 开始体验
       /// 
       /// Locales: en, zh-Hans
@@ -1568,6 +1611,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let introductionPageTip2Desc = Rswift.StringResource(key: "introduction.page.tip2.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 投票
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameVote = Rswift.StringResource(key: "transaction.list.transaction.type.name.vote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 投票官方节点，赚取VITE奖励
       /// 
       /// Locales: en, zh-Hans
@@ -1576,14 +1623,46 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let introductionPageTip4Title = Rswift.StringResource(key: "introduction.page.tip4.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 提取奖励
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameExtractReward = Rswift.StringResource(key: "transaction.list.transaction.type.name.extractReward", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 撤销投票
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameCancelVote = Rswift.StringResource(key: "transaction.list.transaction.type.name.cancelVote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 撤销注册
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameCancelRegister = Rswift.StringResource(key: "transaction.list.transaction.type.name.cancelRegister", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 支持多种代币，方便账号管
       /// 
       /// Locales: en, zh-Hans
       static let introductionPageTip3Desc = Rswift.StringResource(key: "introduction.page.tip3.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 更新注册
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameRegisterUpdate = Rswift.StringResource(key: "transaction.list.transaction.type.name.registerUpdate", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 注册
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameRegister = Rswift.StringResource(key: "transaction.list.transaction.type.name.register", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 获取配额
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNamePledge = Rswift.StringResource(key: "transaction.list.transaction.type.name.pledge", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 转账
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameTransfer = Rswift.StringResource(key: "transaction.list.transaction.type.name.transfer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 转账零费用
       /// 
       /// Locales: en, zh-Hans
       static let introductionPageTip1Title = Rswift.StringResource(key: "introduction.page.tip1.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 铸币
+      /// 
+      /// Locales: en, zh-Hans
+      static let transactionListTransactionTypeNameCoin = Rswift.StringResource(key: "transaction.list.transaction.type.name.coin", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -3160,6 +3239,20 @@ struct R: Rswift.Validatable {
         return String(format: NSLocalizedString("mnemonic.backup.page.switch.mode.title", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
+      /// en translation: 取回配额抵押
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameCancelPledge(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.cancelPledge", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 取回铸币抵押
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameCancelCoin(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.cancelCoin", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 开始体验
       /// 
       /// Locales: en, zh-Hans
@@ -3172,6 +3265,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func introductionPageTip2Desc(_: Void = ()) -> String {
         return NSLocalizedString("introduction.page.tip2.desc", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 投票
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameVote(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.vote", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 投票官方节点，赚取VITE奖励
@@ -3188,6 +3288,27 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("introduction.page.tip4.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 提取奖励
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameExtractReward(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.extractReward", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 撤销投票
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameCancelVote(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.cancelVote", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 撤销注册
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameCancelRegister(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.cancelRegister", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 支持多种代币，方便账号管
       /// 
       /// Locales: en, zh-Hans
@@ -3195,11 +3316,46 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("introduction.page.tip3.desc", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 更新注册
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameRegisterUpdate(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.registerUpdate", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 注册
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameRegister(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.register", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 获取配额
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNamePledge(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.pledge", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 转账
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameTransfer(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.transfer", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 转账零费用
       /// 
       /// Locales: en, zh-Hans
       static func introductionPageTip1Title(_: Void = ()) -> String {
         return NSLocalizedString("introduction.page.tip1.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 铸币
+      /// 
+      /// Locales: en, zh-Hans
+      static func transactionListTransactionTypeNameCoin(_: Void = ()) -> String {
+        return NSLocalizedString("transaction.list.transaction.type.name.coin", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

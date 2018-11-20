@@ -9,7 +9,7 @@
 import Foundation
 
 extension Date {
-    public func format(_ format: String = "yyyy-MM-dd HH:mm:ss") -> String {
+    public func format(_ format: String = "yyyy.MM.dd HH:mm:ss") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = format

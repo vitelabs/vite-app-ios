@@ -11,9 +11,11 @@ import UIKit
 
 protocol TransactionViewModelType {
     var typeImage: UIImage { get }
-    var timeString: String { get }
-    var hash: String { get }
+    var typeName: String { get }
     var address: String { get }
+    var timeString: String { get }
     var balanceString: String { get }
+    var balanceColor: UIColor { get }
     var symbolString: String { get }
+    var hash: String { get }
 }

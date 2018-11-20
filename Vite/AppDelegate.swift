@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         handleRootVC()
         goShowIntroViewPage()
 
-        AppUpdateVM.checkUpdate()
+        AppUpdateService.checkUpdate()
         AppSettingsService.instance.start()
         TokenCacheService.instance.start()
         AutoGatheringService.instance.start()

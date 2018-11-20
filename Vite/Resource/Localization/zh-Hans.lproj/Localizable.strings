@@ -123,6 +123,17 @@
 "transaction.list.page.header.refresh.idle" = "下拉刷新";
 "transaction.list.page.header.refresh.pulling" = "松开立即刷新";
 "transaction.list.page.header.refresh.refreshing" = "正在刷新中...";
+"transaction.list.transaction.type.name.register" = "注册";
+"transaction.list.transaction.type.name.registerUpdate" = "更新注册";
+"transaction.list.transaction.type.name.cancelRegister" = "撤销注册";
+"transaction.list.transaction.type.name.extractReward" = "提取奖励";
+"transaction.list.transaction.type.name.vote" = "投票";
+"transaction.list.transaction.type.name.cancelVote" = "撤销投票";
+"transaction.list.transaction.type.name.pledge" = "获取配额";
+"transaction.list.transaction.type.name.cancelPledge" = "取回配额抵押";
+"transaction.list.transaction.type.name.coin" = "铸币";
+"transaction.list.transaction.type.name.cancelCoin" = "取回铸币抵押";
+"transaction.list.transaction.type.name.transfer" = "转账";
 
 /* BalanceInfo */
 "balance.info.detail.balance.title" = "账户余额";
