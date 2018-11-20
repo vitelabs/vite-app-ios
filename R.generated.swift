@@ -40,7 +40,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 72 images.
+  /// This `R.image` struct is generated, and contains static references to 76 images.
   struct image {
     /// Image `aboutus_logo`.
     static let aboutus_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "aboutus_logo")
@@ -150,10 +150,18 @@ struct R: Rswift.Validatable {
     static let icon_token_vite = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_token_vite")
     /// Image `icon_transrecord`.
     static let icon_transrecord = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_transrecord")
-    /// Image `icon_tx_recieve`.
-    static let icon_tx_recieve = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_recieve")
-    /// Image `icon_tx_send`.
-    static let icon_tx_send = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_send")
+    /// Image `icon_tx_coin`.
+    static let icon_tx_coin = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_coin")
+    /// Image `icon_tx_pledge`.
+    static let icon_tx_pledge = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_pledge")
+    /// Image `icon_tx_register`.
+    static let icon_tx_register = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_register")
+    /// Image `icon_tx_reward`.
+    static let icon_tx_reward = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_reward")
+    /// Image `icon_tx_transfer`.
+    static let icon_tx_transfer = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_transfer")
+    /// Image `icon_tx_vote`.
+    static let icon_tx_vote = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tx_vote")
     /// Image `icon_vite_logo`.
     static let icon_vite_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_vite_logo")
     /// Image `icon_voteaddress`.
@@ -457,14 +465,34 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.icon_transrecord, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "icon_tx_recieve", bundle: ..., traitCollection: ...)`
-    static func icon_tx_recieve(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.icon_tx_recieve, compatibleWith: traitCollection)
+    /// `UIImage(named: "icon_tx_coin", bundle: ..., traitCollection: ...)`
+    static func icon_tx_coin(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_tx_coin, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "icon_tx_send", bundle: ..., traitCollection: ...)`
-    static func icon_tx_send(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.icon_tx_send, compatibleWith: traitCollection)
+    /// `UIImage(named: "icon_tx_pledge", bundle: ..., traitCollection: ...)`
+    static func icon_tx_pledge(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_tx_pledge, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_tx_register", bundle: ..., traitCollection: ...)`
+    static func icon_tx_register(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_tx_register, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_tx_reward", bundle: ..., traitCollection: ...)`
+    static func icon_tx_reward(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_tx_reward, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_tx_transfer", bundle: ..., traitCollection: ...)`
+    static func icon_tx_transfer(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_tx_transfer, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_tx_vote", bundle: ..., traitCollection: ...)`
+    static func icon_tx_vote(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_tx_vote, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "icon_vite_logo", bundle: ..., traitCollection: ...)`

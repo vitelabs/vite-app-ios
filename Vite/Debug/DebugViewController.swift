@@ -300,7 +300,7 @@ class DebugViewController: FormViewController {
             <<< LabelRow("checkUpdate") {
                 $0.title =  "Check Update"
             }.onCellSelection({ _, _  in
-                AppUpdateVM.checkUpdate()
+                AppUpdateService.checkUpdate()
                 Toast.show("Operation complete")
             })
             <<< LabelRow("deleteAllWallets") {

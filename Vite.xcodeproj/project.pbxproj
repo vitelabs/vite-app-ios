@@ -14,7 +14,7 @@
 		4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EC2213FE73A00D483C6 /* LocalizationService.swift */; };
 		4C105EC5213FEFF800D483C6 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EC4213FEFF800D483C6 /* NotificationName.swift */; };
 		4C105ED12141401100D483C6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105ED02141401100D483C6 /* String.swift */; };
-		4C181B06215CD5E000FB6CA8 /* AppUpdateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */; };
+		4C181B06215CD5E000FB6CA8 /* AppUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateService.swift */; };
 		4C1FF4F0212A74730055067D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
 		4C2284B52148BB2A003E9907 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284B42148BB2A003E9907 /* ImageCell.swift */; };
 		4C2284B82148BC2B003E9907 /* MyHomeListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284B72148BC2B003E9907 /* MyHomeListHeaderView.swift */; };
@@ -290,7 +290,7 @@
 		8EA0BE7821996D4800FDE2E8 /* GetFittestSnapshotHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6EB214E5DCE00FAEEBC /* GetFittestSnapshotHashRequest.swift */; };
 		8EA0BE7921996D4800FDE2E8 /* TransactionListTableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC8F2147684200A68823 /* TransactionListTableViewModelType.swift */; };
 		8EA0BE7A21996D4800FDE2E8 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261921522085007FEBAB /* Alert.swift */; };
-		8EA0BE7B21996D4800FDE2E8 /* AppUpdateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */; };
+		8EA0BE7B21996D4800FDE2E8 /* AppUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateService.swift */; };
 		8EA0BE7C21996D4800FDE2E8 /* IconLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13EB21942544000A979F /* IconLabelView.swift */; };
 		8EA0BE7D21996D4800FDE2E8 /* UIWindow+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB69C217053AE001525EB /* UIWindow+Debug.swift */; };
 		8EA0BE7E21996D4800FDE2E8 /* AddressManageDefaultAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468E2214A047500807D2C /* AddressManageDefaultAddressCell.swift */; };
@@ -515,7 +515,7 @@
 		8EA0BF6921996D7800FDE2E8 /* GetFittestSnapshotHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6EB214E5DCE00FAEEBC /* GetFittestSnapshotHashRequest.swift */; };
 		8EA0BF6A21996D7800FDE2E8 /* TransactionListTableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC8F2147684200A68823 /* TransactionListTableViewModelType.swift */; };
 		8EA0BF6B21996D7800FDE2E8 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261921522085007FEBAB /* Alert.swift */; };
-		8EA0BF6C21996D7800FDE2E8 /* AppUpdateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */; };
+		8EA0BF6C21996D7800FDE2E8 /* AppUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateService.swift */; };
 		8EA0BF6D21996D7800FDE2E8 /* IconLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13EB21942544000A979F /* IconLabelView.swift */; };
 		8EA0BF6E21996D7800FDE2E8 /* UIWindow+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB69C217053AE001525EB /* UIWindow+Debug.swift */; };
 		8EA0BF6F21996D7800FDE2E8 /* AddressManageDefaultAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468E2214A047500807D2C /* AddressManageDefaultAddressCell.swift */; };
@@ -718,7 +718,7 @@
 		4C105EC2213FE73A00D483C6 /* LocalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationService.swift; sourceTree = "<group>"; };
 		4C105EC4213FEFF800D483C6 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		4C105ED02141401100D483C6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateVM.swift; sourceTree = "<group>"; };
+		4C181B05215CD5E000FB6CA8 /* AppUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateService.swift; sourceTree = "<group>"; };
 		4C1FF4F1212A74730055067D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4C1FF4F4212A76410055067D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4C2284B42148BB2A003E9907 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
@@ -1058,7 +1058,6 @@
 		4C181B04215CD5C400FB6CA8 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1166,6 +1165,7 @@
 				4C105EC2213FE73A00D483C6 /* LocalizationService.swift */,
 				4C105EC4213FEFF800D483C6 /* NotificationName.swift */,
 				8E0FB698216C8957001525EB /* KeychainService.swift */,
+				4C181B05215CD5E000FB6CA8 /* AppUpdateService.swift */,
 				8E548533217DA62B009C528B /* UserDefaultsService.swift */,
 				8E548535217DABFC009C528B /* AppSettingsService.swift */,
 				4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */,
@@ -2663,7 +2663,7 @@
 				8E79C6EC214E5DCE00FAEEBC /* GetFittestSnapshotHashRequest.swift in Sources */,
 				8E56FC902147684200A68823 /* TransactionListTableViewModelType.swift in Sources */,
 				8E79261A21522085007FEBAB /* Alert.swift in Sources */,
-				4C181B06215CD5E000FB6CA8 /* AppUpdateVM.swift in Sources */,
+				4C181B06215CD5E000FB6CA8 /* AppUpdateService.swift in Sources */,
 				4C5A13EC21942544000A979F /* IconLabelView.swift in Sources */,
 				8E0FB69D217053AE001525EB /* UIWindow+Debug.swift in Sources */,
 				8EE468E3214A047500807D2C /* AddressManageDefaultAddressCell.swift in Sources */,
@@ -2902,7 +2902,7 @@
 				8EA0BE7821996D4800FDE2E8 /* GetFittestSnapshotHashRequest.swift in Sources */,
 				8EA0BE7921996D4800FDE2E8 /* TransactionListTableViewModelType.swift in Sources */,
 				8EA0BE7A21996D4800FDE2E8 /* Alert.swift in Sources */,
-				8EA0BE7B21996D4800FDE2E8 /* AppUpdateVM.swift in Sources */,
+				8EA0BE7B21996D4800FDE2E8 /* AppUpdateService.swift in Sources */,
 				8EA0BE7C21996D4800FDE2E8 /* IconLabelView.swift in Sources */,
 				8EA0BE7D21996D4800FDE2E8 /* UIWindow+Debug.swift in Sources */,
 				8EA0BE7E21996D4800FDE2E8 /* AddressManageDefaultAddressCell.swift in Sources */,
@@ -3129,7 +3129,7 @@
 				8EA0BF6921996D7800FDE2E8 /* GetFittestSnapshotHashRequest.swift in Sources */,
 				8EA0BF6A21996D7800FDE2E8 /* TransactionListTableViewModelType.swift in Sources */,
 				8EA0BF6B21996D7800FDE2E8 /* Alert.swift in Sources */,
-				8EA0BF6C21996D7800FDE2E8 /* AppUpdateVM.swift in Sources */,
+				8EA0BF6C21996D7800FDE2E8 /* AppUpdateService.swift in Sources */,
 				8EA0BF6D21996D7800FDE2E8 /* IconLabelView.swift in Sources */,
 				8EA0BF6E21996D7800FDE2E8 /* UIWindow+Debug.swift in Sources */,
 				8EA0BF6F21996D7800FDE2E8 /* AddressManageDefaultAddressCell.swift in Sources */,
