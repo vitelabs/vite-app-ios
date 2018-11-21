@@ -19,6 +19,7 @@ extension Notification.Name {
     static let loginDidFinish = NSNotification.Name(rawValue: "Vite_loginDidFinish")
     static let unlockDidSuccess = NSNotification.Name(rawValue: "Vite_unlockDidSuccess")
 
+    static let finishShowIntroPage = NSNotification.Name(rawValue: "Vite_finishShowIntroPage")
     static let userDidVote = NSNotification.Name(rawValue: "Vite_userDidVote")
     static let userVoteInfoChange = NSNotification.Name(rawValue: "Vite_userVoteInfoChange")
 }

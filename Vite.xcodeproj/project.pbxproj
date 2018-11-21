@@ -40,6 +40,8 @@
 		4C5A13EA21940562000A979F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5A13E921940562000A979F /* Images.xcassets */; };
 		4C5A13EC21942544000A979F /* IconLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13EB21942544000A979F /* IconLabelView.swift */; };
 		4C5A13F02194359A000A979F /* LabelBgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13EF2194359A000A979F /* LabelBgView.swift */; };
+		4C5AC55421A5675C001DAC0F /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12371321A4424C00E4454E /* IntroductionViewController.swift */; };
+		4C5AC55521A5675C001DAC0F /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12371321A4424C00E4454E /* IntroductionViewController.swift */; };
 		4C5E23022192EDDE0010B905 /* Provider+Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23012192EDDD0010B905 /* Provider+Vote.swift */; };
 		4C5E23062192EDEB0010B905 /* CancelVoteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23042192EDEB0010B905 /* CancelVoteRequest.swift */; };
 		4C5E23072192EDEB0010B905 /* GetVoteInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23052192EDEB0010B905 /* GetVoteInfoRequest.swift */; };
@@ -3002,6 +3004,7 @@
 				743534CB21A29B3800CD8C1D /* AlertControl.swift in Sources */,
 				8EA0BED321996D4800FDE2E8 /* TitlePasswordInputView.swift in Sources */,
 				8EA0BED421996D4800FDE2E8 /* AccountLoginResult.swift in Sources */,
+				4C5AC55421A5675C001DAC0F /* IntroductionViewController.swift in Sources */,
 				8EA0BED521996D4800FDE2E8 /* ReceiveFooterView.swift in Sources */,
 				8EA0BED621996D4800FDE2E8 /* ManageWalletViewController.swift in Sources */,
 				8EA0BED721996D4800FDE2E8 /* NavigationBarStyle.swift in Sources */,
@@ -3228,6 +3231,7 @@
 				743534CC21A29B3800CD8C1D /* AlertControl.swift in Sources */,
 				8EA0BFC421996D7800FDE2E8 /* TitlePasswordInputView.swift in Sources */,
 				8EA0BFC521996D7800FDE2E8 /* AccountLoginResult.swift in Sources */,
+				4C5AC55521A5675C001DAC0F /* IntroductionViewController.swift in Sources */,
 				8EA0BFC621996D7800FDE2E8 /* ReceiveFooterView.swift in Sources */,
 				8EA0BFC721996D7800FDE2E8 /* ManageWalletViewController.swift in Sources */,
 				8EA0BFC821996D7800FDE2E8 /* NavigationBarStyle.swift in Sources */,
