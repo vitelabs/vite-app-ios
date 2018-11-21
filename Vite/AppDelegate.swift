@@ -96,9 +96,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func goShowIntroViewPage() {
-        let isShow = UserDefaultsService.instance.objectForKey("IntroView", inCollection: "ShowIntroViewPage") as? Bool
-        if !(isShow ?? false) {
+        let introViewPageVersion = UserDefaultsService.instance.objectForKey("IntroView", inCollection: "IntroViewPageVersion") as? String  ?? ""
+        if introViewPageVersion != Constants.IntroductionPageVersion {
             let vc = IntroductionViewController()
+            vc.modalTransitionStyle = .crossDissolve
             UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: false, completion: nil)
         }
     }

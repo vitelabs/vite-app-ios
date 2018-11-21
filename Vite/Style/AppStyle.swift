@@ -13,9 +13,28 @@ let kScreenH = UIScreen.main.bounds.height
 // screen width
 let kScreenW = UIScreen.main.bounds.width
 //Adaptive iPhoneX
-let is_iPhoneX = (kScreenW == 375.0 && kScreenH == 812.0 ? true : false)
-let kNavibarH: CGFloat = is_iPhoneX ? 88.0 : 64.0
+let kNavibarH: CGFloat = UIDevice.current.isIPhoneX() ? 88.0 : 64.0
 
+extension UIDevice {
+    public func isIPhoneX() -> Bool {
+        if kScreenH == 812 {
+            return true
+        }
+        return false
+    }
+    public func isIPhone6() -> Bool {
+        if kScreenH == 667 {
+            return true
+        }
+        return false
+    }
+    public func isIPhone6Plus() -> Bool {
+        if kScreenH == 736 {
+            return true
+        }
+        return false
+    }
+}
 struct Fonts {
     static let descFont = UIFont.systemFont(ofSize: 16, weight: .regular)
     static let light14 = UIFont.systemFont(ofSize: 14, weight: .light)
