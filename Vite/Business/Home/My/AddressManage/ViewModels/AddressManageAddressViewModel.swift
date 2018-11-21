@@ -19,4 +19,9 @@ class AddressManageAddressViewModel: AddressManageAddressViewModelType {
         self.address = address
         self.isSelected = isSelected
     }
+
+    func copy() {
+        UIPasteboard.general.string = address
+        Toast.show(R.string.localizable.walletHomeToastCopyAddress(), duration: 1.0)
+    }
 }

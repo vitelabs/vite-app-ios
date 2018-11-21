@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct ActionSheet {
+struct DebugActionSheet {
     @discardableResult
     public static func show(into viewController: UIViewController,
                             title: String?,
@@ -30,12 +30,12 @@ struct ActionSheet {
                 })
                 alert.addAction(action)
             case .cancel:
-                let action = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: UIAlertActionStyle.cancel, handler: { (_) in
+                let action = UIAlertAction(title: R.string.localizable.cancel(), style: UIAlertActionStyle.cancel, handler: { (_) in
                     if let action = action.1 { action(alert) }
                 })
                 alert.addAction(action)
             case .delete:
-                let action = UIAlertAction(title: R.string.localizable.delete.key.localized(), style: UIAlertActionStyle.destructive, handler: { (_) in
+                let action = UIAlertAction(title: R.string.localizable.delete(), style: UIAlertActionStyle.destructive, handler: { (_) in
                     if let action = action.1 { action(alert) }
                 })
                 alert.addAction(action)
@@ -50,32 +50,32 @@ struct ActionSheet {
 
 struct Alert {
     @discardableResult
-    public static func show(into viewController: UIViewController,
+    public static func show(into viewController: UIViewController? = nil,
                             title: String?,
                             message: String?,
-                            actions: [(UIAlertControllerAletrActionTitle, ((UIAlertController) -> Void)?)],
-                            config: ((UIAlertController) -> Void)? = nil) -> UIAlertController {
+                            actions: [(UIAlertControllerAletrActionTitle, ((AlertControl) -> Void)?)],
+                            config: ((AlertControl) -> Void)? = nil) -> AlertControl {
 
-        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = AlertControl.init(title: title, message: message, style: .alert)
         for action in actions {
             switch action.0 {
             case .default(let title):
-                let action = UIAlertAction(title: title, style: UIAlertActionStyle.default, handler: { (_) in
+                let action = AlertAction(title: title, style: .light, handler: { alert in
                     if let action = action.1 { action(alert) }
                 })
                 alert.addAction(action)
             case .destructive(let title):
-                let action = UIAlertAction(title: title, style: UIAlertActionStyle.destructive, handler: { (_) in
+                let action = AlertAction(title: title, style: .light, handler: { alert in
                     if let action = action.1 { action(alert) }
                 })
                 alert.addAction(action)
             case .cancel:
-                let action = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: UIAlertActionStyle.default, handler: { (_) in
+                let action = AlertAction(title: R.string.localizable.cancel(), style: .light, handler: { alert in
                     if let action = action.1 { action(alert) }
                 })
-                alert.addAction(action)
+                alert.addCancelAction(action)
             case .delete:
-                let action = UIAlertAction(title: R.string.localizable.delete.key.localized(), style: UIAlertActionStyle.destructive, handler: { (_) in
+                let action = AlertAction(title: R.string.localizable.delete(), style: .light, handler: { alert in
                     if let action = action.1 { action(alert) }
                 })
                 alert.addAction(action)
@@ -83,7 +83,54 @@ struct Alert {
         }
         alert.preferredAction = alert.actions.last
         if let config = config { config(alert) }
-        viewController.present(alert, animated: true, completion: nil)
+        alert.show()
+        return alert
+    }
+
+    public enum UIAlertControllerAletrActionTitle {
+        case `default`(title: String)
+        case destructive(title: String)
+        case cancel
+        case delete
+    }
+}
+
+struct AlertSheet {
+    @discardableResult
+    public static func show(into viewController: UIViewController? = nil,
+                            title: String?,
+                            message: String?,
+                            actions: [(UIAlertControllerAletrActionTitle, ((AlertControl) -> Void)?)],
+                            config: ((AlertControl) -> Void)? = nil) -> AlertControl {
+
+        let alert = AlertControl.init(title: title, message: message, style: .actionSheet)
+        for action in actions {
+            switch action.0 {
+            case .default(let title):
+                let action = AlertAction(title: title, style: .light, handler: { alert in
+                    if let action = action.1 { action(alert) }
+                })
+                alert.addAction(action)
+            case .destructive(let title):
+                let action = AlertAction(title: title, style: .light, handler: { alert in
+                    if let action = action.1 { action(alert) }
+                })
+                alert.addAction(action)
+            case .cancel:
+                let action = AlertAction(title: R.string.localizable.cancel(), style: .light, handler: { alert in
+                    if let action = action.1 { action(alert) }
+                })
+                alert.addCancelAction(action)
+            case .delete:
+                let action = AlertAction(title: R.string.localizable.delete(), style: .light, handler: { alert in
+                    if let action = action.1 { action(alert) }
+                })
+                alert.addAction(action)
+            }
+        }
+        alert.preferredAction = alert.actions.last
+        if let config = config { config(alert) }
+        alert.show()
         return alert
     }
 

@@ -53,14 +53,14 @@ class SystemViewController: FormViewController {
 
     lazy var logoutBtn: UIButton = {
         let logoutBtn = UIButton.init(style: .white)
-        logoutBtn.setTitle(R.string.localizable.systemPageCellLogoutTitle.key.localized(), for: .normal)
+        logoutBtn.setTitle(R.string.localizable.systemPageCellLogoutTitle(), for: .normal)
         logoutBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         logoutBtn.addTarget(self, action: #selector(logoutBtnAction), for: .touchUpInside)
         return logoutBtn
     }()
 
     private func _setupView() {
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.myPageSystemCellTitle.key.localized())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.myPageSystemCellTitle())
         self.view.backgroundColor = .white
         self.automaticallyAdjustsScrollViewInsets = false
 
@@ -97,7 +97,7 @@ class SystemViewController: FormViewController {
                 $0.header?.height = { 0.01 }
             }
             <<< ImageRow("systemPageCellChangeLanguage") {
-                $0.cell.titleLab.text = R.string.localizable.systemPageCellChangeLanguage.key.localized()
+                $0.cell.titleLab.text = R.string.localizable.systemPageCellChangeLanguage()
                 $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
                 $0.cell.bottomSeparatorLine.isHidden = false
             }.onCellSelection({ [unowned self] _, _  in
@@ -105,7 +105,7 @@ class SystemViewController: FormViewController {
             })
 
             <<< SwitchRow("systemPageCellLoginPwd") {
-                $0.title = R.string.localizable.systemPageCellLoginPwd.key.localized()
+                $0.title = R.string.localizable.systemPageCellLoginPwd()
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
                 $0.value = self.viewModel.isRequireAuthentication
@@ -119,7 +119,7 @@ class SystemViewController: FormViewController {
 
             <<< SwitchRow("systemPageCellLoginFaceId") {
                 let authType = BiometryAuthenticationType.current
-                let title = authType == .faceID ? R.string.localizable.systemPageCellLoginFaceId.key.localized() : R.string.localizable.systemPageCellLoginTouchId.key.localized()
+                let title = authType == .faceID ? R.string.localizable.systemPageCellLoginFaceId() : R.string.localizable.systemPageCellLoginTouchId()
                 $0.title = title
                 $0.value = self.viewModel.isAuthenticatedByBiometry
                 $0.cell.height = { 60 }
@@ -135,7 +135,7 @@ class SystemViewController: FormViewController {
 
             <<< SwitchRow("systemPageCellTransferFaceId") {
                 let authType = BiometryAuthenticationType.current
-                let title = authType == .faceID ? R.string.localizable.systemPageCellTransferFaceId.key.localized() : R.string.localizable.systemPageCellTransferTouchId.key.localized()
+                let title = authType == .faceID ? R.string.localizable.systemPageCellTransferFaceId() : R.string.localizable.systemPageCellTransferTouchId()
                 $0.title = title
                 $0.value = self.viewModel.isTransferByBiometry
                 $0.cell.height = { 60 }
@@ -162,7 +162,7 @@ extension SystemViewController {
     }
 
     private func touchValidation(_ tag: String, value: Bool) {
-        BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.lockPageFingerprintAlterTitle.key.localized(), completion: { (success, error) in
+        BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.lockPageFingerprintAlterTitle(), completion: { (success, error) in
             guard success else {
                 self.changeSwitchRowValue(tag, value: false)
                 if let error = error {
@@ -187,7 +187,7 @@ extension SystemViewController {
 
 extension SystemViewController {
     @objc func logoutBtnAction() {
-        self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
+        self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading(), animated: true)
         DispatchQueue.global().async {
             HDWalletManager.instance.logout()
             KeychainService.instance.clearCurrentWallet()

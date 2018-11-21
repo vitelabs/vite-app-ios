@@ -105,7 +105,7 @@ class ScanViewController: BaseViewController, View {
     }
 
     private func setupUIComponents() {
-        navigationItem.title = R.string.localizable.scanPageTitle.key.localized()
+        navigationItem.title = R.string.localizable.scanPageTitle()
         navigationBarStyle = .custom(tintColor: UIColor.white, backgroundColor: UIColor(netHex: 0x24272B))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.icon_nav_photo_black(), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(self.pickeImage(_:)))
 
@@ -271,7 +271,7 @@ class ScanViewController: BaseViewController, View {
     func showAlertMessage(_ alertMessage: String) {
         self.captureSession.stopRunning()
         let alertController = UIAlertController.init()
-        let action = UIAlertAction.init(title: R.string.localizable.finish.key.localized(), style: .default) { (_) in
+        let action = UIAlertAction.init(title: R.string.localizable.finish(), style: .default) { (_) in
             self.captureSession.startRunning()
         }
         alertController.addAction(action)

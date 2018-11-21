@@ -23,7 +23,7 @@ class AddAddressFloatView: VisualEffectAnimationView {
         $0.contentEdgeInsets = UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 32)
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         $0.setTitleColor(UIColor(netHex: 0x007AFF), for: .normal)
-        $0.setTitle(R.string.localizable.sendPageAddCurrentAddressButtonTitle.key.localized(), for: .normal)
+        $0.setTitle(R.string.localizable.sendPageAddCurrentAddressButtonTitle(), for: .normal)
         $0.setBackgroundImage(R.image.background_address_add_button_white()?.resizable, for: .normal)
         $0.setBackgroundImage(R.image.background_address_add_button_white()?.tintColor(UIColor(netHex: 0xefefef)).resizable, for: .highlighted)
         $0.layer.shadowColor = UIColor.black.cgColor
@@ -37,7 +37,7 @@ class AddAddressFloatView: VisualEffectAnimationView {
         $0.contentEdgeInsets = UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 32)
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         $0.setTitleColor(UIColor(netHex: 0x007AFF), for: .normal)
-        $0.setTitle(R.string.localizable.sendPageScanAddressButtonTitle.key.localized(), for: .normal)
+        $0.setTitle(R.string.localizable.sendPageScanAddressButtonTitle(), for: .normal)
         $0.setBackgroundImage(R.image.background_address_add_button_white()?.resizable, for: .normal)
         $0.setBackgroundImage(R.image.background_address_add_button_white()?.tintColor(UIColor(netHex: 0xefefef)).resizable, for: .highlighted)
         $0.layer.shadowColor = UIColor.black.cgColor

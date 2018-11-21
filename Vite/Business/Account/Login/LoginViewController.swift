@@ -53,13 +53,13 @@ class LoginViewController: BaseViewController {
     lazy var userNameBtn: TitleBtnView = {
         let index = HDWalletManager.instance.currentWalletIndex ?? 0
         let name = HDWalletManager.instance.wallets[index].name
-        let userNameBtn = TitleBtnView(title: R.string.localizable.loginPageBtnChooseName.key.localized(), text: name)
+        let userNameBtn = TitleBtnView(title: R.string.localizable.loginPageBtnChooseName(), text: name)
         userNameBtn.btn.addTarget(self, action: #selector(userNameBtnAction), for: .touchUpInside)
         return userNameBtn
     }()
 
     lazy var walletNameTF: TitleTextFieldView = {
-        let walletNameTF = TitleTextFieldView(title: R.string.localizable.createPageTfTitle.key.localized(), placeholder: "", text: "")
+        let walletNameTF = TitleTextFieldView(title: R.string.localizable.createPageTfTitle(), placeholder: "", text: "")
         walletNameTF.titleLabel.textColor = Colors.titleGray
         walletNameTF.textField.font = AppStyle.inputDescWord.font
         walletNameTF.textField.textColor = Colors.descGray
@@ -68,7 +68,7 @@ class LoginViewController: BaseViewController {
     }()
 
     lazy var passwordTF: TitlePasswordInputView = {
-        let passwordTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwTitle.key.localized())
+        let passwordTF = TitlePasswordInputView.init(title: R.string.localizable.createPagePwTitle())
         passwordTF.titleLabel.textColor = Colors.titleGray
         passwordTF.titleLabel.font = AppStyle.formHeader.font
         passwordTF.passwordInputView.delegate = self
@@ -77,7 +77,7 @@ class LoginViewController: BaseViewController {
 
     lazy var createAccountBtn: UIButton = {
         let createAccountBtn = UIButton.init(style: .whiteWithoutShadow)
-        createAccountBtn.setTitle(R.string.localizable.createAccount.key.localized(), for: .normal)
+        createAccountBtn.setTitle(R.string.localizable.createAccount(), for: .normal)
         createAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         createAccountBtn.addTarget(self, action: #selector(createAccountBtnAction), for: .touchUpInside)
         return createAccountBtn
@@ -85,7 +85,7 @@ class LoginViewController: BaseViewController {
 
     lazy var importAccountBtn: UIButton = {
         let importAccountBtn = UIButton.init(style: .whiteWithoutShadow)
-        importAccountBtn.setTitle(R.string.localizable.importAccount.key.localized(), for: .normal)
+        importAccountBtn.setTitle(R.string.localizable.importAccount(), for: .normal)
         importAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         importAccountBtn.addTarget(self, action: #selector(importAccountBtnAction), for: .touchUpInside)
         return importAccountBtn
@@ -93,7 +93,7 @@ class LoginViewController: BaseViewController {
 
     lazy var loginBtn: UIButton = {
         let loginBtn = UIButton.init(style: .blue)
-        loginBtn.setTitle(R.string.localizable.loginPageBtnLogin.key.localized(), for: .normal)
+        loginBtn.setTitle(R.string.localizable.loginPageBtnLogin(), for: .normal)
         loginBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         loginBtn.addTarget(self, action: #selector(loginBtnAction), for: .touchUpInside)
         return loginBtn
@@ -196,7 +196,7 @@ extension LoginViewController {
 
     @objc func loginBtnAction() {
         let encryptKey = (self.passwordTF.passwordInputView.textField.text ?? "").toEncryptKey(salt: self.viewModel.chooseUuid)
-        self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
+        self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle(), animated: true)
         DispatchQueue.global().async {
             if HDWalletManager.instance.loginWithUuid(self.viewModel.chooseUuid, encryptKey: encryptKey) {
                 KeychainService.instance.setCurrentWallet(uuid: self.viewModel.chooseUuid, encryptKey: encryptKey)
@@ -207,8 +207,9 @@ extension LoginViewController {
             } else {
                 DispatchQueue.main.async {
                     self.view.hideLoading()
-                    self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
-                    })
+                    Alert.show(title: R.string.localizable.loginPageErrorToastTitle(), message: nil, actions: [
+                        (.default(title: R.string.localizable.confirm()), nil),
+                        ])
                 }
             }
         }

@@ -31,7 +31,7 @@ class AddressLabelView: SendAddressViewType {
 
         isUserInteractionEnabled = false
 
-        titleLabel.text = R.string.localizable.sendPageToAddressTitle.key.localized()
+        titleLabel.text = R.string.localizable.sendPageToAddressTitle()
         textView.text = address
 
         addSubview(titleLabel)

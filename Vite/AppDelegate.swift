@@ -14,7 +14,7 @@ import Vite_HDWalletKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    let window = UIWindow(frame: UIScreen.main.bounds)
 
     lazy var lockWindow: UIWindow = {
         let window = UIWindow(frame: UIScreen.main.bounds)
@@ -28,10 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         handleNotification()
         _ = LocalizationService.sharedInstance
 
-        window = UIWindow(frame: UIScreen.main.bounds)
-        handleRootVC()
+        goShowIntroViewPage()
 
-        AppUpdateVM.checkUpdate()
+        AppUpdateService.checkUpdate()
         AppSettingsService.instance.start()
         TokenCacheService.instance.start()
         AutoGatheringService.instance.start()
@@ -42,7 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func handleNotification() {
         let b = NotificationCenter.default.rx.notification(.logoutDidFinish)
-        Observable.of(b)
+        let c = NotificationCenter.default.rx.notification(.finishShowIntroPage)
+        Observable.of(b, c)
             .merge()
             .takeUntil(self.rx.deallocated)
             .subscribe {[weak self] (_) in
@@ -83,14 +83,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let rootVC = CreateAccountHomeViewController()
             rootVC.automaticallyShowDismissButton = false
             let nav = BaseNavigationController(rootViewController: rootVC)
-            window?.rootViewController = nav
-            window?.makeKeyAndVisible()
+            window.rootViewController = nav
+            window.makeKeyAndVisible()
         } else {
             let rootVC = LoginViewController()
             rootVC.automaticallyShowDismissButton = false
             let nav = BaseNavigationController(rootViewController: rootVC)
-            window?.rootViewController = nav
-            window?.makeKeyAndVisible()
+            window.rootViewController = nav
+            window.makeKeyAndVisible()
+        }
+    }
+
+    func goShowIntroViewPage() {
+        let introViewPageVersion = UserDefaultsService.instance.objectForKey("IntroView", inCollection: "IntroViewPageVersion") as? String  ?? ""
+        if introViewPageVersion != Constants.IntroductionPageVersion {
+            let vc = IntroductionViewController()
+            window.rootViewController = vc
+            window.makeKeyAndVisible()
+        } else {
+            handleRootVC()
         }
     }
 
@@ -111,8 +122,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func goHomePage() {
         let rootVC = HomeViewController()
-        window?.rootViewController = rootVC
-        window?.makeKeyAndVisible()
+        window.rootViewController = rootVC
+        window.makeKeyAndVisible()
         lockWindow.isHidden = true
     }
 

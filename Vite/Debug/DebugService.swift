@@ -124,7 +124,7 @@ class DebugService: Mappable {
             updateAppEnvironment()
             pri_save()
             DispatchQueue.main.async {
-                AppUpdateVM.checkUpdate()
+                AppUpdateService.checkUpdate()
                 AppSettingsService.instance.start()
             }
         }

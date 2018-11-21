@@ -29,7 +29,7 @@ class LockViewController: BaseViewController {
     }()
 
     lazy var btnDescView: BtnDescView = {
-        let btnDescView = BtnDescView.init(title: R.string.localizable.lockPageFingerprintBtnTitle.key.localized())
+        let btnDescView = BtnDescView.init(title: R.string.localizable.lockPageFingerprintBtnTitle())
         btnDescView.btn.setImage(R.image.fingerprint(), for: .normal)
         btnDescView.btn.setImage(R.image.fingerprint(), for: .highlighted)
         btnDescView.btn.addTarget(self, action: #selector(confirmBtnAction), for: .touchUpInside)
@@ -38,7 +38,7 @@ class LockViewController: BaseViewController {
 
     lazy var loginPwdBtn: UIButton = {
         let loginBtn = UIButton.init(style: .whiteWithoutShadow)
-        loginBtn.setTitle(R.string.localizable.lockPagePwdBtnTitle.key.localized(), for: .normal)
+        loginBtn.setTitle(R.string.localizable.lockPagePwdBtnTitle(), for: .normal)
         loginBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         loginBtn.addTarget(self, action: #selector(loginBtnAction), for: .touchUpInside)
         return loginBtn
@@ -88,10 +88,10 @@ extension LockViewController {
         self.touchValidation()
     }
     private func touchValidation() {
-        BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.lockPageFingerprintAlterTitle.key.localized(), completion: { (success, _) in
+        BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.lockPageFingerprintAlterTitle(), completion: { (success, _) in
             guard success else { return }
 
-            self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle.key.localized(), animated: true)
+            self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle(), animated: true)
 
             DispatchQueue.global().async {
                 if let wallet = KeychainService.instance.currentWallet,
@@ -104,7 +104,7 @@ extension LockViewController {
                 } else {
                     DispatchQueue.main.async {
                         self.view.hideLoading()
-                        Toast.show(R.string.localizable.toastErrorLogin.key.localized())
+                        Toast.show(R.string.localizable.toastErrorLogin())
                     }
                 }
             }

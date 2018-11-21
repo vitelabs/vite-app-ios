@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class LabelTipView: UIView {
+class LabelTipView: UIButton {
     let titleLab = UILabel().then {
         $0.textColor = .black
         $0.font = Fonts.Font17

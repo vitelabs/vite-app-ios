@@ -61,7 +61,7 @@ class CreateWalletAccountViewController: BaseViewController {
 
     lazy var submitBtn: UIButton = {
         var submitBtn = UIButton.init(style: .blue)
-    submitBtn.setTitle(R.string.localizable.createPageSubmitBtnTitle.key.localized(), for: .normal)
+    submitBtn.setTitle(R.string.localizable.createPageSubmitBtnTitle(), for: .normal)
         submitBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         submitBtn.setBackgroundImage(UIImage.color(Colors.btnDisableGray), for: .disabled)
         return submitBtn
@@ -72,7 +72,7 @@ extension CreateWalletAccountViewController {
 
     private func _setupView() {
         self.view.backgroundColor = .white
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.createPageTitle.key.localized())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.createPageTitle())
 
         self._addViewConstraint()
     }

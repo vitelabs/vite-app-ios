@@ -46,7 +46,7 @@ class ManageWalletHeaderView: UIView {
 
     lazy var nameTitleLab: UILabel = {
         let nameTitleLab =  UILabel()
-        nameTitleLab.text = R.string.localizable.manageWalletPageNameCellTitle.key.localized()
+        nameTitleLab.text = R.string.localizable.manageWalletPageNameCellTitle()
         nameTitleLab.textAlignment = .left
         nameTitleLab.textColor =  Colors.titleGray
         nameTitleLab.adjustsFontSizeToFitWidth = true

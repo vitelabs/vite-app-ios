@@ -11,8 +11,8 @@ import RxCocoa
 import RxSwift
 
 final class CreateAccountHomeVM: NSObject {
-    var createAccountBtnStr  =  BehaviorRelay(value: R.string.localizable.createAccount.key.localized())
-    var recoverAccountBtnStr = BehaviorRelay(value: R.string.localizable.importAccount.key.localized())
+    var createAccountBtnStr  =  BehaviorRelay(value: R.string.localizable.createAccount())
+    var recoverAccountBtnStr = BehaviorRelay(value: R.string.localizable.importAccount())
     var changeLanguageBtnStr = BehaviorRelay(value: LocalizationService.sharedInstance.currentLanguage.name)
     override init() {
         super.init()
@@ -26,8 +26,8 @@ final class CreateAccountHomeVM: NSObject {
             .subscribe(onNext: { [weak self] (_) in
                 guard let `self` = self else { return }
 
-                self.createAccountBtnStr.accept(R.string.localizable.createAccount.key.localized())
-                self.recoverAccountBtnStr.accept(R.string.localizable.importAccount.key.localized())
+                self.createAccountBtnStr.accept(R.string.localizable.createAccount())
+                self.recoverAccountBtnStr.accept(R.string.localizable.importAccount())
             self.changeLanguageBtnStr.accept(LocalizationService.sharedInstance.currentLanguage.name)
             }).disposed(by: rx.disposeBag)
     }

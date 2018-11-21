@@ -29,7 +29,7 @@ class TransactionListViewController: BaseTableViewController {
 
     fileprivate func setupView() {
 
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.transactionListPageTitle.key.localized())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.transactionListPageTitle())
 
         tableView.separatorStyle = .none
         tableView.rowHeight = TransactionCell.cellHeight
@@ -139,6 +139,6 @@ extension TransactionListViewController: ViewControllerDataStatusable {
     }
 
     func emptyView() -> UIView {
-        return UIView.defaultPlaceholderView(text: R.string.localizable.transactionListPageEmpty.key.localized())
+        return UIView.defaultPlaceholderView(text: R.string.localizable.transactionListPageEmpty())
     }
 }

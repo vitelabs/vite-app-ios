@@ -14,7 +14,8 @@
 		4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EC2213FE73A00D483C6 /* LocalizationService.swift */; };
 		4C105EC5213FEFF800D483C6 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EC4213FEFF800D483C6 /* NotificationName.swift */; };
 		4C105ED12141401100D483C6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105ED02141401100D483C6 /* String.swift */; };
-		4C181B06215CD5E000FB6CA8 /* AppUpdateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */; };
+		4C12371421A4424C00E4454E /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12371321A4424C00E4454E /* IntroductionViewController.swift */; };
+		4C181B06215CD5E000FB6CA8 /* AppUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateService.swift */; };
 		4C1FF4F0212A74730055067D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
 		4C2284B52148BB2A003E9907 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284B42148BB2A003E9907 /* ImageCell.swift */; };
 		4C2284B82148BC2B003E9907 /* MyHomeListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284B72148BC2B003E9907 /* MyHomeListHeaderView.swift */; };
@@ -39,6 +40,8 @@
 		4C5A13EA21940562000A979F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C5A13E921940562000A979F /* Images.xcassets */; };
 		4C5A13EC21942544000A979F /* IconLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13EB21942544000A979F /* IconLabelView.swift */; };
 		4C5A13F02194359A000A979F /* LabelBgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13EF2194359A000A979F /* LabelBgView.swift */; };
+		4C5AC55421A5675C001DAC0F /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12371321A4424C00E4454E /* IntroductionViewController.swift */; };
+		4C5AC55521A5675C001DAC0F /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12371321A4424C00E4454E /* IntroductionViewController.swift */; };
 		4C5E23022192EDDE0010B905 /* Provider+Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23012192EDDD0010B905 /* Provider+Vote.swift */; };
 		4C5E23062192EDEB0010B905 /* CancelVoteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23042192EDEB0010B905 /* CancelVoteRequest.swift */; };
 		4C5E23072192EDEB0010B905 /* GetVoteInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5E23052192EDEB0010B905 /* GetVoteInfoRequest.swift */; };
@@ -66,7 +69,6 @@
 		4C9AFD56214E241F005B12C2 /* IconBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD55214E241F005B12C2 /* IconBtnView.swift */; };
 		4C9AFD59214E2FF2005B12C2 /* ManageWalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD58214E2FF2005B12C2 /* ManageWalletHeaderView.swift */; };
 		4C9AFD5C214F433C005B12C2 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD5B214F433C005B12C2 /* AboutUsViewController.swift */; };
-		4C9AFD5E214F4370005B12C2 /* FetchWelfareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */; };
 		4C9AFD8C214FBB85005B12C2 /* AboutUsTableBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD8B214FBB85005B12C2 /* AboutUsTableBottomView.swift */; };
 		4CC4F451214CCB5B0068DA53 /* TitlePasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4F450214CCB5B0068DA53 /* TitlePasswordInputView.swift */; };
 		4CC75382215A2D740009CA0E /* CellSeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC75381215A2D740009CA0E /* CellSeparatorLine.swift */; };
@@ -81,11 +83,9 @@
 		4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE425A2124553C0080E92B /* ViteTests.swift */; };
 		4CE4E13D214794D000A6CD7E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4E13C214794D000A6CD7E /* UIImage.swift */; };
 		4CE4E14521479EAF00A6CD7E /*  CreateWalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4E14421479EAF00A6CD7E /*  CreateWalletService.swift */; };
-		4CE83DDE21511E2000AB1DAD /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE83DDD21511E2000AB1DAD /* UIViewController+Loading.swift */; };
 		4CEB2926214B968000E5F7F4 /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */; };
 		4CEB292B214BBD2400E5F7F4 /* ViteInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */; };
 		4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */; };
-		4CFD6CC12154BF4C00437F33 /* FetchWelfareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD6CC02154BF4C00437F33 /* FetchWelfareCardView.swift */; };
 		4CFD6CC32154CAF800437F33 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD6CC22154CAF800437F33 /* LineView.swift */; };
 		740C3E4B214B6425005FCD24 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4A214B6425005FCD24 /* AuthenticationManager.swift */; };
 		740C3E4E214B9CC2005FCD24 /* TransactionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4D214B9CC2005FCD24 /* TransactionInfoView.swift */; };
@@ -95,7 +95,11 @@
 		741414D82186FA39007DDD01 /* PledgeHistoryViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414D62186FA39007DDD01 /* PledgeHistoryViewReactor.swift */; };
 		741414DB2186FA71007DDD01 /* PledgeHistoryDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414DA2186FA71007DDD01 /* PledgeHistoryDescriptionView.swift */; };
 		741414DD2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414DC2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift */; };
-		744CC4602178684E00F55A52 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744CC45F2178684E00F55A52 /* Error.swift */; };
+		743534CA21A29B3800CD8C1D /* AlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743534C921A29B3800CD8C1D /* AlertControl.swift */; };
+		743534CB21A29B3800CD8C1D /* AlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743534C921A29B3800CD8C1D /* AlertControl.swift */; };
+		743534CC21A29B3800CD8C1D /* AlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743534C921A29B3800CD8C1D /* AlertControl.swift */; };
+		743534CD21A29B3800CD8C1D /* AlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743534C921A29B3800CD8C1D /* AlertControl.swift */; };
+		744CC4602178684E00F55A52 /* ViteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744CC45F2178684E00F55A52 /* ViteError.swift */; };
 		74875E1C2191707300C3AE9D /* GetCandidateListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E1B2191707300C3AE9D /* GetCandidateListRequest.swift */; };
 		74875E1E2191756400C3AE9D /* Provider+VoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E1D2191756400C3AE9D /* Provider+VoteList.swift */; };
 		74875E202191802C00C3AE9D /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E1F2191802C00C3AE9D /* Candidate.swift */; };
@@ -157,7 +161,6 @@
 		8E6F3DF82140FE99003CDFC2 /* RPCServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */; };
 		8E6F3DFB2140FFEC003CDFC2 /* ViteServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */; };
 		8E6F3DFF2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3DFE2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift */; };
-		8E6F3E0121410424003CDFC2 /* RPCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0021410424003CDFC2 /* RPCError.swift */; };
 		8E6F3E0721411650003CDFC2 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0621411650003CDFC2 /* Transaction.swift */; };
 		8E6F3E0A2141199B003CDFC2 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E092141199B003CDFC2 /* Address.swift */; };
 		8E6F3E0C21412150003CDFC2 /* GetTransactionsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0B21412150003CDFC2 /* GetTransactionsRequest.swift */; };
@@ -209,7 +212,6 @@
 		8EA0BE2621996D4800FDE2E8 /* AccountBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46915214BD1AF00807D2C /* AccountBlock.swift */; };
 		8EA0BE2721996D4800FDE2E8 /* ReceiveHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D636D215B76D1009617A0 /* ReceiveHeaderView.swift */; };
 		8EA0BE2821996D4800FDE2E8 /* AddAddressFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E68C4872182E65F00475133 /* AddAddressFloatView.swift */; };
-		8EA0BE2921996D4800FDE2E8 /* FetchWelfareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD6CC02154BF4C00437F33 /* FetchWelfareCardView.swift */; };
 		8EA0BE2A21996D4800FDE2E8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EBE213FCAD500D483C6 /* UIColor.swift */; };
 		8EA0BE2B21996D4800FDE2E8 /* TitleTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468F5214A494800807D2C /* TitleTextFieldView.swift */; };
 		8EA0BE2C21996D4800FDE2E8 /* NavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46908214BA1BE00807D2C /* NavigationTitleView.swift */; };
@@ -253,7 +255,7 @@
 		8EA0BE5321996D4800FDE2E8 /* CreateNameAndPwdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A191C2151323400C51CE8 /* CreateNameAndPwdView.swift */; };
 		8EA0BE5421996D4800FDE2E8 /* MyHomeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E4921916EB60049CDE0 /* MyHomeListCell.swift */; };
 		8EA0BE5521996D4800FDE2E8 /* TitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC75387215B3AAF0009CA0E /* TitleTextView.swift */; };
-		8EA0BE5621996D4800FDE2E8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744CC45F2178684E00F55A52 /* Error.swift */; };
+		8EA0BE5621996D4800FDE2E8 /* ViteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744CC45F2178684E00F55A52 /* ViteError.swift */; };
 		8EA0BE5721996D4800FDE2E8 /* GetVoteDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E2121918D1D00C3AE9D /* GetVoteDataRequest.swift */; };
 		8EA0BE5821996D4800FDE2E8 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54853B217DC5BD009C528B /* NetworkResult.swift */; };
 		8EA0BE5921996D4800FDE2E8 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E1B2142280F003CDFC2 /* BaseTableViewController.swift */; };
@@ -290,7 +292,7 @@
 		8EA0BE7821996D4800FDE2E8 /* GetFittestSnapshotHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6EB214E5DCE00FAEEBC /* GetFittestSnapshotHashRequest.swift */; };
 		8EA0BE7921996D4800FDE2E8 /* TransactionListTableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC8F2147684200A68823 /* TransactionListTableViewModelType.swift */; };
 		8EA0BE7A21996D4800FDE2E8 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261921522085007FEBAB /* Alert.swift */; };
-		8EA0BE7B21996D4800FDE2E8 /* AppUpdateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */; };
+		8EA0BE7B21996D4800FDE2E8 /* AppUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateService.swift */; };
 		8EA0BE7C21996D4800FDE2E8 /* IconLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13EB21942544000A979F /* IconLabelView.swift */; };
 		8EA0BE7D21996D4800FDE2E8 /* UIWindow+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB69C217053AE001525EB /* UIWindow+Debug.swift */; };
 		8EA0BE7E21996D4800FDE2E8 /* AddressManageDefaultAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468E2214A047500807D2C /* AddressManageDefaultAddressCell.swift */; };
@@ -315,12 +317,10 @@
 		8EA0BE9121996D4800FDE2E8 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E092141199B003CDFC2 /* Address.swift */; };
 		8EA0BE9221996D4800FDE2E8 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54853F217F2778009C528B /* Statistics.swift */; };
 		8EA0BE9321996D4800FDE2E8 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284B42148BB2A003E9907 /* ImageCell.swift */; };
-		8EA0BE9421996D4800FDE2E8 /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE83DDD21511E2000AB1DAD /* UIViewController+Loading.swift */; };
 		8EA0BE9521996D4800FDE2E8 /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D91B2145277C001B6EBD /* PasswordInputView.swift */; };
 		8EA0BE9621996D4800FDE2E8 /* PledgeHistoryViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414D62186FA39007DDD01 /* PledgeHistoryViewReactor.swift */; };
 		8EA0BE9721996D4800FDE2E8 /* WalletHomeBalanceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */; };
 		8EA0BE9821996D4800FDE2E8 /* WalletHomeAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4691D214CE03F00807D2C /* WalletHomeAddressView.swift */; };
-		8EA0BE9921996D4800FDE2E8 /* RPCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0021410424003CDFC2 /* RPCError.swift */; };
 		8EA0BE9A21996D4800FDE2E8 /* UITextView+FDSKeyboardAutoScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107EE0215B2BE700B28DE2 /* UITextView+FDSKeyboardAutoScrolling.swift */; };
 		8EA0BE9B21996D4800FDE2E8 /* QuotaSubmitPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E20A2182E89500007E9F /* QuotaSubmitPopViewController.swift */; };
 		8EA0BE9C21996D4800FDE2E8 /* ViteInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */; };
@@ -413,7 +413,6 @@
 		8EA0BEF321996D4800FDE2E8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E192142280F003CDFC2 /* BaseViewController.swift */; };
 		8EA0BEF421996D4800FDE2E8 /* Provider+VoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E1D2191756400C3AE9D /* Provider+VoteList.swift */; };
 		8EA0BEF521996D4800FDE2E8 /* PledgeHistoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414DC2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift */; };
-		8EA0BEF621996D4800FDE2E8 /* FetchWelfareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */; };
 		8EA0BEF721996D4800FDE2E8 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB698216C8957001525EB /* KeychainService.swift */; };
 		8EA0BEF821996D4800FDE2E8 /* CellSeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC75381215A2D740009CA0E /* CellSeparatorLine.swift */; };
 		8EA0BEF921996D4800FDE2E8 /* CreateTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4691B214CAD6600807D2C /* CreateTransactionRequest.swift */; };
@@ -434,7 +433,6 @@
 		8EA0BF1721996D7800FDE2E8 /* AccountBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46915214BD1AF00807D2C /* AccountBlock.swift */; };
 		8EA0BF1821996D7800FDE2E8 /* ReceiveHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D636D215B76D1009617A0 /* ReceiveHeaderView.swift */; };
 		8EA0BF1921996D7800FDE2E8 /* AddAddressFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E68C4872182E65F00475133 /* AddAddressFloatView.swift */; };
-		8EA0BF1A21996D7800FDE2E8 /* FetchWelfareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD6CC02154BF4C00437F33 /* FetchWelfareCardView.swift */; };
 		8EA0BF1B21996D7800FDE2E8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EBE213FCAD500D483C6 /* UIColor.swift */; };
 		8EA0BF1C21996D7800FDE2E8 /* TitleTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468F5214A494800807D2C /* TitleTextFieldView.swift */; };
 		8EA0BF1D21996D7800FDE2E8 /* NavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46908214BA1BE00807D2C /* NavigationTitleView.swift */; };
@@ -478,7 +476,7 @@
 		8EA0BF4421996D7800FDE2E8 /* CreateNameAndPwdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A191C2151323400C51CE8 /* CreateNameAndPwdView.swift */; };
 		8EA0BF4521996D7800FDE2E8 /* MyHomeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E4921916EB60049CDE0 /* MyHomeListCell.swift */; };
 		8EA0BF4621996D7800FDE2E8 /* TitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC75387215B3AAF0009CA0E /* TitleTextView.swift */; };
-		8EA0BF4721996D7800FDE2E8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744CC45F2178684E00F55A52 /* Error.swift */; };
+		8EA0BF4721996D7800FDE2E8 /* ViteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744CC45F2178684E00F55A52 /* ViteError.swift */; };
 		8EA0BF4821996D7800FDE2E8 /* GetVoteDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E2121918D1D00C3AE9D /* GetVoteDataRequest.swift */; };
 		8EA0BF4921996D7800FDE2E8 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54853B217DC5BD009C528B /* NetworkResult.swift */; };
 		8EA0BF4A21996D7800FDE2E8 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E1B2142280F003CDFC2 /* BaseTableViewController.swift */; };
@@ -515,7 +513,7 @@
 		8EA0BF6921996D7800FDE2E8 /* GetFittestSnapshotHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79C6EB214E5DCE00FAEEBC /* GetFittestSnapshotHashRequest.swift */; };
 		8EA0BF6A21996D7800FDE2E8 /* TransactionListTableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC8F2147684200A68823 /* TransactionListTableViewModelType.swift */; };
 		8EA0BF6B21996D7800FDE2E8 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261921522085007FEBAB /* Alert.swift */; };
-		8EA0BF6C21996D7800FDE2E8 /* AppUpdateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */; };
+		8EA0BF6C21996D7800FDE2E8 /* AppUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C181B05215CD5E000FB6CA8 /* AppUpdateService.swift */; };
 		8EA0BF6D21996D7800FDE2E8 /* IconLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A13EB21942544000A979F /* IconLabelView.swift */; };
 		8EA0BF6E21996D7800FDE2E8 /* UIWindow+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB69C217053AE001525EB /* UIWindow+Debug.swift */; };
 		8EA0BF6F21996D7800FDE2E8 /* AddressManageDefaultAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468E2214A047500807D2C /* AddressManageDefaultAddressCell.swift */; };
@@ -540,12 +538,10 @@
 		8EA0BF8221996D7800FDE2E8 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E092141199B003CDFC2 /* Address.swift */; };
 		8EA0BF8321996D7800FDE2E8 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54853F217F2778009C528B /* Statistics.swift */; };
 		8EA0BF8421996D7800FDE2E8 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284B42148BB2A003E9907 /* ImageCell.swift */; };
-		8EA0BF8521996D7800FDE2E8 /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE83DDD21511E2000AB1DAD /* UIViewController+Loading.swift */; };
 		8EA0BF8621996D7800FDE2E8 /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D91B2145277C001B6EBD /* PasswordInputView.swift */; };
 		8EA0BF8721996D7800FDE2E8 /* PledgeHistoryViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414D62186FA39007DDD01 /* PledgeHistoryViewReactor.swift */; };
 		8EA0BF8821996D7800FDE2E8 /* WalletHomeBalanceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */; };
 		8EA0BF8921996D7800FDE2E8 /* WalletHomeAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4691D214CE03F00807D2C /* WalletHomeAddressView.swift */; };
-		8EA0BF8A21996D7800FDE2E8 /* RPCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E0021410424003CDFC2 /* RPCError.swift */; };
 		8EA0BF8B21996D7800FDE2E8 /* UITextView+FDSKeyboardAutoScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E107EE0215B2BE700B28DE2 /* UITextView+FDSKeyboardAutoScrolling.swift */; };
 		8EA0BF8C21996D7800FDE2E8 /* QuotaSubmitPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32E20A2182E89500007E9F /* QuotaSubmitPopViewController.swift */; };
 		8EA0BF8D21996D7800FDE2E8 /* ViteInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */; };
@@ -638,7 +634,6 @@
 		8EA0BFE421996D7800FDE2E8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E192142280F003CDFC2 /* BaseViewController.swift */; };
 		8EA0BFE521996D7800FDE2E8 /* Provider+VoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E1D2191756400C3AE9D /* Provider+VoteList.swift */; };
 		8EA0BFE621996D7800FDE2E8 /* PledgeHistoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414DC2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift */; };
-		8EA0BFE721996D7800FDE2E8 /* FetchWelfareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */; };
 		8EA0BFE821996D7800FDE2E8 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB698216C8957001525EB /* KeychainService.swift */; };
 		8EA0BFE921996D7800FDE2E8 /* CellSeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC75381215A2D740009CA0E /* CellSeparatorLine.swift */; };
 		8EA0BFEA21996D7800FDE2E8 /* CreateTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4691B214CAD6600807D2C /* CreateTransactionRequest.swift */; };
@@ -663,6 +658,9 @@
 		8ECA6E48219141720049CDE0 /* StringWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E47219141720049CDE0 /* StringWrapper.swift */; };
 		8ECA6E4A21916EB60049CDE0 /* MyHomeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E4921916EB60049CDE0 /* MyHomeListCell.swift */; };
 		8ECA6E4C219170370049CDE0 /* MyHomeConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA6E4B219170370049CDE0 /* MyHomeConfigViewModel.swift */; };
+		8ED3807D21A3FCA50009CD8B /* ViteErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED3807C21A3FCA50009CD8B /* ViteErrorCode.swift */; };
+		8ED3807E21A3FCAC0009CD8B /* ViteErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED3807C21A3FCA50009CD8B /* ViteErrorCode.swift */; };
+		8ED3807F21A3FCAD0009CD8B /* ViteErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED3807C21A3FCA50009CD8B /* ViteErrorCode.swift */; };
 		8ED4CECC2147C4A60005A82D /* SafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CECB2147C4A60005A82D /* SafariViewController.swift */; };
 		8ED4CECF2147C5910005A82D /* WebHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CECE2147C5910005A82D /* WebHandler.swift */; };
 		8ED4CED32148AF630005A82D /* GetMoreLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4CED22148AF630005A82D /* GetMoreLoadingView.swift */; };
@@ -709,7 +707,6 @@
 
 /* Begin PBXFileReference section */
 		4059C952E96B64902F8A16DC /* Pods-Vite-enterprise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-enterprise.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise.debug.xcconfig"; sourceTree = "<group>"; };
-		44F573708256219C00E2D9B0 /* Pods-Vite.releaseinhousefordistribute.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.releaseinhousefordistribute.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.releaseinhousefordistribute.xcconfig"; sourceTree = "<group>"; };
 		4C0024E221257CD9001DF390 /* Vite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vite.entitlements; sourceTree = "<group>"; };
 		4C0024E321258005001DF390 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		4C105EBB213FCA7400D483C6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -718,7 +715,8 @@
 		4C105EC2213FE73A00D483C6 /* LocalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationService.swift; sourceTree = "<group>"; };
 		4C105EC4213FEFF800D483C6 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		4C105ED02141401100D483C6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateVM.swift; sourceTree = "<group>"; };
+		4C12371321A4424C00E4454E /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
+		4C181B05215CD5E000FB6CA8 /* AppUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateService.swift; sourceTree = "<group>"; };
 		4C1FF4F1212A74730055067D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4C1FF4F4212A76410055067D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4C2284B42148BB2A003E9907 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
@@ -771,7 +769,6 @@
 		4C9AFD55214E241F005B12C2 /* IconBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconBtnView.swift; sourceTree = "<group>"; };
 		4C9AFD58214E2FF2005B12C2 /* ManageWalletHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageWalletHeaderView.swift; sourceTree = "<group>"; };
 		4C9AFD5B214F433C005B12C2 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
-		4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWelfareViewController.swift; sourceTree = "<group>"; };
 		4C9AFD71214F8F4C005B12C2 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		4C9AFD73214F8F54005B12C2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4C9AFD75214F8F5E005B12C2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -803,11 +800,9 @@
 		4CCE42672124553C0080E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CE4E13C214794D000A6CD7E /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		4CE4E14421479EAF00A6CD7E /*  CreateWalletService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CreateWalletService.swift"; sourceTree = "<group>"; };
-		4CE83DDD21511E2000AB1DAD /* UIViewController+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Loading.swift"; sourceTree = "<group>"; };
 		4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loading.swift"; sourceTree = "<group>"; };
 		4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidator.swift; sourceTree = "<group>"; };
 		4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidTest.swift; sourceTree = "<group>"; };
-		4CFD6CC02154BF4C00437F33 /* FetchWelfareCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWelfareCardView.swift; sourceTree = "<group>"; };
 		4CFD6CC22154CAF800437F33 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		6DA5968E2DBCD2A8A449CBD1 /* Pods-Vite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.release.xcconfig"; sourceTree = "<group>"; };
 		740C3E4A214B6425005FCD24 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
@@ -818,7 +813,8 @@
 		741414D62186FA39007DDD01 /* PledgeHistoryViewReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PledgeHistoryViewReactor.swift; sourceTree = "<group>"; };
 		741414DA2186FA71007DDD01 /* PledgeHistoryDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeHistoryDescriptionView.swift; sourceTree = "<group>"; };
 		741414DC2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeHistoryCellTableViewCell.swift; sourceTree = "<group>"; };
-		744CC45F2178684E00F55A52 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		743534C921A29B3800CD8C1D /* AlertControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControl.swift; sourceTree = "<group>"; };
+		744CC45F2178684E00F55A52 /* ViteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteError.swift; sourceTree = "<group>"; };
 		74875E1B2191707300C3AE9D /* GetCandidateListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCandidateListRequest.swift; sourceTree = "<group>"; };
 		74875E1D2191756400C3AE9D /* Provider+VoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+VoteList.swift"; sourceTree = "<group>"; };
 		74875E1F2191802C00C3AE9D /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
@@ -882,7 +878,6 @@
 		8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCServer.swift; sourceTree = "<group>"; };
 		8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteServiceRequest.swift; sourceTree = "<group>"; };
 		8E6F3DFE2141025B003CDFC2 /* GetSnapshotChainHeightRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSnapshotChainHeightRequest.swift; sourceTree = "<group>"; };
-		8E6F3E0021410424003CDFC2 /* RPCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCError.swift; sourceTree = "<group>"; };
 		8E6F3E0621411650003CDFC2 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		8E6F3E092141199B003CDFC2 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		8E6F3E0B21412150003CDFC2 /* GetTransactionsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionsRequest.swift; sourceTree = "<group>"; };
@@ -941,6 +936,7 @@
 		8ECA6E47219141720049CDE0 /* StringWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringWrapper.swift; sourceTree = "<group>"; };
 		8ECA6E4921916EB60049CDE0 /* MyHomeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHomeListCell.swift; sourceTree = "<group>"; };
 		8ECA6E4B219170370049CDE0 /* MyHomeConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHomeConfigViewModel.swift; sourceTree = "<group>"; };
+		8ED3807C21A3FCA50009CD8B /* ViteErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteErrorCode.swift; sourceTree = "<group>"; };
 		8ED4CECB2147C4A60005A82D /* SafariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewController.swift; sourceTree = "<group>"; };
 		8ED4CECE2147C5910005A82D /* WebHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHandler.swift; sourceTree = "<group>"; };
 		8ED4CED22148AF630005A82D /* GetMoreLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoreLoadingView.swift; sourceTree = "<group>"; };
@@ -970,14 +966,11 @@
 		8EE46921214D017200807D2C /* GetLatestAccountBlockRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLatestAccountBlockRequest.swift; sourceTree = "<group>"; };
 		90D19E345292B3451EF0C77B /* Pods-ViteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9CDD7A55935285C97D7AB255 /* Pods-ViteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.release.xcconfig"; sourceTree = "<group>"; };
-		ABD5A53A14364821207B7C56 /* Pods-ViteTests.releaseinhousefordistribute.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.releaseinhousefordistribute.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.releaseinhousefordistribute.xcconfig"; sourceTree = "<group>"; };
 		C8E773A0A276605E0DA2851B /* Pods-Vite-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test.debug.xcconfig"; sourceTree = "<group>"; };
 		D55D99607767985694E66AD0 /* Pods_Vite_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D83E6CF5AD50F3015A693D0D /* Pods-ViteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViteUITests/Pods-ViteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD1DAFB4B79D1A75BEB0A664 /* Pods-Vite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.debug.xcconfig"; sourceTree = "<group>"; };
 		E371DBD76F35FAF8F3007466 /* Pods_Vite_enterprise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite_enterprise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5EF60202B89DEC8B075E04F /* Pods_ViteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED2FE67C927C72B4CA67FD50 /* Pods-ViteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViteUITests/Pods-ViteUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1022,10 +1015,6 @@
 			children = (
 				90D19E345292B3451EF0C77B /* Pods-ViteTests.debug.xcconfig */,
 				9CDD7A55935285C97D7AB255 /* Pods-ViteTests.release.xcconfig */,
-				D83E6CF5AD50F3015A693D0D /* Pods-ViteUITests.debug.xcconfig */,
-				ED2FE67C927C72B4CA67FD50 /* Pods-ViteUITests.release.xcconfig */,
-				44F573708256219C00E2D9B0 /* Pods-Vite.releaseinhousefordistribute.xcconfig */,
-				ABD5A53A14364821207B7C56 /* Pods-ViteTests.releaseinhousefordistribute.xcconfig */,
 				DD1DAFB4B79D1A75BEB0A664 /* Pods-Vite.debug.xcconfig */,
 				6DA5968E2DBCD2A8A449CBD1 /* Pods-Vite.release.xcconfig */,
 				4059C952E96B64902F8A16DC /* Pods-Vite-enterprise.debug.xcconfig */,
@@ -1040,7 +1029,6 @@
 			isa = PBXGroup;
 			children = (
 				4C105EBE213FCAD500D483C6 /* UIColor.swift */,
-				744CC45F2178684E00F55A52 /* Error.swift */,
 				4C105ED02141401100D483C6 /* String.swift */,
 				4CE4E13C214794D000A6CD7E /* UIImage.swift */,
 				8E56FC9B2147A9CE00A68823 /* DateExtension.swift */,
@@ -1049,18 +1037,17 @@
 				8EE468FE214A6D4200807D2C /* UITextField+FDSKeyboardAutoScrolling.swift */,
 				8E107EE0215B2BE700B28DE2 /* UITextView+FDSKeyboardAutoScrolling.swift */,
 				4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */,
-				4CE83DDD21511E2000AB1DAD /* UIViewController+Loading.swift */,
 				4C3E323E215492AC009936E3 /* Bundle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		4C181B04215CD5C400FB6CA8 /* Config */ = {
+		4C12371221A4424C00E4454E /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				4C181B05215CD5E000FB6CA8 /* AppUpdateVM.swift */,
+				4C12371321A4424C00E4454E /* IntroductionViewController.swift */,
 			);
-			path = Config;
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		4C1FF4EC212A73FB0055067D /* Resource */ = {
@@ -1096,7 +1083,6 @@
 				4C9AFD8A214FBB69005B12C2 /* View */,
 				4C2284BA214906F0003E9907 /* SystemViewController.swift */,
 				4C9AFD5B214F433C005B12C2 /* AboutUsViewController.swift */,
-				4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -1151,8 +1137,8 @@
 		4C4C9D65213E9629005542F8 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4C12371221A4424C00E4454E /* Welcome */,
 				4C2FAD912190574500FC9524 /* Vote */,
-				4C181B04215CD5C400FB6CA8 /* Config */,
 				4C2284B9214906D6003E9907 /* System */,
 				4C84D928214527F4001B6EBD /* Account */,
 				8E6F3E2321422A8F003CDFC2 /* Home */,
@@ -1166,6 +1152,7 @@
 				4C105EC2213FE73A00D483C6 /* LocalizationService.swift */,
 				4C105EC4213FEFF800D483C6 /* NotificationName.swift */,
 				8E0FB698216C8957001525EB /* KeychainService.swift */,
+				4C181B05215CD5E000FB6CA8 /* AppUpdateService.swift */,
 				8E548533217DA62B009C528B /* UserDefaultsService.swift */,
 				8E548535217DABFC009C528B /* AppSettingsService.swift */,
 				4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */,
@@ -1177,6 +1164,7 @@
 				8E79261B21522BF1007FEBAB /* FetchBalanceInfoService.swift */,
 				8E68C4832182BFBE00475133 /* FetchQuotaService.swift */,
 				8E792613215151E0007FEBAB /* ViteURI.swift */,
+				743534C921A29B3800CD8C1D /* AlertControl.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1365,7 +1353,6 @@
 			isa = PBXGroup;
 			children = (
 				4C9AFD8B214FBB85005B12C2 /* AboutUsTableBottomView.swift */,
-				4CFD6CC02154BF4C00437F33 /* FetchWelfareCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1573,7 +1560,6 @@
 		8E548537217DB821009C528B /* RPC */ = {
 			isa = PBXGroup;
 			children = (
-				8E6F3E0021410424003CDFC2 /* RPCError.swift */,
 				8E6F3DF72140FE99003CDFC2 /* RPCServer.swift */,
 				8E6F3E1121421A4F003CDFC2 /* JSONTransformer.swift */,
 				8E6F3DFA2140FFEC003CDFC2 /* ViteServiceRequest.swift */,
@@ -1700,6 +1686,8 @@
 		8E6F3DF92140FEA5003CDFC2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				744CC45F2178684E00F55A52 /* ViteError.swift */,
+				8ED3807C21A3FCA50009CD8B /* ViteErrorCode.swift */,
 				8E54853B217DC5BD009C528B /* NetworkResult.swift */,
 				8E548538217DB82C009C528B /* Server */,
 				8E548537217DB821009C528B /* RPC */,
@@ -2152,6 +2140,7 @@
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
+				"${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
@@ -2165,10 +2154,12 @@
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
+				"${BUILT_PRODUCTS_DIR}/NYXImagesKit/NYXImagesKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/RazzleDazzle/RazzleDazzle.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
@@ -2196,6 +2187,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
@@ -2209,10 +2201,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NYXImagesKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RazzleDazzle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableKit.framework",
@@ -2276,6 +2270,7 @@
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
+				"${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
@@ -2289,10 +2284,12 @@
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
+				"${BUILT_PRODUCTS_DIR}/NYXImagesKit/NYXImagesKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/RazzleDazzle/RazzleDazzle.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
@@ -2318,6 +2315,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
@@ -2331,10 +2329,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NYXImagesKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RazzleDazzle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableKit.framework",
@@ -2372,6 +2372,7 @@
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
+				"${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
@@ -2385,10 +2386,12 @@
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
+				"${BUILT_PRODUCTS_DIR}/NYXImagesKit/NYXImagesKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/RazzleDazzle/RazzleDazzle.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
@@ -2416,6 +2419,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
@@ -2429,10 +2433,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NYXImagesKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RazzleDazzle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableKit.framework",
@@ -2582,7 +2588,6 @@
 				8EE46916214BD1AF00807D2C /* AccountBlock.swift in Sources */,
 				8E7D636E215B76D1009617A0 /* ReceiveHeaderView.swift in Sources */,
 				8E68C4882182E65F00475133 /* AddAddressFloatView.swift in Sources */,
-				4CFD6CC12154BF4C00437F33 /* FetchWelfareCardView.swift in Sources */,
 				4C105EBF213FCAD500D483C6 /* UIColor.swift in Sources */,
 				8EE468F6214A494800807D2C /* TitleTextFieldView.swift in Sources */,
 				8EE46909214BA1BE00807D2C /* NavigationTitleView.swift in Sources */,
@@ -2605,6 +2610,7 @@
 				74875E202191802C00C3AE9D /* Candidate.swift in Sources */,
 				8E56FC8721466D6500A68823 /* GetUnconfirmedInfosRequest.swift in Sources */,
 				8ED4CECC2147C4A60005A82D /* SafariViewController.swift in Sources */,
+				4C12371421A4424C00E4454E /* IntroductionViewController.swift in Sources */,
 				8E79261C21522BF1007FEBAB /* FetchBalanceInfoService.swift in Sources */,
 				8E56FC9C2147A9CE00A68823 /* DateExtension.swift in Sources */,
 				8E54854721804D65009C528B /* GetPledgeDataRequest.swift in Sources */,
@@ -2626,7 +2632,7 @@
 				4C2A191D2151323400C51CE8 /* CreateNameAndPwdView.swift in Sources */,
 				8ECA6E4A21916EB60049CDE0 /* MyHomeListCell.swift in Sources */,
 				4CC75388215B3AAF0009CA0E /* TitleTextView.swift in Sources */,
-				744CC4602178684E00F55A52 /* Error.swift in Sources */,
+				744CC4602178684E00F55A52 /* ViteError.swift in Sources */,
 				74875E2221918D1D00C3AE9D /* GetVoteDataRequest.swift in Sources */,
 				8E54853C217DC5BD009C528B /* NetworkResult.swift in Sources */,
 				8E6F3E1F2142280F003CDFC2 /* BaseTableViewController.swift in Sources */,
@@ -2663,7 +2669,7 @@
 				8E79C6EC214E5DCE00FAEEBC /* GetFittestSnapshotHashRequest.swift in Sources */,
 				8E56FC902147684200A68823 /* TransactionListTableViewModelType.swift in Sources */,
 				8E79261A21522085007FEBAB /* Alert.swift in Sources */,
-				4C181B06215CD5E000FB6CA8 /* AppUpdateVM.swift in Sources */,
+				4C181B06215CD5E000FB6CA8 /* AppUpdateService.swift in Sources */,
 				4C5A13EC21942544000A979F /* IconLabelView.swift in Sources */,
 				8E0FB69D217053AE001525EB /* UIWindow+Debug.swift in Sources */,
 				8EE468E3214A047500807D2C /* AddressManageDefaultAddressCell.swift in Sources */,
@@ -2688,12 +2694,10 @@
 				8E6F3E0A2141199B003CDFC2 /* Address.swift in Sources */,
 				8E548540217F2778009C528B /* Statistics.swift in Sources */,
 				4C2284B52148BB2A003E9907 /* ImageCell.swift in Sources */,
-				4CE83DDE21511E2000AB1DAD /* UIViewController+Loading.swift in Sources */,
 				4C84D91C2145277C001B6EBD /* PasswordInputView.swift in Sources */,
 				741414D82186FA39007DDD01 /* PledgeHistoryViewReactor.swift in Sources */,
 				8E56FC78214643B300A68823 /* WalletHomeBalanceInfoCell.swift in Sources */,
 				8EE4691E214CE03F00807D2C /* WalletHomeAddressView.swift in Sources */,
-				8E6F3E0121410424003CDFC2 /* RPCError.swift in Sources */,
 				8E107EE1215B2BE700B28DE2 /* UITextView+FDSKeyboardAutoScrolling.swift in Sources */,
 				4C32E20B2182E89500007E9F /* QuotaSubmitPopViewController.swift in Sources */,
 				4CEB292B214BBD2400E5F7F4 /* ViteInputValidator.swift in Sources */,
@@ -2728,6 +2732,7 @@
 				8EE4691A214CA8E800807D2C /* GCD+Helper.swift in Sources */,
 				8EE4690F214BCEC100807D2C /* Provider.swift in Sources */,
 				4C9AFD8C214FBB85005B12C2 /* AboutUsTableBottomView.swift in Sources */,
+				8ED3807D21A3FCA50009CD8B /* ViteErrorCode.swift in Sources */,
 				4C105ED12141401100D483C6 /* String.swift in Sources */,
 				4C5E230C2192EE010010B905 /* MyVoteInfoViewReactor.swift in Sources */,
 				4C3F3F6E217731900022A8CC /* MnemonicTextView.swift in Sources */,
@@ -2751,6 +2756,7 @@
 				4C2FAD952190578A00FC9524 /* MyVoteInfoViewController.swift in Sources */,
 				4C105EC3213FE73A00D483C6 /* LocalizationService.swift in Sources */,
 				8E68C48A2182FB3B00475133 /* GetPowFloatView.swift in Sources */,
+				743534CA21A29B3800CD8C1D /* AlertControl.swift in Sources */,
 				4CC4F451214CCB5B0068DA53 /* TitlePasswordInputView.swift in Sources */,
 				4C84D95C21466C1B001B6EBD /* AccountLoginResult.swift in Sources */,
 				8E7D6374215B7FBB009617A0 /* ReceiveFooterView.swift in Sources */,
@@ -2787,7 +2793,6 @@
 				8E6F3E1D2142280F003CDFC2 /* BaseViewController.swift in Sources */,
 				74875E1E2191756400C3AE9D /* Provider+VoteList.swift in Sources */,
 				741414DD2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift in Sources */,
-				4C9AFD5E214F4370005B12C2 /* FetchWelfareViewController.swift in Sources */,
 				8E0FB699216C8957001525EB /* KeychainService.swift in Sources */,
 				4CC75382215A2D740009CA0E /* CellSeparatorLine.swift in Sources */,
 				8EE4691C214CAD6600807D2C /* CreateTransactionRequest.swift in Sources */,
@@ -2808,6 +2813,7 @@
 				8E0FB697216B5B95001525EB /* ViteCryptoTest.swift in Sources */,
 				4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */,
 				8E6F3E14214220DF003CDFC2 /* ViteNetworkTests.swift in Sources */,
+				743534CD21A29B3800CD8C1D /* AlertControl.swift in Sources */,
 				4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2821,7 +2827,6 @@
 				8EA0BE2621996D4800FDE2E8 /* AccountBlock.swift in Sources */,
 				8EA0BE2721996D4800FDE2E8 /* ReceiveHeaderView.swift in Sources */,
 				8EA0BE2821996D4800FDE2E8 /* AddAddressFloatView.swift in Sources */,
-				8EA0BE2921996D4800FDE2E8 /* FetchWelfareCardView.swift in Sources */,
 				8EA0BE2A21996D4800FDE2E8 /* UIColor.swift in Sources */,
 				8EA0BE2B21996D4800FDE2E8 /* TitleTextFieldView.swift in Sources */,
 				8EA0BE2C21996D4800FDE2E8 /* NavigationTitleView.swift in Sources */,
@@ -2865,7 +2870,7 @@
 				8EA0BE5321996D4800FDE2E8 /* CreateNameAndPwdView.swift in Sources */,
 				8EA0BE5421996D4800FDE2E8 /* MyHomeListCell.swift in Sources */,
 				8EA0BE5521996D4800FDE2E8 /* TitleTextView.swift in Sources */,
-				8EA0BE5621996D4800FDE2E8 /* Error.swift in Sources */,
+				8EA0BE5621996D4800FDE2E8 /* ViteError.swift in Sources */,
 				8EA0BE5721996D4800FDE2E8 /* GetVoteDataRequest.swift in Sources */,
 				8EA0BE5821996D4800FDE2E8 /* NetworkResult.swift in Sources */,
 				8EA0BE5921996D4800FDE2E8 /* BaseTableViewController.swift in Sources */,
@@ -2902,7 +2907,7 @@
 				8EA0BE7821996D4800FDE2E8 /* GetFittestSnapshotHashRequest.swift in Sources */,
 				8EA0BE7921996D4800FDE2E8 /* TransactionListTableViewModelType.swift in Sources */,
 				8EA0BE7A21996D4800FDE2E8 /* Alert.swift in Sources */,
-				8EA0BE7B21996D4800FDE2E8 /* AppUpdateVM.swift in Sources */,
+				8EA0BE7B21996D4800FDE2E8 /* AppUpdateService.swift in Sources */,
 				8EA0BE7C21996D4800FDE2E8 /* IconLabelView.swift in Sources */,
 				8EA0BE7D21996D4800FDE2E8 /* UIWindow+Debug.swift in Sources */,
 				8EA0BE7E21996D4800FDE2E8 /* AddressManageDefaultAddressCell.swift in Sources */,
@@ -2927,12 +2932,10 @@
 				8EA0BE9121996D4800FDE2E8 /* Address.swift in Sources */,
 				8EA0BE9221996D4800FDE2E8 /* Statistics.swift in Sources */,
 				8EA0BE9321996D4800FDE2E8 /* ImageCell.swift in Sources */,
-				8EA0BE9421996D4800FDE2E8 /* UIViewController+Loading.swift in Sources */,
 				8EA0BE9521996D4800FDE2E8 /* PasswordInputView.swift in Sources */,
 				8EA0BE9621996D4800FDE2E8 /* PledgeHistoryViewReactor.swift in Sources */,
 				8EA0BE9721996D4800FDE2E8 /* WalletHomeBalanceInfoCell.swift in Sources */,
 				8EA0BE9821996D4800FDE2E8 /* WalletHomeAddressView.swift in Sources */,
-				8EA0BE9921996D4800FDE2E8 /* RPCError.swift in Sources */,
 				8EA0BE9A21996D4800FDE2E8 /* UITextView+FDSKeyboardAutoScrolling.swift in Sources */,
 				8EA0BE9B21996D4800FDE2E8 /* QuotaSubmitPopViewController.swift in Sources */,
 				8EA0BE9C21996D4800FDE2E8 /* ViteInputValidator.swift in Sources */,
@@ -2967,6 +2970,7 @@
 				8EA0BEB921996D4800FDE2E8 /* GCD+Helper.swift in Sources */,
 				8EA0BEBA21996D4800FDE2E8 /* Provider.swift in Sources */,
 				8EA0BEBB21996D4800FDE2E8 /* AboutUsTableBottomView.swift in Sources */,
+				8ED3807E21A3FCAC0009CD8B /* ViteErrorCode.swift in Sources */,
 				8EA0BEBC21996D4800FDE2E8 /* String.swift in Sources */,
 				8EA0BEBD21996D4800FDE2E8 /* MyVoteInfoViewReactor.swift in Sources */,
 				8EA0BEBE21996D4800FDE2E8 /* MnemonicTextView.swift in Sources */,
@@ -2990,8 +2994,10 @@
 				8EA0BED021996D4800FDE2E8 /* MyVoteInfoViewController.swift in Sources */,
 				8EA0BED121996D4800FDE2E8 /* LocalizationService.swift in Sources */,
 				8EA0BED221996D4800FDE2E8 /* GetPowFloatView.swift in Sources */,
+				743534CB21A29B3800CD8C1D /* AlertControl.swift in Sources */,
 				8EA0BED321996D4800FDE2E8 /* TitlePasswordInputView.swift in Sources */,
 				8EA0BED421996D4800FDE2E8 /* AccountLoginResult.swift in Sources */,
+				4C5AC55421A5675C001DAC0F /* IntroductionViewController.swift in Sources */,
 				8EA0BED521996D4800FDE2E8 /* ReceiveFooterView.swift in Sources */,
 				8EA0BED621996D4800FDE2E8 /* ManageWalletViewController.swift in Sources */,
 				8EA0BED721996D4800FDE2E8 /* NavigationBarStyle.swift in Sources */,
@@ -3026,7 +3032,6 @@
 				8EA0BEF321996D4800FDE2E8 /* BaseViewController.swift in Sources */,
 				8EA0BEF421996D4800FDE2E8 /* Provider+VoteList.swift in Sources */,
 				8EA0BEF521996D4800FDE2E8 /* PledgeHistoryCellTableViewCell.swift in Sources */,
-				8EA0BEF621996D4800FDE2E8 /* FetchWelfareViewController.swift in Sources */,
 				8EA0BEF721996D4800FDE2E8 /* KeychainService.swift in Sources */,
 				8EA0BEF821996D4800FDE2E8 /* CellSeparatorLine.swift in Sources */,
 				8EA0BEF921996D4800FDE2E8 /* CreateTransactionRequest.swift in Sources */,
@@ -3048,7 +3053,6 @@
 				8EA0BF1721996D7800FDE2E8 /* AccountBlock.swift in Sources */,
 				8EA0BF1821996D7800FDE2E8 /* ReceiveHeaderView.swift in Sources */,
 				8EA0BF1921996D7800FDE2E8 /* AddAddressFloatView.swift in Sources */,
-				8EA0BF1A21996D7800FDE2E8 /* FetchWelfareCardView.swift in Sources */,
 				8EA0BF1B21996D7800FDE2E8 /* UIColor.swift in Sources */,
 				8EA0BF1C21996D7800FDE2E8 /* TitleTextFieldView.swift in Sources */,
 				8EA0BF1D21996D7800FDE2E8 /* NavigationTitleView.swift in Sources */,
@@ -3092,7 +3096,7 @@
 				8EA0BF4421996D7800FDE2E8 /* CreateNameAndPwdView.swift in Sources */,
 				8EA0BF4521996D7800FDE2E8 /* MyHomeListCell.swift in Sources */,
 				8EA0BF4621996D7800FDE2E8 /* TitleTextView.swift in Sources */,
-				8EA0BF4721996D7800FDE2E8 /* Error.swift in Sources */,
+				8EA0BF4721996D7800FDE2E8 /* ViteError.swift in Sources */,
 				8EA0BF4821996D7800FDE2E8 /* GetVoteDataRequest.swift in Sources */,
 				8EA0BF4921996D7800FDE2E8 /* NetworkResult.swift in Sources */,
 				8EA0BF4A21996D7800FDE2E8 /* BaseTableViewController.swift in Sources */,
@@ -3129,7 +3133,7 @@
 				8EA0BF6921996D7800FDE2E8 /* GetFittestSnapshotHashRequest.swift in Sources */,
 				8EA0BF6A21996D7800FDE2E8 /* TransactionListTableViewModelType.swift in Sources */,
 				8EA0BF6B21996D7800FDE2E8 /* Alert.swift in Sources */,
-				8EA0BF6C21996D7800FDE2E8 /* AppUpdateVM.swift in Sources */,
+				8EA0BF6C21996D7800FDE2E8 /* AppUpdateService.swift in Sources */,
 				8EA0BF6D21996D7800FDE2E8 /* IconLabelView.swift in Sources */,
 				8EA0BF6E21996D7800FDE2E8 /* UIWindow+Debug.swift in Sources */,
 				8EA0BF6F21996D7800FDE2E8 /* AddressManageDefaultAddressCell.swift in Sources */,
@@ -3154,12 +3158,10 @@
 				8EA0BF8221996D7800FDE2E8 /* Address.swift in Sources */,
 				8EA0BF8321996D7800FDE2E8 /* Statistics.swift in Sources */,
 				8EA0BF8421996D7800FDE2E8 /* ImageCell.swift in Sources */,
-				8EA0BF8521996D7800FDE2E8 /* UIViewController+Loading.swift in Sources */,
 				8EA0BF8621996D7800FDE2E8 /* PasswordInputView.swift in Sources */,
 				8EA0BF8721996D7800FDE2E8 /* PledgeHistoryViewReactor.swift in Sources */,
 				8EA0BF8821996D7800FDE2E8 /* WalletHomeBalanceInfoCell.swift in Sources */,
 				8EA0BF8921996D7800FDE2E8 /* WalletHomeAddressView.swift in Sources */,
-				8EA0BF8A21996D7800FDE2E8 /* RPCError.swift in Sources */,
 				8EA0BF8B21996D7800FDE2E8 /* UITextView+FDSKeyboardAutoScrolling.swift in Sources */,
 				8EA0BF8C21996D7800FDE2E8 /* QuotaSubmitPopViewController.swift in Sources */,
 				8EA0BF8D21996D7800FDE2E8 /* ViteInputValidator.swift in Sources */,
@@ -3194,6 +3196,7 @@
 				8EA0BFAA21996D7800FDE2E8 /* GCD+Helper.swift in Sources */,
 				8EA0BFAB21996D7800FDE2E8 /* Provider.swift in Sources */,
 				8EA0BFAC21996D7800FDE2E8 /* AboutUsTableBottomView.swift in Sources */,
+				8ED3807F21A3FCAD0009CD8B /* ViteErrorCode.swift in Sources */,
 				8EA0BFAD21996D7800FDE2E8 /* String.swift in Sources */,
 				8EA0BFAE21996D7800FDE2E8 /* MyVoteInfoViewReactor.swift in Sources */,
 				8EA0BFAF21996D7800FDE2E8 /* MnemonicTextView.swift in Sources */,
@@ -3217,8 +3220,10 @@
 				8EA0BFC121996D7800FDE2E8 /* MyVoteInfoViewController.swift in Sources */,
 				8EA0BFC221996D7800FDE2E8 /* LocalizationService.swift in Sources */,
 				8EA0BFC321996D7800FDE2E8 /* GetPowFloatView.swift in Sources */,
+				743534CC21A29B3800CD8C1D /* AlertControl.swift in Sources */,
 				8EA0BFC421996D7800FDE2E8 /* TitlePasswordInputView.swift in Sources */,
 				8EA0BFC521996D7800FDE2E8 /* AccountLoginResult.swift in Sources */,
+				4C5AC55521A5675C001DAC0F /* IntroductionViewController.swift in Sources */,
 				8EA0BFC621996D7800FDE2E8 /* ReceiveFooterView.swift in Sources */,
 				8EA0BFC721996D7800FDE2E8 /* ManageWalletViewController.swift in Sources */,
 				8EA0BFC821996D7800FDE2E8 /* NavigationBarStyle.swift in Sources */,
@@ -3253,7 +3258,6 @@
 				8EA0BFE421996D7800FDE2E8 /* BaseViewController.swift in Sources */,
 				8EA0BFE521996D7800FDE2E8 /* Provider+VoteList.swift in Sources */,
 				8EA0BFE621996D7800FDE2E8 /* PledgeHistoryCellTableViewCell.swift in Sources */,
-				8EA0BFE721996D7800FDE2E8 /* FetchWelfareViewController.swift in Sources */,
 				8EA0BFE821996D7800FDE2E8 /* KeychainService.swift in Sources */,
 				8EA0BFE921996D7800FDE2E8 /* CellSeparatorLine.swift in Sources */,
 				8EA0BFEA21996D7800FDE2E8 /* CreateTransactionRequest.swift in Sources */,
@@ -3425,7 +3429,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1100;
+				CURRENT_PROJECT_VERSION = 1104;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -3456,7 +3460,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1100;
+				CURRENT_PROJECT_VERSION = 1104;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -3528,7 +3532,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1100;
+				CURRENT_PROJECT_VERSION = 1104;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -3562,7 +3566,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1100;
+				CURRENT_PROJECT_VERSION = 1104;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -3597,7 +3601,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1100;
+				CURRENT_PROJECT_VERSION = 1104;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -3632,7 +3636,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1100;
+				CURRENT_PROJECT_VERSION = 1104;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (

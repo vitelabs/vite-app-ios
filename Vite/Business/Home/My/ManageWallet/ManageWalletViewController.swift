@@ -40,7 +40,7 @@ class ManageWalletViewController: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.manageWalletPageTitle.key.localized())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.manageWalletPageTitle())
         self.view.backgroundColor = .white
 
         setupTable()
@@ -81,7 +81,7 @@ class ManageWalletViewController: FormViewController {
             }
 
             <<< ImageRow("manageWalletPageAddressManageCellTitle") {
-                $0.cell.titleLab.text =  R.string.localizable.manageWalletPageAddressManageCellTitle.key.localized()
+                $0.cell.titleLab.text =  R.string.localizable.manageWalletPageAddressManageCellTitle()
                 $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
             }.onCellSelection({ [unowned self] _, _  in
                     let vc = AddressManageViewController()
@@ -89,7 +89,7 @@ class ManageWalletViewController: FormViewController {
             })
 
             <<< ImageRow("manageWalletPageImportMnemonicCellTitle") {
-                $0.cell.titleLab.text =  R.string.localizable.manageWalletPageImportMnemonicCellTitle.key.localized()
+                $0.cell.titleLab.text =  R.string.localizable.manageWalletPageImportMnemonicCellTitle()
                 $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
             }.onCellSelection({ [unowned self] _, _  in
                 self.verifyWalletPassword(callback: {
@@ -116,19 +116,19 @@ class ManageWalletViewController: FormViewController {
         }
 
         if name.isEmpty {
-            self.view.showToast(str: R.string.localizable.manageWalletPageErrorTypeName.key.localized())
+            self.view.showToast(str: R.string.localizable.manageWalletPageErrorTypeName())
             return
         }
         if !ViteInputValidator.isValidWalletName(str: name ) {
-            self.view.showToast(str: R.string.localizable.mnemonicBackupPageErrorTypeNameValid.key.localized())
+            self.view.showToast(str: R.string.localizable.mnemonicBackupPageErrorTypeNameValid())
             return
         }
         if !ViteInputValidator.isValidWalletNameCount(str: name  ) {
-            self.view.showToast(str: R.string.localizable.mnemonicBackupPageErrorTypeValidWalletNameCount.key.localized())
+            self.view.showToast(str: R.string.localizable.mnemonicBackupPageErrorTypeValidWalletNameCount())
             return
         }
         changed = true
-        self.view.displayLoading(text: R.string.localizable.manageWalletPageChangeNameLoading.key.localized(), animated: true)
+        self.view.displayLoading(text: R.string.localizable.manageWalletPageChangeNameLoading(), animated: true)
         DispatchQueue.global().async {
             HDWalletManager.instance.updateName(name: name)
             DispatchQueue.main.async {
