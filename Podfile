@@ -41,7 +41,7 @@ targetArray.each do |t|
         pod 'Toast-Swift', '~> 3.0.1'
         pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
         pod 'RazzleDazzle'
-        pod 'SCPageControl'
+        pod 'CHIPageControl'
 
         #table static form
         pod 'Eureka', '~> 4.2.0'
