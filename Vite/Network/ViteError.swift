@@ -20,6 +20,7 @@ extension Error {
         }
     }
 
+    // show in UI
     var message: String {
         if let error = self as? ViteError {
             return error.message
@@ -28,6 +29,7 @@ extension Error {
         }
     }
 
+    // print in log
     var rawMessage: String {
         if let error = self as? ViteError {
             return error.rawMessage
@@ -62,7 +64,7 @@ struct ViteError: Error {
         } else {
             switch code.type {
             case .st_con, .st_req, .st_res:
-                ret = "\(R.string.localizable.netWorkError())(\(code.toString()))"
+                ret = "\(R.string.localizable.viteErrorNetworkError())(\(code.toString()))"
             default:
                 ret = "\(R.string.localizable.viteErrorOperationFailure())(\(code.toString()))"
             }
@@ -71,6 +73,16 @@ struct ViteError: Error {
     }
 
     static let code2MessageMap: [ViteErrorCode: String] = [
-        ViteErrorCode.rpcNoTransactionBefore: "xxx",
+        ViteErrorCode.rpcNotEnoughBalance: R.string.localizable.viteErrorRpcErrorCodeNotEnoughBalance(),
+        ViteErrorCode.rpcNotEnoughQuota: R.string.localizable.viteErrorRpcErrorCodeNotEnoughQuota(),
+        ViteErrorCode.rpcIdConflict: R.string.localizable.viteErrorRpcErrorCodeIdConflict(),
+        ViteErrorCode.rpcContractDataIllegal: R.string.localizable.viteErrorRpcErrorCodeContractDataIllegal(),
+        ViteErrorCode.rpcRefrenceSameSnapshootBlock: R.string.localizable.viteErrorRpcErrorCodeRefrenceSameSnapshootBlock(),
+        ViteErrorCode.rpcContractMethodNotExist: R.string.localizable.viteErrorRpcErrorCodeContractMethodNotExist(),
+        ViteErrorCode.rpcNoTransactionBefore: R.string.localizable.viteErrorRpcErrorCodeNoTransactionBefore(),
+        ViteErrorCode.rpcHashVerifyFailure: R.string.localizable.viteErrorRpcErrorCodeHashVerifyFailure(),
+        ViteErrorCode.rpcSignatureVerifyFailure: R.string.localizable.viteErrorRpcErrorCodeSignatureVerifyFailure(),
+        ViteErrorCode.rpcPowNonceVerifyFailure: R.string.localizable.viteErrorRpcErrorCodePowNonceVerifyFailure(),
+        ViteErrorCode.rpcRefrenceSnapshootBlockIllegal: R.string.localizable.viteErrorRpcErrorCodeRefrenceSnapshootBlockIllegal(),
     ]
 }

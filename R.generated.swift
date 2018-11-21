@@ -693,7 +693,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 243 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 245 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -703,10 +703,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let balanceInfoDetailUnconfirmedCountTitle = Rswift.StringResource(key: "balance.info.detail.unconfirmed.count.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 1. Submit your Vite address in Loopring community.  2. System will airdrop specific token - VV token.  3. Please fill in address of Ethereum in this page, confirm and submit, then a transaction to special account will be generated, input any amount. 4. The special account will send equal amount of Vite tokens in Ethereum ERC20 after receiving VV token.
-      /// 
-      /// Locales: en, zh-Hans
-      static let fetchWelfareParticipationWays = Rswift.StringResource(key: "fetch.welfare.participation.ways", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 6 digits numeric password
       /// 
       /// Locales: en, zh-Hans
@@ -803,10 +799,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let walletHomeBalanceTitle = Rswift.StringResource(key: "wallet.home.balance.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Bonus in the first stage
-      /// 
-      /// Locales: en, zh-Hans
-      static let fetchWelfareContentTitle = Rswift.StringResource(key: "fetch.welfare.content.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Cancel
       /// 
       /// Locales: en, zh-Hans
@@ -934,10 +926,6 @@ struct R: Rswift.Validatable {
       /// en translation: Get Bonus
       /// 
       /// Locales: en, zh-Hans
-      static let fetchWelfarePageTitle = Rswift.StringResource(key: "fetch.welfare.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Get Bonus
-      /// 
-      /// Locales: en, zh-Hans
       static let myPageFetchMoneyCellTitle = Rswift.StringResource(key: "my.page.fetchMoney.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Get Quota
       /// 
@@ -947,10 +935,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let introductionPageTip3Title = Rswift.StringResource(key: "introduction.page.tip3.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: How to participate:
-      /// 
-      /// Locales: en, zh-Hans
-      static let fetchWelfareParticipationTitle = Rswift.StringResource(key: "fetch.welfare.participation.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: I know
       /// 
       /// Locales: en, zh-Hans
@@ -959,14 +943,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let close = Rswift.StringResource(key: "Close", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: ID 发生冲突，请您稍后重新提交
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteErrorRpcErrorCodeIdConflict = Rswift.StringResource(key: "vite.error.rpc.error.code.id.conflict", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Import Account
       /// 
       /// Locales: en, zh-Hans
       static let importAccount = Rswift.StringResource(key: "import.account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Incorrect Format!
-      /// 
-      /// Locales: en, zh-Hans
-      static let fetchWelfareInputEthereumAddressErrorTitle = Rswift.StringResource(key: "fetch.welfare.inputEthereumAddress.error.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Incorrect seed phrase!
       /// 
       /// Locales: en, zh-Hans
@@ -987,6 +971,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageToastAmountError = Rswift.StringResource(key: "send.page.toast.amount.error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Insufficient Balance
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteErrorRpcErrorCodeNotEnoughBalance = Rswift.StringResource(key: "vite.error.rpc.error.code.not.enough.balance", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Insufficient Quota
       /// 
       /// Locales: en, zh-Hans
@@ -1147,10 +1135,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPagePwTitle = Rswift.StringResource(key: "create.page.pw.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Please input Ethereum address:
-      /// 
-      /// Locales: en, zh-Hans
-      static let fetchWelfareInputEthereumAddressTitle = Rswift.StringResource(key: "fetch.welfare.inputEthereumAddress.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Please input account name or password
       /// 
       /// Locales: en, zh-Hans
@@ -1318,7 +1302,7 @@ struct R: Rswift.Validatable {
       /// en translation: Something went wrong with network, please try again later
       /// 
       /// Locales: en, zh-Hans
-      static let netWorkError = Rswift.StringResource(key: "NetWorkError", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      static let viteErrorNetworkError = Rswift.StringResource(key: "vite.error.network.error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Something wrong with your seed phrase, please try again!
       /// 
       /// Locales: en, zh-Hans
@@ -1339,10 +1323,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let quotaManagePageToastMoneyError = Rswift.StringResource(key: "quota.manage.page.toast.money.error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Staking failed, please try again later
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageToastSendFailed = Rswift.StringResource(key: "quota.manage.page.toast.send.failed", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Staking frozen duration
       /// 
       /// Locales: en, zh-Hans
@@ -1383,10 +1363,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let myPageSystemCellTitle = Rswift.StringResource(key: "my.page.system.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: The airdrop aiming at Loopring community is now processing! The following beneficial activities will be conducted gradually,  please stay tuned!
-      /// 
-      /// Locales: en, zh-Hans
-      static let fetchWelfareContentDesc = Rswift.StringResource(key: "fetch.welfare.content.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: The amount has to be positive
       /// 
       /// Locales: en, zh-Hans
@@ -1419,10 +1395,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageTitle = Rswift.StringResource(key: "send.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Transfer failed, please try again later
-      /// 
-      /// Locales: en, zh-Hans
-      static let sendPageToastSendFailed = Rswift.StringResource(key: "send.page.toast.send.failed", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Unavailable
       /// 
       /// Locales: en, zh-Hans
@@ -1503,10 +1475,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let vote = Rswift.StringResource(key: "Vote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Vote failed, please vote again(code: %@)
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListSendFailed = Rswift.StringResource(key: "vote.list.send.failed", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Vote revoking request is successfully sent
       /// 
       /// Locales: en, zh-Hans
@@ -1583,6 +1551,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let voteListAlertQuota = Rswift.StringResource(key: "vote.list.alert.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 交易发送频繁，请您稍后再次尝试
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteErrorRpcErrorCodeRefrenceSameSnapshootBlock = Rswift.StringResource(key: "vite.error.rpc.error.code.refrence.same.snapshoot.block", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 交易消耗配额，运行PoW免费获取
       /// 
       /// Locales: en, zh-Hans
@@ -1591,6 +1563,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let introductionPageTip2Title = Rswift.StringResource(key: "introduction.page.tip2.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 内置合约发生错误，请稍后重试(-35004)
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteErrorRpcErrorCodeContractDataIllegal = Rswift.StringResource(key: "vite.error.rpc.error.code.contract.data.illegal", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 内置合约发生错误，请稍后重试(-35006)
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteErrorRpcErrorCodeContractMethodNotExist = Rswift.StringResource(key: "vite.error.rpc.error.code.contract.method.not.exist", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 切换%@个助记词
       /// 
       /// Locales: en, zh-Hans
@@ -1603,6 +1583,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let transactionListTransactionTypeNameCancelCoin = Rswift.StringResource(key: "transaction.list.transaction.type.name.cancelCoin", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 备注已达上限
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageToastNoteTooLong = Rswift.StringResource(key: "send.page.toast.note.too.long", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 开始体验
       /// 
       /// Locales: en, zh-Hans
@@ -1611,6 +1595,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let introductionPageTip2Desc = Rswift.StringResource(key: "introduction.page.tip2.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 快照块高度不合法，请您稍后再试
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteErrorRpcErrorCodeRefrenceSnapshootBlockIllegal = Rswift.StringResource(key: "vite.error.rpc.error.code.refrence.snapshoot.block.illegal", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 您需要接收一笔交易之后才可发起转账
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteErrorRpcErrorCodeNoTransactionBefore = Rswift.StringResource(key: "vite.error.rpc.error.code.no.transaction.before", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 投票
       /// 
       /// Locales: en, zh-Hans
@@ -1651,6 +1643,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let transactionListTransactionTypeNameRegister = Rswift.StringResource(key: "transaction.list.transaction.type.name.register", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 系统校验不通过，请稍后重试(-35002)
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteErrorRpcErrorCodeHashVerifyFailure = Rswift.StringResource(key: "vite.error.rpc.error.code.hash.verify.failure", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 系统校验不通过，请稍后重试(-35003)
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteErrorRpcErrorCodeSignatureVerifyFailure = Rswift.StringResource(key: "vite.error.rpc.error.code.signature.verify.failure", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 系统校验不通过，请稍后重试(-35004)
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteErrorRpcErrorCodePowNonceVerifyFailure = Rswift.StringResource(key: "vite.error.rpc.error.code.pow.nonce.verify.failure", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 获取配额
       /// 
       /// Locales: en, zh-Hans
@@ -1663,6 +1667,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let introductionPageTip1Title = Rswift.StringResource(key: "introduction.page.tip1.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 配额不足
+      /// 
+      /// Locales: en, zh-Hans
+      static let viteErrorRpcErrorCodeNotEnoughQuota = Rswift.StringResource(key: "vite.error.rpc.error.code.not.enough.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 铸币
       /// 
       /// Locales: en, zh-Hans
@@ -1680,13 +1688,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func balanceInfoDetailUnconfirmedCountTitle(_ value1: String) -> String {
         return String(format: NSLocalizedString("balance.info.detail.unconfirmed.count.title", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
-      }
-      
-      /// en translation: 1. Submit your Vite address in Loopring community.  2. System will airdrop specific token - VV token.  3. Please fill in address of Ethereum in this page, confirm and submit, then a transaction to special account will be generated, input any amount. 4. The special account will send equal amount of Vite tokens in Ethereum ERC20 after receiving VV token.
-      /// 
-      /// Locales: en, zh-Hans
-      static func fetchWelfareParticipationWays(_: Void = ()) -> String {
-        return NSLocalizedString("fetch.welfare.participation.ways", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 6 digits numeric password
@@ -1855,13 +1856,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func walletHomeBalanceTitle(_: Void = ()) -> String {
         return NSLocalizedString("wallet.home.balance.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Bonus in the first stage
-      /// 
-      /// Locales: en, zh-Hans
-      static func fetchWelfareContentTitle(_: Void = ()) -> String {
-        return NSLocalizedString("fetch.welfare.content.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Cancel
@@ -2084,13 +2078,6 @@ struct R: Rswift.Validatable {
       /// en translation: Get Bonus
       /// 
       /// Locales: en, zh-Hans
-      static func fetchWelfarePageTitle(_: Void = ()) -> String {
-        return NSLocalizedString("fetch.welfare.page.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Get Bonus
-      /// 
-      /// Locales: en, zh-Hans
       static func myPageFetchMoneyCellTitle(_: Void = ()) -> String {
         return NSLocalizedString("my.page.fetchMoney.cell.title", bundle: R.hostingBundle, comment: "")
       }
@@ -2109,13 +2096,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("introduction.page.tip3.title", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: How to participate:
-      /// 
-      /// Locales: en, zh-Hans
-      static func fetchWelfareParticipationTitle(_: Void = ()) -> String {
-        return NSLocalizedString("fetch.welfare.participation.title", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: I know
       /// 
       /// Locales: en, zh-Hans
@@ -2130,18 +2110,18 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Close", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: ID 发生冲突，请您稍后重新提交
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteErrorRpcErrorCodeIdConflict(_: Void = ()) -> String {
+        return NSLocalizedString("vite.error.rpc.error.code.id.conflict", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Import Account
       /// 
       /// Locales: en, zh-Hans
       static func importAccount(_: Void = ()) -> String {
         return NSLocalizedString("import.account", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Incorrect Format!
-      /// 
-      /// Locales: en, zh-Hans
-      static func fetchWelfareInputEthereumAddressErrorTitle(_: Void = ()) -> String {
-        return NSLocalizedString("fetch.welfare.inputEthereumAddress.error.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Incorrect seed phrase!
@@ -2177,6 +2157,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func sendPageToastAmountError(_: Void = ()) -> String {
         return NSLocalizedString("send.page.toast.amount.error", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Insufficient Balance
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteErrorRpcErrorCodeNotEnoughBalance(_: Void = ()) -> String {
+        return NSLocalizedString("vite.error.rpc.error.code.not.enough.balance", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Insufficient Quota
@@ -2457,13 +2444,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func createPagePwTitle(_: Void = ()) -> String {
         return NSLocalizedString("create.page.pw.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Please input Ethereum address:
-      /// 
-      /// Locales: en, zh-Hans
-      static func fetchWelfareInputEthereumAddressTitle(_: Void = ()) -> String {
-        return NSLocalizedString("fetch.welfare.inputEthereumAddress.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Please input account name or password
@@ -2756,8 +2736,8 @@ struct R: Rswift.Validatable {
       /// en translation: Something went wrong with network, please try again later
       /// 
       /// Locales: en, zh-Hans
-      static func netWorkError(_: Void = ()) -> String {
-        return NSLocalizedString("NetWorkError", bundle: R.hostingBundle, comment: "")
+      static func viteErrorNetworkError(_: Void = ()) -> String {
+        return NSLocalizedString("vite.error.network.error", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Something wrong with your seed phrase, please try again!
@@ -2793,13 +2773,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func quotaManagePageToastMoneyError(_: Void = ()) -> String {
         return NSLocalizedString("quota.manage.page.toast.money.error", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Staking failed, please try again later
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageToastSendFailed(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.toast.send.failed", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Staking frozen duration
@@ -2872,13 +2845,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("my.page.system.cell.title", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: The airdrop aiming at Loopring community is now processing! The following beneficial activities will be conducted gradually,  please stay tuned!
-      /// 
-      /// Locales: en, zh-Hans
-      static func fetchWelfareContentDesc(_: Void = ()) -> String {
-        return NSLocalizedString("fetch.welfare.content.desc", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: The amount has to be positive
       /// 
       /// Locales: en, zh-Hans
@@ -2933,13 +2899,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func sendPageTitle(_: Void = ()) -> String {
         return NSLocalizedString("send.page.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Transfer failed, please try again later
-      /// 
-      /// Locales: en, zh-Hans
-      static func sendPageToastSendFailed(_: Void = ()) -> String {
-        return NSLocalizedString("send.page.toast.send.failed", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Unavailable
@@ -3082,13 +3041,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Vote", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Vote failed, please vote again(code: %@)
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListSendFailed(_ value1: String) -> String {
-        return String(format: NSLocalizedString("vote.list.send.failed", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
-      }
-      
       /// en translation: Vote revoking request is successfully sent
       /// 
       /// Locales: en, zh-Hans
@@ -3222,6 +3174,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("vote.list.alert.quota", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 交易发送频繁，请您稍后再次尝试
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteErrorRpcErrorCodeRefrenceSameSnapshootBlock(_: Void = ()) -> String {
+        return NSLocalizedString("vite.error.rpc.error.code.refrence.same.snapshoot.block", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 交易消耗配额，运行PoW免费获取
       /// 
       /// Locales: en, zh-Hans
@@ -3234,6 +3193,20 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func introductionPageTip2Title(_: Void = ()) -> String {
         return NSLocalizedString("introduction.page.tip2.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 内置合约发生错误，请稍后重试(-35004)
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteErrorRpcErrorCodeContractDataIllegal(_: Void = ()) -> String {
+        return NSLocalizedString("vite.error.rpc.error.code.contract.data.illegal", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 内置合约发生错误，请稍后重试(-35006)
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteErrorRpcErrorCodeContractMethodNotExist(_: Void = ()) -> String {
+        return NSLocalizedString("vite.error.rpc.error.code.contract.method.not.exist", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 切换%@个助记词
@@ -3257,6 +3230,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("transaction.list.transaction.type.name.cancelCoin", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 备注已达上限
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageToastNoteTooLong(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.toast.note.too.long", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 开始体验
       /// 
       /// Locales: en, zh-Hans
@@ -3269,6 +3249,20 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func introductionPageTip2Desc(_: Void = ()) -> String {
         return NSLocalizedString("introduction.page.tip2.desc", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 快照块高度不合法，请您稍后再试
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteErrorRpcErrorCodeRefrenceSnapshootBlockIllegal(_: Void = ()) -> String {
+        return NSLocalizedString("vite.error.rpc.error.code.refrence.snapshoot.block.illegal", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 您需要接收一笔交易之后才可发起转账
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteErrorRpcErrorCodeNoTransactionBefore(_: Void = ()) -> String {
+        return NSLocalizedString("vite.error.rpc.error.code.no.transaction.before", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 投票
@@ -3341,6 +3335,27 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("transaction.list.transaction.type.name.register", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: 系统校验不通过，请稍后重试(-35002)
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteErrorRpcErrorCodeHashVerifyFailure(_: Void = ()) -> String {
+        return NSLocalizedString("vite.error.rpc.error.code.hash.verify.failure", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 系统校验不通过，请稍后重试(-35003)
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteErrorRpcErrorCodeSignatureVerifyFailure(_: Void = ()) -> String {
+        return NSLocalizedString("vite.error.rpc.error.code.signature.verify.failure", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 系统校验不通过，请稍后重试(-35004)
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteErrorRpcErrorCodePowNonceVerifyFailure(_: Void = ()) -> String {
+        return NSLocalizedString("vite.error.rpc.error.code.pow.nonce.verify.failure", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: 获取配额
       /// 
       /// Locales: en, zh-Hans
@@ -3360,6 +3375,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func introductionPageTip1Title(_: Void = ()) -> String {
         return NSLocalizedString("introduction.page.tip1.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 配额不足
+      /// 
+      /// Locales: en, zh-Hans
+      static func viteErrorRpcErrorCodeNotEnoughQuota(_: Void = ()) -> String {
+        return NSLocalizedString("vite.error.rpc.error.code.not.enough.quota", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 铸币

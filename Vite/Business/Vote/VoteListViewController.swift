@@ -250,7 +250,7 @@ class VoteListViewController: BaseViewController {
         } else if error.code == ViteErrorCode.rpcNoTransactionBefore {
             Toast.show(R.string.localizable.voteListSearchNoTransactionBefore())
         } else {
-            Toast.show(R.string.localizable.voteListSendFailed(error.code.description))
+            Toast.show(error.message)
         }
     }
 
