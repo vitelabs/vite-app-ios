@@ -1175,10 +1175,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageTitle = Rswift.StringResource(key: "import.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Polls
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListCount = Rswift.StringResource(key: "vote.list.count", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Processing
       /// 
       /// Locales: en, zh-Hans
@@ -1511,6 +1507,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let votePageVoteStatusVoteSuccess = Rswift.StringResource(key: "vote.page.voteStatus.voteSuccess", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Votes
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListCount = Rswift.StringResource(key: "vote.list.count", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Voting
       /// 
       /// Locales: en, zh-Hans
@@ -2516,13 +2516,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("import.page.title", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Polls
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListCount(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.count", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: Processing
       /// 
       /// Locales: en, zh-Hans
@@ -3102,6 +3095,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func votePageVoteStatusVoteSuccess(_: Void = ()) -> String {
         return NSLocalizedString("vote.page.voteStatus.voteSuccess", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Votes
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListCount(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.count", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Voting

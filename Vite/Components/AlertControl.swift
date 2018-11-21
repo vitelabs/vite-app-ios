@@ -40,10 +40,13 @@ class AlertControl: UIViewController {
         return UIApplication.shared.keyWindow!
     }
     fileprivate var selfReference: AlertControl?
+    fileprivate var contentView: UIView?
+    var style: UIAlertController.Style
 
-    init(title: String? = nil, message: String? = nil) {
+    init(title: String? = nil, message: String? = nil, style: UIAlertController.Style = .alert) {
         self.alertTitle = title
         self.message = message
+        self.style = style
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -52,7 +55,7 @@ class AlertControl: UIViewController {
     }
 
     func addCancelAction(_ action: AlertAction) {
-        if self.cancelAction != nil {
+        if self.style == .actionSheet && self.cancelAction != nil {
             fatalError("already have cancelAction")
         }
         actions.append(action)
@@ -64,6 +67,10 @@ class AlertControl: UIViewController {
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.init(netHex: 0x8E8E93).cgColor
         textField.font = UIFont.systemFont(ofSize: 13)
+        textField.leftView = UIView().then {
+            $0.frame = CGRect.init(x: 0, y: 0, width: 5, height: 20)
+        }
+        textField.leftViewMode = .always
         configurationHandler?(textField)
         self.textFields?.append(textField)
     }
@@ -76,17 +83,20 @@ class AlertControl: UIViewController {
         selfReference = self
         window.addSubview(view)
         view.frame = window.bounds
-        view.backgroundColor = UIColor.init(hex: "0x000000", alpha: 0.5)
+        view.backgroundColor = UIColor.init(hex: "0x000000", alpha: 0.0)
+        UIView.animate(withDuration: 0.2) {
+            self.view.backgroundColor = UIColor.init(hex: "0x000000", alpha: 0.5)
+        }
 
         for action in actions where action == self.preferredAction {
             action.style = .emphasize
             break
         }
 
-        if self.textFields!.isEmpty {
+        if self.style == .actionSheet {
             showAlerSheet()
         } else {
-            showAlertInputView()
+            showAlertCommenView()
         }
 
     }
@@ -97,28 +107,35 @@ class AlertControl: UIViewController {
         }
         let alertSheetView = AlertSheetView.init(title: alertTitle, message: message, actions: filtedActions)
         view.addSubview(alertSheetView)
+        contentView = alertSheetView
         alertSheetView.snp.makeConstraints { (m) in
             m.bottom.left.right.equalToSuperview()
         }
 
+        alertSheetView.transform = CGAffineTransform.init(translationX: 0, y: 100)
+
         for (i, b) in alertSheetView.actionButtons.enumerated() {
             b.rx.tap.bind { [unowned self] in
-                filtedActions[i].handler?(self)
-                self.view.removeFromSuperview()
-                self.selfReference = nil
+                self.disMiss(completion: {
+                    filtedActions[i].handler?(self)
+                })
             }.disposed(by: rx.disposeBag)
         }
 
         alertSheetView.closeButton.rx.tap.bind { [unowned self] in
-            self.view.removeFromSuperview()
-            self.cancelAction?.handler?(self)
-            self.selfReference = nil
+            self.disMiss(completion: {
+                self.cancelAction?.handler?(self)
+            })
         }.disposed(by: rx.disposeBag)
 
         alertSheetView.closeButton.isHidden = (self.cancelAction == nil)
+
+        UIView.animate(withDuration: 0.2) {
+            alertSheetView.transform = .identity
+        }
     }
 
-    fileprivate func showAlertInputView() {
+    fileprivate func showAlertCommenView() {
 
         if self.textFields!.count > 1 {
             fatalError("just support one textField now!")
@@ -126,23 +143,19 @@ class AlertControl: UIViewController {
         if actions.count > 2 {
             fatalError("just support one or two actions")
         }
-        if self.message != nil || self.alertTitle == nil {
-            fatalError("custom alertView with textfield just display alertTitle and ignor message now")
-        }
 
-        let alertInputView = AlertInputView.init(title: alertTitle, textFields: self.textFields!, actions: actions)
-        view.addSubview(alertInputView)
-        alertInputView.snp.makeConstraints { (m) in
+        let alertCommenView = AlertCommenView.init(title: alertTitle, message: message, textFields: self.textFields!, actions: actions)
+        view.addSubview(alertCommenView)
+        contentView = alertCommenView
+        alertCommenView.snp.makeConstraints { (m) in
             m.center.equalTo(view)
-            m.width.equalTo(270)
-            m.height.equalTo(151)
         }
 
-        for (i, b) in alertInputView.actionButtons.enumerated() {
+        for (i, b) in alertCommenView.actionButtons.enumerated() {
             b.rx.tap.bind { [unowned self] in
-                self.actions[i].handler?(self)
-                self.view.removeFromSuperview()
-                self.selfReference = nil
+                self.disMiss(completion: {
+                    self.actions[i].handler?(self)
+                })
             }.disposed(by: rx.disposeBag)
         }
 
@@ -150,14 +163,14 @@ class AlertControl: UIViewController {
             NotificationCenter.default.rx.notification(.UIKeyboardWillHide),
             NotificationCenter.default.rx.notification(.UIKeyboardWillShow)
             ])
-            .subscribe(onNext: {[unowned alertInputView] (notification) in
+            .subscribe(onNext: {[unowned alertCommenView] (notification) in
                 let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25
                 let height =  (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height / 3.0
                 UIView.animate(withDuration: duration, animations: {
-                    if notification.name == .UIKeyboardWillShow && alertInputView.textFields.first!.isFirstResponder {
-                        alertInputView.transform = CGAffineTransform(translationX: 0, y: -height)
+                    if notification.name == .UIKeyboardWillShow && alertCommenView.textFields?.first?.isFirstResponder ?? false {
+                        alertCommenView.transform = CGAffineTransform(translationX: 0, y: -height)
                     } else if notification.name == .UIKeyboardWillHide {
-                        alertInputView.transform = .identity
+                        alertCommenView.transform = .identity
                     }
                 })
             }).disposed(by: rx.disposeBag)
@@ -165,6 +178,15 @@ class AlertControl: UIViewController {
         self.textFields?.first?.becomeFirstResponder()
     }
 
+    func disMiss(completion:(() -> Void)?) {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.view.backgroundColor = UIColor.init(hex: "0x000000", alpha: 0.0)
+        }, completion: { _ in
+            self.view.removeFromSuperview()
+            self.selfReference = nil
+            completion?()
+        })
+    }
 }
 
 extension AlertControl {
@@ -176,14 +198,14 @@ extension AlertControl {
         vc.view.backgroundColor = UIColor.init(hex: "0x000000", alpha: 0.5)
         let alertCompletionView = AlertCompletionView.init(title: title)
         vc.view.addSubview(alertCompletionView)
+        vc.contentView = alertCompletionView
         alertCompletionView.snp.makeConstraints { (m) in
             m.width.equalTo(270)
             m.height.equalTo(140)
             m.center.equalToSuperview()
         }
         GCD.delay(2) {
-            vc.view.removeFromSuperview()
-            vc.selfReference = nil
+            vc.disMiss(completion: nil)
         }
     }
 }
@@ -226,39 +248,73 @@ private class AlertCompletionView: UIView {
 
 }
 
-private class AlertInputView: UIView {
+private class AlertCommenView: UIView {
 
-    let titleLabel = UILabel().then {
+    lazy var titleLabel = UILabel().then {
         $0.font = UIFont.boldSystemFont(ofSize: 17)
         $0.textAlignment = .center
+        $0.numberOfLines = 0
     }
-    var textFields: [UITextField] = []
+
+    lazy var messageLabel = UILabel().then {
+        $0.font = UIFont.systemFont(ofSize: 14)
+        $0.textColor = UIColor.init(netHex: 0x3e4a59)
+        $0.textAlignment = .center
+        $0.numberOfLines = 0
+    }
+
+    var textFields: [UITextField]?
     var actionButtons = [UIButton]()
 
-    init(title: String?, textFields: [UITextField], actions: [AlertAction]) {
+    init(title: String?, message: String?, textFields: [UITextField]?, actions: [AlertAction]) {
         super.init(frame: CGRect.init(x: 0, y: 0, width: 270, height: 151))
         self.layer.cornerRadius = 2
         self.backgroundColor = UIColor.init(netHex: 0xFFFFFF)
-        titleLabel.text = title
         self.textFields = textFields
 
-        let textField = self.textFields.first!
+        var v: UIView? = self
+        var topMargen = 24.0
+        var hegith = topMargen
 
-        self.addSubview(titleLabel)
-        self.addSubview(textField)
-
-        titleLabel.snp.makeConstraints { (m) in
-            m.centerX.equalToSuperview()
-            m.top.equalToSuperview().offset(24)
-            m.height.equalTo(22)
-            m.width.equalToSuperview()
+        if title != nil {
+            titleLabel.text = title
+            self.addSubview(titleLabel)
+            titleLabel.snp.makeConstraints { (m) in
+                m.top.equalTo(v!).offset(24)
+                m.left.equalTo(self).offset(16)
+                m.right.equalTo(self).offset(-16)
+            }
+            v = titleLabel
+            let suggestedTitleLabelSize = titleLabel.sizeThatFits(CGSize(width: 270 - 16 * 2, height: kScreenH / 2))
+            hegith +=  (topMargen + Double(suggestedTitleLabelSize.height))
+            topMargen = 12
         }
 
-        textField.snp.makeConstraints { (m) in
-            m.left.equalToSuperview().offset(16)
-            m.right.equalToSuperview().offset(-16)
-            m.top.equalTo(titleLabel.snp.bottom).offset(24)
-            m.height.equalTo(25)
+        if message != nil {
+            messageLabel.text = message
+            self.addSubview(messageLabel)
+            messageLabel.snp.makeConstraints { (m) in
+                m.top.equalTo(v!.snp.bottom).offset(topMargen)
+                m.left.equalTo(self).offset(16)
+                m.right.equalTo(self).offset(-16)
+            }
+            v = messageLabel
+            let suggestedMessageLabelSize = messageLabel.sizeThatFits(CGSize(width: 270 - 16 * 2, height: kScreenH / 2))
+            hegith += topMargen + Double(suggestedMessageLabelSize.height)
+            topMargen = 12
+        }
+
+        if let textField = self.textFields?.first {
+            self.addSubview(textField)
+            textField.snp.makeConstraints { (m) in
+                m.left.equalToSuperview().offset(16)
+                m.right.equalToSuperview().offset(-16)
+                m.top.equalTo(v!.snp.bottom).offset(topMargen)
+                m.height.equalTo(25)
+            }
+            v = textField
+            hegith += topMargen + 25
+            topMargen = 12
         }
 
         let horizontalSeperator = UIView().then { $0.backgroundColor = UIColor.init(netHex: 0x000050, alpha: 0.05) }
@@ -268,7 +324,7 @@ private class AlertInputView: UIView {
         horizontalSeperator.snp.makeConstraints { (m) in
             m.left.right.equalToSuperview()
             m.height.equalTo(1)
-            m.top.equalTo(textField.snp.bottom).offset(12)
+            m.top.equalTo(v!.snp.bottom).offset(topMargen)
         }
         verticalSeperator.snp.makeConstraints { (m) in
             m.centerX.equalToSuperview()
@@ -302,6 +358,12 @@ private class AlertInputView: UIView {
                 m.height.equalTo(43)
                 m.width.equalTo(134)
             }
+        }
+        hegith += 32
+
+        self.snp.makeConstraints { (m) in
+            m.height.equalTo(hegith)
+            m.width.equalTo(270)
         }
 
     }
