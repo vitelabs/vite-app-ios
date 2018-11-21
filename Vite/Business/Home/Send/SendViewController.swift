@@ -231,7 +231,7 @@ class SendViewController: BaseViewController {
                             alert.preferredAction = alert.actions[0]
                     })
                 } else {
-                    Toast.show(R.string.localizable.sendPageToastSendFailed())
+                    Toast.show(error.message)
                 }
             }
         }
@@ -277,14 +277,14 @@ class SendViewController: BaseViewController {
                                         alert.preferredAction = alert.actions[0]
                                 })
                             } else {
-                                Toast.show(R.string.localizable.sendPageToastSendFailed())
+                                Toast.show(error.message)
                             }
                         }
                     })
                 }
-            case .failure:
+            case .failure(let error):
                 getPowFloatView.hide()
-                Toast.show(R.string.localizable.sendPageToastSendFailed())
+                Toast.show(error.message)
             }
         })
     }

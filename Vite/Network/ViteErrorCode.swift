@@ -68,7 +68,15 @@ struct ViteErrorCode {
     // rpc error
     static let rpcNotEnoughBalance = ViteErrorCode(type: .rpc, id: -35001)
     static let rpcNotEnoughQuota = ViteErrorCode(type: .rpc, id: -35002)
+    static let rpcIdConflict = ViteErrorCode(type: .rpc, id: -35003)
+    static let rpcContractDataIllegal = ViteErrorCode(type: .rpc, id: -35004)
+    static let rpcRefrenceSameSnapshootBlock = ViteErrorCode(type: .rpc, id: -35005)
+    static let rpcContractMethodNotExist = ViteErrorCode(type: .rpc, id: -35006)
     static let rpcNoTransactionBefore = ViteErrorCode(type: .rpc, id: -36001)
+    static let rpcHashVerifyFailure = ViteErrorCode(type: .rpc, id: -36002)
+    static let rpcSignatureVerifyFailure = ViteErrorCode(type: .rpc, id: -36003)
+    static let rpcPowNonceVerifyFailure = ViteErrorCode(type: .rpc, id: -36004)
+    static let rpcRefrenceSnapshootBlockIllegal = ViteErrorCode(type: .rpc, id: -36005)
 }
 
 extension ViteError {

@@ -26,7 +26,7 @@ final class AffirmInputMnemonicVM: NSObject {
         self.hasLeftMnemonicWordsList.accept(self.mnemonicWordsList)
 
         #if DEBUG
-        self.hasChooseMnemonicWordsList.accept(self.mnemonicWordsList)
+        self.hasChooseMnemonicWordsList.accept(array)
         self.hasLeftMnemonicWordsList.accept([])
         UIPasteboard.general.string = mnemonicWordsStr
         #endif
