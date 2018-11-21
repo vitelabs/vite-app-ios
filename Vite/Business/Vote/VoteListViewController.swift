@@ -222,7 +222,7 @@ class VoteListViewController: BaseViewController {
                        message: nil,
                        actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
         } else if error.code == ViteErrorCode.rpcNotEnoughQuota {
-            Alert.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.voteListAlertQuota(), actions: [
+            AlertSheet.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.voteListAlertQuota(), actions: [
                 (.default(title: R.string.localizable.quotaAlertPowButtonTitle()), { [weak self] _ in
                     var cancelPow = false
                     let getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!) {

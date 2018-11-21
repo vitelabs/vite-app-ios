@@ -102,7 +102,7 @@ class DebugViewController: FormViewController {
                 }
 
                 actions.append((.cancel, nil))
-                ActionSheet.show(into: self, title: "Select App Environment", message: nil, actions: actions)
+                DebugActionSheet.show(into: self, title: "Select App Environment", message: nil, actions: actions)
             }
             +++
             Section {
@@ -246,7 +246,7 @@ class DebugViewController: FormViewController {
                 }
 
                 actions.append((.cancel, nil))
-                ActionSheet.show(into: self, title: "Select Config Environment", message: nil, actions: actions)
+                DebugActionSheet.show(into: self, title: "Select Config Environment", message: nil, actions: actions)
             }
             +++
             Section {
