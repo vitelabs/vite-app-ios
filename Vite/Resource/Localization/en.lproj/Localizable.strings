@@ -18,7 +18,6 @@
 "Submit" = "Submit";
 "Close" = "I understand";
 "Update.app" = "Update App";
-"NetWorkError" = "Something went wrong with network, please try again later";
 "Submit.success" = "Submit Successful";
 "Submit.cancel" = "Cancel";
 
@@ -165,11 +164,11 @@
 "send.page.send.button.title" = "Send";
 "send.page.amount.toolbar.button.title" = "Next";
 "send.page.toast.send.success" = "Success";
-"send.page.toast.send.failed" = "Transfer failed, please try again later";
 "send.page.toast.address.error" = "Wrong Adress, please check the format";
 "send.page.toast.amount.error" = "Insufficient Balance";
 "send.page.toast.amount.empty" = "Please input balance";
 "send.page.toast.amount.zero" = "The amount has to be positive";
+"send.page.toast.note.too.long" = "备注已达上限";
 "send.page.not.enough.balance.alert.title" = "Insufficient Balance";
 "send.page.not.enough.balance.alert.button" = "Cancel";
 "send.page.confirm.biometryAuthFailed.title" = "Cannot be identified";
@@ -227,16 +226,6 @@
 "aboutUs.page.email.title" = "Feedback";
 "aboutUs.page.email.content" = "\n\n\n\n\nThe advice comes from the using environment as below:\n1.System device: %@\n2.System version:%@\n3.APP version：%@\n4.Language:%@";
 
-
-/* fetch welfare */
-"fetch.welfare.page.title" = "Get Bonus";
-"fetch.welfare.content.title" = "Bonus in the first stage";
-"fetch.welfare.content.desc" = "The airdrop aiming at Loopring community is now processing!\nThe following beneficial activities will be conducted gradually,\n please stay tuned!";
-"fetch.welfare.participation.title" = "How to participate:";
-"fetch.welfare.participation.ways" = "1. Submit your Vite address in Loopring community. \n2. System will airdrop specific token - VV token. \n3. Please fill in address of Ethereum in this page, confirm and submit, then a transaction to special account will be generated, input any amount.\n4. The special account will send equal amount of Vite tokens in Ethereum ERC20 after receiving VV token.";
-"fetch.welfare.inputEthereumAddress.title" = "Please input Ethereum address:";
-"fetch.welfare.inputEthereumAddress.error.title" = "Incorrect Format!";
-
 /* toast error */
 "toast.error.login" = "Login Error";
 
@@ -250,7 +239,6 @@
 "quota.manage.page.submit.btn.title" = "Submit Staking";
 "quota.manage.page.check.quotaList.btn.title" = "Staking List";
 "quota.manage.page.toast.money.error" = "Staking amount should not be less than 10";
-"quota.manage.page.toast.send.failed" = "Staking failed, please try again later";
 "quota.submit.pop.desc" = "Make sure to stake %@ to obtain quota, you cannot withdraw until about 3 days after staking comes into effect.";
 "quota.submit.pop.submit.btn.title" = "Confirm";
 "quota.submit.pop.cancel.btn.title" = "Cancel";
@@ -293,7 +281,6 @@
 "vote.list.count" = "Polls";
 "vote.list.address" = "Address";
 "vote.list.send.success" = "Successfully sent vote request";
-"vote.list.send.failed" = "Vote failed, please vote again(code: %@)";
 "vote.list.alert.quota" = "unable to vote, you have to run PoW or stake VITE for TPS quota to vote";
 "vote.list.search.empty" = "No result, please try another input";
 "vote.list.search.no.transaction.before" = "You cannot vote for now as there is no transaction record in your address";
@@ -316,4 +303,16 @@
 "introduction.page.nextBtn.title" = "Start VITE journey";
 
 /* Error Message */
+"vite.error.network.error" = "Something went wrong with network, please try again later";
 "vite.error.operation.failure" = "操作失败";
+"vite.error.rpc.error.code.not.enough.balance" = "Insufficient Balance";
+"vite.error.rpc.error.code.not.enough.quota" = "配额不足";
+"vite.error.rpc.error.code.id.conflict" = "ID 发生冲突，请您稍后重新提交";
+"vite.error.rpc.error.code.contract.data.illegal" = "内置合约发生错误，请稍后重试(-35004)";
+"vite.error.rpc.error.code.refrence.same.snapshoot.block" = "交易发送频繁，请您稍后再次尝试";
+"vite.error.rpc.error.code.contract.method.not.exist" = "内置合约发生错误，请稍后重试(-35006)";
+"vite.error.rpc.error.code.no.transaction.before" = "您需要接收一笔交易之后才可发起转账";
+"vite.error.rpc.error.code.hash.verify.failure" = "系统校验不通过，请稍后重试(-35002)";
+"vite.error.rpc.error.code.signature.verify.failure" = "系统校验不通过，请稍后重试(-35003)";
+"vite.error.rpc.error.code.pow.nonce.verify.failure" = "系统校验不通过，请稍后重试(-35004)";
+"vite.error.rpc.error.code.refrence.snapshoot.block.illegal" = "快照块高度不合法，请您稍后再试";

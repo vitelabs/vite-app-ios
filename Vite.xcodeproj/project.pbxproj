@@ -67,7 +67,6 @@
 		4C9AFD56214E241F005B12C2 /* IconBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD55214E241F005B12C2 /* IconBtnView.swift */; };
 		4C9AFD59214E2FF2005B12C2 /* ManageWalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD58214E2FF2005B12C2 /* ManageWalletHeaderView.swift */; };
 		4C9AFD5C214F433C005B12C2 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD5B214F433C005B12C2 /* AboutUsViewController.swift */; };
-		4C9AFD5E214F4370005B12C2 /* FetchWelfareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */; };
 		4C9AFD8C214FBB85005B12C2 /* AboutUsTableBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD8B214FBB85005B12C2 /* AboutUsTableBottomView.swift */; };
 		4CC4F451214CCB5B0068DA53 /* TitlePasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4F450214CCB5B0068DA53 /* TitlePasswordInputView.swift */; };
 		4CC75382215A2D740009CA0E /* CellSeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC75381215A2D740009CA0E /* CellSeparatorLine.swift */; };
@@ -86,7 +85,6 @@
 		4CEB2926214B968000E5F7F4 /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */; };
 		4CEB292B214BBD2400E5F7F4 /* ViteInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */; };
 		4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */; };
-		4CFD6CC12154BF4C00437F33 /* FetchWelfareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD6CC02154BF4C00437F33 /* FetchWelfareCardView.swift */; };
 		4CFD6CC32154CAF800437F33 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD6CC22154CAF800437F33 /* LineView.swift */; };
 		740C3E4B214B6425005FCD24 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4A214B6425005FCD24 /* AuthenticationManager.swift */; };
 		740C3E4E214B9CC2005FCD24 /* TransactionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4D214B9CC2005FCD24 /* TransactionInfoView.swift */; };
@@ -213,7 +211,6 @@
 		8EA0BE2621996D4800FDE2E8 /* AccountBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46915214BD1AF00807D2C /* AccountBlock.swift */; };
 		8EA0BE2721996D4800FDE2E8 /* ReceiveHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D636D215B76D1009617A0 /* ReceiveHeaderView.swift */; };
 		8EA0BE2821996D4800FDE2E8 /* AddAddressFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E68C4872182E65F00475133 /* AddAddressFloatView.swift */; };
-		8EA0BE2921996D4800FDE2E8 /* FetchWelfareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD6CC02154BF4C00437F33 /* FetchWelfareCardView.swift */; };
 		8EA0BE2A21996D4800FDE2E8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EBE213FCAD500D483C6 /* UIColor.swift */; };
 		8EA0BE2B21996D4800FDE2E8 /* TitleTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468F5214A494800807D2C /* TitleTextFieldView.swift */; };
 		8EA0BE2C21996D4800FDE2E8 /* NavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46908214BA1BE00807D2C /* NavigationTitleView.swift */; };
@@ -416,7 +413,6 @@
 		8EA0BEF321996D4800FDE2E8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E192142280F003CDFC2 /* BaseViewController.swift */; };
 		8EA0BEF421996D4800FDE2E8 /* Provider+VoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E1D2191756400C3AE9D /* Provider+VoteList.swift */; };
 		8EA0BEF521996D4800FDE2E8 /* PledgeHistoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414DC2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift */; };
-		8EA0BEF621996D4800FDE2E8 /* FetchWelfareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */; };
 		8EA0BEF721996D4800FDE2E8 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB698216C8957001525EB /* KeychainService.swift */; };
 		8EA0BEF821996D4800FDE2E8 /* CellSeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC75381215A2D740009CA0E /* CellSeparatorLine.swift */; };
 		8EA0BEF921996D4800FDE2E8 /* CreateTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4691B214CAD6600807D2C /* CreateTransactionRequest.swift */; };
@@ -437,7 +433,6 @@
 		8EA0BF1721996D7800FDE2E8 /* AccountBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46915214BD1AF00807D2C /* AccountBlock.swift */; };
 		8EA0BF1821996D7800FDE2E8 /* ReceiveHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D636D215B76D1009617A0 /* ReceiveHeaderView.swift */; };
 		8EA0BF1921996D7800FDE2E8 /* AddAddressFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E68C4872182E65F00475133 /* AddAddressFloatView.swift */; };
-		8EA0BF1A21996D7800FDE2E8 /* FetchWelfareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD6CC02154BF4C00437F33 /* FetchWelfareCardView.swift */; };
 		8EA0BF1B21996D7800FDE2E8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C105EBE213FCAD500D483C6 /* UIColor.swift */; };
 		8EA0BF1C21996D7800FDE2E8 /* TitleTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE468F5214A494800807D2C /* TitleTextFieldView.swift */; };
 		8EA0BF1D21996D7800FDE2E8 /* NavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46908214BA1BE00807D2C /* NavigationTitleView.swift */; };
@@ -640,7 +635,6 @@
 		8EA0BFE421996D7800FDE2E8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E192142280F003CDFC2 /* BaseViewController.swift */; };
 		8EA0BFE521996D7800FDE2E8 /* Provider+VoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74875E1D2191756400C3AE9D /* Provider+VoteList.swift */; };
 		8EA0BFE621996D7800FDE2E8 /* PledgeHistoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414DC2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift */; };
-		8EA0BFE721996D7800FDE2E8 /* FetchWelfareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */; };
 		8EA0BFE821996D7800FDE2E8 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB698216C8957001525EB /* KeychainService.swift */; };
 		8EA0BFE921996D7800FDE2E8 /* CellSeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC75381215A2D740009CA0E /* CellSeparatorLine.swift */; };
 		8EA0BFEA21996D7800FDE2E8 /* CreateTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4691B214CAD6600807D2C /* CreateTransactionRequest.swift */; };
@@ -776,7 +770,6 @@
 		4C9AFD55214E241F005B12C2 /* IconBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconBtnView.swift; sourceTree = "<group>"; };
 		4C9AFD58214E2FF2005B12C2 /* ManageWalletHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageWalletHeaderView.swift; sourceTree = "<group>"; };
 		4C9AFD5B214F433C005B12C2 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
-		4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWelfareViewController.swift; sourceTree = "<group>"; };
 		4C9AFD71214F8F4C005B12C2 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		4C9AFD73214F8F54005B12C2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4C9AFD75214F8F5E005B12C2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -812,7 +805,6 @@
 		4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loading.swift"; sourceTree = "<group>"; };
 		4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidator.swift; sourceTree = "<group>"; };
 		4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidTest.swift; sourceTree = "<group>"; };
-		4CFD6CC02154BF4C00437F33 /* FetchWelfareCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWelfareCardView.swift; sourceTree = "<group>"; };
 		4CFD6CC22154CAF800437F33 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		6DA5968E2DBCD2A8A449CBD1 /* Pods-Vite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.release.xcconfig"; sourceTree = "<group>"; };
 		740C3E4A214B6425005FCD24 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
@@ -1094,7 +1086,6 @@
 				4C9AFD8A214FBB69005B12C2 /* View */,
 				4C2284BA214906F0003E9907 /* SystemViewController.swift */,
 				4C9AFD5B214F433C005B12C2 /* AboutUsViewController.swift */,
-				4C9AFD5D214F4370005B12C2 /* FetchWelfareViewController.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -1365,7 +1356,6 @@
 			isa = PBXGroup;
 			children = (
 				4C9AFD8B214FBB85005B12C2 /* AboutUsTableBottomView.swift */,
-				4CFD6CC02154BF4C00437F33 /* FetchWelfareCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2601,7 +2591,6 @@
 				8EE46916214BD1AF00807D2C /* AccountBlock.swift in Sources */,
 				8E7D636E215B76D1009617A0 /* ReceiveHeaderView.swift in Sources */,
 				8E68C4882182E65F00475133 /* AddAddressFloatView.swift in Sources */,
-				4CFD6CC12154BF4C00437F33 /* FetchWelfareCardView.swift in Sources */,
 				4C105EBF213FCAD500D483C6 /* UIColor.swift in Sources */,
 				8EE468F6214A494800807D2C /* TitleTextFieldView.swift in Sources */,
 				8EE46909214BA1BE00807D2C /* NavigationTitleView.swift in Sources */,
@@ -2808,7 +2797,6 @@
 				8E6F3E1D2142280F003CDFC2 /* BaseViewController.swift in Sources */,
 				74875E1E2191756400C3AE9D /* Provider+VoteList.swift in Sources */,
 				741414DD2186FA97007DDD01 /* PledgeHistoryCellTableViewCell.swift in Sources */,
-				4C9AFD5E214F4370005B12C2 /* FetchWelfareViewController.swift in Sources */,
 				8E0FB699216C8957001525EB /* KeychainService.swift in Sources */,
 				4CC75382215A2D740009CA0E /* CellSeparatorLine.swift in Sources */,
 				8EE4691C214CAD6600807D2C /* CreateTransactionRequest.swift in Sources */,
@@ -2843,7 +2831,6 @@
 				8EA0BE2621996D4800FDE2E8 /* AccountBlock.swift in Sources */,
 				8EA0BE2721996D4800FDE2E8 /* ReceiveHeaderView.swift in Sources */,
 				8EA0BE2821996D4800FDE2E8 /* AddAddressFloatView.swift in Sources */,
-				8EA0BE2921996D4800FDE2E8 /* FetchWelfareCardView.swift in Sources */,
 				8EA0BE2A21996D4800FDE2E8 /* UIColor.swift in Sources */,
 				8EA0BE2B21996D4800FDE2E8 /* TitleTextFieldView.swift in Sources */,
 				8EA0BE2C21996D4800FDE2E8 /* NavigationTitleView.swift in Sources */,
@@ -3049,7 +3036,6 @@
 				8EA0BEF321996D4800FDE2E8 /* BaseViewController.swift in Sources */,
 				8EA0BEF421996D4800FDE2E8 /* Provider+VoteList.swift in Sources */,
 				8EA0BEF521996D4800FDE2E8 /* PledgeHistoryCellTableViewCell.swift in Sources */,
-				8EA0BEF621996D4800FDE2E8 /* FetchWelfareViewController.swift in Sources */,
 				8EA0BEF721996D4800FDE2E8 /* KeychainService.swift in Sources */,
 				8EA0BEF821996D4800FDE2E8 /* CellSeparatorLine.swift in Sources */,
 				8EA0BEF921996D4800FDE2E8 /* CreateTransactionRequest.swift in Sources */,
@@ -3071,7 +3057,6 @@
 				8EA0BF1721996D7800FDE2E8 /* AccountBlock.swift in Sources */,
 				8EA0BF1821996D7800FDE2E8 /* ReceiveHeaderView.swift in Sources */,
 				8EA0BF1921996D7800FDE2E8 /* AddAddressFloatView.swift in Sources */,
-				8EA0BF1A21996D7800FDE2E8 /* FetchWelfareCardView.swift in Sources */,
 				8EA0BF1B21996D7800FDE2E8 /* UIColor.swift in Sources */,
 				8EA0BF1C21996D7800FDE2E8 /* TitleTextFieldView.swift in Sources */,
 				8EA0BF1D21996D7800FDE2E8 /* NavigationTitleView.swift in Sources */,
@@ -3277,7 +3262,6 @@
 				8EA0BFE421996D7800FDE2E8 /* BaseViewController.swift in Sources */,
 				8EA0BFE521996D7800FDE2E8 /* Provider+VoteList.swift in Sources */,
 				8EA0BFE621996D7800FDE2E8 /* PledgeHistoryCellTableViewCell.swift in Sources */,
-				8EA0BFE721996D7800FDE2E8 /* FetchWelfareViewController.swift in Sources */,
 				8EA0BFE821996D7800FDE2E8 /* KeychainService.swift in Sources */,
 				8EA0BFE921996D7800FDE2E8 /* CellSeparatorLine.swift in Sources */,
 				8EA0BFEA21996D7800FDE2E8 /* CreateTransactionRequest.swift in Sources */,

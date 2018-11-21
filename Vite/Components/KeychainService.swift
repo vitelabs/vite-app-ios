@@ -29,7 +29,11 @@ class KeychainService {
     }
 
     enum Key: String {
+        #if ENTERPRISE
+        case currentWallet = "currentWallet.ep"
+        #else
         case currentWallet
+        #endif
     }
 
     fileprivate(set) var currentWallet: Wallet? {

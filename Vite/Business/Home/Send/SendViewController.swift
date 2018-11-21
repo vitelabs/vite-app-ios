@@ -231,7 +231,7 @@ class SendViewController: BaseViewController {
                             alert.preferredAction = alert.actions[0]
                     })
                 } else {
-                    Toast.show(R.string.localizable.sendPageToastSendFailed())
+                    Toast.show(error.message)
                 }
             }
         }
@@ -277,14 +277,14 @@ class SendViewController: BaseViewController {
                                         alert.preferredAction = alert.actions[0]
                                 })
                             } else {
-                                Toast.show(R.string.localizable.sendPageToastSendFailed())
+                                Toast.show(error.message)
                             }
                         }
                     })
                 }
-            case .failure:
+            case .failure(let error):
                 getPowFloatView.hide()
-                Toast.show(R.string.localizable.sendPageToastSendFailed())
+                Toast.show(error.message)
             }
         })
     }
@@ -299,7 +299,11 @@ extension SendViewController: UITextFieldDelegate {
             return ret
         } else if textField == noteView.textField {
             // maxCount is 120, about 40 Chinese characters
-            return InputLimitsHelper.allowText(textField.text ?? "", shouldChangeCharactersIn: range, replacementString: string, maxCount: 120)
+            let ret = InputLimitsHelper.allowText(textField.text ?? "", shouldChangeCharactersIn: range, replacementString: string, maxCount: 120)
+            if !ret {
+                Toast.show(R.string.localizable.sendPageToastNoteTooLong())
+            }
+            return ret
         } else {
             return true
         }

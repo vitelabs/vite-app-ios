@@ -18,7 +18,6 @@
 "Submit" = "提交";
 "Close" = "我知道了";
 "Update.app" = "更新 App";
-"NetWorkError" = "网络异常，请稍后重试";
 "Submit.success" = "提交成功";
 "Submit.cancel" = "撤销";
 
@@ -166,11 +165,11 @@
 "send.page.send.button.title" = "转账";
 "send.page.amount.toolbar.button.title" = "下一项";
 "send.page.toast.send.success" = "支付成功";
-"send.page.toast.send.failed" = "转账发生错误，请重新发起转账";
 "send.page.toast.address.error" = "地址输入错误,请检查格式";
 "send.page.toast.amount.error" = "账户余额不足";
 "send.page.toast.amount.empty" = "请填写金额";
 "send.page.toast.amount.zero" = "转账金额不能为0";
+"send.page.toast.note.too.long" = "备注已达上限";
 "send.page.not.enough.balance.alert.title" = "账户余额不足";
 "send.page.not.enough.balance.alert.button" = "取消交易";
 "send.page.confirm.biometryAuthFailed.title" = "无法识别";
@@ -225,15 +224,6 @@
 "aboutUs.page.email.title" = "意见反馈";
 "aboutUs.page.email.content" = "\n\n\n\n\n意见来自以下使用环境：\n1.设备系统：%@\n2.系统版本:%@\n3.APP 版本：%@\n4.语言环境：%@";
 
-/* fetch welfare */
-"fetch.welfare.page.title" = "领福利";
-"fetch.welfare.content.title" = "第一期福利";
-"fetch.welfare.content.desc" = "针对路印社区的用户的空投正在进行中\n后续不定期推出各项福利，\n敬请关注！";
-"fetch.welfare.participation.title" = "参与方式:";
-"fetch.welfare.participation.ways" = "1、在路印社区提交您的 Vite 地址；\n2、系统对 Vite 地址进行特定代币 VV 的空投；\n3、在本页面请填写您的以太坊地址，确认提交，会发起一笔转给特定账户的交易，输入任意金额。\n4、特定账户收到 VV 后，会转给您以太坊地址等量的 Vite 在以太坊的 ERC20 的代币。";
-"fetch.welfare.inputEthereumAddress.title" = "请填写您的以太坊地址:";
-"fetch.welfare.inputEthereumAddress.error.title" = "格式错误";
-
 /* toast error */
 "toast.error.login" = "解锁失败";
 
@@ -247,7 +237,6 @@
 "quota.manage.page.submit.btn.title" = "提交抵押";
 "quota.manage.page.check.quotaList.btn.title" = "抵押列表";
 "quota.manage.page.toast.money.error" = "抵押金额必须大于10 vite";
-"quota.manage.page.toast.send.failed" = "抵押发生错误，请重新发起转账";
 "quota.submit.pop.desc" = "确认是否抵押%@以获取配额，抵押生效3天之后才可取回抵押金额";
 "quota.submit.pop.submit.btn.title" = "确认抵押";
 "quota.submit.pop.cancel.btn.title" = "暂不抵押";
@@ -291,7 +280,6 @@
 "vote.list.count" = "得票数";
 "vote.list.address" = "出块地址";
 "vote.list.send.success" = "投票请求发送成功";
-"vote.list.send.failed" = "投票失败，请重新投票(code: %@)";
 "vote.list.alert.quota" = "无法投票，您需运行PoW 或抵押VITE 获取配额才可以投票";
 "vote.list.search.empty" = "无结果，换个输入试试";
 "vote.list.search.no.transaction.before" = "您的地址未发生过交易，暂不能投票";
@@ -314,4 +302,17 @@
 "introduction.page.nextBtn.title" = "开始体验";
 
 /* Error Message */
+"vite.error.network.error" = "网络异常，请稍后重试";
 "vite.error.operation.failure" = "操作失败";
+"vite.error.rpc.error.code.not.enough.balance" = "账户余额不足";
+"vite.error.rpc.error.code.not.enough.quota" = "配额不足";
+"vite.error.rpc.error.code.id.conflict" = "ID 发生冲突，请您稍后重新提交";
+"vite.error.rpc.error.code.contract.data.illegal" = "内置合约发生错误，请稍后重试(-35004)";
+"vite.error.rpc.error.code.refrence.same.snapshoot.block" = "交易发送频繁，请您稍后再次尝试";
+"vite.error.rpc.error.code.contract.method.not.exist" = "内置合约发生错误，请稍后重试(-35006)";
+"vite.error.rpc.error.code.no.transaction.before" = "您需要接收一笔交易之后才可发起转账";
+"vite.error.rpc.error.code.hash.verify.failure" = "系统校验不通过，请稍后重试(-35002)";
+"vite.error.rpc.error.code.signature.verify.failure" = "系统校验不通过，请稍后重试(-35003)";
+"vite.error.rpc.error.code.pow.nonce.verify.failure" = "系统校验不通过，请稍后重试(-35004)";
+"vite.error.rpc.error.code.refrence.snapshoot.block.illegal" = "快照块高度不合法，请您稍后再试";
+

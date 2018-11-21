@@ -255,7 +255,7 @@ extension QuotaManageViewController {
                 } else if error.code == ViteErrorCode.rpcNotEnoughQuota {
                     self.pledgeAndGainQuotaWithGetPow(beneficialAddress: beneficialAddress, amount: amount)
                 } else {
-                    Toast.show(R.string.localizable.quotaManagePageToastSendFailed())
+                    Toast.show(error.message)
                 }
             }
         }
@@ -292,14 +292,14 @@ extension QuotaManageViewController {
                                            message: nil,
                                            actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
                             } else {
-                                Toast.show(R.string.localizable.quotaManagePageToastSendFailed())
+                                Toast.show(error.message)
                             }
                         }
                     })
                 }
-            case .failure:
+            case .failure(let error):
                 getPowFloatView.hide()
-                Toast.show(R.string.localizable.quotaManagePageToastSendFailed())
+                Toast.show(error.message)
             }
         }
     }
