@@ -230,7 +230,7 @@
 
 /* quota manage */
 "quota.manage.page.title" = "Get Quota";
-"quota.manage.page.input.address.title" = "Profit Address";
+"quota.manage.page.input.address.title" = "Quota Recipient Address";
 "quota.manage.page.quota.money.title" = "Staking Amount";
 "quota.manage.page.quota.money.placeholder" = "Please input amount, minimum 10 VITE";
 "quota.manage.page.quota.snapshoot.height.title" = "Staking frozen duration";
@@ -242,7 +242,7 @@
 "quota.submit.pop.desc" = "Make sure to stake %@ to obtain quota, you cannot withdraw until about 3 days after staking comes into effect.";
 "quota.submit.pop.submit.btn.title" = "Confirm";
 "quota.submit.pop.cancel.btn.title" = "Cancel";
-"quota.submit.page.quota.address.placeholder" = "Please input profit address";
+"quota.submit.page.quota.address.placeholder" = "Please input recipient address";
 
 /* quota alert */
 "quota.alert.title" = "Insufficient Quota";
