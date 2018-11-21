@@ -218,7 +218,7 @@ class SendViewController: BaseViewController {
                                message: nil,
                                actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
                 } else if error.code == ViteErrorCode.rpcNotEnoughQuota {
-                    Alert.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.quotaAlertPowAndQuotaMessage(), actions: [
+                    AlertSheet.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.quotaAlertPowAndQuotaMessage(), actions: [
                         (.default(title: R.string.localizable.quotaAlertPowButtonTitle()), { _ in
                             self.sendTransactionWithGetPow(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, note: note)
                         }),

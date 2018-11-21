@@ -65,11 +65,6 @@ class AppUpdateService: NSObject {
     }
 
     fileprivate static func showUpdate(info: UpdateInfo, current: Int) {
-        guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return }
-        var top = rootVC
-        while let presentedViewController = top.presentedViewController {
-            top = presentedViewController
-        }
 
         var isForce = info.isForce
         if !isForce {
@@ -82,10 +77,12 @@ class AppUpdateService: NSObject {
 
         if isForce {
             func showAlert() {
-                top.displayConfirmAlter(title: info.title.string, message: info.message.string, done: info.okTitle?.string ?? R.string.localizable.updateApp(), doneHandler: {
-                    UIApplication.shared.open(info.url, options: [:], completionHandler: nil)
-                    showAlert()
-                })
+                Alert.show(title: info.title.string, message: info.message.string, actions: [
+                    (.default(title: info.okTitle?.string ?? R.string.localizable.updateApp()), { _ in
+                        UIApplication.shared.open(info.url, options: [:], completionHandler: nil)
+                        showAlert()
+                    }),
+                    ])
             }
             showAlert()
         } else {
@@ -101,11 +98,14 @@ class AppUpdateService: NSObject {
             }
             guard ignoreBuild != info.build else { return }
 
-            top.displayAlter(title: info.title.string, message: info.message.string, cancel: info.cancelTitle?.string ?? R.string.localizable.cancel(), done: info.okTitle?.string ?? R.string.localizable.updateApp(), doneHandler: {
-                UIApplication.shared.open(info.url, options: [:], completionHandler: nil)
-            }, cancelHandler: {
-                UserDefaultsService.instance.setObject(info.build, forKey: Key.ignoreBuild.rawValue, inCollection: Key.collection.rawValue)
-            })
+            Alert.show(title: info.title.string, message: info.message.string, actions: [
+                (.cancel, { _ in
+                    UserDefaultsService.instance.setObject(info.build, forKey: Key.ignoreBuild.rawValue, inCollection: Key.collection.rawValue)
+                }),
+                (.default(title: info.okTitle?.string ?? R.string.localizable.updateApp()), { _ in
+                    UIApplication.shared.open(info.url, options: [:], completionHandler: nil)
+                }),
+                ])
         }
     }
 }

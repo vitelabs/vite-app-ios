@@ -83,7 +83,6 @@
 		4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE425A2124553C0080E92B /* ViteTests.swift */; };
 		4CE4E13D214794D000A6CD7E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4E13C214794D000A6CD7E /* UIImage.swift */; };
 		4CE4E14521479EAF00A6CD7E /*  CreateWalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4E14421479EAF00A6CD7E /*  CreateWalletService.swift */; };
-		4CE83DDE21511E2000AB1DAD /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE83DDD21511E2000AB1DAD /* UIViewController+Loading.swift */; };
 		4CEB2926214B968000E5F7F4 /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */; };
 		4CEB292B214BBD2400E5F7F4 /* ViteInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */; };
 		4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */; };
@@ -318,7 +317,6 @@
 		8EA0BE9121996D4800FDE2E8 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E092141199B003CDFC2 /* Address.swift */; };
 		8EA0BE9221996D4800FDE2E8 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54853F217F2778009C528B /* Statistics.swift */; };
 		8EA0BE9321996D4800FDE2E8 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284B42148BB2A003E9907 /* ImageCell.swift */; };
-		8EA0BE9421996D4800FDE2E8 /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE83DDD21511E2000AB1DAD /* UIViewController+Loading.swift */; };
 		8EA0BE9521996D4800FDE2E8 /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D91B2145277C001B6EBD /* PasswordInputView.swift */; };
 		8EA0BE9621996D4800FDE2E8 /* PledgeHistoryViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414D62186FA39007DDD01 /* PledgeHistoryViewReactor.swift */; };
 		8EA0BE9721996D4800FDE2E8 /* WalletHomeBalanceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */; };
@@ -540,7 +538,6 @@
 		8EA0BF8221996D7800FDE2E8 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E092141199B003CDFC2 /* Address.swift */; };
 		8EA0BF8321996D7800FDE2E8 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54853F217F2778009C528B /* Statistics.swift */; };
 		8EA0BF8421996D7800FDE2E8 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2284B42148BB2A003E9907 /* ImageCell.swift */; };
-		8EA0BF8521996D7800FDE2E8 /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE83DDD21511E2000AB1DAD /* UIViewController+Loading.swift */; };
 		8EA0BF8621996D7800FDE2E8 /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84D91B2145277C001B6EBD /* PasswordInputView.swift */; };
 		8EA0BF8721996D7800FDE2E8 /* PledgeHistoryViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741414D62186FA39007DDD01 /* PledgeHistoryViewReactor.swift */; };
 		8EA0BF8821996D7800FDE2E8 /* WalletHomeBalanceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E56FC77214643B200A68823 /* WalletHomeBalanceInfoCell.swift */; };
@@ -803,7 +800,6 @@
 		4CCE42672124553C0080E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CE4E13C214794D000A6CD7E /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		4CE4E14421479EAF00A6CD7E /*  CreateWalletService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CreateWalletService.swift"; sourceTree = "<group>"; };
-		4CE83DDD21511E2000AB1DAD /* UIViewController+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Loading.swift"; sourceTree = "<group>"; };
 		4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loading.swift"; sourceTree = "<group>"; };
 		4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidator.swift; sourceTree = "<group>"; };
 		4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidTest.swift; sourceTree = "<group>"; };
@@ -1041,7 +1037,6 @@
 				8EE468FE214A6D4200807D2C /* UITextField+FDSKeyboardAutoScrolling.swift */,
 				8E107EE0215B2BE700B28DE2 /* UITextView+FDSKeyboardAutoScrolling.swift */,
 				4CEB2925214B968000E5F7F4 /* UIView+Loading.swift */,
-				4CE83DDD21511E2000AB1DAD /* UIViewController+Loading.swift */,
 				4C3E323E215492AC009936E3 /* Bundle.swift */,
 			);
 			path = Extensions;
@@ -2699,7 +2694,6 @@
 				8E6F3E0A2141199B003CDFC2 /* Address.swift in Sources */,
 				8E548540217F2778009C528B /* Statistics.swift in Sources */,
 				4C2284B52148BB2A003E9907 /* ImageCell.swift in Sources */,
-				4CE83DDE21511E2000AB1DAD /* UIViewController+Loading.swift in Sources */,
 				4C84D91C2145277C001B6EBD /* PasswordInputView.swift in Sources */,
 				741414D82186FA39007DDD01 /* PledgeHistoryViewReactor.swift in Sources */,
 				8E56FC78214643B300A68823 /* WalletHomeBalanceInfoCell.swift in Sources */,
@@ -2938,7 +2932,6 @@
 				8EA0BE9121996D4800FDE2E8 /* Address.swift in Sources */,
 				8EA0BE9221996D4800FDE2E8 /* Statistics.swift in Sources */,
 				8EA0BE9321996D4800FDE2E8 /* ImageCell.swift in Sources */,
-				8EA0BE9421996D4800FDE2E8 /* UIViewController+Loading.swift in Sources */,
 				8EA0BE9521996D4800FDE2E8 /* PasswordInputView.swift in Sources */,
 				8EA0BE9621996D4800FDE2E8 /* PledgeHistoryViewReactor.swift in Sources */,
 				8EA0BE9721996D4800FDE2E8 /* WalletHomeBalanceInfoCell.swift in Sources */,
@@ -3165,7 +3158,6 @@
 				8EA0BF8221996D7800FDE2E8 /* Address.swift in Sources */,
 				8EA0BF8321996D7800FDE2E8 /* Statistics.swift in Sources */,
 				8EA0BF8421996D7800FDE2E8 /* ImageCell.swift in Sources */,
-				8EA0BF8521996D7800FDE2E8 /* UIViewController+Loading.swift in Sources */,
 				8EA0BF8621996D7800FDE2E8 /* PasswordInputView.swift in Sources */,
 				8EA0BF8721996D7800FDE2E8 /* PledgeHistoryViewReactor.swift in Sources */,
 				8EA0BF8821996D7800FDE2E8 /* WalletHomeBalanceInfoCell.swift in Sources */,
