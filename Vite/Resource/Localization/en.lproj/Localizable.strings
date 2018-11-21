@@ -305,15 +305,15 @@
 "Vite.RefreshBackFooter.NoMoreDataText" = "No more data";
 
 //Welcome
-"introduction.page.tip1.title" = "转账零费用";
-"introduction.page.tip2.title" = "交易速度快";
-"introduction.page.tip3.title" = "HD钱包结构";
-"introduction.page.tip4.title" = "投票赚奖励";
-"introduction.page.tip1.desc" = "交易消耗配额，运行PoW免费获取";
-"introduction.page.tip2.desc" = "异步架构设计，交易畅通无阻";
-"introduction.page.tip3.desc" = "支持多种代币，方便账号管";
-"introduction.page.tip4.desc" = "投票官方节点，赚取VITE奖励";
-"introduction.page.nextBtn.title" = "开始体验";
+"introduction.page.tip1.title" = "Free transactions";
+"introduction.page.tip2.title" = "Fast transactions";
+"introduction.page.tip3.title" = "HD wallet structure";
+"introduction.page.tip4.title" = "Voting to garner rewards";
+"introduction.page.tip1.desc" = "Use TPS quota for payment, get free TPS quota by running PoW.";
+"introduction.page.tip2.desc" = "Designed in asynchronous architecture, so smooth to make transactions.";
+"introduction.page.tip3.desc" = "Support multiple tokens, easy to manage accounts.";
+"introduction.page.tip4.desc" = "Vote for official nodes, acquire rewards of VITE.";
+"introduction.page.nextBtn.title" = "Start VITE journey";
 
 /* Error Message */
 "vite.error.operation.failure" = "操作失败";

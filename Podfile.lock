@@ -30,6 +30,7 @@ PODS:
     - Result (~> 3.0)
   - "NSObject+Rx (4.4.1)":
     - RxSwift (~> 4.3)
+  - NYXImagesKit (2.3)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
@@ -75,7 +76,7 @@ PODS:
   - Then (2.4.0)
   - Toast-Swift (3.0.1)
   - TrezorCryptoEd25519WithBlake2b (0.0.1)
-  - Vite_HDWalletKit (1.1.0):
+  - Vite_HDWalletKit (1.2.0):
     - BigInt (~> 3.0)
     - CryptoSwift (~> 0.12.0)
     - TrezorCryptoEd25519WithBlake2b (~> 0.0.1)
@@ -101,6 +102,7 @@ DEPENDENCIES:
   - MJRefresh
   - Moya
   - "NSObject+Rx"
+  - NYXImagesKit (= 2.3)
   - ObjectMapper
   - pop (~> 1.0)
   - PromiseKit (~> 6.0)
@@ -119,7 +121,7 @@ DEPENDENCIES:
   - SwiftyJSON
   - Then
   - Toast-Swift (~> 3.0.1)
-  - Vite_HDWalletKit (~> 1.1.0)
+  - Vite_HDWalletKit (~> 1.2.0)
   - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
@@ -142,6 +144,7 @@ SPEC REPOS:
     - MJRefresh
     - Moya
     - "NSObject+Rx"
+    - NYXImagesKit
     - ObjcExceptionBridging
     - ObjectMapper
     - pop
@@ -197,6 +200,7 @@ SPEC CHECKSUMS:
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
+  NYXImagesKit: 8163e3335a40eaa173ca5bbbf81fafb57d3947eb
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
@@ -220,9 +224,9 @@ SPEC CHECKSUMS:
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
-  Vite_HDWalletKit: 90bf90b7092cc483ae9eda3385e96ed5be3aca22
+  Vite_HDWalletKit: 8d3f78883b58def92610e44704a93db7b566656c
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 1dc5f8cb39f404268bb44ae8d25cdf454ce0c9b9
+PODFILE CHECKSUM: 9c34d4392053911ed6de573da0448d5f804c7a76
 
 COCOAPODS: 1.5.3
