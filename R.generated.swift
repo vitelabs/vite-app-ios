@@ -693,7 +693,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 251 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 252 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1611,6 +1611,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let transactionListTransactionTypeNameCancelCoin = Rswift.StringResource(key: "transaction.list.transaction.type.name.cancelCoin", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: 备注已达上限
+      /// 
+      /// Locales: en, zh-Hans
+      static let sendPageToastNoteTooLong = Rswift.StringResource(key: "send.page.toast.note.too.long", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 开始体验
       /// 
       /// Locales: en, zh-Hans
@@ -3301,6 +3305,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func transactionListTransactionTypeNameCancelCoin(_: Void = ()) -> String {
         return NSLocalizedString("transaction.list.transaction.type.name.cancelCoin", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: 备注已达上限
+      /// 
+      /// Locales: en, zh-Hans
+      static func sendPageToastNoteTooLong(_: Void = ()) -> String {
+        return NSLocalizedString("send.page.toast.note.too.long", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: 开始体验

@@ -51,6 +51,10 @@ extension ReceiveFooterView: UITextFieldDelegate {
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // maxCount is 120, about 40 Chinese characters
-        return InputLimitsHelper.allowText(textField.text ?? "", shouldChangeCharactersIn: range, replacementString: string, maxCount: 120)
+        let ret = InputLimitsHelper.allowText(textField.text ?? "", shouldChangeCharactersIn: range, replacementString: string, maxCount: 120)
+        if !ret {
+            Toast.show(R.string.localizable.sendPageToastNoteTooLong())
+        }
+        return ret
     }
 }

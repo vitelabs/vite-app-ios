@@ -168,6 +168,7 @@
 "send.page.toast.amount.error" = "Insufficient Balance";
 "send.page.toast.amount.empty" = "Please input balance";
 "send.page.toast.amount.zero" = "The amount has to be positive";
+"send.page.toast.note.too.long" = "备注已达上限";
 "send.page.not.enough.balance.alert.title" = "Insufficient Balance";
 "send.page.not.enough.balance.alert.button" = "Cancel";
 "send.page.confirm.biometryAuthFailed.title" = "Cannot be identified";
