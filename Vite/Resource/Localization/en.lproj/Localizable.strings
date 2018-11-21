@@ -226,16 +226,6 @@
 "aboutUs.page.email.title" = "Feedback";
 "aboutUs.page.email.content" = "\n\n\n\n\nThe advice comes from the using environment as below:\n1.System device: %@\n2.System version:%@\n3.APP version：%@\n4.Language:%@";
 
-
-/* fetch welfare */
-"fetch.welfare.page.title" = "Get Bonus";
-"fetch.welfare.content.title" = "Bonus in the first stage";
-"fetch.welfare.content.desc" = "The airdrop aiming at Loopring community is now processing!\nThe following beneficial activities will be conducted gradually,\n please stay tuned!";
-"fetch.welfare.participation.title" = "How to participate:";
-"fetch.welfare.participation.ways" = "1. Submit your Vite address in Loopring community. \n2. System will airdrop specific token - VV token. \n3. Please fill in address of Ethereum in this page, confirm and submit, then a transaction to special account will be generated, input any amount.\n4. The special account will send equal amount of Vite tokens in Ethereum ERC20 after receiving VV token.";
-"fetch.welfare.inputEthereumAddress.title" = "Please input Ethereum address:";
-"fetch.welfare.inputEthereumAddress.error.title" = "Incorrect Format!";
-
 /* toast error */
 "toast.error.login" = "Login Error";
 

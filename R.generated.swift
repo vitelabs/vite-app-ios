@@ -693,7 +693,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 252 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 245 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -703,10 +703,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let balanceInfoDetailUnconfirmedCountTitle = Rswift.StringResource(key: "balance.info.detail.unconfirmed.count.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: 1. Submit your Vite address in Loopring community.  2. System will airdrop specific token - VV token.  3. Please fill in address of Ethereum in this page, confirm and submit, then a transaction to special account will be generated, input any amount. 4. The special account will send equal amount of Vite tokens in Ethereum ERC20 after receiving VV token.
-      /// 
-      /// Locales: en, zh-Hans
-      static let fetchWelfareParticipationWays = Rswift.StringResource(key: "fetch.welfare.participation.ways", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: 6 digits numeric password
       /// 
       /// Locales: en, zh-Hans
@@ -803,10 +799,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let walletHomeBalanceTitle = Rswift.StringResource(key: "wallet.home.balance.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Bonus in the first stage
-      /// 
-      /// Locales: en, zh-Hans
-      static let fetchWelfareContentTitle = Rswift.StringResource(key: "fetch.welfare.content.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Cancel
       /// 
       /// Locales: en, zh-Hans
@@ -934,10 +926,6 @@ struct R: Rswift.Validatable {
       /// en translation: Get Bonus
       /// 
       /// Locales: en, zh-Hans
-      static let fetchWelfarePageTitle = Rswift.StringResource(key: "fetch.welfare.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Get Bonus
-      /// 
-      /// Locales: en, zh-Hans
       static let myPageFetchMoneyCellTitle = Rswift.StringResource(key: "my.page.fetchMoney.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Get Quota
       /// 
@@ -947,10 +935,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let introductionPageTip3Title = Rswift.StringResource(key: "introduction.page.tip3.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: How to participate:
-      /// 
-      /// Locales: en, zh-Hans
-      static let fetchWelfareParticipationTitle = Rswift.StringResource(key: "fetch.welfare.participation.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: I know
       /// 
       /// Locales: en, zh-Hans
@@ -967,10 +951,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importAccount = Rswift.StringResource(key: "import.account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Incorrect Format!
-      /// 
-      /// Locales: en, zh-Hans
-      static let fetchWelfareInputEthereumAddressErrorTitle = Rswift.StringResource(key: "fetch.welfare.inputEthereumAddress.error.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Incorrect seed phrase!
       /// 
       /// Locales: en, zh-Hans
@@ -1155,10 +1135,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let createPagePwTitle = Rswift.StringResource(key: "create.page.pw.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Please input Ethereum address:
-      /// 
-      /// Locales: en, zh-Hans
-      static let fetchWelfareInputEthereumAddressTitle = Rswift.StringResource(key: "fetch.welfare.inputEthereumAddress.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Please input account name or password
       /// 
       /// Locales: en, zh-Hans
@@ -1387,10 +1363,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let myPageSystemCellTitle = Rswift.StringResource(key: "my.page.system.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: The airdrop aiming at Loopring community is now processing! The following beneficial activities will be conducted gradually,  please stay tuned!
-      /// 
-      /// Locales: en, zh-Hans
-      static let fetchWelfareContentDesc = Rswift.StringResource(key: "fetch.welfare.content.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: The amount has to be positive
       /// 
       /// Locales: en, zh-Hans
@@ -1718,13 +1690,6 @@ struct R: Rswift.Validatable {
         return String(format: NSLocalizedString("balance.info.detail.unconfirmed.count.title", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
-      /// en translation: 1. Submit your Vite address in Loopring community.  2. System will airdrop specific token - VV token.  3. Please fill in address of Ethereum in this page, confirm and submit, then a transaction to special account will be generated, input any amount. 4. The special account will send equal amount of Vite tokens in Ethereum ERC20 after receiving VV token.
-      /// 
-      /// Locales: en, zh-Hans
-      static func fetchWelfareParticipationWays(_: Void = ()) -> String {
-        return NSLocalizedString("fetch.welfare.participation.ways", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: 6 digits numeric password
       /// 
       /// Locales: en, zh-Hans
@@ -1891,13 +1856,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func walletHomeBalanceTitle(_: Void = ()) -> String {
         return NSLocalizedString("wallet.home.balance.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Bonus in the first stage
-      /// 
-      /// Locales: en, zh-Hans
-      static func fetchWelfareContentTitle(_: Void = ()) -> String {
-        return NSLocalizedString("fetch.welfare.content.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Cancel
@@ -2120,13 +2078,6 @@ struct R: Rswift.Validatable {
       /// en translation: Get Bonus
       /// 
       /// Locales: en, zh-Hans
-      static func fetchWelfarePageTitle(_: Void = ()) -> String {
-        return NSLocalizedString("fetch.welfare.page.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Get Bonus
-      /// 
-      /// Locales: en, zh-Hans
       static func myPageFetchMoneyCellTitle(_: Void = ()) -> String {
         return NSLocalizedString("my.page.fetchMoney.cell.title", bundle: R.hostingBundle, comment: "")
       }
@@ -2143,13 +2094,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func introductionPageTip3Title(_: Void = ()) -> String {
         return NSLocalizedString("introduction.page.tip3.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: How to participate:
-      /// 
-      /// Locales: en, zh-Hans
-      static func fetchWelfareParticipationTitle(_: Void = ()) -> String {
-        return NSLocalizedString("fetch.welfare.participation.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: I know
@@ -2178,13 +2122,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func importAccount(_: Void = ()) -> String {
         return NSLocalizedString("import.account", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Incorrect Format!
-      /// 
-      /// Locales: en, zh-Hans
-      static func fetchWelfareInputEthereumAddressErrorTitle(_: Void = ()) -> String {
-        return NSLocalizedString("fetch.welfare.inputEthereumAddress.error.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Incorrect seed phrase!
@@ -2507,13 +2444,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func createPagePwTitle(_: Void = ()) -> String {
         return NSLocalizedString("create.page.pw.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Please input Ethereum address:
-      /// 
-      /// Locales: en, zh-Hans
-      static func fetchWelfareInputEthereumAddressTitle(_: Void = ()) -> String {
-        return NSLocalizedString("fetch.welfare.inputEthereumAddress.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Please input account name or password
@@ -2913,13 +2843,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func myPageSystemCellTitle(_: Void = ()) -> String {
         return NSLocalizedString("my.page.system.cell.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: The airdrop aiming at Loopring community is now processing! The following beneficial activities will be conducted gradually,  please stay tuned!
-      /// 
-      /// Locales: en, zh-Hans
-      static func fetchWelfareContentDesc(_: Void = ()) -> String {
-        return NSLocalizedString("fetch.welfare.content.desc", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: The amount has to be positive
