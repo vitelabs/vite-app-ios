@@ -96,7 +96,7 @@ final class PledgeHistoryViewReactor: Reactor {
                     self?.index += 1
                     observer.onNext((pledges, nil))
                     observer.onCompleted()
-                case .error(let error):
+                case .failure(let error):
                     observer.onNext((nil, error.message))
                     observer.onCompleted()
                 }

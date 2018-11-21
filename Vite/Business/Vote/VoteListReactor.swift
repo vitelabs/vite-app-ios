@@ -38,7 +38,7 @@ final class VoteListReactor {
                         case .success(let candidates):
                             observer.onNext(candidates)
                             observer.onCompleted()
-                        case .error(let error):
+                        case .failure(let error):
                             self?.fetchCandidateError.value = error
                             observer.onCompleted()
                         }
@@ -54,7 +54,7 @@ final class VoteListReactor {
                             case .success(let candidates):
                                 self?.fetchCandidateError.value = nil
                                 observer.onNext(candidates)
-                            case .error(let error):
+                            case .failure(let error):
                                 self?.fetchCandidateError.value = error
                             }
                         }
@@ -80,7 +80,7 @@ final class VoteListReactor {
                         case .success(let candidates):
                             observer.onNext(candidates)
                             observer.onCompleted()
-                        case .error:
+                        case .failure:
                             observer.onCompleted()
                         }
                     }
@@ -96,7 +96,7 @@ final class VoteListReactor {
                         case .success(let candidates):
                             observer.onNext(candidates)
                             observer.onCompleted()
-                        case .error(let error):
+                        case .failure(let error):
                             self?.fetchCandidateError.value = error
                             observer.onCompleted()
                         }
@@ -137,7 +137,7 @@ final class VoteListReactor {
                     NotificationCenter.default.post(name: .userDidVote, object: nodeName)
                 }
                 self.voteSuccess.onNext(Void())
-            } else if case let .error(error) = result {
+            } else if case let .failure(error) = result {
                 self.voteError.value = (nodeName, error)
             }
         }
@@ -158,7 +158,7 @@ final class VoteListReactor {
                     NotificationCenter.default.post(name: .userDidVote, object: nodeName)
                 }
                 self.voteSuccess.onNext(Void())
-            } else if case let .error(error) = result {
+            } else if case let .failure(error) = result {
                 self.voteError.value = (nodeName, error)
             }
             completion(result)

@@ -1,5 +1,5 @@
 //
-//  AppUpdateVM.swift
+//  AppUpdateService.swift
 //  Vite
 //
 //  Created by Water on 2018/9/27.
@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class AppUpdateVM: NSObject {
+class AppUpdateService: NSObject {
 
     struct UpdateInfo: Mappable {
 
@@ -57,7 +57,7 @@ class AppUpdateVM: NSObject {
                         showUpdate(info: info, current: current)
                     }
                 }
-            case .error(let error):
+            case .failure(let error):
                 plog(level: .warning, log: error.message, tag: .getConfig)
                 GCD.delay(2, task: { self.checkUpdate() })
             }
@@ -82,15 +82,29 @@ class AppUpdateVM: NSObject {
 
         if isForce {
             func showAlert() {
-                top.displayConfirmAlter(title: info.title.string, message: info.message.string, done: info.okTitle?.string ?? R.string.localizable.updateApp.key.localized(), doneHandler: {
+                top.displayConfirmAlter(title: info.title.string, message: info.message.string, done: info.okTitle?.string ?? R.string.localizable.updateApp(), doneHandler: {
                     UIApplication.shared.open(info.url, options: [:], completionHandler: nil)
                     showAlert()
                 })
             }
             showAlert()
         } else {
-            top.displayAlter(title: info.title.string, message: info.message.string, cancel: info.cancelTitle?.string ?? R.string.localizable.cancel.key.localized(), done: info.okTitle?.string ?? R.string.localizable.updateApp.key.localized(), doneHandler: {
+
+            enum Key: String {
+                case collection = "AppUpdate"
+                case ignoreBuild = "ignoreBuild"
+            }
+
+            var ignoreBuild = 0
+            if let num = UserDefaultsService.instance.objectForKey(Key.ignoreBuild.rawValue, inCollection: Key.collection.rawValue) as? Int {
+                ignoreBuild = num
+            }
+            guard ignoreBuild != info.build else { return }
+
+            top.displayAlter(title: info.title.string, message: info.message.string, cancel: info.cancelTitle?.string ?? R.string.localizable.cancel(), done: info.okTitle?.string ?? R.string.localizable.updateApp(), doneHandler: {
                 UIApplication.shared.open(info.url, options: [:], completionHandler: nil)
+            }, cancelHandler: {
+                UserDefaultsService.instance.setObject(info.build, forKey: Key.ignoreBuild.rawValue, inCollection: Key.collection.rawValue)
             })
         }
     }

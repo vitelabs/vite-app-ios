@@ -40,17 +40,17 @@ class QuotaSubmitPopViewController: BaseViewController {
         initBinds()
     }
 
-    lazy var cardBgView = CardBgView(title: R.string.localizable.quotaManagePageSubmitBtnTitle.key.localized())
+    lazy var cardBgView = CardBgView(title: R.string.localizable.quotaManagePageSubmitBtnTitle())
     lazy var descLab = UILabel().then {
         $0.textColor = Colors.cellTitleGray
         $0.font = Fonts.Font14_b
         $0.textAlignment = .left
         $0.numberOfLines = 2
-        $0.text = R.string.localizable.quotaSubmitPopDesc.key.localized(arguments: String.init(format: "%@ %@ ", self.money, TokenCacheService.instance.viteToken.symbol))
+        $0.text = R.string.localizable.quotaSubmitPopDesc(String.init(format: "%@ %@ ", self.money, TokenCacheService.instance.viteToken.symbol))
     }
 
-    lazy var submitBtn = UIButton(style: .blue, title: R.string.localizable.quotaSubmitPopSubmitBtnTitle.key.localized())
-    lazy var cancelBtn = UIButton(style: .white, title: R.string.localizable.quotaSubmitPopCancelBtnTitle.key.localized())
+    lazy var submitBtn = UIButton(style: .blue, title: R.string.localizable.quotaSubmitPopSubmitBtnTitle())
+    lazy var cancelBtn = UIButton(style: .white, title: R.string.localizable.quotaSubmitPopCancelBtnTitle())
 
     func setupView() {
         self.navigationController?.view.backgroundColor = .clear

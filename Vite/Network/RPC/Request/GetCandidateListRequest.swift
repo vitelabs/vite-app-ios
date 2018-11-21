@@ -27,7 +27,7 @@ struct GetCandidateListRequest: JSONRPCKit.Request {
             let a = response.map { Candidate(JSON: $0) }
             return a.compactMap({ $0 })
         } else {
-            throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: Response.self)
+            throw ViteError.JSONTypeError()
         }
     }
 }

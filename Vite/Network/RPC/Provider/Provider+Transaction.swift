@@ -80,12 +80,6 @@ extension Provider {
 
 extension Provider {
 
-    enum TransactionErrorCode: Int {
-        case notEnoughBalance = -35001
-        case notEnoughQuota = -35002
-        case noTransactionBefore = -36001
-    }
-
     func receiveTransactionWithoutGetPow(bag: HDWalletManager.Bag, completion: @escaping (NetworkResult<Void>) -> Void) {
         getUnconfirmedTransaction(address: bag.address)
             .then({ (accountBlocks, latestAccountBlock, fittestSnapshotHash) -> Promise<(accountBlock: AccountBlock, latestAccountBlock: AccountBlock, fittestSnapshotHash: String)?> in
@@ -238,8 +232,11 @@ extension Provider {
 
     struct Const {
         enum ContractAddress: String {
+            case register = "vite_0000000000000000000000000000000000000001c9e9f25417"
             case vote = "vite_000000000000000000000000000000000000000270a48cc491"
             case pledge = "vite_000000000000000000000000000000000000000309508ba646"
+            case consensus = "vite_00000000000000000000000000000000000000042d7ef71894"
+            case coin = "vite_00000000000000000000000000000000000000056ad6d26692"
 
             var address: Address {
                 return Address(string: self.rawValue)

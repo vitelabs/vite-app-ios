@@ -33,7 +33,7 @@ class GetUnconfirmedInfosRequest: JSONRPCKit.Request {
         }
 
         guard let response = resultObject as? [String: Any] else {
-            throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: [UnConfirmedInfo].self)
+            throw ViteError.JSONTypeError()
         }
 
         var unConfirmedInfoArray = [[String: Any]]()

@@ -24,7 +24,7 @@ class GetFittestSnapshotHashRequest: JSONRPCKit.Request {
         if let response = resultObject as? String {
             return response
         } else {
-            throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: Response.self)
+            throw ViteError.JSONTypeError()
         }
     }
 }

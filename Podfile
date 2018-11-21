@@ -9,7 +9,7 @@ targetArray.each do |t|
         use_frameworks!
 
         #vite kit
-        pod 'Vite_HDWalletKit', '~> 1.1.0'
+        pod 'Vite_HDWalletKit', '~> 1.2.0'
 
         pod 'SnapKit', '~> 4.0.0'
         pod 'BigInt', '~> 3.0'
@@ -27,6 +27,7 @@ targetArray.each do |t|
         pod 'pop', '~> 1.0'
         pod 'DACircularProgress', '2.3.1'
         pod 'Kingfisher', '~> 4.0'
+        pod 'NYXImagesKit', '2.3'
 
         #request
         pod 'SwiftyJSON'
@@ -39,6 +40,8 @@ targetArray.each do |t|
         pod 'MBProgressHUD'
         pod 'Toast-Swift', '~> 3.0.1'
         pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+        pod 'RazzleDazzle'
+        pod 'SCPageControl'
 
         #table static form
         pod 'Eureka', '~> 4.2.0'

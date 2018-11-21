@@ -80,7 +80,7 @@ class ReceiveViewController: BaseViewController {
     func setupView() {
 
         navigationBarStyle = .clear
-        navigationItem.title = .token == style ? R.string.localizable.receivePageTokenTitle.key.localized() : R.string.localizable.receivePageMineTitle.key.localized()
+        navigationItem.title = .token == style ? R.string.localizable.receivePageTokenTitle() : R.string.localizable.receivePageMineTitle()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.icon_nav_share_black(), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(onShare))
         view.backgroundColor = GradientColor(.topToBottom, frame: view.frame, colors: token.backgroundColors)
 
@@ -113,10 +113,10 @@ class ReceiveViewController: BaseViewController {
             footerView.amountButton.rx.tap
                 .bind {
                     Alert.show(into: self,
-                               title: R.string.localizable.receivePageTokenAmountAlertTitle.key.localized(),
+                               title: R.string.localizable.receivePageTokenAmountAlertTitle(),
                                message: nil,
                                actions: [(.cancel, nil),
-                                         (.default(title: R.string.localizable.confirm.key.localized()), {[weak self] alertController in
+                                         (.default(title: R.string.localizable.confirm()), {[weak self] alertController in
                                             guard let textField = alertController.textFields?.first else { fatalError() }
                                             self?.amountBehaviorRelay.accept(textField.text)
                                          }),
@@ -135,7 +135,7 @@ class ReceiveViewController: BaseViewController {
                     if let amount = $0 {
                         return "\(amount) \(self.token.symbol)"
                     } else {
-                        return R.string.localizable.receivePageTokenNameLabel.key.localized(arguments: self.token.symbol)
+                        return R.string.localizable.receivePageTokenNameLabel(self.token.symbol)
                     }
                 }
                 .drive(middleView.tokenSymbolLabel.rx.text).disposed(by: rx.disposeBag)

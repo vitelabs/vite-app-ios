@@ -66,7 +66,7 @@ final class TransactionListTableViewModel: TransactionListTableViewModelType {
                 self.hasMore.accept(hasMore)
                 self.loadingStatus = .no
                 completion(nil)
-            case .error(let error):
+            case .failure(let error):
                 self.loadingStatus = .no
                 completion(error)
             }

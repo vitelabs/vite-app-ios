@@ -22,6 +22,32 @@ extension UIImage {
         return image
     }
 
+    public static func image(withColor color: UIColor, cornerRadius: CGFloat = 0, borderColor: UIColor? = nil, borderWidth: CGFloat = 1) -> UIImage {
+        let size = cornerRadius > 0 ? CGSize(width: cornerRadius * 2, height: cornerRadius * 2) : CGSize(width: 1, height: 1)
+        let imgRect = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(imgRect.size, false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setShouldAntialias(true)
+        context?.setAllowsAntialiasing(true)
+
+        let fillShape = UIBezierPath(roundedRect: imgRect, cornerRadius: cornerRadius)
+        context?.setFillColor(color.cgColor)
+        fillShape.fill()
+
+        if let borderColor = borderColor, borderWidth > 0 {
+            let halfWidth = borderWidth / 2.0
+            let strokeRect = CGRect(x: halfWidth, y: halfWidth, width: imgRect.width - borderWidth, height: imgRect.height - borderWidth)
+            let strokeShape = UIBezierPath(roundedRect: strokeRect, cornerRadius: cornerRadius)
+            context?.setStrokeColor(borderColor.cgColor)
+            strokeShape.lineWidth = borderWidth
+            strokeShape.stroke()
+        }
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+
     public var highlighted: UIImage {
         return alpha(0.6)
     }

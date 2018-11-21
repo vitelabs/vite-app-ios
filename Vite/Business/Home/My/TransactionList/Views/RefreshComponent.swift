@@ -29,11 +29,11 @@ class RefreshHeader: MJRefreshHeader {
         didSet {
             switch state {
             case .idle:
-                stateLabel.text = R.string.localizable.transactionListPageHeaderRefreshIdle.key.localized()
+                stateLabel.text = R.string.localizable.transactionListPageHeaderRefreshIdle()
             case .pulling:
-                stateLabel.text = R.string.localizable.transactionListPageHeaderRefreshPulling.key.localized()
+                stateLabel.text = R.string.localizable.transactionListPageHeaderRefreshPulling()
             case .refreshing:
-                stateLabel.text = R.string.localizable.transactionListPageHeaderRefreshRefreshing.key.localized()
+                stateLabel.text = R.string.localizable.transactionListPageHeaderRefreshRefreshing()
             default:
                 break
             }
@@ -46,10 +46,10 @@ final class RefreshFooter: MJRefreshBackNormalFooter {
 
     class func footer(refreshingBlock: @escaping MJRefreshComponentRefreshingBlock) -> RefreshFooter? {
         let footer = RefreshFooter.init(refreshingBlock: refreshingBlock)
-        footer?.setTitle(R.string.localizable.viteRefreshBackFooterIdleText.key.localized(), for: .idle)
-        footer?.setTitle(R.string.localizable.viteRefreshBackFooterPullingText.key.localized(), for: .pulling)
-        footer?.setTitle(R.string.localizable.viteRefreshBackFooterRefreshingText.key.localized(), for: .refreshing)
-        footer?.setTitle(R.string.localizable.viteRefreshBackFooterNoMoreDataText.key.localized(), for: .noMoreData)
+        footer?.setTitle(R.string.localizable.viteRefreshBackFooterIdleText(), for: .idle)
+        footer?.setTitle(R.string.localizable.viteRefreshBackFooterPullingText(), for: .pulling)
+        footer?.setTitle(R.string.localizable.viteRefreshBackFooterRefreshingText(), for: .refreshing)
+        footer?.setTitle(R.string.localizable.viteRefreshBackFooterNoMoreDataText(), for: .noMoreData)
         return footer
     }
 

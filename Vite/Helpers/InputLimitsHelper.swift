@@ -11,7 +11,12 @@ import Foundation
 struct InputLimitsHelper {
 
     static func allowText(_ text: String, shouldChangeCharactersIn range: NSRange, replacementString string: String, maxCount: Int) -> Bool {
-        return text.utf8.count + string.utf8.count - range.length <= maxCount
+        if string.isEmpty {
+            return true
+        } else {
+            let str = (text as NSString).substring(with: range)
+            return text.utf8.count + string.utf8.count - str.utf8.count <= maxCount
+        }
     }
 
     static func allowDecimalPointWithDigitalText(_ text: String, shouldChangeCharactersIn range: NSRange, replacementString string: String, decimals: Int) -> (Bool, String) {

@@ -32,7 +32,7 @@ struct GetPledgesRequest: JSONRPCKit.Request {
 
     func response(from resultObject: Any) throws -> Response {
         guard let response = resultObject as? [String: Any] else {
-            throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: Response.self)
+            throw ViteError.JSONTypeError()
         }
 
         var pledgeArray = [[String: Any]]()

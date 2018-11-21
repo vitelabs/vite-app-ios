@@ -62,7 +62,7 @@ class ImportAccountViewController: BaseViewController {
 
     lazy var confirmBtn: UIButton = {
         let confirmBtn = UIButton.init(style: .blue)
-        confirmBtn.setTitle(R.string.localizable.importPageSubmitBtn.key.localized(), for: .normal)
+        confirmBtn.setTitle(R.string.localizable.importPageSubmitBtn(), for: .normal)
         confirmBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         confirmBtn.setBackgroundImage(UIImage.color(Colors.btnDisableGray), for: .disabled)
         return confirmBtn
@@ -82,7 +82,7 @@ extension ImportAccountViewController {
 
     private func _setupView() {
         self.view.backgroundColor = .white
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.importPageTitle.key.localized())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.importPageTitle())
 
         self._addViewConstraint()
     }
@@ -141,23 +141,23 @@ extension ImportAccountViewController {
                     HUD.hide()
                     NotificationCenter.default.post(name: .createAccountSuccess, object: nil)
                     DispatchQueue.main.async {
-                        Toast.show(R.string.localizable.importPageSubmitSuccess.key.localized())
+                        Toast.show(R.string.localizable.importPageSubmitSuccess())
                     }
                 }
             }
         }
 
-        HUD.show(R.string.localizable.importPageSubmitLoading.key.localized())
+        HUD.show(R.string.localizable.importPageSubmitLoading())
         DispatchQueue.global().async {
             if let name = HDWalletManager.instance.isExist(mnemonic: mnemonic) {
                 DispatchQueue.main.async {
                     HUD.hide()
-                    Alert.show(into: self, title: R.string.localizable.importPageAlertExistTitle.key.localized(arguments: name), message: nil, actions: [
-                        (.default(title: R.string.localizable.importPageAlertExistOk.key.localized()), { alertController in
-                            HUD.show(R.string.localizable.importPageSubmitLoading.key.localized())
+                    Alert.show(into: self, title: R.string.localizable.importPageAlertExistTitle(name), message: nil, actions: [
+                        (.default(title: R.string.localizable.importPageAlertExistOk()), { alertController in
+                            HUD.show(R.string.localizable.importPageSubmitLoading())
                             importBlock()
                         }),
-                        (.default(title: R.string.localizable.importPageAlertExistCancel.key.localized()), nil)])
+                        (.default(title: R.string.localizable.importPageAlertExistCancel()), nil)])
                 }
             } else {
                 importBlock()

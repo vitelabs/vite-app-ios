@@ -283,7 +283,7 @@ class DebugViewController: FormViewController {
                         switch result {
                         case .success:
                             Toast.show("\(address.description) get test token complete")
-                        case .error(let error):
+                        case .failure(let error):
                             Toast.show(error.message)
                         }
                     })
@@ -291,6 +291,12 @@ class DebugViewController: FormViewController {
                     Toast.show("Login firstly")
                 }
             })
+            <<< LabelRow("del intro page version") {
+                $0.title =  "del intro page version"
+                }.onCellSelection({ _, _  in
+                    UserDefaultsService.instance.setObject("", forKey: "IntroView", inCollection: "IntroViewPageVersion")
+                    Toast.show("del intro page version")
+                })
             <<< LabelRow("reloadConfig") {
                 $0.title =  "Reload Config"
             }.onCellSelection({ _, _  in
@@ -300,13 +306,13 @@ class DebugViewController: FormViewController {
             <<< LabelRow("checkUpdate") {
                 $0.title =  "Check Update"
             }.onCellSelection({ _, _  in
-                AppUpdateVM.checkUpdate()
+                AppUpdateService.checkUpdate()
                 Toast.show("Operation complete")
             })
             <<< LabelRow("deleteAllWallets") {
                 $0.title =  "Delete All Wallets"
             }.onCellSelection({ [unowned self]  _, _  in
-                self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading.key.localized(), animated: true)
+                self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading(), animated: true)
                 DispatchQueue.global().async {
                     HDWalletManager.instance.deleteAllWallets()
                     KeychainService.instance.clearCurrentWallet()

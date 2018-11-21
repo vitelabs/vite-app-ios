@@ -30,8 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         handleRootVC()
+        goShowIntroViewPage()
 
-        AppUpdateVM.checkUpdate()
+        AppUpdateService.checkUpdate()
         AppSettingsService.instance.start()
         TokenCacheService.instance.start()
         AutoGatheringService.instance.start()
@@ -91,6 +92,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let nav = BaseNavigationController(rootViewController: rootVC)
             window?.rootViewController = nav
             window?.makeKeyAndVisible()
+        }
+    }
+
+    func goShowIntroViewPage() {
+        let introViewPageVersion = UserDefaultsService.instance.objectForKey("IntroView", inCollection: "IntroViewPageVersion") as? String  ?? ""
+        if introViewPageVersion != Constants.IntroductionPageVersion {
+            let vc = IntroductionViewController()
+            vc.modalTransitionStyle = .crossDissolve
+            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: false, completion: nil)
         }
     }
 

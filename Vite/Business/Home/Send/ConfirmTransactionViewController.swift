@@ -17,12 +17,12 @@ extension ConfirmViewController {
                      amount: String,
                      completion:@escaping ((ConfirmTransactionResult) -> Void)) {
         self.init(confirmType: confirmType,
-                  title: R.string.localizable.confirmTransactionPageTitle.key.localized(),
-                  infoTitle: R.string.localizable.confirmTransactionAddressTitle.key.localized(),
+                  title: R.string.localizable.confirmTransactionPageTitle(),
+                  infoTitle: R.string.localizable.confirmTransactionAddressTitle(),
                   info: address,
                   token: token,
                   amount: amount,
-                  confirmTitle: R.string.localizable.confirmTransactionPageConfirmButton.key.localized(),
+                  confirmTitle: R.string.localizable.confirmTransactionPageConfirmButton(),
                   completion: completion)
     }
 
@@ -36,11 +36,11 @@ extension ConfirmViewController {
         return ConfirmTransactionViewController
             .init(confirmType: confirmType,
                   title: title,
-                  infoTitle: R.string.localizable.confirmTransactionPageNodeName.key.localized(),
+                  infoTitle: R.string.localizable.confirmTransactionPageNodeName(),
                   info: nodeName,
                   token: nil,
                   amount: nil,
-                  confirmTitle: R.string.localizable.voteListConfirmButtonTitle.key.localized(),
+                  confirmTitle: R.string.localizable.voteListConfirmButtonTitle(),
                   completion: completion)
     }
 
@@ -123,7 +123,7 @@ class ConfirmViewController: UIViewController, PasswordInputViewDelegate {
 
         confirmView.confirmButton.rx.tap
             .bind { [weak self] in
-                BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.confirmTransactionPageBiometryConfirmReason.key.localized(), completion: { (success, error) in
+                BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.confirmTransactionPageBiometryConfirmReason(), completion: { (success, error) in
                     if let error =  error as NSError? {
                         switch error.code {
                         case -8: Toast.show(error.localizedDescription)

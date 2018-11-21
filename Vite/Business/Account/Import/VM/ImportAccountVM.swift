@@ -17,22 +17,22 @@ final class ImportAccountVM {
     let submitAction: Action<(String, String, String, String), CreateWalletResult> = Action {(content, name, pwd, rePwd) in
 
         if content.isEmpty || name.isEmpty || pwd.isEmpty || rePwd.isEmpty {
-            return Observable.just(.empty(message:         R.string.localizable.mnemonicBackupPageErrorTypeName.key.localized()))
+            return Observable.just(.empty(message:         R.string.localizable.mnemonicBackupPageErrorTypeName()))
         }
 
         var contentMnemonic =  ViteInputValidator.handleMnemonicStrSpacing(content)
         if !Mnemonic.mnemonic_check(contentMnemonic) {
-            return Observable.just(.empty(message:R.string.localizable.importPageSubmitInvalidMnemonic.key.localized()))
+            return Observable.just(.empty(message:R.string.localizable.importPageSubmitInvalidMnemonic()))
         }
 
         if  !ViteInputValidator.isValidWalletName(str: name  ) {
-            return Observable.just(.failed(message:         R.string.localizable.mnemonicBackupPageErrorTypeNameValid.key.localized()))
+            return Observable.just(.failed(message:         R.string.localizable.mnemonicBackupPageErrorTypeNameValid()))
         }
         if  !ViteInputValidator.isValidWalletNameCount(str: name) {
-            return Observable.just(.failed(message: R.string.localizable.mnemonicBackupPageErrorTypeValidWalletNameCount.key.localized()))
+            return Observable.just(.failed(message: R.string.localizable.mnemonicBackupPageErrorTypeValidWalletNameCount()))
         }
         if  pwd != rePwd {
-            return Observable.just(.empty(message:R.string.localizable.mnemonicBackupPageErrorTypeDifference.key.localized()))
+            return Observable.just(.empty(message:R.string.localizable.mnemonicBackupPageErrorTypeDifference()))
         }
 
         return Observable.just(.ok(message:""))

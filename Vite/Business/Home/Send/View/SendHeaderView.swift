@@ -14,7 +14,7 @@ class SendHeaderView: UIView {
     let addressTitleLabel = UILabel().then {
         $0.textColor = UIColor(netHex: 0x3E4A59)
         $0.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        $0.text = R.string.localizable.sendPageMyAddressTitle.key.localized()
+        $0.text = R.string.localizable.sendPageMyAddressTitle()
     }
 
     let addressLabel = UILabel().then {
@@ -26,7 +26,7 @@ class SendHeaderView: UIView {
     let balanceTitleLabel = UILabel().then {
         $0.textColor = UIColor(netHex: 0x3E4A59)
         $0.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        $0.text = R.string.localizable.sendPageMyBalanceTitle.key.localized()
+        $0.text = R.string.localizable.sendPageMyBalanceTitle()
     }
 
     let balanceLabel = UILabel().then {
@@ -37,7 +37,7 @@ class SendHeaderView: UIView {
     let quotaTitleLabel = UILabel().then {
         $0.textColor = UIColor(netHex: 0x3E4A59)
         $0.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        $0.text = R.string.localizable.sendPageMyQuotaTitle.key.localized()
+        $0.text = R.string.localizable.sendPageMyQuotaTitle()
     }
 
     let quotaLabel = UILabel().then {
@@ -48,7 +48,7 @@ class SendHeaderView: UIView {
     let maxTxCountTitleLabel = UILabel().then {
         $0.textColor = UIColor(netHex: 0x3E4A59)
         $0.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        $0.text = R.string.localizable.sendPageMyMaxTxCountTitle.key.localized()
+        $0.text = R.string.localizable.sendPageMyMaxTxCountTitle()
     }
 
     let maxTxCountLabel = UILabel().then {

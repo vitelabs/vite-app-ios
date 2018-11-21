@@ -47,7 +47,7 @@ class CreateAccountHomeViewController: BaseViewController {
 
     lazy var createAccountBtn: UIButton = {
         let createAccountBtn = UIButton.init(style: .blue)
-        createAccountBtn.setTitle(R.string.localizable.createAccount.key.localized(), for: .normal)
+        createAccountBtn.setTitle(R.string.localizable.createAccount(), for: .normal)
         createAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         createAccountBtn.addTarget(self, action: #selector(createAccountBtnAction), for: .touchUpInside)
         return createAccountBtn
@@ -55,7 +55,7 @@ class CreateAccountHomeViewController: BaseViewController {
 
     lazy var importAccountBtn: UIButton = {
         let importAccountBtn = UIButton.init(style: .white)
-        importAccountBtn.setTitle(R.string.localizable.importAccount.key.localized(), for: .normal)
+        importAccountBtn.setTitle(R.string.localizable.importAccount(), for: .normal)
         importAccountBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         importAccountBtn.addTarget(self, action: #selector(importAccountBtnAction), for: .touchUpInside)
         return importAccountBtn

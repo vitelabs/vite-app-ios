@@ -52,19 +52,19 @@ class MyHomeListHeaderView: UIView {
     }
 
     lazy var manageWalletBtn: IconBtnView = {
-        let manageWalletBtn = IconBtnView.init(iconImg: R.image.icon_wallet()!, text: R.string.localizable.myPageMangeWalletCellTitle.key.localized())
+        let manageWalletBtn = IconBtnView.init(iconImg: R.image.icon_wallet()!, text: R.string.localizable.myPageMangeWalletCellTitle())
         manageWalletBtn.btn.addTarget(self, action: #selector(manageWalletBtnAction), for: .touchUpInside)
         return manageWalletBtn
     }()
 
     lazy var transactionLogBtn: IconBtnView = {
-        let transactionLogBtn = IconBtnView.init(iconImg: R.image.icon_transrecord()!, text: R.string.localizable.myPageDealLogCellTitle.key.localized())
+        let transactionLogBtn = IconBtnView.init(iconImg: R.image.icon_transrecord()!, text: R.string.localizable.myPageDealLogCellTitle())
         transactionLogBtn.btn.addTarget(self, action: #selector(transactionLogBtnAction), for: .touchUpInside)
         return transactionLogBtn
     }()
 
     lazy var manageQuotaBtn: IconBtnView = {
-        let manageQuotaBtn = IconBtnView.init(iconImg: R.image.icon_quota()!, text: R.string.localizable.myPageQuotaCellTitle.key.localized())
+        let manageQuotaBtn = IconBtnView.init(iconImg: R.image.icon_quota()!, text: R.string.localizable.myPageQuotaCellTitle())
         manageQuotaBtn.btn.addTarget(self, action: #selector(manageQuotaBtnAction), for: .touchUpInside)
         return manageQuotaBtn
     }()

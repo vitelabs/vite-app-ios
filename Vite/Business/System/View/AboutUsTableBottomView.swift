@@ -82,7 +82,7 @@ class AboutUsTableBottomView: UIView {
     }()
 
     lazy var officialWebsiteBtn: UIButton = {
-        let officialWebsiteBtn = UIButton.init(style: .whiteWithoutShadow, title: R.string.localizable.aboutUsPageCellOfficialWebsite.key.localized())
+        let officialWebsiteBtn = UIButton.init(style: .whiteWithoutShadow, title: R.string.localizable.aboutUsPageCellOfficialWebsite())
         officialWebsiteBtn.titleLabel?.adjustsFontSizeToFitWidth = false
         officialWebsiteBtn.rx.tap.bind {_ in
             WebHandler.open(URL.init(string: "https://www.vite.org/")!)
@@ -91,7 +91,7 @@ class AboutUsTableBottomView: UIView {
     }()
 
     lazy var portalWebsiteBtn: UIButton = {
-        let portalWebsiteBtn = UIButton.init(style: .whiteWithoutShadow, title: R.string.localizable.aboutUsPageCellPortalWebsite.key.localized())
+        let portalWebsiteBtn = UIButton.init(style: .whiteWithoutShadow, title: R.string.localizable.aboutUsPageCellPortalWebsite())
         portalWebsiteBtn.titleLabel?.adjustsFontSizeToFitWidth = false
         portalWebsiteBtn.rx.tap.bind {_ in
             WebHandler.open(URL.init(string: "https://vite.net/")!)
@@ -100,7 +100,7 @@ class AboutUsTableBottomView: UIView {
     }()
 
     lazy var blogWebsiteBtn: UIButton = {
-        let blogWebsiteBtn = UIButton.init(style: .whiteWithoutShadow, title: R.string.localizable.aboutUsPageCellBlogWebsite.key.localized())
+        let blogWebsiteBtn = UIButton.init(style: .whiteWithoutShadow, title: R.string.localizable.aboutUsPageCellBlogWebsite())
         blogWebsiteBtn.titleLabel?.adjustsFontSizeToFitWidth = false
         blogWebsiteBtn.rx.tap.bind {_ in
             WebHandler.open(URL.init(string: "https://vite.blog/")!)

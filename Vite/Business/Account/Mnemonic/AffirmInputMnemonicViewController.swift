@@ -13,9 +13,12 @@ import Vite_HDWalletKit
 
 class AffirmInputMnemonicViewController: BaseViewController, MnemonicCollectionViewDelegate {
     fileprivate var viewModel: AffirmInputMnemonicVM
-
+    fileprivate var chooseMnemonicCollectionViewHeight: CGFloat
+    fileprivate var defaultMnemonicCollectionViewHeight: CGFloat
     init(mnemonicWordsStr: String) {
-        self.viewModel = AffirmInputMnemonicVM.init(mnemonicWordsStr: mnemonicWordsStr)
+        self.viewModel = AffirmInputMnemonicVM(mnemonicWordsStr: mnemonicWordsStr)
+        self.chooseMnemonicCollectionViewHeight = self.viewModel.mnemonicWordsList.count == 24 ? 186.0 : 110
+        self.defaultMnemonicCollectionViewHeight = self.viewModel.mnemonicWordsList.count == 24 ? 210.0 : 110
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -40,13 +43,13 @@ class AffirmInputMnemonicViewController: BaseViewController, MnemonicCollectionV
         tipTitleLab.textAlignment = .left
         tipTitleLab.font =  AppStyle.descWord.font
         tipTitleLab.textColor  = AppStyle.descWord.textColor
-        tipTitleLab.text =  R.string.localizable.mnemonicAffirmPageTipTitle.key.localized()
+        tipTitleLab.text =  R.string.localizable.mnemonicAffirmPageTipTitle()
         return tipTitleLab
     }()
 
     lazy var submitBtn: UIButton = {
         let submitBtn = UIButton.init(style: .blue)
-        submitBtn.setTitle(R.string.localizable.finish.key.localized(), for: .normal)
+        submitBtn.setTitle(R.string.localizable.finish(), for: .normal)
         submitBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         submitBtn.addTarget(self, action: #selector(submitBtnAction), for: .touchUpInside)
         return submitBtn
@@ -55,14 +58,14 @@ class AffirmInputMnemonicViewController: BaseViewController, MnemonicCollectionV
     lazy var chooseMnemonicCollectionView: MnemonicCollectionView = {
         let chooseMnemonicCollectionView = MnemonicCollectionView.init(isHasSelected: true)
         chooseMnemonicCollectionView.delegate = self
-        chooseMnemonicCollectionView.backgroundColor = .orange
+        chooseMnemonicCollectionView.h_num = CGFloat(CGFloat(self.viewModel.mnemonicWordsList.count) / 4.0)
         return chooseMnemonicCollectionView
     }()
 
     lazy var defaultMnemonicCollectionView: MnemonicCollectionView = {
         let defaultMnemonicCollectionView = MnemonicCollectionView.init(isHasSelected: false)
         defaultMnemonicCollectionView.delegate = self
-        defaultMnemonicCollectionView.backgroundColor = .red
+        defaultMnemonicCollectionView.h_num = CGFloat(CGFloat(self.viewModel.mnemonicWordsList.count) / 4.0)
         return defaultMnemonicCollectionView
     }()
 
@@ -87,7 +90,7 @@ extension AffirmInputMnemonicViewController {
         let backItem = UIBarButtonItem(image: R.image.icon_nav_back_black(), style: .plain, target: self, action: #selector(backItemAction))
         navigationItem.leftBarButtonItem = backItem
 
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.mnemonicAffirmPageTitle.key.localized())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.mnemonicAffirmPageTitle())
         self._addViewConstraint()
     }
 
@@ -105,7 +108,7 @@ extension AffirmInputMnemonicViewController {
         self.chooseMnemonicCollectionView.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.view)
             make.top.equalTo(self.tipTitleLab.snp.bottom).offset(18)
-            make.height.equalTo(kScreenH * (186.0/667.0))
+            make.height.equalTo(kScreenH * (self.chooseMnemonicCollectionViewHeight/667.0))
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
         }
@@ -122,7 +125,7 @@ extension AffirmInputMnemonicViewController {
         self.defaultMnemonicCollectionView.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.view)
             make.top.equalTo(self.chooseMnemonicCollectionView.snp.bottom).offset(12)
-            make.height.lessThanOrEqualTo(kScreenH * (210.0/667.0))
+            make.height.lessThanOrEqualTo(kScreenH * (self.defaultMnemonicCollectionViewHeight/667.0))
             make.left.equalTo(self.view).offset(24)
             make.right.equalTo(self.view).offset(-24)
             make.bottom.equalTo(self.submitBtn.snp.top).offset(-10).priority(250)
@@ -132,11 +135,11 @@ extension AffirmInputMnemonicViewController {
     @objc func submitBtnAction() {
         let chooseStr = self.viewModel.hasChooseMnemonicWordsList.value.joined(separator: " ")
         if chooseStr != CreateWalletService.sharedInstance.mnemonic {
-            self.displayConfirmAlter(title: R.string.localizable.mnemonicAffirmAlterCheckTitle.key.localized(), done: R.string.localizable.confirm.key.localized(), doneHandler: {
+            self.displayConfirmAlter(title: R.string.localizable.mnemonicAffirmAlterCheckTitle(), done: R.string.localizable.confirm(), doneHandler: {
 
             })
         } else {
-            self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading.key.localized(), animated: true)
+            self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading(), animated: true)
             DispatchQueue.global().async {
                 let uuid = UUID().uuidString
                 let encryptKey = CreateWalletService.sharedInstance.password.toEncryptKey(salt: uuid)
@@ -151,8 +154,8 @@ extension AffirmInputMnemonicViewController {
     }
 
     @objc func backItemAction() {
-        self.displayAlter(title: R.string.localizable.mnemonicAffirmAlterTitle.key.localized(), message: "", cancel: R.string.localizable.no.key.localized(), done:
-            R.string.localizable.yes.key.localized(),
+        self.displayAlter(title: R.string.localizable.mnemonicAffirmAlterTitle(), message: "", cancel: R.string.localizable.no(), done:
+            R.string.localizable.yes(),
                           doneHandler: {
                 self.navigationController?.popViewController(animated: true)
         })

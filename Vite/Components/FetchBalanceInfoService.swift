@@ -78,7 +78,7 @@ final class FetchBalanceInfoService {
                     }
                 }
                 self.balanceInfos.accept(allBalanceInfos.map { WalletHomeBalanceInfoViewModel(balanceInfo: $0) })
-            case .error(let error):
+            case .failure(let error):
                 plog(level: .warning, log: address.description + ": " + error.message, tag: .transaction)
             }
             GCD.delay(5) { self.getchBalanceInfo(uuid) }

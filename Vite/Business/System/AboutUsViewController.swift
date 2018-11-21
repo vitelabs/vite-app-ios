@@ -81,8 +81,8 @@ extension AboutUsViewController {
             <<< LabelRow("aboutUsPageCellBlockHeight") {
                 $0.cell.textLabel?.textColor = Colors.cellTitleGray
                 $0.cell.textLabel?.font = Fonts.light16
-                $0.title =  R.string.localizable.aboutUsPageCellBlockHeight.key.localized()
-                $0.value = R.string.localizable.aboutUsPageCellBlockHeightLoadingTip.key.localized()
+                $0.title =  R.string.localizable.aboutUsPageCellBlockHeight()
+                $0.value = R.string.localizable.aboutUsPageCellBlockHeightLoadingTip()
                 $0.cell.height = { 60 }
                 $0.cell.bottomSeparatorLine.isHidden = false
             }.onCellSelection({ _, _  in
@@ -91,7 +91,7 @@ extension AboutUsViewController {
             <<< LabelRow("aboutUsPageCellVersion") {
                 $0.cell.textLabel?.textColor = Colors.cellTitleGray
                 $0.cell.textLabel?.font = Fonts.light16
-                $0.title =  R.string.localizable.aboutUsPageCellVersion.key.localized()
+                $0.title =  R.string.localizable.aboutUsPageCellVersion()
                 #if ENTERPRISE
                 #if DEBUG
                 $0.value = "\(Bundle.main.versionNumber) (DE\(Bundle.main.buildNumber))"
@@ -117,14 +117,14 @@ extension AboutUsViewController {
                 })
 
             <<< ImageRow("aboutUsPageCellContact") {
-                $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellContact.key.localized()
+                $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellContact()
                 $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
             }.onCellSelection({ [unowned self] _, _  in
                 self.sendUsEmail()
                 })
 
 //            <<< ImageRow("aboutUsPageCellShareUs") {
-//                $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellShareUs.key.localized()
+//                $0.cell.titleLab.text =  R.string.localizable.aboutUsPageCellShareUs()
 //                $0.cell.rightImageView.image = R.image.icon_right_white()?.tintColor(Colors.titleGray).resizable
 //            }.onCellSelection({ [unowned self] _, _  in
 //                //TODO:::  调面板，分享下载的url
@@ -147,7 +147,7 @@ extension AboutUsViewController {
             case .success(let string):
                 cell.value = string
                 cell.updateCell()
-            case .error:
+            case .failure:
                 break
             }
         })
@@ -157,7 +157,7 @@ extension AboutUsViewController {
         let composerController = MFMailComposeViewController()
         composerController.mailComposeDelegate = self
         composerController.setToRecipients([Constants.supportEmail])
-        composerController.setSubject(R.string.localizable.aboutUsPageEmailTitle.key.localized())
+        composerController.setSubject(R.string.localizable.aboutUsPageEmailTitle())
         composerController.setMessageBody(emailTemplate(), isHTML: false)
 
         if MFMailComposeViewController.canSendMail() {
@@ -166,7 +166,7 @@ extension AboutUsViewController {
     }
     private func emailTemplate() -> String {
 
-        return   R.string.localizable.aboutUsPageEmailContent.key.localized(arguments: UIDevice.current.systemVersion, UIDevice.current.model, Bundle.main.fullVersion, Locale.preferredLanguages.first ?? "")
+        return   R.string.localizable.aboutUsPageEmailContent(UIDevice.current.systemVersion, UIDevice.current.model, Bundle.main.fullVersion, Locale.preferredLanguages.first ?? "")
     }
 }
 
