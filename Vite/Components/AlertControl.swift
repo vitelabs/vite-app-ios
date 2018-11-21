@@ -342,8 +342,12 @@ private class AlertCommenView: UIView {
         actionButtons = actions.map { action in
             let button = UIButton()
             button.setTitleColor(UIColor.init(netHex: 0x007AFF), for: .normal)
-            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
             button.setTitle(action.title, for: .normal)
+            if action.style == .emphasize {
+                button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+            } else {
+                button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+            }
             self.addSubview(button)
             return button
         }
@@ -353,6 +357,7 @@ private class AlertCommenView: UIView {
                 m.left.right.bottom.equalToSuperview()
                 m.height.equalTo(43)
             }
+            verticalSeperator.isHidden = true
         } else if actionButtons.count == 2 {
             actionButtons.first!.snp.makeConstraints { (m) in
                 m.left.bottom.equalToSuperview()
