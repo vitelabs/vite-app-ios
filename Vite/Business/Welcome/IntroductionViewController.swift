@@ -53,7 +53,7 @@ class IntroductionViewController: AnimatedPagingScrollViewController {
         nextBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         nextBtn.rx.tap.bind {
             UserDefaultsService.instance.setObject(Constants.IntroductionPageVersion, forKey: "IntroView", inCollection: "IntroViewPageVersion")
-            self.dismiss(animated: true, completion: nil)
+            NotificationCenter.default.post(name: .finishShowIntroPage, object: nil)
         }.disposed(by: rx.disposeBag)
         return nextBtn
     }()

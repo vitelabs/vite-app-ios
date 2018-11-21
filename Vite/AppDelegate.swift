@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = LocalizationService.sharedInstance
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        handleRootVC()
+
         goShowIntroViewPage()
 
         AppUpdateService.checkUpdate()
@@ -43,7 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func handleNotification() {
         let b = NotificationCenter.default.rx.notification(.logoutDidFinish)
-        Observable.of(b)
+        let c = NotificationCenter.default.rx.notification(.finishShowIntroPage)
+        Observable.of(b, c)
             .merge()
             .takeUntil(self.rx.deallocated)
             .subscribe {[weak self] (_) in
@@ -99,8 +100,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let introViewPageVersion = UserDefaultsService.instance.objectForKey("IntroView", inCollection: "IntroViewPageVersion") as? String  ?? ""
         if introViewPageVersion != Constants.IntroductionPageVersion {
             let vc = IntroductionViewController()
-            vc.modalTransitionStyle = .crossDissolve
-            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: false, completion: nil)
+            UIApplication.shared.keyWindow?.rootViewController = vc
+            UIApplication.shared.keyWindow?.makeKeyAndVisible()
+        }else{
+            handleRootVC()
         }
     }
 
