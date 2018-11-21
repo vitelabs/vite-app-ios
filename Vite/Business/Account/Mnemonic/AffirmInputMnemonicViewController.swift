@@ -135,9 +135,9 @@ extension AffirmInputMnemonicViewController {
     @objc func submitBtnAction() {
         let chooseStr = self.viewModel.hasChooseMnemonicWordsList.value.joined(separator: " ")
         if chooseStr != CreateWalletService.sharedInstance.mnemonic {
-            self.displayConfirmAlter(title: R.string.localizable.mnemonicAffirmAlterCheckTitle(), done: R.string.localizable.confirm(), doneHandler: {
-
-            })
+            Alert.show(title: R.string.localizable.mnemonicAffirmAlterCheckTitle(), message: nil, actions: [
+                (.default(title: R.string.localizable.confirm()), nil),
+                ])
         } else {
             self.view.displayLoading(text: R.string.localizable.mnemonicAffirmPageAddLoading(), animated: true)
             DispatchQueue.global().async {
@@ -154,10 +154,13 @@ extension AffirmInputMnemonicViewController {
     }
 
     @objc func backItemAction() {
-        self.displayAlter(title: R.string.localizable.mnemonicAffirmAlterTitle(), message: "", cancel: R.string.localizable.no(), done:
-            R.string.localizable.yes(),
-                          doneHandler: {
+        Alert.show(title: R.string.localizable.mnemonicAffirmAlterTitle(), message: nil, actions: [
+            (.default(title: R.string.localizable.no()), nil),
+            (.default(title: R.string.localizable.yes()), { _ in
                 self.navigationController?.popViewController(animated: true)
+            }),
+            ], config: {
+                $0.preferredAction = $0.actions[0]
         })
     }
 }

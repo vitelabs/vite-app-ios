@@ -207,8 +207,9 @@ extension LoginViewController {
             } else {
                 DispatchQueue.main.async {
                     self.view.hideLoading()
-                    self.displayConfirmAlter(title: R.string.localizable.loginPageErrorToastTitle(), done: R.string.localizable.confirm(), doneHandler: {
-                    })
+                    Alert.show(title: R.string.localizable.loginPageErrorToastTitle(), message: nil, actions: [
+                        (.default(title: R.string.localizable.confirm()), nil),
+                        ])
                 }
             }
         }
