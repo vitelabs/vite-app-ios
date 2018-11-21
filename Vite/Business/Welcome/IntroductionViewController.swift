@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import NYXImagesKit
 import RazzleDazzle
-import SCPageControl
+import CHIPageControl
 
 class IntroductionViewController: AnimatedPagingScrollViewController {
     fileprivate let numPages = 4
@@ -42,9 +42,14 @@ class IntroductionViewController: AnimatedPagingScrollViewController {
         super.viewWillAppear(animated)
     }
 
-    lazy var pageControlView: SCPageControlView = {
-        let sc = SCPageControlView()
-        return sc
+    lazy var pageControlView: CHIPageControlAleppo = {
+        let pageControl = CHIPageControlAleppo(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
+        pageControl.numberOfPages = numPages
+        pageControl.radius = 4
+        pageControl.tintColor = UIColor(netHex: 0x007AFF)
+        pageControl.currentPageTintColor = UIColor(netHex: 0x007AFF)
+        pageControl.padding = 8
+        return pageControl
     }()
 
     lazy var nextBtn: UIButton = {
@@ -67,31 +72,34 @@ class IntroductionViewController: AnimatedPagingScrollViewController {
         let nearestPage = Int(self.pageOffset + 0.5)
 
         if nearestPage == 3 {
-            self.view.addSubview(self.nextBtn)
-            self.nextBtn.snp.makeConstraints { (make) in
-                make.height.equalTo(50)
-                make.left.equalTo(self.view).offset(24)
-                make.right.equalTo(self.view).offset(-24)
-                make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
-            }
+            self.nextBtn.isHidden = false
         } else {
-            self.nextBtn.removeFromSuperview()
+             self.nextBtn.isHidden = true
         }
-        self.pageControlView.scroll_did(scrollView)
+        self.pageControlView.set(progress: nearestPage, animated: true)
     }
 }
 extension IntroductionViewController {
     private func _setupView() {
         self.view.backgroundColor = .white
-
         self.configureViews()
-        pageControlView.frame = CGRect(x: 0, y: 0, width: kScreenW, height: 10)
+
+        self.view.addSubview(self.nextBtn)
+        self.nextBtn.snp.makeConstraints { (make) in
+            make.height.equalTo(50)
+            make.left.equalTo(self.view).offset(24)
+            make.right.equalTo(self.view).offset(-24)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
+        }
+        self.nextBtn.isHidden = true
+
         view.addSubview(pageControlView)
         pageControlView.snp.makeConstraints { (make) in
-            make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-100)
+            make.width.equalTo(self.view)
+            make.height.equalTo(10)
+            make.bottom.equalTo(self.nextBtn.snp.top).offset(-15)
+            make.centerX.equalTo(self.view)
         }
-        pageControlView.scp_style = .SCNormal
-        pageControlView.set_view(numPages, current: 0, current_color: UIColor(netHex: 0x007AFF), disable_color: nil)
     }
 
     private func createLab(_ font: UIFont, _ textColor: UIColor) -> UILabel {
@@ -147,7 +155,7 @@ extension IntroductionViewController {
                 self.animator.addAnimation(tipsTitleLabAlphaAnimation)
 
                 tipsTitleLab.snp.makeConstraints { (make) in
-                    make.top.equalTo(iconImgView.snp.bottom).offset(20)
+                    make.top.equalTo(iconImgView.snp.bottom).offset(50*Float(kScreenH/desginHeight))
                     make.width.equalTo(contentView).offset(-48)
                 }
 
@@ -168,7 +176,7 @@ extension IntroductionViewController {
                 self.animator.addAnimation(tipsDescLabAlphaAnimation)
 
                 tipsDescLab.snp.makeConstraints { (make) in
-                    make.top.equalTo(tipsTitleLab.snp.bottom).offset(20)
+                    make.top.equalTo(tipsTitleLab.snp.bottom).offset(6)
                     make.width.equalTo(self.view).offset(-48)
                 }
             }

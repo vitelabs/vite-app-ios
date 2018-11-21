@@ -100,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let vc = IntroductionViewController()
             window.rootViewController = vc
             window.makeKeyAndVisible()
-        }else{
+        } else {
             handleRootVC()
         }
     }

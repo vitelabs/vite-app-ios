@@ -12,6 +12,23 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - CHIPageControl (0.1.7):
+    - CHIPageControl/Aji (= 0.1.7)
+    - CHIPageControl/Aleppo (= 0.1.7)
+    - CHIPageControl/Chimayo (= 0.1.7)
+    - CHIPageControl/Fresno (= 0.1.7)
+    - CHIPageControl/Jalapeno (= 0.1.7)
+    - CHIPageControl/Jaloro (= 0.1.7)
+    - CHIPageControl/Paprika (= 0.1.7)
+    - CHIPageControl/Puya (= 0.1.7)
+  - CHIPageControl/Aji (0.1.7)
+  - CHIPageControl/Aleppo (0.1.7)
+  - CHIPageControl/Chimayo (0.1.7)
+  - CHIPageControl/Fresno (0.1.7)
+  - CHIPageControl/Jalapeno (0.1.7)
+  - CHIPageControl/Jaloro (0.1.7)
+  - CHIPageControl/Paprika (0.1.7)
+  - CHIPageControl/Puya (0.1.7)
   - CryptoSwift (0.12.0)
   - DACircularProgress (2.3.1)
   - Differentiator (3.1.0)
@@ -68,7 +85,6 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.3.1)
-  - SCPageControl (0.3.1)
   - SipHash (1.2.2)
   - SnapKit (4.0.1)
   - SwiftLint (0.27.0)
@@ -92,6 +108,7 @@ DEPENDENCIES:
   - BaiduMobStat
   - BigInt (~> 3.0)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - CHIPageControl
   - DACircularProgress (= 2.3.1)
   - Eureka (~> 4.2.0)
   - JSONRPCKit
@@ -115,7 +132,6 @@ DEPENDENCIES:
   - RxGesture
   - RxOptional
   - RxSwift (~> 4.0)
-  - SCPageControl
   - SnapKit (~> 4.0.0)
   - SwiftLint
   - SwiftyJSON
@@ -132,6 +148,7 @@ SPEC REPOS:
     - APIKit
     - BaiduMobStat
     - BigInt
+    - CHIPageControl
     - CryptoSwift
     - DACircularProgress
     - Differentiator
@@ -160,7 +177,6 @@ SPEC REPOS:
     - RxGesture
     - RxOptional
     - RxSwift
-    - SCPageControl
     - SipHash
     - SnapKit
     - SwiftLint
@@ -188,6 +204,7 @@ SPEC CHECKSUMS:
   BaiduMobStat: e2dbfd44f1535adf3c0001cbd3212eb61c4fe639
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  CHIPageControl: bbe1ddd0c688c02ec65b7f7e7d34551a3d16f37c
   CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
@@ -216,7 +233,6 @@ SPEC CHECKSUMS:
   RxGesture: 26ede4ed13ffc6336d29dbd9a8dff229bdb72de7
   RxOptional: bd32ff8ca9df4177683d56ffeb618a9d4d5d5cad
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
-  SCPageControl: cf8a7adb5861822083b273c54944372c746daea6
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
@@ -227,6 +243,6 @@ SPEC CHECKSUMS:
   Vite_HDWalletKit: 8d3f78883b58def92610e44704a93db7b566656c
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 9c34d4392053911ed6de573da0448d5f804c7a76
+PODFILE CHECKSUM: 4478896edce3cd7b00ed8e5d2c6d08d644ab309e
 
 COCOAPODS: 1.5.3
