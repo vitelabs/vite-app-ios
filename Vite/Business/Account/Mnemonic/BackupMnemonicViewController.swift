@@ -114,11 +114,12 @@ extension BackupMnemonicViewController {
             .takeUntil(self.rx.deallocated)
             .subscribe(onNext: { [weak self] (_) in
                 guard let `self` = self else { return }
-                self.displayAlter(title: R.string.localizable.mnemonicBackupPageAlterTitle(), message: R.string.localizable.mnemonicBackupPageAlterMessage(), cancel: R.string.localizable.mnemonicBackupPageAlterCancel(), done:
-                    R.string.localizable.mnemonicBackupPageAlterConfirm(),
-                                  doneHandler: {
-                                    self.viewModel.fetchNewMnemonicWordsAction?.execute(())
-                })
+                Alert.show(title: R.string.localizable.mnemonicBackupPageAlterTitle(), message: R.string.localizable.mnemonicBackupPageAlterMessage(), actions: [
+                    (.default(title: R.string.localizable.mnemonicBackupPageAlterCancel()), nil),
+                    (.default(title: R.string.localizable.mnemonicBackupPageAlterConfirm()), { _ in
+                        self.viewModel.fetchNewMnemonicWordsAction?.execute(())
+                    }),
+                    ])
             }).disposed(by: rx.disposeBag)
     }
 
