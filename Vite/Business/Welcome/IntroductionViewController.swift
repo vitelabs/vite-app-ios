@@ -52,7 +52,7 @@ class IntroductionViewController: AnimatedPagingScrollViewController {
         nextBtn.setTitle(R.string.localizable.introductionPageNextBtnTitle(), for: .normal)
         nextBtn.titleLabel?.adjustsFontSizeToFitWidth  = true
         nextBtn.rx.tap.bind {
-            UserDefaultsService.instance.setObject("1.0", forKey: "IntroView", inCollection: "IntroViewPageVersion")
+            UserDefaultsService.instance.setObject(Constants.IntroductionPageVersion, forKey: "IntroView", inCollection: "IntroViewPageVersion")
             self.dismiss(animated: true, completion: nil)
         }.disposed(by: rx.disposeBag)
         return nextBtn

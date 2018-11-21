@@ -291,6 +291,12 @@ class DebugViewController: FormViewController {
                     Toast.show("Login firstly")
                 }
             })
+            <<< LabelRow("del intro page version") {
+                $0.title =  "del intro page version"
+                }.onCellSelection({ _, _  in
+                    UserDefaultsService.instance.setObject("", forKey: "IntroView", inCollection: "IntroViewPageVersion")
+                    Toast.show("del intro page version")
+                })
             <<< LabelRow("reloadConfig") {
                 $0.title =  "Reload Config"
             }.onCellSelection({ _, _  in
