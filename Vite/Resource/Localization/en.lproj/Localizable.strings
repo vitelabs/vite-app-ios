@@ -168,7 +168,7 @@
 "send.page.toast.amount.error" = "Insufficient Balance";
 "send.page.toast.amount.empty" = "Please input balance";
 "send.page.toast.amount.zero" = "The amount has to be positive";
-"send.page.toast.note.too.long" = "The length of notes has reached its limit";
+"send.page.toast.note.too.long" = "The length of notes has reached limitations";
 "send.page.not.enough.balance.alert.title" = "Insufficient Balance";
 "send.page.not.enough.balance.alert.button" = "Cancel";
 "send.page.confirm.biometryAuthFailed.title" = "Cannot be identified";
@@ -258,16 +258,16 @@
 "peldge.title" = "My Staking List";
 
 /* Vote */
-"vote.page.title" = "My Vote";
+"vote.page.title" = "My Voting";
 "vote.page.info.nodata.title" = "No Vote";
-"vote.page.voteStatus.voteSuccess" = "Vote successful";
+"vote.page.voteStatus.voteSuccess" = "Voting successful";
 "vote.page.voteStatus.voting" = "Voting";
 "vote.page.voteStatus.cancelVoting" = "Revoking";
-"vote.page.voteStatus.voteInvalid" = "Invalid Vote";
-"vote.page.voteInfo.nodePolls.title" = "My Polls";
-"vote.page.nodeStatus.valid.title" = "Available";
-"vote.page.nodeStatus.invalid.title" = "Unavailable";
-"vote.page.voteInfo.cancel.vote.title" = "Revoke Vote";
+"vote.page.voteStatus.voteInvalid" = "Invalid Voting";
+"vote.page.voteInfo.nodePolls.title" = "My Votes";
+"vote.page.nodeStatus.valid.title" = "Active";
+"vote.page.nodeStatus.invalid.title" = "Standby";
+"vote.page.voteInfo.cancel.vote.title" = "Revoke Voting";
 "vote.page.voteInfo.cancel.vote.toast.title" = "Vote revoking request is successfully sent";
 "vote.page.voteInfo.alert.quota" = "unable to revoke vote, you have to run PoW or stake VITE for TPS quota to revoke vote";
 
