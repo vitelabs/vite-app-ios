@@ -121,17 +121,17 @@
 "transaction.list.page.header.refresh.idle" = "Pull down to refresh";
 "transaction.list.page.header.refresh.pulling" = "Release to refresh";
 "transaction.list.page.header.refresh.refreshing" = "Loading...";
-"transaction.list.transaction.type.name.register" = "注册";
-"transaction.list.transaction.type.name.registerUpdate" = "更新注册";
-"transaction.list.transaction.type.name.cancelRegister" = "撤销注册";
-"transaction.list.transaction.type.name.extractReward" = "提取奖励";
-"transaction.list.transaction.type.name.vote" = "投票";
-"transaction.list.transaction.type.name.cancelVote" = "撤销投票";
-"transaction.list.transaction.type.name.pledge" = "获取配额";
-"transaction.list.transaction.type.name.cancelPledge" = "取回配额抵押";
-"transaction.list.transaction.type.name.coin" = "铸币";
-"transaction.list.transaction.type.name.cancelCoin" = "取回铸币抵押";
-"transaction.list.transaction.type.name.transfer" = "转账";
+"transaction.list.transaction.type.name.register" = "Registration";
+"transaction.list.transaction.type.name.registerUpdate" = "Update Registration";
+"transaction.list.transaction.type.name.cancelRegister" = "Revoke Registration";
+"transaction.list.transaction.type.name.extractReward" = "Retrieve Reward";
+"transaction.list.transaction.type.name.vote" = "Voting";
+"transaction.list.transaction.type.name.cancelVote" = "Revoke Voting";
+"transaction.list.transaction.type.name.pledge" = "Get TPS quota";
+"transaction.list.transaction.type.name.cancelPledge" = "Withdrawal of staking quota";
+"transaction.list.transaction.type.name.coin" = "Token Issuance";
+"transaction.list.transaction.type.name.cancelCoin" = "Withdrwal of staking tokens";
+"transaction.list.transaction.type.name.transfer" = "Transfer";
 
 /* BalanceInfo */
 "balance.info.detail.balance.title" = "Balance";
@@ -168,7 +168,7 @@
 "send.page.toast.amount.error" = "Insufficient Balance";
 "send.page.toast.amount.empty" = "Please input balance";
 "send.page.toast.amount.zero" = "The amount has to be positive";
-"send.page.toast.note.too.long" = "备注已达上限";
+"send.page.toast.note.too.long" = "The length of notes has reached its limit";
 "send.page.not.enough.balance.alert.title" = "Insufficient Balance";
 "send.page.not.enough.balance.alert.button" = "Cancel";
 "send.page.confirm.biometryAuthFailed.title" = "Cannot be identified";
@@ -292,27 +292,27 @@
 "Vite.RefreshBackFooter.NoMoreDataText" = "No more data";
 
 //Welcome
-"introduction.page.tip1.title" = "Free transactions";
-"introduction.page.tip2.title" = "Fast transactions";
-"introduction.page.tip3.title" = "HD wallet structure";
+"introduction.page.tip1.title" = "No gas fee";
+"introduction.page.tip2.title" = "Extremely fast transactions";
+"introduction.page.tip3.title" = "HD Wallet structure";
 "introduction.page.tip4.title" = "Voting to garner rewards";
 "introduction.page.tip1.desc" = "Use TPS quota for payment, get free TPS quota by running PoW.";
 "introduction.page.tip2.desc" = "Designed in asynchronous architecture, so smooth to make transactions.";
 "introduction.page.tip3.desc" = "Support multiple tokens, easy to manage accounts.";
-"introduction.page.tip4.desc" = "Vote for official nodes, acquire rewards of VITE.";
+"introduction.page.tip4.desc" = "Vote for official SBPs, acquire rewards of VITE.";
 "introduction.page.nextBtn.title" = "Start VITE journey";
 
 /* Error Message */
 "vite.error.network.error" = "Something went wrong with network, please try again later";
-"vite.error.operation.failure" = "操作失败";
-"vite.error.rpc.error.code.not.enough.balance" = "Insufficient Balance";
-"vite.error.rpc.error.code.not.enough.quota" = "配额不足";
-"vite.error.rpc.error.code.id.conflict" = "ID 发生冲突，请您稍后重新提交";
-"vite.error.rpc.error.code.contract.data.illegal" = "内置合约发生错误，请稍后重试(-35004)";
-"vite.error.rpc.error.code.refrence.same.snapshoot.block" = "交易发送频繁，请您稍后再次尝试";
-"vite.error.rpc.error.code.contract.method.not.exist" = "内置合约发生错误，请稍后重试(-35006)";
-"vite.error.rpc.error.code.no.transaction.before" = "您需要接收一笔交易之后才可发起转账";
-"vite.error.rpc.error.code.hash.verify.failure" = "系统校验不通过，请稍后重试(-35002)";
-"vite.error.rpc.error.code.signature.verify.failure" = "系统校验不通过，请稍后重试(-35003)";
-"vite.error.rpc.error.code.pow.nonce.verify.failure" = "系统校验不通过，请稍后重试(-35004)";
-"vite.error.rpc.error.code.refrence.snapshoot.block.illegal" = "快照块高度不合法，请您稍后再试";
+"vite.error.operation.failure" = "Operation failed";
+"vite.error.rpc.error.code.not.enough.balance" = "Insufficient balance";
+"vite.error.rpc.error.code.not.enough.quota" = "Insufficient quota";
+"vite.error.rpc.error.code.id.conflict" = "An ID conflict occurs, please re-submit later";
+"vite.error.rpc.error.code.contract.data.illegal" = "Built-in contract error, please try again later(-35004)";
+"vite.error.rpc.error.code.refrence.same.snapshoot.block" = "Transactions are sent too frequent, please try again later";
+"vite.error.rpc.error.code.contract.method.not.exist" = "Built-in contract method not exist, please try again later(-35006)";
+"vite.error.rpc.error.code.no.transaction.before" = "You cannot make any transfer until you receive a transaction.";
+"vite.error.rpc.error.code.hash.verify.failure" = "System verify failed, please try again later (-35002)";
+"vite.error.rpc.error.code.signature.verify.failure" = "System verify failed, please try again later (-35003)";
+"vite.error.rpc.error.code.pow.nonce.verify.failure" = "System verify failed, please try again later (-35004)";
+"vite.error.rpc.error.code.refrence.snapshoot.block.illegal" = "Snapshot block height is illegal, please try again later";
