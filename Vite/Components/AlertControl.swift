@@ -177,7 +177,7 @@ class AlertControl: UIViewController {
 
         self.textFields?.first?.becomeFirstResponder()
 
-        alertCommenView.alpha = 0.5
+        alertCommenView.alpha = 0.0
         UIView.animate(withDuration: 0.2) {
             alertCommenView.alpha = 1
         }
@@ -186,7 +186,7 @@ class AlertControl: UIViewController {
     func disMiss(completion:(() -> Void)?) {
         UIView.animate(withDuration: 0.2, animations: {
             self.view.backgroundColor = UIColor.init(hex: "0x000000", alpha: 0.0)
-            self.contentView?.alpha = 0.5
+            self.contentView?.alpha = 0.0
         }, completion: { _ in
             self.view.removeFromSuperview()
             self.selfReference = nil

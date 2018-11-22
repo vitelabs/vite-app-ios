@@ -1163,7 +1163,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let exportPageAlterTitle = Rswift.StringResource(key: "export.page.alter.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Please input profit address
+      /// en translation: Please input recipient address
       /// 
       /// Locales: en, zh-Hans
       static let quotaSubmitPageQuotaAddressPlaceholder = Rswift.StringResource(key: "quota.submit.page.quota.address.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
@@ -1179,10 +1179,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let loginPageLoadingTitle = Rswift.StringResource(key: "login.page.loading.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Profit Address
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageInputAddressTitle = Rswift.StringResource(key: "quota.manage.page.input.address.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Prompt
       /// 
       /// Locales: en, zh-Hans
@@ -1203,6 +1199,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let myPageQuotaCellTitle = Rswift.StringResource(key: "my.page.quota.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Quota Recipient Address
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageInputAddressTitle = Rswift.StringResource(key: "quota.manage.page.input.address.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Ready to overwrite
       /// 
       /// Locales: en, zh-Hans
@@ -2495,7 +2495,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("export.page.alter.title", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Please input profit address
+      /// en translation: Please input recipient address
       /// 
       /// Locales: en, zh-Hans
       static func quotaSubmitPageQuotaAddressPlaceholder(_: Void = ()) -> String {
@@ -2521,13 +2521,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func loginPageLoadingTitle(_: Void = ()) -> String {
         return NSLocalizedString("login.page.loading.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Profit Address
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageInputAddressTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.input.address.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Prompt
@@ -2563,6 +2556,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func myPageQuotaCellTitle(_: Void = ()) -> String {
         return NSLocalizedString("my.page.quota.cell.title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Quota Recipient Address
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageInputAddressTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.input.address.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Ready to overwrite
