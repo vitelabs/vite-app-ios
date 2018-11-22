@@ -767,6 +767,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let viteErrorRpcErrorCodeIdConflict = Rswift.StringResource(key: "vite.error.rpc.error.code.id.conflict", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Aquire quota
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaManagePageTitle = Rswift.StringResource(key: "quota.manage.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Arouse verify again
       /// 
       /// Locales: en, zh-Hans
@@ -947,10 +951,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let myPageFetchMoneyCellTitle = Rswift.StringResource(key: "my.page.fetchMoney.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Get Quota
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaManagePageTitle = Rswift.StringResource(key: "quota.manage.page.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Get TPS quota
       /// 
       /// Locales: en, zh-Hans
@@ -1179,14 +1179,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageToastAmountEmpty = Rswift.StringResource(key: "send.page.toast.amount.empty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Please input beneficiary address
+      /// 
+      /// Locales: en, zh-Hans
+      static let quotaSubmitPageQuotaAddressPlaceholder = Rswift.StringResource(key: "quota.submit.page.quota.address.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Please input passowrd
       /// 
       /// Locales: en, zh-Hans
       static let exportPageAlterTitle = Rswift.StringResource(key: "export.page.alter.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Please input recipient address
-      /// 
-      /// Locales: en, zh-Hans
-      static let quotaSubmitPageQuotaAddressPlaceholder = Rswift.StringResource(key: "quota.submit.page.quota.address.placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Please input your password again
       /// 
       /// Locales: en, zh-Hans
@@ -1219,7 +1219,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let myPageQuotaCellTitle = Rswift.StringResource(key: "my.page.quota.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Quota Recipient Address
+      /// en translation: Quota Beneficiary
       /// 
       /// Locales: en, zh-Hans
       static let quotaManagePageInputAddressTitle = Rswift.StringResource(key: "quota.manage.page.input.address.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
@@ -1399,6 +1399,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let sendPageToastSendSuccess = Rswift.StringResource(key: "send.page.toast.send.success", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Successful Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteStatusVoteSuccess = Rswift.StringResource(key: "vote.page.voteStatus.voteSuccess", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Successfully backup your seed phrase!
       /// 
       /// Locales: en, zh-Hans
@@ -1487,6 +1491,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let transactionListTransactionTypeNameTransfer = Rswift.StringResource(key: "transaction.list.transaction.type.name.transfer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Unable to vote, you have to run PoW or stake VITE for TPS quota to vote
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListAlertQuota = Rswift.StringResource(key: "vote.list.alert.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Unlock By Face ID
       /// 
       /// Locales: en, zh-Hans
@@ -1591,10 +1599,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let votePageVoteStatusVoting = Rswift.StringResource(key: "vote.page.voteStatus.voting", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Voting successful
-      /// 
-      /// Locales: en, zh-Hans
-      static let votePageVoteStatusVoteSuccess = Rswift.StringResource(key: "vote.page.voteStatus.voteSuccess", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Voting to garner rewards
       /// 
       /// Locales: en, zh-Hans
@@ -1671,10 +1675,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let votePageVoteInfoAlertQuota = Rswift.StringResource(key: "vote.page.voteInfo.alert.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: unable to vote, you have to run PoW or stake VITE for TPS quota to vote
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListAlertQuota = Rswift.StringResource(key: "vote.list.alert.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1800,6 +1800,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func viteErrorRpcErrorCodeIdConflict(_: Void = ()) -> String {
         return NSLocalizedString("vite.error.rpc.error.code.id.conflict", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Aquire quota
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaManagePageTitle(_: Void = ()) -> String {
+        return NSLocalizedString("quota.manage.page.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Arouse verify again
@@ -2115,13 +2122,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func myPageFetchMoneyCellTitle(_: Void = ()) -> String {
         return NSLocalizedString("my.page.fetchMoney.cell.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Get Quota
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaManagePageTitle(_: Void = ()) -> String {
-        return NSLocalizedString("quota.manage.page.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Get TPS quota
@@ -2523,18 +2523,18 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send.page.toast.amount.empty", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Please input beneficiary address
+      /// 
+      /// Locales: en, zh-Hans
+      static func quotaSubmitPageQuotaAddressPlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("quota.submit.page.quota.address.placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Please input passowrd
       /// 
       /// Locales: en, zh-Hans
       static func exportPageAlterTitle(_: Void = ()) -> String {
         return NSLocalizedString("export.page.alter.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Please input recipient address
-      /// 
-      /// Locales: en, zh-Hans
-      static func quotaSubmitPageQuotaAddressPlaceholder(_: Void = ()) -> String {
-        return NSLocalizedString("quota.submit.page.quota.address.placeholder", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Please input your password again
@@ -2593,7 +2593,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("my.page.quota.cell.title", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Quota Recipient Address
+      /// en translation: Quota Beneficiary
       /// 
       /// Locales: en, zh-Hans
       static func quotaManagePageInputAddressTitle(_: Void = ()) -> String {
@@ -2908,6 +2908,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send.page.toast.send.success", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Successful Vote
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteStatusVoteSuccess(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteStatus.voteSuccess", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Successfully backup your seed phrase!
       /// 
       /// Locales: en, zh-Hans
@@ -3060,6 +3067,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func transactionListTransactionTypeNameTransfer(_: Void = ()) -> String {
         return NSLocalizedString("transaction.list.transaction.type.name.transfer", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Unable to vote, you have to run PoW or stake VITE for TPS quota to vote
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListAlertQuota(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.alert.quota", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Unlock By Face ID
@@ -3244,13 +3258,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("vote.page.voteStatus.voting", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Voting successful
-      /// 
-      /// Locales: en, zh-Hans
-      static func votePageVoteStatusVoteSuccess(_: Void = ()) -> String {
-        return NSLocalizedString("vote.page.voteStatus.voteSuccess", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: Voting to garner rewards
       /// 
       /// Locales: en, zh-Hans
@@ -3382,13 +3389,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func votePageVoteInfoAlertQuota(_: Void = ()) -> String {
         return NSLocalizedString("vote.page.voteInfo.alert.quota", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: unable to vote, you have to run PoW or stake VITE for TPS quota to vote
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListAlertQuota(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.alert.quota", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
