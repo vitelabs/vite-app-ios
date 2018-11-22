@@ -56,7 +56,7 @@
 "mnemonic.backup.page.error.type.nameValid" = "Account name only supports Chinese and English characters as well as unserscores.";
 "mnemonic.backup.page.error.type.validWalletNameCount" = "Username only supports less than 32 characters";
 "mnemonic.backup.page.error.type.difference" = "Please enter the same password!";
-"mnemonic.backup.page.switch.mode.title" = "切换%@个助记词";
+"mnemonic.backup.page.switch.mode.title" = "Switch to %@ mnemonic words";
 
 "mnemonic.affirm.page.title" = "Confirm your seed phrase";
 "mnemonic.affirm.page.tip.title" = "Orderly select seed phrase";
