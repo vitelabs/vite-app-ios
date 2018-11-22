@@ -281,7 +281,7 @@
 "vote.list.count" = "Votes";
 "vote.list.address" = "Address";
 "vote.list.send.success" = "Successfully sent vote request";
-"vote.list.alert.quota" = "unable to vote, you have to run PoW or stake VITE for TPS quota to vote";
+"vote.list.alert.quota" = "Unable to vote, you have to run PoW or stake VITE for TPS quota to vote";
 "vote.list.search.empty" = "No result, please try another input";
 "vote.list.search.no.transaction.before" = "You cannot vote for now as there is no transaction record in your address";
 
