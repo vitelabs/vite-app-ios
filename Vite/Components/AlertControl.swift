@@ -93,6 +93,11 @@ class AlertControl: UIViewController {
             break
         }
 
+        //根据UI规范，弹框样式目前只支持两个按钮。故转成actionsheet样式
+        if self.actions.count > 2 {
+            self.style = .actionSheet
+        }
+
         if self.style == .actionSheet {
             showAlerSheet()
         } else {
