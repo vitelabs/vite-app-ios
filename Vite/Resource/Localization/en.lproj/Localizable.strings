@@ -266,7 +266,7 @@
 "vote.page.voteStatus.voteInvalid" = "Invalid Voting";
 "vote.page.voteInfo.nodePolls.title" = "My Votes";
 "vote.page.nodeStatus.valid.title" = "Active";
-"vote.page.nodeStatus.invalid.title" = "Standby";
+"vote.page.nodeStatus.invalid.title" = "Inactive";
 "vote.page.voteInfo.cancel.vote.title" = "Revoke Voting";
 "vote.page.voteInfo.cancel.vote.toast.title" = "Vote revoking request is successfully sent";
 "vote.page.voteInfo.alert.quota" = "Unable to revoke vote, you have to run PoW or stake VITE for TPS quota to revoke vote";
