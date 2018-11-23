@@ -975,6 +975,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importAccount = Rswift.StringResource(key: "import.account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Inactive
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageNodeStatusInvalidTitle = Rswift.StringResource(key: "vote.page.nodeStatus.invalid.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Incorrect seed phrase!
       /// 
       /// Locales: en, zh-Hans
@@ -1375,10 +1379,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let quotaManagePageQuotaSnapshootHeightTitle = Rswift.StringResource(key: "quota.manage.page.quota.snapshoot.height.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Standby
-      /// 
-      /// Locales: en, zh-Hans
-      static let votePageNodeStatusInvalidTitle = Rswift.StringResource(key: "vote.page.nodeStatus.invalid.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Start VITE journey
       /// 
       /// Locales: en, zh-Hans
@@ -2166,6 +2166,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("import.account", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Inactive
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageNodeStatusInvalidTitle(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.nodeStatus.invalid.title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Incorrect seed phrase!
       /// 
       /// Locales: en, zh-Hans
@@ -2864,13 +2871,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func quotaManagePageQuotaSnapshootHeightTitle(_: Void = ()) -> String {
         return NSLocalizedString("quota.manage.page.quota.snapshoot.height.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Standby
-      /// 
-      /// Locales: en, zh-Hans
-      static func votePageNodeStatusInvalidTitle(_: Void = ()) -> String {
-        return NSLocalizedString("vote.page.nodeStatus.invalid.title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Start VITE journey

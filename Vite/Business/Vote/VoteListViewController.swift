@@ -17,7 +17,10 @@ class VoteListViewController: BaseViewController {
     let reactor = VoteListReactor()
     let tableView = UITableView()
     let searchBar = SearchBar()
-    let emptyView =  UIView.defaultPlaceholderView(text: R.string.localizable.voteListSearchEmpty())
+    let emptyView =  UILabel().then {
+        $0.text = R.string.localizable.voteListSearchEmpty()
+        $0.textAlignment = .center
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +60,8 @@ class VoteListViewController: BaseViewController {
 
         tableView.addSubview(emptyView)
         emptyView.snp.makeConstraints { (m) in
-            m.width.height.equalTo(100)
+            m.left.equalToSuperview().offset(10)
+            m.right.equalToSuperview().offset(-10)
             m.center.equalTo(tableView)
         }
         emptyView.isHidden = true
