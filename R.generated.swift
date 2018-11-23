@@ -711,7 +711,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let quotaManagePageQuotaSnapshootHeightDesc = Rswift.StringResource(key: "quota.manage.page.quota.snapshoot.height.desc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: About us
+      /// en translation: About Us
       /// 
       /// Locales: en, zh-Hans
       static let myPageAboutUsCellTitle = Rswift.StringResource(key: "my.page.aboutUs.cell.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
@@ -1491,6 +1491,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let transactionListTransactionTypeNameTransfer = Rswift.StringResource(key: "transaction.list.transaction.type.name.transfer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Unable to revoke vote, you have to run PoW or stake VITE for TPS quota to revoke vote
+      /// 
+      /// Locales: en, zh-Hans
+      static let votePageVoteInfoAlertQuota = Rswift.StringResource(key: "vote.page.voteInfo.alert.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Unable to vote, you have to run PoW or stake VITE for TPS quota to vote
       /// 
       /// Locales: en, zh-Hans
@@ -1671,10 +1675,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let importPageSubmitLoading = Rswift.StringResource(key: "import.page.submit.loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: unable to revoke vote, you have to run PoW or stake VITE for TPS quota to revoke vote
-      /// 
-      /// Locales: en, zh-Hans
-      static let votePageVoteInfoAlertQuota = Rswift.StringResource(key: "vote.page.voteInfo.alert.quota", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1704,7 +1704,7 @@ struct R: Rswift.Validatable {
         return String(format: NSLocalizedString("quota.manage.page.quota.snapshoot.height.desc", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
-      /// en translation: About us
+      /// en translation: About Us
       /// 
       /// Locales: en, zh-Hans
       static func myPageAboutUsCellTitle(_: Void = ()) -> String {
@@ -3069,6 +3069,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("transaction.list.transaction.type.name.transfer", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Unable to revoke vote, you have to run PoW or stake VITE for TPS quota to revoke vote
+      /// 
+      /// Locales: en, zh-Hans
+      static func votePageVoteInfoAlertQuota(_: Void = ()) -> String {
+        return NSLocalizedString("vote.page.voteInfo.alert.quota", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Unable to vote, you have to run PoW or stake VITE for TPS quota to vote
       /// 
       /// Locales: en, zh-Hans
@@ -3382,13 +3389,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func importPageSubmitLoading(_: Void = ()) -> String {
         return NSLocalizedString("import.page.submit.loading", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: unable to revoke vote, you have to run PoW or stake VITE for TPS quota to revoke vote
-      /// 
-      /// Locales: en, zh-Hans
-      static func votePageVoteInfoAlertQuota(_: Void = ()) -> String {
-        return NSLocalizedString("vote.page.voteInfo.alert.quota", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
