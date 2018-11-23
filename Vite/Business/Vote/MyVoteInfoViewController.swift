@@ -225,9 +225,9 @@ extension MyVoteInfoViewController {
         HUD.hide()
         if error.code == ViteErrorCode.rpcNotEnoughBalance {
             AlertSheet.show(into: self,
-                       title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
-                       message: nil,
-                       actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
+                            title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
+                            message: nil,
+                            actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
         } else if error.code == ViteErrorCode.rpcNotEnoughQuota {
             AlertSheet.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.votePageVoteInfoAlertQuota(), actions: [
                 (.default(title: R.string.localizable.quotaAlertPowButtonTitle()), { [weak self] _ in

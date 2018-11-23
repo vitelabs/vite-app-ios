@@ -58,7 +58,7 @@ class BackupMnemonicViewController: BaseViewController {
         }.disposed(by: rx.disposeBag)
         switchTipView.tipButton.rx.tap.bind {
             self.viewModel.switchModeMnemonicWordsAction?.execute(())
-            }.disposed(by: rx.disposeBag)
+        }.disposed(by: rx.disposeBag)
         return switchTipView
     }()
 
