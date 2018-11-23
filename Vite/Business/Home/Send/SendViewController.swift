@@ -213,10 +213,10 @@ class SendViewController: BaseViewController {
                 GCD.delay(1) { self.dismiss() }
             case .failure(let error):
                 if error.code == ViteErrorCode.rpcNotEnoughBalance {
-                    Alert.show(into: self,
-                               title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
-                               message: nil,
-                               actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
+                    AlertSheet.show(into: self,
+                                    title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
+                                    message: nil,
+                                    actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
                 } else if error.code == ViteErrorCode.rpcNotEnoughQuota {
                     AlertSheet.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.quotaAlertPowAndQuotaMessage(), actions: [
                         (.default(title: R.string.localizable.quotaAlertPowButtonTitle()), { _ in
@@ -262,12 +262,12 @@ class SendViewController: BaseViewController {
                             GCD.delay(1) { self.dismiss() }
                         case .failure(let error):
                             if error.code == ViteErrorCode.rpcNotEnoughBalance {
-                                Alert.show(into: self,
-                                           title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
-                                           message: nil,
-                                           actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
+                                AlertSheet.show(into: self,
+                                                title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
+                                                message: nil,
+                                                actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
                             } else if error.code == ViteErrorCode.rpcNotEnoughQuota {
-                                Alert.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.quotaAlertNeedQuotaMessage(), actions: [
+                                AlertSheet.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.quotaAlertNeedQuotaMessage(), actions: [
                                     (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle()), { [weak self] _ in
                                         let vc = QuotaManageViewController()
                                         self?.navigationController?.pushViewController(vc, animated: true)

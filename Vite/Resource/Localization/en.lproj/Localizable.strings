@@ -111,7 +111,7 @@
 "my.page.dealLog.cell.title" = "Transaction";
 "my.page.quota.cell.title" = "Quota";
 "my.page.system.cell.title" = "System Settings";
-"my.page.aboutUs.cell.title" = "About us";
+"my.page.aboutUs.cell.title" = "About Us";
 "my.page.fetchMoney.cell.title" = "Get Bonus";
 
 /* Transaction List */
@@ -230,8 +230,8 @@
 "toast.error.login" = "Login Error";
 
 /* quota manage */
-"quota.manage.page.title" = "Get Quota";
-"quota.manage.page.input.address.title" = "Quota Recipient Address";
+"quota.manage.page.title" = "Aquire quota";
+"quota.manage.page.input.address.title" = "Quota Beneficiary";
 "quota.manage.page.quota.money.title" = "Staking Amount";
 "quota.manage.page.quota.money.placeholder" = "Please input amount, minimum 10 VITE";
 "quota.manage.page.quota.snapshoot.height.title" = "Staking frozen duration";
@@ -242,7 +242,7 @@
 "quota.submit.pop.desc" = "Make sure to stake %@ to obtain quota, you cannot withdraw until about 3 days after staking comes into effect.";
 "quota.submit.pop.submit.btn.title" = "Confirm";
 "quota.submit.pop.cancel.btn.title" = "Cancel";
-"quota.submit.page.quota.address.placeholder" = "Please input recipient address";
+"quota.submit.page.quota.address.placeholder" = "Please input beneficiary address";
 
 /* quota alert */
 "quota.alert.title" = "Insufficient Quota";
@@ -260,7 +260,7 @@
 /* Vote */
 "vote.page.title" = "My Voting";
 "vote.page.info.nodata.title" = "No Vote";
-"vote.page.voteStatus.voteSuccess" = "Voting successful";
+"vote.page.voteStatus.voteSuccess" = "Successful Vote";
 "vote.page.voteStatus.voting" = "Voting";
 "vote.page.voteStatus.cancelVoting" = "Revoking";
 "vote.page.voteStatus.voteInvalid" = "Invalid Voting";
@@ -269,19 +269,19 @@
 "vote.page.nodeStatus.invalid.title" = "Inactive";
 "vote.page.voteInfo.cancel.vote.title" = "Revoke Voting";
 "vote.page.voteInfo.cancel.vote.toast.title" = "Vote revoking request is successfully sent";
-"vote.page.voteInfo.alert.quota" = "unable to revoke vote, you have to run PoW or stake VITE for TPS quota to revoke vote";
+"vote.page.voteInfo.alert.quota" = "Unable to revoke vote, you have to run PoW or stake VITE for TPS quota to revoke vote";
 
 /* Vote List*/
 "Vote" = "Vote";
 "vote.list.title" = "Candidate Nodes";
 "vote.list.search" = "Search for name or address of candidate nodes";
 "vote.list.alert.already.voted" = "You have voted for %@, please make sure this action will overwrite current voting result";
-"vote.list.confirm.revote" = "Ready to overwrite";
+"vote.list.confirm.revote" = "Confirm";
 "vote.list.confirm.button.title" = "Confirm";
 "vote.list.count" = "Votes";
 "vote.list.address" = "Address";
 "vote.list.send.success" = "Successfully sent vote request";
-"vote.list.alert.quota" = "unable to vote, you have to run PoW or stake VITE for TPS quota to vote";
+"vote.list.alert.quota" = "Unable to vote, you have to run PoW or stake VITE for TPS quota to vote";
 "vote.list.search.empty" = "No result, please try another input";
 "vote.list.search.no.transaction.before" = "You cannot vote for now as there is no transaction record in your address";
 

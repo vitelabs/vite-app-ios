@@ -93,6 +93,11 @@ class AlertControl: UIViewController {
             break
         }
 
+        //根据UI规范，弹框样式目前只支持两个按钮。故转成actionsheet样式
+        if self.actions.count > 2 {
+            self.style = .actionSheet
+        }
+
         if self.style == .actionSheet {
             showAlerSheet()
         } else {
@@ -433,7 +438,7 @@ private class AlertSheetView: UIView {
                 if let topMostButton = topMostButton {
                     m.bottom.equalTo(topMostButton.snp.top).offset(-20)
                 } else {
-                    m.bottom.equalTo(self.snp.bottom).offset(-24)
+                    m.bottom.equalTo(self.safeAreaLayoutGuideSnpBottom).offset(-24)
                 }
             }
             topMostButton = b
@@ -462,12 +467,8 @@ private class AlertSheetView: UIView {
             m.top.equalTo(self.snp.top).offset(19)
         }
 
-        let suggestedViewTextSize = messageLabel.sizeThatFits(CGSize(width: kScreenW - 24 * 2, height: CGFloat.greatestFiniteMagnitude))
-        let height = 100 +  70.0 * Double(actions.count) + Double(suggestedViewTextSize.height)
-
         self.snp.makeConstraints { (m) in
             m.width.equalTo(kScreenW)
-            m.height.equalTo(height)
         }
 
         self.backgroundColor = UIColor.init(netHex: 0xffffff, alpha: 1)
