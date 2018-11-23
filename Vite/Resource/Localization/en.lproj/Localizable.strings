@@ -269,7 +269,7 @@
 "vote.page.nodeStatus.invalid.title" = "Standby";
 "vote.page.voteInfo.cancel.vote.title" = "Revoke Voting";
 "vote.page.voteInfo.cancel.vote.toast.title" = "Vote revoking request is successfully sent";
-"vote.page.voteInfo.alert.quota" = "unable to revoke vote, you have to run PoW or stake VITE for TPS quota to revoke vote";
+"vote.page.voteInfo.alert.quota" = "Unable to revoke vote, you have to run PoW or stake VITE for TPS quota to revoke vote";
 
 /* Vote List*/
 "Vote" = "Vote";
