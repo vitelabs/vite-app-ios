@@ -280,10 +280,6 @@ class VoteListViewController: BaseViewController {
         appear = false
     }
 
-    deinit {
-        print("sssssss")
-    }
-
 }
 
 extension VoteListViewController: ViewControllerDataStatusable {
