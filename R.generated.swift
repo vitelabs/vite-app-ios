@@ -871,6 +871,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let voteListConfirmButtonTitle = Rswift.StringResource(key: "vote.list.confirm.button.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Confirm
+      /// 
+      /// Locales: en, zh-Hans
+      static let voteListConfirmRevote = Rswift.StringResource(key: "vote.list.confirm.revote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Confirm your seed phrase
       /// 
       /// Locales: en, zh-Hans
@@ -1223,10 +1227,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let quotaManagePageInputAddressTitle = Rswift.StringResource(key: "quota.manage.page.input.address.title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
-      /// en translation: Ready to overwrite
-      /// 
-      /// Locales: en, zh-Hans
-      static let voteListConfirmRevote = Rswift.StringResource(key: "vote.list.confirm.revote", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Receive
       /// 
       /// Locales: en, zh-Hans
@@ -1984,6 +1984,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("vote.list.confirm.button.title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Confirm
+      /// 
+      /// Locales: en, zh-Hans
+      static func voteListConfirmRevote(_: Void = ()) -> String {
+        return NSLocalizedString("vote.list.confirm.revote", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Confirm your seed phrase
       /// 
       /// Locales: en, zh-Hans
@@ -2598,13 +2605,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func quotaManagePageInputAddressTitle(_: Void = ()) -> String {
         return NSLocalizedString("quota.manage.page.input.address.title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Ready to overwrite
-      /// 
-      /// Locales: en, zh-Hans
-      static func voteListConfirmRevote(_: Void = ()) -> String {
-        return NSLocalizedString("vote.list.confirm.revote", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Receive
