@@ -17,6 +17,7 @@ class VoteListViewController: BaseViewController {
     let reactor = VoteListReactor()
     let tableView = UITableView()
     let searchBar = SearchBar()
+    let emptyView =  UIView.defaultPlaceholderView(text: R.string.localizable.voteListSearchEmpty())
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,14 @@ class VoteListViewController: BaseViewController {
             m.top.equalTo(searchBar.snp.bottom).offset(10)
         }
         tableView.register(CandidateCell.self, forCellReuseIdentifier: "Cell")
+        tableView.tableFooterView = UIView()
+
+        tableView.addSubview(emptyView)
+        emptyView.snp.makeConstraints { (m) in
+            m.width.height.equalTo(100)
+            m.center.equalTo(tableView)
+        }
+        emptyView.isHidden = true
     }
 
     func bind() {
@@ -74,14 +83,15 @@ class VoteListViewController: BaseViewController {
 
         result
             .filterNil()
-            .map { $0.isEmpty }
-            .filter { $0 }
-            .bind { [unowned self]_ in
-                if let text = self.searchBar.textField.text, !text.isEmpty {
-                    Toast.show(R.string.localizable.voteListSearchEmpty())
+            .bind { [unowned self] in
+                let search = self.searchBar.textField.text ?? ""
+                if $0.isEmpty && !search.isEmpty {
+                    self.emptyView.isHidden = false
+                } else {
+                    self.emptyView.isHidden = true
                 }
             }
-            .disposed(by: rx.disposeBag)
+        .disposed(by: rx.disposeBag)
 
         typealias DataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Candidate>>
         let dataSource = DataSource(configureCell: { (_, tableView, indexPath, candidate) -> UITableViewCell in
@@ -276,4 +286,5 @@ extension VoteListViewController: ViewControllerDataStatusable {
             retry()
         }
     }
+
 }
