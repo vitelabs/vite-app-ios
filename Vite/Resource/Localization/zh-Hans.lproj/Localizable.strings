@@ -275,7 +275,7 @@
 "vote.list.title" = "候选节点列表";
 "vote.list.search" = "搜索候选节点名称或出块地址";
 "vote.list.alert.already.voted" = "您已经投票给%@，请确认是否覆盖当前投票";
-"vote.list.confirm.revote" = "确认覆盖";
+"vote.list.confirm.revote" = "确认";
 "vote.list.confirm.button.title" = "确认";
 "vote.list.count" = "得票数";
 "vote.list.address" = "出块地址";
@@ -297,7 +297,7 @@
 "introduction.page.tip4.title" = "投票赚奖励";
 "introduction.page.tip1.desc" = "交易消耗配额，运行PoW免费获取";
 "introduction.page.tip2.desc" = "异步架构设计，交易畅通无阻";
-"introduction.page.tip3.desc" = "支持多种代币，方便账号管";
+"introduction.page.tip3.desc" = "支持多种代币，方便账号管理";
 "introduction.page.tip4.desc" = "投票官方节点，赚取VITE奖励";
 "introduction.page.nextBtn.title" = "开始体验";
 

@@ -276,7 +276,7 @@
 "vote.list.title" = "Candidate Nodes";
 "vote.list.search" = "Search for name or address of candidate nodes";
 "vote.list.alert.already.voted" = "You have voted for %@, please make sure this action will overwrite current voting result";
-"vote.list.confirm.revote" = "Ready to overwrite";
+"vote.list.confirm.revote" = "Confirm";
 "vote.list.confirm.button.title" = "Confirm";
 "vote.list.count" = "Votes";
 "vote.list.address" = "Address";
