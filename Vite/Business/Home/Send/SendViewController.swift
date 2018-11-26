@@ -79,9 +79,9 @@ class SendViewController: BaseViewController {
     lazy var noteView = SendNoteView(note: note ?? "", canEdit: noteCanEdit)
 
     private func setupView() {
-        navigationTitleView = NavigationTitleView(title: R.string.localizable.sendPageTitle.key.localized())
+        navigationTitleView = NavigationTitleView(title: R.string.localizable.sendPageTitle())
         let addressView: SendAddressViewType = address != nil ? AddressLabelView(address: address!.description) : AddressTextViewView()
-        let sendButton = UIButton(style: .blue, title: R.string.localizable.sendPageSendButtonTitle.key.localized())
+        let sendButton = UIButton(style: .blue, title: R.string.localizable.sendPageSendButtonTitle())
 
         view.addSubview(scrollView)
         view.addSubview(sendButton)
@@ -111,8 +111,8 @@ class SendViewController: BaseViewController {
 
         let toolbar = UIToolbar()
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let next: UIBarButtonItem = UIBarButtonItem(title: R.string.localizable.sendPageAmountToolbarButtonTitle.key.localized(), style: .done, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: R.string.localizable.finish.key.localized(), style: .done, target: nil, action: nil)
+        let next: UIBarButtonItem = UIBarButtonItem(title: R.string.localizable.sendPageAmountToolbarButtonTitle(), style: .done, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: R.string.localizable.finish(), style: .done, target: nil, action: nil)
         if noteCanEdit {
             toolbar.items = [flexSpace, next]
         } else {
@@ -134,23 +134,23 @@ class SendViewController: BaseViewController {
                 let address = Address(string: addressView.textView.text ?? "")
                 guard let `self` = self else { return }
                 guard address.isValid else {
-                    Toast.show(R.string.localizable.sendPageToastAddressError.key.localized())
+                    Toast.show(R.string.localizable.sendPageToastAddressError())
                     return
                 }
                 guard let amountString = self.amountView.textField.text,
                     !amountString.isEmpty,
                     let amount = amountString.toBigInt(decimals: self.token.decimals) else {
-                    Toast.show(R.string.localizable.sendPageToastAmountEmpty.key.localized())
+                    Toast.show(R.string.localizable.sendPageToastAmountEmpty())
                     return
                 }
 
                 guard amount > BigInt(0) else {
-                    Toast.show(R.string.localizable.sendPageToastAmountZero.key.localized())
+                    Toast.show(R.string.localizable.sendPageToastAmountZero())
                     return
                 }
 
                 guard amount <= self.balance.value else {
-                    Toast.show(R.string.localizable.sendPageToastAmountError.key.localized())
+                    Toast.show(R.string.localizable.sendPageToastAmountError())
                     return
                 }
                 self.showConfirmTransactionViewController(address: address, amountString: amountString, amount: amount)
@@ -187,14 +187,14 @@ class SendViewController: BaseViewController {
                 plog(level: .info, log: "Confirm cancelled", tag: .transaction)
             case .biometryAuthFailed:
                 Alert.show(into: self,
-                           title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle.key.localized(),
+                           title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle(),
                            message: nil,
-                           actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack.key.localized()), nil)])
+                           actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack()), nil)])
             case .passwordAuthFailed:
                 Alert.show(into: self,
-                           title: R.string.localizable.confirmTransactionPageToastPasswordError.key.localized(),
+                           title: R.string.localizable.confirmTransactionPageToastPasswordError(),
                            message: nil,
-                           actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned self] _ in
+                           actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry()), { [unowned self] _ in
                                 self.showConfirmTransactionViewController(address: address, amountString: amountString, amount: amount)
                            }), (.cancel, nil)])
             }
@@ -209,20 +209,20 @@ class SendViewController: BaseViewController {
             HUD.hide()
             switch result {
             case .success:
-                Toast.show(R.string.localizable.sendPageToastSendSuccess.key.localized())
-                GCD.delay(0.5) { self.dismiss() }
-            case .error(let error):
-                if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
-                    Alert.show(into: self,
-                               title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
-                               message: nil,
-                               actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
-                } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
-                    Alert.show(into: self, title: R.string.localizable.quotaAlertTitle.key.localized(), message: R.string.localizable.quotaAlertPowAndQuotaMessage.key.localized(), actions: [
-                        (.default(title: R.string.localizable.quotaAlertPowButtonTitle.key.localized()), { _ in
+                AlertControl.showCompletion(R.string.localizable.sendPageToastSendSuccess())
+                GCD.delay(1) { self.dismiss() }
+            case .failure(let error):
+                if error.code == ViteErrorCode.rpcNotEnoughBalance {
+                    AlertSheet.show(into: self,
+                                    title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
+                                    message: nil,
+                                    actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
+                } else if error.code == ViteErrorCode.rpcNotEnoughQuota {
+                    AlertSheet.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.quotaAlertPowAndQuotaMessage(), actions: [
+                        (.default(title: R.string.localizable.quotaAlertPowButtonTitle()), { _ in
                             self.sendTransactionWithGetPow(bag: bag, toAddress: toAddress, tokenId: tokenId, amount: amount, note: note)
                         }),
-                        (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle.key.localized()), { [weak self] _ in
+                        (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle()), { [weak self] _ in
                             let vc = QuotaManageViewController()
                             self?.navigationController?.pushViewController(vc, animated: true)
                         }),
@@ -231,7 +231,7 @@ class SendViewController: BaseViewController {
                             alert.preferredAction = alert.actions[0]
                     })
                 } else {
-                    Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
+                    Toast.show(error.message)
                 }
             }
         }
@@ -258,17 +258,17 @@ class SendViewController: BaseViewController {
                         guard let `self` = self else { return }
                         switch result {
                         case .success:
-                            Toast.show(R.string.localizable.sendPageToastSendSuccess.key.localized())
-                            GCD.delay(0.5) { self.dismiss() }
-                        case .error(let error):
-                            if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
-                                Alert.show(into: self,
-                                           title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
-                                           message: nil,
-                                           actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
-                            } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
-                                Alert.show(into: self, title: R.string.localizable.quotaAlertTitle.key.localized(), message: R.string.localizable.quotaAlertNeedQuotaMessage.key.localized(), actions: [
-                                    (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle.key.localized()), { [weak self] _ in
+                            AlertControl.showCompletion(R.string.localizable.sendPageToastSendSuccess())
+                            GCD.delay(1) { self.dismiss() }
+                        case .failure(let error):
+                            if error.code == ViteErrorCode.rpcNotEnoughBalance {
+                                AlertSheet.show(into: self,
+                                                title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
+                                                message: nil,
+                                                actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
+                            } else if error.code == ViteErrorCode.rpcNotEnoughQuota {
+                                AlertSheet.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.quotaAlertNeedQuotaMessage(), actions: [
+                                    (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle()), { [weak self] _ in
                                         let vc = QuotaManageViewController()
                                         self?.navigationController?.pushViewController(vc, animated: true)
                                     }),
@@ -277,14 +277,14 @@ class SendViewController: BaseViewController {
                                         alert.preferredAction = alert.actions[0]
                                 })
                             } else {
-                                Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
+                                Toast.show(error.message)
                             }
                         }
                     })
                 }
-            case .error:
+            case .failure(let error):
                 getPowFloatView.hide()
-                Toast.show(R.string.localizable.sendPageToastSendFailed.key.localized())
+                Toast.show(error.message)
             }
         })
     }
@@ -298,7 +298,12 @@ extension SendViewController: UITextFieldDelegate {
             textField.text = text
             return ret
         } else if textField == noteView.textField {
-            return InputLimitsHelper.allowText(textField.text ?? "", shouldChangeCharactersIn: range, replacementString: string, maxCount: 180)
+            // maxCount is 120, about 40 Chinese characters
+            let ret = InputLimitsHelper.allowText(textField.text ?? "", shouldChangeCharactersIn: range, replacementString: string, maxCount: 120)
+            if !ret {
+                Toast.show(R.string.localizable.sendPageToastNoteTooLong())
+            }
+            return ret
         } else {
             return true
         }

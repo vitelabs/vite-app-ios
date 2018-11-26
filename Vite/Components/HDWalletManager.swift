@@ -221,7 +221,7 @@ extension HDWalletManager {
             case .success(let count):
                 let current = wallet.addressCount
                 self.pri_update(addressIndex: wallet.addressIndex, addressCount: max(current, count), needRecoverAddresses: false)
-            case .error:
+            case .failure:
                 GCD.delay(3, task: { self.pri_recoverAddressesIfNeeded(uuid) })
             }
         })

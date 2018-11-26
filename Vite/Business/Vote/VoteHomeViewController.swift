@@ -22,7 +22,7 @@ class VoteHomeViewController: BaseViewController {
             $0.backgroundColor = UIColor.clear
         }
 
-        let titleLabel = LabelTipView(R.string.localizable.votePageTitle.key.localized()).then {
+        let titleLabel = LabelTipView(R.string.localizable.votePageTitle()).then {
             $0.titleLab.font = UIFont.systemFont(ofSize: 24)
             $0.titleLab.textColor = UIColor(netHex: 0x24272B)
         }
@@ -34,13 +34,14 @@ class VoteHomeViewController: BaseViewController {
             m.height.equalTo(29)
         }
 
-        titleLabel.tipButton.rx.tap.bind { [weak self] in
+        titleLabel.tipButton.rx.tap.bind {
             let url  = URL(string: String(format: "%@?localize=%@", Constants.voteDefinitionURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
             let vc = PopViewController(url: url)
             vc.modalPresentationStyle = .overCurrentContext
             let delegate =  StyleActionSheetTranstionDelegate()
             vc.transitioningDelegate = delegate
-            self?.present(vc, animated: true, completion: nil)
+
+            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
         }.disposed(by: rx.disposeBag)
         return view
     }

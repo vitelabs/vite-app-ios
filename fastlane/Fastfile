@@ -26,7 +26,7 @@ platform :ios do
   end
 
   lane :vite_enterprise do 
-    match(type: "adhoc", app_identifier: "net.vite.wallet.ep",  clone_branch_directly: true)
+    # match(type: "adhoc", app_identifier: "net.vite.wallet.ep",  clone_branch_directly: true)
     build_ios_app(workspace: "Vite.xcworkspace", configuration: "Release", scheme: "Vite-enterprise", export_method: "ad-hoc", clean: true, include_bitcode: false)
   end
 

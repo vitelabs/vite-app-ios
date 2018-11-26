@@ -58,14 +58,14 @@ extension Provider {
                                                     switch result {
                                                     case .success:
                                                         completion(NetworkResult.success(Void()))
-                                                    case .error(let error):
-                                                        completion(NetworkResult.error(error))
+                                                    case .failure(let error):
+                                                        completion(NetworkResult.wrapError(error))
                                                     }
 
                 })
             })
             .catch {
-                completion(NetworkResult.error($0))
+                completion(NetworkResult.wrapError($0))
             }
 
     }
@@ -94,17 +94,17 @@ extension Provider {
                                                         switch result {
                                                         case .success:
                                                             completion(NetworkResult.success(Void()))
-                                                        case .error(let error):
-                                                            completion(NetworkResult.error(error))
+                                                        case .failure(let error):
+                                                            completion(NetworkResult.wrapError(error))
                                                         }
                                                     })
-                                                case .error(let error):
-                                                    completion(NetworkResult.error(error))
+                                                case .failure(let error):
+                                                    completion(NetworkResult.wrapError(error))
                                                 }
                 })
             })
             .catch {
-                completion(NetworkResult.error($0))
+                completion(NetworkResult.wrapError($0))
             }
     }
 

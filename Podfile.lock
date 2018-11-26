@@ -12,6 +12,23 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - CHIPageControl (0.1.7):
+    - CHIPageControl/Aji (= 0.1.7)
+    - CHIPageControl/Aleppo (= 0.1.7)
+    - CHIPageControl/Chimayo (= 0.1.7)
+    - CHIPageControl/Fresno (= 0.1.7)
+    - CHIPageControl/Jalapeno (= 0.1.7)
+    - CHIPageControl/Jaloro (= 0.1.7)
+    - CHIPageControl/Paprika (= 0.1.7)
+    - CHIPageControl/Puya (= 0.1.7)
+  - CHIPageControl/Aji (0.1.7)
+  - CHIPageControl/Aleppo (0.1.7)
+  - CHIPageControl/Chimayo (0.1.7)
+  - CHIPageControl/Fresno (0.1.7)
+  - CHIPageControl/Jalapeno (0.1.7)
+  - CHIPageControl/Jaloro (0.1.7)
+  - CHIPageControl/Paprika (0.1.7)
+  - CHIPageControl/Puya (0.1.7)
   - CryptoSwift (0.12.0)
   - DACircularProgress (2.3.1)
   - Differentiator (3.1.0)
@@ -30,6 +47,7 @@ PODS:
     - Result (~> 3.0)
   - "NSObject+Rx (4.4.1)":
     - RxSwift (~> 4.3)
+  - NYXImagesKit (2.3)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
@@ -47,6 +65,7 @@ PODS:
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
+  - RazzleDazzle (0.1.5)
   - ReactorKit (1.2.1):
     - RxSwift (>= 4.0.0)
   - Result (3.2.4)
@@ -73,7 +92,7 @@ PODS:
   - Then (2.4.0)
   - Toast-Swift (3.0.1)
   - TrezorCryptoEd25519WithBlake2b (0.0.1)
-  - Vite_HDWalletKit (1.1.0):
+  - Vite_HDWalletKit (1.2.0):
     - BigInt (~> 3.0)
     - CryptoSwift (~> 0.12.0)
     - TrezorCryptoEd25519WithBlake2b (~> 0.0.1)
@@ -89,6 +108,7 @@ DEPENDENCIES:
   - BaiduMobStat
   - BigInt (~> 3.0)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - CHIPageControl
   - DACircularProgress (= 2.3.1)
   - Eureka (~> 4.2.0)
   - JSONRPCKit
@@ -99,10 +119,12 @@ DEPENDENCIES:
   - MJRefresh
   - Moya
   - "NSObject+Rx"
+  - NYXImagesKit (= 2.3)
   - ObjectMapper
   - pop (~> 1.0)
   - PromiseKit (~> 6.0)
   - R.swift
+  - RazzleDazzle
   - ReactorKit
   - ReusableKit
   - RxCocoa
@@ -115,7 +137,7 @@ DEPENDENCIES:
   - SwiftyJSON
   - Then
   - Toast-Swift (~> 3.0.1)
-  - Vite_HDWalletKit (~> 1.1.0)
+  - Vite_HDWalletKit (~> 1.2.0)
   - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
@@ -126,6 +148,7 @@ SPEC REPOS:
     - APIKit
     - BaiduMobStat
     - BigInt
+    - CHIPageControl
     - CryptoSwift
     - DACircularProgress
     - Differentiator
@@ -138,12 +161,14 @@ SPEC REPOS:
     - MJRefresh
     - Moya
     - "NSObject+Rx"
+    - NYXImagesKit
     - ObjcExceptionBridging
     - ObjectMapper
     - pop
     - PromiseKit
     - R.swift
     - R.swift.Library
+    - RazzleDazzle
     - ReactorKit
     - Result
     - ReusableKit
@@ -179,6 +204,7 @@ SPEC CHECKSUMS:
   BaiduMobStat: e2dbfd44f1535adf3c0001cbd3212eb61c4fe639
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  CHIPageControl: bbe1ddd0c688c02ec65b7f7e7d34551a3d16f37c
   CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
@@ -191,12 +217,14 @@ SPEC CHECKSUMS:
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
+  NYXImagesKit: 8163e3335a40eaa173ca5bbbf81fafb57d3947eb
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PromiseKit: 27c1601bfb73405871b805bcb8cf7e55c4dad3db
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
+  RazzleDazzle: 0b1b9fc8ceed04bfdd4b3e8182e98ef7edacd1d1
   ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   ReusableKit: 11b5bde14553a35bcf3979412dbfd1e690392f14
@@ -212,9 +240,9 @@ SPEC CHECKSUMS:
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
-  Vite_HDWalletKit: 90bf90b7092cc483ae9eda3385e96ed5be3aca22
+  Vite_HDWalletKit: 8d3f78883b58def92610e44704a93db7b566656c
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: caef9dac921f41eca4771d7e799e28b00b1b344d
+PODFILE CHECKSUM: 4478896edce3cd7b00ed8e5d2c6d08d644ab309e
 
 COCOAPODS: 1.5.3

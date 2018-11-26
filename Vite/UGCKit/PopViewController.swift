@@ -59,7 +59,7 @@ class PopViewController: BaseViewController {
         $0.scrollView.showsHorizontalScrollIndicator = false
     }
 
-    lazy var cancelBtn = UIButton(style: .white, title: R.string.localizable.close.key.localized())
+    lazy var cancelBtn = UIButton(style: .white, title: R.string.localizable.close())
 
     func setupView() {
         self.navigationController?.view.backgroundColor = .clear

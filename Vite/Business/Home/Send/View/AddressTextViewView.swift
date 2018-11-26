@@ -28,7 +28,7 @@ class AddressTextViewView: SendAddressViewType {
         self.placeholderLab.font = AppStyle.descWord.font
         self.placeholderLab.text = placeholder
 
-        titleLabel.text = R.string.localizable.sendPageToAddressTitle.key.localized()
+        titleLabel.text = R.string.localizable.sendPageToAddressTitle()
         textView.delegate = self
         addSubview(titleLabel)
         addSubview(textView)

@@ -17,6 +17,10 @@ class VoteListViewController: BaseViewController {
     let reactor = VoteListReactor()
     let tableView = UITableView()
     let searchBar = SearchBar()
+    let emptyView =  UILabel().then {
+        $0.text = R.string.localizable.voteListSearchEmpty()
+        $0.textAlignment = .center
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +30,7 @@ class VoteListViewController: BaseViewController {
 
     func setupUI() {
         let titleLabel = UILabel()
-        titleLabel.text = R.string.localizable.voteListTitle.key.localized()
+        titleLabel.text = R.string.localizable.voteListTitle()
         titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
         titleLabel.textColor = UIColor.init(netHex: 0x3e4a59)
         view.addSubview(titleLabel)
@@ -36,7 +40,7 @@ class VoteListViewController: BaseViewController {
         }
 
         view.addSubview(searchBar)
-        searchBar.placeholder = R.string.localizable.voteListSearch.key.localized()
+        searchBar.placeholder = R.string.localizable.voteListSearch()
         searchBar.snp.makeConstraints { (m) in
             m.left.equalToSuperview().offset(10)
             m.top.equalTo(titleLabel.snp.bottom).offset(14)
@@ -52,6 +56,15 @@ class VoteListViewController: BaseViewController {
             m.top.equalTo(searchBar.snp.bottom).offset(10)
         }
         tableView.register(CandidateCell.self, forCellReuseIdentifier: "Cell")
+        tableView.tableFooterView = UIView()
+
+        tableView.addSubview(emptyView)
+        emptyView.snp.makeConstraints { (m) in
+            m.left.equalToSuperview().offset(10)
+            m.right.equalToSuperview().offset(-10)
+            m.center.equalTo(tableView)
+        }
+        emptyView.isHidden = true
     }
 
     func bind() {
@@ -67,24 +80,25 @@ class VoteListViewController: BaseViewController {
             .map { $0.isEmpty }
             .filter { !$0 }
             .take(1)
-            .bind { _ in
-                self.view.hideLoading()
+            .bind { [weak self] _ in
+                self?.view.hideLoading()
             }
             .disposed(by: rx.disposeBag)
 
         result
             .filterNil()
-            .map { $0.isEmpty }
-            .filter { $0 }
-            .bind { [unowned self]_ in
-                if let text = self.searchBar.textField.text, !text.isEmpty {
-                    Toast.show(R.string.localizable.voteListSearchEmpty.key.localized())
+            .bind { [weak self] in
+                let search = self?.searchBar.textField.text ?? ""
+                if $0.isEmpty && !search.isEmpty {
+                    self?.emptyView.isHidden = false
+                } else {
+                    self?.emptyView.isHidden = true
                 }
             }
-            .disposed(by: rx.disposeBag)
+        .disposed(by: rx.disposeBag)
 
         typealias DataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Candidate>>
-        let dataSource = DataSource(configureCell: { (_, tableView, indexPath, candidate) -> UITableViewCell in
+        let dataSource = DataSource(configureCell: { [weak self] (_, tableView, indexPath, candidate) -> UITableViewCell in
             let cell: CandidateCell = tableView.dequeueReusableCell(for: indexPath)
             cell.nodeNameLabel.text = candidate.name
             cell.voteCountLabel.text = candidate.voteNum.amountShort(decimals: TokenCacheService.instance.viteToken.decimals)
@@ -92,7 +106,7 @@ class VoteListViewController: BaseViewController {
             cell.disposeable?.dispose()
             cell.disposeable = cell.voteButton.rx.tap
                 .bind {
-                    self.vote(nodeName: candidate.name)
+                    self?.vote(nodeName: candidate.name)
                 }
             cell.disposeable?.disposed(by: cell.rx.disposeBag)
             return cell
@@ -118,16 +132,16 @@ class VoteListViewController: BaseViewController {
 
         reactor.voteError.asObservable()
             .filter { $0.0 != nil && $0.1 != nil }
-            .bind { [unowned self] in
-                self.view.hideLoading()
-                self.handler(error: $0.1!, nodeName: $0.0!)
+            .bind { [weak self] in
+                self?.view.hideLoading()
+                self?.handler(error: $0.1!, nodeName: $0.0!)
             }
             .disposed(by: rx.disposeBag)
 
         reactor.voteSuccess.asObserver()
-            .bind { [unowned self] _ in
-                self.view.hideLoading()
-                Toast.show(R.string.localizable.voteListSendSuccess.key.localized())
+            .bind { [weak self] _ in
+                self?.view.hideLoading()
+                AlertControl.showCompletion(R.string.localizable.voteListSendSuccess())
             }
             .disposed(by: rx.disposeBag)
 
@@ -135,15 +149,15 @@ class VoteListViewController: BaseViewController {
             NotificationCenter.default.rx.notification(.UIKeyboardWillHide),
             NotificationCenter.default.rx.notification(.UIKeyboardWillShow)
             ])
-            .filter { [unowned self] _  in self.appear }
-            .subscribe(onNext: {[unowned self] (notification) in
+            .filter { [weak self] _  in self?.appear ?? false }
+            .subscribe(onNext: {[weak self] (notification) in
                 let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25
                 let height =  min((notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height, 128+55)
                 UIView.animate(withDuration: duration, animations: {
-                    if notification.name == .UIKeyboardWillShow && self.searchBar.textField.isFirstResponder {
-                        self.parent?.view.transform = CGAffineTransform(translationX: 0, y: -height)
+                    if notification.name == .UIKeyboardWillShow && self?.searchBar.textField.isFirstResponder ?? false {
+                        self?.parent?.view.transform = CGAffineTransform(translationX: 0, y: -height)
                     } else if notification.name == .UIKeyboardWillHide {
-                        self.parent?.view.transform = .identity
+                        self?.parent?.view.transform = .identity
                     }
                 })
             }).disposed(by: rx.disposeBag)
@@ -177,20 +191,20 @@ class VoteListViewController: BaseViewController {
             self.confirmVote(nodeName: nodeName)
         } else {
             Alert.show(into: self,
-                       title: R.string.localizable.vote.key.localized(),
-                       message: R.string.localizable.voteListAlertAlreadyVoted.key.localized(arguments: info?.nodeName ?? ""),
+                       title: R.string.localizable.vote(),
+                       message: R.string.localizable.voteListAlertAlreadyVoted(info?.nodeName ?? ""),
                        actions: [
-                        (.default(title:R.string.localizable.voteListConfirmRevote.key.localized()), { [unowned self] _ in
+                        (.default(title:R.string.localizable.voteListConfirmRevote()), { [unowned self] _ in
                             self.confirmVote(nodeName: nodeName)
                        }),
-                        (.default(title:  R.string.localizable.cancel.key.localized()), { [unowned self] _ in
+                        (.cancel, { [unowned self] _ in
                             self.dismiss(animated: false, completion: nil)
                        })])
         }
     }
 
     func confirmVote(nodeName: String) {
-        let confirmVC = ConfirmViewController.comfirmVote(title: R.string.localizable.vote.key.localized(),
+        let confirmVC = ConfirmViewController.comfirmVote(title: R.string.localizable.vote(),
                                                           nodeName: nodeName) { [unowned self] (result) in
                                                             switch result {
                                                             case .success:
@@ -198,16 +212,16 @@ class VoteListViewController: BaseViewController {
                                                                 self.reactor.vote.value = nodeName
                                                             case .passwordAuthFailed:
                                                                 Alert.show(into: self,
-                                                                           title: R.string.localizable.confirmTransactionPageToastPasswordError.key.localized(),
+                                                                           title: R.string.localizable.confirmTransactionPageToastPasswordError(),
                                                                            message: nil,
-                                                                           actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry.key.localized()), { [unowned self] _ in
+                                                                           actions: [(.default(title: R.string.localizable.sendPageConfirmPasswordAuthFailedRetry()), { [unowned self] _ in
                                                                             self.confirmVote(nodeName: nodeName)
                                                                            }), (.cancel, nil)])
                                                             case .biometryAuthFailed:
                                                                 Alert.show(into: self,
-                                                                           title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle.key.localized(),
+                                                                           title: R.string.localizable.sendPageConfirmBiometryAuthFailedTitle(),
                                                                            message: nil,
-                                                                           actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack.key.localized()), nil)])
+                                                                           actions: [(.default(title: R.string.localizable.sendPageConfirmBiometryAuthFailedBack()), nil)])
                                                             default:
                                                                 break
                                                             }
@@ -216,14 +230,14 @@ class VoteListViewController: BaseViewController {
     }
 
     func handler(error: Error, nodeName: String) {
-        if error.code == Provider.TransactionErrorCode.notEnoughBalance.rawValue {
+        if error.code == ViteErrorCode.rpcNotEnoughBalance {
             Alert.show(into: self,
-                       title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle.key.localized(),
+                       title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
                        message: nil,
-                       actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton.key.localized()), nil)])
-        } else if error.code == Provider.TransactionErrorCode.notEnoughQuota.rawValue {
-            Alert.show(into: self, title: R.string.localizable.quotaAlertTitle.key.localized(), message: R.string.localizable.voteListAlertQuota.key.localized(), actions: [
-                (.default(title: R.string.localizable.quotaAlertPowButtonTitle.key.localized()), { [weak self] _ in
+                       actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
+        } else if error.code == ViteErrorCode.rpcNotEnoughQuota {
+            AlertSheet.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.voteListAlertQuota(), actions: [
+                (.default(title: R.string.localizable.quotaAlertPowButtonTitle()), { [weak self] _ in
                     var cancelPow = false
                     let getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!) {
                         cancelPow = true
@@ -239,7 +253,7 @@ class VoteListViewController: BaseViewController {
                     })
 
                 }),
-                (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle.key.localized()), { [weak self] _ in
+                (.default(title: R.string.localizable.quotaAlertQuotaButtonTitle()), { [weak self] _ in
                     let vc = QuotaManageViewController()
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }),
@@ -247,10 +261,10 @@ class VoteListViewController: BaseViewController {
                 ], config: { alert in
                     alert.preferredAction = alert.actions[0]
             })
-        } else if error.code == Provider.TransactionErrorCode.noTransactionBefore.rawValue {
-            Toast.show(R.string.localizable.voteListSearchNoTransactionBefore.key.localized())
+        } else if error.code == ViteErrorCode.rpcNoTransactionBefore {
+            Toast.show(R.string.localizable.voteListSearchNoTransactionBefore())
         } else {
-            Toast.show(R.string.localizable.voteListSendFailed.key.localized(arguments: String(error.code)))
+            Toast.show(error.message)
         }
     }
 
@@ -276,4 +290,5 @@ extension VoteListViewController: ViewControllerDataStatusable {
             retry()
         }
     }
+
 }

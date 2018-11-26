@@ -11,7 +11,7 @@ import UIKit
 extension UIViewController {
     func showChangeLanguageList(isSettingPage: Bool = false) {
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         let languages  = LocalizationService.Language.allLanguages
         for language in languages {
@@ -29,6 +29,29 @@ extension UIViewController {
         DispatchQueue.main.async {
              self.present(alertController, animated: true, completion: nil)
         }
+    }
+}
+
+var bundleKey: UInt8 = 0
+
+class AnyLanguageBundle: Bundle {
+    override func localizedString(forKey key: String,
+                                  value: String?,
+                                  table tableName: String?) -> String {
+        guard let path = objc_getAssociatedObject(self, &bundleKey) as? String,
+            let bundle = Bundle(path: path) else {
+            return super.localizedString(forKey: key, value: value, table: tableName)
+        }
+        return bundle.localizedString(forKey: key, value: value, table: tableName)
+    }
+}
+
+extension Bundle {
+    class func setLanguage(_ language: String) {
+        defer {
+            object_setClass(Bundle.main, AnyLanguageBundle.self)
+        }
+        objc_setAssociatedObject(Bundle.main, &bundleKey, Bundle.main.path(forResource: language, ofType: "lproj"), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
 }
 
@@ -62,7 +85,7 @@ class LocalizationService {
     var currentLanguage: Language = .base {
         didSet {
             guard currentLanguage != oldValue else { return }
-            loadDictionaryForLanguage(currentLanguage)
+            Bundle.setLanguage(currentLanguage.rawValue)
             UserDefaultsService.instance.setObject(currentLanguage.rawValue, forKey: Key.language.rawValue, inCollection: Key.collection.rawValue)
         }
     }
@@ -72,12 +95,12 @@ class LocalizationService {
         if let string = UserDefaultsService.instance.objectForKey(Key.language.rawValue, inCollection: Key.collection.rawValue) as? String,
             let l = Language(rawValue: string) {
             currentLanguage = l
+            Bundle.setLanguage(string)
         } else {
             currentLanguage = getSystemLanguage()
             UserDefaultsService.instance.setObject(currentLanguage.rawValue, forKey: Key.language.rawValue, inCollection: Key.collection.rawValue)
+            Bundle.setLanguage(currentLanguage.rawValue)
         }
-
-        loadDictionaryForLanguage(currentLanguage)
     }
 }
 
@@ -90,43 +113,5 @@ extension LocalizationService {
             }
         }
         return .base
-    }
-
-    fileprivate func loadDictionaryForLanguage(_ language: Language) {
-        if let path = Bundle(for: object_getClass(self)!).url(forResource: "Localizable", withExtension: "strings", subdirectory: nil, localization: language.rawValue)?.path {
-            if FileManager.default.fileExists(atPath: path) {
-                localizationDic = NSDictionary(contentsOfFile: path) ?? NSDictionary()
-            }
-        }
-    }
-
-    fileprivate func localizedStringForKey(_ key: String) -> String {
-        if let localizedString = localizationDic[key] as? String {
-            return localizedString
-        } else {
-            return key
-        }
-    }
-}
-
-// MARK: String extension
-extension String {
-
-    func localized() -> String {
-        return LocalizationService.sharedInstance.localizedStringForKey(self)
-    }
-
-    func localized(arguments: CVarArg...) -> String {
-        let format = LocalizationService.sharedInstance.localizedStringForKey(self)
-        let t = self.Localizer()
-
-        return withVaList(arguments) { t(format, $0) }
-    }
-
-    private func Localizer() -> (_ key: String, _ params: CVaListPointer) -> String {
-        return { (key: String, params: CVaListPointer) in
-            let content = NSLocalizedString(key, tableName: "", comment: "")
-            return NSString(format: content, arguments: params) as String
-        }
     }
 }

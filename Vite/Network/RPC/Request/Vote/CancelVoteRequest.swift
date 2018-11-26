@@ -25,7 +25,7 @@ struct CancelVoteRequest: JSONRPCKit.Request {
         if let response = resultObject as? Response {
             return response
         } else {
-            throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: Response.self)
+            throw ViteError.JSONTypeError()
         }
     }
 }

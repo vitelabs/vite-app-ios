@@ -59,7 +59,7 @@ extension UIView {
             $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
             $0.setTitleColor(UIColor(netHex: 0x007AFF), for: .normal)
             $0.setTitleColor(UIColor(netHex: 0x007AFF).highlighted, for: .highlighted)
-            $0.setTitle(R.string.localizable.transactionListPageNetworkError.key.localized(), for: .normal)
+            $0.setTitle(R.string.localizable.transactionListPageNetworkError(), for: .normal)
         }
 
         view.addLayoutGuide(layoutGuide)

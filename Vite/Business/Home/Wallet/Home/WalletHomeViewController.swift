@@ -146,7 +146,7 @@ class WalletHomeViewController: BaseTableViewController {
                                 viewControllers.append(sendViewController)
                                 scanViewController?.navigationController?.setViewControllers(viewControllers, animated: true)
                             } else {
-                                scanViewController?.showToast(string: R.string.localizable.sendPageTokenInfoError.key.localized())
+                                scanViewController?.showToast(string: R.string.localizable.sendPageTokenInfoError())
                             }
                         case .failure(let error):
                             scanViewController?.showToast(string: error.message)

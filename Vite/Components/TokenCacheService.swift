@@ -114,7 +114,7 @@ extension TokenCacheService {
                         TokenCacheService.instance.updateTokensIfNeeded([t])
                     }
                     completion(Result.success(token))
-                case .error(let error):
+                case .failure(let error):
                     completion(Result.failure(error))
                 }
             }

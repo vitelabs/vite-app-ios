@@ -38,7 +38,7 @@ final class PledgeHistoryDescriptionView: UIImageView {
         label.numberOfLines = 0
         label.textColor = UIColor.init(netHex: 0x5D6D82)
         label.font = UIFont.systemFont(ofSize: 11)
-        label.text = R.string.localizable.peldgeMessage.key.localized()
+        label.text = R.string.localizable.peldgeMessage()
         self.addSubview(label)
         label.snp.makeConstraints { (m) in
             m.centerY.equalTo(self)

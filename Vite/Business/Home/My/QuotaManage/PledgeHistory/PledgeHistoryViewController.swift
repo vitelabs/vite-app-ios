@@ -21,7 +21,7 @@ class PledgeHistoryViewController: BaseViewController, View {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let navigationTitleView = NavigationTitleView.init(title: R.string.localizable.peldgeTitle.key.localized(), style: .default)
+        let navigationTitleView = NavigationTitleView.init(title: R.string.localizable.peldgeTitle(), style: .default)
         view.addSubview(navigationTitleView)
         navigationTitleView.snp.makeConstraints { (m) in
             m.top.equalTo(view.safeAreaLayoutGuideSnpTop)
@@ -66,7 +66,7 @@ class PledgeHistoryViewController: BaseViewController, View {
             .bind(to: tableView.rx.items(cellIdentifier: "Cell")) { _, pledge, cell in
                 let cell = cell as! PledgeHistoryCell
                 cell.hashLabel.text = pledge.beneficialAddress.description
-                cell.timeLabel.text = pledge.timestamp.format() + R.string.localizable.peldgeDeadline.key.localized()
+                cell.timeLabel.text = pledge.timestamp.format() + R.string.localizable.peldgeDeadline()
                 cell.balanceLabel.text =  pledge.amount.amountShort(decimals: TokenCacheService.instance.viteToken.decimals)
                 cell.symbolLabel.text = "VITE"
             }
@@ -119,7 +119,7 @@ class PledgeHistoryViewController: BaseViewController, View {
     }
 
     lazy var emptyView = {
-        return UIView.defaultPlaceholderView(text: R.string.localizable.transactionListPageEmpty.key.localized())
+        return UIView.defaultPlaceholderView(text: R.string.localizable.transactionListPageEmpty())
     }()
 
 }

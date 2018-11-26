@@ -31,12 +31,12 @@ class GetTokenInfoRequest: JSONRPCKit.Request {
             if let ret = Token(JSON: response) {
                 return ret
             } else {
-                throw JSONError.jsonData
+                throw ViteError.JSONTypeError()
             }
         } else if resultObject is NSNull {
             return nil
         } else {
-            throw RPCError.responseTypeNotMatch(actualValue: resultObject, expectedType: Response.self)
+            throw ViteError.JSONTypeError()
         }
     }
 }
