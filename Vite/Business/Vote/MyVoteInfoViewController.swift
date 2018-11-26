@@ -69,7 +69,7 @@ class MyVoteInfoViewController: BaseViewController, View {
         }).disposed(by: disposeBag)
 
         self.viewInfoView.nodeStatusLab.tipButton.rx.tap.bind {
-            let url  = URL(string: String(format: "%@?localize=%@", Constants.voteLoserURL, LocalizationService.sharedInstance.currentLanguage.rawValue))!
+            let url  = URL(string: String(format: "%@?localize=%@&nodeName=%@", Constants.voteLoserURL, LocalizationService.sharedInstance.currentLanguage.rawValue, self.viewInfoView.voteInfo?.nodeName ?? ""))!
             let vc = PopViewController(url: url)
             vc.modalPresentationStyle = .overCurrentContext
             let delegate =  StyleActionSheetTranstionDelegate()
@@ -78,9 +78,9 @@ class MyVoteInfoViewController: BaseViewController, View {
         }.disposed(by: rx.disposeBag)
 
         //handle cancel vote
-        self.viewInfoView.operationBtn.rx.tap.bind {_ in
-            self.cancelVoteAction()
-        }.disposed(by: rx.disposeBag)
+        self.viewInfoView.operationBtn.rx.tap.bind {[weak self] _ in
+            self?.cancelVoteAction()
+            }.disposed(by: rx.disposeBag)
 
         //vote success
         _ = NotificationCenter.default.rx.notification(.userDidVote).takeUntil(self.rx.deallocated).observeOn(MainScheduler.instance).subscribe({[weak self] (notification)   in
@@ -224,12 +224,12 @@ extension MyVoteInfoViewController {
     private func handlerCancelError(_ error: Error) {
         HUD.hide()
         if error.code == ViteErrorCode.rpcNotEnoughBalance {
-            Alert.show(into: self,
-                       title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
-                       message: nil,
-                       actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
+            AlertSheet.show(into: self,
+                            title: R.string.localizable.sendPageNotEnoughBalanceAlertTitle(),
+                            message: nil,
+                            actions: [(.default(title: R.string.localizable.sendPageNotEnoughBalanceAlertButton()), nil)])
         } else if error.code == ViteErrorCode.rpcNotEnoughQuota {
-            Alert.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.votePageVoteInfoAlertQuota(), actions: [
+            AlertSheet.show(into: self, title: R.string.localizable.quotaAlertTitle(), message: R.string.localizable.votePageVoteInfoAlertQuota(), actions: [
                 (.default(title: R.string.localizable.quotaAlertPowButtonTitle()), { [weak self] _ in
                     var cancelPow = false
                     let getPowFloatView = GetPowFloatView(superview: UIApplication.shared.keyWindow!) {

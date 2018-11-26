@@ -17,6 +17,10 @@ class VoteListViewController: BaseViewController {
     let reactor = VoteListReactor()
     let tableView = UITableView()
     let searchBar = SearchBar()
+    let emptyView =  UILabel().then {
+        $0.text = R.string.localizable.voteListSearchEmpty()
+        $0.textAlignment = .center
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +56,15 @@ class VoteListViewController: BaseViewController {
             m.top.equalTo(searchBar.snp.bottom).offset(10)
         }
         tableView.register(CandidateCell.self, forCellReuseIdentifier: "Cell")
+        tableView.tableFooterView = UIView()
+
+        tableView.addSubview(emptyView)
+        emptyView.snp.makeConstraints { (m) in
+            m.left.equalToSuperview().offset(10)
+            m.right.equalToSuperview().offset(-10)
+            m.center.equalTo(tableView)
+        }
+        emptyView.isHidden = true
     }
 
     func bind() {
@@ -67,24 +80,25 @@ class VoteListViewController: BaseViewController {
             .map { $0.isEmpty }
             .filter { !$0 }
             .take(1)
-            .bind { _ in
-                self.view.hideLoading()
+            .bind { [weak self] _ in
+                self?.view.hideLoading()
             }
             .disposed(by: rx.disposeBag)
 
         result
             .filterNil()
-            .map { $0.isEmpty }
-            .filter { $0 }
-            .bind { [unowned self]_ in
-                if let text = self.searchBar.textField.text, !text.isEmpty {
-                    Toast.show(R.string.localizable.voteListSearchEmpty())
+            .bind { [weak self] in
+                let search = self?.searchBar.textField.text ?? ""
+                if $0.isEmpty && !search.isEmpty {
+                    self?.emptyView.isHidden = false
+                } else {
+                    self?.emptyView.isHidden = true
                 }
             }
-            .disposed(by: rx.disposeBag)
+        .disposed(by: rx.disposeBag)
 
         typealias DataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Candidate>>
-        let dataSource = DataSource(configureCell: { (_, tableView, indexPath, candidate) -> UITableViewCell in
+        let dataSource = DataSource(configureCell: { [weak self] (_, tableView, indexPath, candidate) -> UITableViewCell in
             let cell: CandidateCell = tableView.dequeueReusableCell(for: indexPath)
             cell.nodeNameLabel.text = candidate.name
             cell.voteCountLabel.text = candidate.voteNum.amountShort(decimals: TokenCacheService.instance.viteToken.decimals)
@@ -92,7 +106,7 @@ class VoteListViewController: BaseViewController {
             cell.disposeable?.dispose()
             cell.disposeable = cell.voteButton.rx.tap
                 .bind {
-                    self.vote(nodeName: candidate.name)
+                    self?.vote(nodeName: candidate.name)
                 }
             cell.disposeable?.disposed(by: cell.rx.disposeBag)
             return cell
@@ -118,15 +132,15 @@ class VoteListViewController: BaseViewController {
 
         reactor.voteError.asObservable()
             .filter { $0.0 != nil && $0.1 != nil }
-            .bind { [unowned self] in
-                self.view.hideLoading()
-                self.handler(error: $0.1!, nodeName: $0.0!)
+            .bind { [weak self] in
+                self?.view.hideLoading()
+                self?.handler(error: $0.1!, nodeName: $0.0!)
             }
             .disposed(by: rx.disposeBag)
 
         reactor.voteSuccess.asObserver()
-            .bind { [unowned self] _ in
-                self.view.hideLoading()
+            .bind { [weak self] _ in
+                self?.view.hideLoading()
                 AlertControl.showCompletion(R.string.localizable.voteListSendSuccess())
             }
             .disposed(by: rx.disposeBag)
@@ -135,15 +149,15 @@ class VoteListViewController: BaseViewController {
             NotificationCenter.default.rx.notification(.UIKeyboardWillHide),
             NotificationCenter.default.rx.notification(.UIKeyboardWillShow)
             ])
-            .filter { [unowned self] _  in self.appear }
-            .subscribe(onNext: {[unowned self] (notification) in
+            .filter { [weak self] _  in self?.appear ?? false }
+            .subscribe(onNext: {[weak self] (notification) in
                 let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25
                 let height =  min((notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height, 128+55)
                 UIView.animate(withDuration: duration, animations: {
-                    if notification.name == .UIKeyboardWillShow && self.searchBar.textField.isFirstResponder {
-                        self.parent?.view.transform = CGAffineTransform(translationX: 0, y: -height)
+                    if notification.name == .UIKeyboardWillShow && self?.searchBar.textField.isFirstResponder ?? false {
+                        self?.parent?.view.transform = CGAffineTransform(translationX: 0, y: -height)
                     } else if notification.name == .UIKeyboardWillHide {
-                        self.parent?.view.transform = .identity
+                        self?.parent?.view.transform = .identity
                     }
                 })
             }).disposed(by: rx.disposeBag)
@@ -276,4 +290,5 @@ extension VoteListViewController: ViewControllerDataStatusable {
             retry()
         }
     }
+
 }

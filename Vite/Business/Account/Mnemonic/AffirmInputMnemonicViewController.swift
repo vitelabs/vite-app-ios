@@ -103,16 +103,6 @@ extension AffirmInputMnemonicViewController {
             make.right.equalTo(self.view).offset(-24)
             make.height.equalTo(24)
         }
-
-        self.view.addSubview(self.chooseMnemonicCollectionView)
-        self.chooseMnemonicCollectionView.snp.makeConstraints { (make) -> Void in
-            make.centerX.equalTo(self.view)
-            make.top.equalTo(self.tipTitleLab.snp.bottom).offset(18)
-            make.height.equalTo(kScreenH * (self.chooseMnemonicCollectionViewHeight/667.0))
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-        }
-
         self.view.addSubview(self.submitBtn)
         self.submitBtn.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
@@ -121,14 +111,28 @@ extension AffirmInputMnemonicViewController {
             make.bottom.equalTo(self.view.safeAreaLayoutGuideSnpBottom).offset(-24)
         }
 
-        self.view.addSubview(self.defaultMnemonicCollectionView)
+        let contentView = UIView()
+        self.view.addSubview(contentView)
+        contentView.snp.makeConstraints { (make) -> Void in
+            make.left.right.centerY.equalTo(self.view)
+            make.bottom.equalTo(self.submitBtn.snp.top).offset(-10).priority(250)
+        }
+
+        contentView.addSubview(self.chooseMnemonicCollectionView)
+        self.chooseMnemonicCollectionView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(contentView)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
+            make.height.equalTo(kScreenH * (self.chooseMnemonicCollectionViewHeight/667.0))
+        }
+
+        contentView.addSubview(self.defaultMnemonicCollectionView)
         self.defaultMnemonicCollectionView.snp.makeConstraints { (make) -> Void in
-            make.centerX.equalTo(self.view)
+            make.bottom.equalTo(contentView)
             make.top.equalTo(self.chooseMnemonicCollectionView.snp.bottom).offset(12)
             make.height.lessThanOrEqualTo(kScreenH * (self.defaultMnemonicCollectionViewHeight/667.0))
-            make.left.equalTo(self.view).offset(24)
-            make.right.equalTo(self.view).offset(-24)
-            make.bottom.equalTo(self.submitBtn.snp.top).offset(-10).priority(250)
+            make.left.equalTo(contentView).offset(24)
+            make.right.equalTo(contentView).offset(-24)
         }
     }
 

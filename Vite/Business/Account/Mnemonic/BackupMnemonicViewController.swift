@@ -52,7 +52,11 @@ class BackupMnemonicViewController: BaseViewController {
         switchTipView.titleLab.font = Fonts.Font12
         switchTipView.titleLab.textColor = UIColor(netHex: 0x007AFF)
         switchTipView.tipButton.setImage(R.image.switch_mode_icon(), for: .normal)
+        switchTipView.tipButton.setImage(R.image.switch_mode_icon(), for: .highlighted)
         switchTipView.rx.tap.bind {
+            self.viewModel.switchModeMnemonicWordsAction?.execute(())
+        }.disposed(by: rx.disposeBag)
+        switchTipView.tipButton.rx.tap.bind {
             self.viewModel.switchModeMnemonicWordsAction?.execute(())
         }.disposed(by: rx.disposeBag)
         return switchTipView
