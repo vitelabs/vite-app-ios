@@ -80,7 +80,7 @@ class MyVoteInfoViewController: BaseViewController, View {
         //handle cancel vote
         self.viewInfoView.operationBtn.rx.tap.bind {[weak self] _ in
             self?.cancelVoteAction()
-            }.disposed(by: rx.disposeBag)
+        }.disposed(by: rx.disposeBag)
 
         //vote success
         _ = NotificationCenter.default.rx.notification(.userDidVote).takeUntil(self.rx.deallocated).observeOn(MainScheduler.instance).subscribe({[weak self] (notification)   in

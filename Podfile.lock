@@ -29,10 +29,13 @@ PODS:
   - CHIPageControl/Jaloro (0.1.7)
   - CHIPageControl/Paprika (0.1.7)
   - CHIPageControl/Puya (0.1.7)
+  - Crashlytics (3.11.1):
+    - Fabric (~> 1.8.1)
   - CryptoSwift (0.12.0)
   - DACircularProgress (2.3.1)
   - Differentiator (3.1.0)
   - Eureka (4.2.0)
+  - Fabric (1.8.2)
   - JSONRPCKit (3.0.0):
     - Result (~> 3.2.0)
   - KeychainSwift (13.0.0)
@@ -109,8 +112,10 @@ DEPENDENCIES:
   - BigInt (~> 3.0)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - CHIPageControl
+  - Crashlytics
   - DACircularProgress (= 2.3.1)
   - Eureka (~> 4.2.0)
+  - Fabric
   - JSONRPCKit
   - KeychainSwift
   - Kingfisher (~> 4.0)
@@ -149,10 +154,12 @@ SPEC REPOS:
     - BaiduMobStat
     - BigInt
     - CHIPageControl
+    - Crashlytics
     - CryptoSwift
     - DACircularProgress
     - Differentiator
     - Eureka
+    - Fabric
     - JSONRPCKit
     - KeychainSwift
     - Kingfisher
@@ -205,10 +212,12 @@ SPEC CHECKSUMS:
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   CHIPageControl: bbe1ddd0c688c02ec65b7f7e7d34551a3d16f37c
+  Crashlytics: ca7ab4bc304aa216bdc2e4c1a96389ee77252203
   CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
+  Fabric: d2b22f443ba195d8a7cc204da230977c72733b40
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
   KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
@@ -243,6 +252,6 @@ SPEC CHECKSUMS:
   Vite_HDWalletKit: 8d3f78883b58def92610e44704a93db7b566656c
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 4478896edce3cd7b00ed8e5d2c6d08d644ab309e
+PODFILE CHECKSUM: 7d53491df8ec3268d6384f6ee93f61c14c3a334f
 
 COCOAPODS: 1.5.3

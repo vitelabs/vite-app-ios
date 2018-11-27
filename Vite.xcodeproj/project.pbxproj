@@ -1933,6 +1933,7 @@
 				4CCE42402124553B0080E92B /* Resources */,
 				4CFDEBFD4EE83103235125DB /* [CP] Embed Pods Frameworks */,
 				4C0024DB21257868001DF390 /* Run SwiftLint */,
+				4CFD0E2A21AD064600B5A0A8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1973,6 +1974,7 @@
 				8EA0BF0221996D4800FDE2E8 /* Resources */,
 				8EA0BF0A21996D4800FDE2E8 /* Run SwiftLint */,
 				3EF885DFCAEFD84B51915FFD /* [CP] Embed Pods Frameworks */,
+				4CFD0E2B21AD0D4300B5A0A8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1994,6 +1996,7 @@
 				8EA0BFF321996D7800FDE2E8 /* Resources */,
 				8EA0BFFB21996D7800FDE2E8 /* Run SwiftLint */,
 				674A1D6E787AA4D9A5D018F7 /* [CP] Embed Pods Frameworks */,
+				4CFD0E2C21AD0D7700B5A0A8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -2257,6 +2260,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+		4CFD0E2A21AD064600B5A0A8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#crash \n\"${PODS_ROOT}/Fabric/run\" 2964cce72aaa8182e1fccc9ba9e3965e041ca47d 060302090e0cd42185b9a6fa3fd5488234c09fa5eb287c46b2e8a1694953cf3f\n";
+		};
+		4CFD0E2B21AD0D4300B5A0A8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#crash \n\"${PODS_ROOT}/Fabric/run\" 2964cce72aaa8182e1fccc9ba9e3965e041ca47d 060302090e0cd42185b9a6fa3fd5488234c09fa5eb287c46b2e8a1694953cf3f\n\n";
+		};
+		4CFD0E2C21AD0D7700B5A0A8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#crash \n\"${PODS_ROOT}/Fabric/run\" 2964cce72aaa8182e1fccc9ba9e3965e041ca47d 060302090e0cd42185b9a6fa3fd5488234c09fa5eb287c46b2e8a1694953cf3f\n\n";
 		};
 		4CFDEBFD4EE83103235125DB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3429,7 +3486,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1109;
+				CURRENT_PROJECT_VERSION = 1112;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -3460,7 +3517,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1109;
+				CURRENT_PROJECT_VERSION = 1112;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -3532,7 +3589,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1109;
+				CURRENT_PROJECT_VERSION = 1112;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -3566,7 +3623,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1109;
+				CURRENT_PROJECT_VERSION = 1112;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -3601,7 +3658,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1109;
+				CURRENT_PROJECT_VERSION = 1112;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -3636,7 +3693,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1109;
+				CURRENT_PROJECT_VERSION = 1112;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
