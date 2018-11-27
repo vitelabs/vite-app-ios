@@ -13,6 +13,7 @@ platform :ios do
     match_profile
     build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
     upload_to_testflight(skip_waiting_for_build_processing: true)
+    upload_dysm
   end
 
   lane :vite_test do 
@@ -23,11 +24,13 @@ platform :ios do
     add_badge(shield: version_number + "-" + build_number + "-" + "orange", no_badge: true)
     build_app(workspace: "Vite.xcworkspace", scheme: "Vite-test")
     upload_to_testflight(skip_waiting_for_build_processing: true)
+    upload_dysm
   end
 
   lane :vite_enterprise do 
     # match(type: "adhoc", app_identifier: "net.vite.wallet.ep",  clone_branch_directly: true)
     build_ios_app(workspace: "Vite.xcworkspace", configuration: "Release", scheme: "Vite-enterprise", export_method: "ad-hoc", clean: true, include_bitcode: false)
+    upload_dysm
   end
 
   lane :match_profile do 
@@ -60,6 +63,20 @@ platform :ios do
     api_url: nil
   )
   end
+
+  desc "create new pr in github argument base is base branch"
+  lane :upload_dysm do |options|
+  upload_dysm(
+    # upload to Beta by Crashlytics
+    crashlytics(
+      # keys for organization: vite
+      api_token: "2964cce72aaa8182e1fccc9ba9e3965e041ca47d",
+      build_secret: "060302090e0cd42185b9a6fa3fd5488234c09fa5eb287c46b2e8a1694953cf3f"
+    )
+  )
+  end
+
+
 end
 
 

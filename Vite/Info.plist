@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Fabric</key>
+	<dict>
+	<key>APIKey</key>
+	<string>2964cce72aaa8182e1fccc9ba9e3965e041ca47d</string>
+	<key>Kits</key>
+	<array>
+	  <dict>
+	    <key>KitInfo</key>
+	    <dict/>
+	    <key>KitName</key>
+	    <string>Crashlytics</string>
+	  </dict>
+	</array>
+	</dict>
 	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
@@ -21,7 +35,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.2.0</string>
 	<key>CFBundleVersion</key>
-	<string>1109</string>
+	<string>1110</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>

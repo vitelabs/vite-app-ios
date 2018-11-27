@@ -8,6 +8,7 @@
 
 import UIKit
 import Eureka
+import Crashlytics
 
 class DebugViewController: FormViewController {
 
@@ -342,6 +343,11 @@ class DebugViewController: FormViewController {
                 let activityViewController = UIActivityViewController(activityItems: [logURL], applicationActivities: nil)
                 self?.present(activityViewController, animated: true)
             })
+            <<< LabelRow("test crash") {
+                $0.title =  "test crash"
+            }.onCellSelection({_, _  in
+                    Crashlytics.sharedInstance().throwException()
+                })
         #endif
     }
 
