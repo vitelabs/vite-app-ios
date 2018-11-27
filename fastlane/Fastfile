@@ -23,7 +23,7 @@ platform :ios do
     build_number = get_build_number(xcodeproj: "Vite.xcodeproj")
     add_badge(shield: version_number + "-" + build_number + "-" + "orange", no_badge: true)
     build_app(workspace: "Vite.xcworkspace", scheme: "Vite-test")
-    #upload_to_testflight(skip_waiting_for_build_processing: true)
+    upload_to_testflight(skip_waiting_for_build_processing: true)
     upload_dysm
   end
 
@@ -70,8 +70,8 @@ platform :ios do
     # upload to Beta by Crashlytics
     crashlytics(
       # keys for organization: vite
-      api_token: "2964cce72aaa8182e1fccc9ba9e3965e041ca47d",
-      build_secret: "060302090e0cd42185b9a6fa3fd5488234c09fa5eb287c46b2e8a1694953cf3f"
+      api_token: ENV["crashlytics_api_token"],
+      build_secret: ENV["crashlytics_build_secret"]
     )
   )
   end
