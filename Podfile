@@ -60,9 +60,12 @@ targetArray.each do |t|
 
         #code review
         pod 'SwiftLint'
+
         #crash
         pod 'Fabric'
         pod 'Crashlytics'
+
+        pod 'MLeaksFinder', :configurations => ['Debug']
     end
 end
 
