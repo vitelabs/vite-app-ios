@@ -56,6 +56,8 @@ class HomeViewController: UITabBarController {
 
         tabBar.shadowImage = R.image.tabber_shadow()?.resizable
         tabBar.backgroundImage = UIImage.color(UIColor.white).resizable
+
+        AppUpdateService.checkUpdate()
     }
 
     override func didReceiveMemoryWarning() {
