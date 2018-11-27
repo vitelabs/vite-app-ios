@@ -64,8 +64,8 @@ platform :ios do
   )
   end
 
-  desc "create new pr in github argument base is base branch"
-  lane :upload_dysm do |options|
+  desc "upload_dysm for branch"
+  lane :upload_dysm do 
   upload_dysm(
     # upload to Beta by Crashlytics
     crashlytics(
