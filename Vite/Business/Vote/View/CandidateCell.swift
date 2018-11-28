@@ -84,7 +84,7 @@ class CandidateCell: UITableViewCell {
 
         voteRankLabel.snp.makeConstraints { (m) in
             m.centerX.equalTo(voteRankImageView)
-            m.top.equalTo(voteRankImageView).offset(4)
+            m.top.equalTo(voteRankImageView).offset(3)
         }
 
         nodeNameLabel.snp.makeConstraints { (m) in
