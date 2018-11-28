@@ -124,7 +124,7 @@
 "transaction.list.transaction.type.name.register" = "Registration";
 "transaction.list.transaction.type.name.registerUpdate" = "Update Registration";
 "transaction.list.transaction.type.name.cancelRegister" = "Revoke Registration";
-"transaction.list.transaction.type.name.extractReward" = "Retrieve Reward";
+"transaction.list.transaction.type.name.extractReward" = "Retrieve Rewards";
 "transaction.list.transaction.type.name.vote" = "Voting";
 "transaction.list.transaction.type.name.cancelVote" = "Revoke Voting";
 "transaction.list.transaction.type.name.pledge" = "Get TPS quota";
@@ -230,7 +230,7 @@
 "toast.error.login" = "Login Error";
 
 /* quota manage */
-"quota.manage.page.title" = "Aquire quota";
+"quota.manage.page.title" = "Acquire Quota";
 "quota.manage.page.input.address.title" = "Quota Beneficiary";
 "quota.manage.page.quota.money.title" = "Staking Amount";
 "quota.manage.page.quota.money.placeholder" = "Please input amount, minimum 10 VITE";
@@ -295,7 +295,7 @@
 "introduction.page.tip1.title" = "No gas fee";
 "introduction.page.tip2.title" = "Extremely fast transactions";
 "introduction.page.tip3.title" = "HD Wallet structure";
-"introduction.page.tip4.title" = "Voting to garner rewards";
+"introduction.page.tip4.title" = "Vote to collect rewards";
 "introduction.page.tip1.desc" = "Use TPS quota for payment, get free TPS quota by running PoW.";
 "introduction.page.tip2.desc" = "Designed in asynchronous architecture, so smooth to make transactions.";
 "introduction.page.tip3.desc" = "Support multiple tokens, easy to manage accounts.";
