@@ -8,6 +8,7 @@
 
 import UIKit
 import Eureka
+import Crashlytics
 
 class DebugViewController: FormViewController {
 
@@ -15,7 +16,7 @@ class DebugViewController: FormViewController {
         super.viewDidLoad()
         setupView()
     }
-
+    
     func setupView() {
 
         #if DEBUG || TEST
@@ -53,11 +54,12 @@ class DebugViewController: FormViewController {
             <<< LabelRow("appEnvironment") {
                 $0.title = "Environment"
                 $0.value = DebugService.instance.appEnvironment.name
-            }.onCellSelection { _, _ in
+            }.onCellSelection { [weak self] _, _ in
 
                 var actions = DebugService.AppEnvironment.allValues.map { config -> (Alert.UIAlertControllerAletrActionTitle, ((UIAlertController) -> Void)?) in
-                    (.default(title: config.name), { alert in
+                    (.default(title: config.name), { [weak self] alert in
 
+                        guard let `self` = self else { return }
                         guard let cell = self.form.rowBy(tag: "appEnvironment") as? LabelRow else { return }
                         DebugService.instance.appEnvironment = config
                         cell.value = config.name
@@ -102,7 +104,7 @@ class DebugViewController: FormViewController {
                 }
 
                 actions.append((.cancel, nil))
-                DebugActionSheet.show(into: self, title: "Select App Environment", message: nil, actions: actions)
+                DebugActionSheet.show(title: "Select App Environment", message: nil, actions: actions)
             }
             +++
             Section {
@@ -111,7 +113,8 @@ class DebugViewController: FormViewController {
             <<< SwitchRow("useBigDifficulty") {
                 $0.title = "Use Big Difficulty (Use GPU)"
                 $0.value = DebugService.instance.useBigDifficulty
-            }.onChange { row in
+            }.onChange { [weak self] row in
+                guard let `self` = self else { return }
                 guard let ret = row.value else { return }
                 DebugService.instance.useBigDifficulty = ret
                 guard let cell = self.form.rowBy(tag: "appEnvironment") as? LabelRow else { return }
@@ -125,7 +128,8 @@ class DebugViewController: FormViewController {
             <<< SwitchRow("rpcUseOnlineUrl") {
                 $0.title = "Use Online URL"
                 $0.value = DebugService.instance.rpcUseOnlineUrl
-            }.onChange { row in
+            }.onChange { [weak self] row in
+                guard let `self` = self else { return }
                 guard let ret = row.value else { return }
                 DebugService.instance.rpcUseOnlineUrl = ret
                 guard let cell = self.form.rowBy(tag: "appEnvironment") as? LabelRow else { return }
@@ -141,10 +145,11 @@ class DebugViewController: FormViewController {
                     $0.title = "Test URL"
                     $0.value = DebugService.instance.rpcDefaultTestEnvironmentUrl.absoluteString
                 }
-            }.onCellSelection({ _, _  in
+            }.onCellSelection({ [weak self] _, _  in
                 Alert.show(into: self, title: "RPC Custom URL", message: nil, actions: [
                     (.cancel, nil),
-                    (.default(title: "OK"), { alert in
+                    (.default(title: "OK"), { [weak self] alert in
+                        guard let `self` = self else { return }
                         guard let cell = self.form.rowBy(tag: "rpcCustomUrl") as? LabelRow else { return }
                         if let text = alert.textFields?.first?.text, (text.hasPrefix("http://") || text.hasPrefix("https://")), let _ = URL(string: text) {
                             DebugService.instance.rpcCustomUrl = text
@@ -178,7 +183,8 @@ class DebugViewController: FormViewController {
             <<< SwitchRow("browserUseOnlineUrl") {
                 $0.title = "Use Online URL"
                 $0.value = DebugService.instance.browserUseOnlineUrl
-            }.onChange { row in
+            }.onChange { [weak self] row in
+                guard let `self` = self else { return }
                 guard let ret = row.value else { return }
                 DebugService.instance.browserUseOnlineUrl = ret
                 guard let cell = self.form.rowBy(tag: "appEnvironment") as? LabelRow else { return }
@@ -194,10 +200,11 @@ class DebugViewController: FormViewController {
                     $0.title = "Test URL"
                     $0.value = DebugService.instance.browserDefaultTestEnvironmentUrl.absoluteString
                 }
-            }.onCellSelection({ _, _  in
+            }.onCellSelection({ [weak self] _, _  in
                 Alert.show(into: self, title: "Browser Custom URL", message: nil, actions: [
                     (.cancel, nil),
-                    (.default(title: "OK"), { alert in
+                    (.default(title: "OK"), { [weak self] alert in
+                        guard let `self` = self else { return }
                         guard let cell = self.form.rowBy(tag: "browserCustomUrl") as? LabelRow else { return }
                         if let text = alert.textFields?.first?.text, (text.hasPrefix("http://") || text.hasPrefix("https://")), let _ = URL(string: text) {
                             DebugService.instance.browserCustomUrl = text
@@ -231,10 +238,10 @@ class DebugViewController: FormViewController {
             <<< LabelRow("configEnvironment") {
                 $0.title = "Config Environment"
                 $0.value = DebugService.instance.configEnvironment.name
-            }.onCellSelection { _, _ in
-
+            }.onCellSelection { [weak self] _, _ in
                 var actions = DebugService.ConfigEnvironment.allValues.map { config -> (Alert.UIAlertControllerAletrActionTitle, ((UIAlertController) -> Void)?) in
-                    (.default(title: config.name), { alert in
+                    (.default(title: config.name), { [weak self] alert in
+                        guard let `self` = self else { return }
                         guard let cell = self.form.rowBy(tag: "configEnvironment") as? LabelRow else { return }
                         DebugService.instance.configEnvironment = config
                         cell.value = config.name
@@ -246,7 +253,7 @@ class DebugViewController: FormViewController {
                 }
 
                 actions.append((.cancel, nil))
-                DebugActionSheet.show(into: self, title: "Select Config Environment", message: nil, actions: actions)
+                DebugActionSheet.show(title: "Select Config Environment", message: nil, actions: actions)
             }
             +++
             Section {
@@ -311,7 +318,8 @@ class DebugViewController: FormViewController {
             })
             <<< LabelRow("deleteAllWallets") {
                 $0.title =  "Delete All Wallets"
-            }.onCellSelection({ [unowned self]  _, _  in
+            }.onCellSelection({ [weak self]  _, _  in
+                guard let `self` = self else { return }
                 self.view.displayLoading(text: R.string.localizable.systemPageLogoutLoading(), animated: true)
                 DispatchQueue.global().async {
                     HDWalletManager.instance.deleteAllWallets()
@@ -337,11 +345,17 @@ class DebugViewController: FormViewController {
             <<< LabelRow("exportLogFile") {
                 $0.title =  "Export Log File"
             }.onCellSelection({ [weak self] _, _  in
+                guard let `self` = self else { return }
                 let cachePath = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0]
                 let logURL = cachePath.appendingPathComponent("logger.log")
                 let activityViewController = UIActivityViewController(activityItems: [logURL], applicationActivities: nil)
-                self?.present(activityViewController, animated: true)
+                self.present(activityViewController, animated: true)
             })
+            <<< LabelRow("test crash") {
+                $0.title =  "test crash"
+            }.onCellSelection({_, _  in
+                    Crashlytics.sharedInstance().throwException()
+                })
         #endif
     }
 
