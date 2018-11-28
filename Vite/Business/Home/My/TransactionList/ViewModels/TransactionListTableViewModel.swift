@@ -57,13 +57,13 @@ final class TransactionListTableViewModel: TransactionListTableViewModelType {
         Provider.instance.getTransactions(address: address, hash: hash, count: 10) { [weak self] result in
             guard let `self` = self else { return }
             switch result {
-            case .success((let transactions, let hasMore)):
-                self.hash = transactions.last?.hash
+            case .success((let transactions, let nextHash)):
+                self.hash = nextHash
                 self.viewModels.addObjects(from: transactions.map {
                     TransactionViewModel(transaction: $0)
                 })
                 self.transactions.accept(self.viewModels as! [TransactionViewModelType])
-                self.hasMore.accept(hasMore)
+                self.hasMore.accept(nextHash != nil)
                 self.loadingStatus = .no
                 completion(nil)
             case .failure(let error):

@@ -10,7 +10,7 @@ import Foundation
 import JSONRPCKit
 
 struct GetTransactionsRequest: JSONRPCKit.Request {
-    typealias Response = (transactions: [Transaction], hasMore: Bool)
+    typealias Response = (transactions: [Transaction], nextHash: String?)
 
     let address: String
     let hash: String?
@@ -44,9 +44,9 @@ struct GetTransactionsRequest: JSONRPCKit.Request {
         let ret = transactions.compactMap { $0 }
 
         if ret.count > count {
-            return (Array(ret.dropLast()), true)
+            return (Array(ret.dropLast()), ret.last?.hash)
         } else {
-            return (ret, false)
+            return (ret, nil)
         }
     }
 }
