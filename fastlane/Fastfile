@@ -64,19 +64,19 @@ platform :ios do
   )
   end
 
-  desc "upload_dysm for branch"
+  desc "upload to Beta by Crashlytics"
   lane :upload_dysm do 
-  upload_dysm(
-    # upload to Beta by Crashlytics
     crashlytics(
       # keys for organization: vite
-      api_token: ENV["crashlytics_api_token"],
-      build_secret: ENV["crashlytics_build_secret"]
+      # api_token: ENV["crashlytics_api_token"],
+      # build_secret: ENV["crashlytics_build_secret"],
+      api_token: "2964cce72aaa8182e1fccc9ba9e3965e041ca47d",
+      build_secret: "4dc6d901eed1d8425c5ecf0a7e5a8b2875c9c7307012a90ad4bbe03a1039eb87",
+      debug: true,
+      crashlytics_path: "./Pods/Crashlytics/submit"
     )
-  )
   end
-
-
+  
 end
 
 
