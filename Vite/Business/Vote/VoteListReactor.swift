@@ -117,16 +117,22 @@ final class VoteListReactor {
         guard let candidates = candidates else {
             return nil
         }
-        var result = candidates
+        var result = candidates.sorted(by: {
+            return $0.voteNum.value > $1.voteNum.value
+        })
+
+        for (index, candidate) in result.enumerated() {
+            candidate.updateRank(index + 1)
+        }
+
         if let world = world?.lowercased(), !world.isEmpty {
             result = []
             for candidate in candidates where candidate.name.lowercased().contains(world) || candidate.nodeAddr.description.lowercased().contains(world) {
                 result.append(candidate)
             }
         }
-        return result.sorted(by: {
-            return $0.voteNum.value > $1.voteNum.value
-        })
+
+        return result
     }
 
     func vote(nodeName: String) {
