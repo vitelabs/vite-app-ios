@@ -55,7 +55,7 @@ create new pr in github argument base is base branch
 ```
 fastlane ios upload_dysm
 ```
-create new pr in github argument base is base branch
+upload to Beta by Crashlytics
 
 ----
 
