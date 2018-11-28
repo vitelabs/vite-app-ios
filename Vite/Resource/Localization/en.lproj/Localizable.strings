@@ -124,7 +124,7 @@
 "transaction.list.transaction.type.name.register" = "Registration";
 "transaction.list.transaction.type.name.registerUpdate" = "Update Registration";
 "transaction.list.transaction.type.name.cancelRegister" = "Revoke Registration";
-"transaction.list.transaction.type.name.extractReward" = "Retrieve Reward";
+"transaction.list.transaction.type.name.extractReward" = "Retrieve Rewards";
 "transaction.list.transaction.type.name.vote" = "Voting";
 "transaction.list.transaction.type.name.cancelVote" = "Revoke Voting";
 "transaction.list.transaction.type.name.pledge" = "Get TPS quota";
