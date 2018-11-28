@@ -33,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         goShowIntroViewPage()
 
-        AppUpdateService.checkUpdate()
         AppSettingsService.instance.start()
         TokenCacheService.instance.start()
         AutoGatheringService.instance.start()

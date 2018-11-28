@@ -27,13 +27,13 @@ extension Provider {
         }
     }
 
-    fileprivate func getTransactions(address: Address, hash: String?, count: Int) -> Promise<(transactions: [Transaction], hasMore: Bool)> {
+    fileprivate func getTransactions(address: Address, hash: String?, count: Int) -> Promise<(transactions: [Transaction], nextHash: String?)> {
         return Promise { seal in
             let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetTransactionsRequest(address: address.description, hash: hash, count: count)))
             Session.send(request) { result in
                 switch result {
-                case .success(let (transactions, hasMore)):
-                    seal.fulfill((transactions, hasMore))
+                case .success(let (transactions, nextHash)):
+                    seal.fulfill((transactions, nextHash))
                 case .failure(let error):
                     seal.reject(error)
                 }
@@ -97,7 +97,7 @@ extension Provider {
     func getTransactions(address: Address,
                          hash: String?,
                          count: Int,
-                         completion: @escaping (NetworkResult<(transactions: [Transaction], hasMore: Bool)>) -> Void) {
+                         completion: @escaping (NetworkResult<(transactions: [Transaction], nextHash: String?)>) -> Void) {
         getTransactions(address: address, hash: hash, count: count)
             .done({
                 completion(NetworkResult.success($0))
