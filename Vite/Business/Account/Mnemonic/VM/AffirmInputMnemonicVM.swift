@@ -42,7 +42,13 @@ final class AffirmInputMnemonicVM: NSObject {
         }
         self.hasChooseMnemonicWordsList.accept(list)
         let leftList = self.mnemonicWordsList.filter {
-            !list.contains($0)
+            if !list.contains($0) {
+                return true
+            } else {
+                let index = list.index(of: $0) ?? 0
+                list.remove(at: index)
+                return false
+            }
         }
         self.hasLeftMnemonicWordsList.accept(leftList)
     }
