@@ -11,7 +11,6 @@ import SnapKit
 import RxSwift
 import RxCocoa
 import NSObject_Rx
-import ChameleonFramework
 
 class BalanceInfoDetailView: UIView {
 
@@ -119,7 +118,7 @@ class BalanceInfoDetailView: UIView {
             self.unconfirmedCountLabel.text = R.string.localizable.balanceInfoDetailUnconfirmedCountTitle(String($0.unconfirmedCount))
             self.backgroundColors = $0.token.backgroundColors
             DispatchQueue.main.async {
-                self.backgroundColor = GradientColor(.leftToRight, frame: self.frame, colors: self.backgroundColors)
+                self.backgroundColor = UIColor.gradientColor(style: .left2right, frame: self.frame, colors: self.backgroundColors)
             }
         }.disposed(by: rx.disposeBag)
     }

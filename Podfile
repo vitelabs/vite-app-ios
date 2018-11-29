@@ -39,7 +39,6 @@ targetArray.each do |t|
         pod 'ActionSheetPicker-3.0'
         pod 'MBProgressHUD'
         pod 'Toast-Swift', '~> 3.0.1'
-        pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
         pod 'RazzleDazzle'
         pod 'CHIPageControl'
 
@@ -71,19 +70,4 @@ end
 
 target 'ViteTests' do
     inherit! :search_paths
-end
-
-post_install do |installer|
-    installer.pods_project.targets.each do |target|
-        if ['JSONRPCKit'].include? target.name
-            target.build_configurations.each do |config|
-                config.build_settings['SWIFT_VERSION'] = '3.0'
-            end
-        end
-        if ['ChameleonFramework/Swift'].include? target.name
-            target.build_configurations.each do |config|
-                config.build_settings['SWIFT_VERSION'] = '3.0'
-            end
-        end
-    end
 end

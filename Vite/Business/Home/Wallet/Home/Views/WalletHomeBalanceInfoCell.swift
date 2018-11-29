@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ChameleonFramework
 
 class WalletHomeBalanceInfoCell: BaseTableViewCell {
 
@@ -147,7 +146,7 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
         balanceLabel.text = viewModel.balance.amountShort(decimals: viewModel.token.decimals)
         unconfirmedLabel.text = R.string.localizable.walletHomeUnconfirmedTitle(viewModel.unconfirmed.amountShort(decimals: viewModel.token.decimals))
         DispatchQueue.main.async {
-            self.colorView.backgroundColor = GradientColor(.leftToRight, frame: self.colorView.frame, colors: viewModel.token.backgroundColors)
+            self.colorView.backgroundColor = UIColor.gradientColor(style: .left2right, frame: self.colorView.frame, colors: viewModel.token.backgroundColors)
         }
     }
 }

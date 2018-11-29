@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
-import ChameleonFramework
 import BigInt
 
 class ReceiveViewController: BaseViewController {
@@ -82,7 +81,7 @@ class ReceiveViewController: BaseViewController {
         navigationBarStyle = .clear
         navigationItem.title = .token == style ? R.string.localizable.receivePageTokenTitle() : R.string.localizable.receivePageMineTitle()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.icon_nav_share_black(), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(onShare))
-        view.backgroundColor = GradientColor(.topToBottom, frame: view.frame, colors: token.backgroundColors)
+        view.backgroundColor = UIColor.gradientColor(style: .top2bottom, frame: view.frame, colors: token.backgroundColors)
 
         view.addSubview(whiteView)
         view.addSubview(scrollView)
@@ -229,7 +228,7 @@ class ReceiveViewController: BaseViewController {
 
         superView.setNeedsLayout()
         superView.layoutIfNeeded()
-        backView.backgroundColor = GradientColor(.topToBottom, frame: view.frame, colors: token.backgroundColors)
+        backView.backgroundColor = UIColor.gradientColor(style: .top2bottom, frame: view.frame, colors: token.backgroundColors)
         guard let image = backView.screenshot else { return }
         let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         present(activityViewController, animated: true)
