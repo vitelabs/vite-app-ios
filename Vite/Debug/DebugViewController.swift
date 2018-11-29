@@ -16,7 +16,7 @@ class DebugViewController: FormViewController {
         super.viewDidLoad()
         setupView()
     }
-    
+
     func setupView() {
 
         #if DEBUG || TEST
