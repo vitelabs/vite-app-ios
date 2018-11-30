@@ -17,7 +17,7 @@ extension UIImage {
         ctx?.fill(rect)
         var image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        let imageData = UIImageJPEGRepresentation(image, 1.0)!
+        let imageData = image.jpegData(compressionQuality: 1.0)!
         image = UIImage(data: imageData)!
         return image
     }

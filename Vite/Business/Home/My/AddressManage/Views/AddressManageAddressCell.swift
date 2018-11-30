@@ -28,7 +28,7 @@ class AddressManageAddressCell: BaseTableViewCell {
         $0.setImage(R.image.icon_button_paste_light_gray()?.highlighted, for: .highlighted)
     }
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         contentView.addSubview(flagImageView)

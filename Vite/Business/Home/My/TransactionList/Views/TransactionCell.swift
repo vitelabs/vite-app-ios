@@ -45,7 +45,7 @@ class TransactionCell: BaseTableViewCell {
         $0.textColor = UIColor(netHex: 0x3E4A59, alpha: 0.7)
     }
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         let addressBackView = UIImageView().then {

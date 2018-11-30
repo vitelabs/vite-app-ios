@@ -147,17 +147,17 @@ class VoteListViewController: BaseViewController {
             .disposed(by: rx.disposeBag)
 
         Observable.merge([
-            NotificationCenter.default.rx.notification(.UIKeyboardWillHide),
-            NotificationCenter.default.rx.notification(.UIKeyboardWillShow)
+            NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification),
+            NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
             ])
             .filter { [weak self] _  in self?.appear ?? false }
             .subscribe(onNext: {[weak self] (notification) in
-                let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25
-                let height =  min((notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height, 128+55)
+                let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25
+                let height =  min((notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height, 128+55)
                 UIView.animate(withDuration: duration, animations: {
-                    if notification.name == .UIKeyboardWillShow && self?.searchBar.textField.isFirstResponder ?? false {
+                    if notification.name == UIResponder.keyboardWillShowNotification && self?.searchBar.textField.isFirstResponder ?? false {
                         self?.parent?.view.transform = CGAffineTransform(translationX: 0, y: -height)
-                    } else if notification.name == .UIKeyboardWillHide {
+                    } else if notification.name == UIResponder.keyboardWillHideNotification {
                         self?.parent?.view.transform = .identity
                     }
                 })

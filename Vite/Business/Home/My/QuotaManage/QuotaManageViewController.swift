@@ -68,7 +68,7 @@ class QuotaManageViewController: BaseViewController {
         let str = R.string.localizable.quotaManagePageQuotaSnapshootHeightDesc("3")
         let range = str.range(of: "3")!
         let attributedString = NSMutableAttributedString(string: str)
-        attributedString.addAttributes([NSAttributedStringKey.foregroundColor: Colors.titleGray_40], range: NSRange.init(range, in: str))
+        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: Colors.titleGray_40], range: NSRange.init(range, in: str))
         $0.descLab.attributedText = attributedString
     }
 
@@ -83,8 +83,8 @@ class QuotaManageViewController: BaseViewController {
         statisticsPageName = Statistics.Page.WalletQuota.name
         navigationTitleView = createNavigationTitleView()
         let rightItem = UIBarButtonItem(title: R.string.localizable.quotaManagePageCheckQuotaListBtnTitle(), style: .plain, target: self, action: nil)
-        rightItem.setTitleTextAttributes([NSAttributedStringKey.font: Fonts.Font14, NSAttributedStringKey.foregroundColor: Colors.blueBg], for: .normal)
-        rightItem.setTitleTextAttributes([NSAttributedStringKey.font: Fonts.Font14, NSAttributedStringKey.foregroundColor: Colors.blueBg], for: .highlighted)
+        rightItem.setTitleTextAttributes([NSAttributedString.Key.font: Fonts.Font14, NSAttributedString.Key.foregroundColor: Colors.blueBg], for: .normal)
+        rightItem.setTitleTextAttributes([NSAttributedString.Key.font: Fonts.Font14, NSAttributedString.Key.foregroundColor: Colors.blueBg], for: .highlighted)
         self.navigationItem.rightBarButtonItem = rightItem
         self.navigationItem.rightBarButtonItem?.rx.tap.bind {[weak self] in
             let pledgeHistoryVC = PledgeHistoryViewController()

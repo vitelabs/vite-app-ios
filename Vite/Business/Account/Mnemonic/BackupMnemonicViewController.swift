@@ -114,7 +114,7 @@ extension BackupMnemonicViewController {
         }.disposed(by: rx.disposeBag)
 
         NotificationCenter.default.rx
-            .notification(NSNotification.Name.UIApplicationUserDidTakeScreenshot)
+            .notification(UIApplication.userDidTakeScreenshotNotification)
             .takeUntil(self.rx.deallocated)
             .subscribe(onNext: { [weak self] (_) in
                 guard let `self` = self else { return }

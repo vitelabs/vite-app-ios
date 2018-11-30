@@ -34,8 +34,8 @@ class TitleMoneyInputView: UIView {
         super.init(frame: CGRect.zero)
 
         let attributedString = NSMutableAttributedString(string: placeholder)
-        attributedString.addAttributes([NSAttributedStringKey.foregroundColor: Colors.lineGray,
-                                        NSAttributedStringKey.font: textField.font!], range: NSRange(location: 0, length: placeholder.count))
+        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: Colors.lineGray,
+                                        NSAttributedString.Key.font: textField.font!], range: NSRange(location: 0, length: placeholder.count))
 
         titleLabel.text = title
         textField.text = content

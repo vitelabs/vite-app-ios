@@ -137,13 +137,13 @@ class ConfirmViewController: UIViewController, PasswordInputViewDelegate {
                 self.confirmView.type = .password
             }.disposed(by: rx.disposeBag)
 
-        NotificationCenter.default.rx.notification(Notification.Name.UIKeyboardWillShow)
+        NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
             .filter { [weak self] _  in
                 return self?.confirmView.type == .password && self?.confirmView.transform == .identity
             }
             .subscribe(onNext: {[weak self] (notification) in
-                let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25
-                let height =  (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
+                let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25
+                let height =  (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
                 UIView.animate(withDuration: duration, animations: {
                     self?.confirmView.transform = CGAffineTransform(translationX: 0, y: -height)
                 })

@@ -22,7 +22,7 @@ class BaseNavigationController: UINavigationController {
     }
 
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        if childViewControllers.count == 1 {
+        if children.count == 1 {
             viewController.hidesBottomBarWhenPushed = true
         }
         super.pushViewController(viewController, animated: animated)
@@ -42,7 +42,7 @@ extension BaseNavigationController: UINavigationControllerDelegate {
         viewController.navigationItem.backBarButtonItem = item
     }
 
-    override var childViewControllerForStatusBarStyle: UIViewController? {
+    override var childForStatusBarStyle: UIViewController? {
         return self.topViewController
     }
 }

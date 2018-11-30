@@ -19,14 +19,14 @@ final class KeyboardAutoScrollingObserver {
     var frame: CGRect!
 
     init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowNotification(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideNotification(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowNotification(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideNotification(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 
     }
 
     deinit {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     func set(viewController: UIViewController, targetView: UIView) {
@@ -63,7 +63,7 @@ final class KeyboardAutoScrollingObserver {
             self.keyboardTapGestureRecognizer = tapGesture
         }
 
-        let keyboardSize = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         var rect = CGRect.zero
 
         if let scrollView = self.targetView as? UIScrollView {
@@ -118,7 +118,7 @@ final class KeyboardAutoScrollingObserver {
     @objc func onTap(recognizer: UIGestureRecognizer) {
         guard let targetView = targetView else { return }
 
-        if recognizer.state == UIGestureRecognizerState.ended {
+        if recognizer.state == UIGestureRecognizer.State.ended {
             guard let view = findViewThatIsFirstResponderForView(targetView) else { return }
             view.resignFirstResponder()
         }

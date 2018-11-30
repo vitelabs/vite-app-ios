@@ -42,7 +42,7 @@ class WalletHomeBalanceInfoCell: BaseTableViewCell {
         $0.isHidden = true
     }
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         let whiteView = UIView().then {

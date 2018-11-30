@@ -38,7 +38,7 @@ extension ViewControllerDataStatusable {
     }
 
     public func loadingView() -> UIView {
-        let view = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        let view = UIActivityIndicatorView(style: .gray)
         view.startAnimating()
         return view
     }

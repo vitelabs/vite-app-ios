@@ -13,8 +13,8 @@ targetArray.each do |t|
 
         pod 'SnapKit', '~> 4.0.0'
         pod 'BigInt', '~> 3.0'
-        pod 'R.swift'
-        pod 'JSONRPCKit'
+        pod 'R.swift', '5.0.0.alpha.3'
+        pod 'JSONRPCKit', '~> 3.0.0'
         pod 'PromiseKit', '~> 6.0'
         pod 'APIKit'
         pod 'ObjectMapper'
@@ -38,12 +38,12 @@ targetArray.each do |t|
         #UI Control
         pod 'ActionSheetPicker-3.0'
         pod 'MBProgressHUD'
-        pod 'Toast-Swift', '~> 3.0.1'
+        pod 'Toast-Swift', '~> 4.0.1'
         pod 'RazzleDazzle'
         pod 'CHIPageControl'
 
         #table static form
-        pod 'Eureka', '~> 4.2.0'
+        pod 'Eureka', '~> 4.3.0'
 
         #RX
         pod 'RxSwift', '~> 4.0'
@@ -54,7 +54,7 @@ targetArray.each do |t|
         pod 'RxGesture'
         pod 'Then'
         pod 'Action'
-        pod 'ReusableKit'
+        pod 'ReusableKit', '~> 2.1.0'
         pod 'ReactorKit'
 
         #code review
@@ -70,4 +70,14 @@ end
 
 target 'ViteTests' do
     inherit! :search_paths
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        if ['RazzleDazzle', 'JSONRPCKit', 'APIKit'].include? target.name
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '4.0'
+            end
+        end
+    end
 end

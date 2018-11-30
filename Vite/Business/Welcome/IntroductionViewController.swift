@@ -164,9 +164,9 @@ extension IntroductionViewController {
                 let paragraph = NSMutableParagraphStyle()
                 paragraph.lineSpacing = 5
                 paragraph.alignment = .center
-                let attributes = [NSAttributedStringKey.font: Fonts.Font14,
-                                  NSAttributedStringKey.foregroundColor: Colors.titleGray,
-                                  NSAttributedStringKey.paragraphStyle: paragraph ]
+                let attributes = [NSAttributedString.Key.font: Fonts.Font14,
+                                  NSAttributedString.Key.foregroundColor: Colors.titleGray,
+                                  NSAttributedString.Key.paragraphStyle: paragraph ]
                 tipsDescLab.attributedText = NSAttributedString(string: self.tipsDescDict[index], attributes: attributes)
                 self.contentView.addSubview(tipsDescLab)
 

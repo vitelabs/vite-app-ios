@@ -29,8 +29,8 @@ class TitleTextFieldView: UIView {
         super.init(frame: CGRect.zero)
 
         let attributedString = NSMutableAttributedString(string: placeholder)
-        attributedString.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.green,
-                                        NSAttributedStringKey.font: textField.font!, ], range: NSRange(location: 0, length: placeholder.count))
+        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.green,
+                                        NSAttributedString.Key.font: textField.font!, ], range: NSRange(location: 0, length: placeholder.count))
 
         titleLabel.text = title
         textField.text = text

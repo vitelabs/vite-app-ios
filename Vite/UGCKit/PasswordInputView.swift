@@ -152,7 +152,7 @@ public class PasswordInputView: UIView {
                 backgroudView.layer.borderWidth = 1
                 backgroudView.layer.borderColor = UIColor.init(netHex: 0xD3DFEF).cgColor
                 contentView.addSubview(backgroudView)
-                contentView.sendSubview(toBack: backgroudView)
+                contentView.sendSubviewToBack(backgroudView)
                 backgroundViews.append(backgroudView)
             }
         }
