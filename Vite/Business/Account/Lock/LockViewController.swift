@@ -88,8 +88,13 @@ extension LockViewController {
         self.touchValidation()
     }
     private func touchValidation() {
-        BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.lockPageFingerprintAlterTitle(), completion: { (success, _) in
-            guard success else { return }
+        BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.lockPageFingerprintAlterTitle(), completion: { (success, error) in
+            guard success else {
+                if let error = error {
+                    Toast.show(error.localizedDescription)
+                }
+                return
+            }
 
             self.view.displayLoading(text: R.string.localizable.loginPageLoadingTitle(), animated: true)
 
