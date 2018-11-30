@@ -24,6 +24,7 @@
 /* Login */
 "create.account" = "Create Account";
 "import.account" = "Import Account";
+"select.wallet.account" = "Select wallet account";
 
 /* Lock */
 "lock.page.pwd.btn.title" = "Login via password";
