@@ -700,7 +700,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 245 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 246 localization keys.
     struct localizable {
       /// en translation:      The advice comes from the using environment as below: 1.System device: %@ 2.System version:%@ 3.APP version：%@ 4.Language:%@
       /// 
@@ -1342,6 +1342,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, zh-Hans
       static let loginPageBtnChooseName = Rswift.StringResource(key: "login.page.btn.chooseName", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
+      /// en translation: Select wallet account
+      /// 
+      /// Locales: en, zh-Hans
+      static let selectWalletAccount = Rswift.StringResource(key: "select.wallet.account", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "zh-Hans"], comment: nil)
       /// en translation: Send
       /// 
       /// Locales: en, zh-Hans
@@ -2801,6 +2805,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, zh-Hans
       static func loginPageBtnChooseName(_: Void = ()) -> String {
         return NSLocalizedString("login.page.btn.chooseName", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Select wallet account
+      /// 
+      /// Locales: en, zh-Hans
+      static func selectWalletAccount(_: Void = ()) -> String {
+        return NSLocalizedString("select.wallet.account", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Send

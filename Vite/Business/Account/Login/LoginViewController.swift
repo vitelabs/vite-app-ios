@@ -192,7 +192,7 @@ extension LoginViewController {
         } else {
             index = HDWalletManager.instance.currentWalletIndex ?? 0
         }
-        _ =  ActionSheetStringPicker.show(withTitle: "选择钱包账户", rows: pickData, initialSelection: index, doneBlock: {_, index, _ in
+        _ =  ActionSheetStringPicker.show(withTitle: R.string.localizable.selectWalletAccount(), rows: pickData, initialSelection: index, doneBlock: {_, index, _ in
             let wallet = HDWalletManager.instance.wallets[index]
             self.viewModel.chooseWallet = wallet
             self.viewModel.chooseUuid = wallet.uuid
