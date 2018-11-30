@@ -124,11 +124,8 @@ class ConfirmViewController: UIViewController, PasswordInputViewDelegate {
         confirmView.confirmButton.rx.tap
             .bind { [weak self] in
                 BiometryAuthenticationManager.shared.authenticate(reason: R.string.localizable.confirmTransactionPageBiometryConfirmReason(), completion: { (success, error) in
-                    if let error =  error as NSError? {
-                        switch error.code {
-                        case -8: Toast.show(error.localizedDescription)
-                        default: break
-                        }
+                    if let error =  error {
+                        Toast.show(error.localizedDescription)
                     } else if success {
                         self?.procese(.success)
                     }
