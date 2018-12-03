@@ -17,13 +17,18 @@ class Candidate: NSObject, Mappable {
 
     }
 
-    var name: String = ""
-    var nodeAddr: Address = Address()
-    var voteNum: VoteNum = VoteNum()
+    fileprivate(set) var name: String = ""
+    fileprivate(set) var nodeAddr: Address = Address()
+    fileprivate(set) var voteNum: VoteNum = VoteNum()
+    fileprivate(set) var rank: Int = 0
 
     func mapping(map: Map) {
         name <- map["name"]
         nodeAddr <- (map["nodeAddr"], JSONTransformer.address)
         voteNum <- (map["voteNum"], JSONTransformer.balance)
+    }
+
+    func updateRank(_ rank: Int) {
+        self.rank = rank
     }
 }

@@ -19,6 +19,13 @@ class CandidateCell: UITableViewCell {
         $0.adjustsFontSizeToFitWidth = true
     }
 
+    let voteRankImageView = UIImageView(image: R.image.icon_vote_rank())
+
+    let voteRankLabel = UILabel().then {
+        $0.textColor = UIColor(netHex: 0x3093FF)
+        $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+    }
+
     let voteCountIcon = UIImageView().then {
         $0.image = R.image.icon_votecount()
     }
@@ -65,14 +72,25 @@ class CandidateCell: UITableViewCell {
         self.separatorInset = UIEdgeInsets.init(top: 0, left: 24, bottom: 0, right: 24)
         self.selectionStyle = .none
 
-        for view in [nodeNameLabel, voteCountIcon, voteDescriptionLabel, voteCountLabel, addressIcon, addressDescriptionLabel, addressLabel, voteButton] {
+        for view in [voteRankImageView, voteRankLabel, nodeNameLabel, voteCountIcon, voteDescriptionLabel, voteCountLabel, addressIcon, addressDescriptionLabel, addressLabel, voteButton] {
             contentView.addSubview(view)
+        }
+
+        voteRankImageView.snp.makeConstraints { (m) in
+            m.top.equalToSuperview().offset(14)
+            m.right.equalToSuperview().offset(-24)
+            m.width.equalTo(20)
+        }
+
+        voteRankLabel.snp.makeConstraints { (m) in
+            m.centerX.equalTo(voteRankImageView)
+            m.top.equalTo(voteRankImageView).offset(3)
         }
 
         nodeNameLabel.snp.makeConstraints { (m) in
             m.top.equalToSuperview().offset(14)
             m.left.equalToSuperview().offset(24)
-            m.right.equalToSuperview().offset(-24)
+            m.right.equalTo(voteRankImageView.snp.left).offset(-6)
         }
 
         voteCountIcon.snp.makeConstraints { (m) in
@@ -114,6 +132,17 @@ class CandidateCell: UITableViewCell {
             m.centerY.equalTo(addressIcon)
             m.width.equalTo(50)
             m.height.equalTo(25)
+        }
+    }
+
+    func updateRank(_ rank: Int) {
+        voteRankLabel.text = String(rank)
+        if rank < 10 {
+            voteRankImageView.snp.updateConstraints { (m) in m.width.equalTo(20) }
+        } else if rank < 100 {
+            voteRankImageView.snp.updateConstraints { (m) in m.width.equalTo(25) }
+        } else {
+            voteRankImageView.snp.updateConstraints { (m) in m.width.equalTo(30) }
         }
     }
 

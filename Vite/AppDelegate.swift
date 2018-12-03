@@ -8,6 +8,8 @@
 
 import UIKit
 import RxSwift
+import Fabric
+import Crashlytics
 import NSObject_Rx
 import Vite_HDWalletKit
 
@@ -16,12 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let window = UIWindow(frame: UIScreen.main.bounds)
 
-    lazy var lockWindow: UIWindow = {
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        return window
-    }()
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        Fabric.with([Crashlytics.self])
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
 
         Statistics.initialize()
@@ -30,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         goShowIntroViewPage()
 
-        AppUpdateService.checkUpdate()
         AppSettingsService.instance.start()
         TokenCacheService.instance.start()
         AutoGatheringService.instance.start()
@@ -114,17 +111,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             rootVC.automaticallyShowDismissButton = false
         }
         let nav = BaseNavigationController(rootViewController: rootVC)
-        //fix magnifying glass fluoroscopy bug
-        lockWindow.isHidden = false
-        self.lockWindow.rootViewController = nav
-        self.lockWindow.makeKeyAndVisible()
+        window.rootViewController = nav
+        window.makeKeyAndVisible()
     }
 
     func goHomePage() {
         let rootVC = HomeViewController()
         window.rootViewController = rootVC
         window.makeKeyAndVisible()
-        lockWindow.isHidden = true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

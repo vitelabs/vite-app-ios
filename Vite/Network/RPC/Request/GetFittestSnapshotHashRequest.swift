@@ -12,12 +12,24 @@ import JSONRPCKit
 class GetFittestSnapshotHashRequest: JSONRPCKit.Request {
     typealias Response = String
 
+    let address: String
+    let sendAccountBlockHash: String?
+
     var method: String {
         return "ledger_getFittestSnapshotHash"
     }
 
     var parameters: Any? {
-        return []
+        if let hash = sendAccountBlockHash {
+            return [address, hash]
+        } else {
+            return [address]
+        }
+    }
+
+    init(address: String, sendAccountBlockHash: String? = nil) {
+        self.address = address
+        self.sendAccountBlockHash = sendAccountBlockHash
     }
 
     func response(from resultObject: Any) throws -> Response {

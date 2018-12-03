@@ -24,6 +24,7 @@
 /* Login */
 "create.account" = "Create Account";
 "import.account" = "Import Account";
+"select.wallet.account" = "Select wallet account";
 
 /* Lock */
 "lock.page.pwd.btn.title" = "Login via password";
@@ -77,9 +78,9 @@
 
 /* export mnemonic */
 "export.page.title" = "Export Seed Phrase";
-"export.page.alter.title" = "Please input passowrd";
+"export.page.alter.title" = "Please Input Password";
 "export.page.alter.tf.placeholder" = "6 digits numeric password";
-"export.page.alter.password.error" = "Wrong password!";
+"export.page.alter.password.error" = "Wrong Password!";
 
 /* login */
 "login.page.btn.chooseName" = "Select Accounts";
@@ -124,13 +125,13 @@
 "transaction.list.transaction.type.name.register" = "Registration";
 "transaction.list.transaction.type.name.registerUpdate" = "Update Registration";
 "transaction.list.transaction.type.name.cancelRegister" = "Revoke Registration";
-"transaction.list.transaction.type.name.extractReward" = "Retrieve Reward";
+"transaction.list.transaction.type.name.extractReward" = "Retrieve Rewards";
 "transaction.list.transaction.type.name.vote" = "Voting";
 "transaction.list.transaction.type.name.cancelVote" = "Revoke Voting";
 "transaction.list.transaction.type.name.pledge" = "Get TPS quota";
 "transaction.list.transaction.type.name.cancelPledge" = "Withdrawal of staking quota";
 "transaction.list.transaction.type.name.coin" = "Token Issuance";
-"transaction.list.transaction.type.name.cancelCoin" = "Withdrwal of staking tokens";
+"transaction.list.transaction.type.name.cancelCoin" = "Withdrawal of staking tokens";
 "transaction.list.transaction.type.name.transfer" = "Transfer";
 
 /* BalanceInfo */
@@ -164,7 +165,7 @@
 "send.page.send.button.title" = "Send";
 "send.page.amount.toolbar.button.title" = "Next";
 "send.page.toast.send.success" = "Success";
-"send.page.toast.address.error" = "Wrong Adress, please check the format";
+"send.page.toast.address.error" = "Wrong address, please check the format";
 "send.page.toast.amount.error" = "Insufficient Balance";
 "send.page.toast.amount.empty" = "Please input balance";
 "send.page.toast.amount.zero" = "The amount has to be positive";
@@ -230,12 +231,12 @@
 "toast.error.login" = "Login Error";
 
 /* quota manage */
-"quota.manage.page.title" = "Aquire quota";
+"quota.manage.page.title" = "Acquire Quota";
 "quota.manage.page.input.address.title" = "Quota Beneficiary";
 "quota.manage.page.quota.money.title" = "Staking Amount";
 "quota.manage.page.quota.money.placeholder" = "Please input amount, minimum 10 VITE";
-"quota.manage.page.quota.snapshoot.height.title" = "Staking frozen duration";
-"quota.manage.page.quota.snapshoot.height.desc" = "About %@ days";
+"quota.manage.page.quota.snapshoot.height.title" = "Staking freeze duration";
+"quota.manage.page.quota.snapshoot.height.desc" = "Approx %@ days";
 "quota.manage.page.submit.btn.title" = "Submit Staking";
 "quota.manage.page.check.quotaList.btn.title" = "Staking List";
 "quota.manage.page.toast.money.error" = "Staking amount should not be less than 10";
@@ -253,7 +254,7 @@
 "quota.float.view.title" = "Run PoW";
 
 /* Peldge History */
-"peldge.message" = "Currently Vite App only supports checking staking list, please go to web wallet to withdraw staking on due date if needed.";
+"peldge.message" = "Currently Vite App only supports checking staking list, please go to Web Wallet to withdraw staked tokens on due date if needed.";
 "peldge.deadline" = "Due Date";
 "peldge.title" = "My Staking List";
 
@@ -295,7 +296,7 @@
 "introduction.page.tip1.title" = "No gas fee";
 "introduction.page.tip2.title" = "Extremely fast transactions";
 "introduction.page.tip3.title" = "HD Wallet structure";
-"introduction.page.tip4.title" = "Voting to garner rewards";
+"introduction.page.tip4.title" = "Vote to collect rewards";
 "introduction.page.tip1.desc" = "Use TPS quota for payment, get free TPS quota by running PoW.";
 "introduction.page.tip2.desc" = "Designed in asynchronous architecture, so smooth to make transactions.";
 "introduction.page.tip3.desc" = "Support multiple tokens, easy to manage accounts.";
