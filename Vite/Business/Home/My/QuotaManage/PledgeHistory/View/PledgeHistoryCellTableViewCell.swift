@@ -31,7 +31,7 @@ final class PledgeHistoryCell: UITableViewCell {
         $0.textColor = UIColor(netHex: 0x3E4A59)
     }
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         self.separatorInset = UIEdgeInsets.init(top: 0, left: 24, bottom: 0, right: -24)

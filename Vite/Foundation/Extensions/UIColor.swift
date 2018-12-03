@@ -44,4 +44,30 @@ extension UIColor {
     var highlighted: UIColor {
         return self.withAlphaComponent(0.6)
     }
+
+    enum GradientStyle {
+        case left2right
+        case top2bottom
+    }
+
+    static func gradientColor(style: GradientStyle, frame: CGRect, colors: [UIColor]) -> UIColor {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = frame
+        gradientLayer.colors = colors.map({ $0.cgColor })
+
+        switch style {
+        case .left2right:
+            gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+            gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        case .top2bottom:
+            gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+            gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+        }
+
+        UIGraphicsBeginImageContextWithOptions(gradientLayer.bounds.size, false, UIScreen.main.scale)
+        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return UIColor(patternImage: image)
+    }
 }

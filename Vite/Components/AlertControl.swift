@@ -165,16 +165,16 @@ class AlertControl: UIViewController {
         }
 
         Observable.merge([
-            NotificationCenter.default.rx.notification(.UIKeyboardWillHide),
-            NotificationCenter.default.rx.notification(.UIKeyboardWillShow)
+            NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification),
+            NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
             ])
             .subscribe(onNext: {[unowned alertCommenView] (notification) in
-                let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25
-                let height =  (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height / 3.0
+                let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25
+                let height =  (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height / 3.0
                 UIView.animate(withDuration: duration, animations: {
-                    if notification.name == .UIKeyboardWillShow && alertCommenView.textFields?.first?.isFirstResponder ?? false {
+                    if notification.name == UIResponder.keyboardWillShowNotification && alertCommenView.textFields?.first?.isFirstResponder ?? false {
                         alertCommenView.transform = CGAffineTransform(translationX: 0, y: -height)
-                    } else if notification.name == .UIKeyboardWillHide {
+                    } else if notification.name == UIResponder.keyboardWillHideNotification {
                         alertCommenView.transform = .identity
                     }
                 })

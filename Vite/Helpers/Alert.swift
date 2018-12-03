@@ -15,7 +15,7 @@ struct DebugActionSheet {
                             actions: [(Alert.UIAlertControllerAletrActionTitle, ((UIAlertController) -> Void)?)],
                             config: ((UIAlertController) -> Void)? = nil) -> UIAlertController {
 
-        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.actionSheet)
 
         guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else { return alert }
         var top = rootVC
@@ -26,22 +26,22 @@ struct DebugActionSheet {
         for action in actions {
             switch action.0 {
             case .default(let title):
-                let action = UIAlertAction(title: title, style: UIAlertActionStyle.default, handler: { [weak alert] (_) in
+                let action = UIAlertAction(title: title, style: UIAlertAction.Style.default, handler: { [weak alert] (_) in
                     if let action = action.1, let alert = alert { action(alert) }
                 })
                 alert.addAction(action)
             case .destructive(let title):
-                let action = UIAlertAction(title: title, style: UIAlertActionStyle.destructive, handler: { [weak alert] (_) in
+                let action = UIAlertAction(title: title, style: UIAlertAction.Style.destructive, handler: { [weak alert] (_) in
                     if let action = action.1, let alert = alert { action(alert) }
                 })
                 alert.addAction(action)
             case .cancel:
-                let action = UIAlertAction(title: R.string.localizable.cancel(), style: UIAlertActionStyle.cancel, handler: { [weak alert] (_) in
+                let action = UIAlertAction(title: R.string.localizable.cancel(), style: UIAlertAction.Style.cancel, handler: { [weak alert] (_) in
                     if let action = action.1, let alert = alert { action(alert) }
                 })
                 alert.addAction(action)
             case .delete:
-                let action = UIAlertAction(title: R.string.localizable.delete(), style: UIAlertActionStyle.destructive, handler: { [weak alert] (_) in
+                let action = UIAlertAction(title: R.string.localizable.delete(), style: UIAlertAction.Style.destructive, handler: { [weak alert] (_) in
                     if let action = action.1, let alert = alert { action(alert) }
                 })
                 alert.addAction(action)

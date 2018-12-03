@@ -91,7 +91,7 @@ extension CreateAccountHomeViewController {
 
         let logoImgView = UIImageView.init(image: R.image.icon_vite_logo())
         let sloganImgView = UIImageView.init(image: R.image.splash_slogen())
-        sloganImgView.contentMode = UIViewContentMode.scaleAspectFit
+        sloganImgView.contentMode = UIView.ContentMode.scaleAspectFit
         self.view.addSubview(logoImgView)
         logoImgView.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(self.view).offset(30)

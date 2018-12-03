@@ -215,7 +215,7 @@ class ScanViewController: BaseViewController, View {
 
     func bind(reactor: ScanViewReactor) {
         imagePicker.rx.didFinishPickingMediaWithInfo
-            .map { ScanViewReactor.Action.pickeImage($0[UIImagePickerControllerOriginalImage] as? UIImage) }
+            .map { ScanViewReactor.Action.pickeImage($0[UIImagePickerController.InfoKey.originalImage] as? UIImage) }
             .do(onNext: { [unowned self] (_) in
                 self.imagePicker.dismiss(animated: true, completion: nil)
             })

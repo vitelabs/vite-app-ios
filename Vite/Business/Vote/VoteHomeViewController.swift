@@ -64,10 +64,10 @@ class VoteHomeViewController: BaseViewController {
             m.height.equalTo(118)
         }
 
-        self.addChildViewController(voteListVC)
-        self.addChildViewController(myVoteInfoVC)
-        voteListVC.didMove(toParentViewController: self)
-        myVoteInfoVC.didMove(toParentViewController: self)
+        self.addChild(voteListVC)
+        self.addChild(myVoteInfoVC)
+        voteListVC.didMove(toParent: self)
+        myVoteInfoVC.didMove(toParent: self)
         view.addSubview(myVoteInfoVC.view)
         view.addSubview(voteListVC.view)
 

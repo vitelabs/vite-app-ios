@@ -29,7 +29,7 @@ class GetMoreLoadingView: UITableViewHeaderFooterView {
         return retryButton.rx.tap.asObservable()
     }
 
-    fileprivate let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    fileprivate let activityIndicatorView = UIActivityIndicatorView(style: .gray)
     fileprivate let retryButton = UIButton().then {
         $0.setTitle(R.string.localizable.sendPageConfirmPasswordAuthFailedRetry(), for: .normal)
         $0.setTitleColor(.black, for: .normal)

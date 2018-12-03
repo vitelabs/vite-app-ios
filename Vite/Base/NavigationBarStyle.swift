@@ -26,16 +26,16 @@ enum NavigationBarStyle {
         case .default:
             let color = UIColor(netHex: 0x3E4A59).withAlphaComponent(0.45)
             navigationBar.tintColor = color
-            navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: color]
+            navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: color]
             navigationBar.setBackgroundImage(UIImage.color(UIColor.white), for: .default)
         case .clear:
             let color = UIColor.white
             navigationBar.tintColor = color
-            navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: color]
+            navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: color]
             navigationBar.setBackgroundImage(UIImage(), for: .default)
         case .custom(let tintColor, let backgroundColor):
             navigationBar.tintColor = tintColor
-            navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: tintColor]
+            navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: tintColor]
             navigationBar.setBackgroundImage(UIImage.color(backgroundColor), for: .default)
         }
     }

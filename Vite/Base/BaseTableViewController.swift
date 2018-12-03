@@ -14,7 +14,7 @@ class BaseTableViewController: BaseViewController {
 
     fileprivate(set) var tableView: UITableView
 
-    init(_ style: UITableViewStyle = .plain) {
+    init(_ style: UITableView.Style = .plain) {
         tableView = UITableView(frame: CGRect.zero, style: style)
         super.init(nibName: nil, bundle: nil)
     }
