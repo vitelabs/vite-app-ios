@@ -253,7 +253,7 @@
 "quota.float.view.title" = "Run PoW";
 
 /* Peldge History */
-"peldge.message" = "Currently Vite App only supports checking staking list, please go to web wallet to withdraw staking on due date if needed.";
+"peldge.message" = "Currently Vite App only supports checking staking list, please go to Web Wallet to withdraw staked tokens on due date if needed.";
 "peldge.deadline" = "Due Date";
 "peldge.title" = "My Staking List";
 
