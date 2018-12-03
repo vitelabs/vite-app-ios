@@ -103,6 +103,7 @@ class VoteListViewController: BaseViewController {
             cell.nodeNameLabel.text = candidate.name
             cell.voteCountLabel.text = candidate.voteNum.amountShort(decimals: TokenCacheService.instance.viteToken.decimals)
             cell.addressLabel.text = " " + candidate.nodeAddr.description
+            cell.updateRank(candidate.rank)
             cell.disposeable?.dispose()
             cell.disposeable = cell.voteButton.rx.tap
                 .bind {

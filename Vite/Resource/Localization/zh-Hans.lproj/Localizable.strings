@@ -26,6 +26,7 @@
 /* Login */
 "create.account" = "创建账户";
 "import.account" = "恢复账户";
+"select.wallet.account" = "选择钱包账户";
 
 /* Lock */
 "lock.page.pwd.btn.title" = "使用密码登录";

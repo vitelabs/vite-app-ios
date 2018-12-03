@@ -15,16 +15,29 @@ import BigInt
 // MARK: Transaction
 extension Provider {
 
-    fileprivate func getUnconfirmedTransaction(address: Address) -> Promise<(accountBlocks: [AccountBlock], latestAccountBlock: AccountBlock, snapshotHash: String)> {
+    fileprivate func getUnconfirmedTransaction(address: Address) -> Promise<(accountBlocks: [AccountBlock], latestAccountBlock: AccountBlock)> {
         return Promise { seal in
             let request = ViteServiceRequest(for: server, batch: BatchFactory()
                 .create(GetUnconfirmedTransactionRequest(address: address.description),
-                        GetLatestAccountBlockRequest(address: address.description),
-                        GetFittestSnapshotHashRequest()))
+                        GetLatestAccountBlockRequest(address: address.description)))
             Session.send(request) { result in
                 switch result {
-                case .success(let accountBlocks, let latestAccountBlock, let snapshotHash):
-                    seal.fulfill((accountBlocks, latestAccountBlock, snapshotHash))
+                case .success(let accountBlocks, let latestAccountBlock):
+                    seal.fulfill((accountBlocks, latestAccountBlock))
+                case .failure(let error):
+                    seal.reject(error)
+                }
+            }
+        }
+    }
+
+    fileprivate func getFittestSnapshotHash(address: Address, sendAccountBlockHash: String?) -> Promise<String> {
+        return Promise { seal in
+            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetFittestSnapshotHashRequest(address: address.description, sendAccountBlockHash:sendAccountBlockHash)))
+            Session.send(request) { result in
+                switch result {
+                case .success(let hash):
+                    seal.fulfill(hash)
                 case .failure(let error):
                     seal.reject(error)
                 }
@@ -36,7 +49,7 @@ extension Provider {
         return Promise { seal in
             let request = ViteServiceRequest(for: server, batch: BatchFactory()
                 .create(GetLatestAccountBlockRequest(address: address.description),
-                        GetFittestSnapshotHashRequest()))
+                        GetFittestSnapshotHashRequest(address: address.description)))
             Session.send(request) { result in
                 switch result {
                 case .success(let latestAccountBlock, let snapshotHash):
@@ -82,9 +95,19 @@ extension Provider {
 
     func receiveTransactionWithoutGetPow(bag: HDWalletManager.Bag, completion: @escaping (NetworkResult<Void>) -> Void) {
         getUnconfirmedTransaction(address: bag.address)
-            .then({ (accountBlocks, latestAccountBlock, fittestSnapshotHash) -> Promise<(accountBlock: AccountBlock, latestAccountBlock: AccountBlock, fittestSnapshotHash: String)?> in
+            .then({ (accountBlocks, latestAccountBlock) -> Promise<(accountBlock: AccountBlock, latestAccountBlock: AccountBlock)?> in
                 if let accountBlock = accountBlocks.first {
-                    return Promise { seal in seal.fulfill((accountBlock, latestAccountBlock, fittestSnapshotHash)) }
+                    return Promise { seal in seal.fulfill((accountBlock, latestAccountBlock)) }
+                } else {
+                    return Promise { $0.fulfill(nil) }
+                }
+            })
+            .then({ [unowned self] ret -> Promise<(accountBlock: AccountBlock, latestAccountBlock: AccountBlock, fittestSnapshotHash: String)?> in
+
+                if let (accountBlock, latestAccountBlock) = ret {
+                    return self.getFittestSnapshotHash(address: bag.address, sendAccountBlockHash: accountBlock.hash).then({ fittestSnapshotHash in
+                        return Promise { seal in seal.fulfill((accountBlock, latestAccountBlock, fittestSnapshotHash)) }
+                    })
                 } else {
                     return Promise { $0.fulfill(nil) }
                 }
@@ -112,9 +135,19 @@ extension Provider {
 
     func receiveTransactionWithGetPow(bag: HDWalletManager.Bag, difficulty: BigInt, completion: @escaping (NetworkResult<Void>) -> Void) {
         getUnconfirmedTransaction(address: bag.address)
-            .then({ [unowned self] (accountBlocks, latestAccountBlock, fittestSnapshotHash) -> Promise<(accountBlock: AccountBlock, latestAccountBlock: AccountBlock, fittestSnapshotHash: String, nonce: String)?> in
+            .then({ [unowned self] (accountBlocks, latestAccountBlock) -> Promise<(accountBlock: AccountBlock, latestAccountBlock: AccountBlock, nonce: String)?> in
                 if let accountBlock = accountBlocks.first {
                     return self.getPowNonce(address: bag.address, preHash: latestAccountBlock.hash, difficulty: difficulty).then({ nonce in
+                        return Promise { seal in seal.fulfill((accountBlock, latestAccountBlock, nonce)) }
+                    })
+                } else {
+                    return Promise { $0.fulfill(nil) }
+                }
+            })
+            .then({ [unowned self] ret -> Promise<(accountBlock: AccountBlock, latestAccountBlock: AccountBlock, fittestSnapshotHash: String, nonce: String)?> in
+
+                if let (accountBlock, latestAccountBlock, nonce) = ret {
+                    return self.getFittestSnapshotHash(address: bag.address, sendAccountBlockHash: accountBlock.hash).then({ fittestSnapshotHash in
                         return Promise { seal in seal.fulfill((accountBlock, latestAccountBlock, fittestSnapshotHash, nonce)) }
                     })
                 } else {
