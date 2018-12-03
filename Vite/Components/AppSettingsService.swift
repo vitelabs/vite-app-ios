@@ -43,15 +43,18 @@ class AppSettingsService {
             switch result {
             case .success(let jsonString):
                 plog(level: .debug, log: "get app config finished", tag: .getConfig)
-                if let string = jsonString,
-                    let config = AppConfig(JSONString: string) {
-                    self.configBehaviorRelay.accept(config)
-                    if let data = config.toJSONString()?.data(using: .utf8) {
-                        if let error = self.fileHelper.writeData(data, relativePath: type(of: self).saveKey) {
-                            assert(false, error.localizedDescription)
-                        }
+                guard let string = jsonString else { return }
+                plog(level: .debug, log: "md5: \(string.md5())", tag: .getConfig)
+                if let data = string.data(using: .utf8) {
+                    if let error = self.fileHelper.writeData(data, relativePath: type(of: self).saveKey) {
+                        assert(false, error.localizedDescription)
                     }
                 }
+
+                if let config = AppConfig(JSONString: string) {
+                    self.configBehaviorRelay.accept(config)
+                }
+
             case .failure(let error):
                 plog(level: .warning, log: error.message, tag: .getConfig)
                 GCD.delay(2, task: { self.getAppSettingsConfig() })
