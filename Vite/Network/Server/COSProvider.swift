@@ -27,6 +27,21 @@ class COSProvider: MoyaProvider<COSAPI> {
 
 extension COSProvider {
 
+    func getConfigHash(completion: @escaping (NetworkResult<String?>) -> Void) {
+        request(.getConfigHash) { (result) in
+            switch result {
+            case .success(let response):
+                if let string = try? response.mapString() {
+                    completion(NetworkResult.success(string))
+                } else {
+                    completion(NetworkResult.success(nil))
+                }
+            case .failure(let error):
+                completion(NetworkResult.wrapError(error))
+            }
+        }
+    }
+
     func getAppConfig(completion: @escaping (NetworkResult<String?>) -> Void) {
         request(.getAppConfig) { (result) in
             switch result {

@@ -82,6 +82,17 @@ class LocalizationService {
         case language = "Language"
     }
 
+    fileprivate var localization: [String: Any] = [:]
+    func updateLocalizableIfNeeded(localization: [String: Any]) {
+        self.localization = localization
+        guard let current = localization[currentLanguage.rawValue] as? [String: Any],
+            let hash = current["hash"] as? String, let build = current["build"] as? Int else { return }
+        guard Bundle.main.buildNumberInt <= build, currentHash() != hash else { return }
+
+        COSProvider.instance.get
+
+    }
+
     var currentLanguage: Language = .base {
         didSet {
             guard currentLanguage != oldValue else { return }
@@ -113,5 +124,9 @@ extension LocalizationService {
             }
         }
         return .base
+    }
+
+    fileprivate func currentHash() -> String {
+        return ""
     }
 }

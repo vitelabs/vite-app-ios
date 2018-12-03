@@ -20,12 +20,17 @@ class AppSettingsService {
     fileprivate let fileHelper = FileHelper(.library, appending: FileHelper.appPathComponent)
     fileprivate static let saveKey = "AppConfig"
 
+    fileprivate let appConfigHash: String?
+//    fileprivate var configHash: ConfigHash? = nil
+
     private init() {
         if let data = self.fileHelper.contentsAtRelativePath(type(of: self).saveKey),
             let jsonString = String(data: data, encoding: .utf8),
             let config = AppConfig(JSONString: jsonString) {
+            appConfigHash = jsonString.md5()
             configBehaviorRelay = BehaviorRelay(value: config)
         } else if let config: AppConfig = Bundle.getObject(forResource: type(of: self).saveKey) {
+            appConfigHash = nil
             configBehaviorRelay = BehaviorRelay(value: config)
         } else {
             fatalError("app file not found in bundle")
@@ -33,10 +38,27 @@ class AppSettingsService {
     }
 
     func start() {
-        getAppSettingsConfig()
+        getConfigHash()
     }
 
-    fileprivate func getAppSettingsConfig() {
+    fileprivate func getConfigHash() {
+        COSProvider.instance.getConfigHash { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .success(let jsonString):
+                plog(level: .debug, log: "get config hash finished", tag: .getConfig)
+                guard let string = jsonString else { return }
+                guard let configHash = ConfigHash(JSONString: string) else { return }
+                self.getAppSettingsConfig(hash: configHash.appConfig)
+            case .failure(let error):
+                plog(level: .warning, log: error.message, tag: .getConfig)
+                GCD.delay(2, task: { self.getConfigHash() })
+            }
+        }
+    }
+
+    fileprivate func getAppSettingsConfig(hash: String?) {
+        guard let hash = hash, hash != appConfigHash else { return }
 
         COSProvider.instance.getAppConfig { [weak self] (result) in
             guard let `self` = self else { return }
@@ -57,7 +79,7 @@ class AppSettingsService {
 
             case .failure(let error):
                 plog(level: .warning, log: error.message, tag: .getConfig)
-                GCD.delay(2, task: { self.getAppSettingsConfig() })
+                GCD.delay(2, task: { self.getAppSettingsConfig(hash: hash) })
             }
         }
     }
@@ -74,6 +96,18 @@ extension AppSettingsService {
         mutating func mapping(map: Map) {
             myPage <- map["my_page"]
             defaultTokens <- map["default_tokens"]
+        }
+    }
+
+    struct ConfigHash: Mappable {
+        fileprivate(set) var appConfig: String?
+        fileprivate(set) var localization: [String: Any] = [:]
+
+        init?(map: Map) { }
+
+        mutating func mapping(map: Map) {
+            appConfig <- map["AppConfig"]
+            localization <- map["Localization"]
         }
     }
 }
