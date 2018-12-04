@@ -11,6 +11,16 @@ targetArray.each do |t|
         #vite kit
         vite_pod 'Vite_HDWalletKit', '1.2.0'
 
+        communityPath =  File.dirname(File.dirname(__FILE__))  + '/vite-community-ios'
+        utilsPath = File.dirname(File.dirname(__FILE__)) + '/vite-utils-ios'
+        if File.exist?(communityPath) and File.exist?(utilsPath) then
+            pod 'ViteCommunity', :path => communityPath
+            pod 'ViteUtils', :path => utilsPath
+        else
+            pod 'ViteCommunity', :git => 'git@github.com:vitelabs/vite-community-ios.git'
+            pod 'ViteUtils', :git => 'git@github.com:vitelabs/vite-utils-ios.git'
+        end
+
         pod 'SnapKit', '~> 4.0.0'
         pod 'BigInt', '~> 3.0'
         pod 'R.swift', '5.0.0.alpha.3'
