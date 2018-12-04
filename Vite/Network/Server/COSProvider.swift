@@ -27,23 +27,24 @@ class COSProvider: MoyaProvider<COSAPI> {
 
 extension COSProvider {
 
+    func getConfigHash(completion: @escaping (NetworkResult<String?>) -> Void) {
+        sendRequest(api: .getConfigHash, completion: completion)
+    }
+
+    func getLocalizable(language: LocalizationService.Language, completion: @escaping (NetworkResult<String?>) -> Void) {
+        sendRequest(api: .getLocalizable(language.rawValue), completion: completion)
+    }
+
     func getAppConfig(completion: @escaping (NetworkResult<String?>) -> Void) {
-        request(.getAppConfig) { (result) in
-            switch result {
-            case .success(let response):
-                if let string = try? response.mapString() {
-                    completion(NetworkResult.success(string))
-                } else {
-                    completion(NetworkResult.success(nil))
-                }
-            case .failure(let error):
-                completion(NetworkResult.wrapError(error))
-            }
-        }
+        sendRequest(api: .getAppConfig, completion: completion)
     }
 
     func checkUpdate(completion: @escaping (NetworkResult<String?>) -> Void) {
-        request(.checkUpdate) { (result) in
+        sendRequest(api: .checkUpdate, completion: completion)
+    }
+
+    fileprivate func sendRequest(api: COSAPI, completion: @escaping (NetworkResult<String?>) -> Void) {
+        request(api) { (result) in
             switch result {
             case .success(let response):
                 if let string = try? response.mapString() {

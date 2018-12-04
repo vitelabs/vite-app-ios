@@ -10,7 +10,9 @@ import Foundation
 import Moya
 
 enum COSAPI {
+    case getConfigHash
     case getAppConfig
+    case getLocalizable(String)
     case checkUpdate
 }
 
@@ -26,8 +28,12 @@ extension COSAPI: TargetType {
 
     var path: String {
         switch self {
+        case .getConfigHash:
+            return "/ConfigHash"
         case .getAppConfig:
             return "/AppConfig"
+        case .getLocalizable(let language):
+            return "/Localization/\(language)"
         case .checkUpdate:
             switch Constants.appDownloadChannel {
             case .appstore:
