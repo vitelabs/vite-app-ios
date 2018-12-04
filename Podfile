@@ -1,15 +1,15 @@
 platform :ios, '10.0'
 inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
+require './vite_pod'
 
 targetArray = ['Vite', 'Vite-test', 'Vite-enterprise']
 
 targetArray.each do |t|
     target t do
         use_frameworks!
-
         #vite kit
-        pod 'Vite_HDWalletKit', '~> 1.2.0'
+        vite_pod 'Vite_HDWalletKit', '1.2.0'
 
         pod 'SnapKit', '~> 4.0.0'
         pod 'BigInt', '~> 3.0'

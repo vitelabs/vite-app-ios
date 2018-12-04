@@ -87,6 +87,7 @@
 		4CEB292B214BBD2400E5F7F4 /* ViteInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292A214BBD2400E5F7F4 /* ViteInputValidator.swift */; };
 		4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */; };
 		4CFD6CC32154CAF800437F33 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD6CC22154CAF800437F33 /* LineView.swift */; };
+		6D777BC6EBA9E8EC694FDE1C /* Pods_Vite_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D55D99607767985694E66AD0 /* Pods_Vite_test.framework */; };
 		740C3E4B214B6425005FCD24 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4A214B6425005FCD24 /* AuthenticationManager.swift */; };
 		740C3E4E214B9CC2005FCD24 /* TransactionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4D214B9CC2005FCD24 /* TransactionInfoView.swift */; };
 		740C3E50214BD6A9005FCD24 /* ConfirmTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C3E4F214BD6A9005FCD24 /* ConfirmTransactionViewController.swift */; };
@@ -688,8 +689,7 @@
 		8EE4691C214CAD6600807D2C /* CreateTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4691B214CAD6600807D2C /* CreateTransactionRequest.swift */; };
 		8EE4691E214CE03F00807D2C /* WalletHomeAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE4691D214CE03F00807D2C /* WalletHomeAddressView.swift */; };
 		8EE46922214D017200807D2C /* GetLatestAccountBlockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE46921214D017200807D2C /* GetLatestAccountBlockRequest.swift */; };
-		B312F0FC3E43C29E6DDFF125 /* Pods_Vite_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D55D99607767985694E66AD0 /* Pods_Vite_test.framework */; };
-		C2E3A9CAEEC389F18F1620E4 /* Pods_Vite_enterprise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E371DBD76F35FAF8F3007466 /* Pods_Vite_enterprise.framework */; };
+		AF3E6477DAA3E1B7BB47FA5C /* Pods_Vite_enterprise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E371DBD76F35FAF8F3007466 /* Pods_Vite_enterprise.framework */; };
 		D62F634C8DA45F93E78F5B8D /* Pods_Vite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */; };
 		DEC6D6C56067DEB2A39D139B /* libPods-ViteTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79000FBA546CDDAD7FEC4E7C /* libPods-ViteTests.a */; };
 		F9752FB50D8517412DBF4E39 /* Pods_Vite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */; };
@@ -706,7 +706,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4059C952E96B64902F8A16DC /* Pods-Vite-enterprise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-enterprise.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise.debug.xcconfig"; sourceTree = "<group>"; };
+		0E394DF946E925313AB2B460 /* Pods-Vite-enterprise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-enterprise.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise.release.xcconfig"; sourceTree = "<group>"; };
 		4C0024E221257CD9001DF390 /* Vite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vite.entitlements; sourceTree = "<group>"; };
 		4C0024E321258005001DF390 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		4C105EBB213FCA7400D483C6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -819,6 +819,7 @@
 		74875E1D2191756400C3AE9D /* Provider+VoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+VoteList.swift"; sourceTree = "<group>"; };
 		74875E1F2191802C00C3AE9D /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
 		74875E2121918D1D00C3AE9D /* GetVoteDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVoteDataRequest.swift; sourceTree = "<group>"; };
+		7492DB8AE21B521074759E8D /* Pods-Vite-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test.debug.xcconfig"; sourceTree = "<group>"; };
 		74B3F8772176DF11002FA14F /* ScanViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewReactor.swift; sourceTree = "<group>"; };
 		74B3F8792176E92D002FA14F /* UIImagePickerController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Rx.swift"; sourceTree = "<group>"; };
 		74B3F87B217708B0002FA14F /* AVCaptureMetadataOutput+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureMetadataOutput+Rx.swift"; sourceTree = "<group>"; };
@@ -826,9 +827,7 @@
 		74DE3242219424B30024B991 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		74DE3244219434860024B991 /* CandidateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateCell.swift; sourceTree = "<group>"; };
 		7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		77D7FFC58FD1E386CB5A3514 /* Pods-Vite-enterprise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-enterprise.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise.release.xcconfig"; sourceTree = "<group>"; };
 		79000FBA546CDDAD7FEC4E7C /* libPods-ViteTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ViteTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		885501CC3EDB677E37F58341 /* Pods-Vite-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test.release.xcconfig"; sourceTree = "<group>"; };
 		8E0B3C29219D620F0058713A /* GetTestTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTestTokenRequest.swift; sourceTree = "<group>"; };
 		8E0FB692216074F4001525EB /* RefreshComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshComponent.swift; sourceTree = "<group>"; };
 		8E0FB694216B4082001525EB /* HDWalletStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWalletStorage.swift; sourceTree = "<group>"; };
@@ -966,11 +965,12 @@
 		8EE46921214D017200807D2C /* GetLatestAccountBlockRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLatestAccountBlockRequest.swift; sourceTree = "<group>"; };
 		90D19E345292B3451EF0C77B /* Pods-ViteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9CDD7A55935285C97D7AB255 /* Pods-ViteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.release.xcconfig"; sourceTree = "<group>"; };
-		C8E773A0A276605E0DA2851B /* Pods-Vite-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test.debug.xcconfig"; sourceTree = "<group>"; };
 		D55D99607767985694E66AD0 /* Pods_Vite_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1DAFB4B79D1A75BEB0A664 /* Pods-Vite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.debug.xcconfig"; sourceTree = "<group>"; };
 		E371DBD76F35FAF8F3007466 /* Pods_Vite_enterprise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite_enterprise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5EF60202B89DEC8B075E04F /* Pods_ViteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECB8B65044121E01AB15A67A /* Pods-Vite-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test.release.xcconfig"; sourceTree = "<group>"; };
+		FDF7525002F6AD5FBAFA2AE6 /* Pods-Vite-enterprise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-enterprise.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -995,7 +995,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B312F0FC3E43C29E6DDFF125 /* Pods_Vite_test.framework in Frameworks */,
+				6D777BC6EBA9E8EC694FDE1C /* Pods_Vite_test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1003,7 +1003,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2E3A9CAEEC389F18F1620E4 /* Pods_Vite_enterprise.framework in Frameworks */,
+				AF3E6477DAA3E1B7BB47FA5C /* Pods_Vite_enterprise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1017,10 +1017,10 @@
 				9CDD7A55935285C97D7AB255 /* Pods-ViteTests.release.xcconfig */,
 				DD1DAFB4B79D1A75BEB0A664 /* Pods-Vite.debug.xcconfig */,
 				6DA5968E2DBCD2A8A449CBD1 /* Pods-Vite.release.xcconfig */,
-				4059C952E96B64902F8A16DC /* Pods-Vite-enterprise.debug.xcconfig */,
-				77D7FFC58FD1E386CB5A3514 /* Pods-Vite-enterprise.release.xcconfig */,
-				C8E773A0A276605E0DA2851B /* Pods-Vite-test.debug.xcconfig */,
-				885501CC3EDB677E37F58341 /* Pods-Vite-test.release.xcconfig */,
+				FDF7525002F6AD5FBAFA2AE6 /* Pods-Vite-enterprise.debug.xcconfig */,
+				0E394DF946E925313AB2B460 /* Pods-Vite-enterprise.release.xcconfig */,
+				7492DB8AE21B521074759E8D /* Pods-Vite-test.debug.xcconfig */,
+				ECB8B65044121E01AB15A67A /* Pods-Vite-test.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1967,14 +1967,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8EA0BF0B21996D4800FDE2E8 /* Build configuration list for PBXNativeTarget "Vite-test" */;
 			buildPhases = (
-				DDD31F4D2CE34DA7EDFBF516 /* [CP] Check Pods Manifest.lock */,
+				321FD9D47E0F44AF9B40BE6D /* [CP] Check Pods Manifest.lock */,
 				8EA0BE2221996D4800FDE2E8 /* Run R.Swift */,
 				8EA0BE2321996D4800FDE2E8 /* Sources */,
 				8EA0BF0021996D4800FDE2E8 /* Frameworks */,
 				8EA0BF0221996D4800FDE2E8 /* Resources */,
 				8EA0BF0A21996D4800FDE2E8 /* Run SwiftLint */,
-				3EF885DFCAEFD84B51915FFD /* [CP] Embed Pods Frameworks */,
 				4CFD0E2B21AD0D4300B5A0A8 /* ShellScript */,
+				E68A37381C3D7DAE1EE21321 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1989,14 +1989,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8EA0BFFC21996D7800FDE2E8 /* Build configuration list for PBXNativeTarget "Vite-enterprise" */;
 			buildPhases = (
-				1B7400EEFFC2653FD63C3CFB /* [CP] Check Pods Manifest.lock */,
+				84B992C6B4A5B8EAA6B9DC5B /* [CP] Check Pods Manifest.lock */,
 				8EA0BF1321996D7800FDE2E8 /* Run R.Swift */,
 				8EA0BF1421996D7800FDE2E8 /* Sources */,
 				8EA0BFF121996D7800FDE2E8 /* Frameworks */,
 				8EA0BFF321996D7800FDE2E8 /* Resources */,
 				8EA0BFFB21996D7800FDE2E8 /* Run SwiftLint */,
-				674A1D6E787AA4D9A5D018F7 /* [CP] Embed Pods Frameworks */,
 				4CFD0E2C21AD0D7700B5A0A8 /* ShellScript */,
+				0D3A5BD42B2E0B12A0437CCE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2107,7 +2107,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1B7400EEFFC2653FD63C3CFB /* [CP] Check Pods Manifest.lock */ = {
+		0D3A5BD42B2E0B12A0437CCE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2115,29 +2115,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Vite-enterprise-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3EF885DFCAEFD84B51915FFD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/APIKit/APIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
@@ -2232,7 +2210,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		321FD9D47E0F44AF9B40BE6D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Vite-test-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4C0024D821257569001DF390 /* Run R.Swift */ = {
@@ -2261,7 +2261,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		4CFD0E2A21AD064600B5A0A8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2419,7 +2419,25 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vite/Pods-Vite-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		674A1D6E787AA4D9A5D018F7 /* [CP] Embed Pods Frameworks */ = {
+		6F9F10D8102F07718250F347 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ViteTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84B992C6B4A5B8EAA6B9DC5B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2427,7 +2445,103 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise-frameworks.sh",
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Vite-enterprise-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8EA0BE2221996D4800FDE2E8 /* Run R.Swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run R.Swift";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+		};
+		8EA0BF0A21996D4800FDE2E8 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+		8EA0BF1321996D7800FDE2E8 /* Run R.Swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run R.Swift";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+		};
+		8EA0BFFB21996D7800FDE2E8 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+		E05B29AE1F8249FC79DBC713 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Vite-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E68A37381C3D7DAE1EE21321 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/APIKit/APIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
@@ -2522,121 +2636,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6F9F10D8102F07718250F347 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ViteTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8EA0BE2221996D4800FDE2E8 /* Run R.Swift */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run R.Swift";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
-		};
-		8EA0BF0A21996D4800FDE2E8 /* Run SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run SwiftLint";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
-		};
-		8EA0BF1321996D7800FDE2E8 /* Run R.Swift */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run R.Swift";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
-		};
-		8EA0BFFB21996D7800FDE2E8 /* Run SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run SwiftLint";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
-		};
-		DDD31F4D2CE34DA7EDFBF516 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Vite-test-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E05B29AE1F8249FC79DBC713 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Vite-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3591,7 +3591,7 @@
 		};
 		8EA0BF0C21996D4800FDE2E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8E773A0A276605E0DA2851B /* Pods-Vite-test.debug.xcconfig */;
+			baseConfigurationReference = 7492DB8AE21B521074759E8D /* Pods-Vite-test.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
@@ -3625,7 +3625,7 @@
 		};
 		8EA0BF0D21996D4800FDE2E8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 885501CC3EDB677E37F58341 /* Pods-Vite-test.release.xcconfig */;
+			baseConfigurationReference = ECB8B65044121E01AB15A67A /* Pods-Vite-test.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
@@ -3660,7 +3660,7 @@
 		};
 		8EA0BFFD21996D7800FDE2E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4059C952E96B64902F8A16DC /* Pods-Vite-enterprise.debug.xcconfig */;
+			baseConfigurationReference = FDF7525002F6AD5FBAFA2AE6 /* Pods-Vite-enterprise.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-enterprise";
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
@@ -3695,7 +3695,7 @@
 		};
 		8EA0BFFE21996D7800FDE2E8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 77D7FFC58FD1E386CB5A3514 /* Pods-Vite-enterprise.release.xcconfig */;
+			baseConfigurationReference = 0E394DF946E925313AB2B460 /* Pods-Vite-enterprise.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-enterprise";
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;

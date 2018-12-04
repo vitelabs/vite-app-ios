@@ -142,7 +142,7 @@ DEPENDENCIES:
   - SwiftyJSON
   - Then
   - Toast-Swift (~> 4.0.1)
-  - Vite_HDWalletKit (~> 1.2.0)
+  - Vite_HDWalletKit (from `../Vite_HDWalletKit/Vite_HDWalletKit.podspec`)
   - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
@@ -193,8 +193,11 @@ SPEC REPOS:
     - Then
     - Toast-Swift
     - TrezorCryptoEd25519WithBlake2b
-    - Vite_HDWalletKit
     - XCGLogger
+
+EXTERNAL SOURCES:
+  Vite_HDWalletKit:
+    :path: "../Vite_HDWalletKit/Vite_HDWalletKit.podspec"
 
 SPEC CHECKSUMS:
   Action: 2275d04a407ecaf46a58d58a304388a28155a0a1
@@ -243,9 +246,9 @@ SPEC CHECKSUMS:
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
-  Vite_HDWalletKit: 8d3f78883b58def92610e44704a93db7b566656c
+  Vite_HDWalletKit: b3375b01abf97e92731750738fd2917b6029c167
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 2b04e7ee2b2df57a371186487fd18ac7bad1964a
+PODFILE CHECKSUM: 30ef1c4000ab6cab1ade992b93b5e994e716f821
 
 COCOAPODS: 1.5.3
