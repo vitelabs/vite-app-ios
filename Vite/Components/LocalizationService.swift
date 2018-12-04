@@ -32,29 +32,6 @@ extension UIViewController {
     }
 }
 
-var bundleKey: UInt8 = 0
-
-class AnyLanguageBundle: Bundle {
-    override func localizedString(forKey key: String,
-                                  value: String?,
-                                  table tableName: String?) -> String {
-        guard let path = objc_getAssociatedObject(self, &bundleKey) as? String,
-            let bundle = Bundle(path: path) else {
-            return super.localizedString(forKey: key, value: value, table: tableName)
-        }
-        return bundle.localizedString(forKey: key, value: value, table: tableName)
-    }
-}
-
-extension Bundle {
-    class func setLanguage(_ language: String) {
-        defer {
-            object_setClass(Bundle.main, AnyLanguageBundle.self)
-        }
-        objc_setAssociatedObject(Bundle.main, &bundleKey, Bundle.main.path(forResource: language, ofType: "lproj"), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-    }
-}
-
 class LocalizationService {
 
     enum Language: String {
@@ -76,42 +53,75 @@ class LocalizationService {
     }
 
     static let  sharedInstance = LocalizationService()
-    fileprivate var localizationDic: NSDictionary = NSDictionary()
     fileprivate enum Key: String {
         case collection = "Localization"
         case language = "Language"
     }
 
-    fileprivate var localization: [String: Any] = [:]
-    func updateLocalizableIfNeeded(localization: [String: Any]) {
-        self.localization = localization
-        guard let current = localization[currentLanguage.rawValue] as? [String: Any],
-            let hash = current["hash"] as? String, let build = current["build"] as? Int else { return }
-        guard Bundle.main.buildNumberInt <= build, currentHash() != hash else { return }
+    fileprivate var localizationHash: [String: Any] = [:]
+    fileprivate var cacheTextDic: [String: String] = [:]
+    fileprivate let fileHelper = FileHelper(.library, appending: "\(FileHelper.appPathComponent)/Localization")
 
-        COSProvider.instance.get
+    func updateLocalizableIfNeeded(localizationHash: [String: Any]) {
+        let language = currentLanguage
+        self.localizationHash = localizationHash
+        guard let current = localizationHash[language.rawValue] as? [String: Any],
+            let hash = current["hash"] as? String, let build = current["build"] as? Int else { return }
+        guard Bundle.main.buildNumberInt <= build, cacheFileHash(language: language) != hash else { return }
+
+        COSProvider.instance.getLocalizable(language: language) { (result) in
+            switch result {
+            case .success(let jsonString):
+                plog(level: .debug, log: "get \(language.rawValue) localizable finished", tag: .getConfig)
+                if let string = jsonString,
+                    let data = string.data(using: .utf8) {
+                    if let error = self.fileHelper.writeData(data, relativePath: self.cacheFileName(language: language)) {
+                        assert(false, error.localizedDescription)
+                    }
+                    self.reloadCacheLocalization()
+                }
+            case .failure(let error):
+                plog(level: .warning, log: error.message, tag: .getConfig)
+                GCD.delay(2, task: { self.updateLocalizableIfNeeded(localizationHash: self.localizationHash) })
+            }
+        }
 
     }
 
     var currentLanguage: Language = .base {
         didSet {
             guard currentLanguage != oldValue else { return }
-            Bundle.setLanguage(currentLanguage.rawValue)
             UserDefaultsService.instance.setObject(currentLanguage.rawValue, forKey: Key.language.rawValue, inCollection: Key.collection.rawValue)
+            reloadCacheLocalization()
+            updateLocalizableIfNeeded(localizationHash: self.localizationHash)
         }
     }
 
     private init() {
-
         if let string = UserDefaultsService.instance.objectForKey(Key.language.rawValue, inCollection: Key.collection.rawValue) as? String,
             let l = Language(rawValue: string) {
             currentLanguage = l
-            Bundle.setLanguage(string)
         } else {
             currentLanguage = getSystemLanguage()
             UserDefaultsService.instance.setObject(currentLanguage.rawValue, forKey: Key.language.rawValue, inCollection: Key.collection.rawValue)
-            Bundle.setLanguage(currentLanguage.rawValue)
         }
+        object_setClass(Bundle.main, AnyLanguageBundle.self)
+        reloadCacheLocalization()
+    }
+}
+
+private class AnyLanguageBundle: Bundle {
+    override func localizedString(forKey key: String, value: String?, table tableName: String?) -> String {
+
+        if let ret = LocalizationService.sharedInstance.cacheTextDic[key] {
+            return ret
+        }
+
+        guard let path = Bundle.main.path(forResource: LocalizationService.sharedInstance.currentLanguage.rawValue, ofType: "lproj"),
+            let bundle = Bundle(path: path) else {
+                return super.localizedString(forKey: key, value: value, table: tableName)
+        }
+        return bundle.localizedString(forKey: key, value: value, table: tableName)
     }
 }
 
@@ -126,7 +136,26 @@ extension LocalizationService {
         return .base
     }
 
-    fileprivate func currentHash() -> String {
-        return ""
+    fileprivate func reloadCacheLocalization() {
+        let sandboxPath = fileHelper.rootPath + "/\(currentLanguage.rawValue).strings"
+        if FileManager.default.fileExists(atPath: sandboxPath),
+            let ret = NSDictionary(contentsOfFile: sandboxPath) as? [String: String] {
+            cacheTextDic = ret
+        } else {
+            cacheTextDic = [:]
+        }
+    }
+
+    fileprivate func cacheFileHash(language: Language) -> String? {
+        if let data = self.fileHelper.contentsAtRelativePath(cacheFileName(language: language)),
+            let string = String(data: data, encoding: .utf8) {
+            return string.md5()
+        } else {
+            return nil
+        }
+    }
+
+    fileprivate func cacheFileName(language: Language) -> String {
+        return "\(language.rawValue).strings"
     }
 }

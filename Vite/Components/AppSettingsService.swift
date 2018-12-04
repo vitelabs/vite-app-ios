@@ -21,7 +21,6 @@ class AppSettingsService {
     fileprivate static let saveKey = "AppConfig"
 
     fileprivate let appConfigHash: String?
-//    fileprivate var configHash: ConfigHash? = nil
 
     private init() {
         if let data = self.fileHelper.contentsAtRelativePath(type(of: self).saveKey),
@@ -50,6 +49,7 @@ class AppSettingsService {
                 guard let string = jsonString else { return }
                 guard let configHash = ConfigHash(JSONString: string) else { return }
                 self.getAppSettingsConfig(hash: configHash.appConfig)
+                LocalizationService.sharedInstance.updateLocalizableIfNeeded(localizationHash: configHash.localization)
             case .failure(let error):
                 plog(level: .warning, log: error.message, tag: .getConfig)
                 GCD.delay(2, task: { self.getConfigHash() })
