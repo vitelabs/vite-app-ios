@@ -17,8 +17,8 @@ targetArray.each do |t|
             pod 'ViteCommunity', :path => communityPath
             pod 'ViteUtils', :path => utilsPath
         else
-            pod 'ViteCommunity', :git => 'git@github.com:vitelabs/vite-community-ios.git'
-            pod 'ViteUtils', :git => 'git@github.com:vitelabs/vite-utils-ios.git'
+            pod 'ViteCommunity', :git => 'https://github.com/vitelabs/vite-community-ios.git'
+            pod 'ViteUtils', :git => 'https://github.com/vitelabs/vite-utils-ios.git'
         end
 
         pod 'SnapKit', '~> 4.0.0'
