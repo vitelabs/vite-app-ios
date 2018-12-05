@@ -126,7 +126,7 @@ class VoteListViewController: BaseViewController {
                 guard let `self` = self else { fatalError() }
                 if let item = (try? dataSource.model(at: indexPath)) as? Candidate {
                     self.tableView.deselectRow(at: indexPath, animated: true)
-                    WebHandler.openAddressDetailPage(address: item.nodeAddr.description)
+                    WebHandler.openSBPDetailPage(name: item.name)
                 }
             }
             .disposed(by: rx.disposeBag)
