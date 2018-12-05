@@ -12,7 +12,7 @@ struct WebHandler {
     #if DEBUG || TEST
     fileprivate static var browserUrlString: String {
         if DebugService.instance.browserUseOnlineUrl {
-            return "https://testnet.vite.net"
+            return "https://explorer.vite.net"
         } else {
             if let url = URL(string: DebugService.instance.browserCustomUrl) {
                 return url.absoluteString
@@ -22,7 +22,7 @@ struct WebHandler {
         }
     }
     #else
-    fileprivate static let browserUrlString = "https://testnet.vite.net"
+    fileprivate static let browserUrlString = "https://explorer.vite.net"
     #endif
 
     static func open(_ url: URL) {
@@ -46,9 +46,9 @@ struct WebHandler {
         open(url)
     }
 
-    static func openAddressDetailPage(address: String) {
+    static func openSBPDetailPage(name: String) {
         let host = appendLanguagePath(urlString: browserUrlString)
-        let string = appendQuery(urlString: "\(host)/account/\(address)")
+        let string = appendQuery(urlString: "\(host)/SBPDetail/\(name)")
         let url = URL(string: string)!
         open(url)
     }
