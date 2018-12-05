@@ -17,7 +17,7 @@ targetArray.each do |t|
             pod 'ViteCommunity', :path => communityPath
             pod 'ViteUtils', :path => utilsPath
         else
-            pod 'ViteCommunity', :git => 'https://#{ENV.fetch("CI_USER_TOKEN")}github.com/vitelabs/vite-community-ios.git'
+            pod 'ViteCommunity', :git => 'https://github.com/vitelabs/vite-community-ios.git'
             pod 'ViteUtils', :git => 'https://github.com/vitelabs/vite-utils-ios.git'
         end
 
