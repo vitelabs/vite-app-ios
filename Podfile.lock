@@ -145,8 +145,8 @@ DEPENDENCIES:
   - Then
   - Toast-Swift (~> 4.0.1)
   - Vite_HDWalletKit (= 1.2.0)
-  - "ViteCommunity (from `git@github.com:vitelabs/vite-community-ios.git`)"
-  - "ViteUtils (from `git@github.com:vitelabs/vite-utils-ios.git`)"
+  - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`)
+  - ViteUtils (from `https://github.com/vitelabs/vite-utils-ios.git`)
   - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
@@ -202,17 +202,17 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   ViteCommunity:
-    :git: "git@github.com:vitelabs/vite-community-ios.git"
+    :git: https://github.com/vitelabs/vite-community-ios.git
   ViteUtils:
-    :git: "git@github.com:vitelabs/vite-utils-ios.git"
+    :git: https://github.com/vitelabs/vite-utils-ios.git
 
 CHECKOUT OPTIONS:
   ViteCommunity:
     :commit: 32895b3592d9d7c43c99ca880a7430e1f8ccf8ad
-    :git: "git@github.com:vitelabs/vite-community-ios.git"
+    :git: https://github.com/vitelabs/vite-community-ios.git
   ViteUtils:
     :commit: e69f11a42e1282444c8bc853f431140494245280
-    :git: "git@github.com:vitelabs/vite-utils-ios.git"
+    :git: https://github.com/vitelabs/vite-utils-ios.git
 
 SPEC CHECKSUMS:
   Action: 2275d04a407ecaf46a58d58a304388a28155a0a1
@@ -266,6 +266,6 @@ SPEC CHECKSUMS:
   ViteUtils: eefdaa11d6e1d647e5597587cad26a67050a3ffb
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 8da6b8c51d4d8be83873c261496532a97d06b485
+PODFILE CHECKSUM: db6ae2138b46aee0d248e50251fc6551ef2e9b54
 
 COCOAPODS: 1.5.3
