@@ -13,6 +13,7 @@ import Alamofire
 import Moya
 import SwiftyJSON
 import ObjectMapper
+import ViteUtils
 
 class COSProvider: MoyaProvider<COSAPI> {
     static let instance = COSProvider(manager: Manager(
@@ -31,7 +32,7 @@ extension COSProvider {
         sendRequest(api: .getConfigHash, completion: completion)
     }
 
-    func getLocalizable(language: LocalizationService.Language, completion: @escaping (NetworkResult<String?>) -> Void) {
+    func getLocalizable(language: ViteLanguage, completion: @escaping (NetworkResult<String?>) -> Void) {
         sendRequest(api: .getLocalizable(language.rawValue), completion: completion)
     }
 

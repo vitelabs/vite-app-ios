@@ -10,9 +10,17 @@ targetArray.each do |t|
         use_frameworks!
         #vite kit
         vite_pod 'Vite_HDWalletKit', '1.2.0'
-        vite_pod 'ViteCommunity', :git => 'https://github.com/vitelabs/vite-community-ios.git'
-        vite_pod 'ViteUtils', :git => 'https://github.com/vitelabs/vite-utils-ios.git'
 
+        communityPath =  File.dirname(File.dirname(__FILE__))  + '/vite-community-ios'
+        utilsPath = File.dirname(File.dirname(__FILE__)) + '/vite-utils-ios'
+        if File.exist?(communityPath) and File.exist?(utilsPath) then
+            pod 'ViteCommunity', :path => communityPath
+            pod 'ViteUtils', :path => utilsPath
+        else
+            pod 'ViteCommunity', :git => 'git@github.com:vitelabs/vite-community-ios.git', :branch=>'develop'
+            pod 'ViteUtils', :git => 'git@github.com:vitelabs/vite-utils-ios.git', :branch=>'develop'
+        end
+        
         pod 'SnapKit', '~> 4.0.0'
         pod 'BigInt', '~> 3.0'
         pod 'R.swift', '5.0.0.alpha.3'

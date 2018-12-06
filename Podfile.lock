@@ -100,7 +100,8 @@ PODS:
     - CryptoSwift (~> 0.12.0)
     - TrezorCryptoEd25519WithBlake2b (~> 0.0.1)
   - ViteCommunity (0.1.0)
-  - ViteUtils (0.1.0)
+  - ViteUtils (0.1.0):
+    - R.swift
   - XCGLogger (6.1.0):
     - XCGLogger/Core (= 6.1.0)
   - XCGLogger/Core (6.1.0):
@@ -145,8 +146,8 @@ DEPENDENCIES:
   - Then
   - Toast-Swift (~> 4.0.1)
   - Vite_HDWalletKit (= 1.2.0)
-  - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`)
-  - ViteUtils (from `https://github.com/vitelabs/vite-utils-ios.git`)
+  - "ViteCommunity (from `git@github.com:vitelabs/vite-community-ios.git`, branch `develop`)"
+  - "ViteUtils (from `git@github.com:vitelabs/vite-utils-ios.git`, branch `develop`)"
   - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
@@ -202,17 +203,19 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   ViteCommunity:
-    :git: https://github.com/vitelabs/vite-community-ios.git
+    :branch: develop
+    :git: "git@github.com:vitelabs/vite-community-ios.git"
   ViteUtils:
-    :git: https://github.com/vitelabs/vite-utils-ios.git
+    :branch: develop
+    :git: "git@github.com:vitelabs/vite-utils-ios.git"
 
 CHECKOUT OPTIONS:
   ViteCommunity:
     :commit: 32895b3592d9d7c43c99ca880a7430e1f8ccf8ad
-    :git: https://github.com/vitelabs/vite-community-ios.git
+    :git: "git@github.com:vitelabs/vite-community-ios.git"
   ViteUtils:
-    :commit: e69f11a42e1282444c8bc853f431140494245280
-    :git: https://github.com/vitelabs/vite-utils-ios.git
+    :commit: 52c08ef3b1de19529df892e9a9ad33a523a472c2
+    :git: "git@github.com:vitelabs/vite-utils-ios.git"
 
 SPEC CHECKSUMS:
   Action: 2275d04a407ecaf46a58d58a304388a28155a0a1
@@ -263,9 +266,9 @@ SPEC CHECKSUMS:
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
   Vite_HDWalletKit: 8d3f78883b58def92610e44704a93db7b566656c
   ViteCommunity: 36acfe4308ecec79d2c860be1876c0fc13313f51
-  ViteUtils: eefdaa11d6e1d647e5597587cad26a67050a3ffb
+  ViteUtils: c43cbfdd8b55977c01ab97040eb3cad23a75a427
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: db6ae2138b46aee0d248e50251fc6551ef2e9b54
+PODFILE CHECKSUM: d40d77b0320bb3236ee413fef44aa01b3d154d5e
 
 COCOAPODS: 1.5.3
