@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import ViteUtils
 
 extension UIViewController {
     func showChangeLanguageList(isSettingPage: Bool = false) {
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
-        let languages  = LocalizationService.Language.allLanguages
+        let languages  = ViteLanguage.allLanguages
         for language in languages {
             let action = UIAlertAction(title: language.name, style: .`default`, handler: {_ in
                 guard LocalizationService.sharedInstance.currentLanguage != language else { return }
@@ -33,24 +34,6 @@ extension UIViewController {
 }
 
 class LocalizationService {
-
-    enum Language: String {
-        case base = "en"
-        case chinese = "zh-Hans"
-
-        var name: String {
-            switch self {
-            case .base:
-                return "English"
-            case .chinese:
-                return "中文"
-            }
-        }
-
-        static var allLanguages: [Language] {
-            return [.base, .chinese]
-        }
-    }
 
     static let  sharedInstance = LocalizationService()
     fileprivate enum Key: String {
@@ -88,7 +71,7 @@ class LocalizationService {
 
     }
 
-    var currentLanguage: Language = .base {
+    var currentLanguage: ViteLanguage = .base {
         didSet {
             guard currentLanguage != oldValue else { return }
             UserDefaultsService.instance.setObject(currentLanguage.rawValue, forKey: Key.language.rawValue, inCollection: Key.collection.rawValue)
@@ -99,7 +82,7 @@ class LocalizationService {
 
     private init() {
         if let string = UserDefaultsService.instance.objectForKey(Key.language.rawValue, inCollection: Key.collection.rawValue) as? String,
-            let l = Language(rawValue: string) {
+            let l = ViteLanguage(rawValue: string) {
             currentLanguage = l
         } else {
             currentLanguage = getSystemLanguage()
@@ -127,7 +110,7 @@ private class AnyLanguageBundle: Bundle {
 
 // MARK: private function
 extension LocalizationService {
-    fileprivate func getSystemLanguage() -> Language {
+    fileprivate func getSystemLanguage() -> ViteLanguage {
         if let code = UserDefaults.standard.array(forKey: "AppleLanguages")?.first as? String {
             if code.hasPrefix("zh") {
                 return .chinese
@@ -144,9 +127,10 @@ extension LocalizationService {
         } else {
             cacheTextDic = [:]
         }
+        NotificationCenter.default.post(name: .localizedStringChanged, object: nil, userInfo: ["language": currentLanguage, "cacheTextDic": cacheTextDic])
     }
 
-    fileprivate func cacheFileHash(language: Language) -> String? {
+    fileprivate func cacheFileHash(language: ViteLanguage) -> String? {
         if let data = self.fileHelper.contentsAtRelativePath(cacheFileName(language: language)),
             let string = String(data: data, encoding: .utf8) {
             return string.md5()
@@ -155,7 +139,7 @@ extension LocalizationService {
         }
     }
 
-    fileprivate func cacheFileName(language: Language) -> String {
+    fileprivate func cacheFileName(language: ViteLanguage) -> String {
         return "\(language.rawValue).strings"
     }
 }

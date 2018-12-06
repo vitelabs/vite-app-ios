@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 import Crashlytics
+import ViteUtils
 
 class DebugViewController: FormViewController {
 
@@ -21,6 +22,7 @@ class DebugViewController: FormViewController {
 
         #if DEBUG || TEST
         navigationItem.title = "Debug"
+        navigationItem.title = libName()
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.icon_nav_back_black(), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(_onCancel))
 
         form
