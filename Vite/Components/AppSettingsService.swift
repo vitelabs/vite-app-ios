@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import RxOptional
 import ObjectMapper
+import ViteUtils
 
 class AppSettingsService {
     static let instance = AppSettingsService()

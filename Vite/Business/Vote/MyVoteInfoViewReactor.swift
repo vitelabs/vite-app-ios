@@ -10,6 +10,7 @@ import ReactorKit
 import RxCocoa
 import RxSwift
 import NSObject_Rx
+import ViteUtils
 
 final class MyVoteInfoViewReactor: Reactor {
     let bag = HDWalletManager.instance.bag ??  HDWalletManager.Bag()

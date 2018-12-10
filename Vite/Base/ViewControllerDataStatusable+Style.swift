@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import ViteUtils
 
 extension UIView {
     static func defaultPlaceholderView(text: String) -> UIView {
