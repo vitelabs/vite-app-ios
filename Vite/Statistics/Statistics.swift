@@ -8,6 +8,8 @@
 
 import Foundation
 import SwiftyJSON
+import ViteUtils
+
 struct Statistics {
 
     private static let stat = BaiduMobStat.default()!

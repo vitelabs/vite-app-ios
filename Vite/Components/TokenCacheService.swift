@@ -14,6 +14,7 @@ import SwiftyJSON
 import RxSwift
 import RxCocoa
 import NSObject_Rx
+import ViteUtils
 
 class TokenCacheService: NSObject, Mappable {
     static let instance = TokenCacheService()
