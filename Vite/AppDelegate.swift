@@ -13,6 +13,7 @@ import Crashlytics
 import NSObject_Rx
 import Vite_HDWalletKit
 import ViteCommunity
+import ViteUtils
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

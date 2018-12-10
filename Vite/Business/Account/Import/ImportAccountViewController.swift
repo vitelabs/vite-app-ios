@@ -12,6 +12,7 @@ import RxCocoa
 import RxSwift
 import NSObject_Rx
 import Vite_HDWalletKit
+import ViteUtils
 
 extension ImportAccountViewController {
     private func _bindViewModel() {

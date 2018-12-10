@@ -12,6 +12,7 @@ import RxSwift
 import RxCocoa
 import NSObject_Rx
 import BigInt
+import ViteUtils
 
 class QuotaManageViewController: BaseViewController {
     // FIXME: Optional
