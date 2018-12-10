@@ -33,7 +33,7 @@ extension Provider {
 
     fileprivate func getFittestSnapshotHash(address: Address, sendAccountBlockHash: String?) -> Promise<String> {
         return Promise { seal in
-            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetFittestSnapshotHashRequest(address: address.description, sendAccountBlockHash:sendAccountBlockHash)))
+            let request = ViteServiceRequest(for: server, batch: BatchFactory().create(GetFittestSnapshotHashRequest(address: address.description, sendAccountBlockHash: sendAccountBlockHash)))
             Session.send(request) { result in
                 switch result {
                 case .success(let hash):

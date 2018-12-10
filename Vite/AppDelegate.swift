@@ -12,6 +12,7 @@ import Fabric
 import Crashlytics
 import NSObject_Rx
 import Vite_HDWalletKit
+import ViteCommunity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,6 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AutoGatheringService.instance.start()
         FetchBalanceInfoService.instance.start()
         FetchQuotaService.instance.start()
+        #if !ENTERPRISE
+        VitePushManager.shared().start(launchOptions:
+            launchOptions ?? [:])
+        #endif
         return true
     }
 
