@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+import ViteUtils
 
 class DebugService: Mappable {
     static let instance = DebugService()

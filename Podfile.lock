@@ -104,10 +104,13 @@ PODS:
     - QQ_XGPush
   - ViteUtils (0.1.0):
     - CryptoSwift
+    - "NSObject+Rx"
+    - ObjectMapper
     - R.swift
     - RxCocoa
     - RxSwift
     - SnapKit
+    - Then
     - XCGLogger
   - XCGLogger (6.1.0):
     - XCGLogger/Core (= 6.1.0)
@@ -222,7 +225,7 @@ CHECKOUT OPTIONS:
     :commit: c3f7825399d4a42df6e41d4791d27ff85a980132
     :git: "git@github.com:vitelabs/vite-community-ios.git"
   ViteUtils:
-    :commit: 68a01393338984e8699a4bc20611d4abac2baa7b
+    :commit: de9124b492daa826db22384847a51bb658b2ef0b
     :git: "git@github.com:vitelabs/vite-utils-ios.git"
 
 SPEC CHECKSUMS:
@@ -275,9 +278,9 @@ SPEC CHECKSUMS:
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
   Vite_HDWalletKit: 8d3f78883b58def92610e44704a93db7b566656c
   ViteCommunity: f42582784c1465460bbd0bc26dfa34d3b4116bd3
-  ViteUtils: 6e95567f0144b3a2de843e8c315f9c82cf9992d0
+  ViteUtils: ee9d150bdf3b0de850b4e2f124048110e6915240
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 621ea9e08d949795840a432a7e08b4b8e035b4e6
+PODFILE CHECKSUM: b904d21b21abb2fa9f9e1d039729b0c3e2a7e77f
 
 COCOAPODS: 1.5.3

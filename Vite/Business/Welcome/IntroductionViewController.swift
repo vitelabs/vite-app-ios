@@ -11,6 +11,7 @@ import SnapKit
 import NYXImagesKit
 import RazzleDazzle
 import CHIPageControl
+import ViteUtils
 
 class IntroductionViewController: AnimatedPagingScrollViewController {
     fileprivate let numPages = 4
