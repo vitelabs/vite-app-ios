@@ -12,6 +12,7 @@ import RxCocoa
 import RxSwift
 import Vite_HDWalletKit
 import LocalAuthentication
+import ViteUtils
 
 class LockPwdViewController: BaseViewController {
     override func viewDidLoad() {
