@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ViteUtils
 
 final class PledgeHistoryCell: UITableViewCell {
 

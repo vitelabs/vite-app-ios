@@ -9,6 +9,7 @@ import BigInt
 import RxSwift
 import ReactorKit
 import RxDataSources
+import ViteUtils
 
 class MyVoteInfoViewController: BaseViewController, View {
     // FIXME: Optional

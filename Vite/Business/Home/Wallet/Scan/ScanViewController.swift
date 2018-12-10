@@ -14,6 +14,7 @@ import SnapKit
 import ReactorKit
 import RxSwift
 import RxCocoa
+import ViteUtils
 
 enum ScanResult {
     case viteURI(ViteURI)

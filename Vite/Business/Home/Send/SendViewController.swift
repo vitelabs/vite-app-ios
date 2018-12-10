@@ -12,6 +12,7 @@ import Vite_HDWalletKit
 import BigInt
 import PromiseKit
 import JSONRPCKit
+import ViteUtils
 
 class SendViewController: BaseViewController {
 

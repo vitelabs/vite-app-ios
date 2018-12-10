@@ -8,6 +8,7 @@
 
 import UIKit
 import Then
+import ViteUtils
 
 class HomeViewController: UITabBarController {
 
