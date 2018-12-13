@@ -13,6 +13,8 @@ targetArray.each do |t|
         vite_pod 'ViteCommunity', :git => 'git@github.com:vitelabs/vite-community-ios.git', :branch=>'develop'
         vite_pod 'ViteUtils', :git => 'git@github.com:vitelabs/vite-utils-ios.git', :branch=>'develop'
 
+        vite_pod 'ViteBusiness', :path => '../vite-business-ios'
+
         pod 'SnapKit', '~> 4.0.0'
         pod 'BigInt', '~> 3.0'
         pod 'R.swift', '5.0.0.alpha.3'
