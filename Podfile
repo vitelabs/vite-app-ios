@@ -8,10 +8,12 @@ targetArray = ['Vite', 'Vite-test', 'Vite-enterprise']
 targetArray.each do |t|
     target t do
         use_frameworks!
+
         #vite kit
         vite_pod 'Vite_HDWalletKit', '1.2.0'
         vite_pod 'ViteCommunity', :git => 'git@github.com:vitelabs/vite-community-ios.git', :branch=>'develop'
         vite_pod 'ViteUtils', :git => 'git@github.com:vitelabs/vite-utils-ios.git', :branch=>'develop'
+        vite_pod 'ViteBusiness', :git => 'git@github.com:vitelabs/vite-business-ios.git', :branch=>'develop'
 
         pod 'SnapKit', '~> 4.0.0'
         pod 'BigInt', '~> 3.0'
