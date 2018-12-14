@@ -25,8 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Fabric.with([Crashlytics.self])
         #if !ENTERPRISE
-        VitePushManager.shared().start(launchOptions:
-            launchOptions ?? [:])
+        VitePushManager.shared().start(launchOptions: launchOptions ?? [:])
         #endif
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
         ViteBusinessLanucher.instance.start(with: window)

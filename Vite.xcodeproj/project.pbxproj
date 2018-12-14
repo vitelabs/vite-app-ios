@@ -17,10 +17,6 @@
 		74920B5821C10E500010C746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
 		74920B5921C10E500010C746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
 		74920B5A21C10E500010C746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
-		74920B5C21C10EE30010C746 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5B21C10EE30010C746 /* Images.xcassets */; };
-		74920B5D21C10EE30010C746 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5B21C10EE30010C746 /* Images.xcassets */; };
-		74920B5E21C10EE30010C746 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5B21C10EE30010C746 /* Images.xcassets */; };
-		74920B5F21C10EE30010C746 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5B21C10EE30010C746 /* Images.xcassets */; };
 		74920B6721C22D7D0010C746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74920B6621C22D7D0010C746 /* AppDelegate.swift */; };
 		74920B6821C22D7D0010C746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74920B6621C22D7D0010C746 /* AppDelegate.swift */; };
 		74920B6921C22D7D0010C746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74920B6621C22D7D0010C746 /* AppDelegate.swift */; };
@@ -28,17 +24,14 @@
 		8E0FB697216B5B95001525EB /* ViteCryptoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB696216B5B95001525EB /* ViteCryptoTest.swift */; };
 		8E6F3E14214220DF003CDFC2 /* ViteNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E13214220DF003CDFC2 /* ViteNetworkTests.swift */; };
 		8E79261621515D3A007FEBAB /* ViteURITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261521515D3A007FEBAB /* ViteURITest.swift */; };
-		8E93C26821782DB700185FDE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E93C26A21782DB700185FDE /* InfoPlist.strings */; };
 		8EA0BE8E21996D4800FDE2E8 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0024E321258005001DF390 /* R.generated.swift */; };
 		8EA0BF0321996D4800FDE2E8 /* AppConfig in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA6E40219076840049CDE0 /* AppConfig */; };
 		8EA0BF0421996D4800FDE2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
 		8EA0BF0621996D4800FDE2E8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
-		8EA0BF0821996D4800FDE2E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E93C26A21782DB700185FDE /* InfoPlist.strings */; };
 		8EA0BF7F21996D7800FDE2E8 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0024E321258005001DF390 /* R.generated.swift */; };
 		8EA0BFF421996D7800FDE2E8 /* AppConfig in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA6E40219076840049CDE0 /* AppConfig */; };
 		8EA0BFF521996D7800FDE2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
 		8EA0BFF721996D7800FDE2E8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
-		8EA0BFF921996D7800FDE2E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E93C26A21782DB700185FDE /* InfoPlist.strings */; };
 		8ECA6E41219076840049CDE0 /* AppConfig in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA6E40219076840049CDE0 /* AppConfig */; };
 		AF3E6477DAA3E1B7BB47FA5C /* Pods_Vite_enterprise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E371DBD76F35FAF8F3007466 /* Pods_Vite_enterprise.framework */; };
 		D62F634C8DA45F93E78F5B8D /* Pods_Vite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */; };
@@ -84,7 +77,6 @@
 		4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidTest.swift; sourceTree = "<group>"; };
 		6DA5968E2DBCD2A8A449CBD1 /* Pods-Vite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.release.xcconfig"; sourceTree = "<group>"; };
 		74920B5621C10E500010C746 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		74920B5B21C10EE30010C746 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		74920B6621C22D7D0010C746 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7492DB8AE21B521074759E8D /* Pods-Vite-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test.debug.xcconfig"; sourceTree = "<group>"; };
 		7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,8 +84,6 @@
 		8E0FB696216B5B95001525EB /* ViteCryptoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteCryptoTest.swift; sourceTree = "<group>"; };
 		8E6F3E13214220DF003CDFC2 /* ViteNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteNetworkTests.swift; sourceTree = "<group>"; };
 		8E79261521515D3A007FEBAB /* ViteURITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteURITest.swift; sourceTree = "<group>"; };
-		8E93C26921782DB700185FDE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8E93C26B21782DB900185FDE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		8EA0BF0F21996D4800FDE2E8 /* Vite-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vite-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA0C00021996D7800FDE2E8 /* Vite-enterprise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vite-enterprise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ECA6E40219076840049CDE0 /* AppConfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AppConfig; sourceTree = "<group>"; };
@@ -206,11 +196,9 @@
 				74920B6621C22D7D0010C746 /* AppDelegate.swift */,
 				4C0024E321258005001DF390 /* R.generated.swift */,
 				4C9AFD89214FB81C005B12C2 /* Vite-Bridging-Header.h */,
-				74920B5B21C10EE30010C746 /* Images.xcassets */,
 				74920B5621C10E500010C746 /* Assets.xcassets */,
 				4C1FF4EC212A73FB0055067D /* Resource */,
 				4CCE42512124553C0080E92B /* Info.plist */,
-				8E93C26A21782DB700185FDE /* InfoPlist.strings */,
 				4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */,
 			);
 			path = Vite;
@@ -283,7 +271,7 @@
 				4CFDEBFD4EE83103235125DB /* [CP] Embed Pods Frameworks */,
 				4C0024DB21257868001DF390 /* Run SwiftLint */,
 				4CFD0E2A21AD064600B5A0A8 /* ShellScript */,
-				DF582A5E079D62E57E6060C6 /* [CP] Copy Pods Resources */,
+				13F71056C62DDBD2E7266E00 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -325,7 +313,7 @@
 				8EA0BF0A21996D4800FDE2E8 /* Run SwiftLint */,
 				4CFD0E2B21AD0D4300B5A0A8 /* ShellScript */,
 				E68A37381C3D7DAE1EE21321 /* [CP] Embed Pods Frameworks */,
-				1DC2A3AFBE9D97F505288E5D /* [CP] Copy Pods Resources */,
+				AFA899C9821E9EA3F7E927E6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -348,7 +336,7 @@
 				8EA0BFFB21996D7800FDE2E8 /* Run SwiftLint */,
 				4CFD0E2C21AD0D7700B5A0A8 /* ShellScript */,
 				0D3A5BD42B2E0B12A0437CCE /* [CP] Embed Pods Frameworks */,
-				5F2505694E2F2BF5B19CA3C0 /* [CP] Copy Pods Resources */,
+				2BB7FCEBBDC496D7C1505813 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -417,9 +405,7 @@
 				8ECA6E41219076840049CDE0 /* AppConfig in Resources */,
 				4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */,
 				4C1FF4F0212A74730055067D /* Localizable.strings in Resources */,
-				74920B5C21C10EE30010C746 /* Images.xcassets in Resources */,
 				74920B5721C10E500010C746 /* Assets.xcassets in Resources */,
-				8E93C26821782DB700185FDE /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,7 +414,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				74920B5A21C10E500010C746 /* Assets.xcassets in Resources */,
-				74920B5F21C10EE30010C746 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,9 +424,7 @@
 				8EA0BF0321996D4800FDE2E8 /* AppConfig in Resources */,
 				8EA0BF0421996D4800FDE2E8 /* LaunchScreen.storyboard in Resources */,
 				8EA0BF0621996D4800FDE2E8 /* Localizable.strings in Resources */,
-				74920B5D21C10EE30010C746 /* Images.xcassets in Resources */,
 				74920B5821C10E500010C746 /* Assets.xcassets in Resources */,
-				8EA0BF0821996D4800FDE2E8 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,9 +435,7 @@
 				8EA0BFF421996D7800FDE2E8 /* AppConfig in Resources */,
 				8EA0BFF521996D7800FDE2E8 /* LaunchScreen.storyboard in Resources */,
 				8EA0BFF721996D7800FDE2E8 /* Localizable.strings in Resources */,
-				74920B5E21C10EE30010C746 /* Images.xcassets in Resources */,
 				74920B5921C10E500010C746 /* Assets.xcassets in Resources */,
-				8EA0BFF921996D7800FDE2E8 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,7 +550,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1DC2A3AFBE9D97F505288E5D /* [CP] Copy Pods Resources */ = {
+		13F71056C62DDBD2E7266E00 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -577,8 +558,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test-resources.sh",
-				"${PODS_ROOT}/../../vite-business-ios/ViteBusiness/Assets/ViteBusiness.bundle",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Vite/Pods-Vite-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -588,7 +569,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vite/Pods-Vite-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2BB7FCEBBDC496D7C1505813 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ViteBusiness.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		321FD9D47E0F44AF9B40BE6D /* [CP] Check Pods Manifest.lock */ = {
@@ -799,28 +802,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vite/Pods-Vite-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5F2505694E2F2BF5B19CA3C0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise-resources.sh",
-				"${PODS_ROOT}/../../vite-business-ios/ViteBusiness/Assets/ViteBusiness.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ViteBusiness.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6F9F10D8102F07718250F347 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -917,7 +898,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
 		};
-		DF582A5E079D62E57E6060C6 /* [CP] Copy Pods Resources */ = {
+		AFA899C9821E9EA3F7E927E6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -925,8 +906,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Vite/Pods-Vite-resources.sh",
-				"${PODS_ROOT}/../../vite-business-ios/ViteBusiness/Assets/ViteBusiness.bundle",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -936,7 +917,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vite/Pods-Vite-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E05B29AE1F8249FC79DBC713 /* [CP] Check Pods Manifest.lock */ = {
@@ -1126,15 +1107,6 @@
 				4C1FF4F4212A76410055067D /* zh-Hans */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		8E93C26A21782DB700185FDE /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8E93C26921782DB700185FDE /* en */,
-				8E93C26B21782DB900185FDE /* zh-Hans */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

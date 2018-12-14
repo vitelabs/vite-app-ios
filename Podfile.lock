@@ -199,7 +199,7 @@ DEPENDENCIES:
   - Then
   - Toast-Swift (~> 4.0.1)
   - Vite_HDWalletKit (= 1.2.0)
-  - ViteBusiness (from `../vite-business-ios`)
+  - "ViteBusiness (from `git@github.com:vitelabs/vite-business-ios.git`, branch `develop`)"
   - "ViteCommunity (from `git@github.com:vitelabs/vite-community-ios.git`, branch `develop`)"
   - "ViteUtils (from `git@github.com:vitelabs/vite-utils-ios.git`, branch `develop`)"
   - XCGLogger (~> 6.1.0)
@@ -258,7 +258,8 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   ViteBusiness:
-    :path: "../vite-business-ios"
+    :branch: develop
+    :git: "git@github.com:vitelabs/vite-business-ios.git"
   ViteCommunity:
     :branch: develop
     :git: "git@github.com:vitelabs/vite-community-ios.git"
@@ -267,6 +268,9 @@ EXTERNAL SOURCES:
     :git: "git@github.com:vitelabs/vite-utils-ios.git"
 
 CHECKOUT OPTIONS:
+  ViteBusiness:
+    :commit: c5349d32ec5911d948550457b42c7e501f09fa01
+    :git: "git@github.com:vitelabs/vite-business-ios.git"
   ViteCommunity:
     :commit: c3f7825399d4a42df6e41d4791d27ff85a980132
     :git: "git@github.com:vitelabs/vite-community-ios.git"
@@ -323,11 +327,11 @@ SPEC CHECKSUMS:
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
   Vite_HDWalletKit: 8d3f78883b58def92610e44704a93db7b566656c
-  ViteBusiness: 7120fc1c5136f77057c5447cc447e1944a5e2131
+  ViteBusiness: e288f35d190ea5bfad11791d2150615e296fac82
   ViteCommunity: f42582784c1465460bbd0bc26dfa34d3b4116bd3
   ViteUtils: ee9d150bdf3b0de850b4e2f124048110e6915240
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: e51e1d96dc19050c6ca0fee494e8f3b3f92d6f9e
+PODFILE CHECKSUM: c4a55f63b6620e0a0b8bc2f3a99e200fdfc20b34
 
 COCOAPODS: 1.5.3
