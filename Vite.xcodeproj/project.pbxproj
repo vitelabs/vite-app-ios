@@ -21,6 +21,11 @@
 		74920B6821C22D7D0010C746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74920B6621C22D7D0010C746 /* AppDelegate.swift */; };
 		74920B6921C22D7D0010C746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74920B6621C22D7D0010C746 /* AppDelegate.swift */; };
 		74920B6A21C22D7D0010C746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74920B6621C22D7D0010C746 /* AppDelegate.swift */; };
+		74FBDCFD21C7C06100685241 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FBDCFC21C7C06100685241 /* NotificationService.swift */; };
+		74FBDD0121C7C06100685241 /* PushService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 74FBDCFA21C7C06000685241 /* PushService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		74FBDD0C21C7C0BF00685241 /* libXGExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBDD0A21C7C0BF00685241 /* libXGExtension.a */; };
+		74FBDD0E21C7C12900685241 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBDD0D21C7C12900685241 /* libz.tbd */; };
+		74FBDD1021C7C12E00685241 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBDD0F21C7C12E00685241 /* libsqlite3.tbd */; };
 		8E0FB697216B5B95001525EB /* ViteCryptoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB696216B5B95001525EB /* ViteCryptoTest.swift */; };
 		8E6F3E14214220DF003CDFC2 /* ViteNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E13214220DF003CDFC2 /* ViteNetworkTests.swift */; };
 		8E79261621515D3A007FEBAB /* ViteURITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261521515D3A007FEBAB /* ViteURITest.swift */; };
@@ -47,7 +52,28 @@
 			remoteGlobalIDString = 4CCE42412124553B0080E92B;
 			remoteInfo = Vite;
 		};
+		74FBDCFF21C7C06100685241 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CCE423A2124553B0080E92B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74FBDCF921C7C06000685241;
+			remoteInfo = PushService;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		74FBDD0521C7C06100685241 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				74FBDD0121C7C06100685241 /* PushService.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0E394DF946E925313AB2B460 /* Pods-Vite-enterprise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-enterprise.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +105,14 @@
 		74920B5621C10E500010C746 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74920B6621C22D7D0010C746 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7492DB8AE21B521074759E8D /* Pods-Vite-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite-test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test.debug.xcconfig"; sourceTree = "<group>"; };
+		74FBDCFA21C7C06000685241 /* PushService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PushService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		74FBDCFC21C7C06100685241 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		74FBDCFE21C7C06100685241 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74FBDD0621C7C08900685241 /* PushService-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PushService-Bridging-Header.h"; sourceTree = "<group>"; };
+		74FBDD0A21C7C0BF00685241 /* libXGExtension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libXGExtension.a; sourceTree = "<group>"; };
+		74FBDD0B21C7C0BF00685241 /* XGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGExtension.h; sourceTree = "<group>"; };
+		74FBDD0D21C7C12900685241 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		74FBDD0F21C7C12E00685241 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		7742AD5C37CDC695C9E4CF73 /* Pods_Vite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79000FBA546CDDAD7FEC4E7C /* libPods-ViteTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ViteTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E0FB696216B5B95001525EB /* ViteCryptoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteCryptoTest.swift; sourceTree = "<group>"; };
@@ -112,6 +146,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEC6D6C56067DEB2A39D139B /* libPods-ViteTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74FBDCF721C7C06000685241 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74FBDD1021C7C12E00685241 /* libsqlite3.tbd in Frameworks */,
+				74FBDD0E21C7C12900685241 /* libz.tbd in Frameworks */,
+				74FBDD0C21C7C0BF00685241 /* libXGExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +216,7 @@
 				4CCE42442124553B0080E92B /* Vite */,
 				4CCE42592124553C0080E92B /* ViteTests */,
 				4CCE42642124553C0080E92B /* ViteUITests */,
+				74FBDCFB21C7C06100685241 /* PushService */,
 				4CCE42432124553B0080E92B /* Products */,
 				3769396FEE468F6F2DD10DB6 /* Pods */,
 				63EB5F834DEBA43A777880E2 /* Frameworks */,
@@ -185,6 +230,7 @@
 				4CCE42562124553C0080E92B /* ViteTests.xctest */,
 				8EA0BF0F21996D4800FDE2E8 /* Vite-test.app */,
 				8EA0C00021996D7800FDE2E8 /* Vite-enterprise.app */,
+				74FBDCFA21C7C06000685241 /* PushService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,6 +274,8 @@
 		63EB5F834DEBA43A777880E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				74FBDD0F21C7C12E00685241 /* libsqlite3.tbd */,
+				74FBDD0D21C7C12900685241 /* libz.tbd */,
 				4C9AFD85214F9087005B12C2 /* libicucore.tbd */,
 				4C9AFD83214F8F9C005B12C2 /* libstdc++.tbd */,
 				4C9AFD81214F8F8E005B12C2 /* libz.1.2.5.tbd */,
@@ -246,6 +294,18 @@
 				79000FBA546CDDAD7FEC4E7C /* libPods-ViteTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		74FBDCFB21C7C06100685241 /* PushService */ = {
+			isa = PBXGroup;
+			children = (
+				74FBDD0A21C7C0BF00685241 /* libXGExtension.a */,
+				74FBDD0B21C7C0BF00685241 /* XGExtension.h */,
+				74FBDCFC21C7C06100685241 /* NotificationService.swift */,
+				74FBDCFE21C7C06100685241 /* Info.plist */,
+				74FBDD0621C7C08900685241 /* PushService-Bridging-Header.h */,
+			);
+			path = PushService;
 			sourceTree = "<group>";
 		};
 		8ECA6E3F219076840049CDE0 /* Config */ = {
@@ -272,10 +332,12 @@
 				4C0024DB21257868001DF390 /* Run SwiftLint */,
 				4CFD0E2A21AD064600B5A0A8 /* ShellScript */,
 				13F71056C62DDBD2E7266E00 /* [CP] Copy Pods Resources */,
+				74FBDD0521C7C06100685241 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				74FBDD0021C7C06100685241 /* PBXTargetDependency */,
 			);
 			name = Vite;
 			productName = Vite;
@@ -300,6 +362,23 @@
 			productName = ViteTests;
 			productReference = 4CCE42562124553C0080E92B /* ViteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		74FBDCF921C7C06000685241 /* PushService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74FBDD0421C7C06100685241 /* Build configuration list for PBXNativeTarget "PushService" */;
+			buildPhases = (
+				74FBDCF621C7C06000685241 /* Sources */,
+				74FBDCF721C7C06000685241 /* Frameworks */,
+				74FBDCF821C7C06000685241 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PushService;
+			productName = PushService;
+			productReference = 74FBDCFA21C7C06000685241 /* PushService.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		8EA0BE2021996D4800FDE2E8 /* Vite-test */ = {
 			isa = PBXNativeTarget;
@@ -354,7 +433,8 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Vite;
-				LastSwiftUpdateCheck = 0940;
+				DefaultBuildSystemTypeForWorkspace = Original;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "vite labs";
 				TargetAttributes = {
@@ -372,6 +452,10 @@
 					4CCE42552124553C0080E92B = {
 						CreatedOnToolsVersion = 9.4.1;
 						TestTargetID = 4CCE42412124553B0080E92B;
+					};
+					74FBDCF921C7C06000685241 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -393,6 +477,7 @@
 				8EA0BE2021996D4800FDE2E8 /* Vite-test */,
 				8EA0BF1121996D7800FDE2E8 /* Vite-enterprise */,
 				4CCE42552124553C0080E92B /* ViteTests */,
+				74FBDCF921C7C06000685241 /* PushService */,
 			);
 		};
 /* End PBXProject section */
@@ -414,6 +499,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				74920B5A21C10E500010C746 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74FBDCF821C7C06000685241 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1071,6 +1163,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		74FBDCF621C7C06000685241 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74FBDCFD21C7C06100685241 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8EA0BE2321996D4800FDE2E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1096,6 +1196,11 @@
 			isa = PBXTargetDependency;
 			target = 4CCE42412124553B0080E92B /* Vite */;
 			targetProxy = 4CCE42572124553C0080E92B /* PBXContainerItemProxy */;
+		};
+		74FBDD0021C7C06100685241 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74FBDCF921C7C06000685241 /* PushService */;
+			targetProxy = 74FBDCFF21C7C06100685241 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1237,6 +1342,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DD1DAFB4B79D1A75BEB0A664 /* Pods-Vite.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1268,6 +1374,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6DA5968E2DBCD2A8A449CBD1 /* Pods-Vite.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -1333,6 +1440,66 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vite.app/Vite";
+			};
+			name = Release;
+		};
+		74FBDD0221C7C06100685241 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5SR42372L5;
+				INFOPLIST_FILE = PushService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PushService",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet.PushService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PushService/PushService-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		74FBDD0321C7C06100685241 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5SR42372L5;
+				INFOPLIST_FILE = PushService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PushService",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet.PushService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PushService/PushService-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1502,6 +1669,15 @@
 			buildConfigurations = (
 				4CCE426E2124553C0080E92B /* Debug */,
 				4CCE426F2124553C0080E92B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		74FBDD0421C7C06100685241 /* Build configuration list for PBXNativeTarget "PushService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74FBDD0221C7C06100685241 /* Debug */,
+				74FBDD0321C7C06100685241 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
