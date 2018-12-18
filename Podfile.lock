@@ -31,9 +31,11 @@ PODS:
   - CryptoSwift (0.12.0)
   - DACircularProgress (2.3.1)
   - Differentiator (3.1.0)
+  - DNSPageView (1.1.2)
   - Eureka (4.3.0)
   - Fabric (1.8.2)
   - FBRetainCycleDetector (0.1.4)
+  - FSPagerView (0.8.2)
   - JSONRPCKit (3.0.0):
     - Result (~> 3.2.0)
   - KeychainSwift (13.0.0)
@@ -142,19 +144,33 @@ PODS:
     - Toast-Swift (~> 4.0.1)
     - Vite_HDWalletKit
     - ViteUtils
+    - ViteWallet
     - XCGLogger (~> 6.1.0)
   - ViteCommunity (0.1.0):
+    - DNSPageView
+    - FSPagerView
     - QQ_XGPush
-  - ViteUtils (0.1.0):
+    - R.swift
+    - ViteBusiness
+    - ViteUtils
+  - ViteUtils (0.0.1):
     - CryptoSwift
     - "NSObject+Rx"
     - ObjectMapper
-    - R.swift
     - RxCocoa
     - RxSwift
     - SnapKit
+    - SwiftyJSON
     - Then
     - XCGLogger
+  - ViteWallet (0.1.0):
+    - APIKit
+    - BigInt
+    - CryptoSwift
+    - JSONRPCKit
+    - ObjectMapper
+    - PromiseKit
+    - Vite_HDWalletKit
   - XCGLogger (6.1.0):
     - XCGLogger/Core (= 6.1.0)
   - XCGLogger/Core (6.1.0):
@@ -169,8 +185,10 @@ DEPENDENCIES:
   - CHIPageControl
   - Crashlytics
   - DACircularProgress (= 2.3.1)
+  - DNSPageView
   - Eureka (~> 4.3.0)
   - Fabric
+  - FSPagerView
   - JSONRPCKit (~> 3.0.0)
   - KeychainSwift
   - Kingfisher (~> 4.0)
@@ -198,10 +216,11 @@ DEPENDENCIES:
   - SwiftyJSON
   - Then
   - Toast-Swift (~> 4.0.1)
-  - Vite_HDWalletKit (= 1.2.0)
-  - "ViteBusiness (from `git@github.com:vitelabs/vite-business-ios.git`, branch `develop`)"
-  - "ViteCommunity (from `git@github.com:vitelabs/vite-community-ios.git`, branch `develop`)"
-  - "ViteUtils (from `git@github.com:vitelabs/vite-utils-ios.git`, branch `develop`)"
+  - Vite_HDWalletKit (from `../Vite_HDWalletKit/Vite_HDWalletKit.podspec`)
+  - ViteBusiness (from `../vite-business-ios/ViteBusiness.podspec`)
+  - ViteCommunity (from `../vite-community-ios/ViteCommunity.podspec`)
+  - ViteUtils (from `../vite-utils-ios/ViteUtils.podspec`)
+  - "ViteWallet (from `git@github.com:vitelabs/vite-wallet-ios.git`, branch `develop`)"
   - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
@@ -217,9 +236,11 @@ SPEC REPOS:
     - CryptoSwift
     - DACircularProgress
     - Differentiator
+    - DNSPageView
     - Eureka
     - Fabric
     - FBRetainCycleDetector
+    - FSPagerView
     - JSONRPCKit
     - KeychainSwift
     - Kingfisher
@@ -253,30 +274,25 @@ SPEC REPOS:
     - Then
     - Toast-Swift
     - TrezorCryptoEd25519WithBlake2b
-    - Vite_HDWalletKit
     - XCGLogger
 
 EXTERNAL SOURCES:
+  Vite_HDWalletKit:
+    :path: "../Vite_HDWalletKit/Vite_HDWalletKit.podspec"
   ViteBusiness:
-    :branch: develop
-    :git: "git@github.com:vitelabs/vite-business-ios.git"
+    :path: "../vite-business-ios/ViteBusiness.podspec"
   ViteCommunity:
-    :branch: develop
-    :git: "git@github.com:vitelabs/vite-community-ios.git"
+    :path: "../vite-community-ios/ViteCommunity.podspec"
   ViteUtils:
+    :path: "../vite-utils-ios/ViteUtils.podspec"
+  ViteWallet:
     :branch: develop
-    :git: "git@github.com:vitelabs/vite-utils-ios.git"
+    :git: "git@github.com:vitelabs/vite-wallet-ios.git"
 
 CHECKOUT OPTIONS:
-  ViteBusiness:
-    :commit: c5349d32ec5911d948550457b42c7e501f09fa01
-    :git: "git@github.com:vitelabs/vite-business-ios.git"
-  ViteCommunity:
-    :commit: c3f7825399d4a42df6e41d4791d27ff85a980132
-    :git: "git@github.com:vitelabs/vite-community-ios.git"
-  ViteUtils:
-    :commit: de9124b492daa826db22384847a51bb658b2ef0b
-    :git: "git@github.com:vitelabs/vite-utils-ios.git"
+  ViteWallet:
+    :commit: 986a7b1a9b2006ac54393a2c2e75452deb80bb03
+    :git: "git@github.com:vitelabs/vite-wallet-ios.git"
 
 SPEC CHECKSUMS:
   Action: 2275d04a407ecaf46a58d58a304388a28155a0a1
@@ -290,9 +306,11 @@ SPEC CHECKSUMS:
   CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  DNSPageView: 7bb82f6d666a9c8cfea0865f8fc24424a09b2ba5
   Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
   Fabric: d2b22f443ba195d8a7cc204da230977c72733b40
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
+  FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
   KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
@@ -326,12 +344,13 @@ SPEC CHECKSUMS:
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
-  Vite_HDWalletKit: 8d3f78883b58def92610e44704a93db7b566656c
-  ViteBusiness: e288f35d190ea5bfad11791d2150615e296fac82
-  ViteCommunity: f42582784c1465460bbd0bc26dfa34d3b4116bd3
-  ViteUtils: ee9d150bdf3b0de850b4e2f124048110e6915240
+  Vite_HDWalletKit: b3375b01abf97e92731750738fd2917b6029c167
+  ViteBusiness: 2f937ad55a98bfc3d23f7259be4bac90b62a1450
+  ViteCommunity: 183de1e34fd0c7189b96a477e1b0961c1c95a01d
+  ViteUtils: dae3a6591680c217c85111c409db257dde516324
+  ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: c4a55f63b6620e0a0b8bc2f3a99e200fdfc20b34
+PODFILE CHECKSUM: d6528c7a2d7c28de6ddd8c9c128de51970f7acaa
 
 COCOAPODS: 1.5.3
