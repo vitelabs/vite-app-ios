@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         VitePushManager.shared().start(launchOptions: launchOptions ?? [:])
         #endif
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
+        ViteCommunity.register()
+       ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 2)
+
         ViteBusinessLanucher.instance.start(with: window)
 
         return true
