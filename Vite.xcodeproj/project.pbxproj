@@ -26,6 +26,7 @@
 		74FBDD0C21C7C0BF00685241 /* libXGExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBDD0A21C7C0BF00685241 /* libXGExtension.a */; };
 		74FBDD0E21C7C12900685241 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBDD0D21C7C12900685241 /* libz.tbd */; };
 		74FBDD1021C7C12E00685241 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBDD0F21C7C12E00685241 /* libsqlite3.tbd */; };
+		74FBDD1121C898DB00685241 /* PushService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 74FBDCFA21C7C06000685241 /* PushService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8E0FB697216B5B95001525EB /* ViteCryptoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB696216B5B95001525EB /* ViteCryptoTest.swift */; };
 		8E6F3E14214220DF003CDFC2 /* ViteNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E13214220DF003CDFC2 /* ViteNetworkTests.swift */; };
 		8E79261621515D3A007FEBAB /* ViteURITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261521515D3A007FEBAB /* ViteURITest.swift */; };
@@ -59,6 +60,13 @@
 			remoteGlobalIDString = 74FBDCF921C7C06000685241;
 			remoteInfo = PushService;
 		};
+		74FBDD1221C898DB00685241 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CCE423A2124553B0080E92B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74FBDCF921C7C06000685241;
+			remoteInfo = PushService;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +77,17 @@
 			dstSubfolderSpec = 13;
 			files = (
 				74FBDD0121C7C06100685241 /* PushService.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74FBDD1421C898DB00685241 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				74FBDD1121C898DB00685241 /* PushService.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,10 +412,12 @@
 				4CFD0E2B21AD0D4300B5A0A8 /* ShellScript */,
 				E68A37381C3D7DAE1EE21321 /* [CP] Embed Pods Frameworks */,
 				AFA899C9821E9EA3F7E927E6 /* [CP] Copy Pods Resources */,
+				74FBDD1421C898DB00685241 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				74FBDD1321C898DB00685241 /* PBXTargetDependency */,
 			);
 			name = "Vite-test";
 			productName = Vite;
@@ -1202,6 +1223,11 @@
 			target = 74FBDCF921C7C06000685241 /* PushService */;
 			targetProxy = 74FBDCFF21C7C06100685241 /* PBXContainerItemProxy */;
 		};
+		74FBDD1321C898DB00685241 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74FBDCF921C7C06000685241 /* PushService */;
+			targetProxy = 74FBDD1221C898DB00685241 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1478,7 +1504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = PushService/Info.plist;
@@ -1507,6 +1533,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7492DB8AE21B521074759E8D /* Pods-Vite-test.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1541,6 +1568,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ECB8B65044121E01AB15A67A /* Pods-Vite-test.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
