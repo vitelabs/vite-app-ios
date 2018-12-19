@@ -95,6 +95,7 @@ PODS:
     - RxAtomic (~> 4.4)
   - SipHash (1.2.2)
   - SnapKit (4.0.1)
+  - SwiftDate (5.0.13)
   - SwiftLint (0.29.1)
   - SwiftyJSON (4.2.0)
   - Then (2.4.0)
@@ -153,6 +154,7 @@ PODS:
     - FSPagerView
     - QQ_XGPush
     - R.swift
+    - SwiftDate
     - ViteBusiness
     - ViteUtils
   - ViteUtils (0.0.1):
@@ -272,6 +274,7 @@ SPEC REPOS:
     - RxSwift
     - SipHash
     - SnapKit
+    - SwiftDate
     - SwiftLint
     - SwiftyJSON
     - Then
@@ -343,6 +346,7 @@ SPEC CHECKSUMS:
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SwiftDate: f4aea5fa9dee812485f34041121a4cbde01b0dee
   SwiftLint: 6772320e40b52049053a518c17db9b0634a0b45a
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
@@ -350,11 +354,11 @@ SPEC CHECKSUMS:
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
   Vite_HDWalletKit: b3375b01abf97e92731750738fd2917b6029c167
   ViteBusiness: 2f937ad55a98bfc3d23f7259be4bac90b62a1450
-  ViteCommunity: 183de1e34fd0c7189b96a477e1b0961c1c95a01d
+  ViteCommunity: f73d50719347f36e66b0c2fb880a43efcc4af07d
   ViteUtils: dae3a6591680c217c85111c409db257dde516324
   ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 7568bf047e29698460db213b5b62e0bc5430c89a
+PODFILE CHECKSUM: 03aaf91d9181add0034955bd391fcf7d1cbef9ad
 
 COCOAPODS: 1.5.3

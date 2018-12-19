@@ -15,7 +15,7 @@ targetArray.each do |t|
         vite_pod 'ViteUtils', :git => 'git@github.com:vitelabs/vite-utils-ios.git', :branch=>'develop'
         vite_pod 'ViteBusiness', :git => 'git@github.com:vitelabs/vite-business-ios.git', :branch=>'develop'
         vite_pod 'ViteWallet', :git => 'git@github.com:vitelabs/vite-wallet-ios.git', :branch=>'develop'
-
+ 
 
         pod 'SnapKit', '~> 4.0.0'
         pod 'BigInt', '~> 3.0'
