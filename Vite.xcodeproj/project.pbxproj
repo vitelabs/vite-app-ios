@@ -1703,7 +1703,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4CA6F5CD41B610812E4E1517 /* Pods-Vite.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1735,7 +1734,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D19BD57EEA3A000A880F6948 /* Pods-Vite.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -1868,7 +1866,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7492DB8AE21B521074759E8D /* Pods-Vite-test.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1903,7 +1900,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ECB8B65044121E01AB15A67A /* Pods-Vite-test.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -2010,7 +2006,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1175CDF8DFF9953090210F1E /* Pods-Vite-official.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2044,7 +2039,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8509BFBE5CBFF4ADFFCEA8DA /* Pods-Vite-official.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
