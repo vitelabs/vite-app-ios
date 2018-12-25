@@ -13,8 +13,11 @@ import Crashlytics
 import NSObject_Rx
 import Vite_HDWalletKit
 import ViteUtils
-import ViteCommunity
 import ViteBusiness
+
+#if OFFICIAL || TEST || ENTERPRISE
+import ViteCommunity
+#endif
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,12 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         Fabric.with([Crashlytics.self])
+        plog(level: .info, log: "DidFinishLaunching", tag: .life)
+
+        #if OFFICIAL || TEST || ENTERPRISE
         #if !ENTERPRISE
         VitePushManager.shared().start(launchOptions: launchOptions ?? [:])
         #endif
-        plog(level: .info, log: "DidFinishLaunching", tag: .life)
         ViteCommunity.register()
-       ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 2)
+        ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 2)
+        #endif
 
         ViteBusinessLanucher.instance.start(with: window)
 
