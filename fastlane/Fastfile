@@ -34,8 +34,7 @@ platform :ios do
   end
 
   lane :match_profile do 
-    match(type: "appstore", app_identifier: "net.vite.wallet",  clone_branch_directly: true)
-    match(type: "appstore", app_identifier: "net.vite.wallet.PushService",  clone_branch_directly: true)
+    match(type: "appstore", app_identifier: ["net.vite.wallet","net.vite.wallet.PushService"],  clone_branch_directly: true, readonly:false)
   end
 
   lane :increment_build_number_and_push_git do 
