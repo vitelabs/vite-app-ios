@@ -783,8 +783,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness.default-Enterprise/ViteBusiness.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity-Default-Enterprise/ViteCommunity.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity/ViteCommunity.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -1305,8 +1305,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness.default-Test/ViteBusiness.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity-Default-Test/ViteCommunity.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity/ViteCommunity.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -1465,8 +1465,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-official/Pods-Vite-official-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness.default-Official/ViteBusiness.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity-Default-Official/ViteCommunity.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity/ViteCommunity.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -1806,7 +1806,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = PushService/Info.plist;
@@ -1824,7 +1824,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet.PushService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore net.vite.wallet.PushService";
+				PROVISIONING_PROFILE_SPECIFIER = PUSH_DEBUG;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "PushService/PushService-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
