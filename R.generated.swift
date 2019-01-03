@@ -16,15 +16,14 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.file` struct is generated, and contains static references to 1 files.
-  struct file {
-    /// Resource file `AppConfig`.
-    static let appConfig = Rswift.FileResource(bundle: R.hostingBundle, name: "AppConfig", pathExtension: "")
+  /// This `R.image` struct is generated, and contains static references to 1 images.
+  struct image {
+    /// Image `launch_logo`.
+    static let launch_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "launch_logo")
     
-    /// `bundle.url(forResource: "AppConfig", withExtension: "")`
-    static func appConfig(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.appConfig
-      return fileResource.bundle.url(forResource: fileResource)
+    /// `UIImage(named: "launch_logo", bundle: ..., traitCollection: ...)`
+    static func launch_logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.launch_logo, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -73,7 +72,7 @@ struct _R: Rswift.Validatable {
       let name = "LaunchScreen"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "icon_logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_logo' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "launch_logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'launch_logo' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }

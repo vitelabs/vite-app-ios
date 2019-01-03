@@ -34,17 +34,13 @@
 		8E6F3E14214220DF003CDFC2 /* ViteNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E13214220DF003CDFC2 /* ViteNetworkTests.swift */; };
 		8E79261621515D3A007FEBAB /* ViteURITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261521515D3A007FEBAB /* ViteURITest.swift */; };
 		8EA0BE8E21996D4800FDE2E8 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0024E321258005001DF390 /* R.generated.swift */; };
-		8EA0BF0321996D4800FDE2E8 /* AppConfig in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA6E40219076840049CDE0 /* AppConfig */; };
 		8EA0BF0421996D4800FDE2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
 		8EA0BF0621996D4800FDE2E8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
 		8EA0BF7F21996D7800FDE2E8 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0024E321258005001DF390 /* R.generated.swift */; };
-		8EA0BFF421996D7800FDE2E8 /* AppConfig in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA6E40219076840049CDE0 /* AppConfig */; };
 		8EA0BFF521996D7800FDE2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
 		8EA0BFF721996D7800FDE2E8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
-		8ECA6E41219076840049CDE0 /* AppConfig in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA6E40219076840049CDE0 /* AppConfig */; };
 		8EF428E221D263010077EDF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74920B6621C22D7D0010C746 /* AppDelegate.swift */; };
 		8EF428E321D263010077EDF9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0024E321258005001DF390 /* R.generated.swift */; };
-		8EF428E721D263010077EDF9 /* AppConfig in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA6E40219076840049CDE0 /* AppConfig */; };
 		8EF428E821D263010077EDF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
 		8EF428E921D263010077EDF9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
 		8EF428EA21D263010077EDF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
@@ -168,7 +164,6 @@
 		8E79261521515D3A007FEBAB /* ViteURITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteURITest.swift; sourceTree = "<group>"; };
 		8EA0BF0F21996D4800FDE2E8 /* Vite-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vite-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA0C00021996D7800FDE2E8 /* Vite-enterprise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vite-enterprise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8ECA6E40219076840049CDE0 /* AppConfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AppConfig; sourceTree = "<group>"; };
 		8EF428F421D263010077EDF9 /* Vite-official.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vite-official.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D19E345292B3451EF0C77B /* Pods-ViteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9CDD7A55935285C97D7AB255 /* Pods-ViteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -255,7 +250,6 @@
 		4C1FF4EC212A73FB0055067D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				8ECA6E3F219076840049CDE0 /* Config */,
 				4C1FF4ED212A73FB0055067D /* Localization */,
 			);
 			path = Resource;
@@ -367,14 +361,6 @@
 				74FBDD0621C7C08900685241 /* PushService-Bridging-Header.h */,
 			);
 			path = PushService;
-			sourceTree = "<group>";
-		};
-		8ECA6E3F219076840049CDE0 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				8ECA6E40219076840049CDE0 /* AppConfig */,
-			);
-			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -576,7 +562,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8ECA6E41219076840049CDE0 /* AppConfig in Resources */,
 				4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */,
 				4C1FF4F0212A74730055067D /* Localizable.strings in Resources */,
 				74920B5721C10E500010C746 /* Assets.xcassets in Resources */,
@@ -602,7 +587,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EA0BF0321996D4800FDE2E8 /* AppConfig in Resources */,
 				8EA0BF0421996D4800FDE2E8 /* LaunchScreen.storyboard in Resources */,
 				8EA0BF0621996D4800FDE2E8 /* Localizable.strings in Resources */,
 				74920B5821C10E500010C746 /* Assets.xcassets in Resources */,
@@ -613,7 +597,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EA0BFF421996D7800FDE2E8 /* AppConfig in Resources */,
 				8EA0BFF521996D7800FDE2E8 /* LaunchScreen.storyboard in Resources */,
 				8EA0BFF721996D7800FDE2E8 /* Localizable.strings in Resources */,
 				74920B5921C10E500010C746 /* Assets.xcassets in Resources */,
@@ -624,7 +607,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EF428E721D263010077EDF9 /* AppConfig in Resources */,
 				8EF428E821D263010077EDF9 /* LaunchScreen.storyboard in Resources */,
 				8EF428E921D263010077EDF9 /* Localizable.strings in Resources */,
 				8EF428EA21D263010077EDF9 /* Assets.xcassets in Resources */,
