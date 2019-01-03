@@ -12,10 +12,10 @@ targetArray.each do |t|
         #vite kit
 
         vite_community_git = 'https://github.com/vitelabs/vite-community-ios.git'
-        vite_community_commit = '80a8a12e307bf816d2c2fac66bdc28cefbf2f8de'
+        vite_community_commit = '9d4a4d96a85a23c62cd91b55f9d4f9cd3a1bd08e'
 
         vite_business_git = 'https://github.com/vitelabs/vite-business-ios.git'
-        vite_business_commit = '51da541b610d48e08c87eca1d6cc9050b85353ff'
+        vite_business_commit = 'f26039e269911207c73ec5afb904d382cf78296b'
 
         if t == 'Vite-official'
             vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit, :subspecs => ['Official']
