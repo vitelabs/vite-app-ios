@@ -8,10 +8,18 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new beta build to TestFlight"
 
+  lane :vite do 
+    # increment_build_number_and_push_git
+    match_profile
+    build_app(workspace: "Vite.xcworkspace", scheme: "Vite", clean: true)
+    # upload_to_testflight(skip_waiting_for_build_processing: true)
+    upload_dysm
+  end
+
   lane :vite_appstore do 
     increment_build_number_and_push_git
     match_profile
-    build_app(workspace: "Vite.xcworkspace", scheme: "Vite")
+    build_app(workspace: "Vite.xcworkspace", scheme: "Vite-official", clean: true)
     upload_to_testflight(skip_waiting_for_build_processing: true)
     upload_dysm
   end
@@ -22,7 +30,7 @@ platform :ios do
     version_number = get_version_number(xcodeproj: "Vite.xcodeproj", target: "Vite-test")
     build_number = get_build_number(xcodeproj: "Vite.xcodeproj")
     add_badge(shield: version_number + "-" + build_number + "-" + "orange", no_badge: true)
-    build_app(workspace: "Vite.xcworkspace", scheme: "Vite-test")
+    build_app(workspace: "Vite.xcworkspace", scheme: "Vite-test", clean: true)
     upload_to_testflight(skip_waiting_for_build_processing: true)
     upload_dysm
   end
@@ -34,7 +42,7 @@ platform :ios do
   end
 
   lane :match_profile do 
-    match(type: "appstore", app_identifier: "net.vite.wallet",  clone_branch_directly: true)
+    match(type: "appstore", app_identifier: ["net.vite.wallet","net.vite.wallet.PushService"],  clone_branch_directly: true, readonly:false)
   end
 
   lane :increment_build_number_and_push_git do 
