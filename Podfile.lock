@@ -428,10 +428,10 @@ DEPENDENCIES:
   - Then
   - Toast-Swift (~> 4.0.1)
   - Vite_HDWalletKit (= 1.2.0)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `45164fefbd13dc826e2721568763ad39c91fbcdd`)
-  - ViteBusiness/Enterprise (from `https://github.com/vitelabs/vite-business-ios.git`, commit `45164fefbd13dc826e2721568763ad39c91fbcdd`)
-  - ViteBusiness/Official (from `https://github.com/vitelabs/vite-business-ios.git`, commit `45164fefbd13dc826e2721568763ad39c91fbcdd`)
-  - ViteBusiness/Test (from `https://github.com/vitelabs/vite-business-ios.git`, commit `45164fefbd13dc826e2721568763ad39c91fbcdd`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `4717cabc250b76133b14d6ec5d20b0461ea08d94`)
+  - ViteBusiness/Enterprise (from `https://github.com/vitelabs/vite-business-ios.git`, commit `4717cabc250b76133b14d6ec5d20b0461ea08d94`)
+  - ViteBusiness/Official (from `https://github.com/vitelabs/vite-business-ios.git`, commit `4717cabc250b76133b14d6ec5d20b0461ea08d94`)
+  - ViteBusiness/Test (from `https://github.com/vitelabs/vite-business-ios.git`, commit `4717cabc250b76133b14d6ec5d20b0461ea08d94`)
   - ViteCommunity/Enterprise (from `https://github.com/vitelabs/vite-community-ios.git`, commit `9511f666871703579189df46de04257ae45ffbcd`)
   - ViteCommunity/Official (from `https://github.com/vitelabs/vite-community-ios.git`, commit `9511f666871703579189df46de04257ae45ffbcd`)
   - ViteCommunity/Test (from `https://github.com/vitelabs/vite-community-ios.git`, commit `9511f666871703579189df46de04257ae45ffbcd`)
@@ -497,7 +497,7 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   ViteBusiness:
-    :commit: 45164fefbd13dc826e2721568763ad39c91fbcdd
+    :commit: 4717cabc250b76133b14d6ec5d20b0461ea08d94
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 9511f666871703579189df46de04257ae45ffbcd
@@ -511,7 +511,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ViteBusiness:
-    :commit: 45164fefbd13dc826e2721568763ad39c91fbcdd
+    :commit: 4717cabc250b76133b14d6ec5d20b0461ea08d94
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 9511f666871703579189df46de04257ae45ffbcd
@@ -582,6 +582,6 @@ SPEC CHECKSUMS:
   ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: f22d46f48c6100b90910527ff7c4f44723b8ca43
+PODFILE CHECKSUM: 97b0aad50b626791844361d19df23dbedba32d58
 
 COCOAPODS: 1.5.3
