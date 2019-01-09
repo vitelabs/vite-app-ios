@@ -765,8 +765,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity/ViteCommunity.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness.default-Enterprise/ViteBusiness.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity-Default-Enterprise/ViteCommunity.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -1287,8 +1287,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity/ViteCommunity.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness.default-Test/ViteBusiness.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity-Default-Test/ViteCommunity.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -1447,8 +1447,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-official/Pods-Vite-official-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity/ViteCommunity.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness.default-Official/ViteBusiness.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity-Default-Official/ViteCommunity.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (

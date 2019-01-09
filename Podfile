@@ -15,7 +15,7 @@ targetArray.each do |t|
         vite_community_commit = '5b84a9fcb0825d174ea5e21c2d515f6b28e6fed4'
 
         vite_business_git = 'https://github.com/vitelabs/vite-business-ios.git'
-        vite_business_commit = 'c267c6ff3684a7bcfb5ac8bb5fe9f7b94d81ae14'
+        vite_business_commit = 'f5f55a461e2bc192f42f5cf0f2f8a07cfc714b57'
 
         if t == 'Vite-official'
             vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit, :subspecs => ['Official']
