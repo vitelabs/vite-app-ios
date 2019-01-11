@@ -1,0 +1,8 @@
+#!/bin/bash
+CMD_PATH=`dirname $0`
+cd $CMD_PATH
+mv Podfile Podfile.backup
+cp Podfile.txt Podfile
+pod install
+open Vite.xcworkspace
+exit 0
