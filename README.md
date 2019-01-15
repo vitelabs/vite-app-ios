@@ -41,6 +41,6 @@ Vite is a next-generation Reactive Blockchain that adopts a _message-driven, asy
 2. Clone this repository.
 3. Enter vite-app-ios folder
 4. bundle install
-5. pod install
+5. sh bootstrap
 6. Open Vite.xcworkspace
 7. Run

@@ -3,7 +3,7 @@ inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
 
-targetArray = ['Vite', 'Vite-official', 'Vite-test', 'Vite-enterprise']
+targetArray = ['Vite']
 
 targetArray.each do |t|
     target t do
@@ -12,10 +12,10 @@ targetArray.each do |t|
         #vite kit
 
         vite_community_git = 'https://github.com/vitelabs/vite-community-ios.git'
-        vite_community_commit = '566d1703d01d222a9f1464ab8e811bf476dfe9fa'
+        vite_community_commit = '5b84a9fcb0825d174ea5e21c2d515f6b28e6fed4'
 
         vite_business_git = 'https://github.com/vitelabs/vite-business-ios.git'
-        vite_business_commit = '1efb57779258921bae12e70cb020c40db3533a27'
+        vite_business_commit = '05307d9c50a8f31ac1fde1f118e4c7896973995a'
 
         if t == 'Vite-official'
             vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit, :subspecs => ['Official']
@@ -30,7 +30,7 @@ targetArray.each do |t|
             vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
         end
 
-        vite_pod 'ViteUtils', :git => 'https://github.com/vitelabs/vite-utils-ios.git', :commit => '5616db33516147f2b9126293f3676258abfa64d6'
+        vite_pod 'ViteUtils', :git => 'https://github.com/vitelabs/vite-utils-ios.git', :commit => '68ccb4840e8b4eab141306e27ffa555352b1b190'
         vite_pod 'ViteWallet', :git => 'https://github.com/vitelabs/vite-wallet-ios.git', :commit => 'fbb842cdf99e101fd9659016825739f63ccecc03'
         vite_pod 'Vite_HDWalletKit', '1.2.0'
 
