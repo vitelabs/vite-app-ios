@@ -711,8 +711,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness.default-Test/ViteBusiness.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity-Default-Test/ViteCommunity.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity/ViteCommunity.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -735,8 +735,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness.default-Enterprise/ViteBusiness.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity-Default-Enterprise/ViteCommunity.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity/ViteCommunity.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -841,8 +841,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-official/Pods-Vite-official-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness.default-Official/ViteBusiness.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity-Default-Official/ViteCommunity.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity/ViteCommunity.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -1699,7 +1699,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1170;
+				CURRENT_PROJECT_VERSION = 1177;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -1730,7 +1730,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1170;
+				CURRENT_PROJECT_VERSION = 1177;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1862,7 +1862,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1170;
+				CURRENT_PROJECT_VERSION = 1177;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -1896,7 +1896,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1170;
+				CURRENT_PROJECT_VERSION = 1177;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -1931,7 +1931,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1170;
+				CURRENT_PROJECT_VERSION = 1177;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1966,7 +1966,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1170;
+				CURRENT_PROJECT_VERSION = 1177;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2002,7 +2002,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1170;
+				CURRENT_PROJECT_VERSION = 1177;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -2036,7 +2036,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1170;
+				CURRENT_PROJECT_VERSION = 1177;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
