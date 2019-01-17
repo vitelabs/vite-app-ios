@@ -436,9 +436,9 @@ DEPENDENCIES:
   - ViteBusiness/Enterprise (from `https://github.com/vitelabs/vite-business-ios.git`, commit `a49c10de3fa6b241b61e8690037e5492905d55c4`)
   - ViteBusiness/Official (from `https://github.com/vitelabs/vite-business-ios.git`, commit `a49c10de3fa6b241b61e8690037e5492905d55c4`)
   - ViteBusiness/Test (from `https://github.com/vitelabs/vite-business-ios.git`, commit `a49c10de3fa6b241b61e8690037e5492905d55c4`)
-  - ViteCommunity/Enterprise (from `https://github.com/vitelabs/vite-community-ios.git`, commit `e35857bcb3c9b4b9f4d680021f532913f308cdfd`)
-  - ViteCommunity/Official (from `https://github.com/vitelabs/vite-community-ios.git`, commit `e35857bcb3c9b4b9f4d680021f532913f308cdfd`)
-  - ViteCommunity/Test (from `https://github.com/vitelabs/vite-community-ios.git`, commit `e35857bcb3c9b4b9f4d680021f532913f308cdfd`)
+  - ViteCommunity/Enterprise (from `https://github.com/vitelabs/vite-community-ios.git`, commit `98a0c5025ce800abd4a39669dad91e5372bef0d0`)
+  - ViteCommunity/Official (from `https://github.com/vitelabs/vite-community-ios.git`, commit `98a0c5025ce800abd4a39669dad91e5372bef0d0`)
+  - ViteCommunity/Test (from `https://github.com/vitelabs/vite-community-ios.git`, commit `98a0c5025ce800abd4a39669dad91e5372bef0d0`)
   - ViteUtils (from `https://github.com/vitelabs/vite-utils-ios.git`, commit `38ad63af45025c4f4abccff0d6c19cf108b4452c`)
   - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `fbb842cdf99e101fd9659016825739f63ccecc03`)
   - XCGLogger (~> 6.1.0)
@@ -504,7 +504,7 @@ EXTERNAL SOURCES:
     :commit: a49c10de3fa6b241b61e8690037e5492905d55c4
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
-    :commit: e35857bcb3c9b4b9f4d680021f532913f308cdfd
+    :commit: 98a0c5025ce800abd4a39669dad91e5372bef0d0
     :git: https://github.com/vitelabs/vite-community-ios.git
   ViteUtils:
     :commit: 38ad63af45025c4f4abccff0d6c19cf108b4452c
@@ -518,7 +518,7 @@ CHECKOUT OPTIONS:
     :commit: a49c10de3fa6b241b61e8690037e5492905d55c4
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
-    :commit: e35857bcb3c9b4b9f4d680021f532913f308cdfd
+    :commit: 98a0c5025ce800abd4a39669dad91e5372bef0d0
     :git: https://github.com/vitelabs/vite-community-ios.git
   ViteUtils:
     :commit: 38ad63af45025c4f4abccff0d6c19cf108b4452c
@@ -586,6 +586,6 @@ SPEC CHECKSUMS:
   ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 978cb0b41fc89e5b25707046bdd88064857c8fdd
+PODFILE CHECKSUM: 7618d94adf2176dacca8436faf7cc4aee270e132
 
 COCOAPODS: 1.5.3
