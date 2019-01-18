@@ -12,10 +12,14 @@ targetArray.each do |t|
         #vite kit
 
         vite_community_git = 'https://github.com/vitelabs/vite-community-ios.git'
-        vite_community_commit = '98a0c5025ce800abd4a39669dad91e5372bef0d0'
-
         vite_business_git = 'https://github.com/vitelabs/vite-business-ios.git'
-        vite_business_commit = 'd09ab55665bc221e04c743db4e2ff70b5abc68d4'
+        vite_utils_git = 'https://github.com/vitelabs/vite-utils-ios.git'
+        vite_wallet_git = 'https://github.com/vitelabs/vite-wallet-ios.git'
+
+        vite_community_commit = '9126941bf2b4bd73dc30a987885b02e038f68034'
+        vite_business_commit = '14bfb7cfabca9ee0d32005a4302e86e8d7881deb'
+        vite_utils_commit = 'a6598c1f4dd3989170263790e09e0334780c8d3b'
+        vite_wallet_commit = 'b8cb73f7e88ffcaac0a004d4558d5ba82bd9b70b'
 
         if t == 'Vite-official'
             vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit, :subspecs => ['Official']
@@ -30,8 +34,8 @@ targetArray.each do |t|
             vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
         end
 
-        vite_pod 'ViteUtils', :git => 'https://github.com/vitelabs/vite-utils-ios.git', :commit => '38ad63af45025c4f4abccff0d6c19cf108b4452c'
-        vite_pod 'ViteWallet', :git => 'https://github.com/vitelabs/vite-wallet-ios.git', :commit => '02da47a3b2ece0a795a9ed0f5c5efd5d0fe0a3d8'
+        vite_pod 'ViteUtils', :git => vite_utils_git, :commit => vite_utils_commit
+        vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
         vite_pod 'Vite_HDWalletKit', '1.2.0'
 
         pod 'SnapKit', '~> 4.0.0'
