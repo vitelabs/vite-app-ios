@@ -12,7 +12,7 @@ targetArray.each do |t|
         #vite kit
 
         vite_community_git = 'https://github.com/vitelabs/vite-community-ios.git'
-        vite_community_commit = '98a0c5025ce800abd4a39669dad91e5372bef0d0'
+        vite_community_commit = '251b58d0e215366720deb984e2f5a6e03eb4606d'
 
         vite_business_git = 'https://github.com/vitelabs/vite-business-ios.git'
         vite_business_commit = 'a49c10de3fa6b241b61e8690037e5492905d55c4'
