@@ -276,7 +276,7 @@ DEPENDENCIES:
   - SwiftyJSON
   - Then
   - Toast-Swift (~> 4.0.1)
-  - Vite_HDWalletKit (= 1.2.0)
+  - Vite_HDWalletKit (from `../Vite_HDWalletKit/Vite_HDWalletKit.podspec`)
   - ViteBusiness (from `../vite-business-ios/ViteBusiness.podspec`)
   - ViteCommunity (from `../vite-community-ios/ViteCommunity.podspec`)
   - ViteUtils (from `../vite-utils-ios/ViteUtils.podspec`)
@@ -336,10 +336,11 @@ SPEC REPOS:
     - Then
     - Toast-Swift
     - TrezorCryptoEd25519WithBlake2b
-    - Vite_HDWalletKit
     - XCGLogger
 
 EXTERNAL SOURCES:
+  Vite_HDWalletKit:
+    :path: "../Vite_HDWalletKit/Vite_HDWalletKit.podspec"
   ViteBusiness:
     :path: "../vite-business-ios/ViteBusiness.podspec"
   ViteCommunity:
@@ -401,7 +402,7 @@ SPEC CHECKSUMS:
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
-  Vite_HDWalletKit: 8d3f78883b58def92610e44704a93db7b566656c
+  Vite_HDWalletKit: b3375b01abf97e92731750738fd2917b6029c167
   ViteBusiness: 3d3018b6d1a4ccfcf0b6d82c92b5e0268dc163bf
   ViteCommunity: 89c9c42b94b1e1841281c7fd5b5ff09d468a0531
   ViteUtils: dae3a6591680c217c85111c409db257dde516324
