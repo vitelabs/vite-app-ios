@@ -370,6 +370,7 @@ PODS:
     - ViteUtils
   - ViteUtils (0.0.1):
     - CryptoSwift
+    - KeychainSwift
     - "NSObject+Rx"
     - ObjectMapper
     - RxCocoa
@@ -439,7 +440,7 @@ DEPENDENCIES:
   - ViteCommunity/Enterprise (from `https://github.com/vitelabs/vite-community-ios.git`, commit `98a0c5025ce800abd4a39669dad91e5372bef0d0`)
   - ViteCommunity/Official (from `https://github.com/vitelabs/vite-community-ios.git`, commit `98a0c5025ce800abd4a39669dad91e5372bef0d0`)
   - ViteCommunity/Test (from `https://github.com/vitelabs/vite-community-ios.git`, commit `98a0c5025ce800abd4a39669dad91e5372bef0d0`)
-  - ViteUtils (from `https://github.com/vitelabs/vite-utils-ios.git`, commit `38ad63af45025c4f4abccff0d6c19cf108b4452c`)
+  - ViteUtils (from `https://github.com/vitelabs/vite-utils-ios.git`, commit `2585685a0f0547de5561362bc21b29b884a28472`)
   - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `fbb842cdf99e101fd9659016825739f63ccecc03`)
   - XCGLogger (~> 6.1.0)
 
@@ -507,7 +508,7 @@ EXTERNAL SOURCES:
     :commit: 98a0c5025ce800abd4a39669dad91e5372bef0d0
     :git: https://github.com/vitelabs/vite-community-ios.git
   ViteUtils:
-    :commit: 38ad63af45025c4f4abccff0d6c19cf108b4452c
+    :commit: 2585685a0f0547de5561362bc21b29b884a28472
     :git: https://github.com/vitelabs/vite-utils-ios.git
   ViteWallet:
     :commit: fbb842cdf99e101fd9659016825739f63ccecc03
@@ -521,7 +522,7 @@ CHECKOUT OPTIONS:
     :commit: 98a0c5025ce800abd4a39669dad91e5372bef0d0
     :git: https://github.com/vitelabs/vite-community-ios.git
   ViteUtils:
-    :commit: 38ad63af45025c4f4abccff0d6c19cf108b4452c
+    :commit: 2585685a0f0547de5561362bc21b29b884a28472
     :git: https://github.com/vitelabs/vite-utils-ios.git
   ViteWallet:
     :commit: fbb842cdf99e101fd9659016825739f63ccecc03
@@ -582,10 +583,10 @@ SPEC CHECKSUMS:
   Vite_HDWalletKit: 8d3f78883b58def92610e44704a93db7b566656c
   ViteBusiness: 1adaebdd81a9af70dd3bba16bcce1a81e7372f76
   ViteCommunity: 580eabc8e41917ae479d1685f2a2cdbccf7ba33d
-  ViteUtils: 0f801d38c70e82233b34fc6603afc0d29a54d265
+  ViteUtils: e85f06b091d1e3587193c96dbf6bbea12aa37156
   ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 7618d94adf2176dacca8436faf7cc4aee270e132
+PODFILE CHECKSUM: a620288122175228da5f43375c27ff5644e75d7a
 
 COCOAPODS: 1.5.3
