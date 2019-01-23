@@ -453,11 +453,12 @@ DEPENDENCIES:
   - BaiduMobStat
   - BigInt (~> 3.0)
   - CHIPageControl
-  - Crashlytics
+  - Crashlytics (~> 3.12.0)
   - DACircularProgress (= 2.3.1)
   - DNSPageView
   - Eureka (~> 4.3.0)
-  - Fabric
+  - Fabric (~> 1.9.0)
+  - Firebase/Core
   - FSPagerView
   - JSONRPCKit (~> 3.0.0)
   - KeychainSwift
@@ -655,6 +656,6 @@ SPEC CHECKSUMS:
   ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 91597c91628b1bd6da5a13e932ef3ba159ce138c
+PODFILE CHECKSUM: 45b126c5ca5d7dcf479f712d2a069bd4e0b9785a
 
 COCOAPODS: 1.5.3

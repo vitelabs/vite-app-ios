@@ -14,6 +14,10 @@
 		4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
 		4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE425A2124553C0080E92B /* ViteTests.swift */; };
 		4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */; };
+		74649F1221F706A7004D0CCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74649F1121F706A7004D0CCD /* GoogleService-Info.plist */; };
+		74649F1321F706A7004D0CCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74649F1121F706A7004D0CCD /* GoogleService-Info.plist */; };
+		74649F1421F706A7004D0CCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74649F1121F706A7004D0CCD /* GoogleService-Info.plist */; };
+		74649F1621F706B5004D0CCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74649F1521F706B5004D0CCD /* GoogleService-Info.plist */; };
 		74920B5721C10E500010C746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
 		74920B5821C10E500010C746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
 		74920B5921C10E500010C746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
@@ -146,6 +150,8 @@
 		4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidTest.swift; sourceTree = "<group>"; };
 		581B468915D648A917257C6B /* Pods-Vite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.debug.xcconfig"; sourceTree = "<group>"; };
 		600F0652CD1692FE015F8A1D /* Pods-Vite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.release.xcconfig"; sourceTree = "<group>"; };
+		74649F1121F706A7004D0CCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resource/Firebase/official/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		74649F1521F706B5004D0CCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resource/Firebase/enterprise/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74920B5621C10E500010C746 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74920B6621C22D7D0010C746 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74FBDCFA21C7C06000685241 /* PushService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PushService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -297,6 +303,8 @@
 				74920B5621C10E500010C746 /* Assets.xcassets */,
 				4C1FF4EC212A73FB0055067D /* Resource */,
 				4CCE42512124553C0080E92B /* Info.plist */,
+				74649F1121F706A7004D0CCD /* GoogleService-Info.plist */,
+				74649F1521F706B5004D0CCD /* GoogleService-Info.plist */,
 				4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */,
 			);
 			path = Vite;
@@ -374,10 +382,10 @@
 				4CCE423F2124553B0080E92B /* Frameworks */,
 				4CCE42402124553B0080E92B /* Resources */,
 				4C0024DB21257868001DF390 /* Run SwiftLint */,
-				4CFD0E2A21AD064600B5A0A8 /* ShellScript */,
 				74FBDD0521C7C06100685241 /* Embed App Extensions */,
 				91DF2AC82B7DDA02D83831E0 /* [CP] Embed Pods Frameworks */,
 				D2A9E3AECDB489E16B795158 /* [CP] Copy Pods Resources */,
+				74649F0E21F6F3BE004D0CCD /* Run Fabric */,
 			);
 			buildRules = (
 			);
@@ -435,10 +443,10 @@
 				8EA0BF0021996D4800FDE2E8 /* Frameworks */,
 				8EA0BF0221996D4800FDE2E8 /* Resources */,
 				8EA0BF0A21996D4800FDE2E8 /* Run SwiftLint */,
-				4CFD0E2B21AD0D4300B5A0A8 /* ShellScript */,
 				74FBDD1421C898DB00685241 /* Embed App Extensions */,
 				FEBF6879193B4C2831A20191 /* [CP] Embed Pods Frameworks */,
 				31BAB360945C4B9274771AE3 /* [CP] Copy Pods Resources */,
+				74649F0D21F6F3AE004D0CCD /* Run Fabric */,
 			);
 			buildRules = (
 			);
@@ -460,9 +468,9 @@
 				8EA0BFF121996D7800FDE2E8 /* Frameworks */,
 				8EA0BFF321996D7800FDE2E8 /* Resources */,
 				8EA0BFFB21996D7800FDE2E8 /* Run SwiftLint */,
-				4CFD0E2C21AD0D7700B5A0A8 /* ShellScript */,
 				A0AEBDE5CB49291695E8C484 /* [CP] Embed Pods Frameworks */,
 				4971905D21331CBE2161D829 /* [CP] Copy Pods Resources */,
+				74649F1721F8505E004D0CCD /* Run Fabric */,
 			);
 			buildRules = (
 			);
@@ -483,10 +491,10 @@
 				8EF428E421D263010077EDF9 /* Frameworks */,
 				8EF428E621D263010077EDF9 /* Resources */,
 				8EF428EC21D263010077EDF9 /* Run SwiftLint */,
-				8EF428ED21D263010077EDF9 /* ShellScript */,
 				8EF428EF21D263010077EDF9 /* Embed App Extensions */,
 				EC36C238D778C52F6423DA23 /* [CP] Embed Pods Frameworks */,
 				89E68C9E6C35A559326D3C2E /* [CP] Copy Pods Resources */,
+				74649F0C21F6F393004D0CCD /* Run Fabric */,
 			);
 			buildRules = (
 			);
@@ -561,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */,
+				74649F1221F706A7004D0CCD /* GoogleService-Info.plist in Resources */,
 				4C1FF4F0212A74730055067D /* Localizable.strings in Resources */,
 				74920B5721C10E500010C746 /* Assets.xcassets in Resources */,
 			);
@@ -586,6 +595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EA0BF0421996D4800FDE2E8 /* LaunchScreen.storyboard in Resources */,
+				74649F1421F706A7004D0CCD /* GoogleService-Info.plist in Resources */,
 				8EA0BF0621996D4800FDE2E8 /* Localizable.strings in Resources */,
 				74920B5821C10E500010C746 /* Assets.xcassets in Resources */,
 			);
@@ -596,6 +606,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EA0BFF521996D7800FDE2E8 /* LaunchScreen.storyboard in Resources */,
+				74649F1621F706B5004D0CCD /* GoogleService-Info.plist in Resources */,
 				8EA0BFF721996D7800FDE2E8 /* Localizable.strings in Resources */,
 				74920B5921C10E500010C746 /* Assets.xcassets in Resources */,
 			);
@@ -606,6 +617,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EF428E821D263010077EDF9 /* LaunchScreen.storyboard in Resources */,
+				74649F1321F706A7004D0CCD /* GoogleService-Info.plist in Resources */,
 				8EF428E921D263010077EDF9 /* Localizable.strings in Resources */,
 				8EF428EA21D263010077EDF9 /* Assets.xcassets in Resources */,
 			);
@@ -778,7 +790,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
-		4CFD0E2A21AD064600B5A0A8 /* ShellScript */ = {
+		74649F0C21F6F393004D0CCD /* Run Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -788,15 +800,16 @@
 			inputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
+			name = "Run Fabric";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#crash \n\"${PODS_ROOT}/Fabric/run\" 2964cce72aaa8182e1fccc9ba9e3965e041ca47d 060302090e0cd42185b9a6fa3fd5488234c09fa5eb287c46b2e8a1694953cf3f\n";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
-		4CFD0E2B21AD0D4300B5A0A8 /* ShellScript */ = {
+		74649F0D21F6F3AE004D0CCD /* Run Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -806,15 +819,16 @@
 			inputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
+			name = "Run Fabric";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#crash \n\"${PODS_ROOT}/Fabric/run\" 2964cce72aaa8182e1fccc9ba9e3965e041ca47d 060302090e0cd42185b9a6fa3fd5488234c09fa5eb287c46b2e8a1694953cf3f\n\n";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
-		4CFD0E2C21AD0D7700B5A0A8 /* ShellScript */ = {
+		74649F0E21F6F3BE004D0CCD /* Run Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -824,13 +838,33 @@
 			inputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
+			name = "Run Fabric";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#crash \n\"${PODS_ROOT}/Fabric/run\" 2964cce72aaa8182e1fccc9ba9e3965e041ca47d 060302090e0cd42185b9a6fa3fd5488234c09fa5eb287c46b2e8a1694953cf3f\n\n";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		74649F1721F8505E004D0CCD /* Run Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Run Fabric";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		89E68C9E6C35A559326D3C2E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -939,24 +973,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
-		};
-		8EF428ED21D263010077EDF9 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#crash \n\"${PODS_ROOT}/Fabric/run\" 2964cce72aaa8182e1fccc9ba9e3965e041ca47d 060302090e0cd42185b9a6fa3fd5488234c09fa5eb287c46b2e8a1694953cf3f\n";
 		};
 		91DF2AC82B7DDA02D83831E0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1948,6 +1964,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1178;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2019,6 +2036,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1178;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",

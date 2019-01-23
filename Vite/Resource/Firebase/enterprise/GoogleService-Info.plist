@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>249575909042-fl4265e88c0vp5n2vbcdt8l87is08fuu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.249575909042-fl4265e88c0vp5n2vbcdt8l87is08fuu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDn0AleV96MCXGn0Wd47tYYwubboDx2lLs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>249575909042</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>net.vite.wallet.ep</string>
+	<key>PROJECT_ID</key>
+	<string>vitelabs-212608</string>
+	<key>STORAGE_BUCKET</key>
+	<string>vitelabs-212608.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:249575909042:ios:b76164cbd4bc00ab</string>
+	<key>DATABASE_URL</key>
+	<string>https://vitelabs-212608.firebaseio.com</string>
+</dict>
+</plist>

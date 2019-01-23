@@ -14,6 +14,7 @@ import NSObject_Rx
 import Vite_HDWalletKit
 import ViteUtils
 import ViteBusiness
+import Firebase
 
 #if OFFICIAL || TEST || ENTERPRISE
 import ViteCommunity
@@ -26,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        Fabric.with([Crashlytics.self])
+        FirebaseApp.configure()
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
 
         #if OFFICIAL || TEST || ENTERPRISE
