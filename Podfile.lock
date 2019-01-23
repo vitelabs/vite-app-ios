@@ -35,7 +35,51 @@ PODS:
   - Eureka (4.3.0)
   - Fabric (1.9.0)
   - FBRetainCycleDetector (0.1.4)
+  - Firebase/Core (5.14.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.4.0)
+  - Firebase/CoreOnly (5.14.0):
+    - FirebaseCore (= 5.1.9)
+  - FirebaseAnalytics (5.4.0):
+    - FirebaseCore (~> 5.1)
+    - FirebaseInstanceID (~> 3.3)
+    - GoogleAppMeasurement (= 5.4.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - FirebaseCore (5.1.9):
+    - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseInstanceID (3.3.0):
+    - FirebaseCore (~> 5.1)
+    - GoogleUtilities/Environment (~> 5.3)
+    - GoogleUtilities/UserDefaults (~> 5.3)
   - FSPagerView (0.8.2)
+  - GoogleAppMeasurement (5.4.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - GoogleUtilities/AppDelegateSwizzler (5.3.6):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (5.3.6)
+  - GoogleUtilities/Logger (5.3.6):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (5.3.6):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (5.3.6):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (5.3.6)"
+  - GoogleUtilities/Reachability (5.3.6):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (5.3.6):
+    - GoogleUtilities/Logger
   - JSONRPCKit (3.0.0):
     - Result (~> 3.2.0)
   - KeychainSwift (13.0.0)
@@ -50,6 +94,11 @@ PODS:
   - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
   - "NSObject+Rx (4.4.1)":
     - RxSwift (~> 4.3)
   - NYXImagesKit (2.3)
@@ -118,6 +167,7 @@ PODS:
     - DACircularProgress (= 2.3.1)
     - Eureka (~> 4.3.0)
     - Fabric
+    - Firebase/Core
     - JSONRPCKit (~> 3.0.0)
     - KeychainSwift
     - Kingfisher (~> 4.0)
@@ -163,6 +213,7 @@ PODS:
     - DACircularProgress (= 2.3.1)
     - Eureka (~> 4.3.0)
     - Fabric
+    - Firebase/Core
     - JSONRPCKit (~> 3.0.0)
     - KeychainSwift
     - Kingfisher (~> 4.0)
@@ -207,6 +258,7 @@ PODS:
     - DACircularProgress (= 2.3.1)
     - Eureka (~> 4.3.0)
     - Fabric
+    - Firebase/Core
     - JSONRPCKit (~> 3.0.0)
     - KeychainSwift
     - Kingfisher (~> 4.0)
@@ -252,6 +304,7 @@ PODS:
     - DACircularProgress (= 2.3.1)
     - Eureka (~> 4.3.0)
     - Fabric
+    - Firebase/Core
     - JSONRPCKit (~> 3.0.0)
     - KeychainSwift
     - Kingfisher (~> 4.0)
@@ -297,6 +350,7 @@ PODS:
     - DACircularProgress (= 2.3.1)
     - Eureka (~> 4.3.0)
     - Fabric
+    - Firebase/Core
     - JSONRPCKit (~> 3.0.0)
     - KeychainSwift
     - Kingfisher (~> 4.0)
@@ -370,6 +424,7 @@ PODS:
     - ViteUtils
   - ViteUtils (0.0.1):
     - CryptoSwift
+    - KeychainSwift
     - "NSObject+Rx"
     - ObjectMapper
     - RxCocoa
@@ -432,14 +487,14 @@ DEPENDENCIES:
   - Then
   - Toast-Swift (~> 4.0.1)
   - Vite_HDWalletKit (= 1.2.0)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `14bfb7cfabca9ee0d32005a4302e86e8d7881deb`)
-  - ViteBusiness/Enterprise (from `https://github.com/vitelabs/vite-business-ios.git`, commit `14bfb7cfabca9ee0d32005a4302e86e8d7881deb`)
-  - ViteBusiness/Official (from `https://github.com/vitelabs/vite-business-ios.git`, commit `14bfb7cfabca9ee0d32005a4302e86e8d7881deb`)
-  - ViteBusiness/Test (from `https://github.com/vitelabs/vite-business-ios.git`, commit `14bfb7cfabca9ee0d32005a4302e86e8d7881deb`)
-  - ViteCommunity/Enterprise (from `https://github.com/vitelabs/vite-community-ios.git`, commit `9126941bf2b4bd73dc30a987885b02e038f68034`)
-  - ViteCommunity/Official (from `https://github.com/vitelabs/vite-community-ios.git`, commit `9126941bf2b4bd73dc30a987885b02e038f68034`)
-  - ViteCommunity/Test (from `https://github.com/vitelabs/vite-community-ios.git`, commit `9126941bf2b4bd73dc30a987885b02e038f68034`)
-  - ViteUtils (from `https://github.com/vitelabs/vite-utils-ios.git`, commit `a6598c1f4dd3989170263790e09e0334780c8d3b`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `97f7bff1a6225ce2af1cfdcea74088e817643988`)
+  - ViteBusiness/Enterprise (from `https://github.com/vitelabs/vite-business-ios.git`, commit `97f7bff1a6225ce2af1cfdcea74088e817643988`)
+  - ViteBusiness/Official (from `https://github.com/vitelabs/vite-business-ios.git`, commit `97f7bff1a6225ce2af1cfdcea74088e817643988`)
+  - ViteBusiness/Test (from `https://github.com/vitelabs/vite-business-ios.git`, commit `97f7bff1a6225ce2af1cfdcea74088e817643988`)
+  - ViteCommunity/Enterprise (from `https://github.com/vitelabs/vite-community-ios.git`, commit `7dd3debcdd2eaa1a3686e3cb262dfef801b3d922`)
+  - ViteCommunity/Official (from `https://github.com/vitelabs/vite-community-ios.git`, commit `7dd3debcdd2eaa1a3686e3cb262dfef801b3d922`)
+  - ViteCommunity/Test (from `https://github.com/vitelabs/vite-community-ios.git`, commit `7dd3debcdd2eaa1a3686e3cb262dfef801b3d922`)
+  - ViteUtils (from `https://github.com/vitelabs/vite-utils-ios.git`, commit `81529b64024b22ad95a956b1bc4ad1c08cd93f72`)
   - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `b8cb73f7e88ffcaac0a004d4558d5ba82bd9b70b`)
   - XCGLogger (~> 6.1.0)
 
@@ -460,7 +515,13 @@ SPEC REPOS:
     - Eureka
     - Fabric
     - FBRetainCycleDetector
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
     - FSPagerView
+    - GoogleAppMeasurement
+    - GoogleUtilities
     - JSONRPCKit
     - KeychainSwift
     - Kingfisher
@@ -469,6 +530,7 @@ SPEC REPOS:
     - MJRefresh
     - MLeaksFinder
     - Moya
+    - nanopb
     - "NSObject+Rx"
     - NYXImagesKit
     - ObjcExceptionBridging
@@ -501,13 +563,13 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   ViteBusiness:
-    :commit: 14bfb7cfabca9ee0d32005a4302e86e8d7881deb
+    :commit: 97f7bff1a6225ce2af1cfdcea74088e817643988
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
-    :commit: 9126941bf2b4bd73dc30a987885b02e038f68034
+    :commit: 7dd3debcdd2eaa1a3686e3cb262dfef801b3d922
     :git: https://github.com/vitelabs/vite-community-ios.git
   ViteUtils:
-    :commit: a6598c1f4dd3989170263790e09e0334780c8d3b
+    :commit: 81529b64024b22ad95a956b1bc4ad1c08cd93f72
     :git: https://github.com/vitelabs/vite-utils-ios.git
   ViteWallet:
     :commit: b8cb73f7e88ffcaac0a004d4558d5ba82bd9b70b
@@ -515,13 +577,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ViteBusiness:
-    :commit: 14bfb7cfabca9ee0d32005a4302e86e8d7881deb
+    :commit: 97f7bff1a6225ce2af1cfdcea74088e817643988
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
-    :commit: 9126941bf2b4bd73dc30a987885b02e038f68034
+    :commit: 7dd3debcdd2eaa1a3686e3cb262dfef801b3d922
     :git: https://github.com/vitelabs/vite-community-ios.git
   ViteUtils:
-    :commit: a6598c1f4dd3989170263790e09e0334780c8d3b
+    :commit: 81529b64024b22ad95a956b1bc4ad1c08cd93f72
     :git: https://github.com/vitelabs/vite-utils-ios.git
   ViteWallet:
     :commit: b8cb73f7e88ffcaac0a004d4558d5ba82bd9b70b
@@ -543,7 +605,13 @@ SPEC CHECKSUMS:
   Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
+  Firebase: 963d5685fae888a56d6d4d9cfce6b9c976958798
+  FirebaseAnalytics: c06f9d70577d79074214700a71fd5d39de5550fb
+  FirebaseCore: 8f49b70f57ab5cbb032ef41d64992ded21606459
+  FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
+  GoogleAppMeasurement: 98b71f5e04142793729a5ef23e5b96651ff4b70f
+  GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
   KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
@@ -552,6 +620,7 @@ SPEC CHECKSUMS:
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
   Moya: a725035953bc1c0eb1be505ab903984501d82440
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
   NYXImagesKit: 8163e3335a40eaa173ca5bbbf81fafb57d3947eb
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
@@ -580,12 +649,12 @@ SPEC CHECKSUMS:
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
   Vite_HDWalletKit: 8d3f78883b58def92610e44704a93db7b566656c
-  ViteBusiness: 1adaebdd81a9af70dd3bba16bcce1a81e7372f76
+  ViteBusiness: 12046d7c983a56d0ed9c5d82ce78c220e4412111
   ViteCommunity: 580eabc8e41917ae479d1685f2a2cdbccf7ba33d
-  ViteUtils: 0f801d38c70e82233b34fc6603afc0d29a54d265
+  ViteUtils: e85f06b091d1e3587193c96dbf6bbea12aa37156
   ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 251b9734d02ef65fe7236a9a27870d9664921435
+PODFILE CHECKSUM: 91597c91628b1bd6da5a13e932ef3ba159ce138c
 
 COCOAPODS: 1.5.3
