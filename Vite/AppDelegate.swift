@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        FirebaseApp.configure()
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
 
         #if OFFICIAL || TEST || ENTERPRISE
@@ -38,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
 
         ViteBusinessLanucher.instance.start(with: window)
-
+        GCD.delay(1) { FirebaseApp.configure() }
         return true
     }
 
