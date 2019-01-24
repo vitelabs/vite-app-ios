@@ -12,6 +12,16 @@
 		4C0024E421258005001DF390 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0024E321258005001DF390 /* R.generated.swift */; };
 		4C1FF4F0212A74730055067D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
 		4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
+		4CA71A6B21F9B41300F0CFB3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A6A21F9B41200F0CFB3 /* main.swift */; };
+		4CA71A6C21F9B42200F0CFB3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A6A21F9B41200F0CFB3 /* main.swift */; };
+		4CA71A6D21F9B42300F0CFB3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A6A21F9B41200F0CFB3 /* main.swift */; };
+		4CA71A6E21F9B42300F0CFB3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A6A21F9B41200F0CFB3 /* main.swift */; };
+		4CA71A6F21F9B42400F0CFB3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A6A21F9B41200F0CFB3 /* main.swift */; };
+		4CA71A7121F9B48F00F0CFB3 /* DenyPtrace.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */; };
+		4CA71A7221F9B48F00F0CFB3 /* DenyPtrace.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */; };
+		4CA71A7321F9B48F00F0CFB3 /* DenyPtrace.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */; };
+		4CA71A7421F9B48F00F0CFB3 /* DenyPtrace.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */; };
+		4CA71A7521F9B48F00F0CFB3 /* DenyPtrace.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */; };
 		4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE425A2124553C0080E92B /* ViteTests.swift */; };
 		4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */; };
 		74920B5721C10E500010C746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
@@ -137,6 +147,8 @@
 		4C9AFD83214F8F9C005B12C2 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		4C9AFD85214F9087005B12C2 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		4C9AFD89214FB81C005B12C2 /* Vite-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vite-Bridging-Header.h"; sourceTree = "<group>"; };
+		4CA71A6A21F9B41200F0CFB3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = DenyPtrace.c; sourceTree = "<group>"; };
 		4CCE42422124553B0080E92B /* Vite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCE42512124553C0080E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CCE42562124553C0080E92B /* ViteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,6 +304,8 @@
 			children = (
 				4C0024E221257CD9001DF390 /* Vite.entitlements */,
 				74920B6621C22D7D0010C746 /* AppDelegate.swift */,
+				4CA71A6A21F9B41200F0CFB3 /* main.swift */,
+				4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */,
 				4C0024E321258005001DF390 /* R.generated.swift */,
 				4C9AFD89214FB81C005B12C2 /* Vite-Bridging-Header.h */,
 				74920B5621C10E500010C746 /* Assets.xcassets */,
@@ -523,6 +537,7 @@
 					};
 					4CCE42552124553C0080E92B = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 4CCE42412124553B0080E92B;
 					};
 					74FBDCF921C7C06000685241 = {
@@ -711,8 +726,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-test/Pods-Vite-test-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness.default-Test/ViteBusiness.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity-Default-Test/ViteCommunity.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity/ViteCommunity.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -735,8 +750,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-enterprise/Pods-Vite-enterprise-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness.default-Enterprise/ViteBusiness.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity-Default-Enterprise/ViteCommunity.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity/ViteCommunity.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -841,8 +856,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vite-official/Pods-Vite-official-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness.default-Official/ViteBusiness.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity-Default-Official/ViteCommunity.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity/ViteCommunity.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -1479,8 +1494,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CA71A7121F9B48F00F0CFB3 /* DenyPtrace.c in Sources */,
 				74920B6721C22D7D0010C746 /* AppDelegate.swift in Sources */,
 				4C0024E421258005001DF390 /* R.generated.swift in Sources */,
+				4CA71A6B21F9B41300F0CFB3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1489,8 +1506,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				74920B6A21C22D7D0010C746 /* AppDelegate.swift in Sources */,
+				4CA71A6F21F9B42400F0CFB3 /* main.swift in Sources */,
 				8E79261621515D3A007FEBAB /* ViteURITest.swift in Sources */,
 				8E0FB697216B5B95001525EB /* ViteCryptoTest.swift in Sources */,
+				4CA71A7521F9B48F00F0CFB3 /* DenyPtrace.c in Sources */,
 				4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */,
 				8E6F3E14214220DF003CDFC2 /* ViteNetworkTests.swift in Sources */,
 				4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */,
@@ -1509,8 +1528,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CA71A7321F9B48F00F0CFB3 /* DenyPtrace.c in Sources */,
 				74920B6821C22D7D0010C746 /* AppDelegate.swift in Sources */,
 				8EA0BE8E21996D4800FDE2E8 /* R.generated.swift in Sources */,
+				4CA71A6D21F9B42300F0CFB3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1518,8 +1539,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CA71A7421F9B48F00F0CFB3 /* DenyPtrace.c in Sources */,
 				74920B6921C22D7D0010C746 /* AppDelegate.swift in Sources */,
 				8EA0BF7F21996D7800FDE2E8 /* R.generated.swift in Sources */,
+				4CA71A6E21F9B42300F0CFB3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1527,8 +1550,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CA71A7221F9B48F00F0CFB3 /* DenyPtrace.c in Sources */,
 				8EF428E221D263010077EDF9 /* AppDelegate.swift in Sources */,
 				8EF428E321D263010077EDF9 /* R.generated.swift in Sources */,
+				4CA71A6C21F9B42200F0CFB3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1756,6 +1781,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = ViteTests/Info.plist;
@@ -1766,6 +1792,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vite.org.ViteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vite.app/Vite";
@@ -1778,6 +1805,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = ViteTests/Info.plist;

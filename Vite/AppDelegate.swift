@@ -19,7 +19,6 @@ import ViteBusiness
 import ViteCommunity
 #endif
 
-@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let window = UIWindow(frame: UIScreen.main.bounds)
