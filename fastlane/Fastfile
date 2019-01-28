@@ -13,7 +13,7 @@ platform :ios do
     match_profile
     build_app(workspace: "Vite.xcworkspace", scheme: "Vite", clean: true)
     # upload_to_testflight(skip_waiting_for_build_processing: true)
-    upload_dysm
+    upload_dysm()
   end
 
   lane :vite_appstore do 
@@ -21,7 +21,7 @@ platform :ios do
     match_profile
     build_app(workspace: "Vite.xcworkspace", scheme: "Vite-official", clean: true)
     upload_to_testflight(skip_waiting_for_build_processing: true)
-    upload_dysm
+    upload_dysm()
   end
 
   lane :vite_test do 
@@ -32,13 +32,13 @@ platform :ios do
     add_badge(shield: version_number + "-" + build_number + "-" + "orange", no_badge: true)
     build_app(workspace: "Vite.xcworkspace", scheme: "Vite-test", clean: true)
     upload_to_testflight(skip_waiting_for_build_processing: true)
-    upload_dysm
+    upload_dysm()
   end
 
   lane :vite_enterprise do 
     # match(type: "adhoc", app_identifier: "net.vite.wallet.ep",  clone_branch_directly: true)
     build_ios_app(workspace: "Vite.xcworkspace", configuration: "Release", scheme: "Vite-enterprise", export_method: "ad-hoc", clean: true, include_bitcode: false)
-    upload_dysm
+    upload_dysm(type:"enterprise")
   end
 
   lane :match_profile do 
@@ -73,16 +73,14 @@ platform :ios do
   end
 
   desc "upload to Beta by Crashlytics"
-  lane :upload_dysm do 
-    crashlytics(
-      # keys for organization: vite
-      # api_token: ENV["crashlytics_api_token"],
-      # build_secret: ENV["crashlytics_build_secret"],
-      api_token: "2964cce72aaa8182e1fccc9ba9e3965e041ca47d",
-      build_secret: "4dc6d901eed1d8425c5ecf0a7e5a8b2875c9c7307012a90ad4bbe03a1039eb87",
-      debug: true,
-      crashlytics_path: "./Pods/Crashlytics/submit"
-    )
+  lane :upload_dysm do |options|
+    if options[:type] == 'enterprise' 
+      puts "enterprise"
+      exec '../Pods/Fabric/upload-symbols -gsp ../Vite/Resource/Firebase/enterprise/GoogleService-Info.plist -p ios ../Vite-test.app.dSYM.zip'
+    else
+      puts "appstore"
+      exec '../Pods/Fabric/upload-symbols -gsp ../Vite/Resource/Firebase/official/GoogleService-Info.plist -p ios ../Vite-test.app.dSYM.zip'
+    end
   end
   
 end
