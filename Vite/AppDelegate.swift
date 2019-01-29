@@ -14,19 +14,18 @@ import NSObject_Rx
 import Vite_HDWalletKit
 import ViteUtils
 import ViteBusiness
+import Firebase
 
 #if OFFICIAL || TEST || ENTERPRISE
 import ViteCommunity
 #endif
 
-@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let window = UIWindow(frame: UIScreen.main.bounds)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        Fabric.with([Crashlytics.self])
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
 
         #if OFFICIAL || TEST || ENTERPRISE
@@ -38,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
 
         ViteBusinessLanucher.instance.start(with: window)
-
+        GCD.delay(1) { FirebaseApp.configure() }
         return true
     }
 

@@ -12,8 +12,22 @@
 		4C0024E421258005001DF390 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0024E321258005001DF390 /* R.generated.swift */; };
 		4C1FF4F0212A74730055067D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
 		4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
+		4CA71A6B21F9B41300F0CFB3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A6A21F9B41200F0CFB3 /* main.swift */; };
+		4CA71A6C21F9B42200F0CFB3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A6A21F9B41200F0CFB3 /* main.swift */; };
+		4CA71A6D21F9B42300F0CFB3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A6A21F9B41200F0CFB3 /* main.swift */; };
+		4CA71A6E21F9B42300F0CFB3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A6A21F9B41200F0CFB3 /* main.swift */; };
+		4CA71A6F21F9B42400F0CFB3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A6A21F9B41200F0CFB3 /* main.swift */; };
+		4CA71A7121F9B48F00F0CFB3 /* DenyPtrace.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */; };
+		4CA71A7221F9B48F00F0CFB3 /* DenyPtrace.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */; };
+		4CA71A7321F9B48F00F0CFB3 /* DenyPtrace.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */; };
+		4CA71A7421F9B48F00F0CFB3 /* DenyPtrace.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */; };
+		4CA71A7521F9B48F00F0CFB3 /* DenyPtrace.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */; };
 		4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE425A2124553C0080E92B /* ViteTests.swift */; };
 		4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */; };
+		74649F1221F706A7004D0CCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74649F1121F706A7004D0CCD /* GoogleService-Info.plist */; };
+		74649F1321F706A7004D0CCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74649F1121F706A7004D0CCD /* GoogleService-Info.plist */; };
+		74649F1421F706A7004D0CCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74649F1121F706A7004D0CCD /* GoogleService-Info.plist */; };
+		74649F1621F706B5004D0CCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74649F1521F706B5004D0CCD /* GoogleService-Info.plist */; };
 		74920B5721C10E500010C746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
 		74920B5821C10E500010C746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
 		74920B5921C10E500010C746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
@@ -137,6 +151,8 @@
 		4C9AFD83214F8F9C005B12C2 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		4C9AFD85214F9087005B12C2 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		4C9AFD89214FB81C005B12C2 /* Vite-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vite-Bridging-Header.h"; sourceTree = "<group>"; };
+		4CA71A6A21F9B41200F0CFB3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = DenyPtrace.c; sourceTree = "<group>"; };
 		4CCE42422124553B0080E92B /* Vite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCE42512124553C0080E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CCE42562124553C0080E92B /* ViteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +162,8 @@
 		4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidTest.swift; sourceTree = "<group>"; };
 		581B468915D648A917257C6B /* Pods-Vite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.debug.xcconfig"; sourceTree = "<group>"; };
 		600F0652CD1692FE015F8A1D /* Pods-Vite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.release.xcconfig"; sourceTree = "<group>"; };
+		74649F1121F706A7004D0CCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resource/Firebase/official/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		74649F1521F706B5004D0CCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resource/Firebase/enterprise/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74920B5621C10E500010C746 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74920B6621C22D7D0010C746 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74FBDCFA21C7C06000685241 /* PushService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PushService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,11 +310,15 @@
 			children = (
 				4C0024E221257CD9001DF390 /* Vite.entitlements */,
 				74920B6621C22D7D0010C746 /* AppDelegate.swift */,
+				4CA71A6A21F9B41200F0CFB3 /* main.swift */,
+				4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */,
 				4C0024E321258005001DF390 /* R.generated.swift */,
 				4C9AFD89214FB81C005B12C2 /* Vite-Bridging-Header.h */,
 				74920B5621C10E500010C746 /* Assets.xcassets */,
 				4C1FF4EC212A73FB0055067D /* Resource */,
 				4CCE42512124553C0080E92B /* Info.plist */,
+				74649F1121F706A7004D0CCD /* GoogleService-Info.plist */,
+				74649F1521F706B5004D0CCD /* GoogleService-Info.plist */,
 				4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */,
 			);
 			path = Vite;
@@ -374,10 +396,10 @@
 				4CCE423F2124553B0080E92B /* Frameworks */,
 				4CCE42402124553B0080E92B /* Resources */,
 				4C0024DB21257868001DF390 /* Run SwiftLint */,
-				4CFD0E2A21AD064600B5A0A8 /* ShellScript */,
 				74FBDD0521C7C06100685241 /* Embed App Extensions */,
 				91DF2AC82B7DDA02D83831E0 /* [CP] Embed Pods Frameworks */,
 				D2A9E3AECDB489E16B795158 /* [CP] Copy Pods Resources */,
+				74649F0E21F6F3BE004D0CCD /* Run Fabric */,
 			);
 			buildRules = (
 			);
@@ -435,10 +457,10 @@
 				8EA0BF0021996D4800FDE2E8 /* Frameworks */,
 				8EA0BF0221996D4800FDE2E8 /* Resources */,
 				8EA0BF0A21996D4800FDE2E8 /* Run SwiftLint */,
-				4CFD0E2B21AD0D4300B5A0A8 /* ShellScript */,
 				74FBDD1421C898DB00685241 /* Embed App Extensions */,
 				FEBF6879193B4C2831A20191 /* [CP] Embed Pods Frameworks */,
 				31BAB360945C4B9274771AE3 /* [CP] Copy Pods Resources */,
+				74649F0D21F6F3AE004D0CCD /* Run Fabric */,
 			);
 			buildRules = (
 			);
@@ -460,9 +482,9 @@
 				8EA0BFF121996D7800FDE2E8 /* Frameworks */,
 				8EA0BFF321996D7800FDE2E8 /* Resources */,
 				8EA0BFFB21996D7800FDE2E8 /* Run SwiftLint */,
-				4CFD0E2C21AD0D7700B5A0A8 /* ShellScript */,
 				A0AEBDE5CB49291695E8C484 /* [CP] Embed Pods Frameworks */,
 				4971905D21331CBE2161D829 /* [CP] Copy Pods Resources */,
+				74649F1721F8505E004D0CCD /* Run Fabric */,
 			);
 			buildRules = (
 			);
@@ -483,10 +505,10 @@
 				8EF428E421D263010077EDF9 /* Frameworks */,
 				8EF428E621D263010077EDF9 /* Resources */,
 				8EF428EC21D263010077EDF9 /* Run SwiftLint */,
-				8EF428ED21D263010077EDF9 /* ShellScript */,
 				8EF428EF21D263010077EDF9 /* Embed App Extensions */,
 				EC36C238D778C52F6423DA23 /* [CP] Embed Pods Frameworks */,
 				89E68C9E6C35A559326D3C2E /* [CP] Copy Pods Resources */,
+				74649F0C21F6F393004D0CCD /* Run Fabric */,
 			);
 			buildRules = (
 			);
@@ -523,6 +545,7 @@
 					};
 					4CCE42552124553C0080E92B = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 4CCE42412124553B0080E92B;
 					};
 					74FBDCF921C7C06000685241 = {
@@ -561,6 +584,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */,
+				74649F1221F706A7004D0CCD /* GoogleService-Info.plist in Resources */,
 				4C1FF4F0212A74730055067D /* Localizable.strings in Resources */,
 				74920B5721C10E500010C746 /* Assets.xcassets in Resources */,
 			);
@@ -586,6 +610,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EA0BF0421996D4800FDE2E8 /* LaunchScreen.storyboard in Resources */,
+				74649F1421F706A7004D0CCD /* GoogleService-Info.plist in Resources */,
 				8EA0BF0621996D4800FDE2E8 /* Localizable.strings in Resources */,
 				74920B5821C10E500010C746 /* Assets.xcassets in Resources */,
 			);
@@ -596,6 +621,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EA0BFF521996D7800FDE2E8 /* LaunchScreen.storyboard in Resources */,
+				74649F1621F706B5004D0CCD /* GoogleService-Info.plist in Resources */,
 				8EA0BFF721996D7800FDE2E8 /* Localizable.strings in Resources */,
 				74920B5921C10E500010C746 /* Assets.xcassets in Resources */,
 			);
@@ -606,6 +632,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EF428E821D263010077EDF9 /* LaunchScreen.storyboard in Resources */,
+				74649F1321F706A7004D0CCD /* GoogleService-Info.plist in Resources */,
 				8EF428E921D263010077EDF9 /* Localizable.strings in Resources */,
 				8EF428EA21D263010077EDF9 /* Assets.xcassets in Resources */,
 			);
@@ -778,7 +805,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
-		4CFD0E2A21AD064600B5A0A8 /* ShellScript */ = {
+		74649F0C21F6F393004D0CCD /* Run Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -788,15 +815,16 @@
 			inputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
+			name = "Run Fabric";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#crash \n\"${PODS_ROOT}/Fabric/run\" 2964cce72aaa8182e1fccc9ba9e3965e041ca47d 060302090e0cd42185b9a6fa3fd5488234c09fa5eb287c46b2e8a1694953cf3f\n";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
-		4CFD0E2B21AD0D4300B5A0A8 /* ShellScript */ = {
+		74649F0D21F6F3AE004D0CCD /* Run Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -806,15 +834,16 @@
 			inputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
+			name = "Run Fabric";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#crash \n\"${PODS_ROOT}/Fabric/run\" 2964cce72aaa8182e1fccc9ba9e3965e041ca47d 060302090e0cd42185b9a6fa3fd5488234c09fa5eb287c46b2e8a1694953cf3f\n\n";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
-		4CFD0E2C21AD0D7700B5A0A8 /* ShellScript */ = {
+		74649F0E21F6F3BE004D0CCD /* Run Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -824,13 +853,33 @@
 			inputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
+			name = "Run Fabric";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#crash \n\"${PODS_ROOT}/Fabric/run\" 2964cce72aaa8182e1fccc9ba9e3965e041ca47d 060302090e0cd42185b9a6fa3fd5488234c09fa5eb287c46b2e8a1694953cf3f\n\n";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		74649F1721F8505E004D0CCD /* Run Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Run Fabric";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		89E68C9E6C35A559326D3C2E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -940,24 +989,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
-		8EF428ED21D263010077EDF9 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#crash \n\"${PODS_ROOT}/Fabric/run\" 2964cce72aaa8182e1fccc9ba9e3965e041ca47d 060302090e0cd42185b9a6fa3fd5488234c09fa5eb287c46b2e8a1694953cf3f\n";
-		};
 		91DF2AC82B7DDA02D83831E0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -980,6 +1011,7 @@
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONRPCKit/JSONRPCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/KMNavigationBarTransition/KMNavigationBarTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
@@ -1014,6 +1046,7 @@
 				"${BUILT_PRODUCTS_DIR}/ViteWallet/ViteWallet.framework",
 				"${BUILT_PRODUCTS_DIR}/Vite_HDWalletKit/Vite_HDWalletKit.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1033,6 +1066,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONRPCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMNavigationBarTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
@@ -1067,6 +1101,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViteWallet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vite_HDWalletKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1096,6 +1131,7 @@
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONRPCKit/JSONRPCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/KMNavigationBarTransition/KMNavigationBarTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
@@ -1130,6 +1166,7 @@
 				"${BUILT_PRODUCTS_DIR}/ViteWallet/ViteWallet.framework",
 				"${BUILT_PRODUCTS_DIR}/Vite_HDWalletKit/Vite_HDWalletKit.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 			);
@@ -1150,6 +1187,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONRPCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMNavigationBarTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
@@ -1184,6 +1222,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViteWallet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vite_HDWalletKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 			);
@@ -1236,6 +1275,7 @@
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONRPCKit/JSONRPCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/KMNavigationBarTransition/KMNavigationBarTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
@@ -1270,6 +1310,7 @@
 				"${BUILT_PRODUCTS_DIR}/ViteWallet/ViteWallet.framework",
 				"${BUILT_PRODUCTS_DIR}/Vite_HDWalletKit/Vite_HDWalletKit.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 			);
@@ -1290,6 +1331,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONRPCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMNavigationBarTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
@@ -1324,6 +1366,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViteWallet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vite_HDWalletKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 			);
@@ -1376,6 +1419,7 @@
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONRPCKit/JSONRPCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/KMNavigationBarTransition/KMNavigationBarTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
@@ -1410,6 +1454,7 @@
 				"${BUILT_PRODUCTS_DIR}/ViteWallet/ViteWallet.framework",
 				"${BUILT_PRODUCTS_DIR}/Vite_HDWalletKit/Vite_HDWalletKit.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 			);
@@ -1430,6 +1475,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONRPCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMNavigationBarTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
@@ -1464,6 +1510,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViteWallet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vite_HDWalletKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 			);
@@ -1479,8 +1526,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CA71A7121F9B48F00F0CFB3 /* DenyPtrace.c in Sources */,
 				74920B6721C22D7D0010C746 /* AppDelegate.swift in Sources */,
 				4C0024E421258005001DF390 /* R.generated.swift in Sources */,
+				4CA71A6B21F9B41300F0CFB3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1489,8 +1538,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				74920B6A21C22D7D0010C746 /* AppDelegate.swift in Sources */,
+				4CA71A6F21F9B42400F0CFB3 /* main.swift in Sources */,
 				8E79261621515D3A007FEBAB /* ViteURITest.swift in Sources */,
 				8E0FB697216B5B95001525EB /* ViteCryptoTest.swift in Sources */,
+				4CA71A7521F9B48F00F0CFB3 /* DenyPtrace.c in Sources */,
 				4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */,
 				8E6F3E14214220DF003CDFC2 /* ViteNetworkTests.swift in Sources */,
 				4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */,
@@ -1509,8 +1560,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CA71A7321F9B48F00F0CFB3 /* DenyPtrace.c in Sources */,
 				74920B6821C22D7D0010C746 /* AppDelegate.swift in Sources */,
 				8EA0BE8E21996D4800FDE2E8 /* R.generated.swift in Sources */,
+				4CA71A6D21F9B42300F0CFB3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1518,8 +1571,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CA71A7421F9B48F00F0CFB3 /* DenyPtrace.c in Sources */,
 				74920B6921C22D7D0010C746 /* AppDelegate.swift in Sources */,
 				8EA0BF7F21996D7800FDE2E8 /* R.generated.swift in Sources */,
+				4CA71A6E21F9B42300F0CFB3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1527,8 +1582,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CA71A7221F9B48F00F0CFB3 /* DenyPtrace.c in Sources */,
 				8EF428E221D263010077EDF9 /* AppDelegate.swift in Sources */,
 				8EF428E321D263010077EDF9 /* R.generated.swift in Sources */,
+				4CA71A6C21F9B42200F0CFB3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1699,7 +1756,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1178;
+				CURRENT_PROJECT_VERSION = 1190;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -1730,7 +1787,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1178;
+				CURRENT_PROJECT_VERSION = 1190;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = Vite/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1756,6 +1813,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = ViteTests/Info.plist;
@@ -1766,6 +1824,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vite.org.ViteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vite.app/Vite";
@@ -1778,6 +1837,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = ViteTests/Info.plist;
@@ -1862,7 +1922,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1178;
+				CURRENT_PROJECT_VERSION = 1190;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -1896,7 +1956,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1178;
+				CURRENT_PROJECT_VERSION = 1190;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -1931,7 +1991,8 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1178;
+				CURRENT_PROJECT_VERSION = 1190;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1966,7 +2027,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1178;
+				CURRENT_PROJECT_VERSION = 1190;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2002,7 +2063,8 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1178;
+				CURRENT_PROJECT_VERSION = 1190;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -2036,7 +2098,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1178;
+				CURRENT_PROJECT_VERSION = 1190;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",

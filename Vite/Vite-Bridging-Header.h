@@ -6,5 +6,6 @@
 //  Copyright © 2018年 vite labs. All rights reserved.
 //
 
-
+#import "DenyPtrace.c"
 #import "BaiduMobStat.h"
+void disable_gdb();
