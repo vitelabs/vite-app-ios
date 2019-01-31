@@ -36,7 +36,8 @@ targetArray.each do |t|
 
         vite_pod 'ViteUtils', :git => vite_utils_git, :commit => vite_utils_commit
         vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
-        vite_pod 'Vite_HDWalletKit', '1.2.0'
+        # vite_pod 'Vite_HDWalletKit', '1.2.1'
+        vite_pod 'Vite_HDWalletKit', :git => 'https://github.com/vitelabs/vite-keystore-ios.git', :tag => '1.2.1'
 
         pod 'SnapKit', '~> 4.0.0'
         pod 'BigInt', '~> 3.0'
