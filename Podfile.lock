@@ -28,7 +28,7 @@ PODS:
   - CHIPageControl/Puya (0.1.7)
   - Crashlytics (3.12.0):
     - Fabric (~> 1.9.0)
-  - CryptoSwift (0.13.0)
+  - CryptoSwift (0.12.0)
   - DACircularProgress (2.3.1)
   - Differentiator (3.1.0)
   - DNSPageView (1.1.2)
@@ -121,7 +121,6 @@ PODS:
   - R.swift (5.0.0.alpha.3):
     - R.swift.Library (~> 5.0.0.alpha.2)
   - R.swift.Library (5.0.0.alpha.2)
-  - RAMPaperSwitch (3.0.0)
   - RazzleDazzle (0.1.5)
   - ReactorKit (1.2.1):
     - RxSwift (>= 4.0.0)
@@ -157,7 +156,7 @@ PODS:
   - TrezorCryptoEd25519WithBlake2b (0.0.1)
   - Vite_HDWalletKit (1.2.1):
     - BigInt (~> 3.0)
-    - CryptoSwift (= 0.13.0)
+    - CryptoSwift (~> 0.12.0)
     - TrezorCryptoEd25519WithBlake2b (~> 0.0.1)
   - ViteBusiness (0.0.1):
     - Action
@@ -187,7 +186,6 @@ PODS:
     - pop (~> 1.0)
     - PromiseKit (~> 6.0)
     - R.swift (= 5.0.0.alpha.3)
-    - RAMPaperSwitch
     - RazzleDazzle
     - ReactorKit
     - ReusableKit (~> 2.1.0)
@@ -203,7 +201,6 @@ PODS:
     - Toast-Swift (~> 4.0.1)
     - Vite_HDWalletKit
     - ViteBusiness/Default (= 0.0.1)
-    - ViteEthereum
     - ViteUtils
     - ViteWallet
     - XCGLogger (~> 6.1.0)
@@ -235,7 +232,6 @@ PODS:
     - pop (~> 1.0)
     - PromiseKit (~> 6.0)
     - R.swift (= 5.0.0.alpha.3)
-    - RAMPaperSwitch
     - RazzleDazzle
     - ReactorKit
     - ReusableKit (~> 2.1.0)
@@ -250,20 +246,147 @@ PODS:
     - Then
     - Toast-Swift (~> 4.0.1)
     - Vite_HDWalletKit
-    - ViteEthereum
     - ViteUtils
     - ViteWallet
     - XCGLogger (~> 6.1.0)
-  - ViteCommunity (0.1.0):
-    - DNSPageView
-    - FSPagerView
+  - ViteBusiness/Enterprise (0.0.1):
+    - Action
+    - ActionSheetPicker-3.0
+    - Alamofire
+    - APIKit
+    - BaiduMobStat
+    - BigInt (~> 3.0)
+    - CHIPageControl
+    - Crashlytics
+    - CryptoSwift
+    - DACircularProgress (= 2.3.1)
+    - Eureka (~> 4.3.0)
+    - Fabric
+    - Firebase/Core
+    - JSONRPCKit (~> 3.0.0)
+    - KeychainSwift
+    - Kingfisher (~> 4.0)
+    - KMNavigationBarTransition
+    - MBProgressHUD
+    - MJRefresh
+    - MLeaksFinder
     - Moya
-    - QQ_XGPush
-    - R.swift
-    - SwiftDate
-    - ViteBusiness
-    - ViteCommunity/Default (= 0.1.0)
+    - "NSObject+Rx"
+    - NYXImagesKit (= 2.3)
+    - ObjectMapper
+    - pop (~> 1.0)
+    - PromiseKit (~> 6.0)
+    - R.swift (= 5.0.0.alpha.3)
+    - RazzleDazzle
+    - ReactorKit
+    - ReusableKit (~> 2.1.0)
+    - RxCocoa
+    - RxDataSources (~> 3.0)
+    - RxGesture
+    - RxOptional
+    - RxSwift (~> 4.0)
+    - SnapKit (~> 4.0.0)
+    - SwiftLint
+    - SwiftyJSON
+    - Then
+    - Toast-Swift (~> 4.0.1)
+    - Vite_HDWalletKit
+    - ViteBusiness/Default
     - ViteUtils
+    - ViteWallet
+    - XCGLogger (~> 6.1.0)
+  - ViteBusiness/Official (0.0.1):
+    - Action
+    - ActionSheetPicker-3.0
+    - Alamofire
+    - APIKit
+    - BaiduMobStat
+    - BigInt (~> 3.0)
+    - CHIPageControl
+    - Crashlytics
+    - CryptoSwift
+    - DACircularProgress (= 2.3.1)
+    - Eureka (~> 4.3.0)
+    - Fabric
+    - Firebase/Core
+    - JSONRPCKit (~> 3.0.0)
+    - KeychainSwift
+    - Kingfisher (~> 4.0)
+    - KMNavigationBarTransition
+    - MBProgressHUD
+    - MJRefresh
+    - MLeaksFinder
+    - Moya
+    - "NSObject+Rx"
+    - NYXImagesKit (= 2.3)
+    - ObjectMapper
+    - pop (~> 1.0)
+    - PromiseKit (~> 6.0)
+    - R.swift (= 5.0.0.alpha.3)
+    - RazzleDazzle
+    - ReactorKit
+    - ReusableKit (~> 2.1.0)
+    - RxCocoa
+    - RxDataSources (~> 3.0)
+    - RxGesture
+    - RxOptional
+    - RxSwift (~> 4.0)
+    - SnapKit (~> 4.0.0)
+    - SwiftLint
+    - SwiftyJSON
+    - Then
+    - Toast-Swift (~> 4.0.1)
+    - Vite_HDWalletKit
+    - ViteBusiness/Default
+    - ViteUtils
+    - ViteWallet
+    - XCGLogger (~> 6.1.0)
+  - ViteBusiness/Test (0.0.1):
+    - Action
+    - ActionSheetPicker-3.0
+    - Alamofire
+    - APIKit
+    - BaiduMobStat
+    - BigInt (~> 3.0)
+    - CHIPageControl
+    - Crashlytics
+    - CryptoSwift
+    - DACircularProgress (= 2.3.1)
+    - Eureka (~> 4.3.0)
+    - Fabric
+    - Firebase/Core
+    - JSONRPCKit (~> 3.0.0)
+    - KeychainSwift
+    - Kingfisher (~> 4.0)
+    - KMNavigationBarTransition
+    - MBProgressHUD
+    - MJRefresh
+    - MLeaksFinder
+    - Moya
+    - "NSObject+Rx"
+    - NYXImagesKit (= 2.3)
+    - ObjectMapper
+    - pop (~> 1.0)
+    - PromiseKit (~> 6.0)
+    - R.swift (= 5.0.0.alpha.3)
+    - RazzleDazzle
+    - ReactorKit
+    - ReusableKit (~> 2.1.0)
+    - RxCocoa
+    - RxDataSources (~> 3.0)
+    - RxGesture
+    - RxOptional
+    - RxSwift (~> 4.0)
+    - SnapKit (~> 4.0.0)
+    - SwiftLint
+    - SwiftyJSON
+    - Then
+    - Toast-Swift (~> 4.0.1)
+    - Vite_HDWalletKit
+    - ViteBusiness/Default
+    - ViteUtils
+    - ViteWallet
+    - XCGLogger (~> 6.1.0)
   - ViteCommunity/Default (0.1.0):
     - DNSPageView
     - FSPagerView
@@ -272,6 +395,36 @@ PODS:
     - R.swift
     - SwiftDate
     - ViteBusiness
+    - ViteUtils
+  - ViteCommunity/Enterprise (0.1.0):
+    - DNSPageView
+    - FSPagerView
+    - Moya
+    - QQ_XGPush
+    - R.swift
+    - SwiftDate
+    - ViteBusiness
+    - ViteCommunity/Default
+    - ViteUtils
+  - ViteCommunity/Official (0.1.0):
+    - DNSPageView
+    - FSPagerView
+    - Moya
+    - QQ_XGPush
+    - R.swift
+    - SwiftDate
+    - ViteBusiness
+    - ViteCommunity/Default
+    - ViteUtils
+  - ViteCommunity/Test (0.1.0):
+    - DNSPageView
+    - FSPagerView
+    - Moya
+    - QQ_XGPush
+    - R.swift
+    - SwiftDate
+    - ViteBusiness
+    - ViteCommunity/Default
     - ViteUtils
   - ViteEthereum (0.0.1):
     - CryptoSwift
@@ -348,12 +501,17 @@ DEPENDENCIES:
   - SwiftyJSON
   - Then
   - Toast-Swift (~> 4.0.1)
-  - Vite_HDWalletKit (from `../Vite_HDWalletKit/Vite_HDWalletKit.podspec`)
-  - ViteBusiness (from `../vite-business-ios/ViteBusiness.podspec`)
-  - ViteCommunity (from `../vite-community-ios/ViteCommunity.podspec`)
-  - ViteEthereum (from `../vite-ethereum-ios-public/ViteEthereum.podspec`)
-  - ViteUtils (from `../vite-utils-ios/ViteUtils.podspec`)
-  - ViteWallet (from `../vite-wallet-ios/ViteWallet.podspec`)
+  - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-keystore-ios.git`, tag `1.2.1`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `e4a9a4ef576b9d7f9db30a6beea580ac2488cd1b`)
+  - ViteBusiness/Enterprise (from `https://github.com/vitelabs/vite-business-ios.git`, commit `e4a9a4ef576b9d7f9db30a6beea580ac2488cd1b`)
+  - ViteBusiness/Official (from `https://github.com/vitelabs/vite-business-ios.git`, commit `e4a9a4ef576b9d7f9db30a6beea580ac2488cd1b`)
+  - ViteBusiness/Test (from `https://github.com/vitelabs/vite-business-ios.git`, commit `e4a9a4ef576b9d7f9db30a6beea580ac2488cd1b`)
+  - ViteCommunity/Enterprise (from `https://github.com/vitelabs/vite-community-ios.git`, commit `1fb74697c05ecf0fe620bd35c89bd22412685322`)
+  - ViteCommunity/Official (from `https://github.com/vitelabs/vite-community-ios.git`, commit `1fb74697c05ecf0fe620bd35c89bd22412685322`)
+  - ViteCommunity/Test (from `https://github.com/vitelabs/vite-community-ios.git`, commit `1fb74697c05ecf0fe620bd35c89bd22412685322`)
+  - ViteEthereum (from `https://github.com/vitelabs/vite-ethereum-ios.git`)
+  - ViteUtils (from `https://github.com/vitelabs/vite-utils-ios.git`, commit `b8680ffc327a1f64b84c3e4b7ff056fac5b2c7bb`)
+  - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `d0628f5cba380396fcf8289b65555a6ca7949b58`)
   - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
@@ -399,7 +557,6 @@ SPEC REPOS:
     - QQ_XGPush
     - R.swift
     - R.swift.Library
-    - RAMPaperSwitch
     - RazzleDazzle
     - ReactorKit
     - Result
@@ -426,17 +583,42 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Vite_HDWalletKit:
-    :path: "../Vite_HDWalletKit/Vite_HDWalletKit.podspec"
+    :git: https://github.com/vitelabs/vite-keystore-ios.git
+    :tag: 1.2.1
   ViteBusiness:
-    :path: "../vite-business-ios/ViteBusiness.podspec"
+    :commit: e4a9a4ef576b9d7f9db30a6beea580ac2488cd1b
+    :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
-    :path: "../vite-community-ios/ViteCommunity.podspec"
+    :commit: 1fb74697c05ecf0fe620bd35c89bd22412685322
+    :git: https://github.com/vitelabs/vite-community-ios.git
   ViteEthereum:
-    :path: "../vite-ethereum-ios-public/ViteEthereum.podspec"
+    :git: https://github.com/vitelabs/vite-ethereum-ios.git
   ViteUtils:
-    :path: "../vite-utils-ios/ViteUtils.podspec"
+    :commit: b8680ffc327a1f64b84c3e4b7ff056fac5b2c7bb
+    :git: https://github.com/vitelabs/vite-utils-ios.git
   ViteWallet:
-    :path: "../vite-wallet-ios/ViteWallet.podspec"
+    :commit: d0628f5cba380396fcf8289b65555a6ca7949b58
+    :git: https://github.com/vitelabs/vite-wallet-ios.git
+
+CHECKOUT OPTIONS:
+  Vite_HDWalletKit:
+    :git: https://github.com/vitelabs/vite-keystore-ios.git
+    :tag: 1.2.1
+  ViteBusiness:
+    :commit: e4a9a4ef576b9d7f9db30a6beea580ac2488cd1b
+    :git: https://github.com/vitelabs/vite-business-ios.git
+  ViteCommunity:
+    :commit: 1fb74697c05ecf0fe620bd35c89bd22412685322
+    :git: https://github.com/vitelabs/vite-community-ios.git
+  ViteEthereum:
+    :commit: e6ad079f6e8d572990c337d618f74ca4d1081816
+    :git: https://github.com/vitelabs/vite-ethereum-ios.git
+  ViteUtils:
+    :commit: b8680ffc327a1f64b84c3e4b7ff056fac5b2c7bb
+    :git: https://github.com/vitelabs/vite-utils-ios.git
+  ViteWallet:
+    :commit: d0628f5cba380396fcf8289b65555a6ca7949b58
+    :git: https://github.com/vitelabs/vite-wallet-ios.git
 
 SPEC CHECKSUMS:
   Action: 2f461c203c480b17aa99b3bb166e4329ecff6908
@@ -447,7 +629,7 @@ SPEC CHECKSUMS:
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   CHIPageControl: bbe1ddd0c688c02ec65b7f7e7d34551a3d16f37c
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
-  CryptoSwift: 16e78bebf567bad1c87b2d58f6547f25b74c31aa
+  CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   DNSPageView: 7bb82f6d666a9c8cfea0865f8fc24424a09b2ba5
@@ -480,7 +662,6 @@ SPEC CHECKSUMS:
   QQ_XGPush: ab74daad9c70491fe9e97d12bc8cc04115b4fef5
   R.swift: ca4207ecc94545a1611ca0b2ae1197458b6ba30a
   R.swift.Library: 3c21b823839bf5a6769dc7f96cb44479dab51b1b
-  RAMPaperSwitch: 9b81604ec2e7d6dda3fd2cbac53eb012f7a5cc87
   RazzleDazzle: 0b1b9fc8ceed04bfdd4b3e8182e98ef7edacd1d1
   ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
@@ -502,12 +683,12 @@ SPEC CHECKSUMS:
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
-  Vite_HDWalletKit: 6c32c089d72e968e3733d251a95ba5099712a01b
-  ViteBusiness: 8177cf5c761024ca40d1bc07ed5e67d74f182f02
-  ViteCommunity: e4cfa5ca40ac474a77d5e46239f5c9cd8518b3bf
-  ViteEthereum: 7e886eb16d4d12d99da994697ed2193fb0417506
-  ViteUtils: bd0fe2038c4824b89bd7472b6aa5c2f7bb0b7548
-  ViteWallet: 382ab10ba912014b64d103ef0324760259d584ae
+  Vite_HDWalletKit: c6d112f585e21b182bda6731f904d09db71ec7fe
+  ViteBusiness: 12046d7c983a56d0ed9c5d82ce78c220e4412111
+  ViteCommunity: 6b0f5912fd1df65e1ef12ff7ab2cc0f086497f6e
+  ViteEthereum: 1ec6e02ff0cd7c63a4379a0bdf3577fa5dcf1029
+  ViteUtils: e85f06b091d1e3587193c96dbf6bbea12aa37156
+  ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   web3swift.pod: 6e1bb8f68c6896db180725e34cc55fab60e282c8
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
