@@ -15,6 +15,7 @@ import Vite_HDWalletKit
 import ViteUtils
 import ViteBusiness
 import Firebase
+import UserNotifications
 
 #if OFFICIAL || TEST || ENTERPRISE
 import ViteCommunity
@@ -29,16 +30,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
 
         #if OFFICIAL || TEST || ENTERPRISE
-        #if !ENTERPRISE
+        #if ENTERPRISE
+        FirebaseApp.configure()
+        #else
         VitePushManager.shared().start(launchOptions: launchOptions ?? [:])
+        checkPushAuthorization()
         #endif
         ViteCommunity.register()
         ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 2)
         #endif
 
         ViteBusinessLanucher.instance.start(with: window)
-        GCD.delay(1) { FirebaseApp.configure() }
         return true
+    }
+
+    func checkPushAuthorization() {
+        // fix Firebase and XGPush conflict
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            if settings.authorizationStatus == .notDetermined {
+                GCD.delay(1) { self.checkPushAuthorization() }
+            } else {
+                GCD.delay(1) { FirebaseApp.configure() }
+            }
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
