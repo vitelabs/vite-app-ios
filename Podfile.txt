@@ -3,7 +3,7 @@ inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
 
-targetArray = ['Vite', 'Vite-official', 'Vite-test', 'Vite-enterprise']
+targetArray = ['Vite']
 
 targetArray.each do |t|
     target t do
@@ -12,14 +12,10 @@ targetArray.each do |t|
         #vite kit
 
         vite_community_git = 'https://github.com/vitelabs/vite-community-ios.git'
-        vite_business_git = 'https://github.com/vitelabs/vite-business-ios.git'
-        vite_utils_git = 'https://github.com/vitelabs/vite-utils-ios.git'
-        vite_wallet_git = 'https://github.com/vitelabs/vite-wallet-ios.git'
+        vite_community_commit = '5b84a9fcb0825d174ea5e21c2d515f6b28e6fed4'
 
-        vite_community_commit = '1fb74697c05ecf0fe620bd35c89bd22412685322'
-        vite_business_commit = '113f13e5effb6006a916426bd448d732444a47a0'
-        vite_utils_commit = 'b8680ffc327a1f64b84c3e4b7ff056fac5b2c7bb'
-        vite_wallet_commit = 'd0628f5cba380396fcf8289b65555a6ca7949b58'
+        vite_business_git = 'https://github.com/vitelabs/vite-business-ios.git'
+        vite_business_commit = '05307d9c50a8f31ac1fde1f118e4c7896973995a'
 
         if t == 'Vite-official'
             vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit, :subspecs => ['Official']
@@ -34,10 +30,9 @@ targetArray.each do |t|
             vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
         end
 
-        vite_pod 'ViteUtils', :git => vite_utils_git, :commit => vite_utils_commit
-        vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
-        # vite_pod 'Vite_HDWalletKit', '1.2.1'
-        vite_pod 'Vite_HDWalletKit', :git => 'https://github.com/vitelabs/vite-keystore-ios.git', :tag => '1.2.1'
+        vite_pod 'ViteUtils', :git => 'https://github.com/vitelabs/vite-utils-ios.git', :commit => '68ccb4840e8b4eab141306e27ffa555352b1b190'
+        vite_pod 'ViteWallet', :git => 'https://github.com/vitelabs/vite-wallet-ios.git', :commit => 'fbb842cdf99e101fd9659016825739f63ccecc03'
+        vite_pod 'Vite_HDWalletKit', '1.2.0'
 
         pod 'SnapKit', '~> 4.0.0'
         pod 'BigInt', '~> 3.0'
@@ -89,9 +84,8 @@ targetArray.each do |t|
         pod 'SwiftLint'
 
         #crash
-        pod 'Fabric', '~> 1.9.0'
-        pod 'Crashlytics', '~> 3.12.0'
-        pod 'Firebase/Core'
+        pod 'Fabric'
+        pod 'Crashlytics'
 
         pod 'MLeaksFinder', :configurations => ['Debug']
 
