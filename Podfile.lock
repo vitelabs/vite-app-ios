@@ -488,10 +488,10 @@ DEPENDENCIES:
   - Then
   - Toast-Swift (~> 4.0.1)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-keystore-ios.git`, tag `1.2.1`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `e4a9a4ef576b9d7f9db30a6beea580ac2488cd1b`)
-  - ViteBusiness/Enterprise (from `https://github.com/vitelabs/vite-business-ios.git`, commit `e4a9a4ef576b9d7f9db30a6beea580ac2488cd1b`)
-  - ViteBusiness/Official (from `https://github.com/vitelabs/vite-business-ios.git`, commit `e4a9a4ef576b9d7f9db30a6beea580ac2488cd1b`)
-  - ViteBusiness/Test (from `https://github.com/vitelabs/vite-business-ios.git`, commit `e4a9a4ef576b9d7f9db30a6beea580ac2488cd1b`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `113f13e5effb6006a916426bd448d732444a47a0`)
+  - ViteBusiness/Enterprise (from `https://github.com/vitelabs/vite-business-ios.git`, commit `113f13e5effb6006a916426bd448d732444a47a0`)
+  - ViteBusiness/Official (from `https://github.com/vitelabs/vite-business-ios.git`, commit `113f13e5effb6006a916426bd448d732444a47a0`)
+  - ViteBusiness/Test (from `https://github.com/vitelabs/vite-business-ios.git`, commit `113f13e5effb6006a916426bd448d732444a47a0`)
   - ViteCommunity/Enterprise (from `https://github.com/vitelabs/vite-community-ios.git`, commit `1fb74697c05ecf0fe620bd35c89bd22412685322`)
   - ViteCommunity/Official (from `https://github.com/vitelabs/vite-community-ios.git`, commit `1fb74697c05ecf0fe620bd35c89bd22412685322`)
   - ViteCommunity/Test (from `https://github.com/vitelabs/vite-community-ios.git`, commit `1fb74697c05ecf0fe620bd35c89bd22412685322`)
@@ -566,7 +566,7 @@ EXTERNAL SOURCES:
     :git: https://github.com/vitelabs/vite-keystore-ios.git
     :tag: 1.2.1
   ViteBusiness:
-    :commit: e4a9a4ef576b9d7f9db30a6beea580ac2488cd1b
+    :commit: 113f13e5effb6006a916426bd448d732444a47a0
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 1fb74697c05ecf0fe620bd35c89bd22412685322
@@ -583,7 +583,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/vitelabs/vite-keystore-ios.git
     :tag: 1.2.1
   ViteBusiness:
-    :commit: e4a9a4ef576b9d7f9db30a6beea580ac2488cd1b
+    :commit: 113f13e5effb6006a916426bd448d732444a47a0
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 1fb74697c05ecf0fe620bd35c89bd22412685322
@@ -661,6 +661,6 @@ SPEC CHECKSUMS:
   ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: b0f866861cce05b23dabc471f09495f91cfc3028
+PODFILE CHECKSUM: 1d5d679f12b08a16321d827ee2e1a98685bf4e7d
 
 COCOAPODS: 1.5.3
