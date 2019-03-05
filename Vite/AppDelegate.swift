@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         checkPushAuthorization()
         #endif
         ViteCommunity.register()
-        ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 2)
+        ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 1)
         #endif
 
         ViteBusinessLanucher.instance.start(with: window)
