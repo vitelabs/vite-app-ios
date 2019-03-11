@@ -1,9 +1,9 @@
 PODS:
-  - Action (3.9.1):
+  - Action (3.10.0):
     - RxCocoa (~> 4.3)
     - RxSwift (~> 4.3)
   - ActionSheetPicker-3.0 (2.3.0)
-  - Alamofire (4.8.0)
+  - Alamofire (4.8.1)
   - APIKit (3.2.1):
     - Result (~> 3.0)
   - BaiduMobStat (4.9.1)
@@ -28,57 +28,57 @@ PODS:
   - CHIPageControl/Puya (0.1.7)
   - Crashlytics (3.12.0):
     - Fabric (~> 1.9.0)
-  - CryptoSwift (0.13.0)
+  - CryptoSwift (0.14.0)
   - DACircularProgress (2.3.1)
   - Differentiator (3.1.0)
-  - DNSPageView (1.1.2)
-  - Eureka (4.3.0)
+  - DNSPageView (1.1.4)
+  - Eureka (4.3.1)
   - Fabric (1.9.0)
   - FBRetainCycleDetector (0.1.4)
-  - Firebase/Core (5.14.0):
+  - Firebase/Core (5.16.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 5.4.0)
-  - Firebase/CoreOnly (5.14.0):
-    - FirebaseCore (= 5.1.9)
-  - FirebaseAnalytics (5.4.0):
-    - FirebaseCore (~> 5.1)
-    - FirebaseInstanceID (~> 3.3)
-    - GoogleAppMeasurement (= 5.4.0)
+    - FirebaseAnalytics (= 5.5.0)
+  - Firebase/CoreOnly (5.16.0):
+    - FirebaseCore (= 5.2.0)
+  - FirebaseAnalytics (5.5.0):
+    - FirebaseCore (~> 5.2)
+    - FirebaseInstanceID (~> 3.4)
+    - GoogleAppMeasurement (= 5.5.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
-  - FirebaseCore (5.1.9):
+  - FirebaseCore (5.2.0):
     - GoogleUtilities/Logger (~> 5.2)
-  - FirebaseInstanceID (3.3.0):
-    - FirebaseCore (~> 5.1)
+  - FirebaseInstanceID (3.4.0):
+    - FirebaseCore (~> 5.2)
     - GoogleUtilities/Environment (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
   - FSPagerView (0.8.2)
-  - GoogleAppMeasurement (5.4.0):
+  - GoogleAppMeasurement (5.5.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
-  - GoogleUtilities/AppDelegateSwizzler (5.3.6):
+  - GoogleUtilities/AppDelegateSwizzler (5.3.7):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (5.3.6)
-  - GoogleUtilities/Logger (5.3.6):
+  - GoogleUtilities/Environment (5.3.7)
+  - GoogleUtilities/Logger (5.3.7):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (5.3.6):
+  - GoogleUtilities/MethodSwizzler (5.3.7):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (5.3.6):
+  - GoogleUtilities/Network (5.3.7):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (5.3.6)"
-  - GoogleUtilities/Reachability (5.3.6):
+  - "GoogleUtilities/NSData+zlib (5.3.7)"
+  - GoogleUtilities/Reachability (5.3.7):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (5.3.6):
+  - GoogleUtilities/UserDefaults (5.3.7):
     - GoogleUtilities/Logger
   - JSONRPCKit (3.0.0):
     - Result (~> 3.2.0)
@@ -106,21 +106,21 @@ PODS:
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
-  - ObjectMapper (3.4.1)
+  - ObjectMapper (3.4.2)
   - pop (1.0.12)
-  - PromiseKit (6.7.0):
-    - PromiseKit/CorePromise (= 6.7.0)
-    - PromiseKit/Foundation (= 6.7.0)
-    - PromiseKit/UIKit (= 6.7.0)
-  - PromiseKit/CorePromise (6.7.0)
-  - PromiseKit/Foundation (6.7.0):
+  - PromiseKit (6.8.3):
+    - PromiseKit/CorePromise (= 6.8.3)
+    - PromiseKit/Foundation (= 6.8.3)
+    - PromiseKit/UIKit (= 6.8.3)
+  - PromiseKit/CorePromise (6.8.3)
+  - PromiseKit/Foundation (6.8.3):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.7.0):
+  - PromiseKit/UIKit (6.8.3):
     - PromiseKit/CorePromise
   - QQ_XGPush (3.2.2)
   - R.swift (5.0.0.alpha.3):
     - R.swift.Library (~> 5.0.0.alpha.2)
-  - R.swift.Library (5.0.0.alpha.2)
+  - R.swift.Library (5.0.0)
   - RazzleDazzle (0.1.5)
   - ReactorKit (1.2.1):
     - RxSwift (>= 4.0.0)
@@ -128,8 +128,8 @@ PODS:
   - ReusableKit (2.1.0):
     - ReusableKit/Core (= 2.1.0)
   - ReusableKit/Core (2.1.0)
-  - RxAtomic (4.4.0)
-  - RxCocoa (4.4.0):
+  - RxAtomic (4.4.1)
+  - RxCocoa (4.4.1):
     - RxSwift (~> 4.0)
   - RxDataSources (3.1.0):
     - Differentiator (~> 3.0)
@@ -141,21 +141,21 @@ PODS:
   - RxOptional (3.6.2):
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-  - RxSwift (4.4.0):
+  - RxSwift (4.4.1):
     - RxAtomic (~> 4.4)
   - scrypt.c (0.1.1)
   - secp256k1.c (0.1.2)
   - SipHash (1.2.2)
   - SnapKit (4.0.1)
   - SwiftDate (5.1.0)
-  - SwiftLint (0.29.1)
+  - SwiftLint (0.30.1)
   - SwiftyJSON (4.2.0)
   - Then (2.4.0)
   - Toast-Swift (4.0.1)
   - TrezorCryptoEd25519WithBlake2b (0.0.1)
   - Vite_HDWalletKit (1.2.1):
     - BigInt (~> 3.0)
-    - CryptoSwift (= 0.13.0)
+    - CryptoSwift (= 0.14.0)
     - TrezorCryptoEd25519WithBlake2b (~> 0.0.1)
   - ViteBusiness (0.0.1):
     - Action
@@ -270,7 +270,7 @@ PODS:
     - ViteBusiness
     - ViteUtils
   - ViteEthereum (0.0.1):
-    - CryptoSwift
+    - CryptoSwift (= 0.14.0)
     - web3swift.pod (= 2.1.9)
   - ViteUtils (0.0.1):
     - CryptoSwift
@@ -343,12 +343,12 @@ DEPENDENCIES:
   - SwiftyJSON
   - Then
   - Toast-Swift (~> 4.0.1)
-  - Vite_HDWalletKit (from `../vite-hd-ios/Vite_HDWalletKit.podspec`)
+  - Vite_HDWalletKit (from `../Vite_HDWalletKit/Vite_HDWalletKit.podspec`)
   - ViteBusiness (from `../vite-business-ios/ViteBusiness.podspec`)
   - ViteCommunity (from `../vite-community-ios/ViteCommunity.podspec`)
-  - ViteEthereum (from `../vite-ethereum-ios/ViteEthereum.podspec`)
+  - ViteEthereum (from `../vite-ethereum-ios-public/ViteEthereum.podspec`)
   - ViteUtils (from `../vite-utils-ios/ViteUtils.podspec`)
-  - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `d0628f5cba380396fcf8289b65555a6ca7949b58`)
+  - ViteWallet (from `../vite-wallet-ios/ViteWallet.podspec`)
   - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
@@ -419,47 +419,41 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Vite_HDWalletKit:
-    :path: "../vite-hd-ios/Vite_HDWalletKit.podspec"
+    :path: "../Vite_HDWalletKit/Vite_HDWalletKit.podspec"
   ViteBusiness:
     :path: "../vite-business-ios/ViteBusiness.podspec"
   ViteCommunity:
     :path: "../vite-community-ios/ViteCommunity.podspec"
   ViteEthereum:
-    :path: "../vite-ethereum-ios/ViteEthereum.podspec"
+    :path: "../vite-ethereum-ios-public/ViteEthereum.podspec"
   ViteUtils:
     :path: "../vite-utils-ios/ViteUtils.podspec"
   ViteWallet:
-    :commit: d0628f5cba380396fcf8289b65555a6ca7949b58
-    :git: https://github.com/vitelabs/vite-wallet-ios.git
-
-CHECKOUT OPTIONS:
-  ViteWallet:
-    :commit: d0628f5cba380396fcf8289b65555a6ca7949b58
-    :git: https://github.com/vitelabs/vite-wallet-ios.git
+    :path: "../vite-wallet-ios/ViteWallet.podspec"
 
 SPEC CHECKSUMS:
-  Action: 2f461c203c480b17aa99b3bb166e4329ecff6908
+  Action: 24de4abf6efecd239fa7d8e923df010a12f153d9
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
-  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   APIKit: a39ff72ac44efc15513fd1b98800f63c525be61b
   BaiduMobStat: e2dbfd44f1535adf3c0001cbd3212eb61c4fe639
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   CHIPageControl: bbe1ddd0c688c02ec65b7f7e7d34551a3d16f37c
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
-  CryptoSwift: 16e78bebf567bad1c87b2d58f6547f25b74c31aa
+  CryptoSwift: 35a10419f4dbf0619c13f8c1c180037e115323fa
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  DNSPageView: 7bb82f6d666a9c8cfea0865f8fc24424a09b2ba5
-  Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
+  DNSPageView: 370924a5e1f424444af2403f2b90143a2dedd089
+  Eureka: 28ea296f06710f6745266b71f17862048941a32d
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
-  Firebase: 963d5685fae888a56d6d4d9cfce6b9c976958798
-  FirebaseAnalytics: c06f9d70577d79074214700a71fd5d39de5550fb
-  FirebaseCore: 8f49b70f57ab5cbb032ef41d64992ded21606459
-  FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
+  Firebase: 749a8ff4962f9d8c79dda1966de20f6f77583d67
+  FirebaseAnalytics: d35d47c03c50c73c14a7fd31463c5775843e78a9
+  FirebaseCore: ea2d1816723ef21492b8e9113303e1350db5e08c
+  FirebaseInstanceID: 97ea7a5dca9afd72c79bfcdddb7a44aa1cbb42a1
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
-  GoogleAppMeasurement: 98b71f5e04142793729a5ef23e5b96651ff4b70f
-  GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
+  GoogleAppMeasurement: 621f3bc6211d5ba548debe01fafad30cf5ab6859
+  GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
   keccak.c: 859583afdaccb4e4fcc0f0096064d101580313f4
   KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
@@ -473,38 +467,38 @@ SPEC CHECKSUMS:
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
   NYXImagesKit: 8163e3335a40eaa173ca5bbbf81fafb57d3947eb
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
-  ObjectMapper: 5311bd50ca732930959e7ca1a2de43ab823a5ced
+  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
-  PromiseKit: 453ddcc947fe7b302f3ef41882b81d31c554df7f
+  PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
   QQ_XGPush: ab74daad9c70491fe9e97d12bc8cc04115b4fef5
   R.swift: ca4207ecc94545a1611ca0b2ae1197458b6ba30a
-  R.swift.Library: 3c21b823839bf5a6769dc7f96cb44479dab51b1b
+  R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
   RazzleDazzle: 0b1b9fc8ceed04bfdd4b3e8182e98ef7edacd1d1
   ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   ReusableKit: d0b040de03b293288b0ca27a78602691d3346d9b
-  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
-  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
+  RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxGesture: 7f6dfb45dbde06e618c24442d38493e3144f2c95
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
-  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
   scrypt.c: b42ae06183251329d2b2c620c226fb541a4a3592
   secp256k1.c: db47b726585d80f027423682eb369729e61b3b20
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftDate: 6329e58969a2de31cea7f1ee1143b247693196e7
-  SwiftLint: 6772320e40b52049053a518c17db9b0634a0b45a
+  SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
-  Vite_HDWalletKit: 6c32c089d72e968e3733d251a95ba5099712a01b
+  Vite_HDWalletKit: 1f11a5d1d137e8fb8e576fefa9fe117ef36fec2d
   ViteBusiness: bb71c75cf48209ec3c075c46becf4e669592883b
   ViteCommunity: e4cfa5ca40ac474a77d5e46239f5c9cd8518b3bf
-  ViteEthereum: 975ff3c94bd645431fc3af94291b78f4f29ee2b9
+  ViteEthereum: c3eaf1ae6d4f15d87ebdc11b9cceb8b2404acc8c
   ViteUtils: bd0fe2038c4824b89bd7472b6aa5c2f7bb0b7548
-  ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
+  ViteWallet: 382ab10ba912014b64d103ef0324760259d584ae
   web3swift.pod: 6e1bb8f68c6896db180725e34cc55fab60e282c8
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 

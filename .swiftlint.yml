@@ -1,4 +1,4 @@
-swiftlint_version: 0.29.1
+swiftlint_version: 0.30.1
 disabled_rules:
   - cyclomatic_complexity
   - force_cast
