@@ -271,7 +271,7 @@ PODS:
     - SwiftDate
     - ViteBusiness
     - ViteUtils
-  - ViteEthereum (0.0.1):
+  - ViteEthereum (0.0.2):
     - CryptoSwift (= 0.14.0)
     - web3swift.pod (= 2.1.9)
   - ViteUtils (0.0.1):
@@ -348,7 +348,7 @@ DEPENDENCIES:
   - Vite_HDWalletKit (= 1.3.0)
   - ViteBusiness (from `../vite-business-ios/ViteBusiness.podspec`)
   - ViteCommunity (from `../vite-community-ios/ViteCommunity.podspec`)
-  - ViteEthereum (= 0.0.1)
+  - ViteEthereum (from `../vite-ethereum-ios-public/ViteEthereum.podspec`)
   - ViteUtils (from `../vite-utils-ios/ViteUtils.podspec`)
   - ViteWallet (from `../vite-wallet-ios/ViteWallet.podspec`)
   - XCGLogger (~> 6.1.0)
@@ -417,7 +417,6 @@ SPEC REPOS:
     - Toast-Swift
     - TrezorCryptoEd25519WithBlake2b
     - Vite_HDWalletKit
-    - ViteEthereum
     - web3swift.pod
     - XCGLogger
 
@@ -426,6 +425,8 @@ EXTERNAL SOURCES:
     :path: "../vite-business-ios/ViteBusiness.podspec"
   ViteCommunity:
     :path: "../vite-community-ios/ViteCommunity.podspec"
+  ViteEthereum:
+    :path: "../vite-ethereum-ios-public/ViteEthereum.podspec"
   ViteUtils:
     :path: "../vite-utils-ios/ViteUtils.podspec"
   ViteWallet:
@@ -496,12 +497,12 @@ SPEC CHECKSUMS:
   Vite_HDWalletKit: d42305595b0f316f454632bc2d145d1f715aea39
   ViteBusiness: 73b4db1283e8c5b0a4abd95f3a312885e006630a
   ViteCommunity: e4cfa5ca40ac474a77d5e46239f5c9cd8518b3bf
-  ViteEthereum: 0e2c27d4fc66fade298e5fd8ae43c34efec988d2
+  ViteEthereum: 3d848ff4531a24f55607556486ad0c76b1612551
   ViteUtils: bd0fe2038c4824b89bd7472b6aa5c2f7bb0b7548
   ViteWallet: 382ab10ba912014b64d103ef0324760259d584ae
   web3swift.pod: 6e1bb8f68c6896db180725e34cc55fab60e282c8
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: ec706911f8a86a8d6ef78985f780201e5eaf53da
+PODFILE CHECKSUM: cb32fc0b30fd37e76f7ac244990ccac4aaaf116d
 
 COCOAPODS: 1.5.3
