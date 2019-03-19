@@ -30,6 +30,8 @@ targetArray.each do |t|
         vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
         vite_pod 'Vite_HDWalletKit', '1.3.0'
 
+        pod 'Vite_GrinWallet', :path => '/Users/haoshenyang/vitelabs/Vite_GrinWallet'
+
         pod 'SnapKit', '~> 4.0.0'
         pod 'BigInt', '~> 3.0'
         pod 'R.swift', '5.0.0.alpha.3'
