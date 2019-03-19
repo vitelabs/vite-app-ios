@@ -8,6 +8,7 @@ before_install:
 - brew install imagemagick
 - bundle install
 - pod install --repo-update --verbose
+- pod cache list --verbose
 script:
 - fastlane vite_test
 env:
