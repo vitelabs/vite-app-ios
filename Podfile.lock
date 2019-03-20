@@ -200,12 +200,108 @@ PODS:
     - Then
     - Toast-Swift (~> 4.0.1)
     - Vite_HDWalletKit
-    - ViteBusiness/Default (= 0.0.1)
+    - ViteBusiness/Enterprise (= 0.0.1)
+    - ViteBusiness/Official (= 0.0.1)
+    - ViteBusiness/Test (= 0.0.1)
     - ViteEthereum
     - ViteUtils
     - ViteWallet
     - XCGLogger (~> 6.1.0)
-  - ViteBusiness/Default (0.0.1):
+  - ViteBusiness/Enterprise (0.0.1):
+    - Action
+    - ActionSheetPicker-3.0
+    - Alamofire
+    - APIKit
+    - BaiduMobStat
+    - BigInt (~> 3.0)
+    - CHIPageControl
+    - Crashlytics
+    - CryptoSwift
+    - DACircularProgress (= 2.3.1)
+    - DNSPageView
+    - Eureka (~> 4.3.0)
+    - Fabric
+    - Firebase/Core
+    - JSONRPCKit (~> 3.0.0)
+    - KeychainSwift
+    - Kingfisher (~> 4.0)
+    - KMNavigationBarTransition
+    - MBProgressHUD
+    - MJRefresh
+    - MLeaksFinder
+    - Moya
+    - "NSObject+Rx"
+    - NYXImagesKit (= 2.3)
+    - ObjectMapper
+    - pop (~> 1.0)
+    - PromiseKit (~> 6.0)
+    - R.swift (= 5.0.0.alpha.3)
+    - RazzleDazzle
+    - ReactorKit
+    - ReusableKit (~> 2.1.0)
+    - RxCocoa
+    - RxDataSources (~> 3.0)
+    - RxGesture
+    - RxOptional
+    - RxSwift (~> 4.0)
+    - SnapKit (~> 4.0.0)
+    - SwiftLint
+    - SwiftyJSON
+    - Then
+    - Toast-Swift (~> 4.0.1)
+    - Vite_HDWalletKit
+    - ViteEthereum
+    - ViteUtils
+    - ViteWallet
+    - XCGLogger (~> 6.1.0)
+  - ViteBusiness/Official (0.0.1):
+    - Action
+    - ActionSheetPicker-3.0
+    - Alamofire
+    - APIKit
+    - BaiduMobStat
+    - BigInt (~> 3.0)
+    - CHIPageControl
+    - Crashlytics
+    - CryptoSwift
+    - DACircularProgress (= 2.3.1)
+    - DNSPageView
+    - Eureka (~> 4.3.0)
+    - Fabric
+    - Firebase/Core
+    - JSONRPCKit (~> 3.0.0)
+    - KeychainSwift
+    - Kingfisher (~> 4.0)
+    - KMNavigationBarTransition
+    - MBProgressHUD
+    - MJRefresh
+    - MLeaksFinder
+    - Moya
+    - "NSObject+Rx"
+    - NYXImagesKit (= 2.3)
+    - ObjectMapper
+    - pop (~> 1.0)
+    - PromiseKit (~> 6.0)
+    - R.swift (= 5.0.0.alpha.3)
+    - RazzleDazzle
+    - ReactorKit
+    - ReusableKit (~> 2.1.0)
+    - RxCocoa
+    - RxDataSources (~> 3.0)
+    - RxGesture
+    - RxOptional
+    - RxSwift (~> 4.0)
+    - SnapKit (~> 4.0.0)
+    - SwiftLint
+    - SwiftyJSON
+    - Then
+    - Toast-Swift (~> 4.0.1)
+    - Vite_HDWalletKit
+    - ViteEthereum
+    - ViteUtils
+    - ViteWallet
+    - XCGLogger (~> 6.1.0)
+  - ViteBusiness/Test (0.0.1):
     - Action
     - ActionSheetPicker-3.0
     - Alamofire
@@ -260,9 +356,29 @@ PODS:
     - R.swift
     - SwiftDate
     - ViteBusiness
-    - ViteCommunity/Default (= 0.1.0)
+    - ViteCommunity/Enterprise (= 0.1.0)
+    - ViteCommunity/Official (= 0.1.0)
+    - ViteCommunity/Test (= 0.1.0)
     - ViteUtils
-  - ViteCommunity/Default (0.1.0):
+  - ViteCommunity/Enterprise (0.1.0):
+    - DNSPageView
+    - FSPagerView
+    - Moya
+    - QQ_XGPush
+    - R.swift
+    - SwiftDate
+    - ViteBusiness
+    - ViteUtils
+  - ViteCommunity/Official (0.1.0):
+    - DNSPageView
+    - FSPagerView
+    - Moya
+    - QQ_XGPush
+    - R.swift
+    - SwiftDate
+    - ViteBusiness
+    - ViteUtils
+  - ViteCommunity/Test (0.1.0):
     - DNSPageView
     - FSPagerView
     - Moya
@@ -495,8 +611,8 @@ SPEC CHECKSUMS:
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
   Vite_HDWalletKit: d42305595b0f316f454632bc2d145d1f715aea39
-  ViteBusiness: 73b4db1283e8c5b0a4abd95f3a312885e006630a
-  ViteCommunity: e4cfa5ca40ac474a77d5e46239f5c9cd8518b3bf
+  ViteBusiness: e753b133f6071a2348bd98f8ef5bd199ac1bcda0
+  ViteCommunity: 17b8c8ed9ed107ae3c14c5025c4fa78d94f5adc6
   ViteEthereum: 3d848ff4531a24f55607556486ad0c76b1612551
   ViteUtils: bd0fe2038c4824b89bd7472b6aa5c2f7bb0b7548
   ViteWallet: 382ab10ba912014b64d103ef0324760259d584ae

@@ -61,6 +61,11 @@ create new pr in github argument base is base branch
 fastlane ios upload_dysm
 ```
 upload to Beta by Crashlytics
+### ios vite_for_qa
+```
+fastlane ios vite_for_qa
+```
+
 
 ----
 
