@@ -35,7 +35,7 @@ targetArray.each do |t|
             vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
         end
 
-        vite_pod 'ViteEthereum', '0.0.2'
+        vite_pod 'ViteEthereum', :git => 'https://github.com/vitelabs/vite-ethereum-ios.git', :commit => 'cb3d0a8fe3cbe278470e18ea57734bf8efa94d07'
         vite_pod 'ViteUtils', :git => vite_utils_git, :commit => vite_utils_commit
         vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
         vite_pod 'Vite_HDWalletKit', '1.3.0'
