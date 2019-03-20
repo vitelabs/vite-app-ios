@@ -17,8 +17,8 @@ targetArray.each do |t|
         vite_wallet_git = 'https://github.com/vitelabs/vite-wallet-ios.git'
         vite_ethereum_git = 'https://github.com/vitelabs/vite-ethereum-ios.git'
 
-        vite_community_commit = '3ef81501b31bf0a7d7761c2844d5131683c65547'
-        vite_business_commit = '66dcf9acbffcbea2f42b17cf01015f4ff694e75b'
+        vite_community_commit = 'e00da3942d6aaceb2f75cab898eb48ba3b75cbea'
+        vite_business_commit = 'b1050f383dfc252ce6b2147b8b6a5bb16dc5802d'
         vite_utils_commit = 'bc47742909dc257116524b801a85bad7240c2f01'
         vite_wallet_commit = '2c24e2cdf321dedacd1d0d6e0b6b0d14e79fc3fc'
 
