@@ -85,6 +85,7 @@ platform :ios do
 
   lane :vite_for_qa do 
     increment_build_number_and_push_git
+    match_profile
     version_number = get_version_number(xcodeproj: "Vite.xcodeproj", target: "Vite-test")
     build_number = get_build_number(xcodeproj: "Vite.xcodeproj")
     add_badge(shield: version_number + "-" + build_number + "-" + "orange", no_badge: true)
