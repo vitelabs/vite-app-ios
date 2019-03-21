@@ -34,7 +34,7 @@ targetArray.each do |t|
             vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit, :subspecs => ['Enterprise']
             vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit, :subspecs => ['Enterprise']
         else
-            vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
+            vite_pod 'ViteCommgit sunity', :git => vite_community_git, :commit => vite_community_commit
             vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
         end
 
