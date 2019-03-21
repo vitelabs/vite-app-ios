@@ -348,6 +348,18 @@ PODS:
     - ViteUtils
     - ViteWallet
     - XCGLogger (~> 6.1.0)
+  - ViteCommunity (0.1.0):
+    - DNSPageView
+    - FSPagerView
+    - Moya
+    - QQ_XGPush
+    - R.swift
+    - SwiftDate
+    - ViteBusiness
+    - ViteCommunity/Enterprise (= 0.1.0)
+    - ViteCommunity/Official (= 0.1.0)
+    - ViteCommunity/Test (= 0.1.0)
+    - ViteUtils
   - ViteCommunity/Enterprise (0.1.0):
     - DNSPageView
     - FSPagerView
@@ -454,6 +466,7 @@ DEPENDENCIES:
   - ViteBusiness/Enterprise (from `https://github.com/vitelabs/vite-business-ios.git`, commit `b1050f383dfc252ce6b2147b8b6a5bb16dc5802d`)
   - ViteBusiness/Official (from `https://github.com/vitelabs/vite-business-ios.git`, commit `b1050f383dfc252ce6b2147b8b6a5bb16dc5802d`)
   - ViteBusiness/Test (from `https://github.com/vitelabs/vite-business-ios.git`, commit `b1050f383dfc252ce6b2147b8b6a5bb16dc5802d`)
+  - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `367c0b1e3e9b0909ed7573d979e7437878616a0d`)
   - ViteCommunity/Enterprise (from `https://github.com/vitelabs/vite-community-ios.git`, commit `367c0b1e3e9b0909ed7573d979e7437878616a0d`)
   - ViteCommunity/Official (from `https://github.com/vitelabs/vite-community-ios.git`, commit `367c0b1e3e9b0909ed7573d979e7437878616a0d`)
   - ViteCommunity/Test (from `https://github.com/vitelabs/vite-community-ios.git`, commit `367c0b1e3e9b0909ed7573d979e7437878616a0d`)
@@ -634,6 +647,6 @@ SPEC CHECKSUMS:
   web3swift.pod: 6e1bb8f68c6896db180725e34cc55fab60e282c8
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 9379a00d64207702921ec9e568d2db1c2c268274
+PODFILE CHECKSUM: 31ca9c3bcdcafbd174b2cc3c06a884cbc5392347
 
 COCOAPODS: 1.5.3
