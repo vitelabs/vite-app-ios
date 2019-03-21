@@ -462,12 +462,12 @@ DEPENDENCIES:
   - SwiftyJSON
   - Then
   - Toast-Swift (~> 4.0.1)
-  - Vite_HDWalletKit (from `../Vite_HDWalletKit/Vite_HDWalletKit.podspec`)
-  - ViteBusiness (from `../vite-business-ios/ViteBusiness.podspec`)
-  - ViteCommunity (from `../vite-community-ios/ViteCommunity.podspec`)
-  - ViteEthereum (from `../vite-ethereum-ios-public/ViteEthereum.podspec`)
-  - ViteUtils (from `../vite-utils-ios/ViteUtils.podspec`)
-  - ViteWallet (from `../vite-wallet-ios/ViteWallet.podspec`)
+  - Vite_HDWalletKit (= 1.3.0)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `e198c33c83500c4a2ab281da4c60fdf997907fb5`)
+  - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `c78af204447deec03c644915a948469c24e604a2`)
+  - ViteEthereum (from `https://github.com/vitelabs/vite-ethereum-ios.git`, commit `cb3d0a8fe3cbe278470e18ea57734bf8efa94d07`)
+  - ViteUtils (from `https://github.com/vitelabs/vite-utils-ios.git`, commit `bc47742909dc257116524b801a85bad7240c2f01`)
+  - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `2c24e2cdf321dedacd1d0d6e0b6b0d14e79fc3fc`)
   - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
@@ -533,22 +533,43 @@ SPEC REPOS:
     - Then
     - Toast-Swift
     - TrezorCryptoEd25519WithBlake2b
+    - Vite_HDWalletKit
     - web3swift.pod
     - XCGLogger
 
 EXTERNAL SOURCES:
-  Vite_HDWalletKit:
-    :path: "../Vite_HDWalletKit/Vite_HDWalletKit.podspec"
   ViteBusiness:
-    :path: "../vite-business-ios/ViteBusiness.podspec"
+    :commit: e198c33c83500c4a2ab281da4c60fdf997907fb5
+    :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
-    :path: "../vite-community-ios/ViteCommunity.podspec"
+    :commit: c78af204447deec03c644915a948469c24e604a2
+    :git: https://github.com/vitelabs/vite-community-ios.git
   ViteEthereum:
-    :path: "../vite-ethereum-ios-public/ViteEthereum.podspec"
+    :commit: cb3d0a8fe3cbe278470e18ea57734bf8efa94d07
+    :git: https://github.com/vitelabs/vite-ethereum-ios.git
   ViteUtils:
-    :path: "../vite-utils-ios/ViteUtils.podspec"
+    :commit: bc47742909dc257116524b801a85bad7240c2f01
+    :git: https://github.com/vitelabs/vite-utils-ios.git
   ViteWallet:
-    :path: "../vite-wallet-ios/ViteWallet.podspec"
+    :commit: 2c24e2cdf321dedacd1d0d6e0b6b0d14e79fc3fc
+    :git: https://github.com/vitelabs/vite-wallet-ios.git
+
+CHECKOUT OPTIONS:
+  ViteBusiness:
+    :commit: e198c33c83500c4a2ab281da4c60fdf997907fb5
+    :git: https://github.com/vitelabs/vite-business-ios.git
+  ViteCommunity:
+    :commit: c78af204447deec03c644915a948469c24e604a2
+    :git: https://github.com/vitelabs/vite-community-ios.git
+  ViteEthereum:
+    :commit: cb3d0a8fe3cbe278470e18ea57734bf8efa94d07
+    :git: https://github.com/vitelabs/vite-ethereum-ios.git
+  ViteUtils:
+    :commit: bc47742909dc257116524b801a85bad7240c2f01
+    :git: https://github.com/vitelabs/vite-utils-ios.git
+  ViteWallet:
+    :commit: 2c24e2cdf321dedacd1d0d6e0b6b0d14e79fc3fc
+    :git: https://github.com/vitelabs/vite-wallet-ios.git
 
 SPEC CHECKSUMS:
   Action: 689181e4c3f6566844178d8a7da6fef39a9597fc
@@ -612,12 +633,12 @@ SPEC CHECKSUMS:
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
-  Vite_HDWalletKit: 28c92b3de8819493e1f54e8b512140fde110772b
-  ViteBusiness: b61238c41afbeaa6e5318c777e5a48b69fa11cd7
-  ViteCommunity: 022cfed015e732309732477855db2926d375100b
-  ViteEthereum: 51262ce2918888d5dd787a1f83ed13525bcd8e81
-  ViteUtils: bd0fe2038c4824b89bd7472b6aa5c2f7bb0b7548
-  ViteWallet: 382ab10ba912014b64d103ef0324760259d584ae
+  Vite_HDWalletKit: d42305595b0f316f454632bc2d145d1f715aea39
+  ViteBusiness: 884541650e3b47c83f11125bf6b12aaa4bd15baa
+  ViteCommunity: 25c4251632cc03b3708104085a50f525671f23b8
+  ViteEthereum: a0b500244b77d1f41fc82ddf3de0909dab2303b1
+  ViteUtils: e85f06b091d1e3587193c96dbf6bbea12aa37156
+  ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   web3swift.pod: 6e1bb8f68c6896db180725e34cc55fab60e282c8
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
