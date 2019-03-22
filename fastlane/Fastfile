@@ -29,7 +29,7 @@ platform :ios do
     match_profile
     version_number = get_version_number(xcodeproj: "Vite.xcodeproj", target: "Vite-test")
     build_number = get_build_number(xcodeproj: "Vite.xcodeproj")
-    #add_badge(shield: version_number + "-" + build_number + "-" + "orange", no_badge: true)
+    add_badge(shield: version_number + "-" + build_number + "-" + "orange", no_badge: true)
     build_app(workspace: "Vite.xcworkspace", scheme: "Vite-test", clean: true)
     upload_to_testflight(skip_waiting_for_build_processing: true)
     upload_dysm()
@@ -88,7 +88,7 @@ platform :ios do
     match_profile
     version_number = get_version_number(xcodeproj: "Vite.xcodeproj", target: "Vite-test")
     build_number = get_build_number(xcodeproj: "Vite.xcodeproj")
-    # add_badge(shield: version_number + "-" + build_number + "-" + "orange", no_badge: true)
+    add_badge(shield: version_number + "-" + build_number + "-" + "orange", no_badge: true)
     build_app(workspace: "Vite.xcworkspace", scheme: "Vite-test", clean: true)
   end
   

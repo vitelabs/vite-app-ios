@@ -101,16 +101,19 @@ end
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|
-        target.build_configurations.each do |config|
-            if config.name.include?("Vite-test")
-                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
-                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << 'TEST=1'
-                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] << 'TEST'
+        #test
+        if target.name.include?("Vite-test")
+            target.build_configurations.each do |config|
+                    config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','TEST=1']
+                    config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] ||= 'TEST'
             end
-            if config.name.include?("Vite-official")
-                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
-                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << 'OFFICIAL=1'
-                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] << 'OFFICIAL'
+        end
+
+        #official
+        if target.name.include?("Vite-official")
+            target.build_configurations.each do |config|
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','OFFICIAL=1']
+                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] ||= 'OFFICIAL'
             end
         end
 
