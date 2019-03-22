@@ -3,7 +3,7 @@ inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
 
-targetArray = ['Vite', 'Vite-official', 'Vite-test', 'Vite-enterprise']
+targetArray = ['Vite']
 
 targetArray.each do |t|
     target t do
@@ -17,8 +17,8 @@ targetArray.each do |t|
         vite_wallet_git = 'https://github.com/vitelabs/vite-wallet-ios.git'
         vite_ethereum_git = 'https://github.com/vitelabs/vite-ethereum-ios.git'
 
-        vite_community_commit = 'ee3c623a71a93a4fc434836fe34af3444e7c1c5d'
-        vite_business_commit = '43cb17720cac679f94cace818a0943e9a41ea1dd'
+        vite_community_commit = '1a46f31a902bf56df99bbb3744a71711d6a7cabe'
+        vite_business_commit = '291d2ea066a19b747237302570bff475d4dc9ef4'
         vite_utils_commit = 'bc47742909dc257116524b801a85bad7240c2f01'
         vite_wallet_commit = '2c24e2cdf321dedacd1d0d6e0b6b0d14e79fc3fc'
 
@@ -101,17 +101,22 @@ end
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|
-        #test
-        if target.name.include?("Vite-test")
-            target.build_configurations.each do |config|
-                    config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','TEST=1']
-                    config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] ||= 'TEST'
-            end
-        end
+        target.build_configurations.each do |config|
 
-        #official
-        if target.name.include?("Vite-official")
-            target.build_configurations.each do |config|
+            #test
+            if config.name.include?("Internal")
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','INTERNAL=1']
+                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] ||= 'INTERNAL'
+            end
+
+
+            #test
+            if config.name.include?("Test")
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','TEST=1']
+                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] ||= 'TEST'
+            end
+            #Release
+            if config.name.include?("Release")
                 config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','OFFICIAL=1']
                 config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] ||= 'OFFICIAL'
             end
