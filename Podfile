@@ -103,19 +103,25 @@ post_install do |installer|
     installer.pods_project.targets.each do |target|
         target.build_configurations.each do |config|
             #test
+
+            puts '======'
+            puts config.name
+            puts target.name
+
+
             if config.name.include?("Internal")
                 config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','INTERNAL=1']
-                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] ||= 'INTERNAL'
+                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = 'INTERNAL'
             end
             #test
             if config.name.include?("Test")
                 config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','TEST=1']
-                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] ||= 'TEST'
+                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = 'TEST'
             end
             #Release
             if config.name.include?("Release")
                 config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','OFFICIAL=1']
-                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] ||= 'OFFICIAL'
+                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = 'OFFICIAL'
             end
         end
 
