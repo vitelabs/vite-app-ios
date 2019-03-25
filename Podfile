@@ -107,7 +107,7 @@ post_install do |installer|
 
                 config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
                 config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1','INTERNAL=1']
-                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG=1','INTERNAL=1']
+                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG','INTERNAL']
             end
 
             #Internal
