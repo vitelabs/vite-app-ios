@@ -18,7 +18,7 @@ targetArray.each do |t|
         vite_ethereum_git = 'https://github.com/vitelabs/vite-ethereum-ios.git'
 
         vite_community_commit = '1a46f31a902bf56df99bbb3744a71711d6a7cabe'
-        vite_business_commit = '9cb7c898856ae5083c1781c77c5929e9ce6e8e2b'
+        vite_business_commit = 'f8e027d0e3999922d46d2a6582ed26b8d911d5ff'
         vite_utils_commit = 'bc47742909dc257116524b801a85bad7240c2f01'
         vite_wallet_commit = '2c24e2cdf321dedacd1d0d6e0b6b0d14e79fc3fc'
 
@@ -104,6 +104,14 @@ end
 post_install do |installer|
     installer.pods_project.targets.each do |target|
         target.build_configurations.each do |config|
+            #debug
+            if config.name.include?("Debug")
+
+                config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1','INTERNAL=1']
+                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG','INTERNAL']
+            end
+
             #Internal
             if config.name.include?("Internal")
 
