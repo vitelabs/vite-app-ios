@@ -17,7 +17,7 @@ import ViteBusiness
 import Firebase
 import UserNotifications
 
-#if OFFICIAL || TEST || ENTERPRISE
+#if OFFICIAL || TEST || INTERNAL
 import ViteCommunity
 #endif
 
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
 
-        #if OFFICIAL || TEST || ENTERPRISE
+        #if OFFICIAL || TEST || INTERNAL
         #if ENTERPRISE
         FirebaseApp.configure()
         #else
@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         checkPushAuthorization()
         #endif
         ViteCommunity.register()
-        ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 2)
+        ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 1)
         #endif
 
         ViteBusinessLanucher.instance.start(with: window)
