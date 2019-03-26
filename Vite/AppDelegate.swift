@@ -12,7 +12,6 @@ import Fabric
 import Crashlytics
 import NSObject_Rx
 import Vite_HDWalletKit
-import ViteUtils
 import ViteBusiness
 import Firebase
 import UserNotifications
