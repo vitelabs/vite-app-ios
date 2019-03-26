@@ -30,7 +30,7 @@ targetArray.each do |t|
         vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
         vite_pod 'Vite_HDWalletKit', '1.3.0'
 
-        pod 'Vite_GrinWallet', :path => '/Users/haoshenyang/vitelabs/Vite_GrinWallet'
+        pod 'Vite_GrinWallet', :git => 'https://github.com/vitelabs/Vite_GrinWallet.git', :commit => 'b5adab3114a69269dc60e4f35f20d2376eb67cf6'
 
         pod 'SnapKit', '~> 4.0.0'
         pod 'BigInt', '~> 3.0'
@@ -103,7 +103,11 @@ end
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|
+
         target.build_configurations.each do |config|
+
+            config.build_settings['ENABLE_BITCODE'] = 'NO'
+
             #debug
             if config.name.include?("Debug")
 
