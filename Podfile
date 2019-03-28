@@ -18,7 +18,7 @@ targetArray.each do |t|
 
         vite_community_commit = '531fadd5553124bb6b2e0776deed918468d9ac2d'
         vite_business_commit = '0abada4182a75d31ae238401966e1d1dbd8ebfb0'
-        vite_wallet_commit = '2c24e2cdf321dedacd1d0d6e0b6b0d14e79fc3fc'
+        vite_wallet_commit = 'c361cfd46f9ffeb39fd480561422784e8b726630'
 
         vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
         vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
