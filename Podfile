@@ -109,16 +109,15 @@ post_install do |installer|
             if config.name.include?("Debug")
 
                 config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
-                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1','INTERNAL=1']
-                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG','INTERNAL']
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1','OFFICIAL=1']
+                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG','OFFICIAL']
             end
 
             #Internal
             if config.name.include?("Internal")
 
                 config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
-                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','INTERNAL=1']
-                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = 'INTERNAL'
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
             end
             #test
             if config.name.include?("Test")
