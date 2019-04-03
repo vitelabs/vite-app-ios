@@ -17,11 +17,11 @@ targetArray.each do |t|
         vite_ethereum_git = 'https://github.com/vitelabs/vite-ethereum-ios.git'
 
         vite_community_commit = '30deda66c6f8cdbd2b67b4f89011411ab619ce83'
-        vite_business_commit = '0f99ebd2c3af581bc27ba82b9d602b74aa908571'
+        vite_business_commit = 'dc26b289a7e8dfde9e2d6b03d07199ce67b80796'
         vite_wallet_commit = 'c361cfd46f9ffeb39fd480561422784e8b726630'
 
         vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
-        vite_pod 'ViteBusiness', :git => vite_business_git#, :commit => vite_business_commit
+        vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
 
         vite_pod 'ViteEthereum', :git => 'https://github.com/vitelabs/vite-ethereum-ios.git', :commit => 'cb3d0a8fe3cbe278470e18ea57734bf8efa94d07'
         vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
