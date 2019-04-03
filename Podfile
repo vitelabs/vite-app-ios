@@ -16,8 +16,8 @@ targetArray.each do |t|
         vite_wallet_git = 'https://github.com/vitelabs/vite-wallet-ios.git'
         vite_ethereum_git = 'https://github.com/vitelabs/vite-ethereum-ios.git'
 
-        vite_community_commit = '30deda66c6f8cdbd2b67b4f89011411ab619ce83'
-        vite_business_commit = '1ceef7c023024ad9c6d6fb4c2535d82c930b119d'
+        vite_community_commit = 'c7ac7fc2e71a3a8bd29f8f14dd76a9bb28cef88a'
+        vite_business_commit = '63c38be7de302073a138659408842b28bbc328cd'
         vite_wallet_commit = 'c361cfd46f9ffeb39fd480561422784e8b726630'
 
         vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
@@ -27,7 +27,7 @@ targetArray.each do |t|
         vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
         vite_pod 'Vite_HDWalletKit', '1.3.0'
 
-        pod 'Vite_GrinWallet', :git => 'https://github.com/vitelabs/Vite_GrinWallet.git', :commit => 'b5adab3114a69269dc60e4f35f20d2376eb67cf6'
+        pod 'Vite_GrinWallet', :git => 'https://github.com/vitelabs/Vite_GrinWallet.git', :commit => '5a93ddc9040a6ca0e8513c873fcb62309840c0ab'
 
         pod 'SnapKit', '~> 4.0.0'
         pod 'BigInt', '~> 3.0'
