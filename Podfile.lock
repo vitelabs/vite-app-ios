@@ -280,9 +280,9 @@ DEPENDENCIES:
   - SwiftyJSON
   - Then
   - Toast-Swift (~> 4.0.1)
-  - Vite_GrinWallet (from `https://github.com/vitelabs/Vite_GrinWallet.git`, commit `5a93ddc9040a6ca0e8513c873fcb62309840c0ab`)
+  - Vite_GrinWallet (from `https://github.com/vitelabs/Vite_GrinWallet.git`, commit `f288e58a2a6f852f101d4cec3fb1b5a6d9ab95dd`)
   - Vite_HDWalletKit (= 1.3.0)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `63c38be7de302073a138659408842b28bbc328cd`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `70b5da1a5e187d1a35c2b46595f9321381387bb3`)
   - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `c7ac7fc2e71a3a8bd29f8f14dd76a9bb28cef88a`)
   - ViteEthereum (from `https://github.com/vitelabs/vite-ethereum-ios.git`, commit `cb3d0a8fe3cbe278470e18ea57734bf8efa94d07`)
   - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `c361cfd46f9ffeb39fd480561422784e8b726630`)
@@ -357,10 +357,10 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Vite_GrinWallet:
-    :commit: 5a93ddc9040a6ca0e8513c873fcb62309840c0ab
+    :commit: f288e58a2a6f852f101d4cec3fb1b5a6d9ab95dd
     :git: https://github.com/vitelabs/Vite_GrinWallet.git
   ViteBusiness:
-    :commit: 63c38be7de302073a138659408842b28bbc328cd
+    :commit: 70b5da1a5e187d1a35c2b46595f9321381387bb3
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: c7ac7fc2e71a3a8bd29f8f14dd76a9bb28cef88a
@@ -374,10 +374,10 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Vite_GrinWallet:
-    :commit: 5a93ddc9040a6ca0e8513c873fcb62309840c0ab
+    :commit: f288e58a2a6f852f101d4cec3fb1b5a6d9ab95dd
     :git: https://github.com/vitelabs/Vite_GrinWallet.git
   ViteBusiness:
-    :commit: 63c38be7de302073a138659408842b28bbc328cd
+    :commit: 70b5da1a5e187d1a35c2b46595f9321381387bb3
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: c7ac7fc2e71a3a8bd29f8f14dd76a9bb28cef88a
@@ -460,6 +460,6 @@ SPEC CHECKSUMS:
   web3swift.pod: 6e1bb8f68c6896db180725e34cc55fab60e282c8
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: e29d0c5d3ebe63287545b2094f27160b89ad6a97
+PODFILE CHECKSUM: f6c14d21cdb0ce58856949c5c274c75e2c61ff0b
 
 COCOAPODS: 1.5.3
