@@ -21,7 +21,7 @@
 			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.i1skn.grinslateinitial</string>
+				<string>com.vite.grinwallet.grinslateinitial</string>
 			</array>
 		</dict>
 		<dict>
@@ -35,9 +35,23 @@
 			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.i1skn.grinslateresponse</string>
+				<string>com.vite.grinwallet.grinslateresponse</string>
 			</array>
 		</dict>
+        <dict>
+            <key>CFBundleTypeIconFiles</key>
+            <array/>
+            <key>CFBundleTypeName</key>
+            <string>Grin Slate File</string>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>LSHandlerRank</key>
+            <string>Owner</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>com.vite.grinwallet.grinslatejson</string>
+            </array>
+        </dict>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
@@ -105,7 +119,7 @@
 			<key>UTTypeIconFiles</key>
 			<array/>
 			<key>UTTypeIdentifier</key>
-			<string>com.i1skn.grinslateinitial</string>
+			<string>com.vite.grinwallet.grinslateinitial</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -120,7 +134,7 @@
 			<key>UTTypeIconFiles</key>
 			<array/>
 			<key>UTTypeIdentifier</key>
-			<string>com.i1skn.grinslateresponse</string>
+			<string>com.vite.grinwallet.grinslateresponse</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -129,6 +143,21 @@
 				</array>
 			</dict>
 		</dict>
+        <dict>
+            <key>UTTypeDescription</key>
+            <string>Grin Slate File</string>
+            <key>UTTypeIconFiles</key>
+            <array/>
+            <key>UTTypeIdentifier</key>
+            <string>com.vite.grinwallet.grinslatejson</string>
+            <key>UTTypeTagSpecification</key>
+            <dict>
+                <key>public.filename-extension</key>
+                <array>
+                    <string>json</string>
+                </array>
+            </dict>
+        </dict>
 	</array>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
