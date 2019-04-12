@@ -13,22 +13,21 @@ targetArray.each do |t|
 
         vite_community_git = 'https://github.com/vitelabs/vite-community-ios.git'
         vite_business_git = 'https://github.com/vitelabs/vite-business-ios.git'
-        vite_utils_git = 'https://github.com/vitelabs/vite-utils-ios.git'
         vite_wallet_git = 'https://github.com/vitelabs/vite-wallet-ios.git'
         vite_ethereum_git = 'https://github.com/vitelabs/vite-ethereum-ios.git'
 
-        vite_community_commit = '1a46f31a902bf56df99bbb3744a71711d6a7cabe'
-        vite_business_commit = '2889084c440178bb1bdc82f83df76ed4b5255d57'
-        vite_utils_commit = 'bc47742909dc257116524b801a85bad7240c2f01'
-        vite_wallet_commit = '2c24e2cdf321dedacd1d0d6e0b6b0d14e79fc3fc'
+        vite_community_commit = '7f96afc88ee67aeb329f03881416323c52ec2548'
+        vite_business_commit = '81d5205d5607829232f38b20e37933508ab2a3b7'
+        vite_wallet_commit = 'c361cfd46f9ffeb39fd480561422784e8b726630'
 
         vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
         vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
 
         vite_pod 'ViteEthereum', :git => 'https://github.com/vitelabs/vite-ethereum-ios.git', :commit => 'cb3d0a8fe3cbe278470e18ea57734bf8efa94d07'
-        vite_pod 'ViteUtils', :git => vite_utils_git, :commit => vite_utils_commit
         vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
         vite_pod 'Vite_HDWalletKit', '1.3.0'
+
+        vite_pod 'Vite_GrinWallet', :git => 'https://github.com/vitelabs/Vite_GrinWallet.git', :commit => '486abe32b4ac7566ddd0d4f89ff5c67802609865'
 
         pod 'SnapKit', '~> 4.0.0'
         pod 'BigInt', '~> 3.0'
@@ -101,21 +100,24 @@ end
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|
+
         target.build_configurations.each do |config|
+
+            config.build_settings['ENABLE_BITCODE'] = 'NO'
+
             #debug
             if config.name.include?("Debug")
 
                 config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
-                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1','INTERNAL=1']
-                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG','INTERNAL']
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1','OFFICIAL=1']
+                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG','OFFICIAL']
             end
 
             #Internal
             if config.name.include?("Internal")
 
                 config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
-                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','INTERNAL=1']
-                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = 'INTERNAL'
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
             end
             #test
             if config.name.include?("Test")

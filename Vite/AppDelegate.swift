@@ -12,12 +12,11 @@ import Fabric
 import Crashlytics
 import NSObject_Rx
 import Vite_HDWalletKit
-import ViteUtils
 import ViteBusiness
 import Firebase
 import UserNotifications
 
-#if OFFICIAL || TEST || INTERNAL
+#if OFFICIAL || TEST
 import ViteCommunity
 #endif
 
@@ -29,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
 
-        #if OFFICIAL || TEST || INTERNAL
+        #if OFFICIAL || TEST
         #if ENTERPRISE
         FirebaseApp.configure()
         #else
@@ -41,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
 
         ViteBusinessLanucher.instance.start(with: window)
+
         return true
     }
 
@@ -53,6 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 GCD.delay(1) { FirebaseApp.configure() }
             }
         }
+    }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return ViteBusinessLanucher.instance.application(app, open: url, options: options)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
