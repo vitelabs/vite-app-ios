@@ -3,7 +3,7 @@ inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
 
-targetArray = ['Vite', 'Vite-official', 'Vite-test', 'Vite-enterprise']
+targetArray = ['Vite']
 
 targetArray.each do |t|
     target t do
@@ -13,31 +13,21 @@ targetArray.each do |t|
 
         vite_community_git = 'https://github.com/vitelabs/vite-community-ios.git'
         vite_business_git = 'https://github.com/vitelabs/vite-business-ios.git'
-        vite_utils_git = 'https://github.com/vitelabs/vite-utils-ios.git'
         vite_wallet_git = 'https://github.com/vitelabs/vite-wallet-ios.git'
+        vite_ethereum_git = 'https://github.com/vitelabs/vite-ethereum-ios.git'
 
-        vite_community_commit = '1fb74697c05ecf0fe620bd35c89bd22412685322'
-        vite_business_commit = 'e4a9a4ef576b9d7f9db30a6beea580ac2488cd1b'
-        vite_utils_commit = 'b8680ffc327a1f64b84c3e4b7ff056fac5b2c7bb'
-        vite_wallet_commit = 'd0628f5cba380396fcf8289b65555a6ca7949b58'
+        vite_community_commit = '7f96afc88ee67aeb329f03881416323c52ec2548'
+        vite_business_commit = '6b5266ac17a39bb444aaa4ba00a239e65a667a12'
+        vite_wallet_commit = 'c361cfd46f9ffeb39fd480561422784e8b726630'
 
-        if t == 'Vite-official'
-            vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit, :subspecs => ['Official']
-            vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit, :subspecs => ['Official']
-        elsif t == 'Vite-test'
-            vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit, :subspecs => ['Test']
-            vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit, :subspecs => ['Test']
-        elsif t == 'Vite-enterprise'
-            vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit, :subspecs => ['Enterprise']
-            vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit, :subspecs => ['Enterprise']
-        else
-            vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
-        end
+        vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
+        vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
 
-        vite_pod 'ViteUtils', :git => vite_utils_git, :commit => vite_utils_commit
+        vite_pod 'ViteEthereum', :git => 'https://github.com/vitelabs/vite-ethereum-ios.git', :commit => 'cb3d0a8fe3cbe278470e18ea57734bf8efa94d07'
         vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
-        # vite_pod 'Vite_HDWalletKit', '1.2.1'
-        vite_pod 'Vite_HDWalletKit', :git => 'https://github.com/vitelabs/vite-keystore-ios.git', :tag => '1.2.1'
+        vite_pod 'Vite_HDWalletKit', '1.3.0'
+
+        vite_pod 'Vite_GrinWallet', :git => 'https://github.com/vitelabs/Vite_GrinWallet.git', :commit => '486abe32b4ac7566ddd0d4f89ff5c67802609865'
 
         pod 'SnapKit', '~> 4.0.0'
         pod 'BigInt', '~> 3.0'
@@ -107,8 +97,44 @@ targetArray.each do |t|
     end
 end
 
+
 post_install do |installer|
     installer.pods_project.targets.each do |target|
+
+        target.build_configurations.each do |config|
+
+            config.build_settings['ENABLE_BITCODE'] = 'NO'
+
+            #debug
+            if config.name.include?("Debug")
+
+                config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1','OFFICIAL=1']
+                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG','OFFICIAL']
+            end
+
+            #Internal
+            if config.name.include?("Internal")
+
+                config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
+            end
+            #test
+            if config.name.include?("Test")
+
+                config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','TEST=1']
+                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = 'TEST'
+            end
+            #Release
+            if config.name.include?("Release")
+
+                config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','OFFICIAL=1']
+                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = 'OFFICIAL'
+            end
+        end
+
         if ['RazzleDazzle', 'JSONRPCKit', 'APIKit'].include? target.name
             target.build_configurations.each do |config|
                 config.build_settings['SWIFT_VERSION'] = '4.0'
