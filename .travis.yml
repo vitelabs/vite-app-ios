@@ -19,3 +19,10 @@ cache:
 addons:
   ssh_known_hosts:
   - github.com
+
+branches:
+  only:
+  - develop
+  - pre-mainnet
+  - grin
+  - travis
