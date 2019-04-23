@@ -3,6 +3,9 @@ inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
 
+isOfficial = true
+
+
 targetArray = ['Vite']
 
 targetArray.each do |t|
@@ -20,11 +23,15 @@ targetArray.each do |t|
         vite_business_commit = '7698ac866fd237d47f0e6af532f291befd9ba794'
         vite_wallet_commit = '3ca56e4384d7e11023bfe35dd828934412e91674'
 
-        # vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
+        # if isOfficial
+        #     vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
+        # end
         # vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
         # vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
 
-        vite_pod 'ViteCommunity', :git => vite_community_git, :branch => 'pre-mainnet'
+        if isOfficial
+            vite_pod 'ViteCommunity', :git => vite_community_git, :branch => 'pre-mainnet'
+        end
         vite_pod 'ViteBusiness', :git => vite_business_git, :branch => 'pre-mainnet'
         vite_pod 'ViteWallet', :git => vite_wallet_git, :branch => 'pre-mainnet'
 
@@ -108,34 +115,47 @@ post_install do |installer|
 
             config.build_settings['ENABLE_BITCODE'] = 'NO'
 
-            #debug
-            if config.name.include?("Debug")
+            if isOfficial
+                #Debug
+                if config.name.include?("Debug")
 
-                config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
-                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1','OFFICIAL=1']
-                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG','OFFICIAL']
+                    config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
+                    config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1','OFFICIAL=1']
+                    config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG','OFFICIAL']
+                end
+                #Internal
+                if config.name.include?("Internal")
+
+                    config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
+                    config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
+                end
+                #test
+                if config.name.include?("Test")
+
+                    config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+                    config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','TEST=1']
+                    config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = 'TEST'
+                end
+                #Release
+                if config.name.include?("Release")
+
+                    config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+                    config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','OFFICIAL=1']
+                    config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = 'OFFICIAL'
+                end
+            else
+                #Debug
+                if config.name.include?("Debug")
+                    config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
+                end
+                #Release
+                if config.name.include?("Release")
+                    config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+                end
             end
 
-            #Internal
-            if config.name.include?("Internal")
 
-                config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
-                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
-            end
-            #test
-            if config.name.include?("Test")
-
-                config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
-                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','TEST=1']
-                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = 'TEST'
-            end
-            #Release
-            if config.name.include?("Release")
-
-                config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
-                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','OFFICIAL=1']
-                config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = 'OFFICIAL'
-            end
+            
         end
 
         if ['RazzleDazzle', 'JSONRPCKit', 'APIKit'].include? target.name
