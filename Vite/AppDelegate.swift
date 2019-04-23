@@ -16,7 +16,7 @@ import ViteBusiness
 import Firebase
 import UserNotifications
 
-#if OFFICIAL || TEST
+#if OFFICIAL
 import ViteCommunity
 #endif
 
@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
 
-        #if OFFICIAL || TEST
+        #if OFFICIAL
         #if ENTERPRISE
         FirebaseApp.configure()
         #else
