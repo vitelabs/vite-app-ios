@@ -380,16 +380,16 @@ CHECKOUT OPTIONS:
     :commit: bfba916f8e33d01ea818ea4f19695f53b736d251
     :git: https://github.com/vitelabs/vite-keystore-ios.git
   ViteBusiness:
-    :commit: d3f698ca802b894143e386ce3f48adcd97b85baa
+    :commit: 20d18ca7b31db51b6dc096a09ce93f366a62db4e
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
-    :commit: 959459567023b9d4e2c11627bf59bdd3dc5ba961
+    :commit: 5cc87334dcc1d3732d77cb5c025d5bd8f9a7445e
     :git: https://github.com/vitelabs/vite-community-ios.git
   ViteEthereum:
     :commit: c763dfc0f0a0bfc4734c287412eb49e2ae907e2a
     :git: https://github.com/vitelabs/vite-ethereum-ios.git
   ViteWallet:
-    :commit: 3ca56e4384d7e11023bfe35dd828934412e91674
+    :commit: a187be41cc95721e1c242ab351f609d62725f51d
     :git: https://github.com/vitelabs/vite-wallet-ios.git
 
 SPEC CHECKSUMS:
