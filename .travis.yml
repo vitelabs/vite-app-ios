@@ -7,7 +7,6 @@ before_install:
 - bundle install
 - pod install --repo-update --verbose
 - pod cache list --verbose
-install: travis_wait 40 xcodebuild
 script:
 - fastlane vite_test
 env:
