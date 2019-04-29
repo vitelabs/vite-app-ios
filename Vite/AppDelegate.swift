@@ -20,6 +20,10 @@ import UserNotifications
 import ViteCommunity
 #endif
 
+#if DEBUG || TEST
+import Bagel
+#endif
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let window = UIWindow(frame: UIScreen.main.bounds)
@@ -27,6 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
+
+        #if DEBUG || TEST
+        Bagel.start()
+        #endif
 
         #if OFFICIAL
         #if ENTERPRISE

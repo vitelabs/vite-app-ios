@@ -135,7 +135,8 @@ target 'Vite' do
     pod 'Firebase/Core'
 
     pod 'MLeaksFinder', :configurations => ['Debug']
-
+    pod 'Bagel', '~>  1.3.2', :configurations => ['Debug', 'Test']
+    
     pod 'FSPagerView'
     pod 'DNSPageView'
 
