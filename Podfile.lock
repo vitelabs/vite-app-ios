@@ -150,7 +150,6 @@ PODS:
   - SipHash (1.2.2)
   - SnapKit (4.0.1)
   - Starscream (3.1.0)
-  - SwiftDate (6.0.2)
   - SwiftLint (0.31.0)
   - SwiftyJSON (4.2.0)
   - Then (2.4.0)
@@ -217,7 +216,6 @@ PODS:
     - Moya
     - QQ_XGPush
     - R.swift
-    - SwiftDate
     - ViteBusiness
   - ViteEthereum (0.0.3):
     - CryptoSwift (= 1.0.0)
@@ -349,7 +347,6 @@ SPEC REPOS:
     - SipHash
     - SnapKit
     - Starscream
-    - SwiftDate
     - SwiftLint
     - SwiftyJSON
     - Then
@@ -386,16 +383,16 @@ CHECKOUT OPTIONS:
     :commit: bfba916f8e33d01ea818ea4f19695f53b736d251
     :git: https://github.com/vitelabs/vite-keystore-ios.git
   ViteBusiness:
-    :commit: 20d18ca7b31db51b6dc096a09ce93f366a62db4e
+    :commit: a7c1b2133ccb5bcc6ee241d9c00e1152cd653b9a
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
-    :commit: 5cc87334dcc1d3732d77cb5c025d5bd8f9a7445e
+    :commit: 2adb78af6208cd28fed0d94eda61a35ba6b3b105
     :git: https://github.com/vitelabs/vite-community-ios.git
   ViteEthereum:
     :commit: c763dfc0f0a0bfc4734c287412eb49e2ae907e2a
     :git: https://github.com/vitelabs/vite-ethereum-ios.git
   ViteWallet:
-    :commit: a187be41cc95721e1c242ab351f609d62725f51d
+    :commit: 141fb0d9f27ad3e9925d40d0cfd093c59902f263
     :git: https://github.com/vitelabs/vite-wallet-ios.git
 
 SPEC CHECKSUMS:
@@ -455,7 +452,6 @@ SPEC CHECKSUMS:
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   Starscream: 08172b481e145289c4930cb567230fb55897cfa4
-  SwiftDate: bbed9b23bfec599bd62b9a305afc554f7bd0eb6f
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
@@ -464,7 +460,7 @@ SPEC CHECKSUMS:
   Vite_GrinWallet: de995b55145f9171385ad035f47b37b579715a69
   Vite_HDWalletKit: 0af6c47c802ccbf30ff0d27eb6f02925cece98db
   ViteBusiness: 75e22b018a61630ab57479b8530a666afc90405b
-  ViteCommunity: 040b726eea8fb5ffc5536a713b1d2d3d02271f4f
+  ViteCommunity: 1644d7b4f1818edbff05a0e5942a8d7278acffa9
   ViteEthereum: 8821d1ecd333c083e7dfc5c6467d454d4cf97cfd
   ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   web3swift: 97f84c4894f47f768353659228fc029447a444bf
