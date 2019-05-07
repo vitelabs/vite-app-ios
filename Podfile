@@ -10,6 +10,7 @@ def vite_config(config, official)
         if config.name.include?("Debug")
             config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1','OFFICIAL=1']
             config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG','OFFICIAL']
+            config.build_settings['OTHER_SWIFT_FLAGS'] = '$(inherited) -Xfrontend -debug-time-function-bodies'
         elsif config.name.include?("Test")
             config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','TEST=1','OFFICIAL=1']
             config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['TEST','OFFICIAL']
@@ -21,6 +22,7 @@ def vite_config(config, official)
         if config.name.include?("Debug")
             config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1']
             config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG']
+            config.build_settings['OTHER_SWIFT_FLAGS'] = '$(inherited) -Xfrontend -debug-time-function-bodies'
         elsif config.name.include?("Test")
             config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
             config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = []
@@ -55,25 +57,26 @@ target 'Vite' do
     vite_grin_git = 'https://github.com/vitelabs/Vite_GrinWallet.git'
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
-    vite_community_commit = 'f7c287c354bb651c88e196cc29cf206842dded54'
-    vite_business_commit = 'f97928b5170f3a0f56abcdc633c563604b9beec8'
-    vite_wallet_commit = '3ca56e4384d7e11023bfe35dd828934412e91674'
-    vite_ethereum_commit = 'c763dfc0f0a0bfc4734c287412eb49e2ae907e2a'
+    vite_community_commit = '6cc8e781d9f50eee7bca6513439729f645e85a8c'
+    vite_business_commit = '9c359b4506365760295b42e762e7d3c75fc124b8'
+    vite_wallet_commit = 'be09b7561be8f8446ed8b99c7e95f553d1f8691b'
+    vite_ethereum_commit = '4361deddfd802605ba7a02284e8df7d4b235e736'
     vite_grin_commit = '486abe32b4ac7566ddd0d4f89ff5c67802609865'
-    vite_hd_commit = 'bfba916f8e33d01ea818ea4f19695f53b736d251'
-
-    # if isOfficial
-    #     vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
-    # end
-    # vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
-    # vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
-    pod_branch = 'pre-mainnet'
+    vite_hd_commit = '14d8e1d4f26e27e92439c688b8c65a029c8395f9'
 
     if isOfficial
-        vite_pod 'ViteCommunity', :git => vite_community_git, :branch => pod_branch
+        vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
     end
-    vite_pod 'ViteBusiness', :git => vite_business_git, :branch => pod_branch
-    vite_pod 'ViteWallet', :git => vite_wallet_git, :branch => pod_branch
+    vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
+    vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
+
+    
+    # pod_branch = 'pre-mainnet'
+    # if isOfficial
+    #     vite_pod 'ViteCommunity', :git => vite_community_git, :branch => pod_branch
+    # end
+    # vite_pod 'ViteBusiness', :git => vite_business_git, :branch => pod_branch
+    # vite_pod 'ViteWallet', :git => vite_wallet_git, :branch => pod_branch
 
 
     vite_pod 'ViteEthereum', :git => vite_ethereum_git, :commit => vite_ethereum_commit
