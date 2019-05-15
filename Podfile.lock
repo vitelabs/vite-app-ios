@@ -283,7 +283,7 @@ DEPENDENCIES:
   - Toast-Swift (~> 4.0.1)
   - Vite_GrinWallet (from `https://github.com/vitelabs/Vite_GrinWallet.git`, commit `486abe32b4ac7566ddd0d4f89ff5c67802609865`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-keystore-ios.git`, commit `14d8e1d4f26e27e92439c688b8c65a029c8395f9`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `1b6b53511622519b773b8d9ff6844fb1073c41c9`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `c6270259fa66395ea39eaabba4d4eff574a3a819`)
   - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `0dae2eefd243ee417b4d1be188d063afcedf1cbb`)
   - ViteEthereum (from `https://github.com/vitelabs/vite-ethereum-ios.git`, commit `6ddc0b795c65a7a34e84aa196c76f179e032ed97`)
   - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `b43aacfeff4712414330b29da6bc820f8ced8b7e`)
@@ -363,7 +363,7 @@ EXTERNAL SOURCES:
     :commit: 14d8e1d4f26e27e92439c688b8c65a029c8395f9
     :git: https://github.com/vitelabs/vite-keystore-ios.git
   ViteBusiness:
-    :commit: 1b6b53511622519b773b8d9ff6844fb1073c41c9
+    :commit: c6270259fa66395ea39eaabba4d4eff574a3a819
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 0dae2eefd243ee417b4d1be188d063afcedf1cbb
@@ -383,7 +383,7 @@ CHECKOUT OPTIONS:
     :commit: 14d8e1d4f26e27e92439c688b8c65a029c8395f9
     :git: https://github.com/vitelabs/vite-keystore-ios.git
   ViteBusiness:
-    :commit: 1b6b53511622519b773b8d9ff6844fb1073c41c9
+    :commit: c6270259fa66395ea39eaabba4d4eff574a3a819
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 0dae2eefd243ee417b4d1be188d063afcedf1cbb
@@ -466,6 +466,6 @@ SPEC CHECKSUMS:
   web3swift: 6db59e73e2bcb99dde081088d0242382155690c9
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: ce1506ce106ebf474dbc7d382d5752a4edfbf734
+PODFILE CHECKSUM: fa72dfc9dd9878bc325b619a006bf3b6aca2493a
 
 COCOAPODS: 1.5.3
