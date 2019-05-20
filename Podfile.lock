@@ -3,6 +3,7 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - ActionSheetPicker-3.0 (2.3.0)
+  - ActiveLabel (1.0.1)
   - Alamofire (4.8.1)
   - APIKit (3.2.1):
     - Result (~> 3.0)
@@ -166,6 +167,7 @@ PODS:
   - ViteBusiness (0.0.1):
     - Action
     - ActionSheetPicker-3.0
+    - ActiveLabel (= 1.0.1)
     - Alamofire
     - APIKit
     - BaiduMobStat
@@ -281,9 +283,9 @@ DEPENDENCIES:
   - SwiftyJSON
   - Then
   - Toast-Swift (~> 4.0.1)
-  - Vite_GrinWallet (from `https://github.com/vitelabs/Vite_GrinWallet.git`, commit `486abe32b4ac7566ddd0d4f89ff5c67802609865`)
+  - Vite_GrinWallet (from `https://github.com/vitelabs/Vite_GrinWallet.git`, commit `5219021d0f7e0db3443500eca1a5146c3ed30163`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-keystore-ios.git`, commit `14d8e1d4f26e27e92439c688b8c65a029c8395f9`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `ab21e27e5c938b21cda04ad542c8e4409387a9dc`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `b1bfd2886d9c8c96bca8281a1a841906dafdcc24`)
   - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `0dae2eefd243ee417b4d1be188d063afcedf1cbb`)
   - ViteEthereum (from `https://github.com/vitelabs/vite-ethereum-ios.git`, commit `6ddc0b795c65a7a34e84aa196c76f179e032ed97`)
   - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `363fcd9e3759aa9619f1a4d1ca8c6d0f23268cfc`)
@@ -293,6 +295,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Action
     - ActionSheetPicker-3.0
+    - ActiveLabel
     - Alamofire
     - APIKit
     - Bagel
@@ -357,13 +360,13 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Vite_GrinWallet:
-    :commit: 486abe32b4ac7566ddd0d4f89ff5c67802609865
+    :commit: 5219021d0f7e0db3443500eca1a5146c3ed30163
     :git: https://github.com/vitelabs/Vite_GrinWallet.git
   Vite_HDWalletKit:
     :commit: 14d8e1d4f26e27e92439c688b8c65a029c8395f9
     :git: https://github.com/vitelabs/vite-keystore-ios.git
   ViteBusiness:
-    :commit: ab21e27e5c938b21cda04ad542c8e4409387a9dc
+    :commit: b1bfd2886d9c8c96bca8281a1a841906dafdcc24
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 0dae2eefd243ee417b4d1be188d063afcedf1cbb
@@ -377,13 +380,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Vite_GrinWallet:
-    :commit: 486abe32b4ac7566ddd0d4f89ff5c67802609865
+    :commit: 5219021d0f7e0db3443500eca1a5146c3ed30163
     :git: https://github.com/vitelabs/Vite_GrinWallet.git
   Vite_HDWalletKit:
     :commit: 14d8e1d4f26e27e92439c688b8c65a029c8395f9
     :git: https://github.com/vitelabs/vite-keystore-ios.git
   ViteBusiness:
-    :commit: ab21e27e5c938b21cda04ad542c8e4409387a9dc
+    :commit: b1bfd2886d9c8c96bca8281a1a841906dafdcc24
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 0dae2eefd243ee417b4d1be188d063afcedf1cbb
@@ -398,6 +401,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Action: 689181e4c3f6566844178d8a7da6fef39a9597fc
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
+  ActiveLabel: b8b2396fe25308d563601437d6605bf691c3b5db
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   APIKit: a39ff72ac44efc15513fd1b98800f63c525be61b
   Bagel: 199e0105ac694d6eee9db54dd006c940da6ce81b
@@ -459,13 +463,13 @@ SPEC CHECKSUMS:
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
   Vite_GrinWallet: de995b55145f9171385ad035f47b37b579715a69
   Vite_HDWalletKit: 367effe02a337101d345fe54613a13cdb6971184
-  ViteBusiness: 75e22b018a61630ab57479b8530a666afc90405b
+  ViteBusiness: 6a8273d684ea02d21d2bba310abbbb9c05a7971b
   ViteCommunity: 1644d7b4f1818edbff05a0e5942a8d7278acffa9
   ViteEthereum: 999132ec796b1b7ec047513cf8b3837893772a8a
   ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   web3swift: 6db59e73e2bcb99dde081088d0242382155690c9
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: e7ddd2a656410bc2069b734079f14e942234ccaa
+PODFILE CHECKSUM: f44744ae0d83f94edc4aa29f17edd9b01889b897
 
 COCOAPODS: 1.5.3
