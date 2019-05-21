@@ -16,8 +16,12 @@ import ViteBusiness
 import Firebase
 import UserNotifications
 
-#if OFFICIAL || TEST
+#if OFFICIAL
 import ViteCommunity
+#endif
+
+#if DEBUG || TEST
+import Bagel
 #endif
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,7 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
 
-        #if OFFICIAL || TEST
+        #if DEBUG || TEST
+        Bagel.start()
+        #endif
+
+        #if OFFICIAL
         #if ENTERPRISE
         FirebaseApp.configure()
         #else
