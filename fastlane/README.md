@@ -31,6 +31,11 @@ fastlane ios vite_appstore
 fastlane ios vite_test
 ```
 
+### ios vite_premainnet
+```
+fastlane ios vite_premainnet
+```
+
 ### ios vite_enterprise
 ```
 fastlane ios vite_enterprise

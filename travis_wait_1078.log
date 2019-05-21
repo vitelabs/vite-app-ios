@@ -1,0 +1,58 @@
++-----------------------+---------+-----------+
+|                [32mUsed plugins[0m                 |
++-----------------------+---------+-----------+
+| Plugin                | Version | Action    |
++-----------------------+---------+-----------+
+| fastlane-plugin-badge | 1.2.0   | add_badge |
++-----------------------+---------+-----------+
+
+[07:37:20]: Sending anonymous analytics information
+[07:37:20]: Learn more at https://docs.fastlane.tools/#metrics
+[07:37:20]: No personal or sensitive data is sent.
+[07:37:20]: You can disable this by adding `opt_out_usage` at the top of your Fastfile
+[07:37:20]: [32m--------------------------[0m
+[07:37:20]: [32m--- Step: setup_travis ---[0m
+[07:37:20]: [32m--------------------------[0m
+[07:37:20]: Creating temporary keychain: "fastlane_tmp_keychain".
+[07:37:20]: Enabling readonly mode for Travis
+[07:37:20]: [32m------------------------------[0m
+[07:37:20]: [32m--- Step: default_platform ---[0m
+[07:37:20]: [32m------------------------------[0m
+[07:37:20]: [32mDriving the lane 'ios vite_premainnet' 🚀[0m
+[07:37:20]: [32m--------------------------------------------------------------------[0m
+[07:37:20]: [32mStep: Switch to ios increment_build_number_and_push_git lane[0m
+[07:37:20]: [32m--------------------------------------------------------------------[0m
+[07:37:20]: Cruising over to lane 'ios increment_build_number_and_push_git' 🚖
+[07:37:20]: [32m------------------------------------[0m
+[07:37:20]: [32m--- Step: increment_build_number ---[0m
+[07:37:20]: [32m------------------------------------[0m
+Current version of project Vite is: 
+    1295
+
+/Users/travis/build/vitelabs/vite-app-ios
+[07:37:22]: [36m$ cd /Users/travis/build/vitelabs/vite-app-ios && agvtool next-version -all && cd -[0m
+[07:37:22]: ▸ [35mSetting version of project Vite to:[0m
+[07:37:22]: ▸ [35m1296.[0m
+[07:37:22]: ▸ [35mAlso setting CFBundleVersion key (assuming it exists)[0m
+[07:37:22]: ▸ [35mUpdating CFBundleVersion in Info.plist(s)...[0m
+[07:37:22]: ▸ [35mUpdated CFBundleVersion in "Vite.xcodeproj/../PushService/Info.plist" to 1296[0m
+[07:37:22]: ▸ [35mUpdated CFBundleVersion in "Vite.xcodeproj/../Vite/Info.plist" to 1296[0m
+[07:37:22]: ▸ [35mUpdated CFBundleVersion in "Vite.xcodeproj/../ViteTests/Info.plist" to 1296[0m
+[07:37:22]: ▸ [35m/Users/travis/build/vitelabs/vite-app-ios[0m
+[07:37:23]: [32m-----------------------------------------[0m
+[07:37:23]: [32m--- Step: Switch to ios push_git lane ---[0m
+[07:37:23]: [32m-----------------------------------------[0m
+[07:37:23]: Cruising over to lane 'ios push_git' 🚖
+[07:37:23]: [32m---------------------[0m
+[07:37:23]: [32m--- Step: git_add ---[0m
+[07:37:23]: [32m---------------------[0m
+[07:37:23]: [32mSuccessfully added "." 💾.[0m
+[07:37:23]: [32m------------------------------[0m
+[07:37:23]: [32m--- Step: get_build_number ---[0m
+[07:37:23]: [32m------------------------------[0m
+[07:37:23]: [36m$ cd /Users/travis/build/vitelabs/vite-app-ios && agvtool what-version -terse[0m
+[07:37:24]: ▸ [35m1296[0m
+[07:37:24]: [32m------------------------[0m
+[07:37:24]: [32m--- Step: git_commit ---[0m
+[07:37:24]: [32m------------------------[0m
+[07:37:24]: [36m$ git commit -m Jenkins\ Version\ Bump\ 1296 .[0m

@@ -1,7 +1,7 @@
 #!/bin/bash
 CMD_PATH=`dirname $0`
 cd $CMD_PATH
-sed -i "" 's/isOfficial = true/isOfficial = false/' Podfile
+sed -i "" 's/isOfficial = false/isOfficial = true/' Podfile
 pod install
 open Vite.xcworkspace
 exit 0
