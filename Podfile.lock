@@ -469,7 +469,7 @@ SPEC CHECKSUMS:
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
-  Vite_GrinWallet: 9230d7504dc3e50f72ebd03cb1fd5dd5dc8dccf1
+  Vite_GrinWallet: cf933e380fef6c4d220f251782fd7e7d77194356
   Vite_HDWalletKit: 367effe02a337101d345fe54613a13cdb6971184
   ViteBusiness: 4c2fd8ff409402888a1d3684b82775bd6c5049a7
   ViteCommunity: 6cc5c5073e7f50a30d39f23e00266171429b9a2d
