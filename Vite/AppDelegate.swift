@@ -40,27 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if ENTERPRISE
         FirebaseApp.configure()
         #else
-        VitePushManager.shared().start(launchOptions: launchOptions ?? [:])
-        checkPushAuthorization()
+        FirebaseApp.configure()
+        VitePushManager.instance.start()
         #endif
         ViteCommunity.register()
         ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 1)
         #endif
-
         ViteBusinessLanucher.instance.start(with: window)
-
         return true
-    }
-
-    func checkPushAuthorization() {
-        // fix Firebase and XGPush conflict
-        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-            if settings.authorizationStatus == .notDetermined {
-                GCD.delay(1) { self.checkPushAuthorization() }
-            } else {
-                GCD.delay(1) { FirebaseApp.configure() }
-            }
-        }
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -72,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-
+        application.applicationIconBadgeNumber = 0
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -86,4 +73,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
 
     }
+#if OFFICIAL
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        VitePushManager.instance.model.deviceToken = deviceToken.toHexString()
+    }
+#endif
 }

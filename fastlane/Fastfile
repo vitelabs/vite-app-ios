@@ -26,13 +26,13 @@ platform :ios do
 
   lane :vite_test do 
     increment_build_number_and_push_git
-    match_profile
+    #match_profile
     version_number = get_version_number(xcodeproj: "Vite.xcodeproj", target: "Vite")
     build_number = get_build_number(xcodeproj: "Vite.xcodeproj")
     add_badge(shield: version_number + "-" + build_number + "-" + "orange", no_badge: true)
-    build_app(workspace: "Vite.xcworkspace", scheme: "Vite", clean: true, configuration: "Test")
-    upload_to_testflight(skip_waiting_for_build_processing: true)
-    upload_dysm()
+    #build_app(workspace: "Vite.xcworkspace", scheme: "Vite", clean: true, configuration: "Test")
+    #upload_to_testflight(skip_waiting_for_build_processing: true)
+    #upload_dysm()
   end
 
   lane :vite_premainnet do 
