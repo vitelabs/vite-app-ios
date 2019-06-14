@@ -3,49 +3,62 @@ inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
 
-isOfficial = true
+# Vite ViteOfficial ViteTest ViteDapp
+target_name = 'ViteDapp'
 
-def vite_config(config, official)
-    if official
-        if config.name.include?("Debug")
-            config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1','OFFICIAL=1']
-            config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG','OFFICIAL']
-            config.build_settings['OTHER_SWIFT_FLAGS'] = '$(inherited) -Xfrontend -debug-time-function-bodies'
-        elsif config.name.include?("Test")
-            config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','TEST=1','OFFICIAL=1']
-            config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['TEST','OFFICIAL']
-        elsif config.name.include?("Release")
-            config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','OFFICIAL=1']
-            config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = 'OFFICIAL'
-        end
-    else
+def vite_config(config, name)
+    if name == 'Vite'
         if config.name.include?("Debug")
             config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1']
             config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG']
             config.build_settings['OTHER_SWIFT_FLAGS'] = '$(inherited) -Xfrontend -debug-time-function-bodies'
-        elsif config.name.include?("Test")
-            config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
-            config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = []
         elsif config.name.include?("Release")
             config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
             config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = []
         end
-    end
-end
-
-app_project = Xcodeproj::Project.open(Dir.glob("*.xcodeproj")[0])
-app_project.native_targets.each do |target|
-    if target.name == 'Vite'
-        target.build_configurations.each do |config|
-            vite_config config, isOfficial
+    elsif name == 'ViteOfficial'
+        if config.name.include?("Debug")
+            config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1','OFFICIAL=1']
+            config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG','OFFICIAL']
+            config.build_settings['OTHER_SWIFT_FLAGS'] = '$(inherited) -Xfrontend -debug-time-function-bodies'
+        elsif config.name.include?("Release")
+            config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','OFFICIAL=1']
+            config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = 'OFFICIAL'
+        end
+    elsif name == 'ViteTest'
+        if config.name.include?("Debug")
+            config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1','OFFICIAL=1','TEST=1']
+            config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG','OFFICIAL', 'TEST']
+            config.build_settings['OTHER_SWIFT_FLAGS'] = '$(inherited) -Xfrontend -debug-time-function-bodies'
+        elsif config.name.include?("Release")
+            config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','OFFICIAL=1','TEST=1']
+            config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['OFFICIAL', 'TEST']
+        end
+    elsif name == 'ViteDapp'
+        if config.name.include?("Debug")
+            config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1','DAPP=1']
+            config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = ['DEBUG','DAPP']
+            config.build_settings['OTHER_SWIFT_FLAGS'] = '$(inherited) -Xfrontend -debug-time-function-bodies'
+        elsif config.name.include?("Release")
+            config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DAPP=1']
+            config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] = 'DAPP'
         end
     end
 end
-app_project.save
+
+#app_project = Xcodeproj::Project.open(Dir.glob("*.xcodeproj")[0])
+#app_project.native_targets.each do |target|
+#    if target.name == 'Vite'
+#        target.build_configurations.each do |config|
+#            vite_config config, isOfficial
+#        end
+#    end
+#end
+#app_project.save
 
 
 
-target 'Vite' do
+target target_name do
     use_frameworks!
 
     #vite kit
@@ -58,13 +71,13 @@ target 'Vite' do
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
     vite_community_commit = '5b2b42013f91c6ec3578e4b399bfe81f8b909037'
-    vite_business_commit = '0329836fe4836399bfede40a78f31cc2e29f6ccf'
+    vite_business_commit = '9836fc7d876ddd4ff151c9d1b3c05d3e543642bc'
     vite_wallet_commit = '363fcd9e3759aa9619f1a4d1ca8c6d0f23268cfc'
     vite_ethereum_commit = '6ddc0b795c65a7a34e84aa196c76f179e032ed97'
     vite_grin_commit = '5219021d0f7e0db3443500eca1a5146c3ed30163'
     vite_hd_commit = '14d8e1d4f26e27e92439c688b8c65a029c8395f9'
 
-    if isOfficial
+    if target_name == 'ViteOfficial' || target_name == 'ViteTest'
         vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
     end
     vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
@@ -138,7 +151,7 @@ target 'Vite' do
     pod 'Firebase/Core'
 
     pod 'MLeaksFinder', :configurations => ['Debug']
-    pod 'Bagel', '~>  1.3.2', :configurations => ['Debug', 'Test']
+    pod 'Bagel', '~>  1.3.2', :configurations => ['Debug']
     
     pod 'FSPagerView'
     pod 'DNSPageView'
@@ -159,7 +172,7 @@ post_install do |installer|
             else 
                 config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
             end
-            vite_config config, isOfficial
+            vite_config config, target_name
         end
 
         if ['RazzleDazzle', 'JSONRPCKit', 'APIKit'].include? target.name

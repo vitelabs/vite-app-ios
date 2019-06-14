@@ -37,15 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
 
         #if OFFICIAL
-        #if ENTERPRISE
-        FirebaseApp.configure()
-        #else
         FirebaseApp.configure()
         VitePushManager.instance.start()
-        #endif
         ViteCommunity.register()
         ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 1)
+        #elseif DAPP
+        ViteBusinessLanucher.instance.add(homePageSubTabViewController: DebugHomeViewController.createNavVC(), atIndex: 2)
         #endif
+
         ViteBusinessLanucher.instance.start(with: window)
         return true
     }
