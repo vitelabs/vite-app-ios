@@ -44,6 +44,9 @@ PODS:
     - FirebaseAnalytics (= 5.8.0)
   - Firebase/CoreOnly (5.19.0):
     - FirebaseCore (= 5.4.0)
+  - Firebase/Messaging (5.19.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (= 3.4.0)
   - FirebaseAnalytics (5.8.0):
     - FirebaseCore (~> 5.4)
     - FirebaseInstanceID (~> 3.8)
@@ -53,6 +56,7 @@ PODS:
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
+  - FirebaseAnalyticsInterop (1.2.0)
   - FirebaseCore (5.4.0):
     - GoogleUtilities/Environment (~> 5.2)
     - GoogleUtilities/Logger (~> 5.2)
@@ -60,6 +64,14 @@ PODS:
     - FirebaseCore (~> 5.2)
     - GoogleUtilities/Environment (~> 5.2)
     - GoogleUtilities/UserDefaults (~> 5.2)
+  - FirebaseMessaging (3.4.0):
+    - FirebaseAnalyticsInterop (~> 1.1)
+    - FirebaseCore (~> 5.2)
+    - FirebaseInstanceID (~> 3.6)
+    - GoogleUtilities/Environment (~> 5.3)
+    - GoogleUtilities/Reachability (~> 5.3)
+    - GoogleUtilities/UserDefaults (~> 5.3)
+    - Protobuf (~> 3.1)
   - FSPagerView (0.8.2)
   - GoogleAppMeasurement (5.8.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
@@ -121,6 +133,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.8.4):
     - PromiseKit/CorePromise
+  - Protobuf (3.7.0)
   - R.swift (5.0.0.alpha.3):
     - R.swift.Library (~> 5.0.0.alpha.2)
   - R.swift.Library (5.0.0)
@@ -211,6 +224,13 @@ PODS:
     - ViteEthereum
     - ViteWallet
     - XCGLogger (~> 6.1.0)
+  - ViteCommunity (0.1.0):
+    - DNSPageView
+    - Firebase/Messaging
+    - FSPagerView
+    - Moya
+    - R.swift
+    - ViteBusiness
   - ViteEthereum (0.0.3):
     - CryptoSwift (= 1.0.0)
     - web3swift (= 2.1.6)
@@ -277,9 +297,10 @@ DEPENDENCIES:
   - Toast-Swift (~> 4.0.1)
   - Vite_GrinWallet (from `https://github.com/vitelabs/Vite_GrinWallet.git`, commit `5219021d0f7e0db3443500eca1a5146c3ed30163`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-keystore-ios.git`, commit `14d8e1d4f26e27e92439c688b8c65a029c8395f9`)
-  - ViteBusiness (from `../vite-business-ios/`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `9836fc7d876ddd4ff151c9d1b3c05d3e543642bc`)
+  - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `5b2b42013f91c6ec3578e4b399bfe81f8b909037`)
   - ViteEthereum (from `https://github.com/vitelabs/vite-ethereum-ios.git`, commit `6ddc0b795c65a7a34e84aa196c76f179e032ed97`)
-  - ViteWallet (from `../vite-wallet-ios/`)
+  - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `363fcd9e3759aa9619f1a4d1ca8c6d0f23268cfc`)
   - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
@@ -304,8 +325,10 @@ SPEC REPOS:
     - FBRetainCycleDetector
     - Firebase
     - FirebaseAnalytics
+    - FirebaseAnalyticsInterop
     - FirebaseCore
     - FirebaseInstanceID
+    - FirebaseMessaging
     - FSPagerView
     - GoogleAppMeasurement
     - GoogleUtilities
@@ -324,6 +347,7 @@ SPEC REPOS:
     - ObjectMapper
     - pop
     - PromiseKit
+    - Protobuf
     - R.swift
     - R.swift.Library
     - RazzleDazzle
@@ -356,12 +380,17 @@ EXTERNAL SOURCES:
     :commit: 14d8e1d4f26e27e92439c688b8c65a029c8395f9
     :git: https://github.com/vitelabs/vite-keystore-ios.git
   ViteBusiness:
-    :path: "../vite-business-ios/"
+    :commit: 9836fc7d876ddd4ff151c9d1b3c05d3e543642bc
+    :git: https://github.com/vitelabs/vite-business-ios.git
+  ViteCommunity:
+    :commit: 5b2b42013f91c6ec3578e4b399bfe81f8b909037
+    :git: https://github.com/vitelabs/vite-community-ios.git
   ViteEthereum:
     :commit: 6ddc0b795c65a7a34e84aa196c76f179e032ed97
     :git: https://github.com/vitelabs/vite-ethereum-ios.git
   ViteWallet:
-    :path: "../vite-wallet-ios/"
+    :commit: 363fcd9e3759aa9619f1a4d1ca8c6d0f23268cfc
+    :git: https://github.com/vitelabs/vite-wallet-ios.git
 
 CHECKOUT OPTIONS:
   Vite_GrinWallet:
@@ -370,9 +399,18 @@ CHECKOUT OPTIONS:
   Vite_HDWalletKit:
     :commit: 14d8e1d4f26e27e92439c688b8c65a029c8395f9
     :git: https://github.com/vitelabs/vite-keystore-ios.git
+  ViteBusiness:
+    :commit: 9836fc7d876ddd4ff151c9d1b3c05d3e543642bc
+    :git: https://github.com/vitelabs/vite-business-ios.git
+  ViteCommunity:
+    :commit: 5b2b42013f91c6ec3578e4b399bfe81f8b909037
+    :git: https://github.com/vitelabs/vite-community-ios.git
   ViteEthereum:
     :commit: 6ddc0b795c65a7a34e84aa196c76f179e032ed97
     :git: https://github.com/vitelabs/vite-ethereum-ios.git
+  ViteWallet:
+    :commit: 363fcd9e3759aa9619f1a4d1ca8c6d0f23268cfc
+    :git: https://github.com/vitelabs/vite-wallet-ios.git
 
 SPEC CHECKSUMS:
   Action: 689181e4c3f6566844178d8a7da6fef39a9597fc
@@ -395,8 +433,10 @@ SPEC CHECKSUMS:
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   Firebase: c60d49e9c2630875a96207d15e2affb8364996d1
   FirebaseAnalytics: fd72a26bf8dac84cefba2f0864366f718555a5b0
+  FirebaseAnalyticsInterop: efbe45c8385ec626e29f9525e5ebd38520dfb6c1
   FirebaseCore: 22a79a961c3951ef2f77b67bfbc99e454247b319
   FirebaseInstanceID: cf488df2f4b79782f0e430b04a0e17c0aa7979b2
+  FirebaseMessaging: 2d53d08d752fbe63ce0820428d70be5ab87c11fb
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
   GoogleAppMeasurement: 1624046ab1bcc5e170061a56ef5679000b079c8e
   GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
@@ -415,6 +455,7 @@ SPEC CHECKSUMS:
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
+  Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   R.swift: ca4207ecc94545a1611ca0b2ae1197458b6ba30a
   R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
   RazzleDazzle: 0b1b9fc8ceed04bfdd4b3e8182e98ef7edacd1d1
@@ -438,12 +479,13 @@ SPEC CHECKSUMS:
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
   Vite_GrinWallet: de995b55145f9171385ad035f47b37b579715a69
   Vite_HDWalletKit: 367effe02a337101d345fe54613a13cdb6971184
-  ViteBusiness: 4c2fd8ff409402888a1d3684b82775bd6c5049a7
+  ViteBusiness: 6a8273d684ea02d21d2bba310abbbb9c05a7971b
+  ViteCommunity: 6cc5c5073e7f50a30d39f23e00266171429b9a2d
   ViteEthereum: 999132ec796b1b7ec047513cf8b3837893772a8a
-  ViteWallet: 382ab10ba912014b64d103ef0324760259d584ae
+  ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   web3swift: 6db59e73e2bcb99dde081088d0242382155690c9
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 92ab29ba70e5a53cc35c0951789fb7452950e782
+PODFILE CHECKSUM: 802306c45e2559262ca10bddb43b2ef4900def89
 
 COCOAPODS: 1.5.3

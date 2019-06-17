@@ -8,50 +8,34 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new beta build to TestFlight"
 
-  lane :vite do 
-    # increment_build_number_and_push_git
-    match_profile
-    build_app(workspace: "Vite.xcworkspace", scheme: "Vite", clean: true, configuration: "Release")
-    # upload_to_testflight(skip_waiting_for_build_processing: true)
-    upload_dysm()
-  end
-
   lane :vite_appstore do 
     increment_build_number_and_push_git
+    exec '../bootstrap_official'
     match_profile
-    build_app(workspace: "Vite.xcworkspace", scheme: "Vite", clean: true, configuration: "Release")
+    build_app(workspace: "Vite.xcworkspace", scheme: "ViteOfficial", clean: true, configuration: "Release")
     upload_to_testflight(skip_waiting_for_build_processing: true)
     upload_dysm()
   end
 
   lane :vite_test do 
     increment_build_number_and_push_git
+    exec '../bootstrap_test'
     #match_profile
-    version_number = get_version_number(xcodeproj: "Vite.xcodeproj", target: "Vite")
+    version_number = get_version_number(xcodeproj: "Vite.xcodeproj", target: "ViteTest")
     build_number = get_build_number(xcodeproj: "Vite.xcodeproj")
     add_badge(shield: version_number + "-" + build_number + "-" + "orange", no_badge: true)
-    #build_app(workspace: "Vite.xcworkspace", scheme: "Vite", clean: true, configuration: "Test")
+    #build_app(workspace: "Vite.xcworkspace", scheme: "ViteTest", clean: true, configuration: "Release")
     #upload_to_testflight(skip_waiting_for_build_processing: true)
     #upload_dysm()
   end
 
-  lane :vite_premainnet do 
+  lane :vite_dapp do 
     increment_build_number_and_push_git
-    match_profile
-    version_number = get_version_number(xcodeproj: "Vite.xcodeproj", target: "Vite")
-    build_number = get_build_number(xcodeproj: "Vite.xcodeproj")
-    set_info_plist_value(path: "./Vite/Info.plist", key: "CFBundleDisplayName", value: "Pre-mainnet")
-    add_badge(shield: version_number + "-" + build_number + "-" + "orange", no_badge: true)
-    add_badge(shield: "premainnet" + "-" + "orange", no_badge: true, shield_gravity: "South")
-    build_app(workspace: "Vite.xcworkspace", scheme: "Vite", clean: true, configuration: "Test")
-    upload_to_testflight(skip_waiting_for_build_processing: true)
-    upload_dysm()
-  end
-
-  lane :vite_enterprise do 
-    # match(type: "adhoc", app_identifier: "net.vite.wallet.ep",  clone_branch_directly: true)
-    build_ios_app(workspace: "Vite.xcworkspace", configuration: "Release", scheme: "Vite-enterprise", export_method: "ad-hoc", clean: true, include_bitcode: false)
-    upload_dysm(type:"enterprise")
+    exec '../bootstrap_dapp'
+    #match_profile
+    #build_app(workspace: "Vite.xcworkspace", scheme: "ViteDapp", clean: true, configuration: "Release")
+    #upload_to_testflight(skip_waiting_for_build_processing: true)
+    #upload_dysm()
   end
 
   lane :match_profile do 
@@ -94,15 +78,6 @@ platform :ios do
       puts "appstore"
       exec '../Pods/Fabric/upload-symbols -gsp ../Vite/Resource/Firebase/official/GoogleService-Info.plist -p ios ../Vite-test.app.dSYM.zip'
     end
-  end
-
-  lane :vite_for_qa do 
-    increment_build_number_and_push_git
-    #match_profile
-    version_number = get_version_number(xcodeproj: "Vite.xcodeproj", target: "Vite")
-    build_number = get_build_number(xcodeproj: "Vite.xcodeproj")
-    add_badge(shield: version_number + "-" + build_number + "-" + "orange", no_badge: true)
-    build_app(workspace: "Vite.xcworkspace", scheme: "Vite", clean: true,configuration: "Test")
   end
   
 end

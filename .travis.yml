@@ -5,7 +5,6 @@ before_install:
 - brew update
 - brew install imagemagick
 - bundle install
-- pod install --repo-update --verbose
 - pod cache list --verbose
 script:
 - fastlane vite_test
