@@ -176,9 +176,9 @@
 		8E1F941022B39E6A00D5C0A8 /* ViteOfficial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViteOfficial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E646FA822B3B6EC0007CE0E /* ViteTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViteTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E646FC022B3B9290007CE0E /* ViteDapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViteDapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E646FC322B3BC800007CE0E /* ViteOfficial-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ViteOfficial-Info.plist"; sourceTree = "<group>"; };
-		8E646FC522B3BC800007CE0E /* ViteDapp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ViteDapp-Info.plist"; sourceTree = "<group>"; };
-		8E646FC722B3BC800007CE0E /* ViteTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ViteTest-Info.plist"; sourceTree = "<group>"; };
+		8E646FC322B3BC800007CE0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E646FC522B3BC800007CE0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E646FC722B3BC800007CE0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E6F3E13214220DF003CDFC2 /* ViteNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteNetworkTests.swift; sourceTree = "<group>"; };
 		8E79261521515D3A007FEBAB /* ViteURITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteURITest.swift; sourceTree = "<group>"; };
 		9093049F3DD9E9AC0B48FFE3 /* Pods-ViteTests.internal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.internal.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.internal.xcconfig"; sourceTree = "<group>"; };
@@ -386,7 +386,7 @@
 		8E646FC222B3BC800007CE0E /* ViteOfficial */ = {
 			isa = PBXGroup;
 			children = (
-				8E646FC322B3BC800007CE0E /* ViteOfficial-Info.plist */,
+				8E646FC322B3BC800007CE0E /* Info.plist */,
 			);
 			path = ViteOfficial;
 			sourceTree = "<group>";
@@ -394,7 +394,7 @@
 		8E646FC422B3BC800007CE0E /* ViteDapp */ = {
 			isa = PBXGroup;
 			children = (
-				8E646FC522B3BC800007CE0E /* ViteDapp-Info.plist */,
+				8E646FC522B3BC800007CE0E /* Info.plist */,
 			);
 			path = ViteDapp;
 			sourceTree = "<group>";
@@ -402,7 +402,7 @@
 		8E646FC622B3BC800007CE0E /* ViteTest */ = {
 			isa = PBXGroup;
 			children = (
-				8E646FC722B3BC800007CE0E /* ViteTest-Info.plist */,
+				8E646FC722B3BC800007CE0E /* Info.plist */,
 			);
 			path = ViteTest;
 			sourceTree = "<group>";
@@ -1298,7 +1298,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1321;
+				CURRENT_PROJECT_VERSION = 1322;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
@@ -1328,7 +1328,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1321;
+				CURRENT_PROJECT_VERSION = 1322;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
@@ -1468,14 +1468,14 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1321;
+				CURRENT_PROJECT_VERSION = 1322;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"OFFICIAL=1",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/ViteOfficial/ViteOfficial-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/ViteOfficial/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1502,14 +1502,14 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1321;
+				CURRENT_PROJECT_VERSION = 1322;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"OFFICIAL=1",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/ViteOfficial/ViteOfficial-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/ViteOfficial/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1535,7 +1535,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1321;
+				CURRENT_PROJECT_VERSION = 1322;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1543,7 +1543,7 @@
 					"OFFICIAL=1",
 					"TEST=1",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/ViteTest/ViteTest-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/ViteTest/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1569,7 +1569,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1321;
+				CURRENT_PROJECT_VERSION = 1322;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1577,7 +1577,7 @@
 					"OFFICIAL=1",
 					"TEST=1",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/ViteTest/ViteTest-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/ViteTest/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1603,14 +1603,14 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1321;
+				CURRENT_PROJECT_VERSION = 1322;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"DAPP=1",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/ViteDapp/ViteDapp-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/ViteDapp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1636,14 +1636,14 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1321;
+				CURRENT_PROJECT_VERSION = 1322;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"DAPP=1",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/ViteDapp/ViteDapp-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/ViteDapp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
