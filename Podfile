@@ -151,7 +151,12 @@ target target_name do
     pod 'Firebase/Core'
 
     pod 'MLeaksFinder', :configurations => ['Debug']
-    pod 'Bagel', '~>  1.3.2', :configurations => ['Debug']
+
+    if target_name == 'ViteTest'
+        pod 'Bagel', '~>  1.3.2'
+    else
+        pod 'Bagel', '~>  1.3.2', :configurations => ['Debug']
+    end
     
     pod 'FSPagerView'
     pod 'DNSPageView'

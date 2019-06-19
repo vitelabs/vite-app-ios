@@ -3,4 +3,3 @@ CMD_PATH=`dirname $0`
 cd $CMD_PATH
 sed -i "" 's/^target_name = '\''.*'\''$/target_name = '\''ViteOfficial'\''/' Podfile
 pod install
-exit 0
