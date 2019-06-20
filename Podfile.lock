@@ -300,7 +300,7 @@ DEPENDENCIES:
   - Toast-Swift (~> 4.0.1)
   - Vite_GrinWallet (from `https://github.com/vitelabs/Vite_GrinWallet.git`, commit `5219021d0f7e0db3443500eca1a5146c3ed30163`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-keystore-ios.git`, commit `14d8e1d4f26e27e92439c688b8c65a029c8395f9`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `292354b4dfb9056f286024f28493623332a8c768`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `8c530780fee67134ecf9f4e304a9f5ad7492a758`)
   - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `175f3a779cf46e4309c0684d0beb1262a29fbe18`)
   - ViteEthereum (from `https://github.com/vitelabs/vite-ethereum-ios.git`, commit `6ddc0b795c65a7a34e84aa196c76f179e032ed97`)
   - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `363fcd9e3759aa9619f1a4d1ca8c6d0f23268cfc`)
@@ -384,7 +384,7 @@ EXTERNAL SOURCES:
     :commit: 14d8e1d4f26e27e92439c688b8c65a029c8395f9
     :git: https://github.com/vitelabs/vite-keystore-ios.git
   ViteBusiness:
-    :commit: 292354b4dfb9056f286024f28493623332a8c768
+    :commit: 8c530780fee67134ecf9f4e304a9f5ad7492a758
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 175f3a779cf46e4309c0684d0beb1262a29fbe18
@@ -404,7 +404,7 @@ CHECKOUT OPTIONS:
     :commit: 14d8e1d4f26e27e92439c688b8c65a029c8395f9
     :git: https://github.com/vitelabs/vite-keystore-ios.git
   ViteBusiness:
-    :commit: 292354b4dfb9056f286024f28493623332a8c768
+    :commit: 8c530780fee67134ecf9f4e304a9f5ad7492a758
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 175f3a779cf46e4309c0684d0beb1262a29fbe18
@@ -491,6 +491,6 @@ SPEC CHECKSUMS:
   web3swift: 6db59e73e2bcb99dde081088d0242382155690c9
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 7e10849081aabfd193884c10edfbb4150ee84bb7
+PODFILE CHECKSUM: b37fcd1baa99b6fbb012d2e99a3801e9670f9dc4
 
 COCOAPODS: 1.5.3
