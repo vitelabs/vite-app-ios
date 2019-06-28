@@ -1,0 +1,8 @@
+# Podfile  非入侵式修改的自定义配置
+# 执行pod install 非侵入式修改
+
+###  cp .Podfile.patch.sample .Podfile.patch
+
+pod 'ViteBusiness', :path =>'/Users/haoshenyang/vitelabs/vite-business-ios'
+#pod 'ViteUtils', :path =>'/Users/haoshenyang/vitelabs/vite-utils-ios'
+#pod 'ViteCommunity', :path =>'/Users/haoshenyang/vitelabs/vite-community-ios'

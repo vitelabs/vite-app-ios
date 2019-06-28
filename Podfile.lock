@@ -112,7 +112,6 @@ PODS:
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - ObjectMapper (3.4.2)
   - pop (1.0.12)
-  - PPBadgeViewSwift (3.1.0)
   - PromiseKit (6.8.4):
     - PromiseKit/CorePromise (= 6.8.4)
     - PromiseKit/Foundation (= 6.8.4)
@@ -193,7 +192,6 @@ PODS:
     - NYXImagesKit (= 2.3)
     - ObjectMapper
     - pop (~> 1.0)
-    - PPBadgeViewSwift (= 3.1.0)
     - PromiseKit (~> 6.0)
     - R.swift (= 5.0.0.alpha.3)
     - RazzleDazzle
@@ -281,7 +279,7 @@ DEPENDENCIES:
   - Toast-Swift (~> 4.0.1)
   - Vite_GrinWallet (from `https://github.com/vitelabs/Vite_GrinWallet.git`, commit `5219021d0f7e0db3443500eca1a5146c3ed30163`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-keystore-ios.git`, commit `14d8e1d4f26e27e92439c688b8c65a029c8395f9`)
-  - ViteBusiness (from `/Users/haoshenyang/vitelabs/vite-business-ios`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `8c530780fee67134ecf9f4e304a9f5ad7492a758`)
   - ViteEthereum (from `https://github.com/vitelabs/vite-ethereum-ios.git`, commit `6ddc0b795c65a7a34e84aa196c76f179e032ed97`)
   - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `363fcd9e3759aa9619f1a4d1ca8c6d0f23268cfc`)
   - XCGLogger (~> 6.1.0)
@@ -327,7 +325,6 @@ SPEC REPOS:
     - ObjcExceptionBridging
     - ObjectMapper
     - pop
-    - PPBadgeViewSwift
     - PromiseKit
     - R.swift
     - R.swift.Library
@@ -362,7 +359,8 @@ EXTERNAL SOURCES:
     :commit: 14d8e1d4f26e27e92439c688b8c65a029c8395f9
     :git: https://github.com/vitelabs/vite-keystore-ios.git
   ViteBusiness:
-    :path: "/Users/haoshenyang/vitelabs/vite-business-ios"
+    :commit: 8c530780fee67134ecf9f4e304a9f5ad7492a758
+    :git: https://github.com/vitelabs/vite-business-ios.git
   ViteEthereum:
     :commit: 6ddc0b795c65a7a34e84aa196c76f179e032ed97
     :git: https://github.com/vitelabs/vite-ethereum-ios.git
@@ -377,6 +375,9 @@ CHECKOUT OPTIONS:
   Vite_HDWalletKit:
     :commit: 14d8e1d4f26e27e92439c688b8c65a029c8395f9
     :git: https://github.com/vitelabs/vite-keystore-ios.git
+  ViteBusiness:
+    :commit: 8c530780fee67134ecf9f4e304a9f5ad7492a758
+    :git: https://github.com/vitelabs/vite-business-ios.git
   ViteEthereum:
     :commit: 6ddc0b795c65a7a34e84aa196c76f179e032ed97
     :git: https://github.com/vitelabs/vite-ethereum-ios.git
@@ -424,7 +425,6 @@ SPEC CHECKSUMS:
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
-  PPBadgeViewSwift: 18a219a9897f418342c22dd1a54f7b18ac56546b
   PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
   R.swift: ca4207ecc94545a1611ca0b2ae1197458b6ba30a
   R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
@@ -450,7 +450,7 @@ SPEC CHECKSUMS:
   URLNavigator: 0bffc3efdeb2d97f7b5eec7ac82d290f4a099431
   Vite_GrinWallet: de995b55145f9171385ad035f47b37b579715a69
   Vite_HDWalletKit: 367effe02a337101d345fe54613a13cdb6971184
-  ViteBusiness: 8ffbf8043bc6e2d89a59a5135a0f5b2534ce9e2d
+  ViteBusiness: df9168208b36a3c5a67d02a3dfef283f7e6b4e53
   ViteEthereum: 999132ec796b1b7ec047513cf8b3837893772a8a
   ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   web3swift: 6db59e73e2bcb99dde081088d0242382155690c9
