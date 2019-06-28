@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
 
 # Vite ViteOfficial ViteTest ViteDapp
-target_name = 'ViteTest'
+target_name = 'ViteDapp'
 
 def vite_config(config, name)
     if name == 'Vite'
