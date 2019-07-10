@@ -72,7 +72,7 @@ target target_name do
 
     vite_community_commit = 'dc69361db1883f195508be347d7bae6c0b499dc3'
     vite_business_commit = '566b1e0ccb13b321e5d479b0ad3ffbc7a6418c4e'
-    vite_wallet_commit = 'd62d580713b778d6df955c9993e0de33a9a26bed'
+    vite_wallet_commit = 'cab47c89c4472d4ea69b6cc0e1e141ae4a47c622'
     vite_ethereum_commit = '6ddc0b795c65a7a34e84aa196c76f179e032ed97'
     vite_grin_commit = '5219021d0f7e0db3443500eca1a5146c3ed30163'
     vite_hd_commit = '14d8e1d4f26e27e92439c688b8c65a029c8395f9'
