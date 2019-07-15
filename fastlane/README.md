@@ -16,29 +16,19 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
-### ios vite
-```
-fastlane ios vite
-```
-Push a new beta build to TestFlight
 ### ios vite_appstore
 ```
 fastlane ios vite_appstore
 ```
-
+Push a new beta build to TestFlight
 ### ios vite_test
 ```
 fastlane ios vite_test
 ```
 
-### ios vite_premainnet
+### ios vite_dapp
 ```
-fastlane ios vite_premainnet
-```
-
-### ios vite_enterprise
-```
-fastlane ios vite_enterprise
+fastlane ios vite_dapp
 ```
 
 ### ios match_profile
@@ -66,11 +56,6 @@ create new pr in github argument base is base branch
 fastlane ios upload_dysm
 ```
 upload to Beta by Crashlytics
-### ios vite_for_qa
-```
-fastlane ios vite_for_qa
-```
-
 
 ----
 
