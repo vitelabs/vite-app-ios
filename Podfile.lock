@@ -218,6 +218,7 @@ PODS:
     - RxOptional
     - RxSwift (~> 4.0)
     - SnapKit (~> 4.0.0)
+    - Starscream
     - SwiftLint
     - SwiftyJSON
     - Then
@@ -300,12 +301,12 @@ DEPENDENCIES:
   - SwiftyJSON
   - Then
   - Toast-Swift (~> 4.0.1)
-  - Vite_GrinWallet (from `https://github.com/vitelabs/Vite_GrinWallet.git`, commit `5219021d0f7e0db3443500eca1a5146c3ed30163`)
+  - Vite_GrinWallet (from `https://github.com/vitelabs/Vite_GrinWallet.git`, commit `8b08aa50fdb8bf5152747b0ce4271fa352822c0c`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-keystore-ios.git`, commit `14d8e1d4f26e27e92439c688b8c65a029c8395f9`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `831a10d30abf28a1bf8421d734db4cf99fa1ace4`)
-  - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `dc69361db1883f195508be347d7bae6c0b499dc3`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `a23e2ac08a7e46d14f3d83e4b009f661bdb4edd0`)
+  - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `6e7a85bc6c761c7a2c4bdb3f5f06be62eb9687eb`)
   - ViteEthereum (from `https://github.com/vitelabs/vite-ethereum-ios.git`, commit `6ddc0b795c65a7a34e84aa196c76f179e032ed97`)
-  - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `d62d580713b778d6df955c9993e0de33a9a26bed`)
+  - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `5bd4cf465b356fa469cdd09bc1f57a4af9d539ad`)
   - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
@@ -381,42 +382,42 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Vite_GrinWallet:
-    :commit: 5219021d0f7e0db3443500eca1a5146c3ed30163
+    :commit: 8b08aa50fdb8bf5152747b0ce4271fa352822c0c
     :git: https://github.com/vitelabs/Vite_GrinWallet.git
   Vite_HDWalletKit:
     :commit: 14d8e1d4f26e27e92439c688b8c65a029c8395f9
     :git: https://github.com/vitelabs/vite-keystore-ios.git
   ViteBusiness:
-    :commit: 831a10d30abf28a1bf8421d734db4cf99fa1ace4
+    :commit: a23e2ac08a7e46d14f3d83e4b009f661bdb4edd0
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
-    :commit: dc69361db1883f195508be347d7bae6c0b499dc3
+    :commit: 6e7a85bc6c761c7a2c4bdb3f5f06be62eb9687eb
     :git: https://github.com/vitelabs/vite-community-ios.git
   ViteEthereum:
     :commit: 6ddc0b795c65a7a34e84aa196c76f179e032ed97
     :git: https://github.com/vitelabs/vite-ethereum-ios.git
   ViteWallet:
-    :commit: d62d580713b778d6df955c9993e0de33a9a26bed
+    :commit: 5bd4cf465b356fa469cdd09bc1f57a4af9d539ad
     :git: https://github.com/vitelabs/vite-wallet-ios.git
 
 CHECKOUT OPTIONS:
   Vite_GrinWallet:
-    :commit: 5219021d0f7e0db3443500eca1a5146c3ed30163
+    :commit: 8b08aa50fdb8bf5152747b0ce4271fa352822c0c
     :git: https://github.com/vitelabs/Vite_GrinWallet.git
   Vite_HDWalletKit:
     :commit: 14d8e1d4f26e27e92439c688b8c65a029c8395f9
     :git: https://github.com/vitelabs/vite-keystore-ios.git
   ViteBusiness:
-    :commit: 831a10d30abf28a1bf8421d734db4cf99fa1ace4
+    :commit: a23e2ac08a7e46d14f3d83e4b009f661bdb4edd0
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
-    :commit: dc69361db1883f195508be347d7bae6c0b499dc3
+    :commit: 6e7a85bc6c761c7a2c4bdb3f5f06be62eb9687eb
     :git: https://github.com/vitelabs/vite-community-ios.git
   ViteEthereum:
     :commit: 6ddc0b795c65a7a34e84aa196c76f179e032ed97
     :git: https://github.com/vitelabs/vite-ethereum-ios.git
   ViteWallet:
-    :commit: d62d580713b778d6df955c9993e0de33a9a26bed
+    :commit: 5bd4cf465b356fa469cdd09bc1f57a4af9d539ad
     :git: https://github.com/vitelabs/vite-wallet-ios.git
 
 SPEC CHECKSUMS:
@@ -488,13 +489,13 @@ SPEC CHECKSUMS:
   URLNavigator: 0bffc3efdeb2d97f7b5eec7ac82d290f4a099431
   Vite_GrinWallet: de995b55145f9171385ad035f47b37b579715a69
   Vite_HDWalletKit: 367effe02a337101d345fe54613a13cdb6971184
-  ViteBusiness: 3c2ddfef48c8138a57f8bdcfdd5c987acb1c4a5d
+  ViteBusiness: 3818314994164d0e1d20292d05e5cbf5623e7ee3
   ViteCommunity: cf2210ed133d8a097992c6c44a962507d1074ac2
   ViteEthereum: 999132ec796b1b7ec047513cf8b3837893772a8a
   ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   web3swift: 6db59e73e2bcb99dde081088d0242382155690c9
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: e85e0f28bfe0b72efea33c5f1583a813c6404489
+PODFILE CHECKSUM: b424f419ed2a918cae92149d6e7776be3f5c55b4
 
 COCOAPODS: 1.5.3
