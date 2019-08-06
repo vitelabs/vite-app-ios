@@ -8,4 +8,5 @@
 
 #import "DenyPtrace.c"
 #import "BaiduMobStat.h"
+#import <flutter_boost/FlutterBoost.h>
 void disable_gdb();

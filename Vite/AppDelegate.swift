@@ -27,8 +27,8 @@ import Bagel
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let window = UIWindow(frame: UIScreen.main.bounds)
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        _ = FlutterRouter.shared
 
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
 
@@ -40,7 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         VitePushManager.instance.start()
         ViteCommunity.register()
-        ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 1)
+        //DiscoverViewController.createNavVC()
+        ViteBusinessLanucher.instance.add(homePageSubTabViewController: self.createNavVC(), atIndex: 1)
         #elseif DAPP
         ViteBusinessLanucher.instance.add(homePageSubTabViewController: DebugHomeViewController.createNavVC(), atIndex: 2)
         #endif
@@ -49,7 +50,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    public func createNavVC() -> UIViewController {
+        let discoverVC = FlutterRouterViewController(page: .discoverHome, title: "")
+        let nav = BaseNavigationController(rootViewController: discoverVC).then {
+            $0.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+            $0.tabBarItem.image = R.image.icon_tabbar_discover()?.withRenderingMode(.alwaysOriginal)
+            $0.tabBarItem.selectedImage = R.image.icon_tabbar_discover_select()?.withRenderingMode(.alwaysOriginal)
+        }
+        return nav
+    }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         return ViteBusinessLanucher.instance.application(app, open: url, options: options)
     }
 

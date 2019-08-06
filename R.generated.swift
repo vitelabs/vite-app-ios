@@ -30,10 +30,24 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 3 images.
   struct image {
+    /// Image `icon_tabbar_discover_select`.
+    static let icon_tabbar_discover_select = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tabbar_discover_select")
+    /// Image `icon_tabbar_discover`.
+    static let icon_tabbar_discover = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_tabbar_discover")
     /// Image `launch_logo`.
     static let launch_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "launch_logo")
+    
+    /// `UIImage(named: "icon_tabbar_discover", bundle: ..., traitCollection: ...)`
+    static func icon_tabbar_discover(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_tabbar_discover, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "icon_tabbar_discover_select", bundle: ..., traitCollection: ...)`
+    static func icon_tabbar_discover_select(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_tabbar_discover_select, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "launch_logo", bundle: ..., traitCollection: ...)`
     static func launch_logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {

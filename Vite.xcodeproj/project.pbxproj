@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4C0024E421258005001DF390 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0024E321258005001DF390 /* R.generated.swift */; };
+		4C07964722F800C4008C591D /* FlutterRouterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964522F800C4008C591D /* FlutterRouterViewController.swift */; };
+		4C07964822F800C4008C591D /* FlutterRouterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964522F800C4008C591D /* FlutterRouterViewController.swift */; };
+		4C07964922F800C4008C591D /* FlutterRouterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964522F800C4008C591D /* FlutterRouterViewController.swift */; };
+		4C07964A22F800C4008C591D /* FlutterRouterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964522F800C4008C591D /* FlutterRouterViewController.swift */; };
+		4C07964B22F800C4008C591D /* FlutterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964622F800C4008C591D /* FlutterRouter.swift */; };
+		4C07964C22F800C4008C591D /* FlutterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964622F800C4008C591D /* FlutterRouter.swift */; };
+		4C07964D22F800C4008C591D /* FlutterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964622F800C4008C591D /* FlutterRouter.swift */; };
+		4C07964E22F800C4008C591D /* FlutterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964622F800C4008C591D /* FlutterRouter.swift */; };
 		4C1FF4F0212A74730055067D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
 		4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
 		4CA71A6B21F9B41300F0CFB3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A6A21F9B41200F0CFB3 /* main.swift */; };
@@ -135,6 +143,8 @@
 		33A95135424604B2DA773E81 /* Pods-ViteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C0024E221257CD9001DF390 /* Vite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vite.entitlements; sourceTree = "<group>"; };
 		4C0024E321258005001DF390 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		4C07964522F800C4008C591D /* FlutterRouterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlutterRouterViewController.swift; sourceTree = "<group>"; };
+		4C07964622F800C4008C591D /* FlutterRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlutterRouter.swift; sourceTree = "<group>"; };
 		4C1FF4F1212A74730055067D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4C1FF4F4212A76410055067D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -259,6 +269,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4C07964422F800C4008C591D /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				4C07964522F800C4008C591D /* FlutterRouterViewController.swift */,
+				4C07964622F800C4008C591D /* FlutterRouter.swift */,
+			);
+			path = Flutter;
+			sourceTree = "<group>";
+		};
 		4C1FF4EC212A73FB0055067D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +326,7 @@
 		4CCE42442124553B0080E92B /* Vite */ = {
 			isa = PBXGroup;
 			children = (
+				4C07964422F800C4008C591D /* Flutter */,
 				4C0024E221257CD9001DF390 /* Vite.entitlements */,
 				74920B6621C22D7D0010C746 /* AppDelegate.swift */,
 				4CA71A6A21F9B41200F0CFB3 /* main.swift */,
@@ -767,6 +787,7 @@
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/FlutterPluginRegistrant/FlutterPluginRegistrant.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONRPCKit/JSONRPCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/KMNavigationBarTransition/KMNavigationBarTransition.framework",
@@ -807,10 +828,14 @@
 				"${BUILT_PRODUCTS_DIR}/Vite_GrinWallet/Vite_GrinWallet.framework",
 				"${BUILT_PRODUCTS_DIR}/Vite_HDWalletKit/Vite_HDWalletKit.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/flutter_boost/flutter_boost.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1_swift/secp256k1_swift.framework",
+				"${PODS_ROOT}/../../vite_flutter_sdk/viteFlutterSDK/App.framework",
+				"${PODS_ROOT}/../../vite_flutter_sdk/viteFlutterSDK/Flutter.framework",
 				"${BUILT_PRODUCTS_DIR}/web3swift/Web3swift.framework",
+				"${BUILT_PRODUCTS_DIR}/xservice_kit/xservice_kit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -832,6 +857,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlutterPluginRegistrant.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONRPCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMNavigationBarTransition.framework",
@@ -872,10 +898,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vite_GrinWallet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vite_HDWalletKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/flutter_boost.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/App.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flutter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Web3swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/xservice_kit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1075,6 +1105,8 @@
 			files = (
 				4CA71A7121F9B48F00F0CFB3 /* DenyPtrace.c in Sources */,
 				74920B6721C22D7D0010C746 /* AppDelegate.swift in Sources */,
+				4C07964722F800C4008C591D /* FlutterRouterViewController.swift in Sources */,
+				4C07964B22F800C4008C591D /* FlutterRouter.swift in Sources */,
 				4C0024E421258005001DF390 /* R.generated.swift in Sources */,
 				4CA71A6B21F9B41300F0CFB3 /* main.swift in Sources */,
 			);
@@ -1109,6 +1141,8 @@
 			files = (
 				8E1F93FA22B39E6A00D5C0A8 /* DenyPtrace.c in Sources */,
 				8E1F93FB22B39E6A00D5C0A8 /* AppDelegate.swift in Sources */,
+				4C07964822F800C4008C591D /* FlutterRouterViewController.swift in Sources */,
+				4C07964C22F800C4008C591D /* FlutterRouter.swift in Sources */,
 				8E1F93FC22B39E6A00D5C0A8 /* R.generated.swift in Sources */,
 				8E1F93FD22B39E6A00D5C0A8 /* main.swift in Sources */,
 			);
@@ -1120,6 +1154,8 @@
 			files = (
 				8E646F9522B3B6EC0007CE0E /* DenyPtrace.c in Sources */,
 				8E646F9622B3B6EC0007CE0E /* AppDelegate.swift in Sources */,
+				4C07964922F800C4008C591D /* FlutterRouterViewController.swift in Sources */,
+				4C07964D22F800C4008C591D /* FlutterRouter.swift in Sources */,
 				8E646F9722B3B6EC0007CE0E /* R.generated.swift in Sources */,
 				8E646F9822B3B6EC0007CE0E /* main.swift in Sources */,
 			);
@@ -1131,6 +1167,8 @@
 			files = (
 				8E646FAF22B3B9290007CE0E /* DenyPtrace.c in Sources */,
 				8E646FB022B3B9290007CE0E /* AppDelegate.swift in Sources */,
+				4C07964A22F800C4008C591D /* FlutterRouterViewController.swift in Sources */,
+				4C07964E22F800C4008C591D /* FlutterRouter.swift in Sources */,
 				8E646FB122B3B9290007CE0E /* R.generated.swift in Sources */,
 				8E646FB222B3B9290007CE0E /* main.swift in Sources */,
 			);

@@ -6,6 +6,14 @@ require './vite_pod'
 # Vite ViteOfficial ViteTest ViteDapp
 target_name = 'ViteOfficial'
 
+
+def flutter
+    vite_pod 'viteFlutterSDK', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git'
+    vite_pod 'FlutterPluginRegistrant', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git'
+    vite_pod 'flutter_boost', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git'
+    vite_pod 'xservice_kit', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git'
+end
+
 def vite_config(config, name)
     if name == 'Vite'
         if config.name.include?("Debug")
@@ -83,6 +91,8 @@ target target_name do
     vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
     vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
 
+
+    flutter
     
     # pod_branch = 'pre-mainnet'
     # if isOfficial
