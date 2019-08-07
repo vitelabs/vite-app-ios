@@ -77,6 +77,7 @@ PODS:
     - xservice_kit
   - FlutterPluginRegistrant (1.0.0):
     - flutter_boost
+    - shared_preferences
     - viteFlutterSDK
     - xservice_kit
   - FSPagerView (0.8.2)
@@ -168,6 +169,8 @@ PODS:
   - RxSwift (4.4.2):
     - RxAtomic (>= 4.4.2, ~> 4.4)
   - secp256k1_swift (1.0.3)
+  - shared_preferences (0.0.1):
+    - viteFlutterSDK
   - SipHash (1.2.2)
   - SnapKit (4.0.1)
   - Starscream (3.1.0)
@@ -308,6 +311,7 @@ DEPENDENCIES:
   - RxGesture
   - RxOptional
   - RxSwift (~> 4.0)
+  - shared_preferences (from `../vite_flutter_sdk/shared_preferences.podspec`)
   - SnapKit (~> 4.0.0)
   - SwiftLint
   - SwiftyJSON
@@ -399,6 +403,8 @@ EXTERNAL SOURCES:
     :path: "../vite_flutter_sdk/flutter_boost.podspec"
   FlutterPluginRegistrant:
     :path: "../vite_flutter_sdk/FlutterPluginRegistrant.podspec"
+  shared_preferences:
+    :path: "../vite_flutter_sdk/shared_preferences.podspec"
   Vite_GrinWallet:
     :commit: 8b08aa50fdb8bf5152747b0ce4271fa352822c0c
     :git: https://github.com/vitelabs/Vite_GrinWallet.git
@@ -456,7 +462,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: cf488df2f4b79782f0e430b04a0e17c0aa7979b2
   FirebaseMessaging: 2d53d08d752fbe63ce0820428d70be5ab87c11fb
   flutter_boost: ba9dd9ffb036dccc927d03368975851591dc1836
-  FlutterPluginRegistrant: 4a11051c8dacc32cb7e4fc4d355180356b0cd06f
+  FlutterPluginRegistrant: 765092a64110e42965fc29ac9b77bdeb90fa8d89
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
   GoogleAppMeasurement: 1624046ab1bcc5e170061a56ef5679000b079c8e
   GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
@@ -490,6 +496,7 @@ SPEC CHECKSUMS:
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   secp256k1_swift: 4fc5c4b2d2c6d21ee8ccb868cdc92da12f38bed9
+  shared_preferences: 0b4ef3d58c63d5b2f0827f7fb5e1d8241cfe2cf7
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   Starscream: 08172b481e145289c4930cb567230fb55897cfa4
@@ -510,6 +517,6 @@ SPEC CHECKSUMS:
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
   xservice_kit: e2834c11404b43c5eabd54ed150734e16fae3eac
 
-PODFILE CHECKSUM: 5b81c21d5cc1fdb5d725d8fc6e3e19bd81270dea
+PODFILE CHECKSUM: f5c6b0f2cbd7cf87967ba093d0bd5036cb58e7fd
 
 COCOAPODS: 1.5.3

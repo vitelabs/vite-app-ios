@@ -15,6 +15,7 @@ import Vite_HDWalletKit
 import ViteBusiness
 import Firebase
 import UserNotifications
+import FlutterPluginRegistrant
 
 #if OFFICIAL
 import ViteCommunity
@@ -24,10 +25,11 @@ import ViteCommunity
 import Bagel
 #endif
 
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    let window = UIWindow(frame: UIScreen.main.bounds)
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//@UIApplicationMain
+@objc class AppDelegate: FLBFlutterAppDelegate {
+    override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        GeneratedPluginRegistrant.register(with: self)
         _ = FlutterRouter.shared
 
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
@@ -47,7 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
 
         ViteBusinessLanucher.instance.start(with: window)
-        return true
+
+       return true
+       return super.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
     public func createNavVC() -> UIViewController {
@@ -60,31 +64,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return nav
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+    override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         return ViteBusinessLanucher.instance.application(app, open: url, options: options)
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
+    override func applicationWillResignActive(_ application: UIApplication) {
 
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
+    override func applicationDidEnterBackground(_ application: UIApplication) {
         application.applicationIconBadgeNumber = 0
     }
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
+    override func applicationWillEnterForeground(_ application: UIApplication) {
 
     }
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
+    override func applicationDidBecomeActive(_ application: UIApplication) {
 
     }
 
-    func applicationWillTerminate(_ application: UIApplication) {
+    override func applicationWillTerminate(_ application: UIApplication) {
 
     }
 #if OFFICIAL
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    override func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         VitePushManager.instance.model.deviceToken = deviceToken.toHexString()
     }
 #endif

@@ -24,7 +24,7 @@ enum FlutterPage: FlutterRouterPort {
     var params: [String: Any] {
         switch self {
         case .discoverHome:
-            return [:]
+            return ["lang": "zh"]
         }
     }    
 }

@@ -12,6 +12,7 @@ def flutter
     vite_pod 'FlutterPluginRegistrant', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git'
     vite_pod 'flutter_boost', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git'
     vite_pod 'xservice_kit', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git'
+    vite_pod 'shared_preferences', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git'
 end
 
 def vite_config(config, name)
