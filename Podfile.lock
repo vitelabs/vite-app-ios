@@ -298,9 +298,9 @@ DEPENDENCIES:
   - Toast-Swift (~> 4.0.1)
   - Vite_GrinWallet (from `https://github.com/vitelabs/Vite_GrinWallet.git`, commit `8b08aa50fdb8bf5152747b0ce4271fa352822c0c`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-keystore-ios.git`, commit `3f2180efb643c4a8c10e95ef96ce9bff9ed37aa3`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `9489d84ad7126649a583e00e2d56690f82747d53`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `61cc1851da061b5db2d8a1e19f6a69609c8dd4ef`)
   - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `d09d9bcb2cfbe338784787dea441d5e66f00a29d`)
-  - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `16a06772705ca2e0ef04f6da69d23a4db28c862b`)
+  - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `1f4d403194fff9ec31af1b5403e9aa39cbb3337d`)
   - XCGLogger (~> 6.1.0)
 
 SPEC REPOS:
@@ -381,13 +381,13 @@ EXTERNAL SOURCES:
     :commit: 3f2180efb643c4a8c10e95ef96ce9bff9ed37aa3
     :git: https://github.com/vitelabs/vite-keystore-ios.git
   ViteBusiness:
-    :commit: 9489d84ad7126649a583e00e2d56690f82747d53
+    :commit: 61cc1851da061b5db2d8a1e19f6a69609c8dd4ef
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: d09d9bcb2cfbe338784787dea441d5e66f00a29d
     :git: https://github.com/vitelabs/vite-community-ios.git
   ViteWallet:
-    :commit: 16a06772705ca2e0ef04f6da69d23a4db28c862b
+    :commit: 1f4d403194fff9ec31af1b5403e9aa39cbb3337d
     :git: https://github.com/vitelabs/vite-wallet-ios.git
 
 CHECKOUT OPTIONS:
@@ -398,13 +398,13 @@ CHECKOUT OPTIONS:
     :commit: 3f2180efb643c4a8c10e95ef96ce9bff9ed37aa3
     :git: https://github.com/vitelabs/vite-keystore-ios.git
   ViteBusiness:
-    :commit: 9489d84ad7126649a583e00e2d56690f82747d53
+    :commit: 61cc1851da061b5db2d8a1e19f6a69609c8dd4ef
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: d09d9bcb2cfbe338784787dea441d5e66f00a29d
     :git: https://github.com/vitelabs/vite-community-ios.git
   ViteWallet:
-    :commit: 16a06772705ca2e0ef04f6da69d23a4db28c862b
+    :commit: 1f4d403194fff9ec31af1b5403e9aa39cbb3337d
     :git: https://github.com/vitelabs/vite-wallet-ios.git
 
 SPEC CHECKSUMS:
@@ -481,6 +481,6 @@ SPEC CHECKSUMS:
   web3.swift.pod: 66048c11416c2e7a9a4b35fe42254d0f0d9db4b1
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 4aa6ff35ce5231e9116cc0da76e60ec9eb3458af
+PODFILE CHECKSUM: 30c30acfbc4bad4878dd12e2d2cfe5b547026e81
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.5
