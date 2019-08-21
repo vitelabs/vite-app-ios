@@ -66,16 +66,14 @@ target target_name do
     vite_community_git = 'https://github.com/vitelabs/vite-community-ios.git'
     vite_business_git = 'https://github.com/vitelabs/vite-business-ios.git'
     vite_wallet_git = 'https://github.com/vitelabs/vite-wallet-ios.git'
-    vite_ethereum_git = 'https://github.com/vitelabs/vite-ethereum-ios.git'
     vite_grin_git = 'https://github.com/vitelabs/Vite_GrinWallet.git'
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
-    vite_community_commit = '6e7a85bc6c761c7a2c4bdb3f5f06be62eb9687eb'
-    vite_business_commit = '5bf393ae7447dfc5e423147faf94092297e548f6'
-    vite_wallet_commit = '9066a3857115efd59c9b7948f30356b889835f82'
-    vite_ethereum_commit = '6ddc0b795c65a7a34e84aa196c76f179e032ed97'
+    vite_community_commit = 'd09d9bcb2cfbe338784787dea441d5e66f00a29d'
+    vite_business_commit = '43db987892210a901997a75ec9dca7929fd04ff5'
+    vite_wallet_commit = '1f4d403194fff9ec31af1b5403e9aa39cbb3337d'
     vite_grin_commit = '8b08aa50fdb8bf5152747b0ce4271fa352822c0c'
-    vite_hd_commit = '14d8e1d4f26e27e92439c688b8c65a029c8395f9'
+    vite_hd_commit = '3f2180efb643c4a8c10e95ef96ce9bff9ed37aa3'
 
     if target_name == 'ViteOfficial' || target_name == 'ViteTest'
         vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
@@ -92,12 +90,11 @@ target target_name do
     # vite_pod 'ViteWallet', :git => vite_wallet_git, :branch => pod_branch
 
 
-    vite_pod 'ViteEthereum', :git => vite_ethereum_git, :commit => vite_ethereum_commit
     vite_pod 'Vite_HDWalletKit', :git => vite_hd_git, :commit => vite_hd_commit
     vite_pod 'Vite_GrinWallet', :git => vite_grin_git, :commit => vite_grin_commit
 
     pod 'SnapKit', '~> 4.0.0'
-    pod 'BigInt', '~> 3.0'
+    pod 'BigInt', '~> 4.0'
     pod 'R.swift', '5.0.0.alpha.3'
     pod 'JSONRPCKit', '~> 3.0.0'
     pod 'PromiseKit', '~> 6.8.4'

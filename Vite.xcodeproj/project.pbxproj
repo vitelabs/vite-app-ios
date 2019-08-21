@@ -55,7 +55,7 @@
 		8E646FB822B3B9290007CE0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
 		8E6F3E14214220DF003CDFC2 /* ViteNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E13214220DF003CDFC2 /* ViteNetworkTests.swift */; };
 		8E79261621515D3A007FEBAB /* ViteURITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261521515D3A007FEBAB /* ViteURITest.swift */; };
-		9A94C8D33172EAA918F50C9A /* Pods_ViteOfficial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D5EA07B9D417853474809E /* Pods_ViteOfficial.framework */; };
+		BC3E4F20DC7F1ACD9484756A /* Pods_ViteOfficial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D5EA07B9D417853474809E /* Pods_ViteOfficial.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +127,7 @@
 
 /* Begin PBXFileReference section */
 		007BB00A2EAF52611D6BC23C /* Pods_ViteDapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViteDapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BD4E89DF3EEF869029F3712 /* Pods-ViteOfficial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteOfficial.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial.release.xcconfig"; sourceTree = "<group>"; };
 		1725C021B18A1BEBBB6166A6 /* Pods-ViteTests.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.test.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.test.xcconfig"; sourceTree = "<group>"; };
 		180B38E8FC01091FE6DAB873 /* Pods-Vite.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.dev.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.dev.xcconfig"; sourceTree = "<group>"; };
 		24CA0AC73F3F3BC6213EB453 /* Pods-ViteTest.internal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTest.internal.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTest/Pods-ViteTest.internal.xcconfig"; sourceTree = "<group>"; };
@@ -158,7 +159,6 @@
 		4CCE425C2124553C0080E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CCE42672124553C0080E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidTest.swift; sourceTree = "<group>"; };
-		5AF9DCBB6E5877354F1FEA45 /* Pods-ViteOfficial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteOfficial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial.debug.xcconfig"; sourceTree = "<group>"; };
 		6C477C1209DFD179BADA20F4 /* Pods-ViteTest.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTest.test.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTest/Pods-ViteTest.test.xcconfig"; sourceTree = "<group>"; };
 		74649F1121F706A7004D0CCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resource/Firebase/official/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74649F1521F706B5004D0CCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resource/Firebase/enterprise/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 		9093049F3DD9E9AC0B48FFE3 /* Pods-ViteTests.internal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.internal.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.internal.xcconfig"; sourceTree = "<group>"; };
 		B6EDA48390C3C0344001F0F0 /* Pods-ViteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.release.xcconfig"; sourceTree = "<group>"; };
 		C34885FE588DF3B38BFDF1CC /* Pods-ViteTests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.dev.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.dev.xcconfig"; sourceTree = "<group>"; };
-		C83D1BDD98F478FF2BE1A378 /* Pods-ViteOfficial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteOfficial.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial.release.xcconfig"; sourceTree = "<group>"; };
+		C5BFAA22D6973163C1982BAE /* Pods-ViteOfficial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteOfficial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial.debug.xcconfig"; sourceTree = "<group>"; };
 		D55D99607767985694E66AD0 /* Pods_Vite_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC46B6C5CD40D7094A6AAD4 /* Pods_ViteTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViteTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E371DBD76F35FAF8F3007466 /* Pods_Vite_enterprise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite_enterprise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,7 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A94C8D33172EAA918F50C9A /* Pods_ViteOfficial.framework in Frameworks */,
+				BC3E4F20DC7F1ACD9484756A /* Pods_ViteOfficial.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,8 +253,8 @@
 				C34885FE588DF3B38BFDF1CC /* Pods-ViteTests.dev.xcconfig */,
 				24CA0AC73F3F3BC6213EB453 /* Pods-ViteTest.internal.xcconfig */,
 				6C477C1209DFD179BADA20F4 /* Pods-ViteTest.test.xcconfig */,
-				5AF9DCBB6E5877354F1FEA45 /* Pods-ViteOfficial.debug.xcconfig */,
-				C83D1BDD98F478FF2BE1A378 /* Pods-ViteOfficial.release.xcconfig */,
+				C5BFAA22D6973163C1982BAE /* Pods-ViteOfficial.debug.xcconfig */,
+				0BD4E89DF3EEF869029F3712 /* Pods-ViteOfficial.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -472,7 +472,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E1F940B22B39E6A00D5C0A8 /* Build configuration list for PBXNativeTarget "ViteOfficial" */;
 			buildPhases = (
-				F8F2AAECD6D89B89102D4084 /* [CP] Check Pods Manifest.lock */,
+				05B32151CE9FAA2A54E5A7AD /* [CP] Check Pods Manifest.lock */,
 				8E1F93F822B39E6A00D5C0A8 /* Run R.Swift */,
 				8E1F93F922B39E6A00D5C0A8 /* Sources */,
 				8E1F93FE22B39E6A00D5C0A8 /* Frameworks */,
@@ -480,8 +480,8 @@
 				8E1F940522B39E6A00D5C0A8 /* Run SwiftLint */,
 				8E1F940622B39E6A00D5C0A8 /* Embed App Extensions */,
 				8E1F940A22B39E6A00D5C0A8 /* Run Fabric */,
-				6D7AC8ECC2EDE94CDBC52118 /* [CP] Embed Pods Frameworks */,
-				AE679158DF344809EF496495 /* [CP] Copy Pods Resources */,
+				4CB280CD60F3C6AA7D97D290 /* [CP] Embed Pods Frameworks */,
+				E2F208CCDCCCA2DF448A9C9D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -670,6 +670,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		05B32151CE9FAA2A54E5A7AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ViteOfficial-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2D750E93D496371FC6B74780 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -720,144 +742,21 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
-		6D7AC8ECC2EDE94CDBC52118 /* [CP] Embed Pods Frameworks */ = {
+		4CB280CD60F3C6AA7D97D290 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/APIKit/APIKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
-				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
-				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Bagel/Bagel.framework",
-				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
-				"${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework",
-				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
-				"${BUILT_PRODUCTS_DIR}/DNSPageView/DNSPageView.framework",
-				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
-				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
-				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
-				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/JSONRPCKit/JSONRPCKit.framework",
-				"${BUILT_PRODUCTS_DIR}/KMNavigationBarTransition/KMNavigationBarTransition.framework",
-				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/MLeaksFinder/MLeaksFinder.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
-				"${BUILT_PRODUCTS_DIR}/NYXImagesKit/NYXImagesKit.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/PPBadgeViewSwift/PPBadgeViewSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
-				"${BUILT_PRODUCTS_DIR}/RazzleDazzle/RazzleDazzle.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
-				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
-				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
-				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
-				"${BUILT_PRODUCTS_DIR}/TrezorCryptoEd25519WithBlake2b/TrezorCryptoEd25519WithBlake2b.framework",
-				"${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework",
-				"${BUILT_PRODUCTS_DIR}/ViteEthereum/ViteEthereum.framework",
-				"${BUILT_PRODUCTS_DIR}/ViteWallet/ViteWallet.framework",
-				"${BUILT_PRODUCTS_DIR}/Vite_GrinWallet/Vite_GrinWallet.framework",
-				"${BUILT_PRODUCTS_DIR}/Vite_HDWalletKit/Vite_HDWalletKit.framework",
-				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
-				"${BUILT_PRODUCTS_DIR}/secp256k1_swift/secp256k1_swift.framework",
-				"${BUILT_PRODUCTS_DIR}/web3swift/Web3swift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APIKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActiveLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bagel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIPageControl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DNSPageView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONRPCKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMNavigationBarTransition.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLeaksFinder.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NYXImagesKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PPBadgeViewSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RazzleDazzle.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrezorCryptoEd25519WithBlake2b.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLNavigator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViteEthereum.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViteWallet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vite_GrinWallet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vite_HDWalletKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1_swift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Web3swift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		74649F0E21F6F3BE004D0CCD /* Run Fabric */ = {
@@ -1020,50 +919,21 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
-		AE679158DF344809EF496495 /* [CP] Copy Pods Resources */ = {
+		E2F208CCDCCCA2DF448A9C9D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteBusiness/ViteBusiness.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ViteCommunity/ViteCommunity.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ViteBusiness.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ViteCommunity.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F8F2AAECD6D89B89102D4084 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ViteOfficial-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1302,7 +1172,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1353;
+				CURRENT_PROJECT_VERSION = 1366;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
@@ -1332,7 +1202,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1353;
+				CURRENT_PROJECT_VERSION = 1366;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
@@ -1466,13 +1336,13 @@
 		};
 		8E1F940C22B39E6A00D5C0A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AF9DCBB6E5877354F1FEA45 /* Pods-ViteOfficial.debug.xcconfig */;
+			baseConfigurationReference = C5BFAA22D6973163C1982BAE /* Pods-ViteOfficial.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1353;
+				CURRENT_PROJECT_VERSION = 1366;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1500,13 +1370,13 @@
 		};
 		8E1F940E22B39E6A00D5C0A8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C83D1BDD98F478FF2BE1A378 /* Pods-ViteOfficial.release.xcconfig */;
+			baseConfigurationReference = 0BD4E89DF3EEF869029F3712 /* Pods-ViteOfficial.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1353;
+				CURRENT_PROJECT_VERSION = 1366;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1539,7 +1409,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1353;
+				CURRENT_PROJECT_VERSION = 1366;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1573,7 +1443,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1353;
+				CURRENT_PROJECT_VERSION = 1366;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1607,7 +1477,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1353;
+				CURRENT_PROJECT_VERSION = 1366;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1640,7 +1510,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1353;
+				CURRENT_PROJECT_VERSION = 1366;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
