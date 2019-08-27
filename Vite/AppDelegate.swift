@@ -16,6 +16,7 @@ import ViteBusiness
 import Firebase
 import UserNotifications
 import FlutterPluginRegistrant
+import vite_wallet_communication
 
 #if OFFICIAL
 import ViteCommunity
@@ -42,26 +43,51 @@ import Bagel
         FirebaseApp.configure()
         VitePushManager.instance.start()
         ViteCommunity.register()
-        //DiscoverViewController.createNavVC()
-        ViteBusinessLanucher.instance.add(homePageSubTabViewController: self.createNavVC(), atIndex: 1)
+
+        ViteBusinessLanucher.instance.add(homePageSubTabViewController: self.createNavVC(), atIndex: 2)
+        ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 3)
+
         #elseif DAPP
-        ViteBusinessLanucher.instance.add(homePageSubTabViewController: DebugHomeViewController.createNavVC(), atIndex: 2)
+        ViteBusinessLanucher.instance.add(homePageSubTabViewController: DebugHomeViewController.createNavVC(), atIndex: 3)
         #endif
 
         ViteBusinessLanucher.instance.start(with: window)
-
-       return true
-       return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+        bindFlutter()
+        return true
     }
 
     public func createNavVC() -> UIViewController {
-        let discoverVC = FlutterRouterViewController(page: .discoverHome, title: "")
-        let nav = BaseNavigationController(rootViewController: discoverVC).then {
+        let vc = FlutterRouterViewController(page: .marketHome, title: "")
+        let nav = BaseNavigationController(rootViewController: vc).then {
             $0.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
-            $0.tabBarItem.image = R.image.icon_tabbar_discover()?.withRenderingMode(.alwaysOriginal)
-            $0.tabBarItem.selectedImage = R.image.icon_tabbar_discover_select()?.withRenderingMode(.alwaysOriginal)
+            $0.tabBarItem.image = ViteBusiness.R.image.icon_tabbar_market()?.withRenderingMode(.alwaysOriginal)
+            $0.tabBarItem.selectedImage = ViteBusiness.R.image.icon_tabbar_market_select()?.withRenderingMode(.alwaysOriginal)
         }
         return nav
+    }
+
+    func bindFlutter() {
+        HDWalletManager.instance.accountDriver.drive(onNext: { (account) in
+            ViteFlutterCommunication.shareInstance()?.currentViteAddress = account?.address ?? ""
+        }).disposed(by: rx.disposeBag)
+
+        AppSettingsService.instance.currencyDriver.drive(onNext: { (code) in
+            ViteFlutterCommunication.shareInstance()?.currency = code.rawValue
+        }).disposed(by: rx.disposeBag)
+
+        ViteFlutterCommunication.shareInstance()?.lang = LocalizationService.sharedInstance.currentLanguage.rawValue
+        NotificationCenter.default.rx.notification(.languageChanged).asObservable().bind { _ in
+            ViteFlutterCommunication.shareInstance()?.lang = LocalizationService.sharedInstance.currentLanguage.rawValue
+        }.disposed(by: rx.disposeBag)
+
+        ViteFlutterCommunication.shareInstance()?.env = {
+            switch ViteConst.instance.envType {
+            case .test:
+                return "test"
+            case .stage, .premainnet:
+                return "online"
+            }
+        }()
     }
 
     override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {

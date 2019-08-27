@@ -6,6 +6,8 @@
 //  Copyright © 2019 vite labs. All rights reserved.
 //
 import UIKit
+import ViteBusiness
+
 protocol FlutterRouterPort {
     var name: String { get }
     var params: [String: Any] { get }
@@ -13,18 +15,23 @@ protocol FlutterRouterPort {
 
 enum FlutterPage: FlutterRouterPort {
     case discoverHome
+    case marketHome
 
     var name: String {
         switch self {
         case .discoverHome:
             return "viteWallet://discoverHome"
+        case .marketHome:
+            return "viteWallet://marketHome"
         }
     }
     
     var params: [String: Any] {
         switch self {
         case .discoverHome:
-            return ["lang": "zh"]
+            return ["lang": LocalizationService.sharedInstance.currentLanguage.rawValue]
+        case .marketHome:
+            return ["lang": LocalizationService.sharedInstance.currentLanguage.rawValue]
         }
     }    
 }
