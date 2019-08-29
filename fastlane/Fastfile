@@ -19,7 +19,6 @@ platform :ios do
 
   lane :vite_test do 
     increment_build_number_and_push_git
-    exec '../bootstrap_test'
     #match_profile
     version_number = get_version_number(xcodeproj: "Vite.xcodeproj", target: "ViteTest")
     build_number = get_build_number(xcodeproj: "Vite.xcodeproj")
@@ -27,6 +26,7 @@ platform :ios do
     #build_app(workspace: "Vite.xcworkspace", scheme: "ViteTest", clean: true, configuration: "Release")
     #upload_to_testflight(skip_waiting_for_build_processing: true)
     #upload_dysm()
+    exec '../bootstrap_test'
   end
 
   lane :vite_dapp do 

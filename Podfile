@@ -8,12 +8,13 @@ target_name = 'ViteOfficial'
 
 
 def flutter
-    vite_pod 'viteFlutterSDK', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git'
-    vite_pod 'FlutterPluginRegistrant', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git'
-    vite_pod 'flutter_boost', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git'
-    vite_pod 'xservice_kit', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git'
-    vite_pod 'shared_preferences', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git'
-    vite_pod 'vite_wallet_communication', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git'
+	flutter_commit = '92b7820ce9582744db3bdef87298939fe028382a'
+    vite_pod 'viteFlutterSDK', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+    vite_pod 'FlutterPluginRegistrant', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+    vite_pod 'flutter_boost', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+    vite_pod 'xservice_kit', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+    vite_pod 'shared_preferences', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+    vite_pod 'vite_wallet_communication', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
 end
 
 def vite_config(config, name)
@@ -79,9 +80,9 @@ target target_name do
     vite_grin_git = 'https://github.com/vitelabs/Vite_GrinWallet.git'
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
-    vite_community_commit = 'd09d9bcb2cfbe338784787dea441d5e66f00a29d'
-    vite_business_commit = 'df8919ecc265a8589fef6ba04e7db4413550b7fc'
-    vite_wallet_commit = '52e0dc7719d117055d71a329448cf076855f1f9d'
+    vite_community_commit = '506a0fc64798a1a5dc14ad9c832875279e9daa4a'
+    vite_business_commit = '572b7687fdcac5cccc671a3b3ad58bd637211db2'
+    vite_wallet_commit = '1d810999cf5d475c204b81a1a7765c85a41909a4'
     vite_grin_commit = '8b08aa50fdb8bf5152747b0ce4271fa352822c0c'
     vite_hd_commit = '3f2180efb643c4a8c10e95ef96ce9bff9ed37aa3'
 
