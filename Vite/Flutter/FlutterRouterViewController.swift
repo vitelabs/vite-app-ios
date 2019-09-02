@@ -71,7 +71,7 @@ class FlutterRouterViewController: FLBFlutterViewContainer {
 
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.setNavigationBarHidden(true,animated: true)
     }
 
     override public func viewWillDisappear(_ animated: Bool) {
