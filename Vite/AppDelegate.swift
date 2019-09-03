@@ -15,7 +15,6 @@ import Vite_HDWalletKit
 import ViteBusiness
 import Firebase
 import UserNotifications
-import FlutterPluginRegistrant
 import vite_wallet_communication
 
 #if OFFICIAL
@@ -30,8 +29,6 @@ import Bagel
 @objc class AppDelegate: FLBFlutterAppDelegate {
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        GeneratedPluginRegistrant.register(with: self)
-        _ = FlutterRouter.shared
 
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
 
@@ -51,6 +48,9 @@ import Bagel
         ViteBusinessLanucher.instance.add(homePageSubTabViewController: DebugHomeViewController.createNavVC(), atIndex: 3)
         #endif
 
+        //after firebase
+        GeneratedPluginRegistrant.register(with: self)
+        _ = FlutterRouter.shared
         ViteBusinessLanucher.instance.start(with: window)
         bindFlutter()
         return true

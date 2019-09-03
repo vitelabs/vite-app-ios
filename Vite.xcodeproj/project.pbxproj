@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,10 @@
 		4CA71A7521F9B48F00F0CFB3 /* DenyPtrace.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */; };
 		4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE425A2124553C0080E92B /* ViteTests.swift */; };
 		4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */; };
+		4CFA3D16231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA3D15231E5F8F00186424 /* GeneratedPluginRegistrant.m */; };
+		4CFA3D17231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA3D15231E5F8F00186424 /* GeneratedPluginRegistrant.m */; };
+		4CFA3D18231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA3D15231E5F8F00186424 /* GeneratedPluginRegistrant.m */; };
+		4CFA3D19231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA3D15231E5F8F00186424 /* GeneratedPluginRegistrant.m */; };
 		74649F1221F706A7004D0CCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74649F1121F706A7004D0CCD /* GoogleService-Info.plist */; };
 		74920B5721C10E500010C746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
 		74920B5A21C10E500010C746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
@@ -168,6 +172,8 @@
 		4CCE425C2124553C0080E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CCE42672124553C0080E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidTest.swift; sourceTree = "<group>"; };
+		4CFA3D14231E5F8F00186424 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
+		4CFA3D15231E5F8F00186424 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 		4DD8C7D0910819774B04A9D0 /* Pods-ViteOfficial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteOfficial.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial.release.xcconfig"; sourceTree = "<group>"; };
 		6C477C1209DFD179BADA20F4 /* Pods-ViteTest.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTest.test.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTest/Pods-ViteTest.test.xcconfig"; sourceTree = "<group>"; };
 		74649F1121F706A7004D0CCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resource/Firebase/official/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -271,6 +277,8 @@
 		4C07964422F800C4008C591D /* Flutter */ = {
 			isa = PBXGroup;
 			children = (
+				4CFA3D14231E5F8F00186424 /* GeneratedPluginRegistrant.h */,
+				4CFA3D15231E5F8F00186424 /* GeneratedPluginRegistrant.m */,
 				4C07964522F800C4008C591D /* FlutterRouterViewController.swift */,
 				4C07964622F800C4008C591D /* FlutterRouter.swift */,
 			);
@@ -966,6 +974,7 @@
 				4C07964722F800C4008C591D /* FlutterRouterViewController.swift in Sources */,
 				4C07964B22F800C4008C591D /* FlutterRouter.swift in Sources */,
 				4C0024E421258005001DF390 /* R.generated.swift in Sources */,
+				4CFA3D16231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */,
 				4CA71A6B21F9B41300F0CFB3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1002,6 +1011,7 @@
 				4C07964822F800C4008C591D /* FlutterRouterViewController.swift in Sources */,
 				4C07964C22F800C4008C591D /* FlutterRouter.swift in Sources */,
 				8E1F93FC22B39E6A00D5C0A8 /* R.generated.swift in Sources */,
+				4CFA3D17231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */,
 				8E1F93FD22B39E6A00D5C0A8 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1015,6 +1025,7 @@
 				4C07964922F800C4008C591D /* FlutterRouterViewController.swift in Sources */,
 				4C07964D22F800C4008C591D /* FlutterRouter.swift in Sources */,
 				8E646F9722B3B6EC0007CE0E /* R.generated.swift in Sources */,
+				4CFA3D18231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */,
 				8E646F9822B3B6EC0007CE0E /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1028,6 +1039,7 @@
 				4C07964A22F800C4008C591D /* FlutterRouterViewController.swift in Sources */,
 				4C07964E22F800C4008C591D /* FlutterRouter.swift in Sources */,
 				8E646FB122B3B9290007CE0E /* R.generated.swift in Sources */,
+				4CFA3D19231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */,
 				8E646FB222B3B9290007CE0E /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

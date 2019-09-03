@@ -10,11 +10,12 @@ target_name = 'ViteOfficial'
 def flutter
 	flutter_commit = '9cdb434d03f56e9ea15bedd183445ac1a4568c99'
     vite_pod 'viteFlutterSDK', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
-    vite_pod 'FlutterPluginRegistrant', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
     vite_pod 'flutter_boost', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
     vite_pod 'xservice_kit', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
     vite_pod 'shared_preferences', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
     vite_pod 'vite_wallet_communication', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+    vite_pod 'firebase_analytics', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+    vite_pod 'firebase_crashlytics', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
 end
 
 def vite_config(config, name)
