@@ -8,7 +8,7 @@ target_name = 'ViteOfficial'
 
 
 def flutter
-	flutter_commit = '867a4ea511e49c71ebcb32447738de198ec294c3'
+	flutter_commit = '11a1110b0b56b7bdb24d06d5395b37629018d045'
     vite_pod 'viteFlutterSDK', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
     vite_pod 'flutter_boost', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
     vite_pod 'xservice_kit', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
@@ -81,8 +81,8 @@ target target_name do
     vite_grin_git = 'https://github.com/vitelabs/Vite_GrinWallet.git'
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
-    vite_community_commit = '506a0fc64798a1a5dc14ad9c832875279e9daa4a'
-    vite_business_commit = 'bdf23b3e0a600bcac1cb6311e65e5d4bd23fcc6a'
+    vite_community_commit = '3bd60ae4f6382f27582fcebe79c73ee716daabd4'
+    vite_business_commit = 'c6088806c760d2963ac929075ba19da6f608df48'
     vite_wallet_commit = '1d810999cf5d475c204b81a1a7765c85a41909a4'
     vite_grin_commit = '8b08aa50fdb8bf5152747b0ce4271fa352822c0c'
     vite_hd_commit = '3f2180efb643c4a8c10e95ef96ce9bff9ed37aa3'
