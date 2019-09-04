@@ -63,7 +63,9 @@ import Bagel
             $0.tabBarItem.image = ViteBusiness.R.image.icon_tabbar_market()?.withRenderingMode(.alwaysOriginal)
             $0.tabBarItem.selectedImage = ViteBusiness.R.image.icon_tabbar_market_select()?.withRenderingMode(.alwaysOriginal)
             $0.tabBarItem.tag = 1002
+            $0.interactivePopGestureRecognizer?.isEnabled = false
         }
+
         return nav
     }
 

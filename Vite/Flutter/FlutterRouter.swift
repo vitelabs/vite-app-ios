@@ -27,12 +27,13 @@ class FlutterRouter: NSObject {
 }
 
 extension FlutterRouter: FLBPlatform {
+    func accessibilityEnable() -> Bool {
+        return false
+    }
+
     func openPage(_ name: String, params: [AnyHashable: Any], animated: Bool, completion: @escaping (Bool) -> Void) {
         if (name == "viteWallet://webPage") {
             let url = params["url"]
-
-            //
-
             let webVC = WKWebViewController.init(url: URL.init(string: url as! String)!)
             let topVC = Route.getTopVC()
             if let nav = topVC?.navigationController {

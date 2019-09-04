@@ -3,9 +3,9 @@
 //
 
 #import "GeneratedPluginRegistrant.h"
-#import <flutter_boost/FlutterBoostPlugin.h>
+#import <flutter_boost_androidx/FlutterBoostPlugin.h>
 #import <shared_preferences/SharedPreferencesPlugin.h>
-#import <xservice_kit/XserviceKitPlugin.h>
+#import <xservice_kit_androidx/XserviceKitPlugin.h>
 #import <vite_wallet_communication/ViteWalletCommunicationPlugin.h>
 #import <firebase_analytics/FirebaseAnalyticsPlugin.h>
 #import <firebase_crashlytics/FirebaseCrashlyticsPlugin.h>
