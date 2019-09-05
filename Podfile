@@ -8,7 +8,7 @@ target_name = 'ViteOfficial'
 
 
 def flutter
-	flutter_commit = '0820323d7a93329a938d6feab9aabfb52ea61d4c'
+	flutter_commit = '597ba02b4fcf0410f4b65d422a0e91e7d5393252'
     vite_pod 'viteFlutterSDK', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
     vite_pod 'flutter_boost', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
     vite_pod 'xservice_kit', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
