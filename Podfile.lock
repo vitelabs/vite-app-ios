@@ -38,6 +38,8 @@ PODS:
   - Eureka (4.3.1)
   - Fabric (1.9.0)
   - FBRetainCycleDetector (0.1.4)
+  - Firebase/Analytics (5.19.0):
+    - Firebase/Core
   - Firebase/Core (5.19.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.8.0)
@@ -46,6 +48,15 @@ PODS:
   - Firebase/Messaging (5.19.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (= 3.4.0)
+  - firebase_analytics (0.0.1):
+    - Firebase/Analytics
+    - Firebase/Core
+    - viteFlutterSDK
+  - firebase_crashlytics (0.0.1):
+    - Crashlytics
+    - Fabric
+    - Firebase/Core
+    - viteFlutterSDK
   - FirebaseAnalytics (5.8.0):
     - FirebaseCore (~> 5.4)
     - FirebaseInstanceID (~> 3.8)
@@ -55,7 +66,7 @@ PODS:
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
-  - FirebaseAnalyticsInterop (1.2.0)
+  - FirebaseAnalyticsInterop (1.4.0)
   - FirebaseCore (5.4.0):
     - GoogleUtilities/Environment (~> 5.2)
     - GoogleUtilities/Logger (~> 5.2)
@@ -71,6 +82,9 @@ PODS:
     - GoogleUtilities/Reachability (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
     - Protobuf (~> 3.1)
+  - flutter_boost (0.0.1):
+    - viteFlutterSDK
+    - xservice_kit
   - FSPagerView (0.8.2)
   - GoogleAppMeasurement (5.8.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
@@ -160,6 +174,8 @@ PODS:
   - RxSwift (4.4.2):
     - RxAtomic (>= 4.4.2, ~> 4.4)
   - secp256k1.c (0.1.2)
+  - shared_preferences (0.0.1):
+    - viteFlutterSDK
   - SnapKit (4.0.1)
   - Starscream (3.1.0)
   - SwiftLint (0.31.0)
@@ -176,6 +192,8 @@ PODS:
     - BigInt
     - CryptoSwift (= 1.0.0)
     - TrezorCryptoEd25519WithBlake2b (~> 0.0.1)
+  - vite_wallet_communication (0.0.1):
+    - viteFlutterSDK
   - ViteBusiness (0.0.1):
     - Action
     - ActionSheetPicker-3.0
@@ -235,6 +253,7 @@ PODS:
     - R.swift
     - URLNavigator
     - ViteBusiness
+  - viteFlutterSDK (1.0.0)
   - ViteWallet (0.1.0):
     - APIKit
     - BigInt
@@ -253,6 +272,8 @@ PODS:
     - XCGLogger/Core (= 6.1.0)
   - XCGLogger/Core (6.1.0):
     - ObjcExceptionBridging
+  - xservice_kit (0.0.1):
+    - viteFlutterSDK
 
 DEPENDENCIES:
   - Action
@@ -268,6 +289,9 @@ DEPENDENCIES:
   - Eureka (~> 4.3.0)
   - Fabric (~> 1.9.0)
   - Firebase/Core
+  - firebase_analytics (from `https://github.com/vitelabs/vite_flutter_sdk.git`, commit `597ba02b4fcf0410f4b65d422a0e91e7d5393252`)
+  - firebase_crashlytics (from `https://github.com/vitelabs/vite_flutter_sdk.git`, commit `597ba02b4fcf0410f4b65d422a0e91e7d5393252`)
+  - flutter_boost (from `https://github.com/vitelabs/vite_flutter_sdk.git`, commit `597ba02b4fcf0410f4b65d422a0e91e7d5393252`)
   - FSPagerView
   - JSONRPCKit (~> 3.0.0)
   - KeychainSwift
@@ -291,6 +315,7 @@ DEPENDENCIES:
   - RxGesture
   - RxOptional
   - RxSwift (~> 4.0)
+  - shared_preferences (from `https://github.com/vitelabs/vite_flutter_sdk.git`, commit `597ba02b4fcf0410f4b65d422a0e91e7d5393252`)
   - SnapKit (~> 4.0.0)
   - SwiftLint
   - SwiftyJSON
@@ -298,10 +323,13 @@ DEPENDENCIES:
   - Toast-Swift (~> 4.0.1)
   - Vite_GrinWallet (from `https://github.com/vitelabs/Vite_GrinWallet.git`, commit `8b08aa50fdb8bf5152747b0ce4271fa352822c0c`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-keystore-ios.git`, commit `3f2180efb643c4a8c10e95ef96ce9bff9ed37aa3`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `7ceb6ed2083e7ea5bf28479f69b3c6703fe1de68`)
-  - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `d09d9bcb2cfbe338784787dea441d5e66f00a29d`)
-  - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `1f4d403194fff9ec31af1b5403e9aa39cbb3337d`)
+  - vite_wallet_communication (from `https://github.com/vitelabs/vite_flutter_sdk.git`, commit `597ba02b4fcf0410f4b65d422a0e91e7d5393252`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `b00edc26e6e782cc61691adf1044dd47a036d73a`)
+  - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `3bd60ae4f6382f27582fcebe79c73ee716daabd4`)
+  - viteFlutterSDK (from `https://github.com/vitelabs/vite_flutter_sdk.git`, commit `597ba02b4fcf0410f4b65d422a0e91e7d5393252`)
+  - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `1d810999cf5d475c204b81a1a7765c85a41909a4`)
   - XCGLogger (~> 6.1.0)
+  - xservice_kit (from `https://github.com/vitelabs/vite_flutter_sdk.git`, commit `597ba02b4fcf0410f4b65d422a0e91e7d5393252`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -374,38 +402,80 @@ SPEC REPOS:
     - XCGLogger
 
 EXTERNAL SOURCES:
+  firebase_analytics:
+    :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
+    :git: https://github.com/vitelabs/vite_flutter_sdk.git
+  firebase_crashlytics:
+    :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
+    :git: https://github.com/vitelabs/vite_flutter_sdk.git
+  flutter_boost:
+    :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
+    :git: https://github.com/vitelabs/vite_flutter_sdk.git
+  shared_preferences:
+    :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
+    :git: https://github.com/vitelabs/vite_flutter_sdk.git
   Vite_GrinWallet:
     :commit: 8b08aa50fdb8bf5152747b0ce4271fa352822c0c
     :git: https://github.com/vitelabs/Vite_GrinWallet.git
   Vite_HDWalletKit:
     :commit: 3f2180efb643c4a8c10e95ef96ce9bff9ed37aa3
     :git: https://github.com/vitelabs/vite-keystore-ios.git
+  vite_wallet_communication:
+    :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
+    :git: https://github.com/vitelabs/vite_flutter_sdk.git
   ViteBusiness:
-    :commit: 7ceb6ed2083e7ea5bf28479f69b3c6703fe1de68
+    :commit: b00edc26e6e782cc61691adf1044dd47a036d73a
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
-    :commit: d09d9bcb2cfbe338784787dea441d5e66f00a29d
+    :commit: 3bd60ae4f6382f27582fcebe79c73ee716daabd4
     :git: https://github.com/vitelabs/vite-community-ios.git
+  viteFlutterSDK:
+    :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
+    :git: https://github.com/vitelabs/vite_flutter_sdk.git
   ViteWallet:
-    :commit: 1f4d403194fff9ec31af1b5403e9aa39cbb3337d
+    :commit: 1d810999cf5d475c204b81a1a7765c85a41909a4
     :git: https://github.com/vitelabs/vite-wallet-ios.git
+  xservice_kit:
+    :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
+    :git: https://github.com/vitelabs/vite_flutter_sdk.git
 
 CHECKOUT OPTIONS:
+  firebase_analytics:
+    :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
+    :git: https://github.com/vitelabs/vite_flutter_sdk.git
+  firebase_crashlytics:
+    :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
+    :git: https://github.com/vitelabs/vite_flutter_sdk.git
+  flutter_boost:
+    :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
+    :git: https://github.com/vitelabs/vite_flutter_sdk.git
+  shared_preferences:
+    :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
+    :git: https://github.com/vitelabs/vite_flutter_sdk.git
   Vite_GrinWallet:
     :commit: 8b08aa50fdb8bf5152747b0ce4271fa352822c0c
     :git: https://github.com/vitelabs/Vite_GrinWallet.git
   Vite_HDWalletKit:
     :commit: 3f2180efb643c4a8c10e95ef96ce9bff9ed37aa3
     :git: https://github.com/vitelabs/vite-keystore-ios.git
+  vite_wallet_communication:
+    :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
+    :git: https://github.com/vitelabs/vite_flutter_sdk.git
   ViteBusiness:
-    :commit: 7ceb6ed2083e7ea5bf28479f69b3c6703fe1de68
+    :commit: b00edc26e6e782cc61691adf1044dd47a036d73a
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
-    :commit: d09d9bcb2cfbe338784787dea441d5e66f00a29d
+    :commit: 3bd60ae4f6382f27582fcebe79c73ee716daabd4
     :git: https://github.com/vitelabs/vite-community-ios.git
+  viteFlutterSDK:
+    :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
+    :git: https://github.com/vitelabs/vite_flutter_sdk.git
   ViteWallet:
-    :commit: 1f4d403194fff9ec31af1b5403e9aa39cbb3337d
+    :commit: 1d810999cf5d475c204b81a1a7765c85a41909a4
     :git: https://github.com/vitelabs/vite-wallet-ios.git
+  xservice_kit:
+    :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
+    :git: https://github.com/vitelabs/vite_flutter_sdk.git
 
 SPEC CHECKSUMS:
   Action: 689181e4c3f6566844178d8a7da6fef39a9597fc
@@ -427,11 +497,14 @@ SPEC CHECKSUMS:
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   Firebase: c60d49e9c2630875a96207d15e2affb8364996d1
+  firebase_analytics: 08b87e58b33b7eb3e651c6425205669fbfbf24a0
+  firebase_crashlytics: 60ed04f3003825ad74836652427d39d1c174d42b
   FirebaseAnalytics: fd72a26bf8dac84cefba2f0864366f718555a5b0
-  FirebaseAnalyticsInterop: efbe45c8385ec626e29f9525e5ebd38520dfb6c1
+  FirebaseAnalyticsInterop: d48b6ab67bcf016a05e55b71fc39c61c0cb6b7f3
   FirebaseCore: 22a79a961c3951ef2f77b67bfbc99e454247b319
   FirebaseInstanceID: cf488df2f4b79782f0e430b04a0e17c0aa7979b2
   FirebaseMessaging: 2d53d08d752fbe63ce0820428d70be5ab87c11fb
+  flutter_boost: f9b22a5066cecbc07fc144b570b85c88985ef3fd
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
   GoogleAppMeasurement: 1624046ab1bcc5e170061a56ef5679000b079c8e
   GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
@@ -465,6 +538,7 @@ SPEC CHECKSUMS:
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   secp256k1.c: db47b726585d80f027423682eb369729e61b3b20
+  shared_preferences: e76a0c64fc23601559f63f89bffd5a08e14cedc9
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   Starscream: 08172b481e145289c4930cb567230fb55897cfa4
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
@@ -475,12 +549,15 @@ SPEC CHECKSUMS:
   URLNavigator: 0bffc3efdeb2d97f7b5eec7ac82d290f4a099431
   Vite_GrinWallet: de995b55145f9171385ad035f47b37b579715a69
   Vite_HDWalletKit: 75a0b78af01de2028e0a2fd8c2cbe04eea21ae86
-  ViteBusiness: d785d91005e353af8e9df13cfeb0f366f5803b9f
+  vite_wallet_communication: 3f14d00c429eb133fe667da19b8d46edf62c2e9b
+  ViteBusiness: 5042828ff5d9feebb9905c6e6bf8576dd562928b
   ViteCommunity: cf2210ed133d8a097992c6c44a962507d1074ac2
+  viteFlutterSDK: 34ee10337489121c3e3b24778f1705e2ad21254f
   ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   web3.swift.pod: 66048c11416c2e7a9a4b35fe42254d0f0d9db4b1
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
+  xservice_kit: 9fffbbef6ae3bae02c7940337358c52ab5328101
 
-PODFILE CHECKSUM: 24159f35db220d2cda05ecb579061d03590c1103
+PODFILE CHECKSUM: 206bcc7d510c140d410b71dcc8efa2435e0246f6
 
 COCOAPODS: 1.7.5

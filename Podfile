@@ -6,6 +6,18 @@ require './vite_pod'
 # Vite ViteOfficial ViteTest ViteDapp
 target_name = 'ViteOfficial'
 
+
+def flutter
+	flutter_commit = '597ba02b4fcf0410f4b65d422a0e91e7d5393252'
+    vite_pod 'viteFlutterSDK', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+    vite_pod 'flutter_boost', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+    vite_pod 'xservice_kit', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+    vite_pod 'shared_preferences', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+    vite_pod 'vite_wallet_communication', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+    vite_pod 'firebase_analytics', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+    vite_pod 'firebase_crashlytics', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+end
+
 def vite_config(config, name)
     if name == 'Vite'
         if config.name.include?("Debug")
@@ -69,9 +81,9 @@ target target_name do
     vite_grin_git = 'https://github.com/vitelabs/Vite_GrinWallet.git'
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
-    vite_community_commit = 'd09d9bcb2cfbe338784787dea441d5e66f00a29d'
-    vite_business_commit = '43db987892210a901997a75ec9dca7929fd04ff5'
-    vite_wallet_commit = '1f4d403194fff9ec31af1b5403e9aa39cbb3337d'
+    vite_community_commit = '3bd60ae4f6382f27582fcebe79c73ee716daabd4'
+    vite_business_commit = 'b00edc26e6e782cc61691adf1044dd47a036d73a'
+    vite_wallet_commit = '1d810999cf5d475c204b81a1a7765c85a41909a4'
     vite_grin_commit = '8b08aa50fdb8bf5152747b0ce4271fa352822c0c'
     vite_hd_commit = '3f2180efb643c4a8c10e95ef96ce9bff9ed37aa3'
 
@@ -81,6 +93,8 @@ target target_name do
     vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
     vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
 
+
+    flutter
     
     # pod_branch = 'pre-mainnet'
     # if isOfficial

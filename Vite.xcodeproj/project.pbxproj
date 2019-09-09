@@ -3,11 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4C0024E421258005001DF390 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0024E321258005001DF390 /* R.generated.swift */; };
+		4C07964722F800C4008C591D /* FlutterRouterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964522F800C4008C591D /* FlutterRouterViewController.swift */; };
+		4C07964822F800C4008C591D /* FlutterRouterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964522F800C4008C591D /* FlutterRouterViewController.swift */; };
+		4C07964922F800C4008C591D /* FlutterRouterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964522F800C4008C591D /* FlutterRouterViewController.swift */; };
+		4C07964A22F800C4008C591D /* FlutterRouterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964522F800C4008C591D /* FlutterRouterViewController.swift */; };
+		4C07964B22F800C4008C591D /* FlutterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964622F800C4008C591D /* FlutterRouter.swift */; };
+		4C07964C22F800C4008C591D /* FlutterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964622F800C4008C591D /* FlutterRouter.swift */; };
+		4C07964D22F800C4008C591D /* FlutterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964622F800C4008C591D /* FlutterRouter.swift */; };
+		4C07964E22F800C4008C591D /* FlutterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C07964622F800C4008C591D /* FlutterRouter.swift */; };
 		4C1FF4F0212A74730055067D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FF4F2212A74730055067D /* Localizable.strings */; };
 		4C880F58213E880F0091CE00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */; };
 		4CA71A6B21F9B41300F0CFB3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A6A21F9B41200F0CFB3 /* main.swift */; };
@@ -16,6 +24,10 @@
 		4CA71A7521F9B48F00F0CFB3 /* DenyPtrace.c in Sources */ = {isa = PBXBuildFile; fileRef = 4CA71A7021F9B48F00F0CFB3 /* DenyPtrace.c */; };
 		4CCE425B2124553C0080E92B /* ViteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE425A2124553C0080E92B /* ViteTests.swift */; };
 		4CEB292D214BC09100E5F7F4 /* ViteInputValidTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */; };
+		4CFA3D16231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA3D15231E5F8F00186424 /* GeneratedPluginRegistrant.m */; };
+		4CFA3D17231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA3D15231E5F8F00186424 /* GeneratedPluginRegistrant.m */; };
+		4CFA3D18231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA3D15231E5F8F00186424 /* GeneratedPluginRegistrant.m */; };
+		4CFA3D19231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFA3D15231E5F8F00186424 /* GeneratedPluginRegistrant.m */; };
 		74649F1221F706A7004D0CCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74649F1121F706A7004D0CCD /* GoogleService-Info.plist */; };
 		74920B5721C10E500010C746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
 		74920B5A21C10E500010C746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
@@ -55,7 +67,7 @@
 		8E646FB822B3B9290007CE0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74920B5621C10E500010C746 /* Assets.xcassets */; };
 		8E6F3E14214220DF003CDFC2 /* ViteNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F3E13214220DF003CDFC2 /* ViteNetworkTests.swift */; };
 		8E79261621515D3A007FEBAB /* ViteURITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79261521515D3A007FEBAB /* ViteURITest.swift */; };
-		BC3E4F20DC7F1ACD9484756A /* Pods_ViteOfficial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D5EA07B9D417853474809E /* Pods_ViteOfficial.framework */; };
+		BAE10B548E8ABD81CB35CAA3 /* Pods_ViteOfficial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB535EB9D43456E408B18447 /* Pods_ViteOfficial.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,7 +139,6 @@
 
 /* Begin PBXFileReference section */
 		007BB00A2EAF52611D6BC23C /* Pods_ViteDapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViteDapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0BD4E89DF3EEF869029F3712 /* Pods-ViteOfficial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteOfficial.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial.release.xcconfig"; sourceTree = "<group>"; };
 		1725C021B18A1BEBBB6166A6 /* Pods-ViteTests.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.test.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.test.xcconfig"; sourceTree = "<group>"; };
 		180B38E8FC01091FE6DAB873 /* Pods-Vite.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vite.dev.xcconfig"; path = "Pods/Target Support Files/Pods-Vite/Pods-Vite.dev.xcconfig"; sourceTree = "<group>"; };
 		24CA0AC73F3F3BC6213EB453 /* Pods-ViteTest.internal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTest.internal.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTest/Pods-ViteTest.internal.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +146,8 @@
 		33A95135424604B2DA773E81 /* Pods-ViteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C0024E221257CD9001DF390 /* Vite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vite.entitlements; sourceTree = "<group>"; };
 		4C0024E321258005001DF390 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		4C07964522F800C4008C591D /* FlutterRouterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlutterRouterViewController.swift; sourceTree = "<group>"; };
+		4C07964622F800C4008C591D /* FlutterRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlutterRouter.swift; sourceTree = "<group>"; };
 		4C1FF4F1212A74730055067D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4C1FF4F4212A76410055067D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4C880F57213E880E0091CE00 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -159,6 +172,9 @@
 		4CCE425C2124553C0080E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CCE42672124553C0080E92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CEB292C214BC09100E5F7F4 /* ViteInputValidTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViteInputValidTest.swift; sourceTree = "<group>"; };
+		4CFA3D14231E5F8F00186424 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
+		4CFA3D15231E5F8F00186424 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
+		4DD8C7D0910819774B04A9D0 /* Pods-ViteOfficial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteOfficial.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial.release.xcconfig"; sourceTree = "<group>"; };
 		6C477C1209DFD179BADA20F4 /* Pods-ViteTest.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTest.test.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTest/Pods-ViteTest.test.xcconfig"; sourceTree = "<group>"; };
 		74649F1121F706A7004D0CCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resource/Firebase/official/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74649F1521F706B5004D0CCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resource/Firebase/enterprise/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -184,12 +200,11 @@
 		9093049F3DD9E9AC0B48FFE3 /* Pods-ViteTests.internal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.internal.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.internal.xcconfig"; sourceTree = "<group>"; };
 		B6EDA48390C3C0344001F0F0 /* Pods-ViteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.release.xcconfig"; sourceTree = "<group>"; };
 		C34885FE588DF3B38BFDF1CC /* Pods-ViteTests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteTests.dev.xcconfig"; path = "Pods/Target Support Files/Pods-ViteTests/Pods-ViteTests.dev.xcconfig"; sourceTree = "<group>"; };
-		C5BFAA22D6973163C1982BAE /* Pods-ViteOfficial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteOfficial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial.debug.xcconfig"; sourceTree = "<group>"; };
 		D55D99607767985694E66AD0 /* Pods_Vite_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCC46B6C5CD40D7094A6AAD4 /* Pods_ViteTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViteTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D683907F1C0E9830E47A64CB /* Pods-ViteOfficial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViteOfficial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial.debug.xcconfig"; sourceTree = "<group>"; };
 		E371DBD76F35FAF8F3007466 /* Pods_Vite_enterprise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vite_enterprise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5EF60202B89DEC8B075E04F /* Pods_ViteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6D5EA07B9D417853474809E /* Pods_ViteOfficial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViteOfficial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB535EB9D43456E408B18447 /* Pods_ViteOfficial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViteOfficial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,7 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC3E4F20DC7F1ACD9484756A /* Pods_ViteOfficial.framework in Frameworks */,
+				BAE10B548E8ABD81CB35CAA3 /* Pods_ViteOfficial.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,10 +268,21 @@
 				C34885FE588DF3B38BFDF1CC /* Pods-ViteTests.dev.xcconfig */,
 				24CA0AC73F3F3BC6213EB453 /* Pods-ViteTest.internal.xcconfig */,
 				6C477C1209DFD179BADA20F4 /* Pods-ViteTest.test.xcconfig */,
-				C5BFAA22D6973163C1982BAE /* Pods-ViteOfficial.debug.xcconfig */,
-				0BD4E89DF3EEF869029F3712 /* Pods-ViteOfficial.release.xcconfig */,
+				D683907F1C0E9830E47A64CB /* Pods-ViteOfficial.debug.xcconfig */,
+				4DD8C7D0910819774B04A9D0 /* Pods-ViteOfficial.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		4C07964422F800C4008C591D /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				4CFA3D14231E5F8F00186424 /* GeneratedPluginRegistrant.h */,
+				4CFA3D15231E5F8F00186424 /* GeneratedPluginRegistrant.m */,
+				4C07964522F800C4008C591D /* FlutterRouterViewController.swift */,
+				4C07964622F800C4008C591D /* FlutterRouter.swift */,
+			);
+			path = Flutter;
 			sourceTree = "<group>";
 		};
 		4C1FF4EC212A73FB0055067D /* Resource */ = {
@@ -307,6 +333,7 @@
 		4CCE42442124553B0080E92B /* Vite */ = {
 			isa = PBXGroup;
 			children = (
+				4C07964422F800C4008C591D /* Flutter */,
 				4C0024E221257CD9001DF390 /* Vite.entitlements */,
 				74920B6621C22D7D0010C746 /* AppDelegate.swift */,
 				4CA71A6A21F9B41200F0CFB3 /* main.swift */,
@@ -366,9 +393,8 @@
 				D55D99607767985694E66AD0 /* Pods_Vite_test.framework */,
 				2B38E8D9FA0F6C8091C7E97C /* Pods_ViteTests.framework */,
 				7F69169716358C197F03A9E5 /* Pods_Vite_official.framework */,
-				F6D5EA07B9D417853474809E /* Pods_ViteOfficial.framework */,
-				DCC46B6C5CD40D7094A6AAD4 /* Pods_ViteTest.framework */,
 				007BB00A2EAF52611D6BC23C /* Pods_ViteDapp.framework */,
+				FB535EB9D43456E408B18447 /* Pods_ViteOfficial.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -472,7 +498,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E1F940B22B39E6A00D5C0A8 /* Build configuration list for PBXNativeTarget "ViteOfficial" */;
 			buildPhases = (
-				05B32151CE9FAA2A54E5A7AD /* [CP] Check Pods Manifest.lock */,
+				38D6C105C0A702B6F6CBEE77 /* [CP] Check Pods Manifest.lock */,
 				8E1F93F822B39E6A00D5C0A8 /* Run R.Swift */,
 				8E1F93F922B39E6A00D5C0A8 /* Sources */,
 				8E1F93FE22B39E6A00D5C0A8 /* Frameworks */,
@@ -480,8 +506,8 @@
 				8E1F940522B39E6A00D5C0A8 /* Run SwiftLint */,
 				8E1F940622B39E6A00D5C0A8 /* Embed App Extensions */,
 				8E1F940A22B39E6A00D5C0A8 /* Run Fabric */,
-				4CB280CD60F3C6AA7D97D290 /* [CP] Embed Pods Frameworks */,
-				E2F208CCDCCCA2DF448A9C9D /* [CP] Copy Pods Resources */,
+				70D2D01F137594C5E320EAE0 /* [CP] Embed Pods Frameworks */,
+				0301049F2D245A6EE394AD7A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -670,26 +696,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		05B32151CE9FAA2A54E5A7AD /* [CP] Check Pods Manifest.lock */ = {
+		0301049F2D245A6EE394AD7A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ViteOfficial-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2D750E93D496371FC6B74780 /* [CP] Check Pods Manifest.lock */ = {
@@ -708,6 +729,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-ViteTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		38D6C105C0A702B6F6CBEE77 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ViteOfficial-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -742,7 +785,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
-		4CB280CD60F3C6AA7D97D290 /* [CP] Embed Pods Frameworks */ = {
+		70D2D01F137594C5E320EAE0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -919,23 +962,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
-		E2F208CCDCCCA2DF448A9C9D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -945,7 +971,10 @@
 			files = (
 				4CA71A7121F9B48F00F0CFB3 /* DenyPtrace.c in Sources */,
 				74920B6721C22D7D0010C746 /* AppDelegate.swift in Sources */,
+				4C07964722F800C4008C591D /* FlutterRouterViewController.swift in Sources */,
+				4C07964B22F800C4008C591D /* FlutterRouter.swift in Sources */,
 				4C0024E421258005001DF390 /* R.generated.swift in Sources */,
+				4CFA3D16231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */,
 				4CA71A6B21F9B41300F0CFB3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -979,7 +1008,10 @@
 			files = (
 				8E1F93FA22B39E6A00D5C0A8 /* DenyPtrace.c in Sources */,
 				8E1F93FB22B39E6A00D5C0A8 /* AppDelegate.swift in Sources */,
+				4C07964822F800C4008C591D /* FlutterRouterViewController.swift in Sources */,
+				4C07964C22F800C4008C591D /* FlutterRouter.swift in Sources */,
 				8E1F93FC22B39E6A00D5C0A8 /* R.generated.swift in Sources */,
+				4CFA3D17231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */,
 				8E1F93FD22B39E6A00D5C0A8 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -990,7 +1022,10 @@
 			files = (
 				8E646F9522B3B6EC0007CE0E /* DenyPtrace.c in Sources */,
 				8E646F9622B3B6EC0007CE0E /* AppDelegate.swift in Sources */,
+				4C07964922F800C4008C591D /* FlutterRouterViewController.swift in Sources */,
+				4C07964D22F800C4008C591D /* FlutterRouter.swift in Sources */,
 				8E646F9722B3B6EC0007CE0E /* R.generated.swift in Sources */,
+				4CFA3D18231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */,
 				8E646F9822B3B6EC0007CE0E /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1001,7 +1036,10 @@
 			files = (
 				8E646FAF22B3B9290007CE0E /* DenyPtrace.c in Sources */,
 				8E646FB022B3B9290007CE0E /* AppDelegate.swift in Sources */,
+				4C07964A22F800C4008C591D /* FlutterRouterViewController.swift in Sources */,
+				4C07964E22F800C4008C591D /* FlutterRouter.swift in Sources */,
 				8E646FB122B3B9290007CE0E /* R.generated.swift in Sources */,
+				4CFA3D19231E5F8F00186424 /* GeneratedPluginRegistrant.m in Sources */,
 				8E646FB222B3B9290007CE0E /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1172,7 +1210,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1366;
+				CURRENT_PROJECT_VERSION = 1377;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
@@ -1202,7 +1240,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1366;
+				CURRENT_PROJECT_VERSION = 1377;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
@@ -1336,13 +1374,13 @@
 		};
 		8E1F940C22B39E6A00D5C0A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C5BFAA22D6973163C1982BAE /* Pods-ViteOfficial.debug.xcconfig */;
+			baseConfigurationReference = D683907F1C0E9830E47A64CB /* Pods-ViteOfficial.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1366;
+				CURRENT_PROJECT_VERSION = 1377;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1370,13 +1408,13 @@
 		};
 		8E1F940E22B39E6A00D5C0A8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BD4E89DF3EEF869029F3712 /* Pods-ViteOfficial.release.xcconfig */;
+			baseConfigurationReference = 4DD8C7D0910819774B04A9D0 /* Pods-ViteOfficial.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1366;
+				CURRENT_PROJECT_VERSION = 1377;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1409,7 +1447,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1366;
+				CURRENT_PROJECT_VERSION = 1377;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1443,7 +1481,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1366;
+				CURRENT_PROJECT_VERSION = 1377;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1477,7 +1515,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1366;
+				CURRENT_PROJECT_VERSION = 1377;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1510,7 +1548,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1366;
+				CURRENT_PROJECT_VERSION = 1377;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
