@@ -81,8 +81,8 @@ target target_name do
     vite_grin_git = 'https://github.com/vitelabs/Vite_GrinWallet.git'
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
-    vite_community_commit = '068c6d57c2ed9ac0e4975e8053ca99c3284cfe7a'
-    vite_business_commit = 'dea5733f112da1ff41edc5aac87baaf91a5c2020'
+    vite_community_commit = '1e6396f9eb41be4345116daddc91165f2718a7ce'
+    vite_business_commit = '53d2fcfe954c5ffb861f94893a6ee4c6bb1d1e98'
     vite_wallet_commit = '78489ca2b8ecfbf6c061c785f928d57ca5c41d72'
     vite_grin_commit = '8b08aa50fdb8bf5152747b0ce4271fa352822c0c'
     vite_hd_commit = '3f2180efb643c4a8c10e95ef96ce9bff9ed37aa3'
@@ -162,6 +162,7 @@ target target_name do
     pod 'Firebase/Core'
 
     pod 'MLeaksFinder', :configurations => ['Debug']
+    pod 'LookinServer', :configurations => ['Debug']
 
     if target_name == 'ViteTest'
         pod 'Bagel', '~>  1.3.2'
@@ -170,7 +171,6 @@ target target_name do
     end
     
     pod 'FSPagerView'
-    pod 'DNSPageView'
 
     target 'ViteTests' do
         inherit! :search_paths

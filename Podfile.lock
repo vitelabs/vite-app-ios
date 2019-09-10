@@ -34,7 +34,6 @@ PODS:
   - CryptoSwift (1.0.0)
   - DACircularProgress (2.3.1)
   - Differentiator (3.1.0)
-  - DNSPageView (1.1.5)
   - Eureka (4.3.1)
   - Fabric (1.9.0)
   - FBRetainCycleDetector (0.1.4)
@@ -115,6 +114,7 @@ PODS:
   - KeychainSwift (13.0.0)
   - Kingfisher (4.10.1)
   - KMNavigationBarTransition (1.1.5)
+  - LookinServer (0.9.4)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.15.7)
   - MLeaksFinder (1.0.0):
@@ -206,7 +206,6 @@ PODS:
     - Crashlytics
     - CryptoSwift
     - DACircularProgress (= 2.3.1)
-    - DNSPageView
     - Eureka (~> 4.3.0)
     - Fabric
     - Firebase/Core
@@ -246,7 +245,6 @@ PODS:
     - web3.swift.pod (~> 2.2.0)
     - XCGLogger (~> 6.1.0)
   - ViteCommunity (0.1.0):
-    - DNSPageView
     - Firebase/Messaging
     - FSPagerView
     - Moya
@@ -285,7 +283,6 @@ DEPENDENCIES:
   - CHIPageControl
   - Crashlytics (~> 3.12.0)
   - DACircularProgress (= 2.3.1)
-  - DNSPageView
   - Eureka (~> 4.3.0)
   - Fabric (~> 1.9.0)
   - Firebase/Core
@@ -297,6 +294,7 @@ DEPENDENCIES:
   - KeychainSwift
   - Kingfisher (~> 4.0)
   - KMNavigationBarTransition
+  - LookinServer
   - MBProgressHUD
   - MJRefresh
   - MLeaksFinder
@@ -324,8 +322,8 @@ DEPENDENCIES:
   - Vite_GrinWallet (from `https://github.com/vitelabs/Vite_GrinWallet.git`, commit `8b08aa50fdb8bf5152747b0ce4271fa352822c0c`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-keystore-ios.git`, commit `3f2180efb643c4a8c10e95ef96ce9bff9ed37aa3`)
   - vite_wallet_communication (from `https://github.com/vitelabs/vite_flutter_sdk.git`, commit `597ba02b4fcf0410f4b65d422a0e91e7d5393252`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `dea5733f112da1ff41edc5aac87baaf91a5c2020`)
-  - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `068c6d57c2ed9ac0e4975e8053ca99c3284cfe7a`)
+  - ViteBusiness (from `/Users/haoshenyang/vitelabs/vite-business-ios`)
+  - ViteCommunity (from `/Users/haoshenyang/vitelabs/vite-community-ios`)
   - viteFlutterSDK (from `https://github.com/vitelabs/vite_flutter_sdk.git`, commit `597ba02b4fcf0410f4b65d422a0e91e7d5393252`)
   - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `78489ca2b8ecfbf6c061c785f928d57ca5c41d72`)
   - XCGLogger (~> 6.1.0)
@@ -347,7 +345,6 @@ SPEC REPOS:
     - CryptoSwift
     - DACircularProgress
     - Differentiator
-    - DNSPageView
     - Eureka
     - Fabric
     - FBRetainCycleDetector
@@ -364,6 +361,7 @@ SPEC REPOS:
     - KeychainSwift
     - Kingfisher
     - KMNavigationBarTransition
+    - LookinServer
     - MBProgressHUD
     - MJRefresh
     - MLeaksFinder
@@ -424,11 +422,9 @@ EXTERNAL SOURCES:
     :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
     :git: https://github.com/vitelabs/vite_flutter_sdk.git
   ViteBusiness:
-    :commit: dea5733f112da1ff41edc5aac87baaf91a5c2020
-    :git: https://github.com/vitelabs/vite-business-ios.git
+    :path: "/Users/haoshenyang/vitelabs/vite-business-ios"
   ViteCommunity:
-    :commit: 068c6d57c2ed9ac0e4975e8053ca99c3284cfe7a
-    :git: https://github.com/vitelabs/vite-community-ios.git
+    :path: "/Users/haoshenyang/vitelabs/vite-community-ios"
   viteFlutterSDK:
     :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
     :git: https://github.com/vitelabs/vite_flutter_sdk.git
@@ -461,12 +457,6 @@ CHECKOUT OPTIONS:
   vite_wallet_communication:
     :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
     :git: https://github.com/vitelabs/vite_flutter_sdk.git
-  ViteBusiness:
-    :commit: dea5733f112da1ff41edc5aac87baaf91a5c2020
-    :git: https://github.com/vitelabs/vite-business-ios.git
-  ViteCommunity:
-    :commit: 068c6d57c2ed9ac0e4975e8053ca99c3284cfe7a
-    :git: https://github.com/vitelabs/vite-community-ios.git
   viteFlutterSDK:
     :commit: 597ba02b4fcf0410f4b65d422a0e91e7d5393252
     :git: https://github.com/vitelabs/vite_flutter_sdk.git
@@ -492,7 +482,6 @@ SPEC CHECKSUMS:
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  DNSPageView: 005cbaf42be33eccc6d7547c591b0089a96ea33e
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
@@ -512,6 +501,7 @@ SPEC CHECKSUMS:
   KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   KMNavigationBarTransition: 7a52c9bc25b39b6e3343e980b453facee1591b82
+  LookinServer: 54eb99921647bda4068ff8776d842285e2bf0adb
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
@@ -550,14 +540,14 @@ SPEC CHECKSUMS:
   Vite_GrinWallet: de995b55145f9171385ad035f47b37b579715a69
   Vite_HDWalletKit: 75a0b78af01de2028e0a2fd8c2cbe04eea21ae86
   vite_wallet_communication: 3f14d00c429eb133fe667da19b8d46edf62c2e9b
-  ViteBusiness: 5042828ff5d9feebb9905c6e6bf8576dd562928b
-  ViteCommunity: cf2210ed133d8a097992c6c44a962507d1074ac2
+  ViteBusiness: 8c15dd6724cc0353053fa828a95ebcffb20ab043
+  ViteCommunity: 31413f8efc36a37ad1cacc6a8b3a9d8c30dd82c0
   viteFlutterSDK: 34ee10337489121c3e3b24778f1705e2ad21254f
   ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   web3.swift.pod: 66048c11416c2e7a9a4b35fe42254d0f0d9db4b1
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
   xservice_kit: 9fffbbef6ae3bae02c7940337358c52ab5328101
 
-PODFILE CHECKSUM: d1c82b57cc4bc0d1c0cb65042a5db4fe6404c5e5
+PODFILE CHECKSUM: 23169390970bc65478f1463346c23df6067e9d88
 
 COCOAPODS: 1.7.5
