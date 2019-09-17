@@ -40,7 +40,6 @@ import Bagel
         FirebaseApp.configure()
         VitePushManager.instance.start()
         ViteCommunity.register()
-
         ViteBusinessLanucher.instance.add(homePageSubTabViewController: self.createNavVC(), atIndex: 2)
         ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 3)
 
@@ -50,7 +49,10 @@ import Bagel
 
         //after firebase
         GeneratedPluginRegistrant.register(with: self)
-        _ = FlutterRouter.shared
+        let flutterRouter = FlutterRouter.shared
+        FlutterBoostPlugin.sharedInstance()?.startFlutter(with: flutterRouter, onStart: { (_) in
+
+        })
         ViteBusinessLanucher.instance.start(with: window)
         bindFlutter()
         return true
@@ -70,6 +72,25 @@ import Bagel
     }
 
     func bindFlutter() {
+        NotificationCenter.default.rx.notification(NSNotification.Name.goGateWayVC)
+            .bind {  notification in
+                let info = notification.object as! [String: Any]
+                let gateway = info["gateway"] as! String
+                let gatewayInfoVC = FlutterRouterViewController(page: .gatewayInfo(gateway), title: "Flutter Page")
+                UIViewController.current?.navigationController?.pushViewController(gatewayInfoVC, animated: true)
+            }
+            .disposed(by: rx.disposeBag)
+        NotificationCenter.default.rx.notification(NSNotification.Name.goTokenInfoVC)
+            .bind { notification in
+                let info = notification.object as! [String: Any]
+                let tokenCode = info["tokenCode"] as! String
+                let gatewayInfoVC = FlutterRouterViewController(page: .tokenInfo(tokenCode), title: "Flutter Page")
+                UIViewController.current?.navigationController?.pushViewController(gatewayInfoVC, animated: true)
+            }
+            .disposed(by: rx.disposeBag)
+
+
+
         HDWalletManager.instance.accountDriver.drive(onNext: { (account) in
             ViteFlutterCommunication.shareInstance()?.currentViteAddress = account?.address ?? ""
         }).disposed(by: rx.disposeBag)

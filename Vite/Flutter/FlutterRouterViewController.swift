@@ -16,6 +16,8 @@ protocol FlutterRouterPort {
 enum FlutterPage: FlutterRouterPort {
     case discoverHome
     case marketHome
+    case gatewayInfo(String)
+    case tokenInfo(String)
 
     var name: String {
         switch self {
@@ -23,15 +25,26 @@ enum FlutterPage: FlutterRouterPort {
             return "viteWallet://discoverHome"
         case .marketHome:
             return "viteWallet://marketHome"
+        case .gatewayInfo(_):
+            return "viteWallet://gatewayInfo"
+        case .tokenInfo(_):
+            return "viteWallet://tokenInfo"
         }
     }
     
     var params: [String: Any] {
         switch self {
         case .discoverHome:
-            return ["lang": LocalizationService.sharedInstance.currentLanguage.rawValue]
+            return [:]
         case .marketHome:
-            return ["lang": LocalizationService.sharedInstance.currentLanguage.rawValue]
+            return [:]
+        case .gatewayInfo(let gateway):
+            return [
+                    "gateway": gateway,
+                    ]
+        case .tokenInfo(let tokenCode):
+            return [
+                "tokenCode": tokenCode]
         }
     }    
 }
@@ -44,16 +57,16 @@ class FlutterRouterViewController: FLBFlutterViewContainer {
     /// push
     func becomingPush(root: UIViewController?, animated: Bool) {
         FlutterRouter.shared.navigation = root?.navigationController
-        FlutterRouter.shared.openPage(self.name, params: self.params, animated: true) { (_) in
-            
+        FlutterRouter.shared.open(self.name(), urlParams: self.params(), exts: [:]) { (_) in
+
         }
         root?.navigationController?.pushViewController(self, animated: animated)
     }
 
     /// present
     func becomingPresent(root: UIViewController?, animated: Bool, completion: (() -> Void)?) {
-        FlutterRouter.shared.openPage(self.name, params: self.params, animated: true) { (_) in
-            
+        FlutterRouter.shared.open(self.name(), urlParams: self.params(), exts: [:]) { (_) in
+
         }
         root?.present(self, animated: animated, completion: completion)
     }
