@@ -20,21 +20,14 @@ class FlutterRouter: NSObject {
     
     override init() {
         super.init()
-        FlutterBoostPlugin.sharedInstance()?.startFlutter(with: self, onStart: { (_) in
-            
-        })
     }
 }
 
 extension FlutterRouter: FLBPlatform {
-    func accessibilityEnable() -> Bool {
-        return false
-    }
-
-    func openPage(_ name: String, params: [AnyHashable: Any], animated: Bool, completion: @escaping (Bool) -> Void) {
-        if (name == "viteWallet://webPage") {
-            let url = params["url"]
-            let webVC = WKWebViewController.init(url: URL.init(string: url as! String)!)
+    func open(_ url: String, urlParams: [AnyHashable : Any], exts: [AnyHashable : Any], completion: @escaping (Bool) -> Void) {
+        if url == "viteWallet://webPage" {
+            let urlParams = urlParams["url"]
+            let webVC = WKWebViewController.init(url: URL.init(string: urlParams as! String)!)
             let topVC = Route.getTopVC()
             if let nav = topVC?.navigationController {
                 nav.pushViewController(webVC, animated: true)
@@ -42,8 +35,9 @@ extension FlutterRouter: FLBPlatform {
                 topVC?.present(webVC, animated: true, completion: nil)
             }
         }
-
     }
-    func closePage(_ uid: String, animated: Bool, params: [AnyHashable: Any], completion: @escaping (Bool) -> Void) {
+    
+    func close(_ uid: String, result: [AnyHashable : Any], exts: [AnyHashable : Any], completion: @escaping (Bool) -> Void) {
+        UIViewController.current?.navigationController?.popViewController(animated: true)
     }
 }
