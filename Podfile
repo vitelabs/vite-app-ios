@@ -8,7 +8,7 @@ target_name = 'ViteOfficial'
 
 
 def flutter
-	flutter_commit = '9eae88af5dba3f4e984446f375a3a1583363f5bd'
+	flutter_commit = 'afaddf881e974fb37adf79a7e3fb78889e58d1b3'
     vite_pod 'viteFlutterSDK', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
     vite_pod 'flutter_boost', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
     vite_pod 'shared_preferences', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
@@ -85,7 +85,7 @@ target target_name do
     vite_business_commit = '53d2fcfe954c5ffb861f94893a6ee4c6bb1d1e98'
     vite_wallet_commit = '78489ca2b8ecfbf6c061c785f928d57ca5c41d72'
     vite_grin_commit = '8b08aa50fdb8bf5152747b0ce4271fa352822c0c'
-    vite_hd_commit = '3f2180efb643c4a8c10e95ef96ce9bff9ed37aa3'
+    vite_hd_commit = 'ab6f4710cfab9e09981a03387052102659a60f39'
 
     if target_name == 'ViteOfficial' || target_name == 'ViteTest'
         vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit

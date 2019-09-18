@@ -89,19 +89,20 @@ import Bagel
             }
             .disposed(by: rx.disposeBag)
 
-
-
         HDWalletManager.instance.accountDriver.drive(onNext: { (account) in
             ViteFlutterCommunication.shareInstance()?.currentViteAddress = account?.address ?? ""
+            ViteFlutterCommunication.shareInstance()?.events?("changeConfig")
         }).disposed(by: rx.disposeBag)
 
         AppSettingsService.instance.currencyDriver.drive(onNext: { (code) in
             ViteFlutterCommunication.shareInstance()?.currency = code.rawValue
+            ViteFlutterCommunication.shareInstance()?.events?("changeConfig")
         }).disposed(by: rx.disposeBag)
 
         ViteFlutterCommunication.shareInstance()?.lang = LocalizationService.sharedInstance.currentLanguage.rawValue
         NotificationCenter.default.rx.notification(.languageChanged).asObservable().bind { _ in
             ViteFlutterCommunication.shareInstance()?.lang = LocalizationService.sharedInstance.currentLanguage.rawValue
+            ViteFlutterCommunication.shareInstance()?.events?("changeConfig")
         }.disposed(by: rx.disposeBag)
 
         ViteFlutterCommunication.shareInstance()?.env = {
