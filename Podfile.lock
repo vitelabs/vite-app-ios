@@ -322,7 +322,7 @@ DEPENDENCIES:
   - Vite_GrinWallet (from `https://github.com/vitelabs/Vite_GrinWallet.git`, commit `8b08aa50fdb8bf5152747b0ce4271fa352822c0c`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-keystore-ios.git`, commit `ab6f4710cfab9e09981a03387052102659a60f39`)
   - vite_wallet_communication (from `https://github.com/vitelabs/vite_flutter_sdk.git`, commit `cc7616f2c5b8b6d9f90a91db676a2093096f66fd`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `6bb6a0eabbd5af4f3dcfd15cd1e16716c94c5674`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `af9353cafc3fa22b8f992b5c157f820af6aad907`)
   - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `1e6396f9eb41be4345116daddc91165f2718a7ce`)
   - viteFlutterSDK (from `https://github.com/vitelabs/vite_flutter_sdk.git`, commit `cc7616f2c5b8b6d9f90a91db676a2093096f66fd`)
   - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `78489ca2b8ecfbf6c061c785f928d57ca5c41d72`)
@@ -424,7 +424,7 @@ EXTERNAL SOURCES:
     :commit: cc7616f2c5b8b6d9f90a91db676a2093096f66fd
     :git: https://github.com/vitelabs/vite_flutter_sdk.git
   ViteBusiness:
-    :commit: 6bb6a0eabbd5af4f3dcfd15cd1e16716c94c5674
+    :commit: af9353cafc3fa22b8f992b5c157f820af6aad907
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 1e6396f9eb41be4345116daddc91165f2718a7ce
@@ -462,7 +462,7 @@ CHECKOUT OPTIONS:
     :commit: cc7616f2c5b8b6d9f90a91db676a2093096f66fd
     :git: https://github.com/vitelabs/vite_flutter_sdk.git
   ViteBusiness:
-    :commit: 6bb6a0eabbd5af4f3dcfd15cd1e16716c94c5674
+    :commit: af9353cafc3fa22b8f992b5c157f820af6aad907
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 1e6396f9eb41be4345116daddc91165f2718a7ce
@@ -555,6 +555,6 @@ SPEC CHECKSUMS:
   web3.swift.pod: 66048c11416c2e7a9a4b35fe42254d0f0d9db4b1
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 258b20df17bbe3867f8dcd0a0f8cb04fff0b1f12
+PODFILE CHECKSUM: 12fe5a8a3c83e3cc97c01db076b30938372a8d9b
 
 COCOAPODS: 1.7.5
