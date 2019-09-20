@@ -82,7 +82,7 @@ target target_name do
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
     vite_community_commit = '1e6396f9eb41be4345116daddc91165f2718a7ce'
-    vite_business_commit = 'af9353cafc3fa22b8f992b5c157f820af6aad907'
+    vite_business_commit = '2da124d367e13fb4556af72e6622c52efbce753e'
     vite_wallet_commit = '78489ca2b8ecfbf6c061c785f928d57ca5c41d72'
     vite_grin_commit = '8b08aa50fdb8bf5152747b0ce4271fa352822c0c'
     vite_hd_commit = 'ab6f4710cfab9e09981a03387052102659a60f39'
@@ -195,13 +195,16 @@ post_install do |installer|
             target.build_configurations.each do |config|
                 config.build_settings['SWIFT_VERSION'] = '4.0'
             end
-        end
-
-        if ['web3swift'].include? target.name
+        elsif ['web3.swift.pod'].include? target.name
             target.build_configurations.each do |config|
-                config.build_settings['SWIFT_VERSION'] = '5.0'
+              config.build_settings['SWIFT_VERSION'] = '5.0'
+            end
+        else
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '4.2'
             end
         end
+
     end
 
     
