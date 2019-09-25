@@ -66,6 +66,7 @@ import Bagel
             $0.tabBarItem.selectedImage = ViteBusiness.R.image.icon_tabbar_market_select()?.withRenderingMode(.alwaysOriginal)
             $0.tabBarItem.tag = 1002
             $0.interactivePopGestureRecognizer?.isEnabled = false
+            $0.tabBarItem.title = nil
         }
 
         return nav
@@ -89,19 +90,20 @@ import Bagel
             }
             .disposed(by: rx.disposeBag)
 
-
-
         HDWalletManager.instance.accountDriver.drive(onNext: { (account) in
             ViteFlutterCommunication.shareInstance()?.currentViteAddress = account?.address ?? ""
+            ViteFlutterCommunication.shareInstance()?.events?("changeConfig")
         }).disposed(by: rx.disposeBag)
 
         AppSettingsService.instance.currencyDriver.drive(onNext: { (code) in
             ViteFlutterCommunication.shareInstance()?.currency = code.rawValue
+            ViteFlutterCommunication.shareInstance()?.events?("changeConfig")
         }).disposed(by: rx.disposeBag)
 
         ViteFlutterCommunication.shareInstance()?.lang = LocalizationService.sharedInstance.currentLanguage.rawValue
         NotificationCenter.default.rx.notification(.languageChanged).asObservable().bind { _ in
             ViteFlutterCommunication.shareInstance()?.lang = LocalizationService.sharedInstance.currentLanguage.rawValue
+            ViteFlutterCommunication.shareInstance()?.events?("changeConfig")
         }.disposed(by: rx.disposeBag)
 
         ViteFlutterCommunication.shareInstance()?.env = {
