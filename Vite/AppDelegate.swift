@@ -40,11 +40,8 @@ import Bagel
         FirebaseApp.configure()
         VitePushManager.instance.start()
         ViteCommunity.register()
-        ViteBusinessLanucher.instance.add(homePageSubTabViewController: self.createNavVC(), atIndex: 2)
+//        ViteBusinessLanucher.instance.add(homePageSubTabViewController: self.createNavVC(), atIndex: 2)
         ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 3)
-
-        #elseif DAPP
-        ViteBusinessLanucher.instance.add(homePageSubTabViewController: DebugHomeViewController.createNavVC(), atIndex: 3)
         #endif
 
         //after firebase
