@@ -182,7 +182,7 @@ PODS:
   - shared_preferences (0.0.1):
     - viteFlutterSDK
   - SnapKit (4.0.1)
-  - Starscream (3.1.0)
+  - Starscream (3.1.1)
   - SwiftLint (0.31.0)
   - SwiftyJSON (4.2.0)
   - Then (2.4.0)
@@ -331,7 +331,7 @@ DEPENDENCIES:
   - Vite_GrinWallet (from `https://github.com/vitelabs/Vite_GrinWallet.git`, commit `8b08aa50fdb8bf5152747b0ce4271fa352822c0c`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-keystore-ios.git`, commit `ab6f4710cfab9e09981a03387052102659a60f39`)
   - vite_wallet_communication (from `https://github.com/vitelabs/vite_flutter_sdk.git`, commit `9da8eb4d06401c91e71753523df04ebe01dfdb0a`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `a7306412c978adbb1e973b89883052d5bb89969e`)
+  - ViteBusiness (from `/Users/haoshenyang/vitelabs/vite-business-ios`)
   - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `b923e0d6c25ddf684524c1c5f405e6deaa8801c7`)
   - viteFlutterSDK (from `https://github.com/vitelabs/vite_flutter_sdk.git`, commit `9da8eb4d06401c91e71753523df04ebe01dfdb0a`)
   - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `78489ca2b8ecfbf6c061c785f928d57ca5c41d72`)
@@ -437,8 +437,7 @@ EXTERNAL SOURCES:
     :commit: 9da8eb4d06401c91e71753523df04ebe01dfdb0a
     :git: https://github.com/vitelabs/vite_flutter_sdk.git
   ViteBusiness:
-    :commit: a7306412c978adbb1e973b89883052d5bb89969e
-    :git: https://github.com/vitelabs/vite-business-ios.git
+    :path: "/Users/haoshenyang/vitelabs/vite-business-ios"
   ViteCommunity:
     :commit: b923e0d6c25ddf684524c1c5f405e6deaa8801c7
     :git: https://github.com/vitelabs/vite-community-ios.git
@@ -477,9 +476,6 @@ CHECKOUT OPTIONS:
   vite_wallet_communication:
     :commit: 9da8eb4d06401c91e71753523df04ebe01dfdb0a
     :git: https://github.com/vitelabs/vite_flutter_sdk.git
-  ViteBusiness:
-    :commit: a7306412c978adbb1e973b89883052d5bb89969e
-    :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: b923e0d6c25ddf684524c1c5f405e6deaa8801c7
     :git: https://github.com/vitelabs/vite-community-ios.git
@@ -555,7 +551,7 @@ SPEC CHECKSUMS:
   secp256k1.c: db47b726585d80f027423682eb369729e61b3b20
   shared_preferences: e76a0c64fc23601559f63f89bffd5a08e14cedc9
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  Starscream: 08172b481e145289c4930cb567230fb55897cfa4
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
@@ -573,6 +569,6 @@ SPEC CHECKSUMS:
   web3.swift.pod: 66048c11416c2e7a9a4b35fe42254d0f0d9db4b1
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 2f8d22462eb9a3802f1418ae0e4b16184d92c2aa
+PODFILE CHECKSUM: ca75f5d320631008b9a8ea0181a7009edf6d2322
 
 COCOAPODS: 1.7.5
