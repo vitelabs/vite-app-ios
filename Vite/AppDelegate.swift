@@ -40,17 +40,16 @@ import Bagel
         FirebaseApp.configure()
         VitePushManager.instance.start()
         ViteCommunity.register()
-
-        ViteBusinessLanucher.instance.add(homePageSubTabViewController: self.createNavVC(), atIndex: 2)
+//        ViteBusinessLanucher.instance.add(homePageSubTabViewController: self.createNavVC(), atIndex: 2)
         ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 3)
-
-        #elseif DAPP
-        ViteBusinessLanucher.instance.add(homePageSubTabViewController: DebugHomeViewController.createNavVC(), atIndex: 3)
         #endif
 
         //after firebase
         GeneratedPluginRegistrant.register(with: self)
-        _ = FlutterRouter.shared
+        let flutterRouter = FlutterRouter.shared
+        FlutterBoostPlugin.sharedInstance()?.startFlutter(with: flutterRouter, onStart: { (_) in
+
+        })
         ViteBusinessLanucher.instance.start(with: window)
         bindFlutter()
         return true
@@ -64,23 +63,44 @@ import Bagel
             $0.tabBarItem.selectedImage = ViteBusiness.R.image.icon_tabbar_market_select()?.withRenderingMode(.alwaysOriginal)
             $0.tabBarItem.tag = 1002
             $0.interactivePopGestureRecognizer?.isEnabled = false
+            $0.tabBarItem.title = nil
         }
 
         return nav
     }
 
     func bindFlutter() {
+        NotificationCenter.default.rx.notification(NSNotification.Name.goGateWayVC)
+            .bind {  notification in
+                let info = notification.object as! [String: Any]
+                let gateway = info["gateway"] as! String
+                let gatewayInfoVC = FlutterRouterViewController(page: .gatewayInfo(gateway), title: "Flutter Page")
+                UIViewController.current?.navigationController?.pushViewController(gatewayInfoVC, animated: true)
+            }
+            .disposed(by: rx.disposeBag)
+        NotificationCenter.default.rx.notification(NSNotification.Name.goTokenInfoVC)
+            .bind { notification in
+                let info = notification.object as! [String: Any]
+                let tokenCode = info["tokenCode"] as! String
+                let gatewayInfoVC = FlutterRouterViewController(page: .tokenInfo(tokenCode), title: "Flutter Page")
+                UIViewController.current?.navigationController?.pushViewController(gatewayInfoVC, animated: true)
+            }
+            .disposed(by: rx.disposeBag)
+
         HDWalletManager.instance.accountDriver.drive(onNext: { (account) in
             ViteFlutterCommunication.shareInstance()?.currentViteAddress = account?.address ?? ""
+            ViteFlutterCommunication.shareInstance()?.events?("changeConfig")
         }).disposed(by: rx.disposeBag)
 
         AppSettingsService.instance.currencyDriver.drive(onNext: { (code) in
             ViteFlutterCommunication.shareInstance()?.currency = code.rawValue
+            ViteFlutterCommunication.shareInstance()?.events?("changeConfig")
         }).disposed(by: rx.disposeBag)
 
         ViteFlutterCommunication.shareInstance()?.lang = LocalizationService.sharedInstance.currentLanguage.rawValue
         NotificationCenter.default.rx.notification(.languageChanged).asObservable().bind { _ in
             ViteFlutterCommunication.shareInstance()?.lang = LocalizationService.sharedInstance.currentLanguage.rawValue
+            ViteFlutterCommunication.shareInstance()?.events?("changeConfig")
         }.disposed(by: rx.disposeBag)
 
         ViteFlutterCommunication.shareInstance()?.env = {

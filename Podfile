@@ -8,14 +8,15 @@ target_name = 'ViteOfficial'
 
 
 def flutter
-	flutter_commit = '597ba02b4fcf0410f4b65d422a0e91e7d5393252'
+	flutter_commit = '9da8eb4d06401c91e71753523df04ebe01dfdb0a'
     vite_pod 'viteFlutterSDK', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
     vite_pod 'flutter_boost', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
-    vite_pod 'xservice_kit', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
     vite_pod 'shared_preferences', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+    vite_pod 'path_provider', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
     vite_pod 'vite_wallet_communication', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
     vite_pod 'firebase_analytics', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
     vite_pod 'firebase_crashlytics', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
+    vite_pod 'url_launcher', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
 end
 
 def vite_config(config, name)
@@ -81,11 +82,11 @@ target target_name do
     vite_grin_git = 'https://github.com/vitelabs/Vite_GrinWallet.git'
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
-    vite_community_commit = '3bd60ae4f6382f27582fcebe79c73ee716daabd4'
-    vite_business_commit = 'b00edc26e6e782cc61691adf1044dd47a036d73a'
-    vite_wallet_commit = '1d810999cf5d475c204b81a1a7765c85a41909a4'
+    vite_community_commit = 'b923e0d6c25ddf684524c1c5f405e6deaa8801c7'
+    vite_business_commit = '30bc080a88d5f523a77ece45c303843acdd285b2'
+    vite_wallet_commit = '78489ca2b8ecfbf6c061c785f928d57ca5c41d72'
     vite_grin_commit = '8b08aa50fdb8bf5152747b0ce4271fa352822c0c'
-    vite_hd_commit = '3f2180efb643c4a8c10e95ef96ce9bff9ed37aa3'
+    vite_hd_commit = 'ab6f4710cfab9e09981a03387052102659a60f39'
 
     if target_name == 'ViteOfficial' || target_name == 'ViteTest'
         vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
@@ -162,6 +163,7 @@ target target_name do
     pod 'Firebase/Core'
 
     pod 'MLeaksFinder', :configurations => ['Debug']
+    pod 'LookinServer', :configurations => ['Debug']
 
     if target_name == 'ViteTest'
         pod 'Bagel', '~>  1.3.2'
@@ -170,7 +172,6 @@ target target_name do
     end
     
     pod 'FSPagerView'
-    pod 'DNSPageView'
 
     target 'ViteTests' do
         inherit! :search_paths
@@ -195,13 +196,16 @@ post_install do |installer|
             target.build_configurations.each do |config|
                 config.build_settings['SWIFT_VERSION'] = '4.0'
             end
-        end
-
-        if ['web3swift'].include? target.name
+        elsif ['web3.swift.pod'].include? target.name
             target.build_configurations.each do |config|
-                config.build_settings['SWIFT_VERSION'] = '5.0'
+              config.build_settings['SWIFT_VERSION'] = '5.0'
+            end
+        else
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '4.2'
             end
         end
+
     end
 
     
