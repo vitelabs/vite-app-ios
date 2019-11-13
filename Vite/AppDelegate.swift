@@ -114,7 +114,14 @@ import Bagel
     }
 
     override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        return ViteBusinessLanucher.instance.application(app, open: url, options: options)
+        return ViteBusinessLanucher.instance.application(app, open: url)
+    }
+
+    override func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        if userActivity.activityType == NSUserActivityTypeBrowsingWeb, let url = userActivity.webpageURL {
+            _ = ViteBusinessLanucher.instance.application(application, open: url)
+        }
+        return true
     }
 
     override func applicationWillResignActive(_ application: UIApplication) {
