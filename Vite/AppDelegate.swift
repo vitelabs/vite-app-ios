@@ -92,7 +92,7 @@ import Bagel
             ViteFlutterCommunication.shareInstance()?.events?("changeConfig")
         }).disposed(by: rx.disposeBag)
 
-        AppSettingsService.instance.currencyDriver.drive(onNext: { (code) in
+        AppSettingsService.instance.appSettingsDriver.map{$0.currency}.distinctUntilChanged().drive(onNext: { (code) in
             ViteFlutterCommunication.shareInstance()?.currency = code.rawValue
             ViteFlutterCommunication.shareInstance()?.events?("changeConfig")
         }).disposed(by: rx.disposeBag)
