@@ -162,8 +162,8 @@ target target_name do
     pod 'Crashlytics', '~> 3.12.0'
     pod 'Firebase/Core'
 
-    pod 'MLeaksFinder', :configurations => ['Debug']
-    pod 'LookinServer', :configurations => ['Debug']
+#    pod 'MLeaksFinder', :configurations => ['Debug']
+#    pod 'LookinServer', :configurations => ['Debug']
 
     if target_name == 'ViteTest'
         pod 'Bagel', '~>  1.3.2'
