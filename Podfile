@@ -82,7 +82,7 @@ target target_name do
     vite_grin_git = 'https://github.com/vitelabs/Vite_GrinWallet.git'
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
-    vite_community_commit = 'd2b9e0ce04cc728800eb713f2ad7a87b96d4f384'
+    vite_community_commit = '34d23f48ac864ebe4c979f8be7d5fc0ea147cd97'
     vite_business_commit = '7c5ebbcacbde72f23b78857f2a33fd1bc7df8a57'
     vite_wallet_commit = 'd117bc42c4b021ed720257c2a8ff8ebf04d63294'
     vite_grin_commit = '8b08aa50fdb8bf5152747b0ce4271fa352822c0c'
@@ -158,9 +158,12 @@ target target_name do
     pod 'SwiftLint'
 
     #crash
-    pod 'Fabric', '~> 1.9.0'
-    pod 'Crashlytics', '~> 3.12.0'
+    pod 'Fabric'
+    pod 'Crashlytics'
     pod 'Firebase/Core'
+    pod 'Firebase/Analytics'
+    pod 'Firebase/Performance'
+    pod 'Firebase/RemoteConfig'
 
 #    pod 'MLeaksFinder', :configurations => ['Debug']
 #    pod 'LookinServer', :configurations => ['Debug']
