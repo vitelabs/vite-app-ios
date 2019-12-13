@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
 
 # Vite ViteOfficial ViteTest ViteDapp
-target_name = 'ViteTest'
+target_name = 'ViteOfficial'
 
 
 def flutter
@@ -83,7 +83,7 @@ target target_name do
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
     vite_community_commit = '677c482a15c0e40673e922abd638e48d08db49ac'
-    vite_business_commit = '1e59124faa7d82b9dd95a0c7fc3d6ddf3af37460'
+    vite_business_commit = '0b23249334cbde00b48b9c127a5d52a73fe49e07'
     vite_wallet_commit = '5be504e2ecf9997b08bfb85164700a376ace35b9'
     vite_grin_commit = '8b08aa50fdb8bf5152747b0ce4271fa352822c0c'
     vite_hd_commit = 'afd57479c20f6514fb20f47cb0c011db7d471457'
