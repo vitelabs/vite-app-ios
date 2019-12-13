@@ -1,4 +1,4 @@
-platform :ios, '10.0'
+platform :ios, '11.0'
 inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
@@ -82,9 +82,10 @@ target target_name do
     vite_grin_git = 'https://github.com/vitelabs/Vite_GrinWallet.git'
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
-    vite_community_commit = 'fe114c7554bb49807a4d3ad918ee66d27aba000c'
-    vite_business_commit = 'c000b09738c24cbf5ea7b307822c913ceabd8419'
-    vite_wallet_commit = '96358f48daa315dec9d4a506f1465328fdc15619'
+    vite_community_commit = '677c482a15c0e40673e922abd638e48d08db49ac'
+    vite_business_commit = '1e59124faa7d82b9dd95a0c7fc3d6ddf3af37460'
+    vite_wallet_commit = '5be504e2ecf9997b08bfb85164700a376ace35b9'
+
     vite_grin_commit = '8b08aa50fdb8bf5152747b0ce4271fa352822c0c'
     vite_hd_commit = 'afd57479c20f6514fb20f47cb0c011db7d471457'
 
@@ -116,11 +117,11 @@ target target_name do
     pod 'APIKit'
     pod 'ObjectMapper'
     pod 'MBProgressHUD'
-    pod 'KeychainSwift'
+    pod 'KeychainSwift', '13.0.0'
     pod 'Moya'
-    pod 'MJRefresh'
+    pod 'MJRefresh', '3.1.15.7'
     pod 'KMNavigationBarTransition'
-    pod 'XCGLogger', '~> 6.1.0'
+    pod 'XCGLogger', '~> 7.0'
     pod 'pop', '~> 1.0'
     pod 'DACircularProgress', '2.3.1'
     pod 'Kingfisher', '~> 4.0'
@@ -155,7 +156,7 @@ target target_name do
     pod 'ReactorKit'
 
     #code review
-    pod 'SwiftLint'
+    pod 'SwiftLint', '0.31.0'
 
     #crash
     pod 'Fabric'
@@ -165,8 +166,8 @@ target target_name do
     pod 'Firebase/Performance'
     pod 'Firebase/RemoteConfig'
 
-#    pod 'MLeaksFinder', :configurations => ['Debug']
-#    pod 'LookinServer', :configurations => ['Debug']
+    pod 'MLeaksFinder', :configurations => ['Debug']
+    pod 'LookinServer', :configurations => ['Debug']
 
     if target_name == 'ViteTest'
         pod 'Bagel', '~>  1.3.2'
@@ -175,6 +176,7 @@ target target_name do
     end
     
     pod 'FSPagerView'
+    vite_pod 'BinanceChain', :git => 'https://github.com/buckcao/SwiftBinanceChain.git'
 
     target 'ViteTests' do
         inherit! :search_paths
