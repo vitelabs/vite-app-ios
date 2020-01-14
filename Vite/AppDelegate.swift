@@ -34,10 +34,15 @@ import Bagel
 
         #if DEBUG || TEST
         Bagel.start()
+        #else
         #endif
 
         #if OFFICIAL
-        FirebaseApp.configure()
+
+        #if !(DEBUG)
+            FirebaseApp.configure()
+        #endif
+
         VitePushManager.instance.start()
         ViteCommunity.register()
 //        ViteBusinessLanucher.instance.add(homePageSubTabViewController: self.createNavVC(), atIndex: 2)
