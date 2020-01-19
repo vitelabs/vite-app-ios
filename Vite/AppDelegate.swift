@@ -34,10 +34,15 @@ import Bagel
 
         #if DEBUG || TEST
         Bagel.start()
+        #else
         #endif
 
         #if OFFICIAL
-        FirebaseApp.configure()
+
+        #if !(DEBUG)
+            FirebaseApp.configure()
+        #endif
+
         VitePushManager.instance.start()
         ViteCommunity.register()
 //        ViteBusinessLanucher.instance.add(homePageSubTabViewController: self.createNavVC(), atIndex: 2)
@@ -92,7 +97,7 @@ import Bagel
             ViteFlutterCommunication.shareInstance()?.events?("changeConfig")
         }).disposed(by: rx.disposeBag)
 
-        AppSettingsService.instance.currencyDriver.drive(onNext: { (code) in
+        AppSettingsService.instance.appSettingsDriver.map{$0.currency}.distinctUntilChanged().drive(onNext: { (code) in
             ViteFlutterCommunication.shareInstance()?.currency = code.rawValue
             ViteFlutterCommunication.shareInstance()?.events?("changeConfig")
         }).disposed(by: rx.disposeBag)
@@ -114,7 +119,14 @@ import Bagel
     }
 
     override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        return ViteBusinessLanucher.instance.application(app, open: url, options: options)
+        return ViteBusinessLanucher.instance.application(app, open: url)
+    }
+
+    override func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        if userActivity.activityType == NSUserActivityTypeBrowsingWeb, let url = userActivity.webpageURL {
+            _ = ViteBusinessLanucher.instance.application(application, open: url)
+        }
+        return true
     }
 
     override func applicationWillResignActive(_ application: UIApplication) {

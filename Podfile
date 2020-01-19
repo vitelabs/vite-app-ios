@@ -1,4 +1,4 @@
-platform :ios, '10.0'
+platform :ios, '11.0'
 inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
@@ -82,11 +82,11 @@ target target_name do
     vite_grin_git = 'https://github.com/vitelabs/Vite_GrinWallet.git'
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
-    vite_community_commit = 'b923e0d6c25ddf684524c1c5f405e6deaa8801c7'
-    vite_business_commit = '30bc080a88d5f523a77ece45c303843acdd285b2'
-    vite_wallet_commit = '78489ca2b8ecfbf6c061c785f928d57ca5c41d72'
-    vite_grin_commit = '8b08aa50fdb8bf5152747b0ce4271fa352822c0c'
-    vite_hd_commit = 'ab6f4710cfab9e09981a03387052102659a60f39'
+    vite_community_commit = '097209b05c8ab2452adc2c3736586d8efa76dce8'
+    vite_business_commit = '0f60198085c0d9aaff381a76d1f415bb9ed5107e'
+    vite_wallet_commit = '0d1d994c20b0055ec764d8f91e5f80067533b193'
+    vite_grin_commit = 'aa5c00edf7d1e7031a66363c4563b17c39e5cd74'
+    vite_hd_commit = 'afd57479c20f6514fb20f47cb0c011db7d471457'
 
     if target_name == 'ViteOfficial' || target_name == 'ViteTest'
         vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
@@ -116,11 +116,11 @@ target target_name do
     pod 'APIKit'
     pod 'ObjectMapper'
     pod 'MBProgressHUD'
-    pod 'KeychainSwift'
+    pod 'KeychainSwift', '13.0.0'
     pod 'Moya'
-    pod 'MJRefresh'
+    pod 'MJRefresh', '3.1.15.7'
     pod 'KMNavigationBarTransition'
-    pod 'XCGLogger', '~> 6.1.0'
+    pod 'XCGLogger', '~> 7.0'
     pod 'pop', '~> 1.0'
     pod 'DACircularProgress', '2.3.1'
     pod 'Kingfisher', '~> 4.0'
@@ -155,12 +155,15 @@ target target_name do
     pod 'ReactorKit'
 
     #code review
-    pod 'SwiftLint'
+    pod 'SwiftLint', '0.31.0'
 
     #crash
-    pod 'Fabric', '~> 1.9.0'
-    pod 'Crashlytics', '~> 3.12.0'
+    pod 'Fabric'
+    pod 'Crashlytics'
     pod 'Firebase/Core'
+    pod 'Firebase/Analytics'
+    pod 'Firebase/Performance'
+    pod 'Firebase/RemoteConfig'
 
     pod 'MLeaksFinder', :configurations => ['Debug']
     pod 'LookinServer', :configurations => ['Debug']
@@ -172,6 +175,7 @@ target target_name do
     end
     
     pod 'FSPagerView'
+    vite_pod 'BinanceChain', :git => 'https://github.com/buckcao/SwiftBinanceChain.git'
 
     target 'ViteTests' do
         inherit! :search_paths

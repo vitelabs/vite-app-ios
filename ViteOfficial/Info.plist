@@ -79,7 +79,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1395</string>
+	<string>1432</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
@@ -128,6 +128,7 @@
 			<key>UTTypeConformsTo</key>
 			<array>
 				<string>public.data</string>
+				<string>public.content</string>
 			</array>
 			<key>UTTypeDescription</key>
 			<string>Grin Slate Initial File</string>
@@ -144,6 +145,11 @@
 			</dict>
 		</dict>
 		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+				<string>public.content</string>
+			</array>
 			<key>UTTypeDescription</key>
 			<string>Grin Slate Response File</string>
 			<key>UTTypeIconFiles</key>
@@ -159,6 +165,11 @@
 			</dict>
 		</dict>
 		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+				<string>public.content</string>
+			</array>
 			<key>UTTypeDescription</key>
 			<string>Grin Slate File</string>
 			<key>UTTypeIconFiles</key>
@@ -170,6 +181,8 @@
 				<key>public.filename-extension</key>
 				<array>
 					<string>json</string>
+					<string>tx</string>
+					<string>txt</string>
 				</array>
 			</dict>
 		</dict>
