@@ -51,7 +51,6 @@ PODS:
   - Differentiator (3.1.0)
   - Eureka (4.3.1)
   - Fabric (1.10.2)
-  - FBRetainCycleDetector (0.1.4)
   - Firebase/Analytics (6.13.0):
     - Firebase/Core
   - Firebase/Core (6.13.0):
@@ -181,11 +180,8 @@ PODS:
   - KeychainSwift (13.0.0)
   - Kingfisher (4.10.1)
   - KMNavigationBarTransition (1.1.5)
-  - LookinServer (1.0.0)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.15.7)
-  - MLeaksFinder (1.0.0):
-    - FBRetainCycleDetector
   - Moya (11.0.2):
     - Moya/Core (= 11.0.2)
   - Moya/Core (11.0.2):
@@ -375,10 +371,8 @@ DEPENDENCIES:
   - KeychainSwift (= 13.0.0)
   - Kingfisher (~> 4.0)
   - KMNavigationBarTransition
-  - LookinServer
   - MBProgressHUD
   - MJRefresh (= 3.1.15.7)
-  - MLeaksFinder
   - Moya
   - "NSObject+Rx"
   - NYXImagesKit (= 2.3)
@@ -405,7 +399,7 @@ DEPENDENCIES:
   - Vite_GrinWallet (from `../Vite_GrinWallet/Vite_GrinWallet.podspec`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-keystore-ios.git`, commit `afd57479c20f6514fb20f47cb0c011db7d471457`)
   - vite_wallet_communication (from `https://github.com/vitelabs/vite_flutter_sdk.git`, commit `9da8eb4d06401c91e71753523df04ebe01dfdb0a`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `0f60198085c0d9aaff381a76d1f415bb9ed5107e`)
+  - ViteBusiness (from `../vite-business-ios/ViteBusiness.podspec`)
   - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `097209b05c8ab2452adc2c3736586d8efa76dce8`)
   - viteFlutterSDK (from `https://github.com/vitelabs/vite_flutter_sdk.git`, commit `9da8eb4d06401c91e71753523df04ebe01dfdb0a`)
   - ViteWallet (from `https://github.com/vitelabs/vite-wallet-ios.git`, commit `0d1d994c20b0055ec764d8f91e5f80067533b193`)
@@ -429,7 +423,6 @@ SPEC REPOS:
     - Differentiator
     - Eureka
     - Fabric
-    - FBRetainCycleDetector
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
@@ -453,10 +446,8 @@ SPEC REPOS:
     - KeychainSwift
     - Kingfisher
     - KMNavigationBarTransition
-    - LookinServer
     - MBProgressHUD
     - MJRefresh
-    - MLeaksFinder
     - Moya
     - nanopb
     - "NSObject+Rx"
@@ -524,8 +515,7 @@ EXTERNAL SOURCES:
     :commit: 9da8eb4d06401c91e71753523df04ebe01dfdb0a
     :git: https://github.com/vitelabs/vite_flutter_sdk.git
   ViteBusiness:
-    :commit: 0f60198085c0d9aaff381a76d1f415bb9ed5107e
-    :git: https://github.com/vitelabs/vite-business-ios.git
+    :path: "../vite-business-ios/ViteBusiness.podspec"
   ViteCommunity:
     :commit: 097209b05c8ab2452adc2c3736586d8efa76dce8
     :git: https://github.com/vitelabs/vite-community-ios.git
@@ -564,9 +554,6 @@ CHECKOUT OPTIONS:
   vite_wallet_communication:
     :commit: 9da8eb4d06401c91e71753523df04ebe01dfdb0a
     :git: https://github.com/vitelabs/vite_flutter_sdk.git
-  ViteBusiness:
-    :commit: 0f60198085c0d9aaff381a76d1f415bb9ed5107e
-    :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 097209b05c8ab2452adc2c3736586d8efa76dce8
     :git: https://github.com/vitelabs/vite-community-ios.git
@@ -595,7 +582,6 @@ SPEC CHECKSUMS:
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
-  FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
   firebase_analytics: 08b87e58b33b7eb3e651c6425205669fbfbf24a0
   firebase_crashlytics: 60ed04f3003825ad74836652427d39d1c174d42b
@@ -622,10 +608,8 @@ SPEC CHECKSUMS:
   KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   KMNavigationBarTransition: 7a52c9bc25b39b6e3343e980b453facee1591b82
-  LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
-  MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
@@ -673,6 +657,6 @@ SPEC CHECKSUMS:
   web3.swift.pod: 66048c11416c2e7a9a4b35fe42254d0f0d9db4b1
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: fd7509c9c24d1e77232e6c6f8ad0775af98b9a96
+PODFILE CHECKSUM: d73694469c85179690cc57f5cfd04d58df8c92cd
 
 COCOAPODS: 1.7.5
