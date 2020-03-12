@@ -108,6 +108,8 @@ target target_name do
     vite_pod 'Vite_HDWalletKit', :git => vite_hd_git, :commit => vite_hd_commit
     vite_pod 'Vite_GrinWallet', :git => vite_grin_git, :commit => vite_grin_commit
 
+    pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :tag => 'v3.4.0'
+
     pod 'SnapKit', '~> 4.0.0'
     pod 'BigInt', '~> 4.0'
     pod 'R.swift', '5.0.0.alpha.3'

@@ -7,7 +7,7 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:app.vite.net</string>
-		<string>applinks:vite-wallet-test.netlify.com</string>
+		<string>applinks:vite-wallet-test2.netlify.com</string>
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
