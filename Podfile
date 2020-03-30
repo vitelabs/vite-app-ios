@@ -142,7 +142,7 @@ target target_name do
     pod 'CHIPageControl'
 
     #table static form
-    pod 'Eureka', '~> 4.3.0'
+    pod 'Eureka', '~> 5.2.1'
 
     #RX
     pod 'RxSwift', '~> 4.0'

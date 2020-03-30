@@ -3,7 +3,7 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - ActionSheetPicker-3.0 (2.3.0)
-  - ActiveLabel (1.0.1)
+  - ActiveLabel (1.1.0)
   - Alamofire (4.9.1)
   - APIKit (5.0.0)
   - Bagel (1.3.2):
@@ -52,7 +52,7 @@ PODS:
   - CryptoSwift (1.0.0)
   - DACircularProgress (2.3.1)
   - Differentiator (3.1.0)
-  - Eureka (4.3.1)
+  - Eureka (5.2.1)
   - Fabric (1.10.2)
   - Firebase/Analytics (6.13.0):
     - Firebase/Core
@@ -273,7 +273,7 @@ PODS:
   - ViteBusiness (0.0.1):
     - Action
     - ActionSheetPicker-3.0
-    - ActiveLabel (= 1.0.1)
+    - ActiveLabel (= 1.1.0)
     - Alamofire
     - APIKit
     - BaiduMobStat
@@ -284,7 +284,7 @@ PODS:
     - Crashlytics
     - CryptoSwift
     - DACircularProgress (= 2.3.1)
-    - Eureka (~> 4.3.0)
+    - Eureka (~> 5.2.0)
     - Fabric
     - Firebase/Core
     - FSPagerView
@@ -364,7 +364,7 @@ DEPENDENCIES:
   - CHIPageControl
   - Crashlytics
   - DACircularProgress (= 2.3.1)
-  - Eureka (~> 4.3.0)
+  - Eureka (~> 5.2.0)
   - Fabric
   - Firebase/Analytics
   - Firebase/Core
@@ -581,7 +581,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Action: 689181e4c3f6566844178d8a7da6fef39a9597fc
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
-  ActiveLabel: b8b2396fe25308d563601437d6605bf691c3b5db
+  ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   APIKit: b27d79b022733b2f50e7a092e67c4cb9ea30f968
   Bagel: 199e0105ac694d6eee9db54dd006c940da6ce81b
@@ -595,7 +595,7 @@ SPEC CHECKSUMS:
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  Eureka: 28ea296f06710f6745266b71f17862048941a32d
+  Eureka: c883105488e05bc65539f583246ecf9657cabbfe
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
   firebase_analytics: 08b87e58b33b7eb3e651c6425205669fbfbf24a0
@@ -666,13 +666,13 @@ SPEC CHECKSUMS:
   Vite_GrinWallet: de995b55145f9171385ad035f47b37b579715a69
   Vite_HDWalletKit: 75a0b78af01de2028e0a2fd8c2cbe04eea21ae86
   vite_wallet_communication: 3f14d00c429eb133fe667da19b8d46edf62c2e9b
-  ViteBusiness: 05bc0721a2ec54475cdd42f557af54831a11c00c
+  ViteBusiness: 6706fd2b0f04c0a63df9f907dd762c524b127778
   ViteCommunity: 26bc73ea3dcb9c19eb0cec34394ef525fc4cd6d9
   viteFlutterSDK: 34ee10337489121c3e3b24778f1705e2ad21254f
   ViteWallet: cc4401e88efddbd8e3f44378d4ceade078d2d82a
   web3.swift.pod: 66048c11416c2e7a9a4b35fe42254d0f0d9db4b1
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: b9763f575875378dbb2fa12b4c7120545985ef43
+PODFILE CHECKSUM: e93e592687ad7bd12163041c25f5e7fd5b225be2
 
 COCOAPODS: 1.7.5
