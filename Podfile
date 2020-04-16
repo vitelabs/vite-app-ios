@@ -83,7 +83,7 @@ target target_name do
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
     vite_community_commit = '1891484915eca1f771dd5b10dce8c43600886fcf'
-    vite_business_commit = 'cf07e11a8bb2399e93cfa6f9ac928d34bd5da397'
+    vite_business_commit = '7e45f08d53c6226ecc928cb52b8cedcec6e0a6b3'
     vite_wallet_commit = '5ef61833c4dc1efdc5874bf566c7c3598a3231e7'
     vite_grin_commit = '6cede733d41f7facc0285472783573df8a553661'
     vite_hd_commit = 'afd57479c20f6514fb20f47cb0c011db7d471457'
