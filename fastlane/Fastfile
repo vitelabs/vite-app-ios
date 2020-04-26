@@ -18,7 +18,7 @@ platform :ios do
   end
 
   lane :vite_test do 
-    increment_build_number_and_push_git
+    #increment_build_number_and_push_git
     #match_profile
     version_number = get_version_number(xcodeproj: "Vite.xcodeproj", target: "ViteTest")
     build_number = get_build_number(xcodeproj: "Vite.xcodeproj")
@@ -42,7 +42,7 @@ platform :ios do
     match(type: "appstore", app_identifier: ["net.vite.wallet","net.vite.wallet.PushService"],  clone_branch_directly: true, readonly:false)
   end
 
-  lane :increment_build_number_and_push_git do 
+  lane :inc do 
     increment_build_number
     push_git
   end

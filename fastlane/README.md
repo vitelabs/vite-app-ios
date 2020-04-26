@@ -36,9 +36,9 @@ fastlane ios vite_dapp
 fastlane ios match_profile
 ```
 
-### ios increment_build_number_and_push_git
+### ios inc
 ```
-fastlane ios increment_build_number_and_push_git
+fastlane ios inc
 ```
 
 ### ios push_git
