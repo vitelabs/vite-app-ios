@@ -80,12 +80,14 @@ target target_name do
     vite_business_git = 'https://github.com/vitelabs/vite-business-ios.git'
     vite_wallet_git = 'https://github.com/vitelabs/vite-wallet-ios.git'
     vite_grin_git = 'https://github.com/vitelabs/Vite_GrinWallet.git'
+    vite_bnb_git = 'https://github.com/vitelabs/SwiftBinanceChain.git'
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
     vite_community_commit = '8109cffa323a77593a99928cf427a81936ca77c9'
     vite_business_commit = 'b9263e4a7496b7d80d945ecf9f509e9a25b06087'
     vite_wallet_commit = '5903125fb936f73503642ac64cf95b73fa3f112b'
     vite_grin_commit = '500f4adb3c8b67cb1da7e06e49a819fdbc37e871'
+    vite_bnb_commit = 'b71de4cbc632bba469d31ff87d5d434115c68dfb'
     vite_hd_commit = 'afd57479c20f6514fb20f47cb0c011db7d471457'
 
     if target_name == 'ViteOfficial' || target_name == 'ViteTest'
@@ -93,7 +95,6 @@ target target_name do
     end
     vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
     vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
-
 
     flutter
     
@@ -107,6 +108,7 @@ target target_name do
 
     vite_pod 'Vite_HDWalletKit', :git => vite_hd_git, :commit => vite_hd_commit
     vite_pod 'Vite_GrinWallet', :git => vite_grin_git, :commit => vite_grin_commit
+    vite_pod 'BinanceChain', :git => vite_bnb_git, :commit => vite_bnb_commit
 
 #    pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :tag => 'v3.4.0'
     pod 'Charts', '3.5.0'
@@ -179,7 +181,6 @@ target target_name do
     end
     
     pod 'FSPagerView'
-    vite_pod 'BinanceChain', :git => 'https://github.com/buckcao/SwiftBinanceChain.git'
 
     target 'ViteTests' do
         inherit! :search_paths
