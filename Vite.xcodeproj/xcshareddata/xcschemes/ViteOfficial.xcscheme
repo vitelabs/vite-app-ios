@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8E1F93F422B39E6A00D5C0A8"
-               BuildableName = "ViteOfficial.app"
+               BuildableName = "Vite.app"
                BlueprintName = "ViteOfficial"
                ReferencedContainer = "container:Vite.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8E1F93F422B39E6A00D5C0A8"
-            BuildableName = "ViteOfficial.app"
+            BuildableName = "Vite.app"
             BlueprintName = "ViteOfficial"
             ReferencedContainer = "container:Vite.xcodeproj">
          </BuildableReference>
@@ -54,7 +54,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8E1F93F422B39E6A00D5C0A8"
-            BuildableName = "ViteOfficial.app"
+            BuildableName = "Vite.app"
             BlueprintName = "ViteOfficial"
             ReferencedContainer = "container:Vite.xcodeproj">
          </BuildableReference>
@@ -71,7 +71,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8E1F93F422B39E6A00D5C0A8"
-            BuildableName = "ViteOfficial.app"
+            BuildableName = "Vite.app"
             BlueprintName = "ViteOfficial"
             ReferencedContainer = "container:Vite.xcodeproj">
          </BuildableReference>
