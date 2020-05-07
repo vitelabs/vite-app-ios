@@ -85,7 +85,7 @@ target target_name do
     vite_community_commit = '8109cffa323a77593a99928cf427a81936ca77c9'
     vite_business_commit = 'b9263e4a7496b7d80d945ecf9f509e9a25b06087'
     vite_wallet_commit = '5903125fb936f73503642ac64cf95b73fa3f112b'
-    vite_grin_commit = '6cede733d41f7facc0285472783573df8a553661'
+    vite_grin_commit = '500f4adb3c8b67cb1da7e06e49a819fdbc37e871'
     vite_hd_commit = 'afd57479c20f6514fb20f47cb0c011db7d471457'
 
     if target_name == 'ViteOfficial' || target_name == 'ViteTest'
