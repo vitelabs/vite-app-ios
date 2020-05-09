@@ -7,18 +7,6 @@ require './vite_pod'
 target_name = 'ViteOfficial'
 
 
-def flutter
-	flutter_commit = '9da8eb4d06401c91e71753523df04ebe01dfdb0a'
-    vite_pod 'viteFlutterSDK', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
-    vite_pod 'flutter_boost', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
-    vite_pod 'shared_preferences', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
-    vite_pod 'path_provider', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
-    vite_pod 'vite_wallet_communication', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
-    vite_pod 'firebase_analytics', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
-    vite_pod 'firebase_crashlytics', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
-    vite_pod 'url_launcher', :git => 'https://github.com/vitelabs/vite_flutter_sdk.git', :commit => flutter_commit
-end
-
 def vite_config(config, name)
     if name == 'Vite'
         if config.name.include?("Debug")
@@ -95,8 +83,6 @@ target target_name do
     end
     vite_pod 'ViteBusiness', :git => vite_business_git, :commit => vite_business_commit
     vite_pod 'ViteWallet', :git => vite_wallet_git, :commit => vite_wallet_commit
-
-    flutter
     
     # pod_branch = 'pre-mainnet'
     # if isOfficial
