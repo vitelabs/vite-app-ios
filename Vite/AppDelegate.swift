@@ -22,6 +22,7 @@ import ViteCommunity
 
 #if DEBUG || TEST
 import Bagel
+import DoraemonKit
 #endif
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,11 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
 
         #if DEBUG || TEST
         Bagel.start()
+        DoraemonManager.shareInstance().install()
         #else
         #endif
 

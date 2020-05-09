@@ -162,8 +162,14 @@ target target_name do
 
     if target_name == 'ViteTest'
         pod 'Bagel', '~>  1.3.2'
+        pod 'DoraemonKit/Core', '~> 3.0.1'
+        pod 'DoraemonKit/WithGPS', '~> 3.0.1'
+        pod 'DoraemonKit/WithLoad', '~> 3.0.1'
     else
         pod 'Bagel', '~>  1.3.2', :configurations => ['Debug']
+        pod 'DoraemonKit/Core', '~> 3.0.1', :configurations => ['Debug']
+        pod 'DoraemonKit/WithGPS', '~> 3.0.1', :configurations => ['Debug']
+        pod 'DoraemonKit/WithLoad', '~> 3.0.1', :configurations => ['Debug']
     end
     
     pod 'FSPagerView'

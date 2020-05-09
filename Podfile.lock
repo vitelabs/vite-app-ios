@@ -52,6 +52,11 @@ PODS:
   - CryptoSwift (1.0.0)
   - DACircularProgress (2.3.1)
   - Differentiator (3.1.0)
+  - DoraemonKit/Core (3.0.1)
+  - DoraemonKit/WithGPS (3.0.1):
+    - DoraemonKit/Core
+  - DoraemonKit/WithLoad (3.0.1):
+    - DoraemonKit/Core
   - Eureka (5.2.1)
   - Fabric (1.10.2)
   - Firebase/Analytics (6.13.0):
@@ -342,6 +347,9 @@ DEPENDENCIES:
   - CHIPageControl
   - Crashlytics
   - DACircularProgress (= 2.3.1)
+  - DoraemonKit/Core (~> 3.0.1)
+  - DoraemonKit/WithGPS (~> 3.0.1)
+  - DoraemonKit/WithLoad (~> 3.0.1)
   - Eureka (~> 5.2.1)
   - Fabric
   - Firebase/Analytics
@@ -400,6 +408,7 @@ SPEC REPOS:
     - CryptoSwift
     - DACircularProgress
     - Differentiator
+    - DoraemonKit
     - Eureka
     - Fabric
     - Firebase
@@ -513,6 +522,7 @@ SPEC CHECKSUMS:
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  DoraemonKit: 00f8c55bec06e240f25e18ec5b7faa012dfbb827
   Eureka: c883105488e05bc65539f583246ecf9657cabbfe
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
@@ -582,6 +592,6 @@ SPEC CHECKSUMS:
   web3.swift.pod: 66048c11416c2e7a9a4b35fe42254d0f0d9db4b1
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: 372ab9660d97a86fc6cd0182263edbe35d7331ad
+PODFILE CHECKSUM: 42aaae2b772a846376091f30d313754101a78248
 
 COCOAPODS: 1.7.5
