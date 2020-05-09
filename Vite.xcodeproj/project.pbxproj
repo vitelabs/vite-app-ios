@@ -1208,7 +1208,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1454;
+				CURRENT_PROJECT_VERSION = 1455;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
@@ -1219,7 +1219,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 3.6.0;
+				MARKETING_VERSION = 3.6.1;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet;
 				PRODUCT_NAME = Vite;
@@ -1239,7 +1239,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1454;
+				CURRENT_PROJECT_VERSION = 1455;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
@@ -1250,7 +1250,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 3.6.0;
+				MARKETING_VERSION = 3.6.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet;
 				PRODUCT_NAME = Vite;
 				PROVISIONING_PROFILE = "";
@@ -1316,7 +1316,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1454;
+				CURRENT_PROJECT_VERSION = 1455;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PushService/Info.plist;
@@ -1330,7 +1330,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PushService",
 				);
-				MARKETING_VERSION = 3.6.0;
+				MARKETING_VERSION = 3.6.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet.PushService;
@@ -1350,7 +1350,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1454;
+				CURRENT_PROJECT_VERSION = 1455;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PushService/Info.plist;
@@ -1364,7 +1364,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PushService",
 				);
-				MARKETING_VERSION = 3.6.0;
+				MARKETING_VERSION = 3.6.1;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet.PushService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1384,7 +1384,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1454;
+				CURRENT_PROJECT_VERSION = 1455;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1398,7 +1398,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 3.6.0;
+				MARKETING_VERSION = 3.6.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet;
 				PRODUCT_NAME = Vite;
@@ -1419,7 +1419,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1454;
+				CURRENT_PROJECT_VERSION = 1455;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1433,7 +1433,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 3.6.0;
+				MARKETING_VERSION = 3.6.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet;
 				PRODUCT_NAME = Vite;
 				PROVISIONING_PROFILE = "";
@@ -1453,7 +1453,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1454;
+				CURRENT_PROJECT_VERSION = 1455;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1468,7 +1468,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 3.6.0;
+				MARKETING_VERSION = 3.6.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet;
 				PRODUCT_NAME = Vite;
@@ -1488,7 +1488,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1454;
+				CURRENT_PROJECT_VERSION = 1455;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1503,7 +1503,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 3.6.0;
+				MARKETING_VERSION = 3.6.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet;
 				PRODUCT_NAME = Vite;
 				PROVISIONING_PROFILE = "";
@@ -1523,7 +1523,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1454;
+				CURRENT_PROJECT_VERSION = 1455;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1537,7 +1537,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 3.6.0;
+				MARKETING_VERSION = 3.6.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet.debug.dapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1557,7 +1557,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1454;
+				CURRENT_PROJECT_VERSION = 1455;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1571,7 +1571,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 3.6.0;
+				MARKETING_VERSION = 3.6.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet.debug.dapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -83,7 +83,7 @@ target target_name do
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
     vite_community_commit = '8109cffa323a77593a99928cf427a81936ca77c9'
-    vite_business_commit = '70b8d9d79885258390b9a4d340405556f6fa222c'
+    vite_business_commit = 'b9263e4a7496b7d80d945ecf9f509e9a25b06087'
     vite_wallet_commit = '5903125fb936f73503642ac64cf95b73fa3f112b'
     vite_grin_commit = '6cede733d41f7facc0285472783573df8a553661'
     vite_hd_commit = 'afd57479c20f6514fb20f47cb0c011db7d471457'
@@ -111,6 +111,7 @@ target target_name do
 #    pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :tag => 'v3.4.0'
     pod 'Charts', '3.5.0'
 
+    pod 'HDWalletKit', '0.3.6'
     pod 'SnapKit', '~> 4.0.0'
     pod 'BigInt', '~> 4.0'
     pod 'R.swift', '5.0.0.alpha.3'
