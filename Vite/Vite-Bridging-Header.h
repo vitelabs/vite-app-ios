@@ -8,5 +8,7 @@
 
 #import "DenyPtrace.c"
 #import "BaiduMobStat.h"
+#if DEBUG || TEST
 #import "DoraemonKit/DoraemonManager.h"
+#endif
 void disable_gdb();
