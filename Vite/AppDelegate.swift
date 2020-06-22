@@ -36,15 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG || TEST
         Bagel.start()
         DoraemonManager.shareInstance().install()
-        #else
         #endif
 
         #if OFFICIAL
-
-        #if !(DEBUG)
-            FirebaseApp.configure()
-        #endif
-
+        FirebaseApp.configure()
         VitePushManager.instance.start()
         ViteCommunity.register()
         ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 3)
