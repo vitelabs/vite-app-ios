@@ -61,23 +61,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-
+        plog(level: .info, log: "WillResignActive", tag: .life)
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         application.applicationIconBadgeNumber = 0
+        plog(level: .info, log: "DidEnterBackground", tag: .life)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-
+        plog(level: .info, log: "WillEnterForeground", tag: .life)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-
+        plog(level: .info, log: "DidBecomeActive", tag: .life)
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-
+        plog(level: .info, log: "WillTerminate", tag: .life)
     }
 #if OFFICIAL
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

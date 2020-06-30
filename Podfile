@@ -71,8 +71,8 @@ target target_name do
     vite_bnb_git = 'https://github.com/vitelabs/SwiftBinanceChain.git'
     vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
 
-    vite_community_commit = '12cedd8bbcdd7ecb239b7ff1f9b8fd7c97e73f04'
-    vite_business_commit = '777afd2f6398a59abdd9c67f333a0ef54f8596bd'
+    vite_community_commit = '280b1809b225cb7aa7c53e4c88d6358febcaafba'
+    vite_business_commit = '65b1014a4cfdd335d0870e14c815de93061b1438'
     vite_wallet_commit = '4ae8b1df3166b9598f54fbcda2b6e072325635fc'
     vite_grin_commit = '500f4adb3c8b67cb1da7e06e49a819fdbc37e871'
     vite_bnb_commit = 'b71de4cbc632bba469d31ff87d5d434115c68dfb'
