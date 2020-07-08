@@ -390,7 +390,7 @@ DEPENDENCIES:
   - XCGLogger (~> 7.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Action
     - ActionSheetPicker-3.0
     - ActiveLabel
@@ -519,7 +519,7 @@ SPEC CHECKSUMS:
   Bagel: 199e0105ac694d6eee9db54dd006c940da6ce81b
   BaiduMobStat: 22bcc4f602fb0c02042d173dfadefe60f2e512af
   BigInt: 2aad1a9942dc932ec8b84290d2c564a3d76f97ab
-  BinanceChain: 72bf401bc474845c37999ff2551ac3c56629e100
+  BinanceChain: 8d576b4e09649a7458281088d91d32366028d255
   Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   CHIPageControl: a787bf7205c9b7e7fbfc412be36c5e8636b68f86
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
@@ -598,4 +598,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 0512e954cfe04332b024e244da211011e500ab19
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.7.5
