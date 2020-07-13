@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
 
 # Vite ViteOfficial ViteTest ViteDapp
-target_name = 'ViteTest'
+target_name = 'ViteOfficial'
 
 
 def vite_config(config, name)
@@ -66,17 +66,17 @@ target target_name do
 
     vite_community_git = 'https://github.com/vitelabs/vite-community-ios.git'
     vite_business_git = 'https://github.com/vitelabs/vite-business-ios.git'
-    vite_wallet_git = 'https://github.com/vitelabs/vite-wallet-ios.git'
-    vite_grin_git = 'https://github.com/vitelabs/Vite_GrinWallet.git'
+    vite_wallet_git = 'https://github.com/vitelabs/vite-swift-kit.git'
+    vite_grin_git = 'https://github.com/vitelabs/vite-grin-wallet-ios.git'
     vite_bnb_git = 'https://github.com/vitelabs/SwiftBinanceChain.git'
-    vite_hd_git = 'https://github.com/vitelabs/vite-keystore-ios.git'
+    vite_hd_git = 'https://github.com/vitelabs/vite-hd-wallet-kit-ios.git'
 
     vite_community_commit = '12356818c1e0fb237a808af2763e61ad2937a793'
-    vite_business_commit = 'f948e959c5d90760523685ed830045061acfb6b8'
-    vite_wallet_commit = '4ae8b1df3166b9598f54fbcda2b6e072325635fc'
-    vite_grin_commit = '500f4adb3c8b67cb1da7e06e49a819fdbc37e871'
+    vite_business_commit = '86e98ce04faee0613e2b2059cf97954464447698'
+    vite_wallet_commit = 'faf08c7463ed670c2f70ad9de6658770305053c1'
+    vite_grin_commit = '4f1141a131e223a5a41686d2e9efa636e3f1ee24'
     vite_bnb_commit = 'b71de4cbc632bba469d31ff87d5d434115c68dfb'
-    vite_hd_commit = 'afd57479c20f6514fb20f47cb0c011db7d471457'
+    vite_hd_commit = 'afffc6fb34690e49ae94f2fd796032e08f487c53'
 
     if target_name == 'ViteOfficial' || target_name == 'ViteTest'
         vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
