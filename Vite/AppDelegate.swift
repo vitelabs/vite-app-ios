@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         VitePushManager.instance.start()
         ViteCommunity.register()
-        ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 3)
+        ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 1)
         #endif
 
         ViteBusinessLanucher.instance.start(with: window)
