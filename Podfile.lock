@@ -384,9 +384,9 @@ DEPENDENCIES:
   - Toast-Swift (~> 4.0.1)
   - Vite_GrinWallet (from `https://github.com/vitelabs/vite-grin-wallet-ios.git`, commit `4f1141a131e223a5a41686d2e9efa636e3f1ee24`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-hd-wallet-kit-ios.git`, commit `afffc6fb34690e49ae94f2fd796032e08f487c53`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `420b2d1afb9d84349633c4adf1298d8c9f7c67bb`)
+  - ViteBusiness (from `../vite-business-ios/ViteBusiness.podspec`)
   - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `12356818c1e0fb237a808af2763e61ad2937a793`)
-  - ViteWallet (from `https://github.com/vitelabs/vite-swift-kit.git`, commit `0633edd6e06a7785254a7a74fc36c17fa158371f`)
+  - ViteWallet (from `../vite-wallet-ios/ViteWallet.podspec`)
   - XCGLogger (~> 7.0)
 
 SPEC REPOS:
@@ -481,14 +481,12 @@ EXTERNAL SOURCES:
     :commit: afffc6fb34690e49ae94f2fd796032e08f487c53
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
   ViteBusiness:
-    :commit: 420b2d1afb9d84349633c4adf1298d8c9f7c67bb
-    :git: https://github.com/vitelabs/vite-business-ios.git
+    :path: "../vite-business-ios/ViteBusiness.podspec"
   ViteCommunity:
     :commit: 12356818c1e0fb237a808af2763e61ad2937a793
     :git: https://github.com/vitelabs/vite-community-ios.git
   ViteWallet:
-    :commit: 0633edd6e06a7785254a7a74fc36c17fa158371f
-    :git: https://github.com/vitelabs/vite-swift-kit.git
+    :path: "../vite-wallet-ios/ViteWallet.podspec"
 
 CHECKOUT OPTIONS:
   BinanceChain:
@@ -500,15 +498,9 @@ CHECKOUT OPTIONS:
   Vite_HDWalletKit:
     :commit: afffc6fb34690e49ae94f2fd796032e08f487c53
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
-  ViteBusiness:
-    :commit: 420b2d1afb9d84349633c4adf1298d8c9f7c67bb
-    :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 12356818c1e0fb237a808af2763e61ad2937a793
     :git: https://github.com/vitelabs/vite-community-ios.git
-  ViteWallet:
-    :commit: 0633edd6e06a7785254a7a74fc36c17fa158371f
-    :git: https://github.com/vitelabs/vite-swift-kit.git
 
 SPEC CHECKSUMS:
   Action: 689181e4c3f6566844178d8a7da6fef39a9597fc
