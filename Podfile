@@ -72,8 +72,8 @@ target target_name do
     vite_hd_git = 'https://github.com/vitelabs/vite-hd-wallet-kit-ios.git'
 
     vite_community_commit = '12356818c1e0fb237a808af2763e61ad2937a793'
-    vite_business_commit = 'f8998049bc458665052aff40aa6f9f15592c13fb'
-    vite_wallet_commit = '7cf4f89a94efac2f5e1af60b45d835d131954aa5'
+    vite_business_commit = 'd48550af359996f08261a7ae1b5ed596a2d889ed'
+    vite_wallet_commit = 'c9ba3660b2da24ece0350b23f5fdf51a22859f74'
     vite_grin_commit = '4f1141a131e223a5a41686d2e9efa636e3f1ee24'
     vite_bnb_commit = 'b71de4cbc632bba469d31ff87d5d434115c68dfb'
     vite_hd_commit = 'afffc6fb34690e49ae94f2fd796032e08f487c53'
@@ -133,6 +133,7 @@ target target_name do
 
     #table static form
     pod 'Eureka', '~> 5.2.1'
+#    pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'xcode12'
 
     #RX
     pod 'RxSwift', '~> 4.0'
