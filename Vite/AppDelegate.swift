@@ -20,8 +20,11 @@ import UserNotifications
 import ViteCommunity
 #endif
 
-#if DEBUG || TEST
+#if TEST
 import Bagel
+#endif
+
+#if DEBUG
 import DoraemonKit
 #endif
 
@@ -33,8 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         plog(level: .info, log: "DidFinishLaunching", tag: .life)
 
-        #if DEBUG || TEST
+        #if TEST
         Bagel.start()
+        #endif
+
+        #if DEBUG
         DoraemonManager.shareInstance().install()
         #endif
 

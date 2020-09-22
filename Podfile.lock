@@ -176,7 +176,7 @@ PODS:
     - Result (~> 3.2.0)
   - KeychainSwift (13.0.0)
   - Kingfisher (4.10.1)
-  - KMNavigationBarTransition (1.1.5)
+  - KMNavigationBarTransition (1.1.8)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.15.7)
   - Moya (11.0.2):
@@ -275,7 +275,7 @@ PODS:
     - JSONRPCKit (~> 3.0.0)
     - KeychainSwift
     - Kingfisher (~> 4.0)
-    - KMNavigationBarTransition
+    - KMNavigationBarTransition (= 1.1.8)
     - MBProgressHUD
     - MJRefresh
     - Moya
@@ -384,7 +384,7 @@ DEPENDENCIES:
   - Toast-Swift (~> 4.0.1)
   - Vite_GrinWallet (from `https://github.com/vitelabs/vite-grin-wallet-ios.git`, commit `4f1141a131e223a5a41686d2e9efa636e3f1ee24`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-hd-wallet-kit-ios.git`, commit `afffc6fb34690e49ae94f2fd796032e08f487c53`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `b2d5d1c97fb2bbb29df75ac6467747820f966c81`)
+  - ViteBusiness (from `../vite-business-ios/ViteBusiness.podspec`)
   - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `12356818c1e0fb237a808af2763e61ad2937a793`)
   - ViteWallet (from `https://github.com/vitelabs/vite-swift-kit.git`, commit `e9d317992f309256d976c38b67ecc59ff06e57bc`)
   - XCGLogger (~> 7.0)
@@ -481,8 +481,7 @@ EXTERNAL SOURCES:
     :commit: afffc6fb34690e49ae94f2fd796032e08f487c53
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
   ViteBusiness:
-    :commit: b2d5d1c97fb2bbb29df75ac6467747820f966c81
-    :git: https://github.com/vitelabs/vite-business-ios.git
+    :path: "../vite-business-ios/ViteBusiness.podspec"
   ViteCommunity:
     :commit: 12356818c1e0fb237a808af2763e61ad2937a793
     :git: https://github.com/vitelabs/vite-community-ios.git
@@ -500,9 +499,6 @@ CHECKOUT OPTIONS:
   Vite_HDWalletKit:
     :commit: afffc6fb34690e49ae94f2fd796032e08f487c53
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
-  ViteBusiness:
-    :commit: b2d5d1c97fb2bbb29df75ac6467747820f966c81
-    :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 12356818c1e0fb237a808af2763e61ad2937a793
     :git: https://github.com/vitelabs/vite-community-ios.git
@@ -552,7 +548,7 @@ SPEC CHECKSUMS:
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
   KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  KMNavigationBarTransition: 7a52c9bc25b39b6e3343e980b453facee1591b82
+  KMNavigationBarTransition: 7ee1a05ff758bce9258845a803f7a8b00585bd58
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   Moya: a725035953bc1c0eb1be505ab903984501d82440
@@ -590,7 +586,7 @@ SPEC CHECKSUMS:
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   Vite_GrinWallet: e8f6c83adc0dbd9adcd110a4d51807cf43700582
   Vite_HDWalletKit: b37755ff71dd8d22ab5fa8d9dc8b6f5bf2fbfec5
-  ViteBusiness: e162db19c14d7b32af0c7f3c802f59125176f55b
+  ViteBusiness: 87b73d904ab526ce5a76feb6ad78a2773c463a8d
   ViteCommunity: cb11d8679ec1daed1032c3b49facfe3453677880
   ViteWallet: 1276f22515bd7958156bc87499c1070d5aa13832
   web3.swift.pod: 66048c11416c2e7a9a4b35fe42254d0f0d9db4b1

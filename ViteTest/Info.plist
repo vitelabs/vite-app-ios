@@ -92,6 +92,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+    <key>NSBonjourServices</key>
+    <array>
+        <string>_Bagel._tcp</string>
+    </array>
+    <key>NSLocalNetworkUsageDescription</key>
+    <string>Network access required</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This app uses the camera to read QR codes</string>
 	<key>NSFaceIDUsageDescription</key>
