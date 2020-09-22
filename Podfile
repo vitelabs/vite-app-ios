@@ -72,7 +72,7 @@ target target_name do
     vite_hd_git = 'https://github.com/vitelabs/vite-hd-wallet-kit-ios.git'
 
     vite_community_commit = '12356818c1e0fb237a808af2763e61ad2937a793'
-    vite_business_commit = 'b2d5d1c97fb2bbb29df75ac6467747820f966c81'
+    vite_business_commit = '4318094ebdd7a4f9f85c946025809a8b773035ec'
     vite_wallet_commit = 'e9d317992f309256d976c38b67ecc59ff06e57bc'
     vite_grin_commit = '4f1141a131e223a5a41686d2e9efa636e3f1ee24'
     vite_bnb_commit = 'b71de4cbc632bba469d31ff87d5d434115c68dfb'
