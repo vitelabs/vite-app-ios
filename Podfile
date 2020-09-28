@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
 
 # Vite ViteOfficial ViteTest ViteDapp
-target_name = 'ViteOfficial'
+target_name = 'ViteTest'
 
 
 def vite_config(config, name)
@@ -151,8 +151,6 @@ target target_name do
     pod 'SwiftLint', '0.31.0'
 
     #crash
-    pod 'Fabric'
-    pod 'Crashlytics'
     pod 'Firebase/Core'
     pod 'Firebase/Analytics'
     pod 'Firebase/Performance'
