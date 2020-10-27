@@ -95,7 +95,7 @@ PODS:
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/Logger (~> 6.7)
     - nanopb (~> 1.30906.0)
-  - FirebaseCrashlytics (4.6.1):
+  - FirebaseCrashlytics (4.6.2):
     - FirebaseCore (~> 6.10)
     - FirebaseInstallations (~> 1.6)
     - GoogleDataTransport (~> 7.2)
@@ -106,12 +106,12 @@ PODS:
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/UserDefaults (~> 6.7)
     - PromisesObjC (~> 1.2)
-  - FirebaseInstanceID (4.7.0):
+  - FirebaseInstanceID (4.8.0):
     - FirebaseCore (~> 6.10)
     - FirebaseInstallations (~> 1.6)
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/UserDefaults (~> 6.7)
-  - FirebaseMessaging (4.7.0):
+  - FirebaseMessaging (4.7.1):
     - FirebaseCore (~> 6.10)
     - FirebaseInstanceID (~> 4.7)
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
@@ -213,7 +213,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.8.5):
     - PromiseKit/CorePromise
-  - PromisesObjC (1.2.10)
+  - PromisesObjC (1.2.11)
   - Protobuf (3.13.0)
   - R.swift (5.0.0.alpha.3):
     - R.swift.Library (~> 5.0.0.alpha.2)
@@ -389,9 +389,9 @@ DEPENDENCIES:
   - Toast-Swift (~> 4.0.1)
   - Vite_GrinWallet (from `https://github.com/vitelabs/vite-grin-wallet-ios.git`, commit `4f1141a131e223a5a41686d2e9efa636e3f1ee24`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-hd-wallet-kit-ios.git`, commit `afffc6fb34690e49ae94f2fd796032e08f487c53`)
-  - ViteBusiness (from `../vite-business-ios/ViteBusiness.podspec`)
-  - ViteCommunity (from `../vite-community-ios/ViteCommunity.podspec`)
-  - ViteWallet (from `../vite-wallet-ios/ViteWallet.podspec`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `0a1268b98b9e734ed2edde183bc3ff022a023762`)
+  - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `9b2789c13c84ae1a4e909d34b09e989e7067fb59`)
+  - ViteWallet (from `https://github.com/vitelabs/vite-swift-kit.git`, commit `bcef93e78ef0af47c76b59b5083338de7bb741e9`)
   - XCGLogger (~> 7.0)
 
 SPEC REPOS:
@@ -484,11 +484,14 @@ EXTERNAL SOURCES:
     :commit: afffc6fb34690e49ae94f2fd796032e08f487c53
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
   ViteBusiness:
-    :path: "../vite-business-ios/ViteBusiness.podspec"
+    :commit: 0a1268b98b9e734ed2edde183bc3ff022a023762
+    :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
-    :path: "../vite-community-ios/ViteCommunity.podspec"
+    :commit: 9b2789c13c84ae1a4e909d34b09e989e7067fb59
+    :git: https://github.com/vitelabs/vite-community-ios.git
   ViteWallet:
-    :path: "../vite-wallet-ios/ViteWallet.podspec"
+    :commit: bcef93e78ef0af47c76b59b5083338de7bb741e9
+    :git: https://github.com/vitelabs/vite-swift-kit.git
 
 CHECKOUT OPTIONS:
   BinanceChain:
@@ -500,6 +503,15 @@ CHECKOUT OPTIONS:
   Vite_HDWalletKit:
     :commit: afffc6fb34690e49ae94f2fd796032e08f487c53
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
+  ViteBusiness:
+    :commit: 0a1268b98b9e734ed2edde183bc3ff022a023762
+    :git: https://github.com/vitelabs/vite-business-ios.git
+  ViteCommunity:
+    :commit: 9b2789c13c84ae1a4e909d34b09e989e7067fb59
+    :git: https://github.com/vitelabs/vite-community-ios.git
+  ViteWallet:
+    :commit: bcef93e78ef0af47c76b59b5083338de7bb741e9
+    :git: https://github.com/vitelabs/vite-swift-kit.git
 
 SPEC CHECKSUMS:
   Action: 689181e4c3f6566844178d8a7da6fef39a9597fc
@@ -524,10 +536,10 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: 5dd088bd2e67bb9d13dbf792d1164ceaf3052193
   FirebaseCore: d889d9e12535b7f36ac8bfbf1713a0836a3012cd
   FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
-  FirebaseCrashlytics: 5777d3462fb8c3ab9e80a2473bd7d667a2e8411c
+  FirebaseCrashlytics: 1a747c9cc084a24dc6d9511c991db1cd078154eb
   FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
-  FirebaseInstanceID: ac5a82fcd21f804dbfc8f318eff9e1d7a9916e49
-  FirebaseMessaging: fc1f98b4592f8f2ea538169b1c317c6e76f81300
+  FirebaseInstanceID: bd3ffc24367f901a43c063b36c640b345a4a5dd1
+  FirebaseMessaging: 5eca4ef173de76253352511aafef774caa1cba2a
   FirebasePerformance: 269607f1dcf37bb1f21e3b3ae0ab5b2691644c54
   FirebaseRemoteConfig: e40f9e084658210c4d9c341cfa9f6cab6ad4f67e
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
@@ -552,7 +564,7 @@ SPEC CHECKSUMS:
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PPBadgeViewSwift: 18a219a9897f418342c22dd1a54f7b18ac56546b
   PromiseKit: 9616b0afef31eae56ab9ce044c8ec2b8612a15cd
-  PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
+  PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
   R.swift: ca4207ecc94545a1611ca0b2ae1197458b6ba30a
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
@@ -585,6 +597,6 @@ SPEC CHECKSUMS:
   web3.swift.pod: 66048c11416c2e7a9a4b35fe42254d0f0d9db4b1
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: f30faa4b2a53dd86e76bc19ce5c491b5db27bb7d
+PODFILE CHECKSUM: 9fb178503437fc99b551ed1777ce0d90a80d5be7
 
 COCOAPODS: 1.7.5
