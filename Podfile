@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
 
 # Vite ViteOfficial ViteTest ViteDapp
-target_name = 'ViteOfficial'
+target_name = 'ViteTest'
 
 
 def vite_config(config, name)
@@ -132,7 +132,7 @@ target target_name do
     pod 'CHIPageControl'
 
     #table static form
-    pod 'Eureka', '~> 5.2.1'
+    pod 'Eureka', '~> 5.3.0'
 #    pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'xcode12'
 
     #RX

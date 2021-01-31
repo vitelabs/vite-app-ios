@@ -55,7 +55,7 @@ PODS:
     - DoraemonKit/Core
   - DoraemonKit/WithLoad (3.0.1):
     - DoraemonKit/Core
-  - Eureka (5.2.1)
+  - Eureka (5.3.2)
   - Firebase/Analytics (6.33.0):
     - Firebase/Core
   - Firebase/Core (6.33.0):
@@ -213,7 +213,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.8.5):
     - PromiseKit/CorePromise
-  - PromisesObjC (1.2.11)
+  - PromisesObjC (1.2.12)
   - Protobuf (3.13.0)
   - R.swift (5.0.0.alpha.3):
     - R.swift.Library (~> 5.0.0.alpha.2)
@@ -271,7 +271,7 @@ PODS:
     - CHIPageControl
     - CryptoSwift
     - DACircularProgress (= 2.3.1)
-    - Eureka (~> 5.2.0)
+    - Eureka (~> 5.3.0)
     - Firebase/Analytics
     - Firebase/Core
     - Firebase/Crashlytics
@@ -354,7 +354,7 @@ DEPENDENCIES:
   - DoraemonKit/Core (~> 3.0.1)
   - DoraemonKit/WithGPS (~> 3.0.1)
   - DoraemonKit/WithLoad (~> 3.0.1)
-  - Eureka (~> 5.2.1)
+  - Eureka (~> 5.3.0)
   - Firebase/Analytics
   - Firebase/Core
   - Firebase/Performance
@@ -389,13 +389,13 @@ DEPENDENCIES:
   - Toast-Swift (~> 4.0.1)
   - Vite_GrinWallet (from `https://github.com/vitelabs/vite-grin-wallet-ios.git`, commit `4f1141a131e223a5a41686d2e9efa636e3f1ee24`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-hd-wallet-kit-ios.git`, commit `afffc6fb34690e49ae94f2fd796032e08f487c53`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `bd3e6cad5b2ebe0a84b9f39f46e55a2d0cc96969`)
+  - ViteBusiness (from `../vite-business-ios/ViteBusiness.podspec`)
   - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `9b2789c13c84ae1a4e909d34b09e989e7067fb59`)
   - ViteWallet (from `https://github.com/vitelabs/vite-swift-kit.git`, commit `3de410124eb5a8966c7c15ebd39dbf301ea21e75`)
   - XCGLogger (~> 7.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Action
     - ActionSheetPicker-3.0
     - ActiveLabel
@@ -484,8 +484,7 @@ EXTERNAL SOURCES:
     :commit: afffc6fb34690e49ae94f2fd796032e08f487c53
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
   ViteBusiness:
-    :commit: bd3e6cad5b2ebe0a84b9f39f46e55a2d0cc96969
-    :git: https://github.com/vitelabs/vite-business-ios.git
+    :path: "../vite-business-ios/ViteBusiness.podspec"
   ViteCommunity:
     :commit: 9b2789c13c84ae1a4e909d34b09e989e7067fb59
     :git: https://github.com/vitelabs/vite-community-ios.git
@@ -503,9 +502,6 @@ CHECKOUT OPTIONS:
   Vite_HDWalletKit:
     :commit: afffc6fb34690e49ae94f2fd796032e08f487c53
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
-  ViteBusiness:
-    :commit: bd3e6cad5b2ebe0a84b9f39f46e55a2d0cc96969
-    :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 9b2789c13c84ae1a4e909d34b09e989e7067fb59
     :git: https://github.com/vitelabs/vite-community-ios.git
@@ -522,7 +518,7 @@ SPEC CHECKSUMS:
   Bagel: 199e0105ac694d6eee9db54dd006c940da6ce81b
   BaiduMobStat: 22bcc4f602fb0c02042d173dfadefe60f2e512af
   BigInt: 2aad1a9942dc932ec8b84290d2c564a3d76f97ab
-  BinanceChain: 8d576b4e09649a7458281088d91d32366028d255
+  BinanceChain: 72bf401bc474845c37999ff2551ac3c56629e100
   Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   CHIPageControl: a787bf7205c9b7e7fbfc412be36c5e8636b68f86
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
@@ -530,7 +526,7 @@ SPEC CHECKSUMS:
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   DoraemonKit: 00f8c55bec06e240f25e18ec5b7faa012dfbb827
-  Eureka: c883105488e05bc65539f583246ecf9657cabbfe
+  Eureka: 1c2b8b5892bfb0e972d0fe05f8c09fd89f8625ec
   Firebase: 8db6f2d1b2c5e2984efba4949a145875a8f65fe5
   FirebaseABTesting: 8a9d8df3acc2b43f4a22014ddf9f601bca6af699
   FirebaseAnalytics: 5dd088bd2e67bb9d13dbf792d1164ceaf3052193
@@ -564,7 +560,7 @@ SPEC CHECKSUMS:
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PPBadgeViewSwift: 18a219a9897f418342c22dd1a54f7b18ac56546b
   PromiseKit: 9616b0afef31eae56ab9ce044c8ec2b8612a15cd
-  PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
+  PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
   R.swift: ca4207ecc94545a1611ca0b2ae1197458b6ba30a
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
@@ -591,12 +587,12 @@ SPEC CHECKSUMS:
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   Vite_GrinWallet: e8f6c83adc0dbd9adcd110a4d51807cf43700582
   Vite_HDWalletKit: b37755ff71dd8d22ab5fa8d9dc8b6f5bf2fbfec5
-  ViteBusiness: d24c9ba31bb2084433c4fd8b1c08d0d1c02283e0
+  ViteBusiness: de570daedff01b4616ef21196ec7558cd2c13d96
   ViteCommunity: e26a6265ec7e600db25345701cffe6ec95145165
   ViteWallet: 1276f22515bd7958156bc87499c1070d5aa13832
   web3.swift.pod: 66048c11416c2e7a9a4b35fe42254d0f0d9db4b1
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: 703f109ed55b5780d30bbfd06759d890aeb85037
+PODFILE CHECKSUM: 9367a49db8360fdca58b9e128da07fee6d0706cb
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4
