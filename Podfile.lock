@@ -174,7 +174,7 @@ PODS:
   - GTMSessionFetcher/Core (1.4.0)
   - HDWalletKit (0.3.6):
     - CryptoSwift (~> 1.4.0)
-    - secp256k1.swift (~> 0.1.4)
+    - secp256k1.c (~> 0.1)
   - JSONRPCKit (3.0.0):
     - Result (~> 3.2.0)
   - KeychainSwift (13.0.0)
@@ -239,7 +239,6 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.5.0)
   - secp256k1.c (0.1.2)
-  - secp256k1.swift (0.1.4)
   - SnapKit (4.0.1)
   - Starscream (3.1.1)
   - SwiftDate (6.0.3)
@@ -360,7 +359,7 @@ DEPENDENCIES:
   - Firebase/Performance
   - Firebase/RemoteConfig
   - FSPagerView
-  - HDWalletKit (from `https://github.com/vitelabs/HDWallet.git`, commit `f08f5b4c6386c22b63c27fa0a418c3edb00e8baf`)
+  - HDWalletKit (from `https://github.com/vitelabs/HDWallet.git`, commit `26df860a4ce7cb26e299aa4f3e0338e8e7041b26`)
   - JSONRPCKit (~> 3.0.0)
   - KeychainSwift (= 13.0.0)
   - Kingfisher (~> 4.0)
@@ -459,7 +458,6 @@ SPEC REPOS:
     - RxOptional
     - RxSwift
     - secp256k1.c
-    - secp256k1.swift
     - SnapKit
     - Starscream
     - SwiftDate
@@ -477,7 +475,7 @@ EXTERNAL SOURCES:
     :commit: 0acae45efdacf2f73e3d1630b835d7984ffeabff
     :git: https://github.com/vitelabs/SwiftBinanceChain.git
   HDWalletKit:
-    :commit: f08f5b4c6386c22b63c27fa0a418c3edb00e8baf
+    :commit: 26df860a4ce7cb26e299aa4f3e0338e8e7041b26
     :git: https://github.com/vitelabs/HDWallet.git
   Vite_GrinWallet:
     :commit: 4f1141a131e223a5a41686d2e9efa636e3f1ee24
@@ -503,7 +501,7 @@ CHECKOUT OPTIONS:
     :commit: 0acae45efdacf2f73e3d1630b835d7984ffeabff
     :git: https://github.com/vitelabs/SwiftBinanceChain.git
   HDWalletKit:
-    :commit: f08f5b4c6386c22b63c27fa0a418c3edb00e8baf
+    :commit: 26df860a4ce7cb26e299aa4f3e0338e8e7041b26
     :git: https://github.com/vitelabs/HDWallet.git
   Vite_GrinWallet:
     :commit: 4f1141a131e223a5a41686d2e9efa636e3f1ee24
@@ -559,7 +557,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 800648f8b3127618c1b59c7f97684427630c5ea3
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
-  HDWalletKit: a923569b6b302ba61322de111ce642915d1c6ee7
+  HDWalletKit: d55aa7a373cb3e2c1ad66d05d7b60f4d62a5a04c
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
   KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
@@ -589,7 +587,6 @@ SPEC CHECKSUMS:
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   secp256k1.c: db47b726585d80f027423682eb369729e61b3b20
-  secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   SwiftDate: 8d4f14bf1ef68e95094511504856547bf9e3e1a6
@@ -608,6 +605,6 @@ SPEC CHECKSUMS:
   web3swift: 22ac889fe28306c5d79704711f20b5ed4b21ba5e
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: d536dfab4f87523427386a317340599706dab4d4
+PODFILE CHECKSUM: 13d824e57185f485a9991215dc6365a5903642a6
 
 COCOAPODS: 1.10.1

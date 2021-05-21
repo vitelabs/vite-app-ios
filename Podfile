@@ -79,7 +79,7 @@ target target_name do
     vite_grin_commit = '4f1141a131e223a5a41686d2e9efa636e3f1ee24'
     vite_bnb_commit = '0acae45efdacf2f73e3d1630b835d7984ffeabff'
     vite_hd_commit = 'db67644220ab1582459d08d47119ed26dcba8d47'
-    HDWalletKit_commit = 'f08f5b4c6386c22b63c27fa0a418c3edb00e8baf'
+    HDWalletKit_commit = '26df860a4ce7cb26e299aa4f3e0338e8e7041b26'
     web3_commit = 'd2507cce4faa17916efa14fd84922a3e6b411634'
 
     if target_name == 'ViteOfficial' || target_name == 'ViteTest'
