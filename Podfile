@@ -70,13 +70,17 @@ target target_name do
     vite_grin_git = 'https://github.com/vitelabs/vite-grin-wallet-ios.git'
     vite_bnb_git = 'https://github.com/vitelabs/SwiftBinanceChain.git'
     vite_hd_git = 'https://github.com/vitelabs/vite-hd-wallet-kit-ios.git'
+    HDWalletKit_git = 'https://github.com/vitelabs/HDWallet.git'
+    web3_git = 'https://github.com/vitelabs/web3swift.git'
 
     vite_community_commit = '9b2789c13c84ae1a4e909d34b09e989e7067fb59'
-    vite_business_commit = 'ac142d7d010d2c6df449835a60dc7a03849540d3'
+    vite_business_commit = '292b74d30c01c78978a1aad65e0c4277739d0a79'
     vite_wallet_commit = '3de410124eb5a8966c7c15ebd39dbf301ea21e75'
     vite_grin_commit = '4f1141a131e223a5a41686d2e9efa636e3f1ee24'
-    vite_bnb_commit = 'b71de4cbc632bba469d31ff87d5d434115c68dfb'
-    vite_hd_commit = 'afffc6fb34690e49ae94f2fd796032e08f487c53'
+    vite_bnb_commit = '0acae45efdacf2f73e3d1630b835d7984ffeabff'
+    vite_hd_commit = 'db67644220ab1582459d08d47119ed26dcba8d47'
+    HDWalletKit_commit = 'f08f5b4c6386c22b63c27fa0a418c3edb00e8baf'
+    web3_commit = 'd2507cce4faa17916efa14fd84922a3e6b411634'
 
     if target_name == 'ViteOfficial' || target_name == 'ViteTest'
         vite_pod 'ViteCommunity', :git => vite_community_git, :commit => vite_community_commit
@@ -95,13 +99,15 @@ target target_name do
     vite_pod 'Vite_HDWalletKit', :git => vite_hd_git, :commit => vite_hd_commit
     vite_pod 'Vite_GrinWallet', :git => vite_grin_git, :commit => vite_grin_commit
     vite_pod 'BinanceChain', :git => vite_bnb_git, :commit => vite_bnb_commit
+    vite_pod 'HDWalletKit', :git => HDWalletKit_git, :commit => HDWalletKit_commit
+    vite_pod 'web3swift', :git => web3_git, :commit => web3_commit
 
 #    pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :tag => 'v3.4.0'
     pod 'Charts', '3.5.0'
 
-    pod 'HDWalletKit', '0.3.6'
+#    pod 'HDWalletKit', '0.3.6'
     pod 'SnapKit', '~> 4.0.0'
-    pod 'BigInt', '~> 4.0'
+    pod 'BigInt', '~> 5.0'
     pod 'R.swift', '5.0.0.alpha.3'
     pod 'JSONRPCKit', '~> 3.0.0'
     pod 'PromiseKit', '~> 6.8.4'

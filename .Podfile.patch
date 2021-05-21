@@ -6,3 +6,6 @@
 
 #pod 'Vite_GrinWallet', :path =>'../Vite_GrinWallet/Vite_GrinWallet.podspec'
 #pod 'Vite_HDWalletKit', :path =>'../vite-hd-wallet-kit-ios/Vite_HDWalletKit.podspec'
+#pod 'BinanceChain', :path =>'../SwiftBinanceChain/BinanceChain.podspec'
+#pod 'HDWalletKit', :path =>'../HDWallet/HDWalletKit.podspec'
+#pod 'web3swift', :path =>'../web3swift/web3swift.podspec'
