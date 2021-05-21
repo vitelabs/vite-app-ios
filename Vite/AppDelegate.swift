@@ -13,6 +13,7 @@ import Vite_HDWalletKit
 import ViteBusiness
 import Firebase
 import UserNotifications
+import AppTrackingTransparency
 
 #if OFFICIAL
 import ViteCommunity
@@ -41,6 +42,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
         DoraemonManager.shareInstance().install()
         #endif
+        
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization { (status) in
+                if status == .authorized {
+                    
+                }
+            }
+        }
 
         #if OFFICIAL
         FirebaseApp.configure()
