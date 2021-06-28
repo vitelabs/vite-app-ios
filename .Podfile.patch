@@ -1,7 +1,7 @@
 ###  cp .Podfile.patch.sample .Podfile.patch
 
-pod 'ViteCommunity', :path =>'../vite-community-ios/ViteCommunity.podspec'
-pod 'ViteBusiness', :path =>'../vite-business-ios/ViteBusiness.podspec'
+#pod 'ViteCommunity', :path =>'../vite-community-ios/ViteCommunity.podspec'
+#pod 'ViteBusiness', :path =>'../vite-business-ios/ViteBusiness.podspec'
 #pod 'ViteWallet', :path =>'../vite-wallet-ios/ViteWallet.podspec'
 
 #pod 'Vite_GrinWallet', :path =>'../Vite_GrinWallet/Vite_GrinWallet.podspec'
