@@ -3,23 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>249575909042-91qc7bc6ljs132fcr8ah8bjavq489hfe.apps.googleusercontent.com</string>
+	<string>386323295256-27hipt1g950jj6fsv6qctm6vdr4mi3h7.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.249575909042-91qc7bc6ljs132fcr8ah8bjavq489hfe</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>249575909042-n7pgrf19jv50k6ag37jqf5pjlk7riqdv.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.386323295256-27hipt1g950jj6fsv6qctm6vdr4mi3h7</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBuLo5Edv2QqKz4PUPSbiLVUBPD3X6VpY8</string>
+	<string>AIzaSyDQC9J3TPJqgTa2mkadwquh8gQd7UncSt0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>249575909042</string>
+	<string>386323295256</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>net.vite.wallet</string>
 	<key>PROJECT_ID</key>
-	<string>vitelabs-212608</string>
+	<string>vite-wallet-ios-app</string>
 	<key>STORAGE_BUCKET</key>
-	<string>vitelabs-212608.appspot.com</string>
+	<string>vite-wallet-ios-app.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,8 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:249575909042:ios:a474b7328e3bf3a5</string>
-	<key>DATABASE_URL</key>
-	<string>https://vitelabs-212608.firebaseio.com</string>
+	<string>1:386323295256:ios:8535365715c3a766ec276d</string>
 </dict>
 </plist>
