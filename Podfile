@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
 
 # Vite ViteOfficial ViteTest ViteDapp
-target_name = 'ViteOfficial'
+target_name = 'ViteTest'
 
 
 def vite_config(config, name)
@@ -74,7 +74,7 @@ target target_name do
     web3_git = 'https://github.com/vitelabs/web3swift.git'
 
     vite_community_commit = '74703ad9d6f43d97079657aa6b839b27081660fd'
-    vite_business_commit = 'ef878c0b75fea8911abc31ac1369df5abeb6da8d'
+    vite_business_commit = '410ab75d6124bf63da828755e859be90283d064b'
     vite_wallet_commit = '3de410124eb5a8966c7c15ebd39dbf301ea21e75'
     vite_grin_commit = '4f1141a131e223a5a41686d2e9efa636e3f1ee24'
     vite_bnb_commit = '0acae45efdacf2f73e3d1630b835d7984ffeabff'
@@ -134,7 +134,7 @@ target target_name do
     pod 'ActionSheetPicker-3.0'
     pod 'MBProgressHUD'
     pod 'Toast-Swift', '~> 4.0.1'
-    pod 'RazzleDazzle'
+    pod 'RazzleDazzle', :git => 'https://github.com/mazhigbee-pb/RazzleDazzle.git', :branch => 'xcode-13-beta-fixes'
     pod 'CHIPageControl'
 
     #table static form

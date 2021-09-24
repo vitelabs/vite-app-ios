@@ -373,7 +373,7 @@ DEPENDENCIES:
   - pop (~> 1.0)
   - PromiseKit (~> 6.8.4)
   - R.swift (= 5.0.0.alpha.3)
-  - RazzleDazzle
+  - RazzleDazzle (from `https://github.com/mazhigbee-pb/RazzleDazzle.git`, branch `xcode-13-beta-fixes`)
   - ReactorKit
   - ReusableKit (~> 2.1.0)
   - RxCocoa
@@ -388,7 +388,7 @@ DEPENDENCIES:
   - Toast-Swift (~> 4.0.1)
   - Vite_GrinWallet (from `https://github.com/vitelabs/vite-grin-wallet-ios.git`, commit `4f1141a131e223a5a41686d2e9efa636e3f1ee24`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-hd-wallet-kit-ios.git`, commit `db67644220ab1582459d08d47119ed26dcba8d47`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `ef878c0b75fea8911abc31ac1369df5abeb6da8d`)
+  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `410ab75d6124bf63da828755e859be90283d064b`)
   - ViteCommunity (from `https://github.com/vitelabs/vite-community-ios.git`, commit `74703ad9d6f43d97079657aa6b839b27081660fd`)
   - ViteWallet (from `https://github.com/vitelabs/vite-swift-kit.git`, commit `3de410124eb5a8966c7c15ebd39dbf301ea21e75`)
   - web3swift (from `https://github.com/vitelabs/web3swift.git`, commit `d2507cce4faa17916efa14fd84922a3e6b411634`)
@@ -448,7 +448,6 @@ SPEC REPOS:
     - Protobuf
     - R.swift
     - R.swift.Library
-    - RazzleDazzle
     - ReactorKit
     - Result
     - ReusableKit
@@ -477,6 +476,9 @@ EXTERNAL SOURCES:
   HDWalletKit:
     :commit: 26df860a4ce7cb26e299aa4f3e0338e8e7041b26
     :git: https://github.com/vitelabs/HDWallet.git
+  RazzleDazzle:
+    :branch: xcode-13-beta-fixes
+    :git: https://github.com/mazhigbee-pb/RazzleDazzle.git
   Vite_GrinWallet:
     :commit: 4f1141a131e223a5a41686d2e9efa636e3f1ee24
     :git: https://github.com/vitelabs/vite-grin-wallet-ios.git
@@ -484,7 +486,7 @@ EXTERNAL SOURCES:
     :commit: db67644220ab1582459d08d47119ed26dcba8d47
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
   ViteBusiness:
-    :commit: ef878c0b75fea8911abc31ac1369df5abeb6da8d
+    :commit: 410ab75d6124bf63da828755e859be90283d064b
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 74703ad9d6f43d97079657aa6b839b27081660fd
@@ -503,6 +505,9 @@ CHECKOUT OPTIONS:
   HDWalletKit:
     :commit: 26df860a4ce7cb26e299aa4f3e0338e8e7041b26
     :git: https://github.com/vitelabs/HDWallet.git
+  RazzleDazzle:
+    :commit: 5d07292537f20a0b97dcd0d0ff5206fc94a6cbbc
+    :git: https://github.com/mazhigbee-pb/RazzleDazzle.git
   Vite_GrinWallet:
     :commit: 4f1141a131e223a5a41686d2e9efa636e3f1ee24
     :git: https://github.com/vitelabs/vite-grin-wallet-ios.git
@@ -510,7 +515,7 @@ CHECKOUT OPTIONS:
     :commit: db67644220ab1582459d08d47119ed26dcba8d47
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
   ViteBusiness:
-    :commit: ef878c0b75fea8911abc31ac1369df5abeb6da8d
+    :commit: 410ab75d6124bf63da828755e859be90283d064b
     :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: 74703ad9d6f43d97079657aa6b839b27081660fd
@@ -577,7 +582,7 @@ SPEC CHECKSUMS:
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
   R.swift: ca4207ecc94545a1611ca0b2ae1197458b6ba30a
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
-  RazzleDazzle: 0b1b9fc8ceed04bfdd4b3e8182e98ef7edacd1d1
+  RazzleDazzle: 6689b7ffb2e6b115ef2249828473e854e004b67c
   ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   ReusableKit: d0b040de03b293288b0ca27a78602691d3346d9b
@@ -605,6 +610,6 @@ SPEC CHECKSUMS:
   web3swift: 22ac889fe28306c5d79704711f20b5ed4b21ba5e
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: 1878307f70de313759a4d0f38c14f7633e95fded
+PODFILE CHECKSUM: cf3fd82d4bed0a39991841ef26be56f6bba7ae3c
 
 COCOAPODS: 1.10.1
