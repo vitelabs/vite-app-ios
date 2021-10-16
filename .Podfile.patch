@@ -2,7 +2,7 @@
 
 #pod 'ViteCommunity', :path =>'../vite-community-ios/ViteCommunity.podspec'
 #pod 'ViteBusiness', :path =>'../vite-business-ios/ViteBusiness.podspec'
-#pod 'ViteWallet', :path =>'../vite-wallet-ios/ViteWallet.podspec'
+#pod 'ViteWallet', :path =>'../vite-swift-kit/ViteWallet.podspec'
 
 #pod 'Vite_GrinWallet', :path =>'../Vite_GrinWallet/Vite_GrinWallet.podspec'
 #pod 'Vite_HDWalletKit', :path =>'../vite-hd-wallet-kit-ios/Vite_HDWalletKit.podspec'
