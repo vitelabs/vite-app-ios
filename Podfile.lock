@@ -249,10 +249,6 @@ PODS:
   - Toast-Swift (4.0.1)
   - TrezorCryptoEd25519WithBlake2b (0.0.1)
   - URLNavigator (2.3.0)
-  - Vite_GrinWallet (0.1.0):
-    - ObjectMapper
-    - Result
-    - SwiftyJSON
   - Vite_HDWalletKit (1.4.0):
     - BigInt
     - CryptoSwift (= 1.4.0)
@@ -305,7 +301,6 @@ PODS:
     - Then
     - Toast-Swift (~> 4.0.1)
     - URLNavigator
-    - Vite_GrinWallet
     - Vite_HDWalletKit
     - ViteWallet
     - web3swift
@@ -386,11 +381,10 @@ DEPENDENCIES:
   - SwiftyJSON
   - Then
   - Toast-Swift (~> 4.0.1)
-  - Vite_GrinWallet (from `https://github.com/vitelabs/vite-grin-wallet-ios.git`, commit `4f1141a131e223a5a41686d2e9efa636e3f1ee24`)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-hd-wallet-kit-ios.git`, commit `db67644220ab1582459d08d47119ed26dcba8d47`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `76f10d45b32f12f0d1b7a14129585e1b05b8667d`)
+  - ViteBusiness (from `../vite-business-ios/ViteBusiness.podspec`)
   - "ViteCommunity (from `git@github.com:vitelabs/vite-community-ios.git`, commit `ed44739c7acdae0cd27bb64c91b8b8dce9d4f938`)"
-  - ViteWallet (from `https://github.com/vitelabs/vite-swift-kit.git`, commit `29c7709b5f013747d4f9bfdc445cb8284584158d`)
+  - ViteWallet (from `../vite-swift-kit/ViteWallet.podspec`)
   - web3swift (from `https://github.com/vitelabs/web3swift.git`, commit `d2507cce4faa17916efa14fd84922a3e6b411634`)
   - XCGLogger (~> 7.0)
 
@@ -479,21 +473,16 @@ EXTERNAL SOURCES:
   RazzleDazzle:
     :branch: xcode-13-beta-fixes
     :git: https://github.com/mazhigbee-pb/RazzleDazzle.git
-  Vite_GrinWallet:
-    :commit: 4f1141a131e223a5a41686d2e9efa636e3f1ee24
-    :git: https://github.com/vitelabs/vite-grin-wallet-ios.git
   Vite_HDWalletKit:
     :commit: db67644220ab1582459d08d47119ed26dcba8d47
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
   ViteBusiness:
-    :commit: 76f10d45b32f12f0d1b7a14129585e1b05b8667d
-    :git: https://github.com/vitelabs/vite-business-ios.git
+    :path: "../vite-business-ios/ViteBusiness.podspec"
   ViteCommunity:
     :commit: ed44739c7acdae0cd27bb64c91b8b8dce9d4f938
     :git: "git@github.com:vitelabs/vite-community-ios.git"
   ViteWallet:
-    :commit: 29c7709b5f013747d4f9bfdc445cb8284584158d
-    :git: https://github.com/vitelabs/vite-swift-kit.git
+    :path: "../vite-swift-kit/ViteWallet.podspec"
   web3swift:
     :commit: d2507cce4faa17916efa14fd84922a3e6b411634
     :git: https://github.com/vitelabs/web3swift.git
@@ -508,21 +497,12 @@ CHECKOUT OPTIONS:
   RazzleDazzle:
     :commit: 5d07292537f20a0b97dcd0d0ff5206fc94a6cbbc
     :git: https://github.com/mazhigbee-pb/RazzleDazzle.git
-  Vite_GrinWallet:
-    :commit: 4f1141a131e223a5a41686d2e9efa636e3f1ee24
-    :git: https://github.com/vitelabs/vite-grin-wallet-ios.git
   Vite_HDWalletKit:
     :commit: db67644220ab1582459d08d47119ed26dcba8d47
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
-  ViteBusiness:
-    :commit: 76f10d45b32f12f0d1b7a14129585e1b05b8667d
-    :git: https://github.com/vitelabs/vite-business-ios.git
   ViteCommunity:
     :commit: ed44739c7acdae0cd27bb64c91b8b8dce9d4f938
     :git: "git@github.com:vitelabs/vite-community-ios.git"
-  ViteWallet:
-    :commit: 29c7709b5f013747d4f9bfdc445cb8284584158d
-    :git: https://github.com/vitelabs/vite-swift-kit.git
   web3swift:
     :commit: d2507cce4faa17916efa14fd84922a3e6b411634
     :git: https://github.com/vitelabs/web3swift.git
@@ -602,14 +582,13 @@ SPEC CHECKSUMS:
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
-  Vite_GrinWallet: e8f6c83adc0dbd9adcd110a4d51807cf43700582
   Vite_HDWalletKit: 4745b9c3a8ddff3fc00623057dcd194e08fea909
-  ViteBusiness: a093a3003bff6bc48dce4539fe1aa91b7aa19938
+  ViteBusiness: 2b9cbdf3deafbc7727512e4e3ae6b26af7ba9ac8
   ViteCommunity: e26a6265ec7e600db25345701cffe6ec95145165
   ViteWallet: 1276f22515bd7958156bc87499c1070d5aa13832
   web3swift: 22ac889fe28306c5d79704711f20b5ed4b21ba5e
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: 8cb80d6e7c0f5070e02e50620c2158ff4a4be239
+PODFILE CHECKSUM: d838b9cc26e73100404669ebc35db2cfd28e8124
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.3
