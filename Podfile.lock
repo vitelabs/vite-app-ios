@@ -322,6 +322,7 @@ PODS:
     - JSONRPCKit
     - ObjectMapper
     - PromiseKit
+    - SwiftyJSON
     - Vite_HDWalletKit
   - web3swift (2.3.0):
     - BigInt (~> 5.0)
@@ -585,10 +586,10 @@ SPEC CHECKSUMS:
   Vite_HDWalletKit: 4745b9c3a8ddff3fc00623057dcd194e08fea909
   ViteBusiness: 2b9cbdf3deafbc7727512e4e3ae6b26af7ba9ac8
   ViteCommunity: e26a6265ec7e600db25345701cffe6ec95145165
-  ViteWallet: 1276f22515bd7958156bc87499c1070d5aa13832
+  ViteWallet: 3e4470f11ad780bfecbecf5f720ee75a0259d7ad
   web3swift: 22ac889fe28306c5d79704711f20b5ed4b21ba5e
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: d838b9cc26e73100404669ebc35db2cfd28e8124
+PODFILE CHECKSUM: 9c66214fef63f5e336de9e450f3e4c7e50b242dd
 
 COCOAPODS: 1.11.3
