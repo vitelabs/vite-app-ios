@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
 
 # Vite ViteOfficial ViteTest ViteDapp
-target_name = 'ViteTest'
+target_name = 'ViteOfficial'
 
 
 def vite_config(config, name)
@@ -73,8 +73,8 @@ target target_name do
     web3_git = 'https://github.com/vitelabs/web3swift.git'
 
     vite_community_commit = 'ed44739c7acdae0cd27bb64c91b8b8dce9d4f938'
-    vite_business_commit = '76f10d45b32f12f0d1b7a14129585e1b05b8667d'
-    vite_wallet_commit = '29c7709b5f013747d4f9bfdc445cb8284584158d'
+    vite_business_commit = 'c8a645a615807027c7dd83bc4189813885936cfb'
+    vite_wallet_commit = 'f01c7478cc1d54ecdbc531872764512684415320'
     vite_bnb_commit = '0acae45efdacf2f73e3d1630b835d7984ffeabff'
     vite_hd_commit = 'db67644220ab1582459d08d47119ed26dcba8d47'
     HDWalletKit_commit = '26df860a4ce7cb26e299aa4f3e0338e8e7041b26'
