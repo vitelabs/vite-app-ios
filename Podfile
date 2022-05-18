@@ -73,7 +73,7 @@ target target_name do
     web3_git = 'https://github.com/vitelabs/web3swift.git'
 
     vite_community_commit = 'ec90a0a0ec09f40360d26a032d772b8e9fdd6ea1'
-    vite_business_commit = '21e7542eb9a02c2749166b475bbed1a26fc543ac'
+    vite_business_commit = 'ce8d9a3c006541676cf3ce2a40e0ac84bf5b35bd'
     vite_wallet_commit = 'f01c7478cc1d54ecdbc531872764512684415320'
     vite_bnb_commit = '0acae45efdacf2f73e3d1630b835d7984ffeabff'
     vite_hd_commit = 'db67644220ab1582459d08d47119ed26dcba8d47'
