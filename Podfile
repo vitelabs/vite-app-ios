@@ -72,9 +72,9 @@ target target_name do
     HDWalletKit_git = 'https://github.com/vitelabs/HDWallet.git'
     web3_git = 'https://github.com/vitelabs/web3swift.git'
 
-    vite_community_commit = 'ec90a0a0ec09f40360d26a032d772b8e9fdd6ea1'
-    vite_business_commit = 'd51bf244ff8130fe13b8f6defb76c50983a2f911'
-    vite_wallet_commit = 'f01c7478cc1d54ecdbc531872764512684415320'
+    vite_community_commit = '9477b2f616032583ba9ba610b1dbb8382402e307'
+    vite_business_commit = '64bb7c0c5a4ae542d0ebde10f3c28c965c6c128e'
+    vite_wallet_commit = '981a92d5012a0dcae0324b29e8657e78bced55ed'
     vite_bnb_commit = '0acae45efdacf2f73e3d1630b835d7984ffeabff'
     vite_hd_commit = 'db67644220ab1582459d08d47119ed26dcba8d47'
     HDWalletKit_commit = '26df860a4ce7cb26e299aa4f3e0338e8e7041b26'
