@@ -8,7 +8,6 @@ PODS:
   - APIKit (5.0.0)
   - Bagel (1.3.2):
     - CocoaAsyncSocket
-  - BaiduMobStat (5.0.8)
   - BigInt (5.2.0)
   - BinanceChain (1.0.0-beta):
     - BinanceChain/Core (= 1.0.0-beta)
@@ -26,9 +25,10 @@ PODS:
   - BinanceChain/Libraries (1.0.0-beta)
   - BinanceChain/Protobuf (1.0.0-beta)
   - BinanceChain/Util (1.0.0-beta)
-  - Charts (3.5.0):
-    - Charts/Core (= 3.5.0)
-  - Charts/Core (3.5.0)
+  - Charts (4.1.0):
+    - Charts/Core (= 4.1.0)
+  - Charts/Core (4.1.0):
+    - SwiftAlgorithms (~> 1.0)
   - CHIPageControl (0.2):
     - CHIPageControl/Aji (= 0.2)
     - CHIPageControl/Aleppo (= 0.2)
@@ -50,128 +50,133 @@ PODS:
   - CryptoSwift (1.4.0)
   - DACircularProgress (2.3.1)
   - Differentiator (3.1.0)
-  - DoraemonKit/Core (3.0.1)
-  - DoraemonKit/WithGPS (3.0.1):
-    - DoraemonKit/Core
-  - DoraemonKit/WithLoad (3.0.1):
-    - DoraemonKit/Core
   - Eureka (5.3.2)
-  - Firebase/Analytics (6.33.0):
+  - Firebase/Analytics (10.0.0):
     - Firebase/Core
-  - Firebase/Core (6.33.0):
+  - Firebase/Core (10.0.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.8.3)
-  - Firebase/CoreOnly (6.33.0):
-    - FirebaseCore (= 6.10.3)
-  - Firebase/Crashlytics (6.33.0):
+    - FirebaseAnalytics (~> 10.0.0)
+  - Firebase/CoreOnly (10.0.0):
+    - FirebaseCore (= 10.0.0)
+  - Firebase/Crashlytics (10.0.0):
     - Firebase/CoreOnly
-    - FirebaseCrashlytics (~> 4.6.1)
-  - Firebase/Messaging (6.33.0):
+    - FirebaseCrashlytics (~> 10.0.0)
+  - Firebase/Messaging (10.0.0):
     - Firebase/CoreOnly
-    - FirebaseMessaging (~> 4.7.0)
-  - Firebase/Performance (6.33.0):
+    - FirebaseMessaging (~> 10.0.0)
+  - Firebase/Performance (10.0.0):
     - Firebase/CoreOnly
-    - FirebasePerformance (~> 3.3.0)
-  - Firebase/RemoteConfig (6.33.0):
+    - FirebasePerformance (~> 10.0.0)
+  - Firebase/RemoteConfig (10.0.0):
     - Firebase/CoreOnly
-    - FirebaseRemoteConfig (~> 4.9.0)
-  - FirebaseABTesting (4.2.0):
-    - FirebaseCore (~> 6.10)
-  - FirebaseAnalytics (6.8.3):
-    - FirebaseCore (~> 6.10)
-    - FirebaseInstallations (~> 1.6)
-    - GoogleAppMeasurement (= 6.8.3)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
-    - GoogleUtilities/MethodSwizzler (~> 6.7)
-    - GoogleUtilities/Network (~> 6.7)
-    - "GoogleUtilities/NSData+zlib (~> 6.7)"
-    - nanopb (~> 1.30906.0)
-  - FirebaseCore (6.10.3):
-    - FirebaseCoreDiagnostics (~> 1.6)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/Logger (~> 6.7)
-  - FirebaseCoreDiagnostics (1.7.0):
-    - GoogleDataTransport (~> 7.4)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/Logger (~> 6.7)
-    - nanopb (~> 1.30906.0)
-  - FirebaseCrashlytics (4.6.2):
-    - FirebaseCore (~> 6.10)
-    - FirebaseInstallations (~> 1.6)
-    - GoogleDataTransport (~> 7.2)
-    - nanopb (~> 1.30906.0)
-    - PromisesObjC (~> 1.2)
-  - FirebaseInstallations (1.7.0):
-    - FirebaseCore (~> 6.10)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/UserDefaults (~> 6.7)
-    - PromisesObjC (~> 1.2)
-  - FirebaseInstanceID (4.8.0):
-    - FirebaseCore (~> 6.10)
-    - FirebaseInstallations (~> 1.6)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/UserDefaults (~> 6.7)
-  - FirebaseMessaging (4.7.1):
-    - FirebaseCore (~> 6.10)
-    - FirebaseInstanceID (~> 4.7)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/Reachability (~> 6.7)
-    - GoogleUtilities/UserDefaults (~> 6.7)
-    - Protobuf (>= 3.9.2, ~> 3.9)
-  - FirebasePerformance (3.3.0):
-    - FirebaseCore (~> 6.9)
-    - FirebaseInstallations (~> 1.5)
-    - FirebaseRemoteConfig (~> 4.7)
-    - GoogleDataTransport (~> 7.0)
-    - GoogleToolboxForMac/Logger (~> 2.1)
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-    - GoogleUtilities/Environment (~> 6.2)
-    - GoogleUtilities/ISASwizzler (~> 6.2)
-    - GoogleUtilities/MethodSwizzler (~> 6.2)
-    - GTMSessionFetcher/Core (~> 1.1)
-    - Protobuf (~> 3.12)
-  - FirebaseRemoteConfig (4.9.0):
-    - FirebaseABTesting (~> 4.2)
-    - FirebaseCore (~> 6.10)
-    - FirebaseInstallations (~> 1.6)
-    - GoogleUtilities/Environment (~> 6.7)
-    - "GoogleUtilities/NSData+zlib (~> 6.7)"
+    - FirebaseRemoteConfig (~> 10.0.0)
+  - FirebaseABTesting (10.0.0):
+    - FirebaseCore (~> 10.0)
+  - FirebaseAnalytics (10.0.0):
+    - FirebaseAnalytics/AdIdSupport (= 10.0.0)
+    - FirebaseCore (~> 10.0)
+    - FirebaseInstallations (~> 10.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/MethodSwizzler (~> 7.8)
+    - GoogleUtilities/Network (~> 7.8)
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseAnalytics/AdIdSupport (10.0.0):
+    - FirebaseCore (~> 10.0)
+    - FirebaseInstallations (~> 10.0)
+    - GoogleAppMeasurement (= 10.0.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/MethodSwizzler (~> 7.8)
+    - GoogleUtilities/Network (~> 7.8)
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseCore (10.0.0):
+    - FirebaseCoreInternal (~> 10.0)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GoogleUtilities/Logger (~> 7.8)
+  - FirebaseCoreInternal (10.0.0):
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
+  - FirebaseCrashlytics (10.0.0):
+    - FirebaseCore (~> 10.0)
+    - FirebaseInstallations (~> 10.0)
+    - GoogleDataTransport (~> 9.2)
+    - GoogleUtilities/Environment (~> 7.8)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesObjC (~> 2.1)
+  - FirebaseInstallations (10.0.0):
+    - FirebaseCore (~> 10.0)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GoogleUtilities/UserDefaults (~> 7.8)
+    - PromisesObjC (~> 2.1)
+  - FirebaseMessaging (10.0.0):
+    - FirebaseCore (~> 10.0)
+    - FirebaseInstallations (~> 10.0)
+    - GoogleDataTransport (~> 9.2)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GoogleUtilities/Reachability (~> 7.8)
+    - GoogleUtilities/UserDefaults (~> 7.8)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebasePerformance (10.0.0):
+    - FirebaseCore (~> 10.0)
+    - FirebaseInstallations (~> 10.0)
+    - FirebaseRemoteConfig (~> 10.0)
+    - GoogleDataTransport (~> 9.2)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GoogleUtilities/ISASwizzler (~> 7.8)
+    - GoogleUtilities/MethodSwizzler (~> 7.8)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseRemoteConfig (10.0.0):
+    - FirebaseABTesting (~> 10.0)
+    - FirebaseCore (~> 10.0)
+    - FirebaseInstallations (~> 10.0)
+    - GoogleUtilities/Environment (~> 7.8)
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
   - FSPagerView (0.8.3)
-  - GoogleAppMeasurement (6.8.3):
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
-    - GoogleUtilities/MethodSwizzler (~> 6.7)
-    - GoogleUtilities/Network (~> 6.7)
-    - "GoogleUtilities/NSData+zlib (~> 6.7)"
-    - nanopb (~> 1.30906.0)
-  - GoogleDataTransport (7.4.0):
-    - nanopb (~> 1.30906.0)
-  - GoogleToolboxForMac/Defines (2.2.2)
-  - GoogleToolboxForMac/Logger (2.2.2):
-    - GoogleToolboxForMac/Defines (= 2.2.2)
-  - "GoogleToolboxForMac/NSData+zlib (2.2.2)":
-    - GoogleToolboxForMac/Defines (= 2.2.2)
-  - GoogleUtilities/AppDelegateSwizzler (6.7.2):
+  - GoogleAppMeasurement (10.0.0):
+    - GoogleAppMeasurement/AdIdSupport (= 10.0.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/MethodSwizzler (~> 7.8)
+    - GoogleUtilities/Network (~> 7.8)
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - GoogleAppMeasurement/AdIdSupport (10.0.0):
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 10.0.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/MethodSwizzler (~> 7.8)
+    - GoogleUtilities/Network (~> 7.8)
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - GoogleAppMeasurement/WithoutAdIdSupport (10.0.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/MethodSwizzler (~> 7.8)
+    - GoogleUtilities/Network (~> 7.8)
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - GoogleDataTransport (9.2.0):
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/AppDelegateSwizzler (7.8.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.7.2):
-    - PromisesObjC (~> 1.2)
-  - GoogleUtilities/ISASwizzler (6.7.2)
-  - GoogleUtilities/Logger (6.7.2):
+  - GoogleUtilities/Environment (7.8.0):
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/ISASwizzler (7.8.0)
+  - GoogleUtilities/Logger (7.8.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.7.2):
+  - GoogleUtilities/MethodSwizzler (7.8.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.7.2):
+  - GoogleUtilities/Network (7.8.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.7.2)"
-  - GoogleUtilities/Reachability (6.7.2):
+  - "GoogleUtilities/NSData+zlib (7.8.0)"
+  - GoogleUtilities/Reachability (7.8.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.7.2):
+  - GoogleUtilities/UserDefaults (7.8.0):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (1.4.0)
   - HDWalletKit (0.3.6):
     - CryptoSwift (~> 1.4.0)
     - secp256k1.c (~> 0.1)
@@ -187,11 +192,11 @@ PODS:
   - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
-  - nanopb (1.30906.0):
-    - nanopb/decode (= 1.30906.0)
-    - nanopb/encode (= 1.30906.0)
-  - nanopb/decode (1.30906.0)
-  - nanopb/encode (1.30906.0)
+  - nanopb (2.30909.0):
+    - nanopb/decode (= 2.30909.0)
+    - nanopb/encode (= 2.30909.0)
+  - nanopb/decode (2.30909.0)
+  - nanopb/encode (2.30909.0)
   - "NSObject+Rx (4.4.1)":
     - RxSwift (~> 4.3)
   - NYXImagesKit (2.3)
@@ -213,8 +218,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.8.5):
     - PromiseKit/CorePromise
-  - PromisesObjC (1.2.12)
-  - Protobuf (3.13.0)
+  - PromisesObjC (2.1.1)
   - R.swift (5.0.0.alpha.3):
     - R.swift.Library (~> 5.0.0.alpha.2)
   - R.swift.Library (5.0.1)
@@ -241,6 +245,7 @@ PODS:
   - secp256k1.c (0.1.2)
   - SnapKit (4.0.1)
   - Starscream (3.1.1)
+  - SwiftAlgorithms (1.0.0)
   - SwiftDate (6.0.3)
   - SwiftLint (0.31.0)
   - SwiftProtobuf (1.17.0)
@@ -248,7 +253,7 @@ PODS:
   - Then (2.6.0)
   - Toast-Swift (4.0.1)
   - TrezorCryptoEd25519WithBlake2b (0.0.1)
-  - URLNavigator (2.3.0)
+  - URLNavigator (2.4.1)
   - Vite_HDWalletKit (1.4.0):
     - BigInt
     - CryptoSwift (= 1.4.0)
@@ -259,10 +264,9 @@ PODS:
     - ActiveLabel (= 1.1.0)
     - Alamofire
     - APIKit
-    - BaiduMobStat
     - BigInt
     - BinanceChain
-    - Charts (= 3.5.0)
+    - Charts (= 4.1.0)
     - CHIPageControl
     - CryptoSwift
     - DACircularProgress (= 2.3.1)
@@ -340,15 +344,11 @@ DEPENDENCIES:
   - ActionSheetPicker-3.0
   - APIKit
   - Bagel (~> 1.3.2)
-  - BaiduMobStat
   - BigInt (~> 5.0)
   - BinanceChain (from `https://github.com/vitelabs/SwiftBinanceChain.git`, commit `0acae45efdacf2f73e3d1630b835d7984ffeabff`)
-  - Charts (= 3.5.0)
+  - Charts (from `https://github.com/danielgindi/Charts.git`, tag `v4.1.0`)
   - CHIPageControl
   - DACircularProgress (= 2.3.1)
-  - DoraemonKit/Core (~> 3.0.1)
-  - DoraemonKit/WithGPS (~> 3.0.1)
-  - DoraemonKit/WithLoad (~> 3.0.1)
   - Eureka (~> 5.3.0)
   - Firebase/Analytics
   - Firebase/Core
@@ -383,8 +383,8 @@ DEPENDENCIES:
   - Then
   - Toast-Swift (~> 4.0.1)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-hd-wallet-kit-ios.git`, commit `db67644220ab1582459d08d47119ed26dcba8d47`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `991b0d08ad28df1b34fa4935ffdf5eac9a240eca`)
-  - "ViteCommunity (from `git@github.com:vitelabs/vite-community-ios.git`, commit `9477b2f616032583ba9ba610b1dbb8382402e307`)"
+  - ViteBusiness (from `../vite-business-ios/ViteBusiness.podspec`)
+  - ViteCommunity (from `../vite-community-ios/ViteCommunity.podspec`)
   - ViteWallet (from `https://github.com/vitelabs/vite-swift-kit.git`, commit `981a92d5012a0dcae0324b29e8657e78bced55ed`)
   - web3swift (from `https://github.com/vitelabs/web3swift.git`, commit `d2507cce4faa17916efa14fd84922a3e6b411634`)
   - XCGLogger (~> 7.0)
@@ -397,33 +397,27 @@ SPEC REPOS:
     - Alamofire
     - APIKit
     - Bagel
-    - BaiduMobStat
     - BigInt
-    - Charts
     - CHIPageControl
     - CocoaAsyncSocket
     - CryptoSwift
     - DACircularProgress
     - Differentiator
-    - DoraemonKit
     - Eureka
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
     - FirebaseCore
-    - FirebaseCoreDiagnostics
+    - FirebaseCoreInternal
     - FirebaseCrashlytics
     - FirebaseInstallations
-    - FirebaseInstanceID
     - FirebaseMessaging
     - FirebasePerformance
     - FirebaseRemoteConfig
     - FSPagerView
     - GoogleAppMeasurement
     - GoogleDataTransport
-    - GoogleToolboxForMac
     - GoogleUtilities
-    - GTMSessionFetcher
     - JSONRPCKit
     - KeychainSwift
     - Kingfisher
@@ -440,7 +434,6 @@ SPEC REPOS:
     - PPBadgeViewSwift
     - PromiseKit
     - PromisesObjC
-    - Protobuf
     - R.swift
     - R.swift.Library
     - ReactorKit
@@ -454,6 +447,7 @@ SPEC REPOS:
     - secp256k1.c
     - SnapKit
     - Starscream
+    - SwiftAlgorithms
     - SwiftDate
     - SwiftLint
     - SwiftProtobuf
@@ -468,6 +462,9 @@ EXTERNAL SOURCES:
   BinanceChain:
     :commit: 0acae45efdacf2f73e3d1630b835d7984ffeabff
     :git: https://github.com/vitelabs/SwiftBinanceChain.git
+  Charts:
+    :git: https://github.com/danielgindi/Charts.git
+    :tag: v4.1.0
   HDWalletKit:
     :commit: 26df860a4ce7cb26e299aa4f3e0338e8e7041b26
     :git: https://github.com/vitelabs/HDWallet.git
@@ -478,11 +475,9 @@ EXTERNAL SOURCES:
     :commit: db67644220ab1582459d08d47119ed26dcba8d47
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
   ViteBusiness:
-    :commit: 991b0d08ad28df1b34fa4935ffdf5eac9a240eca
-    :git: https://github.com/vitelabs/vite-business-ios.git
+    :path: "../vite-business-ios/ViteBusiness.podspec"
   ViteCommunity:
-    :commit: 9477b2f616032583ba9ba610b1dbb8382402e307
-    :git: "git@github.com:vitelabs/vite-community-ios.git"
+    :path: "../vite-community-ios/ViteCommunity.podspec"
   ViteWallet:
     :commit: 981a92d5012a0dcae0324b29e8657e78bced55ed
     :git: https://github.com/vitelabs/vite-swift-kit.git
@@ -494,6 +489,9 @@ CHECKOUT OPTIONS:
   BinanceChain:
     :commit: 0acae45efdacf2f73e3d1630b835d7984ffeabff
     :git: https://github.com/vitelabs/SwiftBinanceChain.git
+  Charts:
+    :git: https://github.com/danielgindi/Charts.git
+    :tag: v4.1.0
   HDWalletKit:
     :commit: 26df860a4ce7cb26e299aa4f3e0338e8e7041b26
     :git: https://github.com/vitelabs/HDWallet.git
@@ -503,12 +501,6 @@ CHECKOUT OPTIONS:
   Vite_HDWalletKit:
     :commit: db67644220ab1582459d08d47119ed26dcba8d47
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
-  ViteBusiness:
-    :commit: 991b0d08ad28df1b34fa4935ffdf5eac9a240eca
-    :git: https://github.com/vitelabs/vite-business-ios.git
-  ViteCommunity:
-    :commit: 9477b2f616032583ba9ba610b1dbb8382402e307
-    :git: "git@github.com:vitelabs/vite-community-ios.git"
   ViteWallet:
     :commit: 981a92d5012a0dcae0324b29e8657e78bced55ed
     :git: https://github.com/vitelabs/vite-swift-kit.git
@@ -523,34 +515,29 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   APIKit: b27d79b022733b2f50e7a092e67c4cb9ea30f968
   Bagel: 199e0105ac694d6eee9db54dd006c940da6ce81b
-  BaiduMobStat: 22bcc4f602fb0c02042d173dfadefe60f2e512af
   BigInt: f668a80089607f521586bbe29513d708491ef2f7
   BinanceChain: 200cf539c1558d588f2f9ea210c8f88614df4949
-  Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
+  Charts: 354f86803d11d9c35de280587fef50d1af063978
   CHIPageControl: a787bf7205c9b7e7fbfc412be36c5e8636b68f86
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CryptoSwift: 7cc902df1784de3b389a387756c7d710f197730c
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  DoraemonKit: 00f8c55bec06e240f25e18ec5b7faa012dfbb827
   Eureka: 1c2b8b5892bfb0e972d0fe05f8c09fd89f8625ec
-  Firebase: 8db6f2d1b2c5e2984efba4949a145875a8f65fe5
-  FirebaseABTesting: 8a9d8df3acc2b43f4a22014ddf9f601bca6af699
-  FirebaseAnalytics: 5dd088bd2e67bb9d13dbf792d1164ceaf3052193
-  FirebaseCore: d889d9e12535b7f36ac8bfbf1713a0836a3012cd
-  FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
-  FirebaseCrashlytics: 1a747c9cc084a24dc6d9511c991db1cd078154eb
-  FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
-  FirebaseInstanceID: bd3ffc24367f901a43c063b36c640b345a4a5dd1
-  FirebaseMessaging: 5eca4ef173de76253352511aafef774caa1cba2a
-  FirebasePerformance: 269607f1dcf37bb1f21e3b3ae0ab5b2691644c54
-  FirebaseRemoteConfig: e40f9e084658210c4d9c341cfa9f6cab6ad4f67e
+  Firebase: 1b810f3d0c0532e27a48f1961f8c0400a668a2cf
+  FirebaseABTesting: 5a08a4d3060b7fb5638f60698bc2cb57996bcc73
+  FirebaseAnalytics: 9921a52739f4ab66099da31b6e0243db78a3ac0a
+  FirebaseCore: 97f48a3a567a72b8d4daa0f03c3aadb78df4e995
+  FirebaseCoreInternal: 5eb3960335da5ea30115d57d39db6988c4ad06f3
+  FirebaseCrashlytics: 6b0613b548fe096221b5ba6d2f7a9732b451233b
+  FirebaseInstallations: 7f1c9ae6bd9df6abe9c74124b38fa8740aba5df4
+  FirebaseMessaging: 8916bf5edb1dbfac74665a181e4d1ab3a78a08a2
+  FirebasePerformance: e4b0043929860c10b7b123331be9cdd33100a866
+  FirebaseRemoteConfig: e4431ddba74ddf705e2aabd7d356a23d5b802853
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
-  GoogleAppMeasurement: 966e88df9d19c15715137bb2ddaf52373f111436
-  GoogleDataTransport: b7f406340a291370045a270c599e53c6fa6ec20f
-  GoogleToolboxForMac: 800648f8b3127618c1b59c7f97684427630c5ea3
-  GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
-  GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
+  GoogleAppMeasurement: 7e48a3249792ac35d6f18f107f63f199a7e9d0ce
+  GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
+  GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
   HDWalletKit: d55aa7a373cb3e2c1ad66d05d7b60f4d62a5a04c
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
   KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
@@ -559,7 +546,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   Moya: a725035953bc1c0eb1be505ab903984501d82440
-  nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
   NYXImagesKit: 8163e3335a40eaa173ca5bbbf81fafb57d3947eb
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
@@ -567,8 +554,7 @@ SPEC CHECKSUMS:
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PPBadgeViewSwift: 18a219a9897f418342c22dd1a54f7b18ac56546b
   PromiseKit: 9616b0afef31eae56ab9ce044c8ec2b8612a15cd
-  PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
+  PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   R.swift: ca4207ecc94545a1611ca0b2ae1197458b6ba30a
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   RazzleDazzle: 6689b7ffb2e6b115ef2249828473e854e004b67c
@@ -583,6 +569,7 @@ SPEC CHECKSUMS:
   secp256k1.c: db47b726585d80f027423682eb369729e61b3b20
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   SwiftDate: 8d4f14bf1ef68e95094511504856547bf9e3e1a6
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   SwiftProtobuf: 9c85136c6ba74b0a1b84279dbf0f6db8efb714e0
@@ -590,14 +577,14 @@ SPEC CHECKSUMS:
   Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
-  URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
+  URLNavigator: 9e277a422a5c131a3e37970c2558e0e866cc22bd
   Vite_HDWalletKit: 4745b9c3a8ddff3fc00623057dcd194e08fea909
-  ViteBusiness: 2b9cbdf3deafbc7727512e4e3ae6b26af7ba9ac8
-  ViteCommunity: e26a6265ec7e600db25345701cffe6ec95145165
+  ViteBusiness: ffdfbb6629ecaf0ed968d726d51768886370bd02
+  ViteCommunity: 3e5b10288f0101058aaa527dc9de3a4538235409
   ViteWallet: 3e4470f11ad780bfecbecf5f720ee75a0259d7ad
   web3swift: 22ac889fe28306c5d79704711f20b5ed4b21ba5e
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: 29d79030b7985c49df8b9ca09524aa185387c6df
+PODFILE CHECKSUM: 1feb66b5186f66723ab5aa005dd6141c48d06ebe
 
 COCOAPODS: 1.11.3

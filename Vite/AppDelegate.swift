@@ -23,9 +23,6 @@ import ViteCommunity
 import Bagel
 #endif
 
-#if DEBUG
-import DoraemonKit
-#endif
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -37,10 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         #if TEST
         Bagel.start()
-        #endif
-
-        #if DEBUG
-        DoraemonManager.shareInstance().install()
         #endif
         
         if #available(iOS 14, *) {

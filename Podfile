@@ -1,10 +1,10 @@
-platform :ios, '11.0'
+platform :ios, '12.0'
 inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
 
 # Vite ViteOfficial ViteTest ViteDapp
-target_name = 'ViteOfficial'
+target_name = 'ViteTest'
 
 
 def vite_config(config, name)
@@ -99,8 +99,7 @@ target target_name do
     vite_pod 'HDWalletKit', :git => HDWalletKit_git, :commit => HDWalletKit_commit
     vite_pod 'web3swift', :git => web3_git, :commit => web3_commit
 
-#    pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :tag => 'v3.4.0'
-    pod 'Charts', '3.5.0'
+    pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :tag => 'v4.1.0'
 
 #    pod 'HDWalletKit', '0.3.6'
     pod 'SnapKit', '~> 4.0.0'
@@ -123,9 +122,6 @@ target target_name do
 
     #request
     pod 'SwiftyJSON'
-
-    #statistics
-    pod 'BaiduMobStat'
 
     #UI Control
     pod 'ActionSheetPicker-3.0'
@@ -164,14 +160,8 @@ target target_name do
 
     if target_name == 'ViteTest'
         pod 'Bagel', '~>  1.3.2'
-        pod 'DoraemonKit/Core', '~> 3.0.1'
-        pod 'DoraemonKit/WithGPS', '~> 3.0.1'
-        pod 'DoraemonKit/WithLoad', '~> 3.0.1'
     else
         pod 'Bagel', '~>  1.3.2', :configurations => ['Debug']
-        pod 'DoraemonKit/Core', '~> 3.0.1', :configurations => ['Debug']
-        pod 'DoraemonKit/WithGPS', '~> 3.0.1', :configurations => ['Debug']
-        pod 'DoraemonKit/WithLoad', '~> 3.0.1', :configurations => ['Debug']
     end
     
     pod 'FSPagerView'
@@ -199,7 +189,7 @@ post_install do |installer|
             target.build_configurations.each do |config|
                 config.build_settings['SWIFT_VERSION'] = '4.0'
             end
-        elsif ['web3.swift.pod'].include? target.name
+        elsif ['web3.swift.pod', 'Charts'].include? target.name
             target.build_configurations.each do |config|
               config.build_settings['SWIFT_VERSION'] = '5.0'
             end
