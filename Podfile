@@ -67,7 +67,6 @@ target target_name do
     vite_community_git = 'git@github.com:vitelabs/vite-community-ios.git'
     vite_business_git = 'https://github.com/vitelabs/vite-business-ios.git'
     vite_wallet_git = 'https://github.com/vitelabs/vite-swift-kit.git'
-    vite_bnb_git = 'https://github.com/vitelabs/SwiftBinanceChain.git'
     vite_hd_git = 'https://github.com/vitelabs/vite-hd-wallet-kit-ios.git'
     HDWalletKit_git = 'https://github.com/vitelabs/HDWallet.git'
     web3_git = 'https://github.com/vitelabs/web3swift.git'
@@ -75,7 +74,6 @@ target target_name do
     vite_community_commit = '9477b2f616032583ba9ba610b1dbb8382402e307'
     vite_business_commit = '991b0d08ad28df1b34fa4935ffdf5eac9a240eca'
     vite_wallet_commit = '981a92d5012a0dcae0324b29e8657e78bced55ed'
-    vite_bnb_commit = '0acae45efdacf2f73e3d1630b835d7984ffeabff'
     vite_hd_commit = 'db67644220ab1582459d08d47119ed26dcba8d47'
     HDWalletKit_commit = '26df860a4ce7cb26e299aa4f3e0338e8e7041b26'
     web3_commit = 'd2507cce4faa17916efa14fd84922a3e6b411634'
@@ -95,7 +93,6 @@ target target_name do
 
 
     vite_pod 'Vite_HDWalletKit', :git => vite_hd_git, :commit => vite_hd_commit
-    vite_pod 'BinanceChain', :git => vite_bnb_git, :commit => vite_bnb_commit
     vite_pod 'HDWalletKit', :git => HDWalletKit_git, :commit => HDWalletKit_commit
     vite_pod 'web3swift', :git => web3_git, :commit => web3_commit
 
@@ -119,6 +116,7 @@ target target_name do
     pod 'DACircularProgress', '2.3.1'
     pod 'Kingfisher', '~> 4.0'
     pod 'NYXImagesKit', '2.3'
+    pod 'SwiftProtobuf', '1.17.0'
 
     #request
     pod 'SwiftyJSON'
