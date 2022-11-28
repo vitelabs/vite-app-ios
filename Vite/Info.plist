@@ -100,8 +100,6 @@
 	<string>This app uses the album to import QR codes</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app uses the album to import QR codes</string>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>This app uses this data only for data analysis</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

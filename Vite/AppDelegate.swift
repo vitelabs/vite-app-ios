@@ -13,7 +13,6 @@ import Vite_HDWalletKit
 import ViteBusiness
 import Firebase
 import UserNotifications
-import AppTrackingTransparency
 
 #if OFFICIAL
 import ViteCommunity
@@ -22,7 +21,6 @@ import ViteCommunity
 #if TEST
 import Bagel
 #endif
-
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -35,14 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if TEST
         Bagel.start()
         #endif
-        
-        if #available(iOS 14, *) {
-            ATTrackingManager.requestTrackingAuthorization { (status) in
-                if status == .authorized {
-                    
-                }
-            }
-        }
 
         #if OFFICIAL
         FirebaseApp.configure()
