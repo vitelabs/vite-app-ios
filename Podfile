@@ -71,8 +71,8 @@ target target_name do
     HDWalletKit_git = 'https://github.com/vitelabs/HDWallet.git'
     web3_git = 'https://github.com/vitelabs/web3swift.git'
 
-    vite_community_commit = '966bc641c4f02271d79cf27cec4642f80fdb8d0f'
-    vite_business_commit = 'a82c95376392dd0d94de6fc964488a37118f4307'
+    vite_community_commit = 'ab006971c2b605c60c83424fe5b96846cbdf4216'
+    vite_business_commit = 'bc934e2e2b9f3b42139fa1351cbc8c5f277a6673'
     vite_wallet_commit = '981a92d5012a0dcae0324b29e8657e78bced55ed'
     vite_hd_commit = 'db67644220ab1582459d08d47119ed26dcba8d47'
     HDWalletKit_commit = '26df860a4ce7cb26e299aa4f3e0338e8e7041b26'
@@ -148,10 +148,10 @@ target target_name do
     pod 'SwiftLint', '0.31.0'
 
     #crash
-    pod 'Firebase/Core'
-    pod 'Firebase/Analytics'
-    pod 'Firebase/Performance'
-    pod 'Firebase/RemoteConfig'
+#    pod 'Firebase/Core'
+#    pod 'Firebase/Analytics'
+#    pod 'Firebase/Performance'
+#    pod 'Firebase/RemoteConfig'
 
 #    pod 'MLeaksFinder', :configurations => ['Debug']
 #    pod 'LookinServer', :configurations => ['Debug']

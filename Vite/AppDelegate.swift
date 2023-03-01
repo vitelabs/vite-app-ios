@@ -11,7 +11,7 @@ import RxSwift
 import NSObject_Rx
 import Vite_HDWalletKit
 import ViteBusiness
-import Firebase
+//import Firebase
 import UserNotifications
 
 #if OFFICIAL
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
 
         #if OFFICIAL
-        FirebaseApp.configure()
+//        FirebaseApp.configure()
         VitePushManager.instance.start()
         ViteCommunity.register()
         ViteBusinessLanucher.instance.add(homePageSubTabViewController: DiscoverViewController.createNavVC(), atIndex: 1)
