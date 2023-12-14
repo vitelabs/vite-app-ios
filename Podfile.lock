@@ -1,7 +1,7 @@
 PODS:
-  - Action (3.11.0):
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
+  - Action (4.3.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - ActionSheetPicker-3.0 (2.3.0)
   - ActiveLabel (1.1.0)
   - Alamofire (4.9.1)
@@ -33,7 +33,7 @@ PODS:
   - CocoaAsyncSocket (7.6.3)
   - CryptoSwift (1.4.0)
   - DACircularProgress (2.3.1)
-  - Differentiator (3.1.0)
+  - Differentiator (5.0.0)
   - Eureka (5.3.2)
   - FSPagerView (0.8.3)
   - HDWalletKit (0.3.6):
@@ -51,8 +51,8 @@ PODS:
   - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
-  - "NSObject+Rx (4.4.1)":
-    - RxSwift (~> 4.3)
+  - "NSObject+Rx (5.2.2)":
+    - RxSwift (~> 6.2)
   - NYXImagesKit (2.3)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
@@ -76,25 +76,29 @@ PODS:
     - R.swift.Library (~> 5.0.0.alpha.2)
   - R.swift.Library (5.0.1)
   - RazzleDazzle (0.1.5)
-  - ReactorKit (1.2.1):
-    - RxSwift (>= 4.0.0)
+  - ReactorKit (3.2.0):
+    - RxSwift (~> 6.0)
+    - WeakMapTable (~> 1.1)
   - Result (3.2.4)
-  - ReusableKit (2.1.0):
-    - ReusableKit/Core (= 2.1.0)
-  - ReusableKit/Core (2.1.0)
-  - RxCocoa (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxDataSources (3.1.0):
-    - Differentiator (~> 3.0)
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxGesture (2.2.0):
-    - RxCocoa (~> 4.5)
-    - RxSwift (~> 4.5)
-  - RxOptional (3.6.2):
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxSwift (4.5.0)
+  - ReusableKit (4.0.0):
+    - ReusableKit/Core (= 4.0.0)
+  - ReusableKit/Core (4.0.0)
+  - RxCocoa (6.6.0):
+    - RxRelay (= 6.6.0)
+    - RxSwift (= 6.6.0)
+  - RxDataSources (5.0.0):
+    - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxGesture (4.0.4):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxOptional (5.0.2):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxRelay (6.6.0):
+    - RxSwift (= 6.6.0)
+  - RxSwift (6.6.0)
   - secp256k1.c (0.1.2)
   - SnapKit (4.0.1)
   - Starscream (3.1.1)
@@ -105,13 +109,13 @@ PODS:
   - Then (2.6.0)
   - Toast-Swift (4.0.1)
   - TrezorCryptoEd25519WithBlake2b (0.0.1)
-  - URLNavigator (2.4.1)
+  - URLNavigator (2.5.1)
   - Vite_HDWalletKit (1.4.0):
     - BigInt
     - CryptoSwift (= 1.4.0)
     - TrezorCryptoEd25519WithBlake2b (~> 0.0.1)
   - ViteBusiness (0.0.1):
-    - Action
+    - Action (~> 4.0)
     - ActionSheetPicker-3.0
     - ActiveLabel (= 1.1.0)
     - Alamofire
@@ -130,7 +134,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - Moya
-    - "NSObject+Rx"
+    - "NSObject+Rx (~> 5.2.2)"
     - NYXImagesKit (= 2.3)
     - ObjectMapper (= 3.5.1)
     - pop (~> 1.0)
@@ -139,13 +143,13 @@ PODS:
     - PromiseKit/Alamofire
     - R.swift (= 5.0.0.alpha.3)
     - RazzleDazzle
-    - ReactorKit
-    - ReusableKit (~> 2.1.0)
-    - RxCocoa
-    - RxDataSources (~> 3.0)
-    - RxGesture
-    - RxOptional
-    - RxSwift (~> 4.0)
+    - ReactorKit (~> 3.2.0)
+    - ReusableKit (~> 4.0)
+    - RxCocoa (~> 6.0)
+    - RxDataSources (~> 5.0)
+    - RxGesture (~> 4.0.4)
+    - RxOptional (~> 5.0)
+    - RxSwift (~> 6.0)
     - SnapKit (~> 4.0.0)
     - Starscream
     - SwiftLint
@@ -173,6 +177,7 @@ PODS:
     - PromiseKit
     - SwiftyJSON
     - Vite_HDWalletKit
+  - WeakMapTable (1.2.0)
   - web3swift (2.3.0):
     - BigInt (~> 5.0)
     - CryptoSwift (~> 1.4.0)
@@ -185,7 +190,7 @@ PODS:
     - ObjcExceptionBridging
 
 DEPENDENCIES:
-  - Action
+  - Action (~> 4.0)
   - ActionSheetPicker-3.0
   - APIKit
   - Bagel (~> 1.3.2)
@@ -203,20 +208,20 @@ DEPENDENCIES:
   - MBProgressHUD
   - MJRefresh (= 3.1.15.7)
   - Moya
-  - "NSObject+Rx"
+  - "NSObject+Rx (~> 5.2.2)"
   - NYXImagesKit (= 2.3)
   - ObjectMapper
   - pop (~> 1.0)
   - PromiseKit (~> 6.8.4)
   - R.swift (= 5.0.0.alpha.3)
   - RazzleDazzle (from `https://github.com/mazhigbee-pb/RazzleDazzle.git`, branch `xcode-13-beta-fixes`)
-  - ReactorKit
-  - ReusableKit (~> 2.1.0)
-  - RxCocoa
-  - RxDataSources (~> 3.0)
-  - RxGesture
-  - RxOptional
-  - RxSwift (~> 4.0)
+  - ReactorKit (~> 3.2.0)
+  - ReusableKit (~> 4.0)
+  - RxCocoa (~> 6.0)
+  - RxDataSources (~> 5.0)
+  - RxGesture (~> 4.0.4)
+  - RxOptional (~> 5.0)
+  - RxSwift (~> 6.0)
   - SnapKit (~> 4.0.0)
   - SwiftLint (= 0.31.0)
   - SwiftProtobuf (= 1.17.0)
@@ -224,9 +229,9 @@ DEPENDENCIES:
   - Then
   - Toast-Swift (~> 4.0.1)
   - Vite_HDWalletKit (from `https://github.com/vitelabs/vite-hd-wallet-kit-ios.git`, commit `db67644220ab1582459d08d47119ed26dcba8d47`)
-  - ViteBusiness (from `https://github.com/vitelabs/vite-business-ios.git`, commit `bc934e2e2b9f3b42139fa1351cbc8c5f277a6673`)
-  - "ViteCommunity (from `git@github.com:vitelabs/vite-community-ios.git`, commit `ab006971c2b605c60c83424fe5b96846cbdf4216`)"
-  - ViteWallet (from `https://github.com/vitelabs/vite-swift-kit.git`, commit `981a92d5012a0dcae0324b29e8657e78bced55ed`)
+  - ViteBusiness (from `../vite-business-ios/ViteBusiness.podspec`)
+  - ViteCommunity (from `../vite-community-ios/ViteCommunity.podspec`)
+  - ViteWallet (from `../vite-swift-kit/ViteWallet.podspec`)
   - web3swift (from `https://github.com/vitelabs/web3swift.git`, commit `d2507cce4faa17916efa14fd84922a3e6b411634`)
   - XCGLogger (~> 7.0)
 
@@ -269,6 +274,7 @@ SPEC REPOS:
     - RxDataSources
     - RxGesture
     - RxOptional
+    - RxRelay
     - RxSwift
     - secp256k1.c
     - SnapKit
@@ -281,6 +287,7 @@ SPEC REPOS:
     - Toast-Swift
     - TrezorCryptoEd25519WithBlake2b
     - URLNavigator
+    - WeakMapTable
     - XCGLogger
 
 EXTERNAL SOURCES:
@@ -297,14 +304,11 @@ EXTERNAL SOURCES:
     :commit: db67644220ab1582459d08d47119ed26dcba8d47
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
   ViteBusiness:
-    :commit: bc934e2e2b9f3b42139fa1351cbc8c5f277a6673
-    :git: https://github.com/vitelabs/vite-business-ios.git
+    :path: "../vite-business-ios/ViteBusiness.podspec"
   ViteCommunity:
-    :commit: ab006971c2b605c60c83424fe5b96846cbdf4216
-    :git: "git@github.com:vitelabs/vite-community-ios.git"
+    :path: "../vite-community-ios/ViteCommunity.podspec"
   ViteWallet:
-    :commit: 981a92d5012a0dcae0324b29e8657e78bced55ed
-    :git: https://github.com/vitelabs/vite-swift-kit.git
+    :path: "../vite-swift-kit/ViteWallet.podspec"
   web3swift:
     :commit: d2507cce4faa17916efa14fd84922a3e6b411634
     :git: https://github.com/vitelabs/web3swift.git
@@ -322,21 +326,12 @@ CHECKOUT OPTIONS:
   Vite_HDWalletKit:
     :commit: db67644220ab1582459d08d47119ed26dcba8d47
     :git: https://github.com/vitelabs/vite-hd-wallet-kit-ios.git
-  ViteBusiness:
-    :commit: bc934e2e2b9f3b42139fa1351cbc8c5f277a6673
-    :git: https://github.com/vitelabs/vite-business-ios.git
-  ViteCommunity:
-    :commit: ab006971c2b605c60c83424fe5b96846cbdf4216
-    :git: "git@github.com:vitelabs/vite-community-ios.git"
-  ViteWallet:
-    :commit: 981a92d5012a0dcae0324b29e8657e78bced55ed
-    :git: https://github.com/vitelabs/vite-swift-kit.git
   web3swift:
     :commit: d2507cce4faa17916efa14fd84922a3e6b411634
     :git: https://github.com/vitelabs/web3swift.git
 
 SPEC CHECKSUMS:
-  Action: 689181e4c3f6566844178d8a7da6fef39a9597fc
+  Action: 9891cd1b0a9047557d7e58e8dfae743e19d08197
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -348,7 +343,7 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CryptoSwift: 7cc902df1784de3b389a387756c7d710f197730c
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   Eureka: 1c2b8b5892bfb0e972d0fe05f8c09fd89f8625ec
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   HDWalletKit: d55aa7a373cb3e2c1ad66d05d7b60f4d62a5a04c
@@ -359,7 +354,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   Moya: a725035953bc1c0eb1be505ab903984501d82440
-  "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
+  "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
   NYXImagesKit: 8163e3335a40eaa173ca5bbbf81fafb57d3947eb
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
@@ -369,14 +364,15 @@ SPEC CHECKSUMS:
   R.swift: ca4207ecc94545a1611ca0b2ae1197458b6ba30a
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   RazzleDazzle: 6689b7ffb2e6b115ef2249828473e854e004b67c
-  ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
+  ReactorKit: e8b11d6b9c415405f381669b095c154a05b59eca
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  ReusableKit: d0b040de03b293288b0ca27a78602691d3346d9b
-  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
-  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxGesture: c1b7bf17166b0ef9d642a9510f8bac5785f18990
-  RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
-  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  ReusableKit: 8caaff6dc6e2d4c12beb395010086930454b12c3
+  RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
+  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
+  RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
+  RxOptional: 3664964c96b69dd20c9cf78bdfe546615e26eca8
+  RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
+  RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
   secp256k1.c: db47b726585d80f027423682eb369729e61b3b20
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
@@ -387,14 +383,15 @@ SPEC CHECKSUMS:
   Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   TrezorCryptoEd25519WithBlake2b: e70fc022094a2f2aa8b86117ab1085d7a7b62098
-  URLNavigator: 9e277a422a5c131a3e37970c2558e0e866cc22bd
+  URLNavigator: e9c0426ba6e6ac57f34d018bbf3df840797f984d
   Vite_HDWalletKit: 4745b9c3a8ddff3fc00623057dcd194e08fea909
-  ViteBusiness: f28e37d98328ca03bc28eafb604da0035c69b70c
+  ViteBusiness: 710650bb5e1a75b78e86417ea3accc567b87dd62
   ViteCommunity: 53ba654a4dfaf02a0c5513f76a817df86177f993
   ViteWallet: 3e4470f11ad780bfecbecf5f720ee75a0259d7ad
+  WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
   web3swift: 22ac889fe28306c5d79704711f20b5ed4b21ba5e
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: c7899baff07d2adb9c5d4b68f3ed1e4e8970be52
+PODFILE CHECKSUM: c1fa845261434fef9ea069d03275da043604c0a1
 
 COCOAPODS: 1.11.3

@@ -1,4 +1,4 @@
-platform :ios, '12.0'
+platform :ios, '13.0'
 inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
 require './vite_pod'
@@ -133,16 +133,16 @@ target target_name do
 #    pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'xcode12'
 
     #RX
-    pod 'RxSwift', '~> 4.0'
-    pod 'RxCocoa'
-    pod 'RxDataSources', '~> 3.0'
-    pod 'NSObject+Rx'
-    pod 'RxOptional'
-    pod 'RxGesture'
+    pod 'RxSwift', '~> 6.0'
+    pod 'RxCocoa', '~> 6.0'
+    pod 'RxDataSources', '~> 5.0'
+    pod 'NSObject+Rx', '~> 5.2.2'
+    pod 'RxOptional', '~> 5.0'
+    pod 'RxGesture', '~> 4.0.4'
     pod 'Then'
-    pod 'Action'
-    pod 'ReusableKit', '~> 2.1.0'
-    pod 'ReactorKit'
+    pod 'Action', '~> 4.0'
+    pod 'ReusableKit', '~> 4.0'
+    pod 'ReactorKit', '~> 3.2.0'
 
     #code review
     pod 'SwiftLint', '0.31.0'
@@ -175,6 +175,8 @@ post_install do |installer|
 
         target.build_configurations.each do |config|
             config.build_settings['ENABLE_BITCODE'] = 'NO'
+            config.build_settings["DEVELOPMENT_TEAM"] = "5SR42372L5"
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
             if config.name.include?("Debug")
                 config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
             else 
@@ -191,12 +193,16 @@ post_install do |installer|
             target.build_configurations.each do |config|
               config.build_settings['SWIFT_VERSION'] = '5.0'
             end
+        elsif ['RxSwift', 'RxCocoa', 'RxDataSources', 'NSObject+Rx', 'RxOptional', 'RxGesture', 'Then', 'Action', 'ReusableKit', 'ReactorKit'].include? target.name
+            target.build_configurations.each do |config|
+              config.build_settings['SWIFT_VERSION'] = '4.2'
+            end
         else
             target.build_configurations.each do |config|
                 config.build_settings['SWIFT_VERSION'] = '4.2'
             end
         end
-
+    
     end
 
     

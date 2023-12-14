@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -907,7 +907,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-frameworks.sh\"\n";
+			shellScript = "FILE=\"${PODS_ROOT}/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-frameworks.sh\"\n\n# 检查文件是否存在\nif [ -f \"$FILE\" ]; then\n    # 使用 sed 替换文本\n    sed -i '' 's/source=\"$(readlink \"${source}\")\"/source=\"$(readlink -f \"${source}\")\"/g' \"$FILE\"\n    echo \"替换完成。\"\nelse\n    echo \"错误：文件 '$FILE' 不存在。\"\nfi\n\"${PODS_ROOT}/Target Support Files/Pods-ViteOfficial/Pods-ViteOfficial-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1068,7 +1068,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "";
@@ -1127,7 +1127,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
@@ -1151,7 +1151,7 @@
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = Vite/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1185,7 +1185,7 @@
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = Vite/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1217,6 +1217,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = ViteTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1244,6 +1245,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				INFOPLIST_FILE = ViteTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1270,7 +1272,7 @@
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PushService/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1298,13 +1300,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1529;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PushService/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1318,7 +1320,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet.PushService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore net.vite.wallet.PushService";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "PushService/PushService-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
@@ -1332,8 +1334,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1529;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
@@ -1342,7 +1344,7 @@
 					"OFFICIAL=1",
 				);
 				INFOPLIST_FILE = ViteOfficial/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1352,7 +1354,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet;
 				PRODUCT_NAME = Vite;
-				PROVISIONING_PROFILE_SPECIFIER = net.vite.wallet.dev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1370,8 +1372,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vite/Vite.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1529;
 				DEVELOPMENT_TEAM = 5SR42372L5;
 				ENABLE_BITCODE = NO;
@@ -1380,7 +1382,7 @@
 					"OFFICIAL=1",
 				);
 				INFOPLIST_FILE = ViteOfficial/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1390,7 +1392,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.vite.wallet;
 				PRODUCT_NAME = Vite;
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore net.vite.wallet";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1419,7 +1421,7 @@
 					"TEST=1",
 				);
 				INFOPLIST_FILE = ViteTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1457,7 +1459,7 @@
 					"TEST=1",
 				);
 				INFOPLIST_FILE = ViteTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1494,7 +1496,7 @@
 					"DAPP=1",
 				);
 				INFOPLIST_FILE = ViteDapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1531,7 +1533,7 @@
 					"DAPP=1",
 				);
 				INFOPLIST_FILE = ViteDapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
